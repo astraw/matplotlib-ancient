@@ -518,7 +518,9 @@ you pressed will be moved to the point where you released.  Mode 2:
 Press the right mouse button, dragging it to a new position.  The x
 axis will be zoomed in proportionate to the rightward movement and
 zoomed out proportionate to the leftward movement.  Ditto for the
-yaxis and up/down motions.<p>
+yaxis and up/down motions.  In Mode 2, you can use the modifier keys
+'x', 'y' or 'CONTROL' to constrain the zoom to the x axes, the y axes,
+or aspect ratio preserve, respectively.<p>
 
 The Zoom to rectangle button: Click this toolbar button to activate
 this mode.  Put your mouse somewhere over and axes and press the left
