@@ -33,10 +33,19 @@ line_props = (
 
 <h2>Using matplotlib</h2> 
 
+If you are new to python, I recommend reading as much of the <a
+href=http://lists.sourceforge.net/mailman/listinfo/matplotlib-users>python
+tutorial</a> and <a
+href=http://lists.sourceforge.net/mailman/listinfo/matplotlib-users>numeric
+python manual</a> as possible before working with matplotlib.
+Otherwise you may get frustrated.  When you feel comfortable with
+both, you'll find matplotlib easy.
+
 Using matplotlib should come naturally if you have ever plotted with
-matlab.  The basic entity is a figure, which contains axes, which
-contain plots.  The axes are decorated with xlabels, ylabels, titles,
-ticklabels, and text.<p>
+matlab, and should be fairly straightforward if you haven't.  The
+basic entity is a figure, which contains axes, which contain plots.
+The axes are decorated with xlabels, ylabels, titles, ticklabels, and
+text.<p>
 
 Here is about the simplest script you can use to create a figure with
 matplotlib<p>
@@ -368,13 +377,9 @@ with the color string 'k'.<p>
 
 <h4><a name=mathtext>Writing mathematical expressions</aa></h4>
 
-As of matplotlib-0.51, you can use TeX markup in your expressions.
-You need to compile matplotlib with <tt>BUILD_FT2FONT</tt>. This is
-already compiled for you in the windows installer; if you are building
-yourself, set <tt>BUILD_FT2FONT = True</tt> in <tt>setup.py</tt>.  Not
-all backends currently support mathtext (but most do) - see the <a
-href=matplotlib.mathtext.html>mathtext</a> documentation for usage,
-requirements and backend information.<p>
+As of matplotlib-0.51, you can use TeX markup in your expressions; see
+the <a href=matplotlib.mathtext.html>mathtext</a> documentation for
+usage, requirements and backend information.<p>
 
 Any text element can use math text.  You need to use raw strings
 (preceed the quotes with an <tt>'r'</tt>), and surround the string

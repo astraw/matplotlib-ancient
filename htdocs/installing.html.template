@@ -50,8 +50,8 @@ goodies, preinstalled.
 
 <li>Install <a
 href=http://sourceforge.net/project/showfiles.php?group_id=1369&release_id=176455>
-Numeric/numarray</a>. If you are using the enthougt edition of python,
-you can skip this step.</li>
+Numeric/numarray</a>. If you are using the enthought edition of
+python, you can skip this step.</li>
 
 <li>Install the <a href=http://prdownloads.sourceforge.net/gtk-win>
 GTK runtime</a> (currently version 2.2.4.1). <i>I recommend not using
