@@ -1,0 +1,227 @@
+#LyX 1.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 221
+\textclass article
+\begin_preamble
+\usepackage{ae,aecompl}
+%\usepackage{hyperref}
+\usepackage{html}
+
+% Use and configure listings package for nicely formatted code
+\usepackage{listings}
+\lstset{
+  language=Python,
+  basicstyle=\small,
+  commentstyle=\color{blue},
+  stringstyle=\ttfamily,
+  showstringspaces=false,
+%  frame=single, 
+  emph = {axes, axis, bar, cla, clf, clim, close, cohere, colorbar,
+    colors, csd, draw, errorbar, figimage, figlegend, figtext, figure,
+    fill, gca, gcf, gci, get, get_current_fig_manager,
+    get_plot_commands, gray, grid, hist, hlines, hold, imshow, jet,
+    legend, load, loglog, pcolor, pcolor_classic, plot, plot_date,
+    plotting, psd, raise_msg_to_str, rc, rcdefaults, save, savefig,
+    scatter, scatter_classic, semilogx, semilogy, set, specgram, stem,
+    subplot, table, text, title, vlines, xlabel, ylabel},
+  emphstyle = \color{black},  % color for matplotlib funcs
+  breaklines=true,
+%  breakatwhitespace = true,
+  postbreak = \space\dots
+}
+
+% Some extra commands
+
+\newcommand{\fig}[4]
+{\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=#1]{#2}
+\caption{\label{#4} #3}
+\end{center}
+\end{figure}}
+
+\newcommand{\matlab}[0]{matlab{\texttrademark}}
+\newcommand{\fname}[1]{{\tt #1}}
+\newcommand{\func}[1]{{\tt #1}}
+\newcommand{\class}[1]{{\tt #1}}
+\newcommand{\mpldoc}[1]{{\tt #1}}
+
+\newcommand{\code}[1]{{\tt #1}}
+\newcommand{\prompt}[1]{\code{>>> #1}}
+\newcommand{\carg}[1]{\textit{#1}} % command argument
+\newcommand{\val}[1]{\textit{#1}}
+\newcommand{\rc}[1]{{\tt #1}}
+\end_preamble
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 1
+\use_amsmath 1
+\use_natbib 0
+\use_numerical_citations 0
+\paperorientation portrait
+\leftmargin 1.25in
+\topmargin 1in
+\rightmargin 1.25in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+
+\layout Title
+
+Python and Scientific Computing
+\newline 
+
+\size larger 
+Notes
+\layout Author
+
+John D.
+ Hunter
+\newline 
+Fernando Perez
+\layout Standard
+
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+latex{
+\end_inset 
+
+
+\begin_inset LatexCommand \tableofcontents{}
+
+\end_inset 
+
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+}
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+html{
+\backslash 
+bodytext{bgcolor=#ffffff}}
+\end_inset 
+
+
+\layout Section
+\pagebreak_top 
+Overview
+\layout Standard
+
+Blah blah 
+\begin_inset LatexCommand \cite{IPython,JDH04,MayaVi,PMV,PYTHON,SciPy,f2py}
+
+\end_inset 
+
+
+\layout Section
+
+Some code examples
+\layout Standard
+
+A code listing
+\layout Standard
+
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+lstinputlisting{code/WallisPi.py}
+\end_inset 
+
+
+\layout Section
+
+Another example
+\layout Standard
+
+A long listing
+\layout Standard
+
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+lstinputlisting{code/weave_examples.py}
+\end_inset 
+
+
+\layout Standard
+
+And we can also have a figure of a person's head, as shown in Fig.\SpecialChar ~
+
+\begin_inset LatexCommand \ref{fig:mayavi-head}
+
+\end_inset 
+
+.
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+        filename fig/skin.gif
+        lyxscale 50
+        width 80text%
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:mayavi-head}
+
+\end_inset 
+
+Somebody's head
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset LatexCommand \BibTeX[plain]{python}
+
+\end_inset 
+
+
+\the_end
