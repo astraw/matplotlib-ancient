@@ -25,12 +25,12 @@ text(0.5 * (a + b), 30,
      fontsize=20)
 
 axis([0,10, 0, 180])
-figtext(0.9, 0.05, 'x')
-figtext(0.1, 0.9, 'y')
+figtext(0.9, 0.05, 'x', fontsize=20)
+figtext(0.1, 0.9,  'y', fontsize=20)
 ax.set_xticks((a,b))
 ax.set_xticklabels(('a','b'))
 ax.set_yticks([])
 
 savefig('../figures/integral_demo.eps')
-savefig('../figures/integral_demo.eps.png')
+savefig('../figures/integral_demo.png')
 show()

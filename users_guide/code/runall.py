@@ -2,6 +2,7 @@ import os
 files = (
     'alignment_demo.py',
     'axes_demo.py',
+    'compare_with_matlab.py',
     'color_demo.py',            
     'date_ticker_demo.py',
     'figure_mosaic.py',

@@ -46,7 +46,7 @@
 %\newcommand{\url}[1]{{\tt #1}}
 
 \mytextsize
-\section*{\large The Matplotlib Hacking Points Memo \normalsize by John D. Hunter}
+\section*{\Large The Matplotlib Hacking Points Memo \large by John D. Hunter}
 
 matplotlib is a library for making 2D plots of arrays in
 python.\footnote{This short guide is not meant as a complete guide or
@@ -63,8 +63,8 @@ extension code to provide good performance even for large arrays.
 matplotlib is designed with the philosophy that you should be able to
 create simple plots with just a few commands, or just one!  If you
 want to see a histogram of your data, you shouldn't need to
-instantiate objects, call methods, set properties, and so it; it
-should just work.  
+instantiate objects, call methods, set properties, and so on; it
+should just work.
 
 The matplotlib code is divided into three parts: the \textit{matlab
   interface} is the set of functions provided by matplotlib.matlab
@@ -72,15 +72,15 @@ which allow the user to create plots with code quite similar to matlab
 figure generating code.  The \textit{matplotlib frontend} or
 \textit{matplotlib API} is the set of classes that do the heavy
 lifting, creating and managing figures, text, lines, plots and so on.
-This is an abstract interface that knowns nothing about output.  The
-\textit{backends} are device dependent drawing devices, aka renderers,
-that transform the frontend representation to hardcopy or a display
-device.  Example backends: PS creates postscript hardcopy, SVG creates
-scalar vector graphics hardcopy, Agg creates PNG output using the high
-quality antigrain library that ships with matplotlib -
-\url{http://antigrain.com}, GTK embeds matplotlib in a GTK
-application, GTKAgg uses the antigrain renderer to create a figure and
-embed it a GTK application, and so on for WX, Tkinter, FLTK\dots.
+This is an abstract interface that knowns nothing about output
+formats.  The \textit{backends} are device dependent drawing devices,
+aka renderers, that transform the frontend representation to hardcopy
+or a display device.  Example backends: PS creates postscript
+hardcopy, SVG creates scalar vector graphics hardcopy, Agg creates PNG
+output using the high quality antigrain library that ships with
+matplotlib - \url{http://antigrain.com}, GTK embeds matplotlib in a
+GTK application, GTKAgg uses the antigrain renderer to create a figure
+and embed it a GTK application, and so on for WX, Tkinter, FLTK\dots.
 
 
 
@@ -141,13 +141,13 @@ psd(s, 512, 1/dt)
 \end{lstlisting}&
 
 \raisebox{-15ex}{
-\includegraphics[width=2.3in]{figures/psd_py}}\\
+\includegraphics[width=2.75in]{figures/psd_py}}\\
 
 \end{tabular}
 \end{table}
 
-The major differences are 1) Numeric has a functions for creating
-arrays (\func{arange} above) whereas matlab has the handy notation
+The major differences are 1) Numeric has functions for creating arrays
+(\func{arange} above) whereas matlab has the handy notation
 \code{[0:dt:10]}, 2) python uses square brackets rather than
 parentheses for array indexing, and there are some small differences
 in how do array lengths, sizes, and indexing.  But the differences are
@@ -159,17 +159,17 @@ only a few lines of clear code and 3) plots are simple, intuitive and
 attractive.
 
 \section*{\myheadersize Numerix}
-Currently, Numeric and numarray have different strength.
+Currently, Numeric and numarray have different strengths.
 Performance-wise, Numeric is faster for smallish arrays and numarray
 for largish arrays.  Thus for the near-term, members of the python
 community will utilize both.  Several numarray/Numeric developers are
-codevelopers of matplotlib, giving matplotlib full Numeric and
+co-developers of matplotlib, giving matplotlib full Numeric and
 numarray compatibility, thanks in large part to Todd Miller's
 matplotlib.numerix module and the numarray compatibility layer for
-extension code.  
+extension code.
 
 One difficulty confronting users who need to work with both Numeric
-and numarray is the different organizations of the two packags
+and numarray is the different organizations of the two packages
 
 \begin{lstlisting}
 # Numeric                              # numarray
@@ -187,27 +187,27 @@ from matplotlib.numerix import array, where, convolve, mean, fft
 \end{lstlisting}
 
 \noindent The actual symbols that are imported (Numeric's or
-For the remainder of this manual, the term \textit{numerix} is used to
-mean either the Numeric or numarray package.  You can either package
-from the prompt with
-
+numarray's) depend on a runtime choice, external to the python script
+itself.  For the remainder of this manual, the term \textit{numerix}
+is used to mean either the Numeric or numarray package.  You can
+either package from the prompt with
 \begin{lstlisting}
   > python myscript.py --numarray  # use numarray
   > python myscript.py --Numeric   # use Numeric
 \end{lstlisting}
-
-
 \noindent Typically, however, users will choose one or the other and
 make this setting in their matplotlib configuration file.
 
-\noindent \textit{CAVEAT}: If your NUMERIX compile time setting and numerix rc
+\textit{CAVEAT}: If your NUMERIX compile time setting and numerix rc
 file setting do not agree, your performance can suffer 10-fold.
 Before compiling matplotlib, edit \fname{setup.py} and
 \fname{.matplotlibrc} to make sure these settings agree.  If you are
 using a precompiled version of matplotlib, eg a windows installer,
 make sure you choose the installer that agrees with the array package
-you use most.  The installer labelled 'numarray' is for numarray
-users, whereas the unlabelled installer is for Numeric users.
+you use most.  The installer labeled 'numarray' is for numarray users,
+whereas the unlabeled installer is for Numeric users.  In the very
+near future, both Numeric and numarray extension code will be
+supported in a single compiled matplotlib package.
 
 \section*{\myheadersize Using mathtext}
 
@@ -216,7 +216,7 @@ users, whereas the unlabelled installer is for Numeric users.
   \begin{tabular}[t]{ll}
 \lstinputlisting[lastline=32]{code/integral_demo.py}   &
 \raisebox{-15ex}{
-\includegraphics[width=2.5in]{figures/integral_demo}}
+\includegraphics[width=3.0in]{figures/integral_demo}}
   \end{tabular}
   \caption{Using custom polygons and mathtext.}
 \end{table}
@@ -228,34 +228,34 @@ with dollar signs, as in \TeX.
 # plain text             # math text
 title('alpha > beta')    title(r'$\alpha > \beta$')
 \end{lstlisting}
-You can also use a large number of the \TeX\ symbols\footnote{The following \TeX\ symbols are
-supported: {\tiny Delta Downarrow Gamma Im LEFTangle LEFTbrace
-  LEFTbracket LEFTparen Lambda Leftarrow Leftbrace Leftbracket
-  Leftparen Leftrightarrow Omega P Phi Pi Psi RIGHTangle RIGHTbrace
-  RIGHTbracket RIGHTparen Re Rightarrow Rightbrace Rightbracket
-  Rightparen S SQRT Sigma Sqrt Theta Uparrow Updownarrow Upsilon Vert
-  Xi aleph alpha approx angstrom ast asymp backslash beta bigcap
-  bigcirc bigcup bigodot bigoplus bigotimes bigtriangledown
-  bigtriangleup biguplus bigvee bigwedge bot bullet cap cdot chi circ
-  clubsuit coprod cup dag dashv ddag delta diamond diamondsuit div
-  downarrow ell emptyset epsilon equiv eta exists flat forall frown
-  gamma geq gg heartsuit hspace imath in infty int iota jmath kappa
-  lambda langle lbrace lceil leftangle leftarrow leftbrace leftbracket
-  leftharpoondown leftharpoonup leftparen leftrightarrow leq lfloor ll
-  mid mp mu nabla natural nearrow neg ni nu nwarrow odot oint omega
-  ominus oplus oslash otimes phi pi pm prec preceq prime prod propto
-  psi rangle rbrace rceil rfloor rho rightangle rightarrow rightbrace
-  rightbracket rightharpoondown rightharpoonup rightparen searrow
-  sharp sigma sim simeq slash smilespadesuit sqcap sqcup sqrt
-  sqsubseteq sqsupseteq subset subseteq succ succeq sum supset
-  supseteq swarrow tau theta times top triangleleft triangleright
-  uparrow updownarrow uplus upsilon varepsilon varphi varphi varrho
-  varsigma vartheta vdash vee wedge wp wr xi zeta}.}, as in
-$\mathtt{\backslash infty}$, $\mathtt{\backslash leftarrow}$,
-$\mathtt{\backslash sum}$, $\mathtt{\backslash int}$; see mathtext
-module documentation for a complete list.  The over/under
-subscript/superscript style is also supported.  To write the sum of
-$x_i$ from 0 to infinity ($\sum_{i=0}^\infty x_i$), you could do
+You can also use a large number of the \TeX\ symbols\footnote{The
+  following \TeX\ symbols are supported: {\tiny Delta Downarrow Gamma
+    Im LEFTangle LEFTbrace LEFTbracket LEFTparen Lambda Leftarrow
+    Leftbrace Leftbracket Leftparen Leftrightarrow Omega P Phi Pi Psi
+    RIGHTangle RIGHTbrace RIGHTbracket RIGHTparen Re Rightarrow
+    Rightbrace Rightbracket Rightparen S SQRT Sigma Sqrt Theta Uparrow
+    Updownarrow Upsilon Vert Xi aleph alpha approx angstrom ast asymp
+    backslash beta bigcap bigcirc bigcup bigodot bigoplus bigotimes
+    bigtriangledown bigtriangleup biguplus bigvee bigwedge bot bullet
+    cap cdot chi circ clubsuit coprod cup dag dashv ddag delta diamond
+    diamondsuit div downarrow ell emptyset epsilon equiv eta exists
+    flat forall frown gamma geq gg heartsuit hspace imath in infty int
+    iota jmath kappa lambda langle lbrace lceil leftangle leftarrow
+    leftbrace leftbracket leftharpoondown leftharpoonup leftparen
+    leftrightarrow leq lfloor ll mid mp mu nabla natural nearrow neg
+    ni nu nwarrow odot oint omega ominus oplus oslash otimes phi pi pm
+    prec preceq prime prod propto psi rangle rbrace rceil rfloor rho
+    rightangle rightarrow rightbrace rightbracket rightharpoondown
+    rightharpoonup rightparen searrow sharp sigma sim simeq slash
+    smilespadesuit sqcap sqcup sqrt sqsubseteq sqsupseteq subset
+    subseteq succ succeq sum supset supseteq swarrow tau theta times
+    top triangleleft triangleright uparrow updownarrow uplus upsilon
+    varepsilon varphi varphi varrho varsigma vartheta vdash vee wedge
+    wp wr xi zeta}.}, as in $\mathtt{\backslash infty}$,
+$\mathtt{\backslash leftarrow}$, $\mathtt{\backslash sum}$,
+$\mathtt{\backslash int}$.  The over/under subscript/superscript style
+is also supported.  To write the sum of $x_i$ from 0 to infinity
+($\sum_{i=0}^\infty x_i$), you can do
 \begin{lstlisting}
   text(1, -0.6, r'$\sum_{i=0}^\infty x_i$')
 \end{lstlisting}
@@ -278,7 +278,7 @@ The mathtext module is released under the matplotlib license (PSF
 compatible).  The \textit{fonts} it currently uses are the Bakoma
 computer modern truetype fonts, which are free only for non-commercial
 use.  It would not be too difficult to plug in a different set of
-fonts which do not have these licensing restrictins, though this has
+fonts which do not have these licensing restrictions, though this has
 not been implemented yet.  See the mathtext module documentation for
 the licensing restrictions of the Bakoma fonts.
 
@@ -301,52 +301,41 @@ The following \carg{interpolation} schemes are available:
 interpolation method is given by the value of \rc{image.interpolation}
 in your \fname{.matplotlibrc} file.  \carg{aspect} can be either
 \val{preserve} or \val{free} which will constrain the aspect ratio of
-the image or not, respectively.  The default aspect setting is given
-by the value of the rc parameter \rc{image.aspect}.
+the image or not, respectively.  
 
 The full syntax of the \func{imshow} command is
 \begin{lstlisting}
 imshow(X,                   # the numerix array
-       cmap = None,         # the matplotlib.colors.Colormap instance
-       norm = None,         # the normalization instance
+       cmap = None,         # the Colormap instance; None defaults to rc setting
+       norm = None,         # the normalization instance; None defaults to full range
        aspect=None,         # the aspect setting
-       interpolation=None,  # the interpolation method
+       interpolation=None,  # the interpolation method; None defaults to rc
        alpha=1.0,           # the alpha transparency value
-       vmin = None,         # the min for image scaling 
-       vmax = None,         # the max for image scaling
-       origin=None):        # the image origin
+       vmin = None,         # the min for image scaling; None defaults to min of image
+       vmax = None,         # the max for image scaling; None defaults to max of image
+       origin=None):        # the image origin; None defaults to rc value
 
 \end{lstlisting}
 When \val{None}, these parameters will assume a default value, in many
 cases determined by the rc setting.  
-
-You can create an arbitrary number of axes images inside a single
-axes, and these will be composed via alpha blending.  However, if you
-want to blend several images, you must make sure that the
-\func{hold} state is \val{True} and that the alpha of the
-layered images is less than 1.0; if alpha=1.0 then the image on top
-will totally obscure the images below.  Because the image blending is
-done using antigrain (regardless of your backend choice), you can
-blend images even on backends which don't support alpha (eg,
-postscript).  This is because the alpha blending is done in the
-frontend and the blended image is transferred directly to the backend
-as an RGB pixel array.  
 
 \begin{table}[htbp]
   \centering
   \begin{tabular}[t]{ll}
 \lstinputlisting[label=lst:layer_images, lastline=25]{code/layer_images.py}
  & 
-\raisebox{-15ex}{\includegraphics[width=2.3in]{figures/layer_images}}
+\raisebox{-15ex}{\includegraphics[width=3.0in]{figures/layer_images}}
   \end{tabular}
   \caption{$\alpha$ blending multiple images with different colormaps}
 \end{table}
-
-
-Often times you want to be able to look at your raw image data
-directly, without interpolation.  This is the function of figure
-images, which do a pixel-by-pixel transfer of your image data to the
-figure canvas; see the command \func{figimage}
+You can create an arbitrary number of axes images inside a single
+axes, and these will be composed via alpha blending.  However, if you
+want to blend several images, you must make sure that the \func{hold}
+state is \val{True} and that the alpha of the layered images is less
+than 1.0; if alpha=1.0 then the image on top will totally obscure the
+images below.  Because the image blending is done using antigrain
+(regardless of your backend choice), you can blend images even on
+backends which don't support alpha (eg, postscript).  
 
 \section*{\myheadersize Jettisoning the \matlab\ interface }
 
@@ -396,7 +385,7 @@ documentation for complete information.
   \end{tabular}
   \caption{An example using the GTKAgg backend to embed matplotlib in
  a GTK application ( the simplified but functional example code did
- not priduce the figure at right ).}
+ not produce the figure at right ).}
 \end{table}
 
 \end{document}
