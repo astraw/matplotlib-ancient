@@ -1,0 +1,1934 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_qtagg</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_qtagg.py">/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_qtagg.py</a></font></td></tr></table>
+    <p><tt>Render&nbsp;to&nbsp;qt&nbsp;from&nbsp;agg</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="qt.html">qt</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_agg.html#FigureCanvasAgg">matplotlib.backends.backend_agg.FigureCanvasAgg</a>(<a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_qtagg.html#FigureCanvasQTAgg">FigureCanvasQTAgg</a>(<a href="matplotlib.backends.backend_qt.html#FigureCanvasQT">matplotlib.backends.backend_qt.FigureCanvasQT</a>, <a href="matplotlib.backends.backend_agg.html#FigureCanvasAgg">matplotlib.backends.backend_agg.FigureCanvasAgg</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_qt.html#FigureCanvasQT">matplotlib.backends.backend_qt.FigureCanvasQT</a>(<a href="qt.html#QWidget">qt.QWidget</a>, <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_qtagg.html#FigureCanvasQTAgg">FigureCanvasQTAgg</a>(<a href="matplotlib.backends.backend_qt.html#FigureCanvasQT">matplotlib.backends.backend_qt.FigureCanvasQT</a>, <a href="matplotlib.backends.backend_agg.html#FigureCanvasAgg">matplotlib.backends.backend_agg.FigureCanvasAgg</a>)
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FigureCanvasQTAgg">class <strong>FigureCanvasQTAgg</strong></a>(<a href="matplotlib.backends.backend_qt.html#FigureCanvasQT">matplotlib.backends.backend_qt.FigureCanvasQT</a>, <a href="matplotlib.backends.backend_agg.html#FigureCanvasAgg">matplotlib.backends.backend_agg.FigureCanvasAgg</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;canvas&nbsp;the&nbsp;figure&nbsp;renders&nbsp;into.&nbsp;&nbsp;Calls&nbsp;the&nbsp;draw&nbsp;and&nbsp;print&nbsp;fig<br>
+methods,&nbsp;creates&nbsp;the&nbsp;renderers,&nbsp;etc...<br>
+&nbsp;<br>
+Public&nbsp;attribute<br>
+&nbsp;<br>
+&nbsp;&nbsp;figure&nbsp;-&nbsp;A&nbsp;Figure&nbsp;instance<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.backends.backend_qtagg.html#FigureCanvasQTAgg">FigureCanvasQTAgg</a></dd>
+<dd><a href="matplotlib.backends.backend_qt.html#FigureCanvasQT">matplotlib.backends.backend_qt.FigureCanvasQT</a></dd>
+<dd><a href="qt.html#QWidget">qt.QWidget</a></dd>
+<dd><a href="qt.html#QObject">qt.QObject</a></dd>
+<dd><a href="qt.html#Qt">qt.Qt</a></dd>
+<dd><a href="qt.html#QPaintDevice">qt.QPaintDevice</a></dd>
+<dd><a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a></dd>
+<dd><a href="matplotlib.backends.backend_agg.html#FigureCanvasAgg">matplotlib.backends.backend_agg.FigureCanvasAgg</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FigureCanvasQTAgg-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-draw"><strong>draw</strong></a>(self)</dt><dd><tt>Draw&nbsp;the&nbsp;figure&nbsp;when&nbsp;xwindows&nbsp;is&nbsp;ready&nbsp;for&nbsp;the&nbsp;update</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-drawRectangle"><strong>drawRectangle</strong></a>(self, rect)</dt></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-paintEvent"><strong>paintEvent</strong></a>(self, e)</dt><dd><tt>Draw&nbsp;to&nbsp;the&nbsp;Agg&nbsp;backend&nbsp;and&nbsp;then&nbsp;copy&nbsp;the&nbsp;image&nbsp;to&nbsp;the&nbsp;qt.drawable.<br>
+In&nbsp;Qt,&nbsp;all&nbsp;drawing&nbsp;should&nbsp;be&nbsp;done&nbsp;inside&nbsp;of&nbsp;here&nbsp;when&nbsp;a&nbsp;widget&nbsp;is<br>
+shown&nbsp;onscreen.</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-resizeEvent"><strong>resizeEvent</strong></a>(self, e)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backends.backend_qt.html#FigureCanvasQT">matplotlib.backends.backend_qt.FigureCanvasQT</a>:<br>
+<dl><dt><a name="FigureCanvasQTAgg-keyPressEvent"><strong>keyPressEvent</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-keyReleaseEvent"><strong>keyReleaseEvent</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-mouseMoveEvent"><strong>mouseMoveEvent</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-mousePressEvent"><strong>mousePressEvent</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-mouseReleaseEvent"><strong>mouseReleaseEvent</strong></a>(self, event)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.backends.backend_qt.html#FigureCanvasQT">matplotlib.backends.backend_qt.FigureCanvasQT</a>:<br>
+<dl><dt><strong>buttond</strong> = {1: 1, 2: 3, 4: 2}</dl>
+
+<dl><dt><strong>keyvald</strong> = {4128: 'shift', 4129: 'control', 4131: 'alt'}</dl>
+
+<hr>
+Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a>:<br>
+<dl><dt><strong>AncestorOrigin</strong> = 3</dl>
+
+<dl><dt><strong>ClickFocus</strong> = 2</dl>
+
+<dl><dt><strong>NoFocus</strong> = 0</dl>
+
+<dl><dt><strong>ParentOrigin</strong> = 1</dl>
+
+<dl><dt><strong>StrongFocus</strong> = 3</dl>
+
+<dl><dt><strong>TabFocus</strong> = 1</dl>
+
+<dl><dt><strong>WheelFocus</strong> = 7</dl>
+
+<dl><dt><strong>WidgetOrigin</strong> = 0</dl>
+
+<dl><dt><strong>WindowOrigin</strong> = 2</dl>
+
+<dl><dt><strong>acceptDrops</strong> = &lt;built-in function acceptDrops&gt;</dl>
+
+<dl><dt><strong>adjustSize</strong> = &lt;built-in function adjustSize&gt;</dl>
+
+<dl><dt><strong>autoMask</strong> = &lt;built-in function autoMask&gt;</dl>
+
+<dl><dt><strong>backgroundBrush</strong> = &lt;built-in function backgroundBrush&gt;</dl>
+
+<dl><dt><strong>backgroundMode</strong> = &lt;built-in function backgroundMode&gt;</dl>
+
+<dl><dt><strong>backgroundOffset</strong> = &lt;built-in function backgroundOffset&gt;</dl>
+
+<dl><dt><strong>backgroundOrigin</strong> = &lt;built-in function backgroundOrigin&gt;</dl>
+
+<dl><dt><strong>baseSize</strong> = &lt;built-in function baseSize&gt;</dl>
+
+<dl><dt><strong>caption</strong> = &lt;built-in function caption&gt;</dl>
+
+<dl><dt><strong>childAt</strong> = &lt;built-in function childAt&gt;</dl>
+
+<dl><dt><strong>childEvent</strong> = &lt;built-in function childEvent&gt;</dl>
+
+<dl><dt><strong>childrenRect</strong> = &lt;built-in function childrenRect&gt;</dl>
+
+<dl><dt><strong>childrenRegion</strong> = &lt;built-in function childrenRegion&gt;</dl>
+
+<dl><dt><strong>clearFocus</strong> = &lt;built-in function clearFocus&gt;</dl>
+
+<dl><dt><strong>clearMask</strong> = &lt;built-in function clearMask&gt;</dl>
+
+<dl><dt><strong>clearWFlags</strong> = &lt;built-in function clearWFlags&gt;</dl>
+
+<dl><dt><strong>clearWState</strong> = &lt;built-in function clearWState&gt;</dl>
+
+<dl><dt><strong>close</strong> = &lt;built-in function close&gt;</dl>
+
+<dl><dt><strong>closeEvent</strong> = &lt;built-in function closeEvent&gt;</dl>
+
+<dl><dt><strong>colorGroup</strong> = &lt;built-in function colorGroup&gt;</dl>
+
+<dl><dt><strong>constPolish</strong> = &lt;built-in function constPolish&gt;</dl>
+
+<dl><dt><strong>contextMenuEvent</strong> = &lt;built-in function contextMenuEvent&gt;</dl>
+
+<dl><dt><strong>create</strong> = &lt;built-in function create&gt;</dl>
+
+<dl><dt><strong>cursor</strong> = &lt;built-in function cursor&gt;</dl>
+
+<dl><dt><strong>customEvent</strong> = &lt;built-in function customEvent&gt;</dl>
+
+<dl><dt><strong>customWhatsThis</strong> = &lt;built-in function customWhatsThis&gt;</dl>
+
+<dl><dt><strong>destroy</strong> = &lt;built-in function destroy&gt;</dl>
+
+<dl><dt><strong>dragEnterEvent</strong> = &lt;built-in function dragEnterEvent&gt;</dl>
+
+<dl><dt><strong>dragLeaveEvent</strong> = &lt;built-in function dragLeaveEvent&gt;</dl>
+
+<dl><dt><strong>dragMoveEvent</strong> = &lt;built-in function dragMoveEvent&gt;</dl>
+
+<dl><dt><strong>drawText</strong> = &lt;built-in function drawText&gt;</dl>
+
+<dl><dt><strong>dropEvent</strong> = &lt;built-in function dropEvent&gt;</dl>
+
+<dl><dt><strong>enabledChange</strong> = &lt;built-in function enabledChange&gt;</dl>
+
+<dl><dt><strong>enterEvent</strong> = &lt;built-in function enterEvent&gt;</dl>
+
+<dl><dt><strong>erase</strong> = &lt;built-in function erase&gt;</dl>
+
+<dl><dt><strong>eraseColor</strong> = &lt;built-in function eraseColor&gt;</dl>
+
+<dl><dt><strong>erasePixmap</strong> = &lt;built-in function erasePixmap&gt;</dl>
+
+<dl><dt><strong>event</strong> = &lt;built-in function event&gt;</dl>
+
+<dl><dt><strong>find</strong> = &lt;built-in function find&gt;</dl>
+
+<dl><dt><strong>focusInEvent</strong> = &lt;built-in function focusInEvent&gt;</dl>
+
+<dl><dt><strong>focusNextPrevChild</strong> = &lt;built-in function focusNextPrevChild&gt;</dl>
+
+<dl><dt><strong>focusOutEvent</strong> = &lt;built-in function focusOutEvent&gt;</dl>
+
+<dl><dt><strong>focusPolicy</strong> = &lt;built-in function focusPolicy&gt;</dl>
+
+<dl><dt><strong>focusProxy</strong> = &lt;built-in function focusProxy&gt;</dl>
+
+<dl><dt><strong>focusWidget</strong> = &lt;built-in function focusWidget&gt;</dl>
+
+<dl><dt><strong>font</strong> = &lt;built-in function font&gt;</dl>
+
+<dl><dt><strong>fontChange</strong> = &lt;built-in function fontChange&gt;</dl>
+
+<dl><dt><strong>fontInfo</strong> = &lt;built-in function fontInfo&gt;</dl>
+
+<dl><dt><strong>fontMetrics</strong> = &lt;built-in function fontMetrics&gt;</dl>
+
+<dl><dt><strong>foregroundColor</strong> = &lt;built-in function foregroundColor&gt;</dl>
+
+<dl><dt><strong>frameGeometry</strong> = &lt;built-in function frameGeometry&gt;</dl>
+
+<dl><dt><strong>frameSize</strong> = &lt;built-in function frameSize&gt;</dl>
+
+<dl><dt><strong>geometry</strong> = &lt;built-in function geometry&gt;</dl>
+
+<dl><dt><strong>getWFlags</strong> = &lt;built-in function getWFlags&gt;</dl>
+
+<dl><dt><strong>getWState</strong> = &lt;built-in function getWState&gt;</dl>
+
+<dl><dt><strong>grabKeyboard</strong> = &lt;built-in function grabKeyboard&gt;</dl>
+
+<dl><dt><strong>grabMouse</strong> = &lt;built-in function grabMouse&gt;</dl>
+
+<dl><dt><strong>hasFocus</strong> = &lt;built-in function hasFocus&gt;</dl>
+
+<dl><dt><strong>hasMouse</strong> = &lt;built-in function hasMouse&gt;</dl>
+
+<dl><dt><strong>hasMouseTracking</strong> = &lt;built-in function hasMouseTracking&gt;</dl>
+
+<dl><dt><strong>height</strong> = &lt;built-in function height&gt;</dl>
+
+<dl><dt><strong>heightForWidth</strong> = &lt;built-in function heightForWidth&gt;</dl>
+
+<dl><dt><strong>hide</strong> = &lt;built-in function hide&gt;</dl>
+
+<dl><dt><strong>hideEvent</strong> = &lt;built-in function hideEvent&gt;</dl>
+
+<dl><dt><strong>icon</strong> = &lt;built-in function icon&gt;</dl>
+
+<dl><dt><strong>iconText</strong> = &lt;built-in function iconText&gt;</dl>
+
+<dl><dt><strong>imComposeEvent</strong> = &lt;built-in function imComposeEvent&gt;</dl>
+
+<dl><dt><strong>imEndEvent</strong> = &lt;built-in function imEndEvent&gt;</dl>
+
+<dl><dt><strong>imStartEvent</strong> = &lt;built-in function imStartEvent&gt;</dl>
+
+<dl><dt><strong>isActiveWindow</strong> = &lt;built-in function isActiveWindow&gt;</dl>
+
+<dl><dt><strong>isDesktop</strong> = &lt;built-in function isDesktop&gt;</dl>
+
+<dl><dt><strong>isDialog</strong> = &lt;built-in function isDialog&gt;</dl>
+
+<dl><dt><strong>isEnabled</strong> = &lt;built-in function isEnabled&gt;</dl>
+
+<dl><dt><strong>isEnabledTo</strong> = &lt;built-in function isEnabledTo&gt;</dl>
+
+<dl><dt><strong>isEnabledToTLW</strong> = &lt;built-in function isEnabledToTLW&gt;</dl>
+
+<dl><dt><strong>isFocusEnabled</strong> = &lt;built-in function isFocusEnabled&gt;</dl>
+
+<dl><dt><strong>isFullScreen</strong> = &lt;built-in function isFullScreen&gt;</dl>
+
+<dl><dt><strong>isHidden</strong> = &lt;built-in function isHidden&gt;</dl>
+
+<dl><dt><strong>isMaximized</strong> = &lt;built-in function isMaximized&gt;</dl>
+
+<dl><dt><strong>isMinimized</strong> = &lt;built-in function isMinimized&gt;</dl>
+
+<dl><dt><strong>isModal</strong> = &lt;built-in function isModal&gt;</dl>
+
+<dl><dt><strong>isPopup</strong> = &lt;built-in function isPopup&gt;</dl>
+
+<dl><dt><strong>isShown</strong> = &lt;built-in function isShown&gt;</dl>
+
+<dl><dt><strong>isTopLevel</strong> = &lt;built-in function isTopLevel&gt;</dl>
+
+<dl><dt><strong>isUpdatesEnabled</strong> = &lt;built-in function isUpdatesEnabled&gt;</dl>
+
+<dl><dt><strong>isVisible</strong> = &lt;built-in function isVisible&gt;</dl>
+
+<dl><dt><strong>isVisibleTo</strong> = &lt;built-in function isVisibleTo&gt;</dl>
+
+<dl><dt><strong>isVisibleToTLW</strong> = &lt;built-in function isVisibleToTLW&gt;</dl>
+
+<dl><dt><strong>keyboardGrabber</strong> = &lt;built-in function keyboardGrabber&gt;</dl>
+
+<dl><dt><strong>layout</strong> = &lt;built-in function layout&gt;</dl>
+
+<dl><dt><strong>leaveEvent</strong> = &lt;built-in function leaveEvent&gt;</dl>
+
+<dl><dt><strong>lowerW</strong> = &lt;built-in function lowerW&gt;</dl>
+
+<dl><dt><strong>mapFrom</strong> = &lt;built-in function mapFrom&gt;</dl>
+
+<dl><dt><strong>mapFromGlobal</strong> = &lt;built-in function mapFromGlobal&gt;</dl>
+
+<dl><dt><strong>mapFromParent</strong> = &lt;built-in function mapFromParent&gt;</dl>
+
+<dl><dt><strong>mapTo</strong> = &lt;built-in function mapTo&gt;</dl>
+
+<dl><dt><strong>mapToGlobal</strong> = &lt;built-in function mapToGlobal&gt;</dl>
+
+<dl><dt><strong>mapToParent</strong> = &lt;built-in function mapToParent&gt;</dl>
+
+<dl><dt><strong>maximumHeight</strong> = &lt;built-in function maximumHeight&gt;</dl>
+
+<dl><dt><strong>maximumSize</strong> = &lt;built-in function maximumSize&gt;</dl>
+
+<dl><dt><strong>maximumWidth</strong> = &lt;built-in function maximumWidth&gt;</dl>
+
+<dl><dt><strong>metaObject</strong> = &lt;built-in function metaObject&gt;</dl>
+
+<dl><dt><strong>metric</strong> = &lt;built-in function metric&gt;</dl>
+
+<dl><dt><strong>microFocusHint</strong> = &lt;built-in function microFocusHint&gt;</dl>
+
+<dl><dt><strong>minimumHeight</strong> = &lt;built-in function minimumHeight&gt;</dl>
+
+<dl><dt><strong>minimumSize</strong> = &lt;built-in function minimumSize&gt;</dl>
+
+<dl><dt><strong>minimumSizeHint</strong> = &lt;built-in function minimumSizeHint&gt;</dl>
+
+<dl><dt><strong>minimumWidth</strong> = &lt;built-in function minimumWidth&gt;</dl>
+
+<dl><dt><strong>mouseDoubleClickEvent</strong> = &lt;built-in function mouseDoubleClickEvent&gt;</dl>
+
+<dl><dt><strong>mouseGrabber</strong> = &lt;built-in function mouseGrabber&gt;</dl>
+
+<dl><dt><strong>move</strong> = &lt;built-in function move&gt;</dl>
+
+<dl><dt><strong>moveEvent</strong> = &lt;built-in function moveEvent&gt;</dl>
+
+<dl><dt><strong>ownCursor</strong> = &lt;built-in function ownCursor&gt;</dl>
+
+<dl><dt><strong>ownFont</strong> = &lt;built-in function ownFont&gt;</dl>
+
+<dl><dt><strong>ownPalette</strong> = &lt;built-in function ownPalette&gt;</dl>
+
+<dl><dt><strong>palette</strong> = &lt;built-in function palette&gt;</dl>
+
+<dl><dt><strong>paletteBackgroundColor</strong> = &lt;built-in function paletteBackgroundColor&gt;</dl>
+
+<dl><dt><strong>paletteBackgroundPixmap</strong> = &lt;built-in function paletteBackgroundPixmap&gt;</dl>
+
+<dl><dt><strong>paletteChange</strong> = &lt;built-in function paletteChange&gt;</dl>
+
+<dl><dt><strong>paletteForegroundColor</strong> = &lt;built-in function paletteForegroundColor&gt;</dl>
+
+<dl><dt><strong>parentWidget</strong> = &lt;built-in function parentWidget&gt;</dl>
+
+<dl><dt><strong>polish</strong> = &lt;built-in function polish&gt;</dl>
+
+<dl><dt><strong>pos</strong> = &lt;built-in function pos&gt;</dl>
+
+<dl><dt><strong>raiseW</strong> = &lt;built-in function raiseW&gt;</dl>
+
+<dl><dt><strong>rect</strong> = &lt;built-in function rect&gt;</dl>
+
+<dl><dt><strong>releaseKeyboard</strong> = &lt;built-in function releaseKeyboard&gt;</dl>
+
+<dl><dt><strong>releaseMouse</strong> = &lt;built-in function releaseMouse&gt;</dl>
+
+<dl><dt><strong>repaint</strong> = &lt;built-in function repaint&gt;</dl>
+
+<dl><dt><strong>reparent</strong> = &lt;built-in function reparent&gt;</dl>
+
+<dl><dt><strong>resetInputContext</strong> = &lt;built-in function resetInputContext&gt;</dl>
+
+<dl><dt><strong>resize</strong> = &lt;built-in function resize&gt;</dl>
+
+<dl><dt><strong>scroll</strong> = &lt;built-in function scroll&gt;</dl>
+
+<dl><dt><strong>sender</strong> = &lt;built-in function sender&gt;</dl>
+
+<dl><dt><strong>setAcceptDrops</strong> = &lt;built-in function setAcceptDrops&gt;</dl>
+
+<dl><dt><strong>setActiveWindow</strong> = &lt;built-in function setActiveWindow&gt;</dl>
+
+<dl><dt><strong>setAutoMask</strong> = &lt;built-in function setAutoMask&gt;</dl>
+
+<dl><dt><strong>setBackgroundMode</strong> = &lt;built-in function setBackgroundMode&gt;</dl>
+
+<dl><dt><strong>setBackgroundOrigin</strong> = &lt;built-in function setBackgroundOrigin&gt;</dl>
+
+<dl><dt><strong>setBaseSize</strong> = &lt;built-in function setBaseSize&gt;</dl>
+
+<dl><dt><strong>setCaption</strong> = &lt;built-in function setCaption&gt;</dl>
+
+<dl><dt><strong>setCursor</strong> = &lt;built-in function setCursor&gt;</dl>
+
+<dl><dt><strong>setDisabled</strong> = &lt;built-in function setDisabled&gt;</dl>
+
+<dl><dt><strong>setEnabled</strong> = &lt;built-in function setEnabled&gt;</dl>
+
+<dl><dt><strong>setEraseColor</strong> = &lt;built-in function setEraseColor&gt;</dl>
+
+<dl><dt><strong>setErasePixmap</strong> = &lt;built-in function setErasePixmap&gt;</dl>
+
+<dl><dt><strong>setFixedHeight</strong> = &lt;built-in function setFixedHeight&gt;</dl>
+
+<dl><dt><strong>setFixedSize</strong> = &lt;built-in function setFixedSize&gt;</dl>
+
+<dl><dt><strong>setFixedWidth</strong> = &lt;built-in function setFixedWidth&gt;</dl>
+
+<dl><dt><strong>setFocus</strong> = &lt;built-in function setFocus&gt;</dl>
+
+<dl><dt><strong>setFocusPolicy</strong> = &lt;built-in function setFocusPolicy&gt;</dl>
+
+<dl><dt><strong>setFocusProxy</strong> = &lt;built-in function setFocusProxy&gt;</dl>
+
+<dl><dt><strong>setFont</strong> = &lt;built-in function setFont&gt;</dl>
+
+<dl><dt><strong>setGeometry</strong> = &lt;built-in function setGeometry&gt;</dl>
+
+<dl><dt><strong>setHidden</strong> = &lt;built-in function setHidden&gt;</dl>
+
+<dl><dt><strong>setIcon</strong> = &lt;built-in function setIcon&gt;</dl>
+
+<dl><dt><strong>setIconText</strong> = &lt;built-in function setIconText&gt;</dl>
+
+<dl><dt><strong>setKeyCompression</strong> = &lt;built-in function setKeyCompression&gt;</dl>
+
+<dl><dt><strong>setMask</strong> = &lt;built-in function setMask&gt;</dl>
+
+<dl><dt><strong>setMaximumHeight</strong> = &lt;built-in function setMaximumHeight&gt;</dl>
+
+<dl><dt><strong>setMaximumSize</strong> = &lt;built-in function setMaximumSize&gt;</dl>
+
+<dl><dt><strong>setMaximumWidth</strong> = &lt;built-in function setMaximumWidth&gt;</dl>
+
+<dl><dt><strong>setMicroFocusHint</strong> = &lt;built-in function setMicroFocusHint&gt;</dl>
+
+<dl><dt><strong>setMinimumHeight</strong> = &lt;built-in function setMinimumHeight&gt;</dl>
+
+<dl><dt><strong>setMinimumSize</strong> = &lt;built-in function setMinimumSize&gt;</dl>
+
+<dl><dt><strong>setMinimumWidth</strong> = &lt;built-in function setMinimumWidth&gt;</dl>
+
+<dl><dt><strong>setMouseTracking</strong> = &lt;built-in function setMouseTracking&gt;</dl>
+
+<dl><dt><strong>setName</strong> = &lt;built-in function setName&gt;</dl>
+
+<dl><dt><strong>setPalette</strong> = &lt;built-in function setPalette&gt;</dl>
+
+<dl><dt><strong>setPaletteBackgroundColor</strong> = &lt;built-in function setPaletteBackgroundColor&gt;</dl>
+
+<dl><dt><strong>setPaletteBackgroundPixmap</strong> = &lt;built-in function setPaletteBackgroundPixmap&gt;</dl>
+
+<dl><dt><strong>setPaletteForegroundColor</strong> = &lt;built-in function setPaletteForegroundColor&gt;</dl>
+
+<dl><dt><strong>setShown</strong> = &lt;built-in function setShown&gt;</dl>
+
+<dl><dt><strong>setSizeIncrement</strong> = &lt;built-in function setSizeIncrement&gt;</dl>
+
+<dl><dt><strong>setSizePolicy</strong> = &lt;built-in function setSizePolicy&gt;</dl>
+
+<dl><dt><strong>setStyle</strong> = &lt;built-in function setStyle&gt;</dl>
+
+<dl><dt><strong>setTabOrder</strong> = &lt;built-in function setTabOrder&gt;</dl>
+
+<dl><dt><strong>setUpdatesEnabled</strong> = &lt;built-in function setUpdatesEnabled&gt;</dl>
+
+<dl><dt><strong>setWFlags</strong> = &lt;built-in function setWFlags&gt;</dl>
+
+<dl><dt><strong>setWState</strong> = &lt;built-in function setWState&gt;</dl>
+
+<dl><dt><strong>show</strong> = &lt;built-in function show&gt;</dl>
+
+<dl><dt><strong>showEvent</strong> = &lt;built-in function showEvent&gt;</dl>
+
+<dl><dt><strong>showFullScreen</strong> = &lt;built-in function showFullScreen&gt;</dl>
+
+<dl><dt><strong>showMaximized</strong> = &lt;built-in function showMaximized&gt;</dl>
+
+<dl><dt><strong>showMinimized</strong> = &lt;built-in function showMinimized&gt;</dl>
+
+<dl><dt><strong>showNormal</strong> = &lt;built-in function showNormal&gt;</dl>
+
+<dl><dt><strong>size</strong> = &lt;built-in function size&gt;</dl>
+
+<dl><dt><strong>sizeHint</strong> = &lt;built-in function sizeHint&gt;</dl>
+
+<dl><dt><strong>sizeIncrement</strong> = &lt;built-in function sizeIncrement&gt;</dl>
+
+<dl><dt><strong>sizePolicy</strong> = &lt;built-in function sizePolicy&gt;</dl>
+
+<dl><dt><strong>style</strong> = &lt;built-in function style&gt;</dl>
+
+<dl><dt><strong>styleChange</strong> = &lt;built-in function styleChange&gt;</dl>
+
+<dl><dt><strong>tabletEvent</strong> = &lt;built-in function tabletEvent&gt;</dl>
+
+<dl><dt><strong>testWFlags</strong> = &lt;built-in function testWFlags&gt;</dl>
+
+<dl><dt><strong>testWState</strong> = &lt;built-in function testWState&gt;</dl>
+
+<dl><dt><strong>timerEvent</strong> = &lt;built-in function timerEvent&gt;</dl>
+
+<dl><dt><strong>topLevelWidget</strong> = &lt;built-in function topLevelWidget&gt;</dl>
+
+<dl><dt><strong>unsetCursor</strong> = &lt;built-in function unsetCursor&gt;</dl>
+
+<dl><dt><strong>unsetFont</strong> = &lt;built-in function unsetFont&gt;</dl>
+
+<dl><dt><strong>unsetPalette</strong> = &lt;built-in function unsetPalette&gt;</dl>
+
+<dl><dt><strong>update</strong> = &lt;built-in function update&gt;</dl>
+
+<dl><dt><strong>updateGeometry</strong> = &lt;built-in function updateGeometry&gt;</dl>
+
+<dl><dt><strong>updateMask</strong> = &lt;built-in function updateMask&gt;</dl>
+
+<dl><dt><strong>visibleRect</strong> = &lt;built-in function visibleRect&gt;</dl>
+
+<dl><dt><strong>wheelEvent</strong> = &lt;built-in function wheelEvent&gt;</dl>
+
+<dl><dt><strong>width</strong> = &lt;built-in function width&gt;</dl>
+
+<dl><dt><strong>winId</strong> = &lt;built-in function winId&gt;</dl>
+
+<dl><dt><strong>windowActivationChange</strong> = &lt;built-in function windowActivationChange&gt;</dl>
+
+<dl><dt><strong>x</strong> = &lt;built-in function x&gt;</dl>
+
+<dl><dt><strong>y</strong> = &lt;built-in function y&gt;</dl>
+
+<hr>
+Data and other attributes inherited from <a href="qt.html#QObject">qt.QObject</a>:<br>
+<dl><dt><strong>blockSignals</strong> = &lt;built-in function blockSignals&gt;</dl>
+
+<dl><dt><strong>child</strong> = &lt;built-in function child&gt;</dl>
+
+<dl><dt><strong>children</strong> = &lt;built-in function children&gt;</dl>
+
+<dl><dt><strong>className</strong> = &lt;built-in function className&gt;</dl>
+
+<dl><dt><strong>connect</strong> = &lt;built-in function connect&gt;</dl>
+
+<dl><dt><strong>deleteLater</strong> = &lt;built-in function deleteLater&gt;</dl>
+
+<dl><dt><strong>disconnect</strong> = &lt;built-in function disconnect&gt;</dl>
+
+<dl><dt><strong>dumpObjectInfo</strong> = &lt;built-in function dumpObjectInfo&gt;</dl>
+
+<dl><dt><strong>dumpObjectTree</strong> = &lt;built-in function dumpObjectTree&gt;</dl>
+
+<dl><dt><strong>emit</strong> = &lt;built-in function emit&gt;</dl>
+
+<dl><dt><strong>eventFilter</strong> = &lt;built-in function eventFilter&gt;</dl>
+
+<dl><dt><strong>highPriority</strong> = &lt;built-in function highPriority&gt;</dl>
+
+<dl><dt><strong>inherits</strong> = &lt;built-in function inherits&gt;</dl>
+
+<dl><dt><strong>insertChild</strong> = &lt;built-in function insertChild&gt;</dl>
+
+<dl><dt><strong>installEventFilter</strong> = &lt;built-in function installEventFilter&gt;</dl>
+
+<dl><dt><strong>isA</strong> = &lt;built-in function isA&gt;</dl>
+
+<dl><dt><strong>isWidgetType</strong> = &lt;built-in function isWidgetType&gt;</dl>
+
+<dl><dt><strong>killTimer</strong> = &lt;built-in function killTimer&gt;</dl>
+
+<dl><dt><strong>killTimers</strong> = &lt;built-in function killTimers&gt;</dl>
+
+<dl><dt><strong>name</strong> = &lt;built-in function name&gt;</dl>
+
+<dl><dt><strong>objectTrees</strong> = &lt;built-in function objectTrees&gt;</dl>
+
+<dl><dt><strong>parent</strong> = &lt;built-in function parent&gt;</dl>
+
+<dl><dt><strong>property</strong> = &lt;built-in function property&gt;</dl>
+
+<dl><dt><strong>queryList</strong> = &lt;built-in function queryList&gt;</dl>
+
+<dl><dt><strong>removeChild</strong> = &lt;built-in function removeChild&gt;</dl>
+
+<dl><dt><strong>removeEventFilter</strong> = &lt;built-in function removeEventFilter&gt;</dl>
+
+<dl><dt><strong>setProperty</strong> = &lt;built-in function setProperty&gt;</dl>
+
+<dl><dt><strong>signalsBlocked</strong> = &lt;built-in function signalsBlocked&gt;</dl>
+
+<dl><dt><strong>startTimer</strong> = &lt;built-in function startTimer&gt;</dl>
+
+<dl><dt><strong>tr</strong> = &lt;built-in function tr&gt;</dl>
+
+<dl><dt><strong>trUtf8</strong> = &lt;built-in function trUtf8&gt;</dl>
+
+<hr>
+Methods inherited from <a href="qt.html#Qt">qt.Qt</a>:<br>
+<dl><dt><a name="FigureCanvasQTAgg-__del__"><strong>__del__</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="qt.html#Qt">qt.Qt</a>:<br>
+<dl><dt><strong>ALT</strong> = 8388608</dl>
+
+<dl><dt><strong>ASCII_ACCEL</strong> = 268435456</dl>
+
+<dl><dt><strong>AlignAuto</strong> = 0</dl>
+
+<dl><dt><strong>AlignBottom</strong> = 32</dl>
+
+<dl><dt><strong>AlignCenter</strong> = 68</dl>
+
+<dl><dt><strong>AlignHCenter</strong> = 4</dl>
+
+<dl><dt><strong>AlignHorizontal_Mask</strong> = 15</dl>
+
+<dl><dt><strong>AlignJustify</strong> = 8</dl>
+
+<dl><dt><strong>AlignLeft</strong> = 1</dl>
+
+<dl><dt><strong>AlignRight</strong> = 2</dl>
+
+<dl><dt><strong>AlignTop</strong> = 16</dl>
+
+<dl><dt><strong>AlignVCenter</strong> = 64</dl>
+
+<dl><dt><strong>AlignVertical_Mask</strong> = 112</dl>
+
+<dl><dt><strong>AlphaDither_Mask</strong> = 12</dl>
+
+<dl><dt><strong>AltButton</strong> = 1024</dl>
+
+<dl><dt><strong>AnchorHref</strong> = 1</dl>
+
+<dl><dt><strong>AnchorName</strong> = 0</dl>
+
+<dl><dt><strong>AndNotROP</strong> = 12</dl>
+
+<dl><dt><strong>AndROP</strong> = 7</dl>
+
+<dl><dt><strong>ArrowCursor</strong> = 0</dl>
+
+<dl><dt><strong>AutoColor</strong> = 0</dl>
+
+<dl><dt><strong>AutoDither</strong> = 0</dl>
+
+<dl><dt><strong>AutoText</strong> = 2</dl>
+
+<dl><dt><strong>AvoidDither</strong> = 128</dl>
+
+<dl><dt><strong>BDiagPattern</strong> = 12</dl>
+
+<dl><dt><strong>BeginsWith</strong> = 2</dl>
+
+<dl><dt><strong>BevelJoin</strong> = 64</dl>
+
+<dl><dt><strong>BitmapCursor</strong> = 24</dl>
+
+<dl><dt><strong>BlankCursor</strong> = 10</dl>
+
+<dl><dt><strong>BreakAnywhere</strong> = 4096</dl>
+
+<dl><dt><strong>CTRL</strong> = 4194304</dl>
+
+<dl><dt><strong>CaseSensitive</strong> = 1</dl>
+
+<dl><dt><strong>ClearROP</strong> = 9</dl>
+
+<dl><dt><strong>ColorMode_Mask</strong> = 3</dl>
+
+<dl><dt><strong>ColorOnly</strong> = 3</dl>
+
+<dl><dt><strong>Contains</strong> = 8</dl>
+
+<dl><dt><strong>ControlButton</strong> = 512</dl>
+
+<dl><dt><strong>CopyROP</strong> = 0</dl>
+
+<dl><dt><strong>CrossCursor</strong> = 2</dl>
+
+<dl><dt><strong>CrossPattern</strong> = 11</dl>
+
+<dl><dt><strong>CustomPattern</strong> = 24</dl>
+
+<dl><dt><strong>DashDotDotLine</strong> = 5</dl>
+
+<dl><dt><strong>DashDotLine</strong> = 4</dl>
+
+<dl><dt><strong>DashLine</strong> = 2</dl>
+
+<dl><dt><strong>Dense1Pattern</strong> = 2</dl>
+
+<dl><dt><strong>Dense2Pattern</strong> = 3</dl>
+
+<dl><dt><strong>Dense3Pattern</strong> = 4</dl>
+
+<dl><dt><strong>Dense4Pattern</strong> = 5</dl>
+
+<dl><dt><strong>Dense5Pattern</strong> = 6</dl>
+
+<dl><dt><strong>Dense6Pattern</strong> = 7</dl>
+
+<dl><dt><strong>Dense7Pattern</strong> = 8</dl>
+
+<dl><dt><strong>DiagCrossPattern</strong> = 14</dl>
+
+<dl><dt><strong>DiffuseAlphaDither</strong> = 8</dl>
+
+<dl><dt><strong>DiffuseDither</strong> = 0</dl>
+
+<dl><dt><strong>DitherMode_Mask</strong> = 192</dl>
+
+<dl><dt><strong>Dither_Mask</strong> = 48</dl>
+
+<dl><dt><strong>DockBottom</strong> = 3</dl>
+
+<dl><dt><strong>DockLeft</strong> = 5</dl>
+
+<dl><dt><strong>DockMinimized</strong> = 6</dl>
+
+<dl><dt><strong>DockRight</strong> = 4</dl>
+
+<dl><dt><strong>DockTop</strong> = 2</dl>
+
+<dl><dt><strong>DockTornOff</strong> = 1</dl>
+
+<dl><dt><strong>DockUnmanaged</strong> = 0</dl>
+
+<dl><dt><strong>DontClip</strong> = 256</dl>
+
+<dl><dt><strong>DontPrint</strong> = 8192</dl>
+
+<dl><dt><strong>DotLine</strong> = 3</dl>
+
+<dl><dt><strong>DownArrow</strong> = 1</dl>
+
+<dl><dt><strong>EndsWith</strong> = 4</dl>
+
+<dl><dt><strong>EraseROP</strong> = 3</dl>
+
+<dl><dt><strong>ExactMatch</strong> = 16</dl>
+
+<dl><dt><strong>ExpandTabs</strong> = 512</dl>
+
+<dl><dt><strong>FDiagPattern</strong> = 13</dl>
+
+<dl><dt><strong>FixedColor</strong> = 0</dl>
+
+<dl><dt><strong>FixedPixmap</strong> = 1</dl>
+
+<dl><dt><strong>FlatCap</strong> = 0</dl>
+
+<dl><dt><strong>ForbiddenCursor</strong> = 14</dl>
+
+<dl><dt><strong>HorPattern</strong> = 9</dl>
+
+<dl><dt><strong>Horizontal</strong> = 0</dl>
+
+<dl><dt><strong>ISODate</strong> = 1</dl>
+
+<dl><dt><strong>IbeamCursor</strong> = 4</dl>
+
+<dl><dt><strong>Identical</strong> = 2</dl>
+
+<dl><dt><strong>KeyButtonMask</strong> = 3840</dl>
+
+<dl><dt><strong>Key_0</strong> = 48</dl>
+
+<dl><dt><strong>Key_1</strong> = 49</dl>
+
+<dl><dt><strong>Key_2</strong> = 50</dl>
+
+<dl><dt><strong>Key_3</strong> = 51</dl>
+
+<dl><dt><strong>Key_4</strong> = 52</dl>
+
+<dl><dt><strong>Key_5</strong> = 53</dl>
+
+<dl><dt><strong>Key_6</strong> = 54</dl>
+
+<dl><dt><strong>Key_7</strong> = 55</dl>
+
+<dl><dt><strong>Key_8</strong> = 56</dl>
+
+<dl><dt><strong>Key_9</strong> = 57</dl>
+
+<dl><dt><strong>Key_A</strong> = 65</dl>
+
+<dl><dt><strong>Key_AE</strong> = 198</dl>
+
+<dl><dt><strong>Key_Aacute</strong> = 193</dl>
+
+<dl><dt><strong>Key_Acircumflex</strong> = 194</dl>
+
+<dl><dt><strong>Key_Adiaeresis</strong> = 196</dl>
+
+<dl><dt><strong>Key_Agrave</strong> = 192</dl>
+
+<dl><dt><strong>Key_Alt</strong> = 4131</dl>
+
+<dl><dt><strong>Key_Ampersand</strong> = 38</dl>
+
+<dl><dt><strong>Key_Any</strong> = 32</dl>
+
+<dl><dt><strong>Key_Apostrophe</strong> = 39</dl>
+
+<dl><dt><strong>Key_Aring</strong> = 197</dl>
+
+<dl><dt><strong>Key_AsciiCircum</strong> = 94</dl>
+
+<dl><dt><strong>Key_AsciiTilde</strong> = 126</dl>
+
+<dl><dt><strong>Key_Asterisk</strong> = 42</dl>
+
+<dl><dt><strong>Key_At</strong> = 64</dl>
+
+<dl><dt><strong>Key_Atilde</strong> = 195</dl>
+
+<dl><dt><strong>Key_B</strong> = 66</dl>
+
+<dl><dt><strong>Key_Back</strong> = 4193</dl>
+
+<dl><dt><strong>Key_BackSpace</strong> = 4099</dl>
+
+<dl><dt><strong>Key_BackTab</strong> = 4098</dl>
+
+<dl><dt><strong>Key_Backslash</strong> = 92</dl>
+
+<dl><dt><strong>Key_Backspace</strong> = 4099</dl>
+
+<dl><dt><strong>Key_Backtab</strong> = 4098</dl>
+
+<dl><dt><strong>Key_Bar</strong> = 124</dl>
+
+<dl><dt><strong>Key_BassBoost</strong> = 4211</dl>
+
+<dl><dt><strong>Key_BassDown</strong> = 4213</dl>
+
+<dl><dt><strong>Key_BassUp</strong> = 4212</dl>
+
+<dl><dt><strong>Key_BraceLeft</strong> = 123</dl>
+
+<dl><dt><strong>Key_BraceRight</strong> = 125</dl>
+
+<dl><dt><strong>Key_BracketLeft</strong> = 91</dl>
+
+<dl><dt><strong>Key_BracketRight</strong> = 93</dl>
+
+<dl><dt><strong>Key_C</strong> = 67</dl>
+
+<dl><dt><strong>Key_CapsLock</strong> = 4132</dl>
+
+<dl><dt><strong>Key_Ccedilla</strong> = 199</dl>
+
+<dl><dt><strong>Key_Clear</strong> = 4107</dl>
+
+<dl><dt><strong>Key_Colon</strong> = 58</dl>
+
+<dl><dt><strong>Key_Comma</strong> = 44</dl>
+
+<dl><dt><strong>Key_Control</strong> = 4129</dl>
+
+<dl><dt><strong>Key_D</strong> = 68</dl>
+
+<dl><dt><strong>Key_Delete</strong> = 4103</dl>
+
+<dl><dt><strong>Key_Direction_L</strong> = 4185</dl>
+
+<dl><dt><strong>Key_Direction_R</strong> = 4192</dl>
+
+<dl><dt><strong>Key_Dollar</strong> = 36</dl>
+
+<dl><dt><strong>Key_Down</strong> = 4117</dl>
+
+<dl><dt><strong>Key_E</strong> = 69</dl>
+
+<dl><dt><strong>Key_ETH</strong> = 208</dl>
+
+<dl><dt><strong>Key_Eacute</strong> = 201</dl>
+
+<dl><dt><strong>Key_Ecircumflex</strong> = 202</dl>
+
+<dl><dt><strong>Key_Ediaeresis</strong> = 203</dl>
+
+<dl><dt><strong>Key_Egrave</strong> = 200</dl>
+
+<dl><dt><strong>Key_End</strong> = 4113</dl>
+
+<dl><dt><strong>Key_Enter</strong> = 4101</dl>
+
+<dl><dt><strong>Key_Equal</strong> = 61</dl>
+
+<dl><dt><strong>Key_Escape</strong> = 4096</dl>
+
+<dl><dt><strong>Key_Exclam</strong> = 33</dl>
+
+<dl><dt><strong>Key_F</strong> = 70</dl>
+
+<dl><dt><strong>Key_F1</strong> = 4144</dl>
+
+<dl><dt><strong>Key_F10</strong> = 4153</dl>
+
+<dl><dt><strong>Key_F11</strong> = 4154</dl>
+
+<dl><dt><strong>Key_F12</strong> = 4155</dl>
+
+<dl><dt><strong>Key_F13</strong> = 4156</dl>
+
+<dl><dt><strong>Key_F14</strong> = 4157</dl>
+
+<dl><dt><strong>Key_F15</strong> = 4158</dl>
+
+<dl><dt><strong>Key_F16</strong> = 4159</dl>
+
+<dl><dt><strong>Key_F17</strong> = 4160</dl>
+
+<dl><dt><strong>Key_F18</strong> = 4161</dl>
+
+<dl><dt><strong>Key_F19</strong> = 4162</dl>
+
+<dl><dt><strong>Key_F2</strong> = 4145</dl>
+
+<dl><dt><strong>Key_F20</strong> = 4163</dl>
+
+<dl><dt><strong>Key_F21</strong> = 4164</dl>
+
+<dl><dt><strong>Key_F22</strong> = 4165</dl>
+
+<dl><dt><strong>Key_F23</strong> = 4166</dl>
+
+<dl><dt><strong>Key_F24</strong> = 4167</dl>
+
+<dl><dt><strong>Key_F25</strong> = 4168</dl>
+
+<dl><dt><strong>Key_F26</strong> = 4169</dl>
+
+<dl><dt><strong>Key_F27</strong> = 4170</dl>
+
+<dl><dt><strong>Key_F28</strong> = 4171</dl>
+
+<dl><dt><strong>Key_F29</strong> = 4172</dl>
+
+<dl><dt><strong>Key_F3</strong> = 4146</dl>
+
+<dl><dt><strong>Key_F30</strong> = 4173</dl>
+
+<dl><dt><strong>Key_F31</strong> = 4174</dl>
+
+<dl><dt><strong>Key_F32</strong> = 4175</dl>
+
+<dl><dt><strong>Key_F33</strong> = 4176</dl>
+
+<dl><dt><strong>Key_F34</strong> = 4177</dl>
+
+<dl><dt><strong>Key_F35</strong> = 4178</dl>
+
+<dl><dt><strong>Key_F4</strong> = 4147</dl>
+
+<dl><dt><strong>Key_F5</strong> = 4148</dl>
+
+<dl><dt><strong>Key_F6</strong> = 4149</dl>
+
+<dl><dt><strong>Key_F7</strong> = 4150</dl>
+
+<dl><dt><strong>Key_F8</strong> = 4151</dl>
+
+<dl><dt><strong>Key_F9</strong> = 4152</dl>
+
+<dl><dt><strong>Key_Favorites</strong> = 4241</dl>
+
+<dl><dt><strong>Key_Forward</strong> = 4194</dl>
+
+<dl><dt><strong>Key_G</strong> = 71</dl>
+
+<dl><dt><strong>Key_Greater</strong> = 62</dl>
+
+<dl><dt><strong>Key_H</strong> = 72</dl>
+
+<dl><dt><strong>Key_Help</strong> = 4184</dl>
+
+<dl><dt><strong>Key_Home</strong> = 4112</dl>
+
+<dl><dt><strong>Key_HomePage</strong> = 4240</dl>
+
+<dl><dt><strong>Key_Hyper_L</strong> = 4182</dl>
+
+<dl><dt><strong>Key_Hyper_R</strong> = 4183</dl>
+
+<dl><dt><strong>Key_I</strong> = 73</dl>
+
+<dl><dt><strong>Key_Iacute</strong> = 205</dl>
+
+<dl><dt><strong>Key_Icircumflex</strong> = 206</dl>
+
+<dl><dt><strong>Key_Idiaeresis</strong> = 207</dl>
+
+<dl><dt><strong>Key_Igrave</strong> = 204</dl>
+
+<dl><dt><strong>Key_Insert</strong> = 4102</dl>
+
+<dl><dt><strong>Key_J</strong> = 74</dl>
+
+<dl><dt><strong>Key_K</strong> = 75</dl>
+
+<dl><dt><strong>Key_L</strong> = 76</dl>
+
+<dl><dt><strong>Key_Launch0</strong> = 4258</dl>
+
+<dl><dt><strong>Key_Launch1</strong> = 4259</dl>
+
+<dl><dt><strong>Key_Launch2</strong> = 4260</dl>
+
+<dl><dt><strong>Key_Launch3</strong> = 4261</dl>
+
+<dl><dt><strong>Key_Launch4</strong> = 4262</dl>
+
+<dl><dt><strong>Key_Launch5</strong> = 4263</dl>
+
+<dl><dt><strong>Key_Launch6</strong> = 4264</dl>
+
+<dl><dt><strong>Key_Launch7</strong> = 4265</dl>
+
+<dl><dt><strong>Key_Launch8</strong> = 4266</dl>
+
+<dl><dt><strong>Key_Launch9</strong> = 4267</dl>
+
+<dl><dt><strong>Key_LaunchA</strong> = 4268</dl>
+
+<dl><dt><strong>Key_LaunchB</strong> = 4269</dl>
+
+<dl><dt><strong>Key_LaunchC</strong> = 4270</dl>
+
+<dl><dt><strong>Key_LaunchD</strong> = 4271</dl>
+
+<dl><dt><strong>Key_LaunchE</strong> = 4272</dl>
+
+<dl><dt><strong>Key_LaunchF</strong> = 4273</dl>
+
+<dl><dt><strong>Key_LaunchMail</strong> = 4256</dl>
+
+<dl><dt><strong>Key_LaunchMedia</strong> = 4257</dl>
+
+<dl><dt><strong>Key_Left</strong> = 4114</dl>
+
+<dl><dt><strong>Key_Less</strong> = 60</dl>
+
+<dl><dt><strong>Key_M</strong> = 77</dl>
+
+<dl><dt><strong>Key_MediaLast</strong> = 8191</dl>
+
+<dl><dt><strong>Key_MediaNext</strong> = 4227</dl>
+
+<dl><dt><strong>Key_MediaPlay</strong> = 4224</dl>
+
+<dl><dt><strong>Key_MediaPrev</strong> = 4226</dl>
+
+<dl><dt><strong>Key_MediaRecord</strong> = 4228</dl>
+
+<dl><dt><strong>Key_MediaStop</strong> = 4225</dl>
+
+<dl><dt><strong>Key_Menu</strong> = 4181</dl>
+
+<dl><dt><strong>Key_Meta</strong> = 4130</dl>
+
+<dl><dt><strong>Key_Minus</strong> = 45</dl>
+
+<dl><dt><strong>Key_N</strong> = 78</dl>
+
+<dl><dt><strong>Key_Next</strong> = 4119</dl>
+
+<dl><dt><strong>Key_Ntilde</strong> = 209</dl>
+
+<dl><dt><strong>Key_NumLock</strong> = 4133</dl>
+
+<dl><dt><strong>Key_NumberSign</strong> = 35</dl>
+
+<dl><dt><strong>Key_O</strong> = 79</dl>
+
+<dl><dt><strong>Key_Oacute</strong> = 211</dl>
+
+<dl><dt><strong>Key_Ocircumflex</strong> = 212</dl>
+
+<dl><dt><strong>Key_Odiaeresis</strong> = 214</dl>
+
+<dl><dt><strong>Key_Ograve</strong> = 210</dl>
+
+<dl><dt><strong>Key_Ooblique</strong> = 216</dl>
+
+<dl><dt><strong>Key_OpenUrl</strong> = 4244</dl>
+
+<dl><dt><strong>Key_Otilde</strong> = 213</dl>
+
+<dl><dt><strong>Key_P</strong> = 80</dl>
+
+<dl><dt><strong>Key_PageDown</strong> = 4119</dl>
+
+<dl><dt><strong>Key_PageUp</strong> = 4118</dl>
+
+<dl><dt><strong>Key_ParenLeft</strong> = 40</dl>
+
+<dl><dt><strong>Key_ParenRight</strong> = 41</dl>
+
+<dl><dt><strong>Key_Pause</strong> = 4104</dl>
+
+<dl><dt><strong>Key_Percent</strong> = 37</dl>
+
+<dl><dt><strong>Key_Period</strong> = 46</dl>
+
+<dl><dt><strong>Key_Plus</strong> = 43</dl>
+
+<dl><dt><strong>Key_Print</strong> = 4105</dl>
+
+<dl><dt><strong>Key_Prior</strong> = 4118</dl>
+
+<dl><dt><strong>Key_Q</strong> = 81</dl>
+
+<dl><dt><strong>Key_Question</strong> = 63</dl>
+
+<dl><dt><strong>Key_QuoteDbl</strong> = 34</dl>
+
+<dl><dt><strong>Key_QuoteLeft</strong> = 96</dl>
+
+<dl><dt><strong>Key_R</strong> = 82</dl>
+
+<dl><dt><strong>Key_Refresh</strong> = 4196</dl>
+
+<dl><dt><strong>Key_Return</strong> = 4100</dl>
+
+<dl><dt><strong>Key_Right</strong> = 4116</dl>
+
+<dl><dt><strong>Key_S</strong> = 83</dl>
+
+<dl><dt><strong>Key_ScrollLock</strong> = 4134</dl>
+
+<dl><dt><strong>Key_Search</strong> = 4242</dl>
+
+<dl><dt><strong>Key_Semicolon</strong> = 59</dl>
+
+<dl><dt><strong>Key_Shift</strong> = 4128</dl>
+
+<dl><dt><strong>Key_Slash</strong> = 47</dl>
+
+<dl><dt><strong>Key_Space</strong> = 32</dl>
+
+<dl><dt><strong>Key_Standby</strong> = 4243</dl>
+
+<dl><dt><strong>Key_Stop</strong> = 4195</dl>
+
+<dl><dt><strong>Key_Super_L</strong> = 4179</dl>
+
+<dl><dt><strong>Key_Super_R</strong> = 4180</dl>
+
+<dl><dt><strong>Key_SysReq</strong> = 4106</dl>
+
+<dl><dt><strong>Key_T</strong> = 84</dl>
+
+<dl><dt><strong>Key_THORN</strong> = 222</dl>
+
+<dl><dt><strong>Key_Tab</strong> = 4097</dl>
+
+<dl><dt><strong>Key_TrebleDown</strong> = 4215</dl>
+
+<dl><dt><strong>Key_TrebleUp</strong> = 4214</dl>
+
+<dl><dt><strong>Key_U</strong> = 85</dl>
+
+<dl><dt><strong>Key_Uacute</strong> = 218</dl>
+
+<dl><dt><strong>Key_Ucircumflex</strong> = 219</dl>
+
+<dl><dt><strong>Key_Udiaeresis</strong> = 220</dl>
+
+<dl><dt><strong>Key_Ugrave</strong> = 217</dl>
+
+<dl><dt><strong>Key_Underscore</strong> = 95</dl>
+
+<dl><dt><strong>Key_Up</strong> = 4115</dl>
+
+<dl><dt><strong>Key_V</strong> = 86</dl>
+
+<dl><dt><strong>Key_VolumeDown</strong> = 4208</dl>
+
+<dl><dt><strong>Key_VolumeMute</strong> = 4209</dl>
+
+<dl><dt><strong>Key_VolumeUp</strong> = 4210</dl>
+
+<dl><dt><strong>Key_W</strong> = 87</dl>
+
+<dl><dt><strong>Key_X</strong> = 88</dl>
+
+<dl><dt><strong>Key_Y</strong> = 89</dl>
+
+<dl><dt><strong>Key_Yacute</strong> = 221</dl>
+
+<dl><dt><strong>Key_Z</strong> = 90</dl>
+
+<dl><dt><strong>Key_aacute</strong> = 225</dl>
+
+<dl><dt><strong>Key_acircumflex</strong> = 226</dl>
+
+<dl><dt><strong>Key_acute</strong> = 180</dl>
+
+<dl><dt><strong>Key_adiaeresis</strong> = 228</dl>
+
+<dl><dt><strong>Key_ae</strong> = 230</dl>
+
+<dl><dt><strong>Key_agrave</strong> = 224</dl>
+
+<dl><dt><strong>Key_aring</strong> = 229</dl>
+
+<dl><dt><strong>Key_atilde</strong> = 227</dl>
+
+<dl><dt><strong>Key_brokenbar</strong> = 166</dl>
+
+<dl><dt><strong>Key_ccedilla</strong> = 231</dl>
+
+<dl><dt><strong>Key_cedilla</strong> = 184</dl>
+
+<dl><dt><strong>Key_cent</strong> = 162</dl>
+
+<dl><dt><strong>Key_copyright</strong> = 169</dl>
+
+<dl><dt><strong>Key_currency</strong> = 164</dl>
+
+<dl><dt><strong>Key_degree</strong> = 176</dl>
+
+<dl><dt><strong>Key_diaeresis</strong> = 168</dl>
+
+<dl><dt><strong>Key_division</strong> = 247</dl>
+
+<dl><dt><strong>Key_eacute</strong> = 233</dl>
+
+<dl><dt><strong>Key_ecircumflex</strong> = 234</dl>
+
+<dl><dt><strong>Key_ediaeresis</strong> = 235</dl>
+
+<dl><dt><strong>Key_egrave</strong> = 232</dl>
+
+<dl><dt><strong>Key_eth</strong> = 240</dl>
+
+<dl><dt><strong>Key_exclamdown</strong> = 161</dl>
+
+<dl><dt><strong>Key_guillemotleft</strong> = 171</dl>
+
+<dl><dt><strong>Key_guillemotright</strong> = 187</dl>
+
+<dl><dt><strong>Key_hyphen</strong> = 173</dl>
+
+<dl><dt><strong>Key_iacute</strong> = 237</dl>
+
+<dl><dt><strong>Key_icircumflex</strong> = 238</dl>
+
+<dl><dt><strong>Key_idiaeresis</strong> = 239</dl>
+
+<dl><dt><strong>Key_igrave</strong> = 236</dl>
+
+<dl><dt><strong>Key_macron</strong> = 175</dl>
+
+<dl><dt><strong>Key_masculine</strong> = 186</dl>
+
+<dl><dt><strong>Key_mu</strong> = 181</dl>
+
+<dl><dt><strong>Key_multiply</strong> = 215</dl>
+
+<dl><dt><strong>Key_nobreakspace</strong> = 160</dl>
+
+<dl><dt><strong>Key_notsign</strong> = 172</dl>
+
+<dl><dt><strong>Key_ntilde</strong> = 241</dl>
+
+<dl><dt><strong>Key_oacute</strong> = 243</dl>
+
+<dl><dt><strong>Key_ocircumflex</strong> = 244</dl>
+
+<dl><dt><strong>Key_odiaeresis</strong> = 246</dl>
+
+<dl><dt><strong>Key_ograve</strong> = 242</dl>
+
+<dl><dt><strong>Key_onehalf</strong> = 189</dl>
+
+<dl><dt><strong>Key_onequarter</strong> = 188</dl>
+
+<dl><dt><strong>Key_onesuperior</strong> = 185</dl>
+
+<dl><dt><strong>Key_ordfeminine</strong> = 170</dl>
+
+<dl><dt><strong>Key_oslash</strong> = 248</dl>
+
+<dl><dt><strong>Key_otilde</strong> = 245</dl>
+
+<dl><dt><strong>Key_paragraph</strong> = 182</dl>
+
+<dl><dt><strong>Key_periodcentered</strong> = 183</dl>
+
+<dl><dt><strong>Key_plusminus</strong> = 177</dl>
+
+<dl><dt><strong>Key_questiondown</strong> = 191</dl>
+
+<dl><dt><strong>Key_registered</strong> = 174</dl>
+
+<dl><dt><strong>Key_section</strong> = 167</dl>
+
+<dl><dt><strong>Key_ssharp</strong> = 223</dl>
+
+<dl><dt><strong>Key_sterling</strong> = 163</dl>
+
+<dl><dt><strong>Key_thorn</strong> = 254</dl>
+
+<dl><dt><strong>Key_threequarters</strong> = 190</dl>
+
+<dl><dt><strong>Key_threesuperior</strong> = 179</dl>
+
+<dl><dt><strong>Key_twosuperior</strong> = 178</dl>
+
+<dl><dt><strong>Key_uacute</strong> = 250</dl>
+
+<dl><dt><strong>Key_ucircumflex</strong> = 251</dl>
+
+<dl><dt><strong>Key_udiaeresis</strong> = 252</dl>
+
+<dl><dt><strong>Key_ugrave</strong> = 249</dl>
+
+<dl><dt><strong>Key_unknown</strong> = 65535</dl>
+
+<dl><dt><strong>Key_yacute</strong> = 253</dl>
+
+<dl><dt><strong>Key_ydiaeresis</strong> = 255</dl>
+
+<dl><dt><strong>Key_yen</strong> = 165</dl>
+
+<dl><dt><strong>Keypad</strong> = 16384</dl>
+
+<dl><dt><strong>LastCursor</strong> = 15</dl>
+
+<dl><dt><strong>LastROP</strong> = 15</dl>
+
+<dl><dt><strong>LeftArrow</strong> = 2</dl>
+
+<dl><dt><strong>LeftButton</strong> = 1</dl>
+
+<dl><dt><strong>LocalDate</strong> = 2</dl>
+
+<dl><dt><strong>LocalTime</strong> = 0</dl>
+
+<dl><dt><strong>LogText</strong> = 3</dl>
+
+<dl><dt><strong>META</strong> = 1048576</dl>
+
+<dl><dt><strong>MODIFIER_MASK</strong> = 15728640</dl>
+
+<dl><dt><strong>MPenCapStyle</strong> = 48</dl>
+
+<dl><dt><strong>MPenJoinStyle</strong> = 192</dl>
+
+<dl><dt><strong>MPenStyle</strong> = 15</dl>
+
+<dl><dt><strong>MetaButton</strong> = 2048</dl>
+
+<dl><dt><strong>MidButton</strong> = 4</dl>
+
+<dl><dt><strong>MiterJoin</strong> = 0</dl>
+
+<dl><dt><strong>MonoOnly</strong> = 2</dl>
+
+<dl><dt><strong>MotifStyle</strong> = 4</dl>
+
+<dl><dt><strong>MouseButtonMask</strong> = 7</dl>
+
+<dl><dt><strong>NandROP</strong> = 14</dl>
+
+<dl><dt><strong>NoAccel</strong> = 16384</dl>
+
+<dl><dt><strong>NoBackground</strong> = 2</dl>
+
+<dl><dt><strong>NoBrush</strong> = 0</dl>
+
+<dl><dt><strong>NoButton</strong> = 0</dl>
+
+<dl><dt><strong>NoMatch</strong> = 0</dl>
+
+<dl><dt><strong>NoPen</strong> = 0</dl>
+
+<dl><dt><strong>NopROP</strong> = 11</dl>
+
+<dl><dt><strong>NorROP</strong> = 15</dl>
+
+<dl><dt><strong>NotAndROP</strong> = 3</dl>
+
+<dl><dt><strong>NotCopyROP</strong> = 4</dl>
+
+<dl><dt><strong>NotEraseROP</strong> = 7</dl>
+
+<dl><dt><strong>NotOrROP</strong> = 5</dl>
+
+<dl><dt><strong>NotROP</strong> = 8</dl>
+
+<dl><dt><strong>NotXorROP</strong> = 6</dl>
+
+<dl><dt><strong>OpaqueMode</strong> = 1</dl>
+
+<dl><dt><strong>OrNotROP</strong> = 13</dl>
+
+<dl><dt><strong>OrROP</strong> = 1</dl>
+
+<dl><dt><strong>OrderedAlphaDither</strong> = 4</dl>
+
+<dl><dt><strong>OrderedDither</strong> = 16</dl>
+
+<dl><dt><strong>PaletteBackground</strong> = 12</dl>
+
+<dl><dt><strong>PaletteBase</strong> = 11</dl>
+
+<dl><dt><strong>PaletteBrightText</strong> = 10</dl>
+
+<dl><dt><strong>PaletteButton</strong> = 4</dl>
+
+<dl><dt><strong>PaletteButtonText</strong> = 16</dl>
+
+<dl><dt><strong>PaletteDark</strong> = 7</dl>
+
+<dl><dt><strong>PaletteForeground</strong> = 3</dl>
+
+<dl><dt><strong>PaletteHighlight</strong> = 14</dl>
+
+<dl><dt><strong>PaletteHighlightedText</strong> = 15</dl>
+
+<dl><dt><strong>PaletteLight</strong> = 5</dl>
+
+<dl><dt><strong>PaletteLink</strong> = 17</dl>
+
+<dl><dt><strong>PaletteLinkVisited</strong> = 18</dl>
+
+<dl><dt><strong>PaletteMid</strong> = 8</dl>
+
+<dl><dt><strong>PaletteMidlight</strong> = 6</dl>
+
+<dl><dt><strong>PaletteShadow</strong> = 13</dl>
+
+<dl><dt><strong>PaletteText</strong> = 9</dl>
+
+<dl><dt><strong>PartialMatch</strong> = 1</dl>
+
+<dl><dt><strong>PlainText</strong> = 0</dl>
+
+<dl><dt><strong>PointingHandCursor</strong> = 13</dl>
+
+<dl><dt><strong>PreferDither</strong> = 64</dl>
+
+<dl><dt><strong>RichText</strong> = 1</dl>
+
+<dl><dt><strong>RightArrow</strong> = 3</dl>
+
+<dl><dt><strong>RightButton</strong> = 2</dl>
+
+<dl><dt><strong>RoundCap</strong> = 32</dl>
+
+<dl><dt><strong>RoundJoin</strong> = 128</dl>
+
+<dl><dt><strong>SHIFT</strong> = 2097152</dl>
+
+<dl><dt><strong>SetROP</strong> = 10</dl>
+
+<dl><dt><strong>ShiftButton</strong> = 256</dl>
+
+<dl><dt><strong>ShowPrefix</strong> = 1024</dl>
+
+<dl><dt><strong>SingleLine</strong> = 128</dl>
+
+<dl><dt><strong>SizeAllCursor</strong> = 9</dl>
+
+<dl><dt><strong>SizeBDiagCursor</strong> = 7</dl>
+
+<dl><dt><strong>SizeFDiagCursor</strong> = 8</dl>
+
+<dl><dt><strong>SizeHorCursor</strong> = 6</dl>
+
+<dl><dt><strong>SizeVerCursor</strong> = 5</dl>
+
+<dl><dt><strong>SolidLine</strong> = 1</dl>
+
+<dl><dt><strong>SolidPattern</strong> = 1</dl>
+
+<dl><dt><strong>SplitHCursor</strong> = 12</dl>
+
+<dl><dt><strong>SplitVCursor</strong> = 11</dl>
+
+<dl><dt><strong>SquareCap</strong> = 16</dl>
+
+<dl><dt><strong>TextDate</strong> = 0</dl>
+
+<dl><dt><strong>ThresholdAlphaDither</strong> = 0</dl>
+
+<dl><dt><strong>ThresholdDither</strong> = 32</dl>
+
+<dl><dt><strong>TransparentMode</strong> = 0</dl>
+
+<dl><dt><strong>UI_AnimateCombo</strong> = 3</dl>
+
+<dl><dt><strong>UI_AnimateMenu</strong> = 1</dl>
+
+<dl><dt><strong>UI_AnimateTooltip</strong> = 4</dl>
+
+<dl><dt><strong>UI_FadeMenu</strong> = 2</dl>
+
+<dl><dt><strong>UI_FadeTooltip</strong> = 5</dl>
+
+<dl><dt><strong>UI_General</strong> = 0</dl>
+
+<dl><dt><strong>UNICODE_ACCEL</strong> = 268435456</dl>
+
+<dl><dt><strong>UTC</strong> = 1</dl>
+
+<dl><dt><strong>UpArrow</strong> = 0</dl>
+
+<dl><dt><strong>UpArrowCursor</strong> = 1</dl>
+
+<dl><dt><strong>VerPattern</strong> = 10</dl>
+
+<dl><dt><strong>Vertical</strong> = 1</dl>
+
+<dl><dt><strong>WDestructiveClose</strong> = 65536</dl>
+
+<dl><dt><strong>WGroupLeader</strong> = 33554432</dl>
+
+<dl><dt><strong>WMouseNoMask</strong> = 2097152</dl>
+
+<dl><dt><strong>WNoMousePropagation</strong> = 134217728</dl>
+
+<dl><dt><strong>WPaintClever</strong> = 524288</dl>
+
+<dl><dt><strong>WPaintDesktop</strong> = 131072</dl>
+
+<dl><dt><strong>WPaintUnclipped</strong> = 262144</dl>
+
+<dl><dt><strong>WRepaintNoErase</strong> = 8388608</dl>
+
+<dl><dt><strong>WResizeNoErase</strong> = 1048576</dl>
+
+<dl><dt><strong>WShowModal</strong> = 67108864</dl>
+
+<dl><dt><strong>WState_Polished</strong> = 8192</dl>
+
+<dl><dt><strong>WStaticContents</strong> = 4194304</dl>
+
+<dl><dt><strong>WStyle_ContextHelp</strong> = 16384</dl>
+
+<dl><dt><strong>WStyle_Customize</strong> = 16</dl>
+
+<dl><dt><strong>WStyle_DialogBorder</strong> = 64</dl>
+
+<dl><dt><strong>WStyle_Mask</strong> = 65520</dl>
+
+<dl><dt><strong>WStyle_Maximize</strong> = 1024</dl>
+
+<dl><dt><strong>WStyle_MinMax</strong> = 1536</dl>
+
+<dl><dt><strong>WStyle_Minimize</strong> = 512</dl>
+
+<dl><dt><strong>WStyle_NoBorder</strong> = 8192</dl>
+
+<dl><dt><strong>WStyle_NormalBorder</strong> = 32</dl>
+
+<dl><dt><strong>WStyle_Reserved</strong> = 32768</dl>
+
+<dl><dt><strong>WStyle_Splash</strong> = 16791552</dl>
+
+<dl><dt><strong>WStyle_StaysOnTop</strong> = 4096</dl>
+
+<dl><dt><strong>WStyle_SysMenu</strong> = 256</dl>
+
+<dl><dt><strong>WStyle_Title</strong> = 128</dl>
+
+<dl><dt><strong>WStyle_Tool</strong> = 2048</dl>
+
+<dl><dt><strong>WSubWindow</strong> = 268435456</dl>
+
+<dl><dt><strong>WType_Desktop</strong> = 8</dl>
+
+<dl><dt><strong>WType_Dialog</strong> = 2</dl>
+
+<dl><dt><strong>WType_Mask</strong> = 15</dl>
+
+<dl><dt><strong>WType_Popup</strong> = 4</dl>
+
+<dl><dt><strong>WType_TopLevel</strong> = 1</dl>
+
+<dl><dt><strong>WV_2000</strong> = 32</dl>
+
+<dl><dt><strong>WV_32s</strong> = 1</dl>
+
+<dl><dt><strong>WV_95</strong> = 2</dl>
+
+<dl><dt><strong>WV_98</strong> = 3</dl>
+
+<dl><dt><strong>WV_DOS_based</strong> = 15</dl>
+
+<dl><dt><strong>WV_Me</strong> = 4</dl>
+
+<dl><dt><strong>WV_NT</strong> = 16</dl>
+
+<dl><dt><strong>WV_NT_based</strong> = 240</dl>
+
+<dl><dt><strong>WV_XP</strong> = 48</dl>
+
+<dl><dt><strong>WWinOwnDC</strong> = 0</dl>
+
+<dl><dt><strong>WX11BypassWM</strong> = 16777216</dl>
+
+<dl><dt><strong>WaitCursor</strong> = 3</dl>
+
+<dl><dt><strong>WhatsThisCursor</strong> = 15</dl>
+
+<dl><dt><strong>WindowsStyle</strong> = 1</dl>
+
+<dl><dt><strong>WordBreak</strong> = 2048</dl>
+
+<dl><dt><strong>X11ParentRelative</strong> = 19</dl>
+
+<dl><dt><strong>XorROP</strong> = 2</dl>
+
+<dl><dt><strong>arrowCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>black</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>blankCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>blue</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>color0</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>color1</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>crossCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>cyan</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>darkBlue</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>darkCyan</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>darkGray</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>darkGreen</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>darkMagenta</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>darkRed</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>darkYellow</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>forbiddenCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>gray</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>green</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>ibeamCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>lightGray</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>magenta</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>pointingHandCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>red</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>sizeAllCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>sizeBDiagCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>sizeFDiagCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>sizeHorCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>sizeVerCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>splitHCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>splitVCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>upArrowCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>waitCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>whatsThisCursor</strong> = &lt;qt.QCursor instance&gt;</dl>
+
+<dl><dt><strong>white</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<dl><dt><strong>yellow</strong> = &lt;qt.QColor instance&gt;</dl>
+
+<hr>
+Data and other attributes inherited from <a href="qt.html#QPaintDevice">qt.QPaintDevice</a>:<br>
+<dl><dt><strong>PdcBegin</strong> = 30</dl>
+
+<dl><dt><strong>PdcDrawArc</strong> = 8</dl>
+
+<dl><dt><strong>PdcDrawChord</strong> = 10</dl>
+
+<dl><dt><strong>PdcDrawCubicBezier</strong> = 14</dl>
+
+<dl><dt><strong>PdcDrawEllipse</strong> = 7</dl>
+
+<dl><dt><strong>PdcDrawFirst</strong> = 1</dl>
+
+<dl><dt><strong>PdcDrawImage</strong> = 18</dl>
+
+<dl><dt><strong>PdcDrawLast</strong> = 20</dl>
+
+<dl><dt><strong>PdcDrawLine</strong> = 4</dl>
+
+<dl><dt><strong>PdcDrawLineSegments</strong> = 11</dl>
+
+<dl><dt><strong>PdcDrawPie</strong> = 9</dl>
+
+<dl><dt><strong>PdcDrawPixmap</strong> = 17</dl>
+
+<dl><dt><strong>PdcDrawPoint</strong> = 1</dl>
+
+<dl><dt><strong>PdcDrawPolygon</strong> = 13</dl>
+
+<dl><dt><strong>PdcDrawPolyline</strong> = 12</dl>
+
+<dl><dt><strong>PdcDrawRect</strong> = 5</dl>
+
+<dl><dt><strong>PdcDrawRoundRect</strong> = 6</dl>
+
+<dl><dt><strong>PdcDrawText</strong> = 15</dl>
+
+<dl><dt><strong>PdcDrawText2</strong> = 19</dl>
+
+<dl><dt><strong>PdcDrawText2Formatted</strong> = 20</dl>
+
+<dl><dt><strong>PdcDrawTextFormatted</strong> = 16</dl>
+
+<dl><dt><strong>PdcEnd</strong> = 31</dl>
+
+<dl><dt><strong>PdcLineTo</strong> = 3</dl>
+
+<dl><dt><strong>PdcMoveTo</strong> = 2</dl>
+
+<dl><dt><strong>PdcNOP</strong> = 0</dl>
+
+<dl><dt><strong>PdcReservedStart</strong> = 0</dl>
+
+<dl><dt><strong>PdcReservedStop</strong> = 199</dl>
+
+<dl><dt><strong>PdcRestore</strong> = 33</dl>
+
+<dl><dt><strong>PdcRestoreWMatrix</strong> = 57</dl>
+
+<dl><dt><strong>PdcSave</strong> = 32</dl>
+
+<dl><dt><strong>PdcSaveWMatrix</strong> = 56</dl>
+
+<dl><dt><strong>PdcSetBkColor</strong> = 40</dl>
+
+<dl><dt><strong>PdcSetBkMode</strong> = 41</dl>
+
+<dl><dt><strong>PdcSetBrush</strong> = 47</dl>
+
+<dl><dt><strong>PdcSetBrushOrigin</strong> = 43</dl>
+
+<dl><dt><strong>PdcSetClip</strong> = 60</dl>
+
+<dl><dt><strong>PdcSetClipRegion</strong> = 61</dl>
+
+<dl><dt><strong>PdcSetFont</strong> = 45</dl>
+
+<dl><dt><strong>PdcSetPen</strong> = 46</dl>
+
+<dl><dt><strong>PdcSetROP</strong> = 42</dl>
+
+<dl><dt><strong>PdcSetTabArray</strong> = 49</dl>
+
+<dl><dt><strong>PdcSetTabStops</strong> = 48</dl>
+
+<dl><dt><strong>PdcSetUnit</strong> = 50</dl>
+
+<dl><dt><strong>PdcSetVXform</strong> = 51</dl>
+
+<dl><dt><strong>PdcSetViewport</strong> = 53</dl>
+
+<dl><dt><strong>PdcSetWMatrix</strong> = 55</dl>
+
+<dl><dt><strong>PdcSetWXform</strong> = 54</dl>
+
+<dl><dt><strong>PdcSetWindow</strong> = 52</dl>
+
+<dl><dt><strong>PdcSetdev</strong> = 34</dl>
+
+<dl><dt><strong>devType</strong> = &lt;built-in function devType&gt;</dl>
+
+<dl><dt><strong>handle</strong> = &lt;built-in function handle&gt;</dl>
+
+<dl><dt><strong>isExtDev</strong> = &lt;built-in function isExtDev&gt;</dl>
+
+<dl><dt><strong>paintingActive</strong> = &lt;built-in function paintingActive&gt;</dl>
+
+<dl><dt><strong>resolution</strong> = &lt;built-in function resolution&gt;</dl>
+
+<dl><dt><strong>setResolution</strong> = &lt;built-in function setResolution&gt;</dl>
+
+<dl><dt><strong>x11AppCells</strong> = &lt;built-in function x11AppCells&gt;</dl>
+
+<dl><dt><strong>x11AppColormap</strong> = &lt;built-in function x11AppColormap&gt;</dl>
+
+<dl><dt><strong>x11AppDefaultColormap</strong> = &lt;built-in function x11AppDefaultColormap&gt;</dl>
+
+<dl><dt><strong>x11AppDefaultVisual</strong> = &lt;built-in function x11AppDefaultVisual&gt;</dl>
+
+<dl><dt><strong>x11AppDepth</strong> = &lt;built-in function x11AppDepth&gt;</dl>
+
+<dl><dt><strong>x11AppDisplay</strong> = &lt;built-in function x11AppDisplay&gt;</dl>
+
+<dl><dt><strong>x11AppDpiX</strong> = &lt;built-in function x11AppDpiX&gt;</dl>
+
+<dl><dt><strong>x11AppDpiY</strong> = &lt;built-in function x11AppDpiY&gt;</dl>
+
+<dl><dt><strong>x11AppRootWindow</strong> = &lt;built-in function x11AppRootWindow&gt;</dl>
+
+<dl><dt><strong>x11AppScreen</strong> = &lt;built-in function x11AppScreen&gt;</dl>
+
+<dl><dt><strong>x11AppVisual</strong> = &lt;built-in function x11AppVisual&gt;</dl>
+
+<dl><dt><strong>x11Cells</strong> = &lt;built-in function x11Cells&gt;</dl>
+
+<dl><dt><strong>x11Colormap</strong> = &lt;built-in function x11Colormap&gt;</dl>
+
+<dl><dt><strong>x11DefaultColormap</strong> = &lt;built-in function x11DefaultColormap&gt;</dl>
+
+<dl><dt><strong>x11DefaultVisual</strong> = &lt;built-in function x11DefaultVisual&gt;</dl>
+
+<dl><dt><strong>x11Depth</strong> = &lt;built-in function x11Depth&gt;</dl>
+
+<dl><dt><strong>x11Display</strong> = &lt;built-in function x11Display&gt;</dl>
+
+<dl><dt><strong>x11RenderHandle</strong> = &lt;built-in function x11RenderHandle&gt;</dl>
+
+<dl><dt><strong>x11Screen</strong> = &lt;built-in function x11Screen&gt;</dl>
+
+<dl><dt><strong>x11SetAppDpiX</strong> = &lt;built-in function x11SetAppDpiX&gt;</dl>
+
+<dl><dt><strong>x11SetAppDpiY</strong> = &lt;built-in function x11SetAppDpiY&gt;</dl>
+
+<dl><dt><strong>x11Visual</strong> = &lt;built-in function x11Visual&gt;</dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><a name="FigureCanvasQTAgg-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+button&nbsp;press.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
+button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
+button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-draw_cursor"><strong>draw_cursor</strong></a>(self, event)</dt><dd><tt>Draw&nbsp;a&nbsp;cursor&nbsp;in&nbsp;the&nbsp;event.axes&nbsp;if&nbsp;inaxes&nbsp;is&nbsp;not&nbsp;None.&nbsp;&nbsp;Use<br>
+native&nbsp;GUI&nbsp;drawing&nbsp;for&nbsp;efficiency&nbsp;if&nbsp;possible</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-key_press_event"><strong>key_press_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-key_release_event"><strong>key_release_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
+button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
+&nbsp;<br>
+&nbsp;&nbsp;def&nbsp;func(event)<br>
+&nbsp;<br>
+where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbsp;events&nbsp;are&nbsp;recognized<br>
+&nbsp;<br>
+&nbsp;'key_press_event'&nbsp;<br>
+&nbsp;'button_press_event'&nbsp;<br>
+&nbsp;'button_release_event'&nbsp;<br>
+&nbsp;'motion_notify_event'&nbsp;<br>
+&nbsp;<br>
+&nbsp;For&nbsp;the&nbsp;three&nbsp;events&nbsp;above,&nbsp;if&nbsp;the&nbsp;mouse&nbsp;is&nbsp;over&nbsp;the&nbsp;axes,<br>
+&nbsp;the&nbsp;variable&nbsp;event.inaxes&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;the&nbsp;axes&nbsp;it&nbsp;is&nbsp;over,<br>
+&nbsp;and&nbsp;additionally,&nbsp;the&nbsp;variables&nbsp;event.xdata&nbsp;and&nbsp;event.ydata<br>
+&nbsp;will&nbsp;be&nbsp;defined.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;mouse&nbsp;location&nbsp;in&nbsp;data&nbsp;coords.<br>
+&nbsp;See&nbsp;backend_bases.MplEvent.<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;a&nbsp;connection&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with<br>
+mpl_disconnect</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-mpl_disconnect"><strong>mpl_disconnect</strong></a>(self, cid)</dt><dd><tt>Connect&nbsp;s&nbsp;to&nbsp;func.&nbsp;return&nbsp;an&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect<br>
+Method&nbsp;should&nbsp;return&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-switch_backends"><strong>switch_backends</strong></a>(self, FigureCanvasClass)</dt><dd><tt>instantiate&nbsp;an&nbsp;instance&nbsp;of&nbsp;FigureCanvasClass<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;used&nbsp;for&nbsp;backend&nbsp;switching,&nbsp;eg,&nbsp;to&nbsp;instantiate&nbsp;a<br>
+FigureCanvasPS&nbsp;from&nbsp;a&nbsp;FigureCanvasGTK.&nbsp;&nbsp;Note,&nbsp;deep&nbsp;copying&nbsp;is<br>
+not&nbsp;done,&nbsp;so&nbsp;any&nbsp;changes&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;instances&nbsp;(eg,&nbsp;setting<br>
+figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected&nbsp;in&nbsp;the&nbsp;other</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><strong>events</strong> = ('key_press_event', 'key_release_event', 'button_press_event', 'button_release_event', 'motion_notify_event')</dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backends.backend_agg.html#FigureCanvasAgg">matplotlib.backends.backend_agg.FigureCanvasAgg</a>:<br>
+<dl><dt><a name="FigureCanvasQTAgg-buffer_rgba"><strong>buffer_rgba</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-get_renderer"><strong>get_renderer</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-tostring_argb"><strong>tostring_argb</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-tostring_rgb"><strong>tostring_rgb</strong></a>(self)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args, **kwargs)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>DEBUG</strong> = False<br>
+<strong>backend_version</strong> = '0.9'<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
+@footer@

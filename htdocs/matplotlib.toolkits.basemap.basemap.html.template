@@ -1,0 +1,224 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.toolkits.html"><font color="#ffffff">toolkits</font></a>.<a href="matplotlib.toolkits.basemap.html"><font color="#ffffff">basemap</font></a>.basemap</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/toolkits/basemap/basemap.py">/usr/local/lib/python2.3/site-packages/matplotlib/toolkits/basemap/basemap.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="MLab.html">MLab</a><br>
+<a href="numarray.html">numarray</a><br>
+</td><td width="25%" valign=top><a href="numarray.nd_image.html">numarray.nd_image</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.toolkits.basemap.basemap.html#Basemap">Basemap</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Basemap">class <strong>Basemap</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>&nbsp;Set&nbsp;up&nbsp;a&nbsp;basemap&nbsp;with&nbsp;a&nbsp;given&nbsp;map&nbsp;projection&nbsp;(cylindrical&nbsp;equidistant,<br>
+&nbsp;mercator,&nbsp;lambert&nbsp;conformal&nbsp;conic,&nbsp;lambert&nbsp;azimuthal&nbsp;equal&nbsp;area,<br>
+&nbsp;albers&nbsp;equal&nbsp;area&nbsp;conic&nbsp;and&nbsp;stereographic&nbsp;are&nbsp;currently&nbsp;available).<br>
+&nbsp;Doesn't&nbsp;actually&nbsp;draw&nbsp;anything,&nbsp;but&nbsp;sets&nbsp;up&nbsp;the&nbsp;map&nbsp;projection&nbsp;class&nbsp;and<br>
+&nbsp;creates&nbsp;the&nbsp;coastline&nbsp;and&nbsp;political&nbsp;boundary&nbsp;polygons&nbsp;in&nbsp;native&nbsp;map&nbsp;<br>
+&nbsp;projection&nbsp;coordinates.&nbsp;&nbsp;Requires&nbsp;matplotlib&nbsp;and&nbsp;numarray.<br>
+&nbsp;Uses&nbsp;a&nbsp;pyrex&nbsp;interface&nbsp;to&nbsp;C-code&nbsp;from&nbsp;proj.4&nbsp;(<a href="http://proj.maptools.org">http://proj.maptools.org</a>).<br>
+&nbsp;<br>
+&nbsp;Useful&nbsp;instance&nbsp;variables:<br>
+&nbsp;<br>
+&nbsp;projection&nbsp;-&nbsp;map&nbsp;projection&nbsp;('cyl','merc','lcc','aea','laea'&nbsp;or&nbsp;'stere')<br>
+&nbsp;aspect&nbsp;-&nbsp;map&nbsp;aspect&nbsp;ratio&nbsp;(size&nbsp;of&nbsp;y&nbsp;dimension&nbsp;/&nbsp;size&nbsp;of&nbsp;x&nbsp;dimension).<br>
+&nbsp;llcrnrlon&nbsp;-&nbsp;longitude&nbsp;of&nbsp;lower&nbsp;left&nbsp;hand&nbsp;corner&nbsp;of&nbsp;the&nbsp;desired&nbsp;map&nbsp;domain.<br>
+&nbsp;llcrnrlon&nbsp;-&nbsp;latitude&nbsp;of&nbsp;lower&nbsp;left&nbsp;hand&nbsp;corner&nbsp;of&nbsp;the&nbsp;desired&nbsp;map&nbsp;domain.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;urcrnrlon&nbsp;-&nbsp;longitude&nbsp;of&nbsp;upper&nbsp;right&nbsp;hand&nbsp;corner&nbsp;of&nbsp;the&nbsp;desired&nbsp;map&nbsp;domain.<br>
+&nbsp;urcrnrlon&nbsp;-&nbsp;latitude&nbsp;of&nbsp;upper&nbsp;right&nbsp;hand&nbsp;corner&nbsp;of&nbsp;the&nbsp;desired&nbsp;map&nbsp;domain.<br>
+&nbsp;llcrnrx,llcrnry,urcrnrx,urcrnry&nbsp;-&nbsp;corners&nbsp;of&nbsp;map&nbsp;domain&nbsp;in&nbsp;projection&nbsp;coordinates.<br>
+&nbsp;<br>
+&nbsp;Example&nbsp;Usage:<br>
+&nbsp;(this&nbsp;example&nbsp;plus&nbsp;others&nbsp;can&nbsp;be&nbsp;run&nbsp;by&nbsp;running&nbsp;test.py&nbsp;in&nbsp;the&nbsp;examples&nbsp;dir)<br>
+&nbsp;<br>
+&gt;&gt;&gt;&nbsp;from&nbsp;matplotlib.toolkits.basemap&nbsp;import&nbsp;<a href="#Basemap">Basemap</a><br>
+&gt;&gt;&gt;&nbsp;import&nbsp;cPickle<br>
+&gt;&gt;&gt;&nbsp;from&nbsp;pylab&nbsp;import&nbsp;*<br>
+&gt;&gt;&gt;&nbsp;#&nbsp;read&nbsp;in&nbsp;topo&nbsp;data&nbsp;from&nbsp;pickle&nbsp;(on&nbsp;a&nbsp;regular&nbsp;lat/lon&nbsp;grid)<br>
+&gt;&gt;&gt;&nbsp;topodict&nbsp;=&nbsp;cPickle.load(open('etopo20.pickle','rb'))<br>
+&gt;&gt;&gt;&nbsp;etopo&nbsp;=&nbsp;topodict['data'];&nbsp;lons&nbsp;=&nbsp;topodict['lons'];&nbsp;lats&nbsp;=&nbsp;topodict['lats']<br>
+&gt;&gt;&gt;&nbsp;m&nbsp;=&nbsp;<a href="#Basemap">Basemap</a>(lons[0],lats[0],lons[-1],lats[-1])<br>
+&gt;&gt;&gt;&nbsp;xsize&nbsp;=&nbsp;rcParams['figure.figsize'][0]<br>
+&gt;&gt;&gt;&nbsp;fig=figure(figsize=(xsize,m.aspect*xsize))<br>
+&gt;&gt;&gt;&nbsp;fig.add_axes([0.1,0.1,0.8,0.8])<br>
+&gt;&gt;&gt;&nbsp;im&nbsp;=&nbsp;imshow(etopo,extent=(m.llcrnrx,m.urcrnrx,m.llcrnry,m.urcrnry),origin='lower')<br>
+&gt;&gt;&gt;&nbsp;ax&nbsp;=&nbsp;gca()&nbsp;#&nbsp;get&nbsp;current&nbsp;axis&nbsp;instance<br>
+&gt;&gt;&gt;&nbsp;#&nbsp;draw&nbsp;coastlines&nbsp;and&nbsp;fill&nbsp;continents.<br>
+&gt;&gt;&gt;&nbsp;m.<a href="#Basemap-drawcoastlines">drawcoastlines</a>(ax)<br>
+&gt;&gt;&gt;&nbsp;m.<a href="#Basemap-fillcontinents">fillcontinents</a>(ax)<br>
+&gt;&gt;&gt;&nbsp;#&nbsp;draw&nbsp;parallels<br>
+&gt;&gt;&gt;&nbsp;circles&nbsp;=&nbsp;arange(-90.,120.,30.)<br>
+&gt;&gt;&gt;&nbsp;m.<a href="#Basemap-drawparallels">drawparallels</a>(ax,circles)<br>
+&gt;&gt;&gt;&nbsp;#&nbsp;draw&nbsp;meridians<br>
+&gt;&gt;&gt;&nbsp;meridians&nbsp;=&nbsp;arange(0.,390.,60.)<br>
+&gt;&gt;&gt;&nbsp;m.<a href="#Basemap-drawmeridians">drawmeridians</a>(ax,meridians)<br>
+&gt;&gt;&gt;&nbsp;ax.set_xticks([])&nbsp;#&nbsp;no&nbsp;ticks<br>
+&gt;&gt;&gt;&nbsp;ax.set_yticks([])<br>
+&gt;&gt;&gt;&nbsp;title('Cylindrical&nbsp;Equidistant')<br>
+&gt;&gt;&gt;&nbsp;show()<br>
+&nbsp;<br>
+&nbsp;Version:&nbsp;0.1&nbsp;(20050203)<br>
+&nbsp;Contact:&nbsp;Jeff&nbsp;Whitaker&nbsp;&lt;jeffrey.s.whitaker@noaa.gov&gt;<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Basemap-__call__"><strong>__call__</strong></a>(self, x, y, inverse<font color="#909090">=False</font>)</dt><dd><tt>Calling&nbsp;a&nbsp;<a href="#Basemap">Basemap</a>&nbsp;class&nbsp;instance&nbsp;with&nbsp;the&nbsp;arguments&nbsp;lon,&nbsp;lat&nbsp;will<br>
+convert&nbsp;lon/lat&nbsp;(in&nbsp;degrees)&nbsp;to&nbsp;x/y&nbsp;native&nbsp;map&nbsp;projection&nbsp;<br>
+coordinates&nbsp;(in&nbsp;meters).&nbsp;&nbsp;If&nbsp;optional&nbsp;keyword&nbsp;'inverse'&nbsp;is<br>
+True&nbsp;(default&nbsp;is&nbsp;False),&nbsp;the&nbsp;inverse&nbsp;transformation&nbsp;from&nbsp;x/y<br>
+to&nbsp;lon/lat&nbsp;is&nbsp;performed.<br>
+&nbsp;<br>
+For&nbsp;cylindrical&nbsp;equidistant&nbsp;projection&nbsp;('cyl'),&nbsp;this<br>
+does&nbsp;nothing&nbsp;(i.e.&nbsp;x,y&nbsp;==&nbsp;lon,lat).<br>
+&nbsp;<br>
+For&nbsp;mercator&nbsp;projection&nbsp;('merc'),&nbsp;x&nbsp;==&nbsp;lon,&nbsp;but&nbsp;y&nbsp;has&nbsp;units<br>
+of&nbsp;meters.<br>
+&nbsp;<br>
+lon,lat&nbsp;can&nbsp;be&nbsp;either&nbsp;scalar&nbsp;floats&nbsp;or&nbsp;N&nbsp;arrays.</tt></dd></dl>
+
+<dl><dt><a name="Basemap-__init__"><strong>__init__</strong></a>(self, llcrnrlon, llcrnrlat, urcrnrlon, urcrnrlat, resolution<font color="#909090">='c'</font>, area_thresh<font color="#909090">=10000.0</font>, projection<font color="#909090">='cyl'</font>, rsphere<font color="#909090">=6371009.0</font>, lat_ts<font color="#909090">=None</font>, lat_1<font color="#909090">=None</font>, lat_2<font color="#909090">=None</font>, lat_0<font color="#909090">=None</font>, lon_0<font color="#909090">=None</font>)</dt><dd><tt>create&nbsp;a&nbsp;<a href="#Basemap">Basemap</a>&nbsp;instance.<br>
+&nbsp;<br>
+mandatory&nbsp;input&nbsp;arguments:<br>
+&nbsp;<br>
+llcrnrlon&nbsp;-&nbsp;longitude&nbsp;of&nbsp;lower&nbsp;left&nbsp;hand&nbsp;corner&nbsp;of&nbsp;the&nbsp;desired&nbsp;map&nbsp;domain.<br>
+llcrnrlon&nbsp;-&nbsp;latitude&nbsp;of&nbsp;lower&nbsp;left&nbsp;hand&nbsp;corner&nbsp;of&nbsp;the&nbsp;desired&nbsp;map&nbsp;domain.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+urcrnrlon&nbsp;-&nbsp;longitude&nbsp;of&nbsp;upper&nbsp;right&nbsp;hand&nbsp;corner&nbsp;of&nbsp;the&nbsp;desired&nbsp;map&nbsp;domain.<br>
+urcrnrlon&nbsp;-&nbsp;latitude&nbsp;of&nbsp;upper&nbsp;right&nbsp;hand&nbsp;corner&nbsp;of&nbsp;the&nbsp;desired&nbsp;map&nbsp;domain.<br>
+&nbsp;<br>
+optional&nbsp;keyword&nbsp;parameters:<br>
+&nbsp;<br>
+resolution&nbsp;-&nbsp;resolution&nbsp;of&nbsp;coastline&nbsp;database&nbsp;to&nbsp;use.&nbsp;Can&nbsp;be&nbsp;'c'&nbsp;(crude,&nbsp;<br>
+&nbsp;roughly&nbsp;25&nbsp;km&nbsp;resolution)&nbsp;or&nbsp;'l'&nbsp;(low,&nbsp;roughly&nbsp;5&nbsp;km&nbsp;resolution).&nbsp;Default&nbsp;'c'.<br>
+&nbsp;Coastline&nbsp;data&nbsp;is&nbsp;from&nbsp;the&nbsp;GSHHS&nbsp;<br>
+&nbsp;(<a href="http://www.soest.hawaii.edu/wessel/gshhs/gshhs.html">http://www.soest.hawaii.edu/wessel/gshhs/gshhs.html</a>).<br>
+area_thresh&nbsp;-&nbsp;coastline&nbsp;with&nbsp;an&nbsp;area&nbsp;smaller&nbsp;than&nbsp;area_thresh&nbsp;in&nbsp;km^2<br>
+&nbsp;will&nbsp;not&nbsp;be&nbsp;plotted.&nbsp;&nbsp;Default&nbsp;10,000.<br>
+projection&nbsp;-&nbsp;map&nbsp;projection.&nbsp;&nbsp;'cyl'&nbsp;-&nbsp;cylindrical&nbsp;equidistant,&nbsp;'merc'&nbsp;-<br>
+&nbsp;mercator,&nbsp;'lcc'&nbsp;-&nbsp;lambert&nbsp;conformal&nbsp;conic,&nbsp;'stere'&nbsp;-&nbsp;stereographic,<br>
+&nbsp;'aea'&nbsp;-&nbsp;albers&nbsp;equal&nbsp;area&nbsp;conic,&nbsp;and&nbsp;<br>
+&nbsp;'laea'&nbsp;-&nbsp;lambert&nbsp;azimuthal&nbsp;equal&nbsp;area&nbsp;currently&nbsp;available.&nbsp;&nbsp;Default&nbsp;'cyl'.<br>
+rsphere&nbsp;-&nbsp;radius&nbsp;of&nbsp;the&nbsp;sphere&nbsp;used&nbsp;to&nbsp;define&nbsp;map&nbsp;projection&nbsp;(default<br>
+&nbsp;6371009&nbsp;meters,&nbsp;close&nbsp;to&nbsp;the&nbsp;arithmetic&nbsp;mean&nbsp;radius&nbsp;of&nbsp;the&nbsp;earth).<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;parameters&nbsp;are&nbsp;map&nbsp;projection&nbsp;parameters&nbsp;which&nbsp;all&nbsp;default&nbsp;to&nbsp;<br>
+None.&nbsp;&nbsp;Not&nbsp;all&nbsp;parameters&nbsp;are&nbsp;used&nbsp;by&nbsp;all&nbsp;projections,&nbsp;some&nbsp;are&nbsp;ignored.<br>
+&nbsp;<br>
+lat_ts&nbsp;-&nbsp;latitude&nbsp;of&nbsp;natural&nbsp;origin&nbsp;(used&nbsp;for&nbsp;mercator&nbsp;and&nbsp;stereographic<br>
+&nbsp;projections).<br>
+lat_1&nbsp;-&nbsp;first&nbsp;standard&nbsp;parallel&nbsp;for&nbsp;lambert&nbsp;conformal&nbsp;and&nbsp;albers<br>
+&nbsp;equal&nbsp;area&nbsp;projections.<br>
+lat_2&nbsp;-&nbsp;second&nbsp;standard&nbsp;parallel&nbsp;for&nbsp;lambert&nbsp;conformal&nbsp;and&nbsp;albers<br>
+&nbsp;equal&nbsp;area&nbsp;projections.<br>
+lat_0&nbsp;-&nbsp;central&nbsp;latitude&nbsp;(y-axis&nbsp;origin)&nbsp;-&nbsp;used&nbsp;by&nbsp;stereographic&nbsp;and<br>
+&nbsp;lambert&nbsp;azimuthal&nbsp;projections).<br>
+lon_0&nbsp;-&nbsp;central&nbsp;meridian&nbsp;(x-axis&nbsp;origin&nbsp;-&nbsp;used&nbsp;by&nbsp;lambert&nbsp;conformal<br>
+&nbsp;and&nbsp;lambert&nbsp;azimuthal&nbsp;and&nbsp;stereographic&nbsp;projections).</tt></dd></dl>
+
+<dl><dt><a name="Basemap-drawcoastlines"><strong>drawcoastlines</strong></a>(self, ax, linewidth<font color="#909090">=1.0</font>, color<font color="#909090">='k'</font>, antialiased<font color="#909090">=1</font>)</dt><dd><tt>Draw&nbsp;coastlines.<br>
+&nbsp;<br>
+ax&nbsp;-&nbsp;current&nbsp;axis&nbsp;instance.<br>
+linewidth&nbsp;-&nbsp;coastline&nbsp;width&nbsp;(default&nbsp;1.)<br>
+color&nbsp;-&nbsp;coastline&nbsp;color&nbsp;(default&nbsp;black)<br>
+antialiased&nbsp;-&nbsp;antialiasing&nbsp;switch&nbsp;for&nbsp;coastlines&nbsp;(default&nbsp;True).</tt></dd></dl>
+
+<dl><dt><a name="Basemap-drawcountries"><strong>drawcountries</strong></a>(self, ax, linewidth<font color="#909090">=0.5</font>, color<font color="#909090">='k'</font>, antialiased<font color="#909090">=1</font>)</dt><dd><tt>Draw&nbsp;country&nbsp;boundaries.<br>
+&nbsp;<br>
+ax&nbsp;-&nbsp;current&nbsp;axis&nbsp;instance.<br>
+linewidth&nbsp;-&nbsp;country&nbsp;boundary&nbsp;line&nbsp;width&nbsp;(default&nbsp;0.5)<br>
+color&nbsp;-&nbsp;country&nbsp;boundary&nbsp;line&nbsp;color&nbsp;(default&nbsp;black)<br>
+antialiased&nbsp;-&nbsp;antialiasing&nbsp;switch&nbsp;for&nbsp;country&nbsp;boundaries&nbsp;(default&nbsp;True).</tt></dd></dl>
+
+<dl><dt><a name="Basemap-drawmeridians"><strong>drawmeridians</strong></a>(self, ax, meridians, color<font color="#909090">='k'</font>, linewidth<font color="#909090">=1.0</font>, linestyle<font color="#909090">='--'</font>, dashes<font color="#909090">=[1, 1]</font>)</dt><dd><tt>draw&nbsp;meridians&nbsp;(longitude&nbsp;lines).<br>
+&nbsp;<br>
+ax&nbsp;-&nbsp;current&nbsp;axis&nbsp;instance.<br>
+meridians&nbsp;-&nbsp;list&nbsp;containing&nbsp;longitude&nbsp;values&nbsp;to&nbsp;draw&nbsp;(in&nbsp;degrees).<br>
+color&nbsp;-&nbsp;color&nbsp;to&nbsp;draw&nbsp;meridians&nbsp;(default&nbsp;black).<br>
+linewidth&nbsp;-&nbsp;line&nbsp;width&nbsp;for&nbsp;meridians&nbsp;(default&nbsp;1.)<br>
+linestyle&nbsp;-&nbsp;line&nbsp;style&nbsp;for&nbsp;meridians&nbsp;(default&nbsp;'--',&nbsp;i.e.&nbsp;dashed).<br>
+dashes&nbsp;-&nbsp;dash&nbsp;pattern&nbsp;for&nbsp;meridians&nbsp;(default&nbsp;[1,1],&nbsp;i.e.&nbsp;1&nbsp;pixel&nbsp;on,<br>
+&nbsp;1&nbsp;pixel&nbsp;off).</tt></dd></dl>
+
+<dl><dt><a name="Basemap-drawparallels"><strong>drawparallels</strong></a>(self, ax, circles, color<font color="#909090">='k'</font>, linewidth<font color="#909090">=1.0</font>, linestyle<font color="#909090">='--'</font>, dashes<font color="#909090">=[1, 1]</font>)</dt><dd><tt>draw&nbsp;parallels&nbsp;(latitude&nbsp;lines).<br>
+&nbsp;<br>
+ax&nbsp;-&nbsp;current&nbsp;axis&nbsp;instance.<br>
+circles&nbsp;-&nbsp;list&nbsp;containing&nbsp;latitude&nbsp;values&nbsp;to&nbsp;draw&nbsp;(in&nbsp;degrees).<br>
+color&nbsp;-&nbsp;color&nbsp;to&nbsp;draw&nbsp;parallels&nbsp;(default&nbsp;black).<br>
+linewidth&nbsp;-&nbsp;line&nbsp;width&nbsp;for&nbsp;parallels&nbsp;(default&nbsp;1.)<br>
+linestyle&nbsp;-&nbsp;line&nbsp;style&nbsp;for&nbsp;parallels&nbsp;(default&nbsp;'--',&nbsp;i.e.&nbsp;dashed).<br>
+dashes&nbsp;-&nbsp;dash&nbsp;pattern&nbsp;for&nbsp;parallels&nbsp;(default&nbsp;[1,1],&nbsp;i.e.&nbsp;1&nbsp;pixel&nbsp;on,<br>
+&nbsp;1&nbsp;pixel&nbsp;off).</tt></dd></dl>
+
+<dl><dt><a name="Basemap-drawstates"><strong>drawstates</strong></a>(self, ax, linewidth<font color="#909090">=0.5</font>, color<font color="#909090">='k'</font>, antialiased<font color="#909090">=1</font>)</dt><dd><tt>Draw&nbsp;state&nbsp;boundaries&nbsp;in&nbsp;Americas.<br>
+&nbsp;<br>
+ax&nbsp;-&nbsp;current&nbsp;axis&nbsp;instance.<br>
+linewidth&nbsp;-&nbsp;state&nbsp;boundary&nbsp;line&nbsp;width&nbsp;(default&nbsp;0.5)<br>
+color&nbsp;-&nbsp;state&nbsp;boundary&nbsp;line&nbsp;color&nbsp;(default&nbsp;black)<br>
+antialiased&nbsp;-&nbsp;antialiasing&nbsp;switch&nbsp;for&nbsp;state&nbsp;boundaries&nbsp;(default&nbsp;True).</tt></dd></dl>
+
+<dl><dt><a name="Basemap-fillcontinents"><strong>fillcontinents</strong></a>(self, ax, color<font color="#909090">=0.80000000000000004</font>)</dt><dd><tt>Fill&nbsp;continents.<br>
+&nbsp;<br>
+ax&nbsp;-&nbsp;current&nbsp;axis&nbsp;instance.<br>
+color&nbsp;-&nbsp;color&nbsp;to&nbsp;fill&nbsp;continents&nbsp;(default&nbsp;gray).</tt></dd></dl>
+
+<dl><dt><a name="Basemap-makegrid"><strong>makegrid</strong></a>(self, nx, ny)</dt><dd><tt>return&nbsp;arrays&nbsp;of&nbsp;shape&nbsp;(ny,nx)&nbsp;containing&nbsp;lon,lat&nbsp;coordinates&nbsp;of<br>
+an&nbsp;equally&nbsp;spaced&nbsp;native&nbsp;projection&nbsp;grid.</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-interp"><strong>interp</strong></a>(datain, lonsin, latsin, lonsout, latsout, checkbounds<font color="#909090">=False</font>, mode<font color="#909090">='nearest'</font>, cval<font color="#909090">=0.0</font>, order<font color="#909090">=3</font>)</dt><dd><tt>dataout&nbsp;=&nbsp;<a href="#-interp">interp</a>(datain,lonsin,latsin,lonsout,latsout,mode='constant',cval=0.0,order=3)<br>
+&nbsp;<br>
+interpolate&nbsp;data&nbsp;(datain)&nbsp;on&nbsp;a&nbsp;regularly&nbsp;spaced&nbsp;lat/lon&nbsp;grid&nbsp;(with&nbsp;lons=lonsin<br>
+lats=latsin)&nbsp;to&nbsp;a&nbsp;grid&nbsp;with&nbsp;lons=lonsout,&nbsp;lats=latsout.<br>
+&nbsp;<br>
+datain&nbsp;is&nbsp;a&nbsp;rank-2&nbsp;array&nbsp;with&nbsp;1st&nbsp;dimension&nbsp;corresponding&nbsp;to&nbsp;longitude,<br>
+2nd&nbsp;dimension&nbsp;latitude.<br>
+&nbsp;<br>
+lonsin,&nbsp;latsin&nbsp;are&nbsp;rank-1&nbsp;Numeric&nbsp;arrays&nbsp;containing&nbsp;longitudes&nbsp;and&nbsp;latitudes<br>
+of&nbsp;datain&nbsp;grid&nbsp;in&nbsp;increasing&nbsp;order&nbsp;(i.e.&nbsp;from&nbsp;Greenwich&nbsp;meridian&nbsp;eastward,&nbsp;and<br>
+South&nbsp;Pole&nbsp;northward)<br>
+&nbsp;<br>
+lonsout,&nbsp;latsout&nbsp;are&nbsp;rank-2&nbsp;Numeric&nbsp;arrays&nbsp;containing&nbsp;lons&nbsp;and&nbsp;lats&nbsp;out&nbsp;desired<br>
+output&nbsp;grid&nbsp;(typically&nbsp;a&nbsp;native&nbsp;map&nbsp;projection&nbsp;grid).<br>
+&nbsp;<br>
+If&nbsp;checkbounds=True,&nbsp;values&nbsp;of&nbsp;lonsout&nbsp;and&nbsp;latsout&nbsp;are&nbsp;checked&nbsp;to&nbsp;see&nbsp;that<br>
+they&nbsp;lie&nbsp;within&nbsp;the&nbsp;range&nbsp;specified&nbsp;by&nbsp;lonsin&nbsp;and&nbsp;latsing.&nbsp;&nbsp;Default&nbsp;is<br>
+False,&nbsp;and&nbsp;values&nbsp;outside&nbsp;the&nbsp;borders&nbsp;are&nbsp;handled&nbsp;in&nbsp;the&nbsp;manner&nbsp;described<br>
+by&nbsp;the&nbsp;'mode'&nbsp;parameter&nbsp;(default&nbsp;mode='nearest',&nbsp;which&nbsp;means&nbsp;the&nbsp;nearest<br>
+boundary&nbsp;value&nbsp;is&nbsp;used).&nbsp;See&nbsp;section&nbsp;20.2&nbsp;of&nbsp;the&nbsp;numarray&nbsp;docs&nbsp;for&nbsp;<br>
+information&nbsp;on&nbsp;the&nbsp;'mode'&nbsp;keyword.<br>
+&nbsp;<br>
+See&nbsp;numarray.nd_image.map_coordinates&nbsp;documentation&nbsp;for&nbsp;information&nbsp;on<br>
+the&nbsp;other&nbsp;optional&nbsp;keyword&nbsp;parameters.&nbsp;&nbsp;The&nbsp;order&nbsp;keyword&nbsp;can&nbsp;be&nbsp;0&nbsp;<br>
+for&nbsp;nearest&nbsp;neighbor&nbsp;interpolation&nbsp;(nd_image&nbsp;only&nbsp;allows&nbsp;1-6)&nbsp;-&nbsp;if<br>
+order=0&nbsp;bounds&nbsp;checking&nbsp;is&nbsp;done&nbsp;even&nbsp;if&nbsp;checkbounds=False.</tt></dd></dl>
+</td></tr></table>
+@footer@
