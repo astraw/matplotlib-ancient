@@ -1,0 +1,120 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.colors</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/colors.py">/matplotlib/colors.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;class&nbsp;for&nbsp;converting&nbsp;color&nbsp;arguments&nbsp;to&nbsp;RGB<br>
+&nbsp;<br>
+This&nbsp;class&nbsp;instantiates&nbsp;a&nbsp;single&nbsp;instance&nbsp;colorConverter&nbsp;that&nbsp;is&nbsp;used<br>
+to&nbsp;convert&nbsp;matlab&nbsp;color&nbsp;strings&nbsp;to&nbsp;RGB.&nbsp;&nbsp;RGB&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;float&nbsp;RGB<br>
+values&nbsp;in&nbsp;the&nbsp;range&nbsp;0-1.<br>
+&nbsp;<br>
+Commands&nbsp;which&nbsp;take&nbsp;color&nbsp;arguments&nbsp;can&nbsp;use&nbsp;several&nbsp;formats&nbsp;to&nbsp;specify<br>
+the&nbsp;colors.&nbsp;&nbsp;For&nbsp;the&nbsp;basic&nbsp;builtin&nbsp;colors,&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;single&nbsp;letter<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;&nbsp;:&nbsp;blue<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g&nbsp;&nbsp;:&nbsp;green<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;&nbsp;:&nbsp;red<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;&nbsp;:&nbsp;cyan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;&nbsp;:&nbsp;magenta<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;&nbsp;:&nbsp;yellow<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;&nbsp;:&nbsp;black&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;w&nbsp;&nbsp;:&nbsp;white<br>
+&nbsp;<br>
+&nbsp;<br>
+For&nbsp;a&nbsp;greater&nbsp;range&nbsp;of&nbsp;colors,&nbsp;you&nbsp;have&nbsp;two&nbsp;options.&nbsp;&nbsp;You&nbsp;can&nbsp;specify<br>
+the&nbsp;color&nbsp;using&nbsp;an&nbsp;html&nbsp;hex&nbsp;string,&nbsp;as&nbsp;in<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;=&nbsp;'#eeefff'<br>
+&nbsp;<br>
+or&nbsp;you&nbsp;can&nbsp;pass&nbsp;an&nbsp;R,G,B&nbsp;tuple,&nbsp;where&nbsp;each&nbsp;of&nbsp;R,G,B&nbsp;are&nbsp;in&nbsp;the&nbsp;range<br>
+[0,1].</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.colors.html#ColorConverter">ColorConverter</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.colors.html#Colormap">Colormap</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.colors.html#ColormapJet">ColormapJet</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ColorConverter">class <strong>ColorConverter</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ColorConverter-to_rgb"><strong>to_rgb</strong></a>(self, arg)</dt><dd><tt>returns&nbsp;a&nbsp;tuple&nbsp;of&nbsp;three&nbsp;floats&nbsp;from&nbsp;0-1.&nbsp;&nbsp;arg&nbsp;can&nbsp;be&nbsp;a&nbsp;matlab<br>
+format&nbsp;string,&nbsp;a&nbsp;html&nbsp;hex&nbsp;color&nbsp;string,&nbsp;an&nbsp;rgb&nbsp;tuple,&nbsp;or&nbsp;a<br>
+float&nbsp;between&nbsp;0&nbsp;and&nbsp;1.&nbsp;&nbsp;In&nbsp;the&nbsp;latter&nbsp;case,&nbsp;grayscale&nbsp;is&nbsp;used</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>cache</strong> = {}</dl>
+
+<dl><dt><strong>colors</strong> = {'b': (0.0, 0.0, 1.0), 'c': (0.0, 0.75, 0.75), 'g': (0.0, 0.5, 0.0), 'k': (0.0, 0.0, 0.0), 'm': (0.75, 0, 0.75), 'r': (1.0, 0.0, 0.0), 'w': (1.0, 1.0, 1.0), 'y': (0.75, 0.75, 0)}</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Colormap">class <strong>Colormap</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Colormap-__init__"><strong>__init__</strong></a>(self, N<font color="#909090">=256</font>, color<font color="#909090">='jet'</font>)</dt></dl>
+
+<dl><dt><a name="Colormap-get_color"><strong>get_color</strong></a>(self, val, valmin, valmax)</dt></dl>
+
+<dl><dt><a name="Colormap-get_colors"><strong>get_colors</strong></a>(self, vals, valmin<font color="#909090">=None</font>, valmax<font color="#909090">=None</font>)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ColormapJet">class <strong>ColormapJet</strong></a>(<a href="matplotlib.colors.html#Colormap">Colormap</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods inherited from <a href="matplotlib.colors.html#Colormap">Colormap</a>:<br>
+<dl><dt><a name="ColormapJet-__init__"><strong>__init__</strong></a>(self, N<font color="#909090">=256</font>, color<font color="#909090">='jet'</font>)</dt></dl>
+
+<dl><dt><a name="ColormapJet-get_color"><strong>get_color</strong></a>(self, val, valmin, valmax)</dt></dl>
+
+<dl><dt><a name="ColormapJet-get_colors"><strong>get_colors</strong></a>(self, vals, valmin<font color="#909090">=None</font>, valmax<font color="#909090">=None</font>)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
+&nbsp;<br>
+&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
+specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
+ <dl><dt><a name="-hex2color"><strong>hex2color</strong></a>(s)</dt><dd><tt>Convert&nbsp;hex&nbsp;string&nbsp;(like&nbsp;html&nbsp;uses,&nbsp;eg,&nbsp;#efefef)&nbsp;to&nbsp;a&nbsp;r,g,b&nbsp;tuple</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>False</strong> = False<br>
+<strong>Float</strong> = 'd'<br>
+<strong>True</strong> = True<br>
+<strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
+@footer@
