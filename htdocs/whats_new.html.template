@@ -31,7 +31,7 @@ see <a
 href=examples/image_origin.py>image_origin.py</a>
 """),
 
-    ('support for py2exe', 'see <py2exe_examples.zip>py2exe_examples.zip</a>'),
+    ('support for py2exe', 'see <a href=py2exe_examples.zip>py2exe_examples.zip</a>'),
 
     ('new matplotlib.matlab command rc', """\
 Use <a href=matplotlib.matlab.html#-rc>rc</a> for dynamic control of rc

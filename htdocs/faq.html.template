@@ -165,28 +165,15 @@ py2exe wiki entry</a>.
 """),
 
     ('CUSTOM',
-    'How do I customize the default behavior of a single session?',
+    'How do I dynamically change the rc defaults?',
     r"""
 If you want to customize a session of matplotlib, eg, the default font,
-linewidth, fontsize, etc, you can import and customize the rcParams
-determined by the matplotlibrc file (see above).  For example, if you
-are using mathtext you may want your default axes labels, tick labels
-etc, to be in the same font as mathtext roman.  <it>You must import
-and customize the rcParams before importing anything else from
-matplotlib</it>
+linewidth, fontsize, etc, use the <a
+href=matplotlib.matlab.html#-rc>rc</a> command.  This changes the
+default for the rest of the session, or until you issue another rc
+command.  See <a examples/customize_rc.py>customize_rc.py</a> for
+example usage."""),
 
-<pre>
-from matplotlib import rcParams
-# default font is computer modern roman and linewidth is 1.0
-rcParams['text.fontname']   = 'cmr10'
-rcParams['lines.linewidth'] = 2.0
-
-from matplotlib.matlab import *
-plot([1,2,3])
-title(r'$\rm{Histogram of IQ:} \mu=100, \sigma=15$')
-show()
-</pre>
-"""),
 	
     ('GTKPATH',
     'I cannot import gtk / gdk / gobject',
@@ -347,11 +334,12 @@ See <a href=fonts.html#TTFFONTS>ttf fonts</a> for more information.
     ('SHOW',
      "What's up with 'show'?  Do I have to use it?",
      """
-The use of show is probably the biggest source of confusion and
-vexation among new users of matplotlib.  First of all, you do not
-need this function with the image backends (Agg, Paint, GD, PS) but you do
-need it with the GUI (GTK, WX, TkAgg, GTKAgg) backends, unless you are running
-matplotlib in <a href=interactive.html>interactive mode</a>.  <p>
+
+
+You do not need this function with the image backends (Agg, Paint, GD,
+PS) but you do need it with the GUI (GTK, WX, TkAgg, GTKAgg) backends,
+unless you are running matplotlib in <a
+href=interactive.html>interactive mode</a>.  <p>
 
 Because it is expensive to draw, I want to avoid redrawing the figure
 many times in a batch script such as the following<p>
@@ -373,7 +361,11 @@ all done issuing commands and you want to draw the figure now.  In the
 TkAgg backend, which can be used from an arbitrary python shell
 interactively, it also sets interactive mode.  So you can launch your
 script with <tt>python -i myscript.py -dTkAgg</tt> and then change it
-interactively from the shell."""),
+interactively from the shell.
+
+<b>IMPORTANT: show should called at most once per script.  If you want
+to force a figure draw, use <a
+href=matplotlib.matlab.html#-draw>draw</a> instead.</b> """),
  
     ('PSGUI',
      'Can I save PS/EPS from a GUI backend?',
