@@ -11,12 +11,11 @@ If these dependencies are satisfied, just do the usual thing:<p>
 
 I have installed and tested this on several linux and win32 platforms,
 but it should run anywhere that python and Numeric run.  The
-differnent output devices have different requirements.  See <a
-href=backends.html>matplotlib outputs</a>.
+differnent output devices have different requirements.  
 
 Below is a quickguide to what you'll need to get matplotlib up and
 running with the GTK backend.  For more specific information regarding
-a particular output device (GTK, PS, GD or WX), see See <a
+a particular output device (GTK, PS, GD or WX), see <a
 href=backends.html>matplotlib outputs</a>.
 
 <h2> Win 32 Quickstart for GTK backend</h2>
@@ -57,16 +56,11 @@ installed.  Don't assume that because you are running redhat 9 that
 you have the latest libs.  Redhat 8 and 9 come with the GNOME2, but
 you will still need to upgrade to at least pygtk-1.99.16.  The latest
 version (currently 2.0.0) is recommened.  I don't have specific
-information about the other linux distributions.  Debian users consult <a href=backends.html#Debian>matplotlib outputs</a>
+information about the other linux distributions.  Debian users consult
+<a href=backends.html#Debian>matplotlib outputs</a>
 
-<li>For PS output, the only requirement is python2.3 and Numeric</li>
-<li>For GD output, see <a href=backends.html>matplotlib outputs</a></li>
-
-<li> Install matplotlib python setup.py install</li>
 
 </ul> 
 
-See <a href=backends.html>matplotlib outputs</a> for some debian
-specific information.
 
 @footer@

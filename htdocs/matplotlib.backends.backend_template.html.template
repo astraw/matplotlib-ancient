@@ -339,6 +339,9 @@ renderer&nbsp;if&nbsp;neccessary</tt></dd></dl>
 <dl><dt><a name="FigureTemplate-realize"><strong>realize</strong></a>(self, *args)</dt><dd><tt>This&nbsp;method&nbsp;will&nbsp;be&nbsp;called&nbsp;when&nbsp;the&nbsp;system&nbsp;is&nbsp;ready&nbsp;to&nbsp;draw,<br>
 eg&nbsp;when&nbsp;a&nbsp;GUI&nbsp;window&nbsp;is&nbsp;realized</tt></dd></dl>
 
+<dl><dt><a name="FigureTemplate-text"><strong>text</strong></a>(self, x, y, s, *args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
+the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
+
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureBase">matplotlib.backend_bases.FigureBase</a>:<br>
 <dl><dt><a name="FigureTemplate-add_axis"><strong>add_axis</strong></a>(self, a)</dt></dl>
@@ -346,9 +349,6 @@ Methods inherited from <a href="matplotlib.backend_bases.html#FigureBase">matplo
 <dl><dt><a name="FigureTemplate-clear"><strong>clear</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="FigureTemplate-get_axes"><strong>get_axes</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="FigureTemplate-text"><strong>text</strong></a>(self, x, y, s, *args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
-the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -419,6 +419,9 @@ renderer&nbsp;if&nbsp;neccessary</tt></dd></dl>
 <dl><dt><a name="FigureTemplate-realize"><strong>realize</strong></a>(self, *args)</dt><dd><tt>This&nbsp;method&nbsp;will&nbsp;be&nbsp;called&nbsp;when&nbsp;the&nbsp;system&nbsp;is&nbsp;ready&nbsp;to&nbsp;draw,<br>
 eg&nbsp;when&nbsp;a&nbsp;GUI&nbsp;window&nbsp;is&nbsp;realized</tt></dd></dl>
 
+<dl><dt><a name="FigureTemplate-text"><strong>text</strong></a>(self, x, y, s, *args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
+the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
+
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureBase">matplotlib.backend_bases.FigureBase</a>:<br>
 <dl><dt><a name="FigureTemplate-add_axis"><strong>add_axis</strong></a>(self, a)</dt></dl>
@@ -426,9 +429,6 @@ Methods inherited from <a href="matplotlib.backend_bases.html#FigureBase">matplo
 <dl><dt><a name="FigureTemplate-clear"><strong>clear</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="FigureTemplate-get_axes"><strong>get_axes</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="FigureTemplate-text"><strong>text</strong></a>(self, x, y, s, *args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
-the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -473,6 +473,9 @@ Default&nbsp;value&nbsp;is&nbsp;None</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextTemplate-get_joinstyle"><strong>get_joinstyle</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;line&nbsp;join&nbsp;style&nbsp;as&nbsp;one&nbsp;of&nbsp;('miter',&nbsp;'round',&nbsp;'bevel')</tt></dd></dl>
 
+<dl><dt><a name="GraphicsContextTemplate-get_linestyle"><strong>get_linestyle</strong></a>(self, style)</dt><dd><tt>Return&nbsp;the&nbsp;linestyle:&nbsp;one&nbsp;of&nbsp;('solid',&nbsp;'dashed',&nbsp;'dashdot',<br>
+'dotted').</tt></dd></dl>
+
 <dl><dt><a name="GraphicsContextTemplate-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;line&nbsp;width&nbsp;in&nbsp;points&nbsp;as&nbsp;a&nbsp;scalar</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextTemplate-get_rgb"><strong>get_rgb</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;tuple&nbsp;of&nbsp;three&nbsp;floats&nbsp;from&nbsp;0-1.&nbsp;&nbsp;color&nbsp;can&nbsp;be&nbsp;a<br>
@@ -493,6 +496,9 @@ and&nbsp;1.&nbsp;&nbsp;In&nbsp;the&nbsp;latter&nbsp;case,&nbsp;grayscale&nbsp;is
 <dl><dt><a name="GraphicsContextTemplate-set_graylevel"><strong>set_graylevel</strong></a>(self, frac)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color&nbsp;to&nbsp;be&nbsp;a&nbsp;gray&nbsp;level&nbsp;with&nbsp;frac&nbsp;frac</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextTemplate-set_joinstyle"><strong>set_joinstyle</strong></a>(self, js)</dt><dd><tt>Set&nbsp;the&nbsp;join&nbsp;style&nbsp;to&nbsp;be&nbsp;one&nbsp;of&nbsp;('miter',&nbsp;'round',&nbsp;'bevel')</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextTemplate-set_linestyle"><strong>set_linestyle</strong></a>(self, style)</dt><dd><tt>Set&nbsp;the&nbsp;linestyle&nbsp;to&nbsp;be&nbsp;one&nbsp;of&nbsp;('solid',&nbsp;'dashed',&nbsp;'dashdot',<br>
+'dotted').</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextTemplate-set_linewidth"><strong>set_linewidth</strong></a>(self, w)</dt><dd><tt>Set&nbsp;the&nbsp;linewidth&nbsp;in&nbsp;points</tt></dd></dl>
 

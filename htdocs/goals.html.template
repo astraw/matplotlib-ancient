@@ -127,14 +127,12 @@ email me @myemail@ or the mailing list.<p>
     </td>
 
     <td @td_partial@> <a
-	href=matplotlib.matlab.html#-pcolor>pcolor</a> added.  See<a
+	href=matplotlib.matlab.html#-pcolor>pcolor</a> added.  See <a
 	href=screenshots.html#pcolor_demo>pcolor_demo</a> and <a
 	href=screenshots.html#mri_with_eeg>mri_with_eeg</a> for
 	screenshots and <a
 	href=examples/pcolor_demo.py>pcolor_demo.py</a> for some
-	example code.  On the list to do: contour.	
-    </td>
-</tr>
+	example code.  On the list to do: contour.  </td> </tr>
 
 
 <tr>
