@@ -3,4 +3,5 @@
 *.dvi
 *.log
 *.toc
+*.aux
 *.tex
