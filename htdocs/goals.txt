@@ -29,11 +29,12 @@ improvements appeared in <a href="whats_new.html#0.54-Enhanced_mathtext">matplot
 *******************
 Postscript support
 
-partial
+done
 
-The freetype engine was factorerd out of mathtext and replaced with an
-abstract font handler.  The framework for PS support is in place but
-there are some unresolved issues.
+Paul Barrett has completed the port of mathtext to postscript.  This
+work also includes the support of arbitrary truetype fonts in PS
+figures so text appears the same in agg and ps backends.
+
 
 *******************
 Parser fixes
@@ -51,7 +52,11 @@ not started
 *******************
 vertical rotation
 
-not started
+partialy done
+
+Jim Benson contributed a patch for vertical mathtext for *Agg, which
+was ported to backend_gtk.  porting of this to backend_ps remains.
+
 *******************
 sqrt overlines
 
@@ -70,7 +75,7 @@ Regular text
 *******************
 Relative font sizes
 
-not started
+done
 
 This will allow specification of a font size relative to
 an existing font rather than in absolute terms, which will 
@@ -166,10 +171,13 @@ not started
 *******************
 Map Projections
 
-not started
+some preliminary work
 
-Support standard map projections (e.g., Mercator) as
-well as allowing user-defined 2-D coordinate mappings.
+Support standard map projections (e.g., Mercator) as well as allowing
+user-defined 2-D coordinate mappings. Jeffrey Whittaker has been
+working on a cartographic project module for use with matplotlib.  See
+<a href=screenshots.html#plotmap>the plotmap demo</a>.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Axis autoranging and tick customization
 *******************
@@ -185,10 +193,15 @@ GUI Functionality
 *******************
 Generalized event handling framework
 
-uncertain
+partially done
 
-Provide a standard event handling framework that works
-with all GUI back-ends. Feasibility being studied.
+Provide a standard event handling framework that works with all GUI
+back-ends. Some basic event handling, GUI neutral, event handling is
+implemented with the <a
+href=matplotlib.backend_bases.html#FigureCanvas>FigureCanvas</a>
+methods mpl_connect and mpl_disconnect.  See, for example, <a href=examples/coords_demo.py>coords_demo.py</a>.
+
+
 *******************
 Cursor read function
 
@@ -276,7 +289,9 @@ not started
 *******************
 SVG backend
 
-not started
+Jared Wahlstrand wrote the SVG backend, which is in alpha.  Remaining
+is freetype font support, image support and mathtext.
+
 *******************
 Paint clipping problems
 

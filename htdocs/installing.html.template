@@ -114,15 +114,20 @@ Installation:
 
 <h2><a name=OSX>OS X</a></h2> 
 
-All of the backends run on OS X.  You will need to install freetype2
-via fink or from src.  You will also need the base libraries for a
-given backend.  Eg, if you want to run TkAgg, you will need a python
-with Tkinter; if you want to use WxAgg, install wxpython.  See <a
-href=backends.html>backends</a> for a more comprehensive discussion of
-the various backend requirements.  Edit setup.py to configure the
-backends you want to build and then do <tt>python setup.py build</tt>.
+All of the backends run on OS X.  You will need to install freetype2,
+libpng and zlib via fink or from src.  You will also need the base
+libraries for a given backend.  Eg, if you want to run TkAgg, you will
+need a python with Tkinter; if you want to use WxAgg, install
+wxpython.  See <a href=backends.html>backends</a> for a more
+comprehensive discussion of the various backend requirements.  Edit
+setup.py to configure the backends you want to build and then do
+<tt>python setup.py build</tt><p>.
 
 
+fink users should use Jeffrey Whitaker's <a
+href=http://fink.sourceforge.net/pdb/package.php/matplotlib-py23>fink
+distribution</a>, which supports the GTK, TkAgg, GTKAgg, PS, WX, WXAgg
+and Agg backends.
 
 
 @footer@
