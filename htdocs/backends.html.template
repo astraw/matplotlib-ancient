@@ -158,10 +158,8 @@ linux, win32 and OSX.<p>
 
 The <a href=http://antigrain.com>antigrain geometry</a> library is a
 platform independent library that provides efficient antialiased
-rendering with a vector model.  This is a sophisticated libary that we
-hope will provide the basis for more sophisticated drawing and image
-handling in future versions of matplotlib.  Because is doesn't depend
-on a GUI framework, it is suitable for use in web application servers
+rendering with a vector model.  Because it doesn't depend on a GUI
+framework, it is suitable for use in web application servers
 generating images for html inclusion or for generating images in batch
 scripts.  Agg can also be embedded in GUI applications, as in the
 GTKAgg and TkAgg backends -- see <tt>setup.py</tt><p>
@@ -175,7 +173,7 @@ setting BUILD_AGG.  See <a href=fonts.html#TTFFONTS>ttf fonts</a> for
 information about setting your paths to find your <tt>*.ttf</tt> font
 files.<p>
 
-<a name=GTKAgg><h3>GTK GUI with antigrain rendering</h3></a>
+<a name=GTKAgg><h3>GTKAgg: GTK GUI with antigrain rendering</h3></a>
 
 GTK has a very nice and portable widget set.  The gdk drawing
 commands, while fast, are somewhat limited.  To overcome this
