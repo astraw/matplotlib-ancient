@@ -102,6 +102,62 @@ to set everything from the default font, to the figure size, to the
 default line width.  See <a href=.matplotlibrc>.matplotlibrc</a> for a
 sample config file and information on how to use it.  """),
 
+    ('PY2EXE', 
+     'Can I freeze matplotlib with py2exe', 
+"""
+Yes.  I have successfully frozen example scripts using the TkAgg,
+GTKAgg and WxAgg backends.  One trick is to make sure that py2exe can
+find all the matplotlib data files.  Recent versions of matplotlib
+(0.54.3 and later) support py2exe by looking in the py2exe dist dir
+for a <tt>matplotlibdata</tt> subdir.  Thus if you're setup.py script looks
+like
+
+<pre>
+from distutils.core import setup
+import glob
+import py2exe
+
+data = glob.glob(r'C:\Python23\share\matplotlib\*')
+data.append(r'C:\Python23\share\matplotlib\.matplotlibrc')
+
+setup( console    = ["simple_plot.py"],
+       data_files = [("matplotlibdata", data)],
+      )
+
+</pre>
+
+You don't need anything special in your plotting script.  Eg, the
+following works fine with recent versions of py2exe
+
+<pre>
+from matplotlib.matlab import *
+plot([1,2,3])
+show()
+</pre>
+
+matplotlib should be able to find your matplotlib data directory.  You
+can still configure the defaults in
+<tt>dist/matplotlibdata/.matplotlibrc</tt> after the application has
+been frozen.<p>
+
+Note you may get warnings like "The following modules appear to be
+missing" but in general I have found these to be harmless for freezing
+matplotlib.<p>
+
+To freeze GTK or GTKAgg, you need to do a couple of extra things,
+including creating a <tt>setup.cfg</tt> file and copying the
+<tt>lib</tt> and <tt>etc</tt> subdirectories of yout GTK install tree
+to your py2exe dist subdir.  See the <tt>simple_plot_gtk</tt>
+subdirectory in the <a href=py2exe_examples.zip>py2exe examples</a>
+zip file.<p>
+
+If you want to reduce the size of your application by excluding
+certain backends, see the <a
+href=http://starship.python.net/crew/theller/moin.cgi/MatPlotLib>matplotlib
+py2exe wiki entry</a>.
+
+"""),
+
     ('CUSTOM',
     'How do I customize the default behavior of a single session?',
     r"""
@@ -136,9 +192,10 @@ likelihood in parentheses):
  <ul> 
 
  <li> You didn't set the path properly (95% of the time).
- <it>Solution:</it> <a
- href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.012.htp>pygtk
- FAQ entry</a></li>
+ <it>Solution:</it> Add the lib and bin subdirs of your GTK install
+ directory to your PATH.  See the <a
+ href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.002.htp>pygtk
+ FAQ entry</a> for one way to do this.</li>
 
  <li> You previously installed some other GTK app and one of libiconv
    / libgtk /libgdk is in your windows system dir and causing a
@@ -146,13 +203,13 @@ likelihood in parentheses):
 
  <li> You accidentally installed GTK-Development lib and not
    GTK-Runtime (1% of the time).  <it>Solution:</it> install the
-   runtime as described at <a
-   href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.012.htp>pygtk
-   FAQ entry</a>.  There is a long thread on the pygtk mailing list
-   where Cousing Stanley got his gtk corrupted; read <a
-   href=http://www.mail-archive.com/pygtk@daa.com.au/msg07324.html>this
-   thread</a>, which is filled with good advice.  
-  </ul>
+   runtime from <a href=http://prdownloads.sourceforge.net/gtk-win>
+   dropline</a>.</ul>
+
+There is a long thread on the pygtk mailing list where Cousing Stanley
+got his gtk corrupted; read <a
+href=http://www.mail-archive.com/pygtk@daa.com.au/msg07324.html>this
+thread</a>, which is filled with good troubleshooting advice.
 
 """ ),
 	

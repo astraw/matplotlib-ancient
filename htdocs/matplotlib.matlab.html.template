@@ -774,7 +774,24 @@ users<br>
 &nbsp;<br>
 Thus&nbsp;you&nbsp;could&nbsp;abbreviate&nbsp;the&nbsp;above&nbsp;rc&nbsp;command&nbsp;as<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-rc">rc</a>('l',&nbsp;lw=2,&nbsp;c='r')</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-rc">rc</a>('l',&nbsp;lw=2,&nbsp;c='r')<br>
+&nbsp;<br>
+&nbsp;<br>
+Note&nbsp;you&nbsp;can&nbsp;use&nbsp;python's&nbsp;kwargs&nbsp;dictionary&nbsp;facility&nbsp;to&nbsp;store<br>
+dictionaries&nbsp;of&nbsp;default&nbsp;parameters.&nbsp;&nbsp;Eg,&nbsp;you&nbsp;can&nbsp;customize&nbsp;the<br>
+font&nbsp;rc&nbsp;as&nbsp;follows<br>
+&nbsp;<br>
+&nbsp;&nbsp;font&nbsp;=&nbsp;{'family'&nbsp;:&nbsp;'monospace',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'weight'&nbsp;:&nbsp;'bold',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'size'&nbsp;&nbsp;&nbsp;:&nbsp;'larger',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#-rc">rc</a>('font',&nbsp;**font)&nbsp;&nbsp;#&nbsp;pass&nbsp;in&nbsp;the&nbsp;font&nbsp;dict&nbsp;as&nbsp;kwargs<br>
+&nbsp;<br>
+This&nbsp;enables&nbsp;you&nbsp;to&nbsp;easily&nbsp;switch&nbsp;between&nbsp;several&nbsp;configurations.<br>
+Use&nbsp;rcdefaults&nbsp;to&nbsp;restore&nbsp;the&nbsp;default&nbsp;rc&nbsp;params&nbsp;after&nbsp;changes.</tt></dd></dl>
+ <dl><dt><a name="-rcdefaults"><strong>rcdefaults</strong></a>()</dt><dd><tt>Restore&nbsp;the&nbsp;default&nbsp;rc&nbsp;params&nbsp;-&nbsp;the&nbsp;ones&nbsp;that&nbsp;were&nbsp;created&nbsp;at<br>
+matplotlib&nbsp;load&nbsp;time</tt></dd></dl>
  <dl><dt><a name="-reshape"><strong>reshape</strong></a>(...)</dt><dd><tt><a href="#-reshape">reshape</a>(a,&nbsp;(d1,&nbsp;d2,&nbsp;...,&nbsp;dn)).&nbsp;&nbsp;Change&nbsp;the&nbsp;shape&nbsp;of&nbsp;a&nbsp;to&nbsp;be&nbsp;an&nbsp;n-dimensional&nbsp;array&nbsp;with&nbsp;dimensions&nbsp;given&nbsp;by&nbsp;d1...dn.&nbsp;&nbsp;Note:&nbsp;the&nbsp;size&nbsp;specified&nbsp;for&nbsp;the&nbsp;new&nbsp;array&nbsp;must&nbsp;be&nbsp;exactly&nbsp;equal&nbsp;to&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;&nbsp;old&nbsp;one&nbsp;or&nbsp;an&nbsp;error&nbsp;will&nbsp;occur.</tt></dd></dl>
  <dl><dt><a name="-save"><strong>save</strong></a>(fname, X, fmt<font color="#909090">='%1.4f'</font>)</dt><dd><tt>Save&nbsp;the&nbsp;data&nbsp;in&nbsp;X&nbsp;to&nbsp;file&nbsp;fname&nbsp;using&nbsp;fmt&nbsp;string&nbsp;to&nbsp;convert&nbsp;the<br>
 data&nbsp;to&nbsp;strings<br>
@@ -1082,6 +1099,7 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
 <strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParamsDefault</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>readme</strong> = '<font color="#c040c0">\n</font>MLab2.py, release 1<font color="#c040c0">\n\n</font>Created on February 2003 b...<font color="#c040c0">\n</font>Look at: http://pdilib.sf.net for new releases.<font color="#c040c0">\n</font>'<br>
 <strong>remainder</strong> = &lt;ufunc 'remainder'&gt;<br>
 <strong>right_shift</strong> = &lt;ufunc 'right_shift'&gt;<br>

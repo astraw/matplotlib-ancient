@@ -20,8 +20,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.39  2004/06/15 17:29:56  jdh2358
-fixed bad scaling with singleton plots
+Revision 1.40  2004/06/16 14:55:27  jdh2358
+removed gtkgd
 
 Revision 1.4  2004/05/03 12:12:26  jdh2358
 added bang header to examples
