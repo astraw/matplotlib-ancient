@@ -1,15 +1,54 @@
+API CHANGES in matplotlib-0.72
+
+  Line2D, Text, and Patch copy_properties renamed update_from and
+  moved into artist base class
+
+  LineCollecitons.color renamed to LineCollections.set_color for
+  consistency with set/get introspection mechanism,
+
+  pylab figure now defaults to num=None, which creates a new figure
+  with a guaranteed unique number 
+
+  contour method syntax changed - now it is matlab compatible
+
+    unchanged: contour(Z)
+    old: contour(Z, x=Y, y=Y)
+    new: contour(X, Y, Z)
+
+   see http://matplotlib.sf.net/matplotlib.pylab.html#-contour
+
+
+   Increased the default resolution for save command.
+
+   Renamed the base attribute of the ticker classes to _base to avoid conflict
+   with the base method.  Sitt for subs
+
+   subs=none now does autosubbing in the tick locator.
+
+   New subplots that overlap old will delete the old axes.  If you do
+   not want this behavior, use fig.add_subplot or the axes command
+
 API CHANGES in matplotlib-0.71   
 
    Significant numerix namespace changes, introduced to resolve
    namespace clashes between python built-ins and mlab names.
    Refactored numerix to maintain separate modules, rather than
-   folding all these names into a single namespace
+   folding all these names into a single namespace.  See the following
+   mailing list threads for more information and background
 
-  OLD 
-   from matplotlib.numerix import array, mean
-  NEW
+     http://sourceforge.net/mailarchive/forum.php?thread_id=6398890&forum_id=36187
+     http://sourceforge.net/mailarchive/forum.php?thread_id=6323208&forum_id=36187
+
+
+  OLD usage
+
+   from matplotlib.numerix import array, mean, fft
+
+  NEW usage
+
    from matplotlib.numerix import array
    from matplotlib.numerix.mlab import mean
+   from matplotlib.numerix.fft import fft
 
   numerix dir structure mirrors numarray (though it is an incomplete
   implementation)
@@ -28,12 +67,6 @@ API CHANGES in matplotlib-0.71
   (min, max, sum), pylab keeps the builtins and provides the numeric
   versions with an a* prefix, eg (amin, amax, asum)
 
-  See the following mailing list threads for more information and
-  background
-
-     http://sourceforge.net/mailarchive/forum.php?thread_id=6398890&forum_id=36187
-
-     http://sourceforge.net/mailarchive/forum.php?thread_id=6323208&forum_id=36187
 
 
 API CHANGES in matplotlib-0.70

@@ -165,7 +165,23 @@ The&nbsp;LOC&nbsp;location&nbsp;codes&nbsp;are<br>
 &nbsp;<br>
 The&nbsp;legend&nbsp;instance&nbsp;is&nbsp;returned</tt></dd></dl>
 
+<dl><dt><a name="Figure-savefig"><strong>savefig</strong></a>(self, *args, **kwargs)</dt><dd><tt>SAVEFIG(fname,&nbsp;dpi=150,&nbsp;facecolor='w',&nbsp;edgecolor='w',<br>
+orientation='portrait'):<br>
+&nbsp;<br>
+Save&nbsp;the&nbsp;current&nbsp;figure&nbsp;to&nbsp;filename&nbsp;fname.&nbsp;&nbsp;dpi&nbsp;is&nbsp;the&nbsp;resolution<br>
+in&nbsp;dots&nbsp;per&nbsp;inch.<br>
+&nbsp;<br>
+Output&nbsp;file&nbsp;types&nbsp;currently&nbsp;supported&nbsp;are&nbsp;jpeg&nbsp;and&nbsp;png&nbsp;and&nbsp;will&nbsp;be<br>
+deduced&nbsp;by&nbsp;the&nbsp;extension&nbsp;to&nbsp;fname<br>
+&nbsp;<br>
+facecolor&nbsp;and&nbsp;edgecolor&nbsp;are&nbsp;the&nbsp;colors&nbsp;os&nbsp;the&nbsp;figure&nbsp;rectangle<br>
+&nbsp;<br>
+orientation&nbsp;is&nbsp;either&nbsp;'landscape'&nbsp;or&nbsp;'portrait'&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends;&nbsp;currently&nbsp;only&nbsp;on&nbsp;postscript&nbsp;output.</tt></dd></dl>
+
 <dl><dt><a name="Figure-sca"><strong>sca</strong></a>(self, a)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;axes&nbsp;to&nbsp;be&nbsp;a&nbsp;and&nbsp;return&nbsp;a</tt></dd></dl>
+
+<dl><dt><a name="Figure-set_canvas"><strong>set_canvas</strong></a>(self, canvas)</dt><dd><tt>set&nbsp;the&nbsp;canvas&nbsp;the&nbsp;contains&nbsp;the&nbsp;figure</tt></dd></dl>
 
 <dl><dt><a name="Figure-set_edgecolor"><strong>set_edgecolor</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;edge&nbsp;color&nbsp;of&nbsp;the&nbsp;<a href="#Figure">Figure</a>&nbsp;rectangle<br>
 &nbsp;<br>
@@ -247,6 +263,8 @@ ACCEPTS:&nbsp;any&nbsp;number</tt></dd></dl>
 
 <dl><dt><a name="Figure-update"><strong>update</strong></a>(self, props)</dt></dl>
 
+<dl><dt><a name="Figure-update_from"><strong>update_from</strong></a>(self, other)</dt><dd><tt>copy&nbsp;properties&nbsp;from&nbsp;other&nbsp;to&nbsp;self</tt></dd></dl>
+
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
@@ -263,6 +281,17 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <td width="100%"><dl><dt><a name="-Bbox"><strong>Bbox</strong></a>(...)</dt><dd><tt><a href="#-Bbox">Bbox</a>(ll,&nbsp;ur)</tt></dd></dl>
  <dl><dt><a name="-Point"><strong>Point</strong></a>(...)</dt><dd><tt><a href="#-Point">Point</a>(x,&nbsp;y)</tt></dd></dl>
  <dl><dt><a name="-Value"><strong>Value</strong></a>(...)</dt><dd><tt><a href="#-Value">Value</a>(x)</tt></dd></dl>
+ <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
+ <dl><dt><a name="-figaspect"><strong>figaspect</strong></a>(arr)</dt><dd><tt>Determine&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;for&nbsp;a&nbsp;figure&nbsp;that&nbsp;would&nbsp;fit&nbsp;array<br>
+preserving&nbsp;aspcect&nbsp;ratio.&nbsp;&nbsp;The&nbsp;figure&nbsp;width,&nbsp;height&nbsp;in&nbsp;inches&nbsp;are<br>
+returned.&nbsp;&nbsp;Be&nbsp;sure&nbsp;to&nbsp;create&nbsp;an&nbsp;axes&nbsp;with&nbsp;equal&nbsp;with&nbsp;and&nbsp;height,&nbsp;eg<br>
+&nbsp;<br>
+w,&nbsp;h&nbsp;=&nbsp;<a href="#-figaspect">figaspect</a>(A)<br>
+fig&nbsp;=&nbsp;<a href="#Figure">Figure</a>(figsize=(w,h))<br>
+ax&nbsp;=&nbsp;fig.add_axes([0.1,&nbsp;0.1,&nbsp;0.8,&nbsp;0.8])<br>
+ax.imshow(A,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Thanks&nbsp;to&nbsp;Fernando&nbsp;Perez&nbsp;for&nbsp;this&nbsp;function</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">

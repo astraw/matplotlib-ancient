@@ -129,8 +129,6 @@ ACCEPTS:&nbsp;float</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.patches.html#Patch">matplotlib.patches.Patch</a>:<br>
-<dl><dt><a name="Cell-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
-
 <dl><dt><a name="Cell-get_aa"><strong>get_aa</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_antialiased</tt></dd></dl>
 
 <dl><dt><a name="Cell-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt></dl>
@@ -176,6 +174,8 @@ ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 ACCEPTS:&nbsp;float</tt></dd></dl>
 
 <dl><dt><a name="Cell-set_lw"><strong>set_lw</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_linewidth</tt></dd></dl>
+
+<dl><dt><a name="Cell-update_from"><strong>update_from</strong></a>(self, other)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.patches.html#Patch">matplotlib.patches.Patch</a>:<br>
@@ -349,6 +349,8 @@ ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 ACCEPTS:&nbsp;any&nbsp;number</tt></dd></dl>
 
 <dl><dt><a name="Table-update"><strong>update</strong></a>(self, props)</dt></dl>
+
+<dl><dt><a name="Table-update_from"><strong>update_from</strong></a>(self, other)</dt><dd><tt>copy&nbsp;properties&nbsp;from&nbsp;other&nbsp;to&nbsp;self</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>

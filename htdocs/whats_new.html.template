@@ -4,6 +4,76 @@
 
 versioninfo = {}
 
+
+versioninfo['0.72'] = (
+
+  ('line marker optimizations in agg', """\
+
+Heavy optimizations in line marker drawing eg <tt>plot(x,y,'+')</tt> or any
+other line marker.  Here are some numbers, where N is the number of
+symbols
+    
+<pre>
+                   0.71     0.72    speedup
+       -----------------------------------
+    N =   1000 |  0.24s  |  0.13s |  1.85x
+    N =   5000 |  0.68s  |  0.19s |  3.57x
+    N =  10000 |  1.17s  |  0.28s |  4.19x
+    N =  50000 |  5.30s  |  0.60s |  8.89x
+    N = 100000 | 10.02s  |  0.70s | 14.31x
+    N = 500000 | 48.81s  |  2.32s | 21.03x
+</pre>
+"""),
+  
+ ('log plot enhancements', """\
+Lots of work making log plots <i>just work</i>.  You can toggle log y
+axes with the <tt>l</tt> ("ell") keypress -- nonpositive data are simply
+ignored and non longer raise.  log plots should be a lot faster and
+more robust"""),
+
+('contour fixes', """\
+Fixed a contour bug for unequal sized arrays and made the syntax
+matlab compatible -- see <a href=API_CHANGES>API_CHANGES</a> and the <a href=matplotlib.pylab.html#-contour>contour</a> help."""),
+
+ ('QT backend',"""\
+alpha version of QTAgg backend -- note the licensing issue of QT is
+murky since QT is dual licensed.  If you are shipping a commercial
+product with matplotlib you may want to remove the qt backend to be on
+the safe side."""),
+
+ ('matshow for displaying arrays', """
+To create a figure and axes with the same aspect ratio as your imaxge, use
+<a href=matplotlib.pylab.html#-matshow>matshow</a>  Example at <a href=examples/matshow.py>matshow.py</a>.  Thanks Fernando!"""),
+
+('New interactive gtk shhell examples', """\
+
+New <a href=examples/interactive.py>interactive.py</a> which shows you
+how to use matplotlib in a custom gtk shell, if for some reason <a
+href=http://ipython.scipy.org>ipython</a> is not suitable for you</a>."""),
+
+('shared axes', """\
+Shared axes for two scale and ganged plots -- you can set sharex on
+and axis and multiple subpolots will pan and zoom together.  See
+<a href=examples/shared_axis_demo.py>shared_axis_demo.py</a> - Thanks
+Baptiste!"""),
+
+('Key press actions over axes', """\
+Default key presses over axes: 'g' toggles grid, 'l' toggles logy"""),
+  
+
+('little features', """\
+Calls to subplot with overlap other subplots now delete the overlapped
+subplot, load and save work with file and handles gzipped files
+transaparently, small PS optimizations, gtk figure resizing more
+flexible"""),
+
+('bug fixes', """\
+contour datalim and unequal sized array bugs,
+mx2num, added missing mathtext symbols, fonts in mathtext
+super/subscripts, contour works with interactive changes in cmaps,
+clim"""),
+  )
+
 versioninfo['0.71'] = (
 
   ('numerix refactor', """\

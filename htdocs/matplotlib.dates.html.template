@@ -836,7 +836,7 @@ minutes,&nbsp;seconds)&nbsp;since&nbsp;0001-01-01&nbsp;00:00:00&nbsp;UTC</tt></d
 are&nbsp;datetime&nbsp;instances.&nbsp;&nbsp;delta&nbsp;is&nbsp;a&nbsp;datetime.timedelta&nbsp;instance</tt></dd></dl>
  <dl><dt><a name="-epoch2num"><strong>epoch2num</strong></a>(e)</dt><dd><tt>convert&nbsp;an&nbsp;epoch&nbsp;or&nbsp;sequence&nbsp;of&nbsp;epochs&nbsp;to&nbsp;the&nbsp;new&nbsp;date&nbsp;format,<br>
 days&nbsp;since&nbsp;0001</tt></dd></dl>
- <dl><dt><a name="-mx2num"><strong>mx2num</strong></a>(m)</dt><dd><tt>Convert&nbsp;mx&nbsp;datetime&nbsp;instance&nbsp;(or&nbsp;sequence&nbsp;of&nbsp;mx&nbsp;instances)&nbsp;to&nbsp;the<br>
+ <dl><dt><a name="-mx2num"><strong>mx2num</strong></a>(mxdates)</dt><dd><tt>Convert&nbsp;mx&nbsp;datetime&nbsp;instance&nbsp;(or&nbsp;sequence&nbsp;of&nbsp;mx&nbsp;instances)&nbsp;to&nbsp;the<br>
 new&nbsp;date&nbsp;format,</tt></dd></dl>
  <dl><dt><a name="-num2date"><strong>num2date</strong></a>(x, tz<font color="#909090">=None</font>)</dt><dd><tt>x&nbsp;is&nbsp;a&nbsp;float&nbsp;value&nbsp;which&nbsp;gives&nbsp;number&nbsp;of&nbsp;days&nbsp;(fraction&nbsp;part<br>
 represents&nbsp;hours,&nbsp;minutes,&nbsp;seconds)&nbsp;since&nbsp;0001-01-01&nbsp;00:00:00&nbsp;UTC<br>

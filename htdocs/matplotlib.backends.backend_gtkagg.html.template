@@ -92,7 +92,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137221424)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137237544)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -429,6 +429,8 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 <hr>
 Methods inherited from <a href="matplotlib.backends.backend_agg.html#FigureCanvasAgg">matplotlib.backends.backend_agg.FigureCanvasAgg</a>:<br>
 <dl><dt><a name="FigureCanvasGTKAgg-buffer_rgba"><strong>buffer_rgba</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTKAgg-tostring_argb"><strong>tostring_argb</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTKAgg-tostring_rgb"><strong>tostring_rgb</strong></a>(self)</dt></dl>
 

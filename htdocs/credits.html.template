@@ -65,7 +65,8 @@ matplotlib was written by John Hunter<p>
   <li>Fernando Perez has provided numerous bug reports and patches for
   cleaning up backend imports and expanding pylab functionality, and
   provided matplotlib support in the pylab mode for <a
-  href=http://ipython.scipy.org>ipython</a>.</li>
+  href=http://ipython.scipy.org>ipython</a>.  He also provided the <a
+  href=matplotlib.pylab.html#-matshow>matshow</a> command.</li>
 
   <li>Andrew Dalke of Dalke Scientific Software contributed the
   strftime formatting code to handle years earlier than 1900</li>

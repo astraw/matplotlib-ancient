@@ -172,6 +172,8 @@ num&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;figure&nbsp;number<br>&nbsp;</tt></td
 
 <dl><dt><a name="FigureManagerBase-destroy"><strong>destroy</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="FigureManagerBase-key_press"><strong>key_press</strong></a>(self, event)</dt></dl>
+
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">

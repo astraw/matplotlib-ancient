@@ -22,10 +22,7 @@
         </font>
     </td></tr>
     <tr><td valign="top" bgcolor=#efefef>
-<font color="black">numerix module code reorganized in 0.71 -- <i>this may break some
-scripts</i>.  pylab no longer imports the numerix min, max and sum
-functions.  For optimal numerix performance, use amin, amax and asum.
-See <a href=API_CHANGES>API_CHANGES</a> for details
+<font color="black">matplotlib now has domain specific <a href=toolkits.html>toolkits</>.
 </font></td></tr>
 </table>
 
@@ -42,7 +39,7 @@ See <a href=API_CHANGES>API_CHANGES</a> for details
     <a href=http://sourceforge.net/projects/matplotlib>Download</a><br>
     <a href=installing.html>Installing</a><br>
     <a href=screenshots.html>Screenshots</a><br>
-    <a href=matplotlib_examples_0.71.zip>Examples&nbsp;(zip)</a><br>
+    <a href=matplotlib_examples_0.72.zip>Examples&nbsp;(zip)</a><br>
     <a href=whats_new.html>What's&nbsp;New</a><br>
     <a href=http://sourceforge.net/mail/?group_id=80706>Mailing lists</a><br>
 </td></tr>
@@ -58,7 +55,7 @@ See <a href=API_CHANGES>API_CHANGES</a> for details
     </td></tr>
       <tr><td valign="top" bgcolor=#efefef>
     <a href=tutorial.html>Tutorial</a><br>
-    <a href=users_guide_0.71.pdf>User's&nbsp;Guide&nbsp;(pdf)</a><br>
+    <a href=users_guide_0.72.pdf>User's&nbsp;Guide&nbsp;(pdf)</a><br>
     <a href=faq.html>FAQ</a><br>
     <a href=pylab_commands.html>pylab&nbsp;interface</a><br>
     <a href=classdocs.html>Class&nbsp;library</a><br>
@@ -798,7 +795,7 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 <strong>subsuperscript</strong> = subsuperscript<br>
 <strong>superscript</strong> = superscript<br>
 <strong>symbol</strong> = {{{{{{Combine:({{"\" W:(abcd...)} ~{Suppress:("{...@"} | "%"} | "&amp;"}} | {{{"[" | "]"} | "("} | ")"}}<br>
-<strong>symgroup</strong> = {{{{{{{Combine:({{"\" W:(abcd...)} ~{Suppress:("...} | "&amp;"}} | {{{"[" | "]"} | "("} | ")"}} | group}<br>
+<strong>symgroup</strong> = {{font ^ group} ^ {{{{{{Combine:({{"\" W:(abcd....."} | "%"} | "&amp;"}} | {{{"[" | "]"} | "("} | ")"}}}<br>
 <strong>texsym</strong> = Combine:({{"\" W:(abcd...)} ~{Suppress:("{")}})<br>
 <strong>times</strong> = "*"<br>
 <strong>typewriter</strong> = "tt"<br>

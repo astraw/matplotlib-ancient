@@ -52,6 +52,7 @@ _Plotting&nbsp;commands<br>
 &nbsp;&nbsp;ishold&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;hold&nbsp;state&nbsp;of&nbsp;the&nbsp;current&nbsp;axes<br>
 &nbsp;&nbsp;legend&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;an&nbsp;axes&nbsp;legend<br>
 &nbsp;&nbsp;loglog&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;log&nbsp;log&nbsp;plot<br>
+&nbsp;&nbsp;matshow&nbsp;&nbsp;-&nbsp;display&nbsp;a&nbsp;matrix&nbsp;in&nbsp;a&nbsp;new&nbsp;figure&nbsp;preserving&nbsp;aspect<br>
 &nbsp;&nbsp;pcolor&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot<br>
 &nbsp;&nbsp;pie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;pie&nbsp;chart<br>
 &nbsp;&nbsp;plot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;line&nbsp;plot<br>
@@ -139,15 +140,15 @@ _Statistics<br>
 &nbsp;<br>
 &nbsp;&nbsp;corrcoef&nbsp;&nbsp;-&nbsp;correlation&nbsp;coefficient<br>
 &nbsp;&nbsp;cov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;covariance&nbsp;matrix<br>
-&nbsp;&nbsp;max&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;maximum&nbsp;along&nbsp;dimension&nbsp;m<br>
+&nbsp;&nbsp;amax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;maximum&nbsp;along&nbsp;dimension&nbsp;m<br>
 &nbsp;&nbsp;mean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;mean&nbsp;along&nbsp;dimension&nbsp;m<br>
 &nbsp;&nbsp;median&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;median&nbsp;along&nbsp;dimension&nbsp;m<br>
-&nbsp;&nbsp;min&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;minimum&nbsp;along&nbsp;dimension&nbsp;m<br>
+&nbsp;&nbsp;amin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;minimum&nbsp;along&nbsp;dimension&nbsp;m<br>
 &nbsp;&nbsp;norm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;norm&nbsp;of&nbsp;vector&nbsp;x<br>
 &nbsp;&nbsp;prod&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;product&nbsp;along&nbsp;dimension&nbsp;m<br>
 &nbsp;&nbsp;ptp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;max-min&nbsp;along&nbsp;dimension&nbsp;m<br>
 &nbsp;&nbsp;std&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;standard&nbsp;deviation&nbsp;along&nbsp;dimension&nbsp;m<br>
-&nbsp;&nbsp;sum&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;sum&nbsp;along&nbsp;dimension&nbsp;m<br>
+&nbsp;&nbsp;asum&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;sum&nbsp;along&nbsp;dimension&nbsp;m<br>
 &nbsp;<br>
 _Time&nbsp;series&nbsp;analysis<br>
 &nbsp;<br>
@@ -194,13 +195,15 @@ exception&nbsp;of&nbsp;those&nbsp;in&nbsp;mlab.py&nbsp;provided&nbsp;by&nbsp;mat
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="matplotlib._pylab_helpers.html">matplotlib._pylab_helpers</a><br>
+<a href="matplotlib.backends.html">matplotlib.backends</a><br>
 <a href="matplotlib.cm.html">matplotlib.cm</a><br>
 </td><td width="25%" valign=top><a href="matplotlib.dates.html">matplotlib.dates</a><br>
+<a href="gzip.html">gzip</a><br>
 <a href="matplotlib.image.html">matplotlib.image</a><br>
 </td><td width="25%" valign=top><a href="matplotlib.html">matplotlib</a><br>
 <a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
-</td><td width="25%" valign=top><a href="matplotlib.ticker.html">matplotlib.ticker</a><br>
-</td></tr></table></td></tr></table><p>
+<a href="matplotlib.ticker.html">matplotlib.ticker</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -226,7 +229,19 @@ normalized&nbsp;(0,1)&nbsp;units.&nbsp;&nbsp;axisbg&nbsp;is&nbsp;the&nbsp;backgr
 axis,&nbsp;default&nbsp;white<br>
 &nbsp;<br>
 <a href="#-axes">axes</a>(h)&nbsp;where&nbsp;h&nbsp;is&nbsp;an&nbsp;axes&nbsp;instance&nbsp;makes&nbsp;h&nbsp;the<br>
-current&nbsp;axis&nbsp;An&nbsp;Axes&nbsp;instance&nbsp;is&nbsp;returned</tt></dd></dl>
+current&nbsp;axis&nbsp;An&nbsp;Axes&nbsp;instance&nbsp;is&nbsp;returned<br>
+&nbsp;<br>
+kwargs:<br>
+&nbsp;<br>
+&nbsp;&nbsp;axisbg=color&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;axes&nbsp;background&nbsp;color<br>
+&nbsp;&nbsp;frameon=False&nbsp;&nbsp;:&nbsp;don't&nbsp;display&nbsp;the&nbsp;frame<br>
+&nbsp;&nbsp;sharex=otherax&nbsp;:&nbsp;the&nbsp;current&nbsp;axes&nbsp;shares&nbsp;xaxis&nbsp;attribute&nbsp;with&nbsp;otherax<br>
+&nbsp;&nbsp;sharey=otherax&nbsp;:&nbsp;the&nbsp;current&nbsp;axes&nbsp;shares&nbsp;yaxis&nbsp;attribute&nbsp;with&nbsp;otherax<br>
+&nbsp;<br>
+Examples<br>
+&nbsp;<br>
+&nbsp;&nbsp;examples/axes_demo.py&nbsp;places&nbsp;custom&nbsp;axes.<br>
+&nbsp;&nbsp;examples/shared_axis_demo.py&nbsp;uses&nbsp;sharex&nbsp;and&nbsp;sharey</tt></dd></dl>
  <dl><dt><a name="-axhline"><strong>axhline</strong></a>(*args, **kwargs)</dt><dd><tt>AXHLINE(y=0,&nbsp;xmin=0,&nbsp;xmax=1,&nbsp;**kwargs)<br>
 &nbsp;<br>
 Axis&nbsp;Horizontal&nbsp;Line<br>
@@ -534,70 +549,65 @@ where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbs
 &nbsp;<br>
 return&nbsp;value&nbsp;is&nbsp;a&nbsp;connection&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with<br>
 mpl_disconnect</tt></dd></dl>
- <dl><dt><a name="-contour"><strong>contour</strong></a>(*args, **kwargs)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
+ <dl><dt><a name="-contour"><strong>contour</strong></a>(*args, **kwargs)</dt><dd><tt>CONTOUR(self,&nbsp;*args,&nbsp;**kwargs)<br>
 &nbsp;<br>
-plots&nbsp;contour&nbsp;lines&nbsp;of&nbsp;an&nbsp;image&nbsp;z<br>
+Function&nbsp;signatures<br>
 &nbsp;<br>
-z&nbsp;is&nbsp;a&nbsp;2D&nbsp;array&nbsp;of&nbsp;image&nbsp;values<br>
-x&nbsp;and&nbsp;y&nbsp;are&nbsp;2D&nbsp;arrays&nbsp;with&nbsp;coordinates&nbsp;of&nbsp;z&nbsp;values&nbsp;in&nbsp;the<br>
-two&nbsp;directions.&nbsp;x&nbsp;and&nbsp;y&nbsp;do&nbsp;not&nbsp;need&nbsp;to&nbsp;be&nbsp;evenly&nbsp;spaced&nbsp;but&nbsp;must<br>
-be&nbsp;of&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;z<br>
+CONTOUR(Z)&nbsp;-&nbsp;make&nbsp;a&nbsp;contour&nbsp;plot&nbsp;of&nbsp;an&nbsp;array&nbsp;Z.&nbsp;The&nbsp;level<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;values&nbsp;are&nbsp;chosen&nbsp;automatically.<br>
 &nbsp;<br>
-levels&nbsp;can&nbsp;be&nbsp;a&nbsp;list&nbsp;of&nbsp;level&nbsp;values&nbsp;or&nbsp;the&nbsp;number&nbsp;of&nbsp;levels&nbsp;to&nbsp;be<br>
-&nbsp;&nbsp;plotted.&nbsp;&nbsp;If&nbsp;levels&nbsp;==&nbsp;None,&nbsp;a&nbsp;default&nbsp;number&nbsp;of&nbsp;7&nbsp;evenly&nbsp;spaced<br>
-&nbsp;&nbsp;levels&nbsp;is&nbsp;plotted.<br>
+CONTOUR(X,Y,Z)&nbsp;-&nbsp;X,Y&nbsp;specify&nbsp;the&nbsp;(x,y)&nbsp;coordinates&nbsp;of&nbsp;the&nbsp;surface<br>
 &nbsp;<br>
-colors&nbsp;is&nbsp;one&nbsp;of&nbsp;these:<br>
+CONTOUR(Z,N)&nbsp;and&nbsp;CONTOUR(X,Y,Z,N)&nbsp;-&nbsp;draw&nbsp;N&nbsp;contour&nbsp;lines&nbsp;overriding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;automatic&nbsp;value<br>
 &nbsp;<br>
-&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;(string,&nbsp;float,&nbsp;rgb,&nbsp;etc),<br>
-&nbsp;&nbsp;&nbsp;&nbsp;different&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;different&nbsp;colors&nbsp;in&nbsp;the&nbsp;order<br>
-&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
+CONTOUR(Z,V)&nbsp;and&nbsp;CONTOUR(X,Y,Z,V)&nbsp;-&nbsp;draw&nbsp;len(V)&nbsp;contour&nbsp;lines,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;the&nbsp;values&nbsp;specified&nbsp;in&nbsp;V&nbsp;(array,&nbsp;list,&nbsp;tuple)<br>
 &nbsp;<br>
-&nbsp;&nbsp;-&nbsp;one&nbsp;string&nbsp;color,&nbsp;e.g.&nbsp;colors&nbsp;=&nbsp;'r'&nbsp;or&nbsp;colors&nbsp;=&nbsp;'red',&nbsp;all&nbsp;levels<br>
-&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;this&nbsp;color<br>
+CONTOUR(Z,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;colors,&nbsp;linewidth,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;origin,&nbsp;cmap&nbsp;...&nbsp;see&nbsp;below<br>
 &nbsp;<br>
-&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;colormap&nbsp;will&nbsp;be&nbsp;used<br>
+Optional&nbsp;keywork&nbsp;args&nbsp;are&nbsp;shown&nbsp;with&nbsp;their&nbsp;defaults&nbsp;below&nbsp;(you&nbsp;must<br>
+use&nbsp;kwargs&nbsp;for&nbsp;these):<br>
 &nbsp;<br>
-linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;colors&nbsp;=&nbsp;None:&nbsp;one&nbsp;of&nbsp;these:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;(string,&nbsp;float,&nbsp;rgb,&nbsp;etc),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;different&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;different&nbsp;colors&nbsp;in&nbsp;the&nbsp;order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;number&nbsp;-&nbsp;all&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;with&nbsp;this&nbsp;linewidth,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.&nbsp;linewidths&nbsp;=&nbsp;0.6<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;one&nbsp;string&nbsp;color,&nbsp;e.g.&nbsp;colors&nbsp;=&nbsp;'r'&nbsp;or&nbsp;colors&nbsp;=&nbsp;'red',&nbsp;all&nbsp;levels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;this&nbsp;color<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;numbers,&nbsp;e.g.&nbsp;linewidths&nbsp;=&nbsp;(0.4,&nbsp;0.8,&nbsp;1.2)&nbsp;different<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;with&nbsp;different&nbsp;linewidths&nbsp;in&nbsp;the&nbsp;order<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;colormap&nbsp;will&nbsp;be&nbsp;used<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;alpha=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
 &nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;None:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
 &nbsp;<br>
-&nbsp;&nbsp;<br>
-reg&nbsp;is&nbsp;a&nbsp;2D&nbsp;region&nbsp;number&nbsp;array&nbsp;with&nbsp;the&nbsp;same&nbsp;dimensions&nbsp;as&nbsp;x&nbsp;and<br>
-&nbsp;&nbsp;y.&nbsp;The&nbsp;values&nbsp;of&nbsp;reg&nbsp;should&nbsp;be&nbsp;positive&nbsp;region&nbsp;numbers,&nbsp;and&nbsp;zero&nbsp;fro<br>
-&nbsp;&nbsp;zones&nbsp;wich&nbsp;do&nbsp;not&nbsp;exist.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;fmt&nbsp;=&nbsp;'1.3f':&nbsp;a&nbsp;format&nbsp;string&nbsp;for&nbsp;adding&nbsp;a&nbsp;label&nbsp;to&nbsp;each&nbsp;collection.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Useful&nbsp;for&nbsp;auto-legending&nbsp;.<br>
 &nbsp;<br>
-triangle&nbsp;-&nbsp;triangulation&nbsp;array&nbsp;-&nbsp;must&nbsp;be&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;reg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;origin&nbsp;=&nbsp;None:&nbsp;'upper'|'lower'|None.&nbsp;&nbsp;If&nbsp;None,&nbsp;the&nbsp;rc&nbsp;value&nbsp;for&nbsp;image.origin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;used<br>
 &nbsp;<br>
-alpha&nbsp;:&nbsp;the&nbsp;default&nbsp;transparency&nbsp;of&nbsp;contour&nbsp;lines<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;linewidths&nbsp;=&nbsp;None:&nbsp;or&nbsp;one&nbsp;of&nbsp;these:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;number&nbsp;-&nbsp;all&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;with&nbsp;this&nbsp;linewidth,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.&nbsp;linewidths&nbsp;=&nbsp;0.6<br>
 &nbsp;<br>
-fmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;for&nbsp;adding&nbsp;a&nbsp;label&nbsp;to&nbsp;each&nbsp;collection.<br>
-&nbsp;&nbsp;Currently&nbsp;this&nbsp;is&nbsp;useful&nbsp;for&nbsp;auto-legending&nbsp;and&nbsp;may&nbsp;be&nbsp;useful&nbsp;down<br>
-&nbsp;&nbsp;the&nbsp;road&nbsp;for&nbsp;legend&nbsp;labeling<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;numbers,&nbsp;e.g.&nbsp;linewidths&nbsp;=&nbsp;(0.4,&nbsp;0.8,&nbsp;1.2)&nbsp;different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;with&nbsp;different&nbsp;linewidths&nbsp;in&nbsp;the&nbsp;order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
 &nbsp;<br>
-origin&nbsp;=&nbsp;'upper'|'lower'|None.&nbsp;&nbsp;If&nbsp;None,&nbsp;the&nbsp;rc&nbsp;value&nbsp;for&nbsp;image.origin<br>
-will&nbsp;be&nbsp;used<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
 &nbsp;<br>
-More&nbsp;information&nbsp;on&nbsp;reg&nbsp;and&nbsp;triangle&nbsp;arrays&nbsp;is&nbsp;in&nbsp;_contour.c<br>
+&nbsp;&nbsp;&nbsp;&nbsp;reg&nbsp;is&nbsp;a&nbsp;1D&nbsp;region&nbsp;number&nbsp;array&nbsp;with&nbsp;of&nbsp;imax*(jmax+1)+1&nbsp;size<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;values&nbsp;of&nbsp;reg&nbsp;should&nbsp;be&nbsp;positive&nbsp;region&nbsp;numbers,&nbsp;and&nbsp;zero&nbsp;fro<br>
+&nbsp;&nbsp;&nbsp;&nbsp;zones&nbsp;wich&nbsp;do&nbsp;not&nbsp;exist.<br>
 &nbsp;<br>
-Return&nbsp;value&nbsp;is&nbsp;levels,&nbsp;collections&nbsp;where&nbsp;levels&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;contour<br>
-levels&nbsp;used&nbsp;and&nbsp;collections&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
-matplotlib.collections.LineCollection&nbsp;instances<br>
+&nbsp;&nbsp;&nbsp;&nbsp;triangle&nbsp;-&nbsp;triangulation&nbsp;array&nbsp;-&nbsp;must&nbsp;be&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;reg<br>
 &nbsp;<br>
-If&nbsp;cmap&nbsp;is&nbsp;not&nbsp;None,&nbsp;the&nbsp;collections&nbsp;list&nbsp;instance&nbsp;will&nbsp;have&nbsp;the<br>
-mappable&nbsp;attribute&nbsp;attached,&nbsp;where&nbsp;mappable&nbsp;is&nbsp;a&nbsp;cm.ScalarMappable<br>
-which&nbsp;contains&nbsp;the&nbsp;normalize&nbsp;instance&nbsp;and&nbsp;cmap&nbsp;instance&nbsp;and&nbsp;can&nbsp;be<br>
-used&nbsp;for&nbsp;colorbar&nbsp;functionality<br>
-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[L,C]&nbsp;=&nbsp;CONTOUR(...)&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;levels&nbsp;and&nbsp;a&nbsp;silent_list&nbsp;of&nbsp;LineCollections<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-cool"><strong>cool</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;cool&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-copper"><strong>copper</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;copper&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
@@ -722,20 +732,27 @@ See&nbsp;help(legend)&nbsp;for&nbsp;information&nbsp;about&nbsp;the&nbsp;locatio
 A&nbsp;matplotlib.legend.Legend&nbsp;instance&nbsp;is&nbsp;returned</tt></dd></dl>
  <dl><dt><a name="-figtext"><strong>figtext</strong></a>(*args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
 the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
- <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=1</font>, figsize<font color="#909090">=None</font>, dpi<font color="#909090">=None</font>, facecolor<font color="#909090">=None</font>, edgecolor<font color="#909090">=None</font>, frameon<font color="#909090">=True</font>)</dt><dd><tt><a href="#-figure">figure</a>(num&nbsp;=&nbsp;1,&nbsp;figsize=(8,&nbsp;6),&nbsp;dpi=80,&nbsp;facecolor='w',&nbsp;edgecolor='k')<br>
+ <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=None</font>, figsize<font color="#909090">=None</font>, dpi<font color="#909090">=None</font>, facecolor<font color="#909090">=None</font>, edgecolor<font color="#909090">=None</font>, frameon<font color="#909090">=True</font>)</dt><dd><tt><a href="#-figure">figure</a>(num&nbsp;=&nbsp;None,&nbsp;figsize=(8,&nbsp;6),&nbsp;dpi=80,&nbsp;facecolor='w',&nbsp;edgecolor='k')<br>
 &nbsp;<br>
 &nbsp;<br>
-Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;and&nbsp;return&nbsp;a&nbsp;handle&nbsp;to&nbsp;it<br>
+Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;and&nbsp;return&nbsp;a&nbsp;handle&nbsp;to&nbsp;it.&nbsp;&nbsp;If&nbsp;num=None,&nbsp;the<br>
+figure&nbsp;number&nbsp;will&nbsp;be&nbsp;incremented&nbsp;and&nbsp;a&nbsp;new&nbsp;figure&nbsp;will&nbsp;be<br>
+created.<br>
 &nbsp;<br>
-If&nbsp;<a href="#-figure">figure</a>(num)&nbsp;already&nbsp;exists,&nbsp;make&nbsp;it&nbsp;active&nbsp;and&nbsp;return&nbsp;the<br>
-handle&nbsp;to&nbsp;it.<br>
+&nbsp;<br>
+If&nbsp;num&nbsp;is&nbsp;an&nbsp;integer,&nbsp;and&nbsp;<a href="#-figure">figure</a>(num)&nbsp;already&nbsp;exists,&nbsp;make&nbsp;it<br>
+active&nbsp;and&nbsp;return&nbsp;the&nbsp;handle&nbsp;to&nbsp;it.&nbsp;&nbsp;If&nbsp;<a href="#-figure">figure</a>(num)&nbsp;does&nbsp;not&nbsp;exist<br>
+it&nbsp;will&nbsp;be&nbsp;created.&nbsp;&nbsp;Numbering&nbsp;starts&nbsp;at&nbsp;1,&nbsp;matlab&nbsp;style<br>
 &nbsp;<br>
 &nbsp;&nbsp;<a href="#-figure">figure</a>(1)<br>
 &nbsp;<br>
-figsize&nbsp;-&nbsp;width&nbsp;in&nbsp;height&nbsp;x&nbsp;inches;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;figure.figsize<br>
-dpi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;resolution;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;figure.dpi<br>
-facecolor&nbsp;-&nbsp;the&nbsp;background&nbsp;color;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;figure.facecolor<br>
-edgecolor&nbsp;-&nbsp;the&nbsp;border&nbsp;color;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;figure.edgecolor<br>
+&nbsp;<br>
+kwargs:<br>
+&nbsp;<br>
+&nbsp;&nbsp;figsize&nbsp;-&nbsp;width&nbsp;in&nbsp;height&nbsp;x&nbsp;inches;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;figure.figsize<br>
+&nbsp;&nbsp;dpi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;resolution;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;figure.dpi<br>
+&nbsp;&nbsp;facecolor&nbsp;-&nbsp;the&nbsp;background&nbsp;color;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;figure.facecolor<br>
+&nbsp;&nbsp;edgecolor&nbsp;-&nbsp;the&nbsp;border&nbsp;color;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;figure.edgecolor<br>
 &nbsp;<br>
 rcParams&nbsp;gives&nbsp;the&nbsp;default&nbsp;values&nbsp;from&nbsp;the&nbsp;.matplotlibrc&nbsp;file</tt></dd></dl>
  <dl><dt><a name="-fill"><strong>fill</strong></a>(*args, **kwargs)</dt><dd><tt>FILL(*args,&nbsp;**kwargs)<br>
@@ -958,22 +975,33 @@ and&nbsp;so&nbsp;on.&nbsp;&nbsp;The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;sup
 &nbsp;&nbsp;handletextsep&nbsp;=&nbsp;0.02&nbsp;#&nbsp;the&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;line&nbsp;and&nbsp;legend&nbsp;text<br>
 &nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge<br>
 &nbsp;&nbsp;shadow&nbsp;=&nbsp;False&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;if&nbsp;True,&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;behind&nbsp;legend</tt></dd></dl>
- <dl><dt><a name="-load"><strong>load</strong></a>(fname)</dt><dd><tt>Load&nbsp;ASCII&nbsp;data&nbsp;from&nbsp;fname&nbsp;into&nbsp;an&nbsp;array&nbsp;and&nbsp;return&nbsp;the&nbsp;array.<br>
+ <dl><dt><a name="-load"><strong>load</strong></a>(fname, comments<font color="#909090">='%'</font>)</dt><dd><tt>Load&nbsp;ASCII&nbsp;data&nbsp;from&nbsp;fname&nbsp;into&nbsp;an&nbsp;array&nbsp;and&nbsp;return&nbsp;the&nbsp;array.<br>
 &nbsp;<br>
 The&nbsp;data&nbsp;must&nbsp;be&nbsp;regular,&nbsp;same&nbsp;number&nbsp;of&nbsp;values&nbsp;in&nbsp;every&nbsp;row<br>
 &nbsp;<br>
-fname&nbsp;can&nbsp;be&nbsp;a&nbsp;filename&nbsp;or&nbsp;a&nbsp;file&nbsp;handle<br>
+fname&nbsp;can&nbsp;be&nbsp;a&nbsp;filename&nbsp;or&nbsp;a&nbsp;file&nbsp;handle.&nbsp;&nbsp;Support&nbsp;for&nbsp;gzipped&nbsp;files&nbsp;is<br>
+automatic,&nbsp;if&nbsp;the&nbsp;filename&nbsp;ends&nbsp;in&nbsp;.gz<br>
 &nbsp;<br>
 matfile&nbsp;data&nbsp;is&nbsp;not&nbsp;currently&nbsp;supported,&nbsp;but&nbsp;see<br>
 Nigel&nbsp;Wade's&nbsp;matfile&nbsp;<a href="ftp://ion.le.ac.uk/matfile/matfile.tar.gz">ftp://ion.le.ac.uk/matfile/matfile.tar.gz</a><br>
 &nbsp;<br>
 Example&nbsp;usage:<br>
 &nbsp;<br>
-x,y&nbsp;=&nbsp;<a href="#-load">load</a>('test.dat')&nbsp;&nbsp;#&nbsp;data&nbsp;in&nbsp;two&nbsp;columns<br>
+X&nbsp;=&nbsp;<a href="#-load">load</a>('test.dat')&nbsp;&nbsp;#&nbsp;data&nbsp;in&nbsp;two&nbsp;columns<br>
+t&nbsp;=&nbsp;X[:,0]<br>
+y&nbsp;=&nbsp;X[:,1]<br>
+&nbsp;<br>
+Alternatively,&nbsp;you&nbsp;can&nbsp;do<br>
+&nbsp;<br>
+t,y&nbsp;=&nbsp;transpose(<a href="#-load">load</a>('test.dat'))&nbsp;#&nbsp;for&nbsp;&nbsp;two&nbsp;column&nbsp;data<br>
+&nbsp;<br>
 &nbsp;<br>
 X&nbsp;=&nbsp;<a href="#-load">load</a>('test.dat')&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;matrix&nbsp;of&nbsp;data<br>
 &nbsp;<br>
-x&nbsp;=&nbsp;<a href="#-load">load</a>('test.dat')&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;single&nbsp;column&nbsp;of&nbsp;data</tt></dd></dl>
+x&nbsp;=&nbsp;<a href="#-load">load</a>('test.dat')&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;single&nbsp;column&nbsp;of&nbsp;data<br>
+&nbsp;<br>
+comments&nbsp;is&nbsp;the&nbsp;character&nbsp;used&nbsp;to&nbsp;indicate&nbsp;the&nbsp;start&nbsp;of&nbsp;a&nbsp;comment<br>
+in&nbsp;the&nbsp;file</tt></dd></dl>
  <dl><dt><a name="-loglog"><strong>loglog</strong></a>(*args, **kwargs)</dt><dd><tt>LOGLOG(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
@@ -986,13 +1014,54 @@ log&nbsp;scaling:<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;x&nbsp;logarithm<br>
 &nbsp;<br>
-&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)<br>
+&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;autosubs,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;depend&nbsp;on&nbsp;the&nbsp;number&nbsp;of&nbsp;decades&nbsp;in&nbsp;the&nbsp;plot<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;y&nbsp;logarithm<br>
 &nbsp;<br>
-&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;yticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basey)&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;yticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;autosubs,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;depend&nbsp;on&nbsp;the&nbsp;number&nbsp;of&nbsp;decades&nbsp;in&nbsp;the&nbsp;plot<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
+ <dl><dt><a name="-matshow"><strong>matshow</strong></a>(*args, **kw)</dt><dd><tt>Display&nbsp;an&nbsp;array&nbsp;as&nbsp;a&nbsp;matrix&nbsp;in&nbsp;a&nbsp;new&nbsp;figure&nbsp;window.<br>
+&nbsp;<br>
+The&nbsp;origin&nbsp;is&nbsp;set&nbsp;at&nbsp;the&nbsp;upper&nbsp;left&nbsp;hand&nbsp;corner&nbsp;and&nbsp;rows&nbsp;(first&nbsp;dimension<br>
+of&nbsp;the&nbsp;array)&nbsp;are&nbsp;displayed&nbsp;horizontally.&nbsp;&nbsp;The&nbsp;aspect&nbsp;ratio&nbsp;of&nbsp;the&nbsp;figure<br>
+window&nbsp;is&nbsp;that&nbsp;of&nbsp;the&nbsp;array,&nbsp;as&nbsp;long&nbsp;as&nbsp;it&nbsp;is&nbsp;possible&nbsp;to&nbsp;fit&nbsp;it&nbsp;within<br>
+your&nbsp;screen&nbsp;with&nbsp;no&nbsp;stretching.&nbsp;&nbsp;If&nbsp;the&nbsp;window&nbsp;dimensions&nbsp;can't&nbsp;accomodate<br>
+this&nbsp;(extremely&nbsp;tall/wide&nbsp;arrays),&nbsp;some&nbsp;stretching&nbsp;will&nbsp;inevitably&nbsp;occur.<br>
+&nbsp;<br>
+Tick&nbsp;labels&nbsp;for&nbsp;the&nbsp;xaxis&nbsp;are&nbsp;placed&nbsp;on&nbsp;top&nbsp;by&nbsp;default.<br>
+&nbsp;<br>
+<a href="#-matshow">matshow</a>()&nbsp;calls&nbsp;<a href="#-imshow">imshow</a>()&nbsp;with&nbsp;args&nbsp;and&nbsp;**kwargs,&nbsp;but&nbsp;by&nbsp;default&nbsp;it&nbsp;sets<br>
+interpolation='nearest'&nbsp;(unless&nbsp;you&nbsp;override&nbsp;it).&nbsp;&nbsp;All&nbsp;other&nbsp;arguments&nbsp;and<br>
+keywords&nbsp;are&nbsp;passed&nbsp;to&nbsp;<a href="#-imshow">imshow</a>(),&nbsp;so&nbsp;see&nbsp;its&nbsp;docstring&nbsp;for&nbsp;further&nbsp;details.<br>
+&nbsp;<br>
+Special&nbsp;keyword&nbsp;arguments&nbsp;which&nbsp;are&nbsp;NOT&nbsp;passed&nbsp;to&nbsp;<a href="#-imshow">imshow</a>():<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;fignum(None):&nbsp;by&nbsp;default,&nbsp;<a href="#-matshow">matshow</a>()&nbsp;creates&nbsp;a&nbsp;new&nbsp;figure&nbsp;window&nbsp;with<br>
+&nbsp;&nbsp;automatic&nbsp;numbering.&nbsp;&nbsp;If&nbsp;fignum&nbsp;is&nbsp;given&nbsp;as&nbsp;an&nbsp;integer,&nbsp;the&nbsp;created<br>
+&nbsp;&nbsp;figure&nbsp;will&nbsp;use&nbsp;this&nbsp;figure&nbsp;number.&nbsp;&nbsp;Because&nbsp;of&nbsp;how&nbsp;<a href="#-matshow">matshow</a>()&nbsp;tries&nbsp;to<br>
+&nbsp;&nbsp;set&nbsp;the&nbsp;figure&nbsp;aspect&nbsp;ratio&nbsp;to&nbsp;be&nbsp;the&nbsp;one&nbsp;of&nbsp;the&nbsp;array,&nbsp;if&nbsp;you&nbsp;provide<br>
+&nbsp;&nbsp;the&nbsp;number&nbsp;of&nbsp;an&nbsp;already&nbsp;existing&nbsp;figure,&nbsp;strange&nbsp;things&nbsp;may&nbsp;happen.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;returnall(False):&nbsp;by&nbsp;default,&nbsp;the&nbsp;return&nbsp;value&nbsp;is&nbsp;a&nbsp;figure&nbsp;instance.<br>
+&nbsp;&nbsp;With&nbsp;'returnall=True',&nbsp;a&nbsp;(figure,&nbsp;axes,&nbsp;image)&nbsp;tuple&nbsp;is&nbsp;returned.<br>
+&nbsp;<br>
+&nbsp;<br>
+Example&nbsp;usage:<br>
+&nbsp;<br>
+def&nbsp;samplemat(dims):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;aa&nbsp;=&nbsp;<a href="#-zeros">zeros</a>(dims)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(min(dims)):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aa[i,i]&nbsp;=&nbsp;i<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;aa<br>
+&nbsp;<br>
+dimlist&nbsp;=&nbsp;[(12,12),(128,64),(64,512),(2048,256)]<br>
+&nbsp;<br>
+for&nbsp;d&nbsp;in&nbsp;dimlist:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fig,&nbsp;ax,&nbsp;im&nbsp;=&nbsp;<a href="#-matshow">matshow</a>(samplemat(d))<br>
+show()</tt></dd></dl>
  <dl><dt><a name="-over"><strong>over</strong></a>(func, *args, **kwargs)</dt><dd><tt>Call&nbsp;func(*args,&nbsp;**kwargs)&nbsp;with&nbsp;<a href="#-hold">hold</a>(True)&nbsp;and&nbsp;then&nbsp;restore&nbsp;the&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-pcolor"><strong>pcolor</strong></a>(*args, **kwargs)</dt><dd><tt>PCOLOR(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -1261,6 +1330,7 @@ legend&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;legend&nbsp;to&nbsp;the&nbsp;axes
 loglog&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;log&nbsp;log&nbsp;plot<br>
 imread&nbsp;&nbsp;&nbsp;-&nbsp;load&nbsp;image&nbsp;file&nbsp;into&nbsp;array<br>
 imshow&nbsp;&nbsp;&nbsp;-&nbsp;plot&nbsp;image&nbsp;data<br>
+matshow&nbsp;&nbsp;-&nbsp;display&nbsp;a&nbsp;matrix&nbsp;in&nbsp;a&nbsp;new&nbsp;figure&nbsp;preserving&nbsp;aspect<br>
 pcolor&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot<br>
 plot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;line&nbsp;plot<br>
 psd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;power&nbsp;spectral&nbsp;density<br>
@@ -1420,10 +1490,12 @@ Examples<br>
 &nbsp;<br>
 &nbsp;&nbsp;#&nbsp;set&nbsp;the&nbsp;locations&nbsp;and&nbsp;labels&nbsp;of&nbsp;the&nbsp;radial&nbsp;gridlines&nbsp;and&nbsp;labels<br>
 &nbsp;&nbsp;lines,&nbsp;labels&nbsp;=&nbsp;<a href="#-rgrids">rgrids</a>(&nbsp;(0.25,&nbsp;0.5,&nbsp;1.0),&nbsp;('Tom',&nbsp;'Dick',&nbsp;'Harry'&nbsp;)</tt></dd></dl>
- <dl><dt><a name="-save"><strong>save</strong></a>(fname, X, fmt<font color="#909090">='%1.4f'</font>)</dt><dd><tt>Save&nbsp;the&nbsp;data&nbsp;in&nbsp;X&nbsp;to&nbsp;file&nbsp;fname&nbsp;using&nbsp;fmt&nbsp;string&nbsp;to&nbsp;convert&nbsp;the<br>
+ <dl><dt><a name="-save"><strong>save</strong></a>(fname, X, fmt<font color="#909090">='%.18e'</font>)</dt><dd><tt>Save&nbsp;the&nbsp;data&nbsp;in&nbsp;X&nbsp;to&nbsp;file&nbsp;fname&nbsp;using&nbsp;fmt&nbsp;string&nbsp;to&nbsp;convert&nbsp;the<br>
 data&nbsp;to&nbsp;strings<br>
 &nbsp;<br>
-fname&nbsp;can&nbsp;be&nbsp;a&nbsp;filename&nbsp;or&nbsp;a&nbsp;file&nbsp;handle&nbsp;&nbsp;&nbsp;&nbsp;<br>
+fname&nbsp;can&nbsp;be&nbsp;a&nbsp;filename&nbsp;or&nbsp;a&nbsp;file&nbsp;handle.&nbsp;&nbsp;If&nbsp;the&nbsp;filename&nbsp;ends&nbsp;in&nbsp;.gz,<br>
+the&nbsp;file&nbsp;is&nbsp;automatically&nbsp;saved&nbsp;in&nbsp;compressed&nbsp;gzip&nbsp;format.&nbsp;&nbsp;The&nbsp;<a href="#-load">load</a>()<br>
+command&nbsp;understands&nbsp;gzipped&nbsp;files&nbsp;transparently.<br>
 &nbsp;<br>
 Example&nbsp;usage:<br>
 &nbsp;<br>
@@ -1432,7 +1504,7 @@ Example&nbsp;usage:<br>
 <a href="#-save">save</a>('test2.out',&nbsp;x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;x&nbsp;is&nbsp;1D<br>
 <a href="#-save">save</a>('test3.out',&nbsp;x,&nbsp;fmt='%1.4e')&nbsp;&nbsp;#&nbsp;use&nbsp;exponential&nbsp;notation</tt></dd></dl>
  <dl><dt><a name="-savefig"><strong>savefig</strong></a>(*args, **kwargs)</dt><dd><tt>SAVEFIG(fname,&nbsp;dpi=150,&nbsp;facecolor='w',&nbsp;edgecolor='w',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;orientation='portrait'):<br>
+orientation='portrait'):<br>
 &nbsp;<br>
 Save&nbsp;the&nbsp;current&nbsp;figure&nbsp;to&nbsp;filename&nbsp;fname.&nbsp;&nbsp;dpi&nbsp;is&nbsp;the&nbsp;resolution<br>
 in&nbsp;dots&nbsp;per&nbsp;inch.<br>
@@ -1519,8 +1591,8 @@ plot&nbsp;or&nbsp;set_xscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basex)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;autosubs,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;depend&nbsp;on&nbsp;the&nbsp;number&nbsp;of&nbsp;decades&nbsp;in&nbsp;the&nbsp;plot<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
@@ -1535,8 +1607,8 @@ plot&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basey)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;autosubs,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;depend&nbsp;on&nbsp;the&nbsp;number&nbsp;of&nbsp;decades&nbsp;in&nbsp;the&nbsp;plot<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
@@ -1650,8 +1722,20 @@ in<br>
 The&nbsp;background&nbsp;color&nbsp;of&nbsp;the&nbsp;subplot&nbsp;can&nbsp;be&nbsp;specified&nbsp;via&nbsp;keyword<br>
 argument&nbsp;'axisbg',&nbsp;which&nbsp;takes&nbsp;a&nbsp;color&nbsp;string&nbsp;or&nbsp;gdk.Color&nbsp;as&nbsp;value,&nbsp;as&nbsp;in<br>
 &nbsp;<br>
-<a href="#-subplot">subplot</a>(211,&nbsp;axisbg='y')</tt></dd></dl>
+<a href="#-subplot">subplot</a>(211,&nbsp;axisbg='y')<br>
+&nbsp;<br>
+See&nbsp;help(axes)&nbsp;for&nbsp;additional&nbsp;information&nbsp;on&nbsp;axes&nbsp;and&nbsp;subplot<br>
+keyword&nbsp;arguments.<br>
+&nbsp;<br>
+New&nbsp;subplots&nbsp;that&nbsp;overlap&nbsp;old&nbsp;will&nbsp;delete&nbsp;the&nbsp;old&nbsp;axes.&nbsp;&nbsp;If&nbsp;you&nbsp;do<br>
+not&nbsp;want&nbsp;this&nbsp;behavior,&nbsp;use&nbsp;fig.add_subplot&nbsp;or&nbsp;the&nbsp;axes&nbsp;command.&nbsp;&nbsp;Eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;from&nbsp;pylab&nbsp;import&nbsp;*<br>
+&nbsp;&nbsp;<a href="#-plot">plot</a>([1,2,3])&nbsp;&nbsp;#&nbsp;implicitly&nbsp;creates&nbsp;<a href="#-subplot">subplot</a>(111)<br>
+&nbsp;&nbsp;<a href="#-subplot">subplot</a>(211)&nbsp;&nbsp;&nbsp;#&nbsp;overlaps,&nbsp;<a href="#-subplot">subplot</a>(111)&nbsp;is&nbsp;killed<br>
+&nbsp;&nbsp;<a href="#-plot">plot</a>(rand(12),&nbsp;rand(12))</tt></dd></dl>
  <dl><dt><a name="-summer"><strong>summer</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;summer&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
+ <dl><dt><a name="-switch_backend"><strong>switch_backend</strong></a>(newbackend)</dt></dl>
  <dl><dt><a name="-table"><strong>table</strong></a>(*args, **kwargs)</dt><dd><tt>TABLE(cellText=None,&nbsp;cellColours=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cellLoc='right',&nbsp;colWidths=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rowLabels=None,&nbsp;rowColours=None,&nbsp;rowLoc='left',<br>
@@ -1734,6 +1818,9 @@ Default&nbsp;font&nbsp;override&nbsp;is:<br>
 &nbsp;<br>
 See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information&nbsp;of&nbsp;how&nbsp;override&nbsp;and&nbsp;the<br>
 optional&nbsp;args&nbsp;work</tt></dd></dl>
+ <dl><dt><a name="-twinx"><strong>twinx</strong></a>(ax<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;a&nbsp;second&nbsp;axes&nbsp;overlay&nbsp;ax&nbsp;(or&nbsp;the&nbsp;current&nbsp;axes&nbsp;if&nbsp;ax&nbsp;is&nbsp;None)<br>
+sharing&nbsp;the&nbsp;xaxis.&nbsp;&nbsp;The&nbsp;ticks&nbsp;for&nbsp;ax2&nbsp;will&nbsp;be&nbsp;placed&nbsp;on&nbsp;the&nbsp;right,<br>
+and&nbsp;the&nbsp;ax2&nbsp;instance&nbsp;is&nbsp;returned.&nbsp;&nbsp;See&nbsp;examples/two_scales.py</tt></dd></dl>
  <dl><dt><a name="-vlines"><strong>vlines</strong></a>(*args, **kwargs)</dt><dd><tt>VLINES(x,&nbsp;ymin,&nbsp;ymax,&nbsp;color='k')<br>
 &nbsp;<br>
 Plot&nbsp;vertical&nbsp;lines&nbsp;at&nbsp;each&nbsp;x&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;ymin&nbsp;or&nbsp;ymax&nbsp;can&nbsp;be<br>

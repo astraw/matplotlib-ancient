@@ -176,10 +176,7 @@ def isNewEntry(line):
         return 0
 
 news = NewsBox("""\
-numerix module code reorganized in 0.71 -- <i>this may break some
-scripts</i>.  pylab no longer imports the numerix min, max and sum
-functions.  For optimal numerix performance, use amin, amax and asum.
-See <a href=API_CHANGES>API_CHANGES</a> for details
+matplotlib now has domain specific <a href=toolkits.html>toolkits</>.
 """)
 
 table1 =  LinkBox(header='Matplotlib', links=(

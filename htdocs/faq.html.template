@@ -757,13 +757,13 @@ standard axes.</p>
 
 Other things to consider.  With multiple subplots, eg, multiple rows,
 turn off the xticklabels for all but the lowest subplot if they are
-the same in all subplots <tt>set(gca(), 'xticklabels', [])</tt>.  You
+the same in all subplots <tt>xticks([])</tt>.  You
 can make the fontsizes smaller, as in <tt>xlabel('time (s)',
 fontsize=8)</tt> or, for the tick labels
 
 <pre>
-t = gca().get_xticklabels()
-set(t, 'fontsize', 8)
+locs, labels = xticks()
+set(labels, fontsize=8)
 </pre>
 
 You can also set the default ticklabel size in your <a

@@ -433,6 +433,7 @@ from&nbsp;Parmar&nbsp;and&nbsp;Martelli&nbsp;in&nbsp;the&nbsp;Python&nbsp;Cookbo
  <dl><dt><a name="-mkdirs"><strong>mkdirs</strong></a>(newdir, mode<font color="#909090">=511</font>)</dt></dl>
  <dl><dt><a name="-onetrue"><strong>onetrue</strong></a>(seq)</dt></dl>
  <dl><dt><a name="-pieces"><strong>pieces</strong></a>(seq, num<font color="#909090">=2</font>)</dt><dd><tt>Break&nbsp;up&nbsp;the&nbsp;seq&nbsp;into&nbsp;num&nbsp;tuples</tt></dd></dl>
+ <dl><dt><a name="-popall"><strong>popall</strong></a>(seq)</dt><dd><tt>empty&nbsp;a&nbsp;<a href="__builtin__.html#list">list</a></tt></dd></dl>
  <dl><dt><a name="-popd"><strong>popd</strong></a>(d, *args)</dt><dd><tt>Should&nbsp;behave&nbsp;like&nbsp;python2.3&nbsp;pop&nbsp;method;&nbsp;d&nbsp;is&nbsp;a&nbsp;<a href="__builtin__.html#dict">dict</a><br>
 &nbsp;<br>
 #&nbsp;returns&nbsp;value&nbsp;for&nbsp;key&nbsp;and&nbsp;deletes&nbsp;item;&nbsp;raises&nbsp;a&nbsp;KeyError&nbsp;if&nbsp;key<br>

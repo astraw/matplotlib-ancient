@@ -706,7 +706,7 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 <strong>subsuperscript</strong> = subsuperscript<br>
 <strong>superscript</strong> = superscript<br>
 <strong>symbol</strong> = {{{{{{Combine:({{"\" W:(abcd...)} ~{Suppress:("{...@"} | "%"} | "&amp;"}} | {{{"[" | "]"} | "("} | ")"}}<br>
-<strong>symgroup</strong> = {{{{{{{Combine:({{"\" W:(abcd...)} ~{Suppress:("...} | "&amp;"}} | {{{"[" | "]"} | "("} | ")"}} | group}<br>
+<strong>symgroup</strong> = {{font ^ group} ^ {{{{{{Combine:({{"\" W:(abcd....."} | "%"} | "&amp;"}} | {{{"[" | "]"} | "("} | ")"}}}<br>
 <strong>texsym</strong> = Combine:({{"\" W:(abcd...)} ~{Suppress:("{")}})<br>
 <strong>times</strong> = "*"<br>
 <strong>typewriter</strong> = "tt"<br>

@@ -18,13 +18,12 @@ Author:&nbsp;Steve&nbsp;Chaplin</tt></p>
 <a href="gtk.gdk.html">gtk.gdk</a><br>
 <a href="gobject.html">gobject</a><br>
 </td><td width="25%" valign=top><a href="gtk.html">gtk</a><br>
-<a href="math.html">math</a><br>
 <a href="matplotlib.html">matplotlib</a><br>
-</td><td width="25%" valign=top><a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
-<a href="os.html">os</a><br>
+<a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
 <a href="pango.html">pango</a><br>
-</td><td width="25%" valign=top><a href="pygtk.html">pygtk</a><br>
-<a href="sys.html">sys</a><br>
+<a href="pygtk.html">pygtk</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
@@ -90,7 +89,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137221440)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137237544)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>

@@ -136,6 +136,8 @@ Data and other attributes inherited from <a href="matplotlib.backend_bases.html#
 
 <dl><dt><a name="FigureManagerGD-destroy"><strong>destroy</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="FigureManagerGD-key_press"><strong>key_press</strong></a>(self, event)</dt></dl>
+
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
@@ -151,6 +153,8 @@ Data and other attributes inherited from <a href="matplotlib.backend_bases.html#
 <dl><dt><a name="FigureManagerGD-clf"><strong>clf</strong></a>(self)</dt><dd><tt>clear&nbsp;the&nbsp;figure</tt></dd></dl>
 
 <dl><dt><a name="FigureManagerGD-destroy"><strong>destroy</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureManagerGD-key_press"><strong>key_press</strong></a>(self, event)</dt></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

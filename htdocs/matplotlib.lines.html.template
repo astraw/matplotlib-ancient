@@ -14,8 +14,9 @@ variety&nbsp;of&nbsp;line&nbsp;styles,&nbsp;markers&nbsp;and&nbsp;colors</tt></p
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -46,8 +47,6 @@ marker&nbsp;is&nbsp;one&nbsp;of&nbsp;lineMarkers&nbsp;or&nbsp;None<br>
 markersize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;marker&nbsp;in&nbsp;points<br>
 markeredgecolor&nbsp;&nbsp;and&nbsp;markerfacecolor&nbsp;can&nbsp;be&nbsp;any&nbsp;color&nbsp;arg&nbsp;<br>
 markeredgewidth&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;markter&nbsp;edge&nbsp;in&nbsp;points</tt></dd></dl>
-
-<dl><dt><a name="Line2D-copy_properties"><strong>copy_properties</strong></a>(self, line)</dt><dd><tt>copy&nbsp;properties&nbsp;from&nbsp;line&nbsp;to&nbsp;self</tt></dd></dl>
 
 <dl><dt><a name="Line2D-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
@@ -171,6 +170,8 @@ ACCEPTS:&nbsp;(ymin,&nbsp;ymax)</tt></dd></dl>
 &nbsp;<br>
 ACCEPTS:&nbsp;array</tt></dd></dl>
 
+<dl><dt><a name="Line2D-update_from"><strong>update_from</strong></a>(self, other)</dt><dd><tt>copy&nbsp;properties&nbsp;from&nbsp;other&nbsp;to&nbsp;self</tt></dd></dl>
+
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>zorder</strong> = 2</dl>
@@ -262,17 +263,25 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>Float</strong> = 'd'<br>
+<td width="100%"><strong>ENDPOLY</strong> = 6<br>
+<strong>Float</strong> = 'd'<br>
+<strong>LINETO</strong> = 2<br>
+<strong>LOG10</strong> = 1<br>
+<strong>MOVETO</strong> = 1<br>
 <strong>TICKDOWN</strong> = 3<br>
 <strong>TICKLEFT</strong> = 0<br>
 <strong>TICKRIGHT</strong> = 1<br>
 <strong>TICKUP</strong> = 2<br>
 <strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
+<strong>cos</strong> = &lt;ufunc 'cos'&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>greater</strong> = &lt;ufunc 'greater'&gt;<br>
 <strong>less</strong> = &lt;ufunc 'less'&gt;<br>
 <strong>lineMarkers</strong> = {0: 1, 1: 1, 2: 1, 3: 1, '+': 1, ',': 1, '.': 1, '1': 1, '2': 1, '3': 1, ...}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1, 'None': 1, 'steps': 1}<br>
 <strong>logical_and</strong> = &lt;ufunc 'logical_and'&gt;<br>
+<strong>pi</strong> = 3.1415926535897931<br>
 <strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

@@ -170,6 +170,8 @@ ACCEPTS:&nbsp;any&nbsp;number</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-update"><strong>update</strong></a>(self, props)</dt></dl>
 
+<dl><dt><a name="AxesImage-update_from"><strong>update_from</strong></a>(self, other)</dt><dd><tt>copy&nbsp;properties&nbsp;from&nbsp;other&nbsp;to&nbsp;self</tt></dd></dl>
+
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
@@ -196,7 +198,7 @@ Update&nbsp;the&nbsp;cmap,&nbsp;norm&nbsp;accordingly</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-set_colorbar"><strong>set_colorbar</strong></a>(self, im, ax)</dt><dd><tt>set&nbsp;the&nbsp;colorbar&nbsp;image&nbsp;and&nbsp;axes&nbsp;associated&nbsp;with&nbsp;mappable</tt></dd></dl>
 
-<dl><dt><a name="AxesImage-set_norm"><strong>set_norm</strong></a>(self, norm)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
+<dl><dt><a name="AxesImage-set_norm"><strong>set_norm</strong></a>(self, norm)</dt><dd><tt>set&nbsp;the&nbsp;normalization&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-to_rgba"><strong>to_rgba</strong></a>(self, x, alpha<font color="#909090">=1.0</font>)</dt></dl>
 
@@ -287,6 +289,8 @@ ACCEPTS:&nbsp;any&nbsp;number</tt></dd></dl>
 
 <dl><dt><a name="FigureImage-update"><strong>update</strong></a>(self, props)</dt></dl>
 
+<dl><dt><a name="FigureImage-update_from"><strong>update_from</strong></a>(self, other)</dt><dd><tt>copy&nbsp;properties&nbsp;from&nbsp;other&nbsp;to&nbsp;self</tt></dd></dl>
+
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
@@ -318,7 +322,7 @@ Update&nbsp;the&nbsp;cmap,&nbsp;norm&nbsp;accordingly</tt></dd></dl>
 
 <dl><dt><a name="FigureImage-set_colorbar"><strong>set_colorbar</strong></a>(self, im, ax)</dt><dd><tt>set&nbsp;the&nbsp;colorbar&nbsp;image&nbsp;and&nbsp;axes&nbsp;associated&nbsp;with&nbsp;mappable</tt></dd></dl>
 
-<dl><dt><a name="FigureImage-set_norm"><strong>set_norm</strong></a>(self, norm)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
+<dl><dt><a name="FigureImage-set_norm"><strong>set_norm</strong></a>(self, norm)</dt><dd><tt>set&nbsp;the&nbsp;normalization&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="FigureImage-to_rgba"><strong>to_rgba</strong></a>(self, x, alpha<font color="#909090">=1.0</font>)</dt></dl>
 

@@ -1,5 +1,88 @@
 New entries should be added at the top
 
+2005-02-14 0.72 released
+
+2005-02-14 fix bug in cbook alltrue() and onetrue() - SC
+
+2005-02-11 updated qtagg backend from Ted - JDH
+
+2005-02-11 matshow fixes for figure numbering, return value and docs - FP
+
+2005-02-09 new zorder example for fine control in zorder_demo.py - FP
+
+2005-02-09 backend renderer draw_lines now has transform in backend,
+           as in draw_markers; use numerix in _backend_agg, aded small
+           line optimization to agg
+
+2005-02-09 subplot now deletes axes that it overlaps 
+
+2005-02-08 Added transparent support for gzipped files in load/save - Fernando
+           Perez (FP from now on).
+
+2005-02-08 Small optimizations in PS backend.  They may have a big impact for
+           large plots, otherwise they don't hurt  - FP
+
+2005-02-08 Added transparent support for gzipped files in load/save - Fernando
+           Perez (FP from now on).
+
+2005-02-07 Added newstyle path drawing for markers - only implemented
+           in agg currently - JDH
+
+2005-02-05 Some superscript text optimizations for ticking log plots
+
+2005-02-05 Added some default key press events to pylab figures: 'g'
+           toggles grid - JDH
+
+2005-02-05 Added some support for handling log switching for lines
+           that have nonpos data - JDH
+
+2005-02-04 Added Nadia's contour patch - contour now has matlab
+           compatible syntax; this also fixed an unequal sized contour
+           array bug- JDH
+
+2005-02-04 Modified GTK backends to allow the FigureCanvas to be resized
+	   smaller than its original size - SC
+
+2005-02-02 Fixed a bug in dates mx2num - JDH
+
+2005-02-02 Incorporated Fernando's matshow - JDH
+
+2005-02-01 Added Fernando's figure num patch, including experemental
+           support for pylab backend switching, LineCOllection.color
+           warns, savefig now a figure method, fixed a close(fig) bug
+           - JDH
+
+2005-01-31 updated datalim in contour - JDH
+
+2005-01-30 Added backend_qtagg.py provided by Sigve Tjora - SC
+
+2005-01-28 Added tk.inspect rc param to .matplotlibrc.  IDLE users
+           should set tk.pythoninspect:True and interactive:True and
+           backend:TkAgg
+
+2005-01-28 Replaced examples/interactive.py with an updated script from
+           Fernando Perez - SC
+
+2005-01-27 Added support for shared x or y axes.  See
+           examples/shared_axis_demo.py and examples/ganged_plots.py
+
+2005-01-27 Added Lee's patch for missing symbols \leq and \LEFTbracket
+           to _mathtext_data - JDH
+
+2005-01-26 Added Baptiste's two scales patch -- see help(twinx) in the
+           pylab interface for more info.  See also
+           examples/two_scales.py
+
+2005-01-24 Fixed a mathtext parser bug that prevented font changes in
+           sub/superscripts - JDH
+
+2005-01-24 Fixed contour to work w/ interactive changes in colormaps,
+           clim, etc - JDH
+
+===============================================================
+
+2005-01-21 matplotlib-0.71 released
+
 2005-01-21 Refactored numerix to solve vexing namespace issues - JDH
 
 2005-01-21 Applied Nadia's contour bug fix - JDH

@@ -62,7 +62,7 @@ Update&nbsp;the&nbsp;cmap,&nbsp;norm&nbsp;accordingly</tt></dd></dl>
 
 <dl><dt><a name="ScalarMappable-set_colorbar"><strong>set_colorbar</strong></a>(self, im, ax)</dt><dd><tt>set&nbsp;the&nbsp;colorbar&nbsp;image&nbsp;and&nbsp;axes&nbsp;associated&nbsp;with&nbsp;mappable</tt></dd></dl>
 
-<dl><dt><a name="ScalarMappable-set_norm"><strong>set_norm</strong></a>(self, norm)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
+<dl><dt><a name="ScalarMappable-set_norm"><strong>set_norm</strong></a>(self, norm)</dt><dd><tt>set&nbsp;the&nbsp;normalization&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="ScalarMappable-to_rgba"><strong>to_rgba</strong></a>(self, x, alpha<font color="#909090">=1.0</font>)</dt></dl>
 

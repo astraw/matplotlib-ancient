@@ -72,8 +72,6 @@ Methods inherited from <a href="matplotlib.patches.html#RegularPolygon">RegularP
 
 <hr>
 Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
-<dl><dt><a name="Circle-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
-
 <dl><dt><a name="Circle-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
 <dl><dt><a name="Circle-get_aa"><strong>get_aa</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_antialiased</tt></dd></dl>
@@ -121,6 +119,8 @@ ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 ACCEPTS:&nbsp;float</tt></dd></dl>
 
 <dl><dt><a name="Circle-set_lw"><strong>set_lw</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_linewidth</tt></dd></dl>
+
+<dl><dt><a name="Circle-update_from"><strong>update_from</strong></a>(self, other)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
@@ -207,8 +207,6 @@ None,&nbsp;they&nbsp;default&nbsp;to&nbsp;their&nbsp;rc&nbsp;params&nbsp;setting
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Patch-__init__"><strong>__init__</strong></a>(self, edgecolor<font color="#909090">=None</font>, facecolor<font color="#909090">=None</font>, linewidth<font color="#909090">=None</font>, antialiased<font color="#909090">=None</font>, fill<font color="#909090">=1</font>, **kwargs)</dt></dl>
 
-<dl><dt><a name="Patch-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
-
 <dl><dt><a name="Patch-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
 <dl><dt><a name="Patch-get_aa"><strong>get_aa</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_antialiased</tt></dd></dl>
@@ -258,6 +256,8 @@ ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 ACCEPTS:&nbsp;float</tt></dd></dl>
 
 <dl><dt><a name="Patch-set_lw"><strong>set_lw</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_linewidth</tt></dd></dl>
+
+<dl><dt><a name="Patch-update_from"><strong>update_from</strong></a>(self, other)</dt></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -351,8 +351,6 @@ Methods defined here:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
-<dl><dt><a name="Polygon-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
-
 <dl><dt><a name="Polygon-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
 <dl><dt><a name="Polygon-get_aa"><strong>get_aa</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_antialiased</tt></dd></dl>
@@ -400,6 +398,8 @@ ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 ACCEPTS:&nbsp;float</tt></dd></dl>
 
 <dl><dt><a name="Polygon-set_lw"><strong>set_lw</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_linewidth</tt></dd></dl>
+
+<dl><dt><a name="Polygon-update_from"><strong>update_from</strong></a>(self, other)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
@@ -526,8 +526,6 @@ ACCEPTS:&nbsp;float</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
-<dl><dt><a name="Rectangle-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
-
 <dl><dt><a name="Rectangle-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
 <dl><dt><a name="Rectangle-get_aa"><strong>get_aa</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_antialiased</tt></dd></dl>
@@ -575,6 +573,8 @@ ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 ACCEPTS:&nbsp;float</tt></dd></dl>
 
 <dl><dt><a name="Rectangle-set_lw"><strong>set_lw</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_linewidth</tt></dd></dl>
+
+<dl><dt><a name="Rectangle-update_from"><strong>update_from</strong></a>(self, other)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
@@ -671,8 +671,6 @@ Methods defined here:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
-<dl><dt><a name="RegularPolygon-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
-
 <dl><dt><a name="RegularPolygon-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
 <dl><dt><a name="RegularPolygon-get_aa"><strong>get_aa</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_antialiased</tt></dd></dl>
@@ -720,6 +718,8 @@ ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 ACCEPTS:&nbsp;float</tt></dd></dl>
 
 <dl><dt><a name="RegularPolygon-set_lw"><strong>set_lw</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_linewidth</tt></dd></dl>
+
+<dl><dt><a name="RegularPolygon-update_from"><strong>update_from</strong></a>(self, other)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
@@ -813,8 +813,6 @@ have&nbsp;the&nbsp;same&nbsp;color&nbsp;as&nbsp;the&nbsp;face,&nbsp;but&nbsp;dar
 
 <hr>
 Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
-<dl><dt><a name="Shadow-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
-
 <dl><dt><a name="Shadow-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
 <dl><dt><a name="Shadow-get_aa"><strong>get_aa</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_antialiased</tt></dd></dl>
@@ -862,6 +860,8 @@ ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 ACCEPTS:&nbsp;float</tt></dd></dl>
 
 <dl><dt><a name="Shadow-set_lw"><strong>set_lw</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_linewidth</tt></dd></dl>
+
+<dl><dt><a name="Shadow-update_from"><strong>update_from</strong></a>(self, other)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
@@ -962,8 +962,6 @@ Methods inherited from <a href="matplotlib.patches.html#Polygon">Polygon</a>:<br
 
 <hr>
 Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
-<dl><dt><a name="Wedge-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
-
 <dl><dt><a name="Wedge-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
 <dl><dt><a name="Wedge-get_aa"><strong>get_aa</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_antialiased</tt></dd></dl>
@@ -1011,6 +1009,8 @@ ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 ACCEPTS:&nbsp;float</tt></dd></dl>
 
 <dl><dt><a name="Wedge-set_lw"><strong>set_lw</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_linewidth</tt></dd></dl>
+
+<dl><dt><a name="Wedge-update_from"><strong>update_from</strong></a>(self, other)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>

@@ -98,6 +98,8 @@ ACCEPTS:&nbsp;any&nbsp;number</tt></dd></dl>
 
 <dl><dt><a name="Artist-update"><strong>update</strong></a>(self, props)</dt></dl>
 
+<dl><dt><a name="Artist-update_from"><strong>update_from</strong></a>(self, other)</dt><dd><tt>copy&nbsp;properties&nbsp;from&nbsp;other&nbsp;to&nbsp;self</tt></dd></dl>
+
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
