@@ -16,10 +16,11 @@
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="MLab.html">MLab</a><br>
 <a href="matplotlib._image.html">matplotlib._image</a><br>
 </td><td width="25%" valign=top><a href="matplotlib.cm.html">matplotlib.cm</a><br>
-<a href="math.html">math</a><br>
-</td><td width="25%" valign=top><a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
-<a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<a href="matplotlib.dates.html">matplotlib.dates</a><br>
+</td><td width="25%" valign=top><a href="math.html">math</a><br>
+<a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -181,6 +182,14 @@ An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;color&nbsp;groups&nbs
 &nbsp;&nbsp;a.<a href="#Axes-fill">fill</a>(x1,&nbsp;y1,&nbsp;'g',&nbsp;x2,&nbsp;y2,&nbsp;'r')&nbsp;&nbsp;<br>
 &nbsp;<br>
 Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patches&nbsp;that&nbsp;were&nbsp;added.</tt></dd></dl>
+
+<dl><dt><a name="Axes-format_xdata"><strong>format_xdata</strong></a>(self, x)</dt><dd><tt>return&nbsp;x&nbsp;string&nbsp;formatted.&nbsp;&nbsp;This&nbsp;function&nbsp;will&nbsp;use&nbsp;the<br>
+attribute&nbsp;self.<strong>fmt_xdata</strong>&nbsp;if&nbsp;it&nbsp;is&nbsp;callable,&nbsp;else&nbsp;will&nbsp;fall<br>
+back&nbsp;on&nbsp;the&nbsp;xaxis&nbsp;major&nbsp;formatter</tt></dd></dl>
+
+<dl><dt><a name="Axes-format_ydata"><strong>format_ydata</strong></a>(self, y)</dt><dd><tt>return&nbsp;y&nbsp;string&nbsp;formatted.&nbsp;&nbsp;This&nbsp;function&nbsp;will&nbsp;use&nbsp;the<br>
+attribute&nbsp;self.<strong>fmt_ydata</strong>&nbsp;if&nbsp;it&nbsp;is&nbsp;callable,&nbsp;else&nbsp;will&nbsp;fall<br>
+back&nbsp;on&nbsp;the&nbsp;yaxis&nbsp;major&nbsp;formatter</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_axis_bgcolor"><strong>get_axis_bgcolor</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;background&nbsp;color</tt></dd></dl>
 
@@ -549,15 +558,17 @@ to&nbsp;all&nbsp;those&nbsp;lines,&nbsp;eg<br>
 &nbsp;<br>
 Neither&nbsp;line&nbsp;will&nbsp;be&nbsp;antialiased.</tt></dd></dl>
 
-<dl><dt><a name="Axes-plot_date"><strong>plot_date</strong></a>(self, d, y, converter<font color="#909090">=None</font>, fmt<font color="#909090">='bo'</font>, **kwargs)</dt><dd><tt><a href="#Axes-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;**kwargs)<br>
+<dl><dt><a name="Axes-plot_date"><strong>plot_date</strong></a>(self, d, y, fmt<font color="#909090">='bo'</font>, tz<font color="#909090">=None</font>, **kwargs)</dt><dd><tt><a href="#Axes-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;tz=None,&nbsp;**kwargs)<br>
 &nbsp;<br>
-d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates;&nbsp;converter&nbsp;is&nbsp;a&nbsp;dates.DateConverter<br>
-instance&nbsp;that&nbsp;converts&nbsp;your&nbsp;dates&nbsp;to&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;for<br>
-plotting.&nbsp;&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is&nbsp;a&nbsp;plot<br>
-format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot&nbsp;for&nbsp;more<br>
-information.<br>
+d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates&nbsp;represented&nbsp;as&nbsp;float&nbsp;days&nbsp;since<br>
+0001-01-01&nbsp;UTC&nbsp;and&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is<br>
+a&nbsp;plot&nbsp;format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot<br>
+for&nbsp;more&nbsp;information.<br>
 &nbsp;<br>
-pass&nbsp;converter&nbsp;=&nbsp;None&nbsp;if&nbsp;your&nbsp;dates&nbsp;are&nbsp;already&nbsp;in&nbsp;epoch&nbsp;format</tt></dd></dl>
+See&nbsp;matplotlib.dates&nbsp;for&nbsp;helper&nbsp;functions&nbsp;date2num,&nbsp;num2date<br>
+and&nbsp;drange&nbsp;for&nbsp;help&nbsp;on&nbsp;creating&nbsp;the&nbsp;required&nbsp;floating&nbsp;point&nbsp;dates<br>
+&nbsp;<br>
+tz&nbsp;is&nbsp;the&nbsp;timezone&nbsp;-&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;value</tt></dd></dl>
 
 <dl><dt><a name="Axes-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
 The&nbsp;vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment<br>
@@ -614,7 +625,7 @@ The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'d'&nbsp;:&nbsp;diamond<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'p'&nbsp;:&nbsp;pentagram<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;:&nbsp;hexagon<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'8'&nbsp;:&nbsp;octogon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'8'&nbsp;:&nbsp;octagon<br>
 &nbsp;<br>
 s&nbsp;is&nbsp;a&nbsp;size&nbsp;argument&nbsp;in&nbsp;points&nbsp;squared.<br>
 &nbsp;<br>
@@ -1018,6 +1029,14 @@ An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;color&nbsp;groups&nbs
 &nbsp;<br>
 Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patches&nbsp;that&nbsp;were&nbsp;added.</tt></dd></dl>
 
+<dl><dt><a name="Subplot-format_xdata"><strong>format_xdata</strong></a>(self, x)</dt><dd><tt>return&nbsp;x&nbsp;string&nbsp;formatted.&nbsp;&nbsp;This&nbsp;function&nbsp;will&nbsp;use&nbsp;the<br>
+attribute&nbsp;self.<strong>fmt_xdata</strong>&nbsp;if&nbsp;it&nbsp;is&nbsp;callable,&nbsp;else&nbsp;will&nbsp;fall<br>
+back&nbsp;on&nbsp;the&nbsp;xaxis&nbsp;major&nbsp;formatter</tt></dd></dl>
+
+<dl><dt><a name="Subplot-format_ydata"><strong>format_ydata</strong></a>(self, y)</dt><dd><tt>return&nbsp;y&nbsp;string&nbsp;formatted.&nbsp;&nbsp;This&nbsp;function&nbsp;will&nbsp;use&nbsp;the<br>
+attribute&nbsp;self.<strong>fmt_ydata</strong>&nbsp;if&nbsp;it&nbsp;is&nbsp;callable,&nbsp;else&nbsp;will&nbsp;fall<br>
+back&nbsp;on&nbsp;the&nbsp;yaxis&nbsp;major&nbsp;formatter</tt></dd></dl>
+
 <dl><dt><a name="Subplot-get_axis_bgcolor"><strong>get_axis_bgcolor</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;background&nbsp;color</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
@@ -1385,15 +1404,17 @@ to&nbsp;all&nbsp;those&nbsp;lines,&nbsp;eg<br>
 &nbsp;<br>
 Neither&nbsp;line&nbsp;will&nbsp;be&nbsp;antialiased.</tt></dd></dl>
 
-<dl><dt><a name="Subplot-plot_date"><strong>plot_date</strong></a>(self, d, y, converter<font color="#909090">=None</font>, fmt<font color="#909090">='bo'</font>, **kwargs)</dt><dd><tt><a href="#Subplot-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;**kwargs)<br>
+<dl><dt><a name="Subplot-plot_date"><strong>plot_date</strong></a>(self, d, y, fmt<font color="#909090">='bo'</font>, tz<font color="#909090">=None</font>, **kwargs)</dt><dd><tt><a href="#Subplot-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;tz=None,&nbsp;**kwargs)<br>
 &nbsp;<br>
-d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates;&nbsp;converter&nbsp;is&nbsp;a&nbsp;dates.DateConverter<br>
-instance&nbsp;that&nbsp;converts&nbsp;your&nbsp;dates&nbsp;to&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;for<br>
-plotting.&nbsp;&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is&nbsp;a&nbsp;plot<br>
-format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot&nbsp;for&nbsp;more<br>
-information.<br>
+d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates&nbsp;represented&nbsp;as&nbsp;float&nbsp;days&nbsp;since<br>
+0001-01-01&nbsp;UTC&nbsp;and&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is<br>
+a&nbsp;plot&nbsp;format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot<br>
+for&nbsp;more&nbsp;information.<br>
 &nbsp;<br>
-pass&nbsp;converter&nbsp;=&nbsp;None&nbsp;if&nbsp;your&nbsp;dates&nbsp;are&nbsp;already&nbsp;in&nbsp;epoch&nbsp;format</tt></dd></dl>
+See&nbsp;matplotlib.dates&nbsp;for&nbsp;helper&nbsp;functions&nbsp;date2num,&nbsp;num2date<br>
+and&nbsp;drange&nbsp;for&nbsp;help&nbsp;on&nbsp;creating&nbsp;the&nbsp;required&nbsp;floating&nbsp;point&nbsp;dates<br>
+&nbsp;<br>
+tz&nbsp;is&nbsp;the&nbsp;timezone&nbsp;-&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;value</tt></dd></dl>
 
 <dl><dt><a name="Subplot-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
 The&nbsp;vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment<br>
@@ -1450,7 +1471,7 @@ The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'d'&nbsp;:&nbsp;diamond<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'p'&nbsp;:&nbsp;pentagram<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;:&nbsp;hexagon<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'8'&nbsp;:&nbsp;octogon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'8'&nbsp;:&nbsp;octagon<br>
 &nbsp;<br>
 s&nbsp;is&nbsp;a&nbsp;size&nbsp;argument&nbsp;in&nbsp;points&nbsp;squared.<br>
 &nbsp;<br>

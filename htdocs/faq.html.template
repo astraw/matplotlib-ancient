@@ -1,6 +1,7 @@
 
 FAQs = (
 
+
     ('TOOLBAR2',
     'Nothing happens when I click the new toolbar buttons', """\
 The Home, Forward and back buttons on the new toolbar are used to
@@ -50,6 +51,53 @@ crop up a lot.  See for example <a
 href=http://sourceforge.net/mailarchive/message.php?msg_id=8610351>this
 thread</a> and the responses to that post for more information.
 
+"""),
+
+    ('MOVIE', 'How do I make a movie with matplotlib?', """\ 
+If you want to take an animated plot and turn it into a movie, the
+best approach is to save a series of image files (eg PNG) and use an
+external tool to convert them to a movie.  There is a matplotlib
+tutorial on this subject <a
+href=http://web.media.mit.edu/~lifton/code/GraphMovies>here</a>.  You
+can use <a
+href=http://www.mplayerhq.hu/DOCS/HTML/en/mencoder.html>mencoder</a>,
+which is part of the <a href=http://www.mplayerhq.hu>mplayer</a> suite
+for this
+
+<pre>
+#fps (frames per second) controls the play speed
+mencoder 'mf://*.png' -mf type=png:fps=10 -ovc lavc -lavcopts vcodec=wmv2 -oac copy -o animation.avi
+</pre>
+
+The swiss army knife of image tools, ImageMagick's <a
+href=http://imagemagick.sourceforge.net/www/convert.html>convert</a>,
+works for this as well 
+
+Here is a simple example script that saves some PNGs, makes them into
+a movie, and then cleans up.
+
+<pre>
+import os, sys
+from matplotlib.matlab import *
+
+files = []
+figure(figsize=(5,5))
+ax = subplot(111)
+for i in range(50):  # 50 frames
+    cla()
+    imshow(rand(5,5), interpolation='nearest')
+    fname = '_tmp%03d.png'%i
+    print 'Saving frame', fname
+    savefig(fname)
+    files.append(fname)
+
+print 'Making movie animation.mpg - this make take a while'
+os.system("mencoder 'mf://_tmp*.png' -mf type=png:fps=10 -ovc lavc -lavcopts vcodec=wmv2 -oac copy -o animation.mpg")
+
+# cleanup
+for fname in files: os.remove(fname)
+
+</pre>
 """),
 
 

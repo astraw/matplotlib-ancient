@@ -119,7 +119,11 @@ need a python with Tkinter; if you want to use WxAgg, install
 wxpython.  See <a href=backends.html>backends</a> for a more
 comprehensive discussion of the various backend requirements.  Edit
 setup.py to configure the backends you want to build as described
-above.
+above.<p>
+
+Note when running a GUI backend in OSX, you should launch your
+programs with pythonw rather than python, or you may get
+nonresponsive GUIs.
 
 <h2>Package Managers: (rpms, apt, fink)</h2>
 

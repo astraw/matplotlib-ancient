@@ -975,6 +975,8 @@ Methods defined here:<br>
 
 <dl><dt><a name="NavigationToolbar2TkAgg-set_cursor"><strong>set_cursor</strong></a>(self, cursor)</dt></dl>
 
+<dl><dt><a name="NavigationToolbar2TkAgg-set_message"><strong>set_message</strong></a>(self, s)</dt></dl>
+
 <dl><dt><a name="NavigationToolbar2TkAgg-update"><strong>update</strong></a>(self)</dt></dl>
 
 <hr>

@@ -45,7 +45,7 @@ def get_mpl_commands():
     
     plot_commands = []
     # parse the header for the commands provided commands
-    for line in file('../matplotlib/matlab.py'):
+    for line in file('../lib/matplotlib/matlab.py'):
         line = line.strip()
         if not len(line): continue
         if line.startswith('__end'): break

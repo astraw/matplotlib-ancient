@@ -71,11 +71,12 @@ Credits:<br>
 <a href="math.html">math</a><br>
 <a href="multiarray.html">multiarray</a><br>
 <a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
-</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="operator.html">operator</a><br>
+<a href="os.html">os</a><br>
 <a href="pickle.html">pickle</a><br>
 <a href="string.html">string</a><br>
-<a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top><a href="types.html">types</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="types.html">types</a><br>
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -83,7 +84,11 @@ Credits:<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-approx_real"><strong>approx_real</strong></a>(x)</dt><dd><tt><a href="#-approx_real">approx_real</a>(x)&nbsp;:&nbsp;returns&nbsp;x.real&nbsp;if&nbsp;|x.imag|&nbsp;&lt;&nbsp;|x.real|&nbsp;*&nbsp;_eps_approx.<br>
+<td width="100%"><dl><dt><a name="-amap"><strong>amap</strong></a>(fn, *args)</dt><dd><tt><a href="#-amap">amap</a>(function,&nbsp;sequence[,&nbsp;sequence,&nbsp;...])&nbsp;-&gt;&nbsp;array.<br>
+&nbsp;<br>
+Works&nbsp;like&nbsp;map(),&nbsp;but&nbsp;it&nbsp;returns&nbsp;an&nbsp;array.&nbsp;&nbsp;This&nbsp;is&nbsp;just&nbsp;a&nbsp;convenient<br>
+shorthand&nbsp;for&nbsp;Numeric.<a href="#-array">array</a>(map(...))</tt></dd></dl>
+ <dl><dt><a name="-approx_real"><strong>approx_real</strong></a>(x)</dt><dd><tt><a href="#-approx_real">approx_real</a>(x)&nbsp;:&nbsp;returns&nbsp;x.real&nbsp;if&nbsp;|x.imag|&nbsp;&lt;&nbsp;|x.real|&nbsp;*&nbsp;_eps_approx.<br>
 This&nbsp;function&nbsp;is&nbsp;needed&nbsp;by&nbsp;sqrtm&nbsp;and&nbsp;allows&nbsp;further&nbsp;functions.</tt></dd></dl>
  <dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
 &nbsp;<br>
@@ -94,6 +99,14 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 &nbsp;<br>
 &nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
 specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
+ <dl><dt><a name="-base_repr"><strong>base_repr</strong></a>(number, base<font color="#909090">=2</font>, padding<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;representation&nbsp;of&nbsp;a&nbsp;number&nbsp;in&nbsp;any&nbsp;given&nbsp;base.</tt></dd></dl>
+ <dl><dt><a name="-binary_repr"><strong>binary_repr</strong></a>(number, max_length<font color="#909090">=1025</font>)</dt><dd><tt>Return&nbsp;the&nbsp;binary&nbsp;representation&nbsp;of&nbsp;the&nbsp;input&nbsp;number&nbsp;as&nbsp;a&nbsp;string.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;more&nbsp;efficient&nbsp;than&nbsp;using&nbsp;base_repr&nbsp;with&nbsp;base&nbsp;2.<br>
+&nbsp;<br>
+Increase&nbsp;the&nbsp;value&nbsp;of&nbsp;max_length&nbsp;for&nbsp;very&nbsp;large&nbsp;numbers.&nbsp;Note&nbsp;that&nbsp;on<br>
+32-bit&nbsp;machines,&nbsp;2**1023&nbsp;is&nbsp;the&nbsp;largest&nbsp;integer&nbsp;power&nbsp;of&nbsp;2&nbsp;which&nbsp;can&nbsp;be<br>
+converted&nbsp;to&nbsp;a&nbsp;Python&nbsp;float.</tt></dd></dl>
  <dl><dt><a name="-bivariate_normal"><strong>bivariate_normal</strong></a>(X, Y, sigmax<font color="#909090">=1.0</font>, sigmay<font color="#909090">=1.0</font>, mux<font color="#909090">=0.0</font>, muy<font color="#909090">=0.0</font>, sigmaxy<font color="#909090">=0.0</font>)</dt><dd><tt>Bivariate&nbsp;gaussan&nbsp;distribution&nbsp;for&nbsp;equal&nbsp;shape&nbsp;X,&nbsp;Y<br>
 &nbsp;<br>
 <a href="http://mathworld.wolfram.com/BivariateNormalDistribution.html">http://mathworld.wolfram.com/BivariateNormalDistribution.html</a></tt></dd></dl>
@@ -206,21 +219,68 @@ Refs:<br>
  <dl><dt><a name="-detrend_linear"><strong>detrend_linear</strong></a>(x)</dt><dd><tt>Return&nbsp;x&nbsp;minus&nbsp;best&nbsp;fit&nbsp;line;&nbsp;'linear'&nbsp;detrending</tt></dd></dl>
  <dl><dt><a name="-detrend_mean"><strong>detrend_mean</strong></a>(x)</dt><dd><tt>Return&nbsp;x&nbsp;minus&nbsp;the&nbsp;<a href="#-mean">mean</a>(x)</tt></dd></dl>
  <dl><dt><a name="-detrend_none"><strong>detrend_none</strong></a>(x)</dt><dd><tt>Return&nbsp;x:&nbsp;no&nbsp;detrending</tt></dd></dl>
+ <dl><dt><a name="-diagonal_matrix"><strong>diagonal_matrix</strong></a>(diag)</dt><dd><tt>Return&nbsp;square&nbsp;diagonal&nbsp;matrix&nbsp;whose&nbsp;non-zero&nbsp;elements&nbsp;are&nbsp;given&nbsp;by&nbsp;the<br>
+input&nbsp;array.</tt></dd></dl>
  <dl><dt><a name="-donothing_callback"><strong>donothing_callback</strong></a>(*args)</dt></dl>
  <dl><dt><a name="-entropy"><strong>entropy</strong></a>(y, bins)</dt><dd><tt>Return&nbsp;the&nbsp;entropy&nbsp;of&nbsp;the&nbsp;data&nbsp;in&nbsp;y<br>
 &nbsp;<br>
-\sum&nbsp;p_i&nbsp;log2(p_i)&nbsp;where&nbsp;p_i&nbsp;is&nbsp;the&nbsp;probability&nbsp;of&nbsp;observing&nbsp;y&nbsp;in<br>
+\sum&nbsp;p_i&nbsp;<a href="#-log2">log2</a>(p_i)&nbsp;where&nbsp;p_i&nbsp;is&nbsp;the&nbsp;probability&nbsp;of&nbsp;observing&nbsp;y&nbsp;in<br>
 the&nbsp;ith&nbsp;bin&nbsp;of&nbsp;bins.&nbsp;&nbsp;bins&nbsp;can&nbsp;be&nbsp;a&nbsp;number&nbsp;of&nbsp;bins&nbsp;or&nbsp;a&nbsp;range&nbsp;of<br>
 bins;&nbsp;see&nbsp;hist<br>
 &nbsp;<br>
 Compare&nbsp;S&nbsp;with&nbsp;analytic&nbsp;calculation&nbsp;for&nbsp;a&nbsp;Gaussian<br>
 x&nbsp;=&nbsp;mu&nbsp;+&nbsp;sigma*randn(200000)<br>
 Sanalytic&nbsp;=&nbsp;0.5&nbsp;&nbsp;*&nbsp;(&nbsp;1.0&nbsp;+&nbsp;log(2*pi*sigma**2.0)&nbsp;)</tt></dd></dl>
+ <dl><dt><a name="-exp_safe"><strong>exp_safe</strong></a>(x)</dt><dd><tt>Compute&nbsp;exponentials&nbsp;which&nbsp;safely&nbsp;underflow&nbsp;to&nbsp;zero.<br>
+&nbsp;<br>
+Slow&nbsp;but&nbsp;convenient&nbsp;to&nbsp;use.&nbsp;Note&nbsp;that&nbsp;NumArray&nbsp;will&nbsp;introduce&nbsp;proper<br>
+floating&nbsp;point&nbsp;exception&nbsp;handling&nbsp;with&nbsp;access&nbsp;to&nbsp;the&nbsp;underlying<br>
+hardware.</tt></dd></dl>
  <dl><dt><a name="-find"><strong>find</strong></a>(condition)</dt><dd><tt>Return&nbsp;the&nbsp;indices&nbsp;where&nbsp;condition&nbsp;is&nbsp;true</tt></dd></dl>
  <dl><dt><a name="-fix"><strong>fix</strong></a>(x)</dt><dd><tt>Rounds&nbsp;towards&nbsp;zero.<br>
 x_rounded&nbsp;=&nbsp;<a href="#-fix">fix</a>(x)&nbsp;rounds&nbsp;the&nbsp;elements&nbsp;of&nbsp;x&nbsp;to&nbsp;the&nbsp;nearest&nbsp;integers<br>
 towards&nbsp;zero.<br>
 For&nbsp;negative&nbsp;numbers&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;ceil&nbsp;and&nbsp;for&nbsp;positive&nbsp;to&nbsp;floor.</tt></dd></dl>
+ <dl><dt><a name="-frange"><strong>frange</strong></a>(xini, xfin<font color="#909090">=None</font>, delta<font color="#909090">=None</font>, **kw)</dt><dd><tt><a href="#-frange">frange</a>([start,]&nbsp;stop[,&nbsp;step,&nbsp;keywords])&nbsp;-&gt;&nbsp;array&nbsp;of&nbsp;floats<br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;Numeric&nbsp;<a href="#-array">array</a>()&nbsp;containing&nbsp;a&nbsp;progression&nbsp;of&nbsp;floats.&nbsp;Similar&nbsp;to<br>
+<a href="#-arange">arange</a>(),&nbsp;but&nbsp;defaults&nbsp;to&nbsp;a&nbsp;closed&nbsp;interval.<br>
+&nbsp;<br>
+<a href="#-frange">frange</a>(x0,&nbsp;x1)&nbsp;returns&nbsp;[x0,&nbsp;x0+1,&nbsp;x0+2,&nbsp;...,&nbsp;x1];&nbsp;start&nbsp;defaults&nbsp;to&nbsp;0,&nbsp;and<br>
+the&nbsp;endpoint&nbsp;*is&nbsp;included*.&nbsp;This&nbsp;behavior&nbsp;is&nbsp;different&nbsp;from&nbsp;that&nbsp;of<br>
+range()&nbsp;and&nbsp;<a href="#-arange">arange</a>().&nbsp;This&nbsp;is&nbsp;deliberate,&nbsp;since&nbsp;frange&nbsp;will&nbsp;probably&nbsp;be<br>
+more&nbsp;useful&nbsp;for&nbsp;generating&nbsp;lists&nbsp;of&nbsp;points&nbsp;for&nbsp;function&nbsp;evaluation,&nbsp;and<br>
+endpoints&nbsp;are&nbsp;often&nbsp;desired&nbsp;in&nbsp;this&nbsp;use.&nbsp;The&nbsp;usual&nbsp;behavior&nbsp;of&nbsp;range()&nbsp;can<br>
+be&nbsp;obtained&nbsp;by&nbsp;setting&nbsp;the&nbsp;keyword&nbsp;'closed=0',&nbsp;in&nbsp;this&nbsp;case&nbsp;<a href="#-frange">frange</a>()<br>
+basically&nbsp;becomes&nbsp;<a href="#-arange">arange</a>().<br>
+&nbsp;<br>
+When&nbsp;step&nbsp;is&nbsp;given,&nbsp;it&nbsp;specifies&nbsp;the&nbsp;increment&nbsp;(or&nbsp;decrement).&nbsp;All<br>
+arguments&nbsp;can&nbsp;be&nbsp;floating&nbsp;point&nbsp;numbers.<br>
+&nbsp;<br>
+<a href="#-frange">frange</a>(x0,x1,d)&nbsp;returns&nbsp;[x0,x0+d,x0+2d,...,xfin]&nbsp;where&nbsp;xfin&lt;=x1.<br>
+&nbsp;<br>
+frange&nbsp;can&nbsp;also&nbsp;be&nbsp;called&nbsp;with&nbsp;the&nbsp;keyword&nbsp;'npts'.&nbsp;This&nbsp;sets&nbsp;the&nbsp;number&nbsp;of<br>
+points&nbsp;the&nbsp;list&nbsp;should&nbsp;contain&nbsp;(and&nbsp;overrides&nbsp;the&nbsp;value&nbsp;'step'&nbsp;might&nbsp;have<br>
+been&nbsp;given).&nbsp;<a href="#-arange">arange</a>()&nbsp;doesn't&nbsp;offer&nbsp;this&nbsp;option.<br>
+&nbsp;<br>
+Examples:<br>
+&gt;&gt;&gt;&nbsp;<a href="#-frange">frange</a>(3)<br>
+<a href="#-array">array</a>([&nbsp;0.,&nbsp;&nbsp;1.,&nbsp;&nbsp;2.,&nbsp;&nbsp;3.])<br>
+&gt;&gt;&gt;&nbsp;<a href="#-frange">frange</a>(3,closed=0)<br>
+<a href="#-array">array</a>([&nbsp;0.,&nbsp;&nbsp;1.,&nbsp;&nbsp;2.])<br>
+&gt;&gt;&gt;&nbsp;<a href="#-frange">frange</a>(1,6,2)<br>
+<a href="#-array">array</a>([1,&nbsp;3,&nbsp;5])<br>
+&gt;&gt;&gt;&nbsp;<a href="#-frange">frange</a>(1,6.5,npts=5)<br>
+<a href="#-array">array</a>([&nbsp;1.&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;2.375,&nbsp;&nbsp;3.75&nbsp;,&nbsp;&nbsp;5.125,&nbsp;&nbsp;6.5&nbsp;&nbsp;])</tt></dd></dl>
+ <dl><dt><a name="-fromfunction_kw"><strong>fromfunction_kw</strong></a>(function, dimensions, **kwargs)</dt><dd><tt>Drop-in&nbsp;replacement&nbsp;for&nbsp;fromfunction()&nbsp;from&nbsp;Numerical&nbsp;Python.<br>
+&nbsp;<br>
+Allows&nbsp;passing&nbsp;keyword&nbsp;arguments&nbsp;to&nbsp;the&nbsp;desired&nbsp;function.<br>
+&nbsp;<br>
+Call&nbsp;it&nbsp;as&nbsp;(keywords&nbsp;are&nbsp;optional):<br>
+<a href="#-fromfunction_kw">fromfunction_kw</a>(MyFunction,&nbsp;dimensions,&nbsp;keywords)<br>
+&nbsp;<br>
+The&nbsp;function&nbsp;MyFunction()&nbsp;is&nbsp;responsible&nbsp;for&nbsp;handling&nbsp;the&nbsp;dictionary&nbsp;of<br>
+keywords&nbsp;it&nbsp;will&nbsp;recieve.</tt></dd></dl>
  <dl><dt><a name="-fromstring"><strong>fromstring</strong></a>(...)</dt><dd><tt><a href="#-fromstring">fromstring</a>(string,&nbsp;typecode='l',&nbsp;count=-1)&nbsp;returns&nbsp;a&nbsp;new&nbsp;1d&nbsp;array&nbsp;initialized&nbsp;from&nbsp;the&nbsp;raw&nbsp;binary&nbsp;data&nbsp;in&nbsp;string.&nbsp;&nbsp;If&nbsp;count&nbsp;is&nbsp;positive,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;have&nbsp;count&nbsp;elements,&nbsp;otherwise&nbsp;it's&nbsp;size&nbsp;is&nbsp;determined&nbsp;by&nbsp;the&nbsp;size&nbsp;of&nbsp;string.</tt></dd></dl>
  <dl><dt><a name="-hist"><strong>hist</strong></a>(y, bins<font color="#909090">=10</font>, normed<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;histogram&nbsp;of&nbsp;y&nbsp;with&nbsp;bins&nbsp;equally&nbsp;sized&nbsp;bins.&nbsp;&nbsp;If&nbsp;bins<br>
 is&nbsp;an&nbsp;array,&nbsp;use&nbsp;the&nbsp;bins.&nbsp;&nbsp;Return&nbsp;value&nbsp;is<br>
@@ -232,8 +292,33 @@ n/(len(y)*dbin)<br>
 &nbsp;<br>
 If&nbsp;y&nbsp;has&nbsp;rank&gt;1,&nbsp;it&nbsp;will&nbsp;be&nbsp;raveled<br>
 Credits:&nbsp;the&nbsp;Numeric&nbsp;22&nbsp;documentation</tt></dd></dl>
+ <dl><dt><a name="-identity"><strong>identity</strong></a>(n, rank<font color="#909090">=2</font>, typecode<font color="#909090">='l'</font>)</dt><dd><tt><a href="#-identity">identity</a>(n,r)&nbsp;returns&nbsp;the&nbsp;identity&nbsp;matrix&nbsp;of&nbsp;shape&nbsp;(n,n,...,n)&nbsp;(rank&nbsp;r).<br>
+&nbsp;<br>
+For&nbsp;ranks&nbsp;higher&nbsp;than&nbsp;2,&nbsp;this&nbsp;object&nbsp;is&nbsp;simply&nbsp;a&nbsp;multi-index&nbsp;Kronecker<br>
+delta:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;1&nbsp;&nbsp;if&nbsp;i0=i1=...=iR,<br>
+id[i0,i1,...,iR]&nbsp;=&nbsp;-|<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;0&nbsp;&nbsp;otherwise.<br>
+&nbsp;<br>
+Optionally&nbsp;a&nbsp;typecode&nbsp;may&nbsp;be&nbsp;given&nbsp;(it&nbsp;defaults&nbsp;to&nbsp;'l').<br>
+&nbsp;<br>
+Since&nbsp;rank&nbsp;defaults&nbsp;to&nbsp;2,&nbsp;this&nbsp;function&nbsp;behaves&nbsp;in&nbsp;the&nbsp;default&nbsp;case&nbsp;(when<br>
+only&nbsp;n&nbsp;is&nbsp;given)&nbsp;like&nbsp;the&nbsp;Numeric&nbsp;identity&nbsp;function.</tt></dd></dl>
+ <dl><dt><a name="-ispower2"><strong>ispower2</strong></a>(n)</dt><dd><tt>Returns&nbsp;the&nbsp;log&nbsp;base&nbsp;2&nbsp;of&nbsp;n&nbsp;if&nbsp;n&nbsp;is&nbsp;a&nbsp;power&nbsp;of&nbsp;2,&nbsp;zero&nbsp;otherwise.<br>
+&nbsp;<br>
+Note&nbsp;the&nbsp;potential&nbsp;ambiguity&nbsp;if&nbsp;n==1:&nbsp;2**0==1,&nbsp;interpret&nbsp;accordingly.</tt></dd></dl>
+ <dl><dt><a name="-l1norm"><strong>l1norm</strong></a>(a)</dt><dd><tt>Return&nbsp;the&nbsp;l1&nbsp;norm&nbsp;of&nbsp;a,&nbsp;flattened&nbsp;out.<br>
+&nbsp;<br>
+Implemented&nbsp;as&nbsp;a&nbsp;separate&nbsp;function&nbsp;(not&nbsp;a&nbsp;call&nbsp;to&nbsp;<a href="#-norm">norm</a>()&nbsp;for&nbsp;speed).</tt></dd></dl>
+ <dl><dt><a name="-l2norm"><strong>l2norm</strong></a>(a)</dt><dd><tt>Return&nbsp;the&nbsp;l2&nbsp;norm&nbsp;of&nbsp;a,&nbsp;flattened&nbsp;out.<br>
+&nbsp;<br>
+Implemented&nbsp;as&nbsp;a&nbsp;separate&nbsp;function&nbsp;(not&nbsp;a&nbsp;call&nbsp;to&nbsp;<a href="#-norm">norm</a>()&nbsp;for&nbsp;speed).</tt></dd></dl>
  <dl><dt><a name="-levypdf"><strong>levypdf</strong></a>(x, gamma, alpha)</dt><dd><tt>Returm&nbsp;the&nbsp;levy&nbsp;pdf&nbsp;evaluated&nbsp;at&nbsp;x&nbsp;for&nbsp;params&nbsp;gamma,&nbsp;alpha</tt></dd></dl>
  <dl><dt><a name="-linspace"><strong>linspace</strong></a>(xmin, xmax, N)</dt></dl>
+ <dl><dt><a name="-log2"><strong>log2</strong></a>(x, ln2<font color="#909090">=0.69314718055994529</font>)</dt><dd><tt>Return&nbsp;the&nbsp;log(x)&nbsp;in&nbsp;base&nbsp;2.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;a&nbsp;_slow_&nbsp;function&nbsp;but&nbsp;which&nbsp;is&nbsp;guaranteed&nbsp;to&nbsp;return&nbsp;the&nbsp;correct<br>
+integer&nbsp;value&nbsp;if&nbsp;the&nbsp;input&nbsp;is&nbsp;an&nbsp;ineger&nbsp;exact&nbsp;power&nbsp;of&nbsp;2.</tt></dd></dl>
  <dl><dt><a name="-longest_contiguous_ones"><strong>longest_contiguous_ones</strong></a>(x)</dt><dd><tt>return&nbsp;the&nbsp;indicies&nbsp;of&nbsp;the&nbsp;longest&nbsp;stretch&nbsp;of&nbsp;contiguous&nbsp;ones&nbsp;in&nbsp;x,<br>
 assuming&nbsp;x&nbsp;is&nbsp;a&nbsp;vector&nbsp;of&nbsp;zeros&nbsp;and&nbsp;ones.</tt></dd></dl>
  <dl><dt><a name="-longest_ones"><strong>longest_ones</strong></a>(x)</dt><dd><tt>return&nbsp;the&nbsp;indicies&nbsp;of&nbsp;the&nbsp;longest&nbsp;stretch&nbsp;of&nbsp;contiguous&nbsp;ones&nbsp;in&nbsp;x,<br>
@@ -241,6 +326,7 @@ assuming&nbsp;x&nbsp;is&nbsp;a&nbsp;vector&nbsp;of&nbsp;zeros&nbsp;and&nbsp;ones
 &nbsp;<br>
 If&nbsp;there&nbsp;are&nbsp;two&nbsp;equally&nbsp;long&nbsp;stretches,&nbsp;pick&nbsp;the&nbsp;first</tt></dd></dl>
  <dl><dt><a name="-mean"><strong>mean</strong></a>(x, dim<font color="#909090">=None</font>)</dt></dl>
+ <dl><dt><a name="-mean_flat"><strong>mean_flat</strong></a>(a)</dt><dd><tt>Return&nbsp;the&nbsp;mean&nbsp;of&nbsp;all&nbsp;the&nbsp;elements&nbsp;of&nbsp;a,&nbsp;flattened&nbsp;out.</tt></dd></dl>
  <dl><dt><a name="-meshgrid"><strong>meshgrid</strong></a>(x, y)</dt><dd><tt>For&nbsp;vectors&nbsp;x,&nbsp;y&nbsp;with&nbsp;lengths&nbsp;Nx=len(x)&nbsp;and&nbsp;Ny=len(y),&nbsp;return&nbsp;X,&nbsp;Y<br>
 where&nbsp;X&nbsp;and&nbsp;Y&nbsp;are&nbsp;(Ny,&nbsp;Nx)&nbsp;shaped&nbsp;arrays&nbsp;with&nbsp;the&nbsp;elements&nbsp;of&nbsp;x<br>
 and&nbsp;y&nbsp;repeated&nbsp;to&nbsp;fill&nbsp;the&nbsp;matrix<br>
@@ -264,24 +350,12 @@ EG,<br>
  <dl><dt><a name="-mfuncC"><strong>mfuncC</strong></a>(f, x)</dt><dd><tt><a href="#-mfuncC">mfuncC</a>(f,&nbsp;x)&nbsp;:&nbsp;matrix&nbsp;function&nbsp;with&nbsp;possibly&nbsp;complex&nbsp;eigenvalues.<br>
 Note:&nbsp;Numeric&nbsp;defines&nbsp;(v,u)&nbsp;=&nbsp;eig(x)&nbsp;=&gt;&nbsp;x*u.T&nbsp;=&nbsp;u.T&nbsp;*&nbsp;Diag(v)<br>
 This&nbsp;function&nbsp;is&nbsp;needed&nbsp;by&nbsp;sqrtm&nbsp;and&nbsp;allows&nbsp;further&nbsp;functions.</tt></dd></dl>
- <dl><dt><a name="-norm"><strong>norm</strong></a>(x, y<font color="#909090">=2</font>)</dt><dd><tt>Norm&nbsp;of&nbsp;a&nbsp;matrix&nbsp;or&nbsp;a&nbsp;vector&nbsp;according&nbsp;to&nbsp;Matlab.<br>
-The&nbsp;description&nbsp;is&nbsp;taken&nbsp;from&nbsp;Matlab:<br>
+ <dl><dt><a name="-norm"><strong>norm</strong></a>(a, p<font color="#909090">=2</font>)</dt><dd><tt><a href="#-norm">norm</a>(a,p=2)&nbsp;-&gt;&nbsp;l-p&nbsp;norm&nbsp;of&nbsp;a.flat<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;matrices...<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(X)&nbsp;is&nbsp;the&nbsp;largest&nbsp;singular&nbsp;value&nbsp;of&nbsp;X,&nbsp;max(svd(X)).<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(X,2)&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;NORM(X).<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(X,1)&nbsp;is&nbsp;the&nbsp;1-norm&nbsp;of&nbsp;X,&nbsp;the&nbsp;largest&nbsp;column&nbsp;sum,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;max(sum(abs((X)))).<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(X,inf)&nbsp;is&nbsp;the&nbsp;infinity&nbsp;norm&nbsp;of&nbsp;X,&nbsp;the&nbsp;largest&nbsp;row&nbsp;sum,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;max(sum(abs((X')))).<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(X,'fro')&nbsp;is&nbsp;the&nbsp;Frobenius&nbsp;norm,&nbsp;sqrt(sum(diag(X'*X))).<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(X,P)&nbsp;is&nbsp;available&nbsp;for&nbsp;matrix&nbsp;X&nbsp;only&nbsp;if&nbsp;P&nbsp;is&nbsp;1,&nbsp;2,&nbsp;inf&nbsp;or&nbsp;'fro'.<br>
+Return&nbsp;the&nbsp;l-p&nbsp;norm&nbsp;of&nbsp;a,&nbsp;considered&nbsp;as&nbsp;a&nbsp;flat&nbsp;array.&nbsp;&nbsp;This&nbsp;is&nbsp;NOT&nbsp;a&nbsp;true<br>
+matrix&nbsp;norm,&nbsp;since&nbsp;arrays&nbsp;of&nbsp;arbitrary&nbsp;rank&nbsp;are&nbsp;always&nbsp;flattened.<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;vectors...<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(V,P)&nbsp;=&nbsp;sum(abs(V).^P)^(1/P).<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(V)&nbsp;=&nbsp;<a href="#-norm">norm</a>(V,2).<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(V,inf)&nbsp;=&nbsp;max(abs(V)).<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(V,-inf)&nbsp;=&nbsp;min(abs(V)).</tt></dd></dl>
+p&nbsp;can&nbsp;be&nbsp;a&nbsp;number&nbsp;or&nbsp;the&nbsp;string&nbsp;'Infinity'&nbsp;to&nbsp;get&nbsp;the&nbsp;L-infinity&nbsp;norm.</tt></dd></dl>
  <dl><dt><a name="-normpdf"><strong>normpdf</strong></a>(x, *args)</dt><dd><tt>Return&nbsp;the&nbsp;normal&nbsp;pdf&nbsp;evaluated&nbsp;at&nbsp;x;&nbsp;args&nbsp;provides&nbsp;mu,&nbsp;sigma</tt></dd></dl>
  <dl><dt><a name="-orth"><strong>orth</strong></a>(A)</dt><dd><tt>Orthogonalization&nbsp;procedure&nbsp;by&nbsp;Matlab.<br>
 The&nbsp;description&nbsp;is&nbsp;taken&nbsp;from&nbsp;its&nbsp;help:<br>
@@ -404,6 +478,7 @@ Example&nbsp;2:<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;y0&nbsp;=&nbsp;1<br>
 &nbsp;&nbsp;&nbsp;&nbsp;yout&nbsp;=&nbsp;<a href="#-rk4">rk4</a>(derivs,&nbsp;y0,&nbsp;t)</tt></dd></dl>
+ <dl><dt><a name="-rms_flat"><strong>rms_flat</strong></a>(a)</dt><dd><tt>Return&nbsp;the&nbsp;root&nbsp;mean&nbsp;square&nbsp;of&nbsp;all&nbsp;the&nbsp;elements&nbsp;of&nbsp;a,&nbsp;flattened&nbsp;out.</tt></dd></dl>
  <dl><dt><a name="-searchsorted"><strong>searchsorted</strong></a> = binarysearch(...)</dt><dd><tt>binarysearch(a,v)</tt></dd></dl>
  <dl><dt><a name="-specgram"><strong>specgram</strong></a>(x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>)</dt><dd><tt>Compute&nbsp;a&nbsp;spectrogram&nbsp;of&nbsp;data&nbsp;in&nbsp;x.&nbsp;&nbsp;Data&nbsp;are&nbsp;split&nbsp;into&nbsp;NFFT<br>
 length&nbsp;segements&nbsp;and&nbsp;the&nbsp;PSD&nbsp;of&nbsp;each&nbsp;section&nbsp;is&nbsp;computed.&nbsp;&nbsp;The<br>
@@ -417,6 +492,9 @@ the&nbsp;ffts&nbsp;are&nbsp;calculated</tt></dd></dl>
  <dl><dt><a name="-sqrtm"><strong>sqrtm</strong></a>(x)</dt><dd><tt>Returns&nbsp;the&nbsp;square&nbsp;root&nbsp;of&nbsp;a&nbsp;square&nbsp;matrix.<br>
 This&nbsp;means&nbsp;that&nbsp;s=<a href="#-sqrtm">sqrtm</a>(x)&nbsp;implies&nbsp;s*s&nbsp;=&nbsp;x.<br>
 Note&nbsp;that&nbsp;s&nbsp;and&nbsp;x&nbsp;are&nbsp;matrices.</tt></dd></dl>
+ <dl><dt><a name="-sum_flat"><strong>sum_flat</strong></a>(a)</dt><dd><tt>Return&nbsp;the&nbsp;sum&nbsp;of&nbsp;all&nbsp;the&nbsp;elements&nbsp;of&nbsp;a,&nbsp;flattened&nbsp;out.<br>
+&nbsp;<br>
+It&nbsp;uses&nbsp;a.flat,&nbsp;and&nbsp;if&nbsp;a&nbsp;is&nbsp;not&nbsp;contiguous,&nbsp;a&nbsp;call&nbsp;to&nbsp;ravel(a)&nbsp;is&nbsp;made.</tt></dd></dl>
  <dl><dt><a name="-take"><strong>take</strong></a>(...)</dt><dd><tt><a href="#-take">take</a>(a,&nbsp;indices,&nbsp;axis=0).&nbsp;&nbsp;Selects&nbsp;the&nbsp;elements&nbsp;in&nbsp;indices&nbsp;from&nbsp;array&nbsp;a&nbsp;along&nbsp;the&nbsp;given&nbsp;axis.</tt></dd></dl>
  <dl><dt><a name="-trapz"><strong>trapz</strong></a>(x, y)</dt></dl>
  <dl><dt><a name="-vander"><strong>vander</strong></a>(x, N<font color="#909090">=None</font>)</dt><dd><tt>X&nbsp;=&nbsp;<a href="#-vander">vander</a>(x,N=None)<br>
@@ -427,6 +505,7 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
  <dl><dt><a name="-window_hanning"><strong>window_hanning</strong></a>(x)</dt><dd><tt>return&nbsp;x&nbsp;times&nbsp;the&nbsp;hanning&nbsp;window&nbsp;of&nbsp;len(x)</tt></dd></dl>
  <dl><dt><a name="-window_none"><strong>window_none</strong></a>(x)</dt><dd><tt>No&nbsp;window&nbsp;function;&nbsp;simply&nbsp;return&nbsp;x</tt></dd></dl>
  <dl><dt><a name="-zeros"><strong>zeros</strong></a>(...)</dt><dd><tt><a href="#-zeros">zeros</a>((d1,...,dn),typecode='l',savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;of&nbsp;shape&nbsp;(d1,...,dn)&nbsp;and&nbsp;type&nbsp;typecode&nbsp;with&nbsp;all&nbsp;it's&nbsp;entries&nbsp;initialized&nbsp;to&nbsp;zero.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero&nbsp;the&nbsp;array&nbsp;will&nbsp;be&nbsp;a&nbsp;spacesaver&nbsp;array.</tt></dd></dl>
+ <dl><dt><a name="-zeros_like"><strong>zeros_like</strong></a>(a)</dt><dd><tt>Return&nbsp;an&nbsp;array&nbsp;of&nbsp;zeros&nbsp;of&nbsp;the&nbsp;shape&nbsp;and&nbsp;typecode&nbsp;of&nbsp;a.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -448,6 +527,7 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
 <strong>Float32</strong> = 'f'<br>
 <strong>Float64</strong> = 'd'<br>
 <strong>Float8</strong> = 'f'<br>
+<strong>Infinity</strong> = inf<br>
 <strong>Int</strong> = 'l'<br>
 <strong>Int0</strong> = '1'<br>
 <strong>Int16</strong> = 's'<br>
@@ -488,6 +568,8 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
 <strong>e</strong> = 2.7182818284590451<br>
 <strong>equal</strong> = &lt;ufunc 'equal'&gt;<br>
 <strong>exp</strong> = &lt;ufunc 'exp'&gt;<br>
+<strong>exp_safe_MAX</strong> = 1.7976931348623157e+308<br>
+<strong>exp_safe_MIN</strong> = -708.39641853226408<br>
 <strong>fabs</strong> = &lt;ufunc 'fabs'&gt;<br>
 <strong>floor</strong> = &lt;ufunc 'floor'&gt;<br>
 <strong>floor_divide</strong> = &lt;ufunc 'floor_divide'&gt;<br>
@@ -495,6 +577,8 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
 <strong>greater</strong> = &lt;ufunc 'greater'&gt;<br>
 <strong>greater_equal</strong> = &lt;ufunc 'greater_equal'&gt;<br>
 <strong>hypot</strong> = &lt;ufunc 'hypot'&gt;<br>
+<strong>inf</strong> = inf<br>
+<strong>infty</strong> = inf<br>
 <strong>invert</strong> = &lt;ufunc 'invert'&gt;<br>
 <strong>left_shift</strong> = &lt;ufunc 'left_shift'&gt;<br>
 <strong>less</strong> = &lt;ufunc 'less'&gt;<br>

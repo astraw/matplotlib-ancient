@@ -85,6 +85,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>Float32</strong> = 'f'<br>
 <strong>Float64</strong> = 'd'<br>
 <strong>Float8</strong> = 'f'<br>
+<strong>Infinity</strong> = inf<br>
 <strong>Int</strong> = 'l'<br>
 <strong>Int0</strong> = '1'<br>
 <strong>Int16</strong> = 's'<br>
@@ -130,6 +131,8 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>greater</strong> = &lt;ufunc 'greater'&gt;<br>
 <strong>greater_equal</strong> = &lt;ufunc 'greater_equal'&gt;<br>
 <strong>hypot</strong> = &lt;ufunc 'hypot'&gt;<br>
+<strong>inf</strong> = inf<br>
+<strong>infty</strong> = inf<br>
 <strong>invert</strong> = &lt;ufunc 'invert'&gt;<br>
 <strong>left_shift</strong> = &lt;ufunc 'left_shift'&gt;<br>
 <strong>less</strong> = &lt;ufunc 'less'&gt;<br>

@@ -25,7 +25,7 @@ _Plotting&nbsp;commands<br>
 &nbsp;&nbsp;close&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;close&nbsp;a&nbsp;figure&nbsp;window<br>
 &nbsp;&nbsp;colorbar&nbsp;-&nbsp;add&nbsp;a&nbsp;colorbar&nbsp;to&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;cohere&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;coherence<br>
-&nbsp;&nbsp;csd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;cross&nbsp;spectral&nbsp;density<br>
+&nbsp;&nbsp;csd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;&nbsp;<br>
 &nbsp;&nbsp;draw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Force&nbsp;a&nbsp;redraw&nbsp;of&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;errorbar&nbsp;-&nbsp;make&nbsp;an&nbsp;errorbar&nbsp;graph<br>
 &nbsp;&nbsp;figlegend&nbsp;-&nbsp;make&nbsp;legend&nbsp;on&nbsp;the&nbsp;figure&nbsp;rather&nbsp;than&nbsp;the&nbsp;axes<br>
@@ -67,7 +67,7 @@ _Plotting&nbsp;commands<br>
 &nbsp;&nbsp;yticks&nbsp;&nbsp;&nbsp;-&nbsp;set/get&nbsp;the&nbsp;yticks<br>
 &nbsp;&nbsp;xlabel&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;an&nbsp;xlabel&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
 &nbsp;&nbsp;ylabel&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;ylabel&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
-&nbsp;<br>
+&nbsp;&nbsp;<br>
 _Matrix&nbsp;commands<br>
 &nbsp;<br>
 &nbsp;&nbsp;cumprod&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;cumulative&nbsp;product&nbsp;along&nbsp;a&nbsp;dimension<br>
@@ -129,6 +129,12 @@ _Time&nbsp;series&nbsp;analysis<br>
 &nbsp;&nbsp;psd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;power&nbsp;spectral&nbsp;density&nbsp;using&nbsp;average&nbsp;periodiogram<br>
 &nbsp;&nbsp;sinc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;sinc&nbsp;function&nbsp;of&nbsp;array&nbsp;x<br>
 &nbsp;<br>
+_Dates<br>
+&nbsp;<br>
+&nbsp;&nbsp;date2num&nbsp;&nbsp;-&nbsp;convert&nbsp;python&nbsp;datetimes&nbsp;to&nbsp;numeric&nbsp;representation<br>
+&nbsp;&nbsp;drange&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;create&nbsp;an&nbsp;array&nbsp;of&nbsp;numbers&nbsp;for&nbsp;date&nbsp;plots<br>
+&nbsp;&nbsp;num2date&nbsp;&nbsp;-&nbsp;convert&nbsp;numeric&nbsp;type&nbsp;(float&nbsp;days&nbsp;since&nbsp;0001)&nbsp;to&nbsp;datetime<br>
+&nbsp;&nbsp;<br>
 _Other<br>
 &nbsp;<br>
 &nbsp;&nbsp;angle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;angle&nbsp;of&nbsp;a&nbsp;complex&nbsp;array<br>
@@ -166,9 +172,10 @@ the&nbsp;exception&nbsp;of&nbsp;those&nbsp;in&nbsp;mlab.py&nbsp;provided&nbsp;by
 </td><td width="25%" valign=top><a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
 <a href="multiarray.html">multiarray</a><br>
 <a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
+<a href="operator.html">operator</a><br>
 <a href="os.html">os</a><br>
-<a href="pickle.html">pickle</a><br>
-</td><td width="25%" valign=top><a href="string.html">string</a><br>
+</td><td width="25%" valign=top><a href="pickle.html">pickle</a><br>
+<a href="string.html">string</a><br>
 <a href="sys.html">sys</a><br>
 <a href="types.html">types</a><br>
 </td></tr></table></td></tr></table><p>
@@ -257,7 +264,10 @@ p&nbsp;=&nbsp;<a href="#-axhspan">axhspan</a>(0.25,&nbsp;0.75,&nbsp;facecolor=0.
 <a href="#-axis">axis</a>(v)&nbsp;where&nbsp;v=&nbsp;[xmin&nbsp;xmax&nbsp;ymin&nbsp;ymax]&nbsp;sets&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the<br>
 x&nbsp;and&nbsp;y&nbsp;axis&nbsp;limits<br>
 &nbsp;<br>
-<a href="#-axis">axis</a>('off')&nbsp;turns&nbsp;off&nbsp;the&nbsp;axis&nbsp;lines&nbsp;and&nbsp;labels</tt></dd></dl>
+<a href="#-axis">axis</a>('off')&nbsp;turns&nbsp;off&nbsp;the&nbsp;axis&nbsp;lines&nbsp;and&nbsp;labels<br>
+&nbsp;<br>
+<a href="#-axis">axis</a>('equal')&nbsp;sets&nbsp;the&nbsp;xlim&nbsp;width&nbsp;and&nbsp;ylim&nbsp;height&nbsp;to&nbsp;be&nbsp;to&nbsp;be<br>
+identical.&nbsp;&nbsp;The&nbsp;longer&nbsp;of&nbsp;the&nbsp;two&nbsp;intervals&nbsp;is&nbsp;chosen</tt></dd></dl>
  <dl><dt><a name="-axvline"><strong>axvline</strong></a>(x<font color="#909090">=0</font>, ymin<font color="#909090">=0</font>, ymax<font color="#909090">=1</font>, **kwargs)</dt><dd><tt>axvline&nbsp;:&nbsp;Axis&nbsp;Vertical&nbsp;Line<br>
 &nbsp;<br>
 Draw&nbsp;a&nbsp;vertical&nbsp;line&nbsp;at&nbsp;x&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;With&nbsp;the&nbsp;default&nbsp;values<br>
@@ -943,15 +953,17 @@ to&nbsp;all&nbsp;those&nbsp;lines,&nbsp;eg<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-plot">plot</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;antialising=False)<br>
 &nbsp;<br>
 Neither&nbsp;line&nbsp;will&nbsp;be&nbsp;antialiased.</tt></dd></dl>
- <dl><dt><a name="-plot_date"><strong>plot_date</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;**kwargs)<br>
+ <dl><dt><a name="-plot_date"><strong>plot_date</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;tz=None,&nbsp;**kwargs)<br>
 &nbsp;<br>
-d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates;&nbsp;converter&nbsp;is&nbsp;a&nbsp;dates.DateConverter<br>
-instance&nbsp;that&nbsp;converts&nbsp;your&nbsp;dates&nbsp;to&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;for<br>
-plotting.&nbsp;&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is&nbsp;a&nbsp;plot<br>
-format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot&nbsp;for&nbsp;more<br>
-information.<br>
+d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates&nbsp;represented&nbsp;as&nbsp;float&nbsp;days&nbsp;since<br>
+0001-01-01&nbsp;UTC&nbsp;and&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is<br>
+a&nbsp;plot&nbsp;format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot<br>
+for&nbsp;more&nbsp;information.<br>
 &nbsp;<br>
-pass&nbsp;converter&nbsp;=&nbsp;None&nbsp;if&nbsp;your&nbsp;dates&nbsp;are&nbsp;already&nbsp;in&nbsp;epoch&nbsp;format</tt></dd></dl>
+See&nbsp;matplotlib.dates&nbsp;for&nbsp;helper&nbsp;functions&nbsp;date2num,&nbsp;num2date<br>
+and&nbsp;drange&nbsp;for&nbsp;help&nbsp;on&nbsp;creating&nbsp;the&nbsp;required&nbsp;floating&nbsp;point&nbsp;dates<br>
+&nbsp;<br>
+tz&nbsp;is&nbsp;the&nbsp;timezone&nbsp;-&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;value</tt></dd></dl>
  <dl><dt><a name="-plotting"><strong>plotting</strong></a>()</dt><dd><tt>Plotting&nbsp;commands<br>
 axes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Create&nbsp;a&nbsp;new&nbsp;axes<br>
 axis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Set&nbsp;or&nbsp;return&nbsp;the&nbsp;current&nbsp;axis&nbsp;limits<br>
@@ -1127,7 +1139,7 @@ The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'d'&nbsp;:&nbsp;diamond<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'p'&nbsp;:&nbsp;pentagram<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;:&nbsp;hexagon<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'8'&nbsp;:&nbsp;octogon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'8'&nbsp;:&nbsp;octagon<br>
 &nbsp;<br>
 s&nbsp;is&nbsp;a&nbsp;size&nbsp;argument&nbsp;in&nbsp;points&nbsp;squared.<br>
 &nbsp;<br>
@@ -1396,6 +1408,9 @@ locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-yticks">yticks</a>()&nbsp;&nbsp;&nbsp;&
 <strong>Complex32</strong> = 'F'<br>
 <strong>Complex64</strong> = 'D'<br>
 <strong>Complex8</strong> = 'F'<br>
+<strong>DAILY</strong> = 3<br>
+<strong>FR</strong> = FR<br>
+<strong>FRIDAY</strong> = FR<br>
 <strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
 <strong>Float0</strong> = 'f'<br>
@@ -1403,14 +1418,37 @@ locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-yticks">yticks</a>()&nbsp;&nbsp;&nbsp;&
 <strong>Float32</strong> = 'f'<br>
 <strong>Float64</strong> = 'd'<br>
 <strong>Float8</strong> = 'f'<br>
+<strong>HOURLY</strong> = 4<br>
+<strong>HOURS_PER_DAY</strong> = 24.0<br>
+<strong>Infinity</strong> = inf<br>
 <strong>Int</strong> = 'l'<br>
 <strong>Int0</strong> = '1'<br>
 <strong>Int16</strong> = 's'<br>
 <strong>Int32</strong> = 'i'<br>
 <strong>Int8</strong> = '1'<br>
 <strong>LittleEndian</strong> = True<br>
+<strong>MINUTELY</strong> = 5<br>
+<strong>MINUTES_PER_DAY</strong> = 1440.0<br>
+<strong>MO</strong> = MO<br>
+<strong>MONDAY</strong> = MO<br>
+<strong>MONTHLY</strong> = 1<br>
+<strong>MUSECONDS_PER_DAY</strong> = 86400000000.0<br>
 <strong>NewAxis</strong> = None<br>
 <strong>PyObject</strong> = 'O'<br>
+<strong>SA</strong> = SA<br>
+<strong>SATURDAY</strong> = SA<br>
+<strong>SECONDLY</strong> = 6<br>
+<strong>SECONDS_PER_DAY</strong> = 86400.0<br>
+<strong>SEC_PER_DAY</strong> = 86400<br>
+<strong>SEC_PER_HOUR</strong> = 3600<br>
+<strong>SEC_PER_MIN</strong> = 60<br>
+<strong>SEC_PER_WEEK</strong> = 604800<br>
+<strong>SU</strong> = SU<br>
+<strong>SUNDAY</strong> = SU<br>
+<strong>TH</strong> = TH<br>
+<strong>THURSDAY</strong> = TH<br>
+<strong>TU</strong> = TU<br>
+<strong>TUESDAY</strong> = TU<br>
 <strong>True</strong> = True<br>
 <strong>UInt</strong> = 'u'<br>
 <strong>UInt16</strong> = 'w'<br>
@@ -1420,6 +1458,11 @@ locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-yticks">yticks</a>()&nbsp;&nbsp;&nbsp;&
 <strong>UnsignedInt32</strong> = 'u'<br>
 <strong>UnsignedInt8</strong> = 'b'<br>
 <strong>UnsignedInteger</strong> = 'u'<br>
+<strong>WE</strong> = WE<br>
+<strong>WEDNESDAY</strong> = WE<br>
+<strong>WEEKDAYS</strong> = (MO, TU, WE, TH, FR, SA, SU)<br>
+<strong>WEEKLY</strong> = 2<br>
+<strong>YEARLY</strong> = 0<br>
 <strong>a</strong> = 'matplotlib.matlab'<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>add</strong> = &lt;ufunc 'add'&gt;<br>
@@ -1443,6 +1486,8 @@ locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-yticks">yticks</a>()&nbsp;&nbsp;&nbsp;&
 <strong>e</strong> = 2.7182818284590451<br>
 <strong>equal</strong> = &lt;ufunc 'equal'&gt;<br>
 <strong>exp</strong> = &lt;ufunc 'exp'&gt;<br>
+<strong>exp_safe_MAX</strong> = 1.7976931348623157e+308<br>
+<strong>exp_safe_MIN</strong> = -708.39641853226408<br>
 <strong>fabs</strong> = &lt;ufunc 'fabs'&gt;<br>
 <strong>floor</strong> = &lt;ufunc 'floor'&gt;<br>
 <strong>floor_divide</strong> = &lt;ufunc 'floor_divide'&gt;<br>
@@ -1450,6 +1495,8 @@ locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-yticks">yticks</a>()&nbsp;&nbsp;&nbsp;&
 <strong>greater</strong> = &lt;ufunc 'greater'&gt;<br>
 <strong>greater_equal</strong> = &lt;ufunc 'greater_equal'&gt;<br>
 <strong>hypot</strong> = &lt;ufunc 'hypot'&gt;<br>
+<strong>inf</strong> = inf<br>
+<strong>infty</strong> = inf<br>
 <strong>invert</strong> = &lt;ufunc 'invert'&gt;<br>
 <strong>left_shift</strong> = &lt;ufunc 'left_shift'&gt;<br>
 <strong>less</strong> = &lt;ufunc 'less'&gt;<br>

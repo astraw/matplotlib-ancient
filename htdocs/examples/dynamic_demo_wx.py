@@ -20,8 +20,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.65  2004/09/09 15:54:28  jdh2358
-updated htdocs to new funcs
+Revision 1.66  2004/09/24 15:24:37  jdh2358
+reorganizes py code
 
 Revision 1.5  2004/06/26 06:37:20  astraw
 Trivial bugfix to eliminate IndexError

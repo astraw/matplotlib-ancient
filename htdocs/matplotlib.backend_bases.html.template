@@ -272,6 +272,8 @@ They&nbsp;must&nbsp;also&nbsp;define<br>
 *&nbsp;dynamic_update&nbsp;(optional)&nbsp;dynamically&nbsp;update&nbsp;the&nbsp;window&nbsp;while<br>
 &nbsp;&nbsp;navigating<br>
 &nbsp;<br>
+*&nbsp;set_message&nbsp;(optional)&nbsp;-&nbsp;display&nbsp;message<br>
+&nbsp;<br>
 That's&nbsp;it,&nbsp;we'll&nbsp;do&nbsp;the&nbsp;rest!<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
@@ -313,6 +315,8 @@ That's&nbsp;it,&nbsp;we'll&nbsp;do&nbsp;the&nbsp;rest!<br>&nbsp;</tt></td></tr>
 
 <dl><dt><a name="NavigationToolbar2-set_cursor"><strong>set_cursor</strong></a>(self, cursor)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;cursor&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;backend_bases.<a href="#Cursors">Cursors</a><br>
 enums&nbsp;values</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2-set_message"><strong>set_message</strong></a>(self, s)</dt><dd><tt>display&nbsp;a&nbsp;message&nbsp;on&nbsp;toolbar&nbsp;or&nbsp;in&nbsp;status&nbsp;bar</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbar2-update"><strong>update</strong></a>(self)</dt><dd><tt>reset&nbsp;the&nbsp;axes&nbsp;stack</tt></dd></dl>
 

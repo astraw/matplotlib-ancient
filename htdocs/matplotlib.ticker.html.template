@@ -46,23 +46,8 @@ The&nbsp;basic&nbsp;generic&nbsp;&nbsp;locators&nbsp;are<br>
 &nbsp;&nbsp;*&nbsp;<a href="#AutoLocator">AutoLocator</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;choose&nbsp;a&nbsp;<a href="#MultipleLocator">MultipleLocator</a>&nbsp;and&nbsp;dyamically&nbsp;reassign<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;for&nbsp;intelligent&nbsp;ticking&nbsp;during&nbsp;navigation<br>
 &nbsp;&nbsp;<br>
-There&nbsp;are&nbsp;a&nbsp;number&nbsp;of&nbsp;locators&nbsp;specialized&nbsp;for&nbsp;date&nbsp;locations<br>
-&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;<a href="#MinuteLocator">MinuteLocator</a>&nbsp;&nbsp;-&nbsp;locate&nbsp;minutes&nbsp;that&nbsp;are&nbsp;a&nbsp;multiple&nbsp;of&nbsp;base<br>
-&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;<a href="#HourLocator">HourLocator</a>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;locate&nbsp;hours&nbsp;that&nbsp;are&nbsp;a&nbsp;multiple&nbsp;of&nbsp;base<br>
-&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;<a href="#DayLocator">DayLocator</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;locate&nbsp;a&nbsp;given&nbsp;hour&nbsp;each&nbsp;day<br>
-&nbsp;&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;<a href="#DayMultiLocator">DayMultiLocator</a>&nbsp;-&nbsp;Make&nbsp;ticks&nbsp;on&nbsp;day&nbsp;which&nbsp;are&nbsp;multiples&nbsp;of&nbsp;base<br>
-&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;<a href="#WeekMultiLocator">WeekMultiLocator</a>&nbsp;-&nbsp;Make&nbsp;ticks&nbsp;on&nbsp;weeks&nbsp;which&nbsp;are&nbsp;multiples&nbsp;of&nbsp;base<br>
-&nbsp;&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;<a href="#WeekdayLocator">WeekdayLocator</a>&nbsp;-&nbsp;locate&nbsp;a&nbsp;given&nbsp;weekday&nbsp;each&nbsp;week<br>
-&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;<a href="#MonthLocator">MonthLocator</a>&nbsp;&nbsp;&nbsp;-&nbsp;locate&nbsp;months&nbsp;that&nbsp;are&nbsp;multiples&nbsp;of&nbsp;base<br>
-&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;<a href="#YearLocator">YearLocator</a>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;locate&nbsp;years&nbsp;that&nbsp;are&nbsp;multiples&nbsp;of&nbsp;base<br>
+There&nbsp;are&nbsp;a&nbsp;number&nbsp;of&nbsp;locators&nbsp;specialized&nbsp;for&nbsp;date&nbsp;locations&nbsp;-&nbsp;see<br>
+the&nbsp;dates&nbsp;module<br>
 &nbsp;<br>
 You&nbsp;can&nbsp;define&nbsp;your&nbsp;own&nbsp;locator&nbsp;by&nbsp;deriving&nbsp;from&nbsp;<a href="#Locator">Locator</a>.&nbsp;&nbsp;You&nbsp;must<br>
 override&nbsp;the&nbsp;__call__&nbsp;method,&nbsp;which&nbsp;returns&nbsp;a&nbsp;sequence&nbsp;of&nbsp;locations,<br>
@@ -102,7 +87,6 @@ axis.<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;<a href="#LogFormatter">LogFormatter</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;formatter&nbsp;for&nbsp;log&nbsp;axes<br>
 &nbsp;<br>
-&nbsp;&nbsp;*&nbsp;<a href="#DateFormatter">DateFormatter</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;use&nbsp;an&nbsp;strftime&nbsp;string&nbsp;to&nbsp;format&nbsp;the&nbsp;date<br>
 &nbsp;<br>
 You&nbsp;can&nbsp;derive&nbsp;your&nbsp;own&nbsp;formatter&nbsp;from&nbsp;the&nbsp;<a href="#Formatter">Formatter</a>&nbsp;base&nbsp;class&nbsp;by<br>
 simply&nbsp;overriding&nbsp;the&nbsp;__call__&nbsp;method.&nbsp;&nbsp;The&nbsp;formatter&nbsp;class&nbsp;has&nbsp;access<br>
@@ -152,11 +136,9 @@ multiple&nbsp;axes&nbsp;can&nbsp;share&nbsp;the&nbsp;same&nbsp;locator&nbsp;w/o&
 <dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#Formatter">Formatter</a>
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#DateFormatter">DateFormatter</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#FixedFormatter">FixedFormatter</a>
+<dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#FixedFormatter">FixedFormatter</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#FormatStrFormatter">FormatStrFormatter</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#FuncFormatter">FuncFormatter</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#IndexDateFormatter">IndexDateFormatter</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#NullFormatter">NullFormatter</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#ScalarFormatter">ScalarFormatter</a>
 </font></dt><dd>
@@ -180,20 +162,8 @@ multiple&nbsp;axes&nbsp;can&nbsp;share&nbsp;the&nbsp;same&nbsp;locator&nbsp;w/o&
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#IndexLocator">IndexLocator</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#LinearLocator">LinearLocator</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#LogLocator">LogLocator</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#MonthLocator">MonthLocator</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a>
-</font></dt><dd>
-<dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#DayLocator">DayLocator</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#DayMultiLocator">DayMultiLocator</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#HourLocator">HourLocator</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#MinuteLocator">MinuteLocator</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#WeekMultiLocator">WeekMultiLocator</a>
-</font></dt></dl>
-</dd>
-<dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#NullLocator">NullLocator</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#WeekdayLocator">WeekdayLocator</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#YearLocator">YearLocator</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#NullLocator">NullLocator</a>
 </font></dt></dl>
 </dd>
 </dl>
@@ -274,141 +244,6 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="DateFormatter">class <strong>DateFormatter</strong></a>(<a href="matplotlib.ticker.html#Formatter">Formatter</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Tick&nbsp;location&nbsp;is&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch.&nbsp;&nbsp;Use&nbsp;a&nbsp;strftime&nbsp;format<br>
-string<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.ticker.html#DateFormatter">DateFormatter</a></dd>
-<dd><a href="matplotlib.ticker.html#Formatter">Formatter</a></dd>
-<dd><a href="matplotlib.ticker.html#TickHelper">TickHelper</a></dd>
-</dl>
-<hr>
-Methods defined here:<br>
-<dl><dt><a name="DateFormatter-__call__"><strong>__call__</strong></a>(self, x, pos)</dt></dl>
-
-<dl><dt><a name="DateFormatter-__init__"><strong>__init__</strong></a>(self, fmt)</dt><dd><tt>fmt&nbsp;is&nbsp;an&nbsp;strftime&nbsp;format&nbsp;string</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><a name="DateFormatter-set_data_interval"><strong>set_data_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="DateFormatter-set_view_interval"><strong>set_view_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="DateFormatter-verify_intervals"><strong>verify_intervals</strong></a>(self)</dt></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><strong>dataInterval</strong> = None</dl>
-
-<dl><dt><strong>viewInterval</strong> = None</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="DayLocator">class <strong>DayLocator</strong></a>(<a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Make&nbsp;ticks&nbsp;at&nbsp;a&nbsp;given&nbsp;hour&nbsp;each&nbsp;day;&nbsp;default&nbsp;midnight<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.ticker.html#DayLocator">DayLocator</a></dd>
-<dd><a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a></dd>
-<dd><a href="matplotlib.ticker.html#Locator">Locator</a></dd>
-<dd><a href="matplotlib.ticker.html#TickHelper">TickHelper</a></dd>
-</dl>
-<hr>
-Methods defined here:<br>
-<dl><dt><a name="DayLocator-__call__"><strong>__call__</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;ticks</tt></dd></dl>
-
-<dl><dt><a name="DayLocator-__init__"><strong>__init__</strong></a>(self, hour<font color="#909090">=0</font>)</dt></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a>:<br>
-<dl><dt><a name="DayLocator-autoscale"><strong>autoscale</strong></a>(self)</dt><dd><tt>Set&nbsp;the&nbsp;view&nbsp;limits&nbsp;to&nbsp;the&nbsp;nearest&nbsp;multiples&nbsp;of&nbsp;base&nbsp;that<br>
-contain&nbsp;the&nbsp;data</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
-<dl><dt><a name="DayLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
-<dl><dt><a name="DayLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
-
-<dl><dt><a name="DayLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
-
-<dl><dt><a name="DayLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><a name="DayLocator-set_data_interval"><strong>set_data_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="DayLocator-set_view_interval"><strong>set_view_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="DayLocator-verify_intervals"><strong>verify_intervals</strong></a>(self)</dt></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><strong>dataInterval</strong> = None</dl>
-
-<dl><dt><strong>viewInterval</strong> = None</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="DayMultiLocator">class <strong>DayMultiLocator</strong></a>(<a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Make&nbsp;ticks&nbsp;on&nbsp;day&nbsp;which&nbsp;are&nbsp;multiples&nbsp;of&nbsp;base<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.ticker.html#DayMultiLocator">DayMultiLocator</a></dd>
-<dd><a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a></dd>
-<dd><a href="matplotlib.ticker.html#Locator">Locator</a></dd>
-<dd><a href="matplotlib.ticker.html#TickHelper">TickHelper</a></dd>
-</dl>
-<hr>
-Methods defined here:<br>
-<dl><dt><a name="DayMultiLocator-__init__"><strong>__init__</strong></a>(self, base)</dt></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a>:<br>
-<dl><dt><a name="DayMultiLocator-__call__"><strong>__call__</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;ticks</tt></dd></dl>
-
-<dl><dt><a name="DayMultiLocator-autoscale"><strong>autoscale</strong></a>(self)</dt><dd><tt>Set&nbsp;the&nbsp;view&nbsp;limits&nbsp;to&nbsp;the&nbsp;nearest&nbsp;multiples&nbsp;of&nbsp;base&nbsp;that<br>
-contain&nbsp;the&nbsp;data</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
-<dl><dt><a name="DayMultiLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
-<dl><dt><a name="DayMultiLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
-
-<dl><dt><a name="DayMultiLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
-
-<dl><dt><a name="DayMultiLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><a name="DayMultiLocator-set_data_interval"><strong>set_data_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="DayMultiLocator-set_view_interval"><strong>set_view_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="DayMultiLocator-verify_intervals"><strong>verify_intervals</strong></a>(self)</dt></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><strong>dataInterval</strong> = None</dl>
-
-<dl><dt><strong>viewInterval</strong> = None</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="FixedFormatter">class <strong>FixedFormatter</strong></a>(<a href="matplotlib.ticker.html#Formatter">Formatter</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
@@ -421,10 +256,18 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="FixedFormatter-__call__"><strong>__call__</strong></a>(self, x, pos)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
+<dl><dt><a name="FixedFormatter-__call__"><strong>__call__</strong></a>(self, x, pos<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
 
 <dl><dt><a name="FixedFormatter-__init__"><strong>__init__</strong></a>(self, seq)</dt><dd><tt>seq&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;strings.&nbsp;&nbsp;For&nbsp;positions&nbsp;i&lt;len(seq)&nbsp;return<br>
 seq[i]&nbsp;regardless&nbsp;of&nbsp;x.&nbsp;&nbsp;Otherwise&nbsp;return&nbsp;''</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="FixedFormatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><strong>locs</strong> = None</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -502,9 +345,17 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="FormatStrFormatter-__call__"><strong>__call__</strong></a>(self, x, pos)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
+<dl><dt><a name="FormatStrFormatter-__call__"><strong>__call__</strong></a>(self, x, pos<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
 
 <dl><dt><a name="FormatStrFormatter-__init__"><strong>__init__</strong></a>(self, fmt)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="FormatStrFormatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><strong>locs</strong> = None</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -530,7 +381,13 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 <td colspan=2><tt>Convert&nbsp;the&nbsp;tick&nbsp;location&nbsp;to&nbsp;a&nbsp;string<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Formatter-__call__"><strong>__call__</strong></a>(self, x, pos)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
+<dl><dt><a name="Formatter-__call__"><strong>__call__</strong></a>(self, x, pos<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
+
+<dl><dt><a name="Formatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>locs</strong> = None</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -562,9 +419,17 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="FuncFormatter-__call__"><strong>__call__</strong></a>(self, x, pos)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
+<dl><dt><a name="FuncFormatter-__call__"><strong>__call__</strong></a>(self, x, pos<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
 
 <dl><dt><a name="FuncFormatter-__init__"><strong>__init__</strong></a>(self, func)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="FuncFormatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><strong>locs</strong> = None</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -573,93 +438,6 @@ Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a
 <dl><dt><a name="FuncFormatter-set_view_interval"><strong>set_view_interval</strong></a>(self, interval)</dt></dl>
 
 <dl><dt><a name="FuncFormatter-verify_intervals"><strong>verify_intervals</strong></a>(self)</dt></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><strong>dataInterval</strong> = None</dl>
-
-<dl><dt><strong>viewInterval</strong> = None</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="HourLocator">class <strong>HourLocator</strong></a>(<a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Make&nbsp;ticks&nbsp;on&nbsp;hours&nbsp;which&nbsp;are&nbsp;multiples&nbsp;of&nbsp;base<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.ticker.html#HourLocator">HourLocator</a></dd>
-<dd><a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a></dd>
-<dd><a href="matplotlib.ticker.html#Locator">Locator</a></dd>
-<dd><a href="matplotlib.ticker.html#TickHelper">TickHelper</a></dd>
-</dl>
-<hr>
-Methods defined here:<br>
-<dl><dt><a name="HourLocator-__init__"><strong>__init__</strong></a>(self, base)</dt></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a>:<br>
-<dl><dt><a name="HourLocator-__call__"><strong>__call__</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;ticks</tt></dd></dl>
-
-<dl><dt><a name="HourLocator-autoscale"><strong>autoscale</strong></a>(self)</dt><dd><tt>Set&nbsp;the&nbsp;view&nbsp;limits&nbsp;to&nbsp;the&nbsp;nearest&nbsp;multiples&nbsp;of&nbsp;base&nbsp;that<br>
-contain&nbsp;the&nbsp;data</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
-<dl><dt><a name="HourLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
-<dl><dt><a name="HourLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
-
-<dl><dt><a name="HourLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
-
-<dl><dt><a name="HourLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><a name="HourLocator-set_data_interval"><strong>set_data_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="HourLocator-set_view_interval"><strong>set_view_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="HourLocator-verify_intervals"><strong>verify_intervals</strong></a>(self)</dt></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><strong>dataInterval</strong> = None</dl>
-
-<dl><dt><strong>viewInterval</strong> = None</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="IndexDateFormatter">class <strong>IndexDateFormatter</strong></a>(<a href="matplotlib.ticker.html#Formatter">Formatter</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Use&nbsp;with&nbsp;<a href="#IndexLocator">IndexLocator</a>&nbsp;to&nbsp;cycle&nbsp;format&nbsp;strings&nbsp;by&nbsp;index.<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.ticker.html#IndexDateFormatter">IndexDateFormatter</a></dd>
-<dd><a href="matplotlib.ticker.html#Formatter">Formatter</a></dd>
-<dd><a href="matplotlib.ticker.html#TickHelper">TickHelper</a></dd>
-</dl>
-<hr>
-Methods defined here:<br>
-<dl><dt><a name="IndexDateFormatter-__call__"><strong>__call__</strong></a>(self, x, pos)</dt><dd><tt>Return&nbsp;the&nbsp;label&nbsp;for&nbsp;time&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
-
-<dl><dt><a name="IndexDateFormatter-__init__"><strong>__init__</strong></a>(self, t, fmt, converter<font color="#909090">=None</font>)</dt><dd><tt>t&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;epoch&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is&nbsp;a&nbsp;strftime&nbsp;format&nbsp;string<br>
-&nbsp;<br>
-converter&nbsp;is&nbsp;a&nbsp;matplotlib.dates.DateConverter.&nbsp;&nbsp;If&nbsp;your<br>
-datetimes&nbsp;are&nbsp;aready&nbsp;epoch,&nbsp;use&nbsp;None</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><a name="IndexDateFormatter-set_data_interval"><strong>set_data_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="IndexDateFormatter-set_view_interval"><strong>set_view_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="IndexDateFormatter-verify_intervals"><strong>verify_intervals</strong></a>(self)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -688,7 +466,7 @@ useful&nbsp;for&nbsp;x&nbsp;ticks.<br>&nbsp;</tt></td></tr>
 Methods defined here:<br>
 <dl><dt><a name="IndexLocator-__call__"><strong>__call__</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;ticks</tt></dd></dl>
 
-<dl><dt><a name="IndexLocator-__init__"><strong>__init__</strong></a>(self, base, offset<font color="#909090">=0</font>)</dt><dd><tt>place&nbsp;ticks&nbsp;on&nbsp;the&nbsp;i-th&nbsp;data&nbsp;points&nbsp;where&nbsp;(i-offset)%base==0</tt></dd></dl>
+<dl><dt><a name="IndexLocator-__init__"><strong>__init__</strong></a>(self, base, offset)</dt><dd><tt>place&nbsp;ticks&nbsp;on&nbsp;the&nbsp;i-th&nbsp;data&nbsp;points&nbsp;where&nbsp;(i-offset)%base==0</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
@@ -820,7 +598,7 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="LogFormatter-__call__"><strong>__call__</strong></a>(self, x, pos)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
+<dl><dt><a name="LogFormatter-__call__"><strong>__call__</strong></a>(self, x, pos<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
 
 <dl><dt><a name="LogFormatter-__init__"><strong>__init__</strong></a>(self, base<font color="#909090">=10.0</font>, labelOnlyBase<font color="#909090">=True</font>)</dt><dd><tt>base&nbsp;is&nbsp;used&nbsp;to&nbsp;locate&nbsp;the&nbsp;decade&nbsp;tick,&nbsp;<br>
 which&nbsp;will&nbsp;be&nbsp;the&nbsp;only&nbsp;one&nbsp;to&nbsp;be&nbsp;labeled&nbsp;if&nbsp;labelOnlyBase<br>
@@ -837,6 +615,14 @@ is&nbsp;False</tt></dd></dl>
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#ScalarFormatter">ScalarFormatter</a>:<br>
 <dl><dt><a name="LogFormatter-pprint_val"><strong>pprint_val</strong></a>(self, x, d)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="LogFormatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><strong>locs</strong> = None</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -870,7 +656,7 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="LogFormatterExponent-__call__"><strong>__call__</strong></a>(self, x, pos)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
+<dl><dt><a name="LogFormatterExponent-__call__"><strong>__call__</strong></a>(self, x, pos<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#LogFormatter">LogFormatter</a>:<br>
@@ -889,6 +675,14 @@ is&nbsp;False</tt></dd></dl>
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#ScalarFormatter">ScalarFormatter</a>:<br>
 <dl><dt><a name="LogFormatterExponent-pprint_val"><strong>pprint_val</strong></a>(self, x, d)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="LogFormatterExponent-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><strong>locs</strong> = None</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -922,7 +716,7 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="LogFormatterMathtext-__call__"><strong>__call__</strong></a>(self, x, pos)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
+<dl><dt><a name="LogFormatterMathtext-__call__"><strong>__call__</strong></a>(self, x, pos<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#LogFormatter">LogFormatter</a>:<br>
@@ -941,6 +735,14 @@ is&nbsp;False</tt></dd></dl>
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#ScalarFormatter">ScalarFormatter</a>:<br>
 <dl><dt><a name="LogFormatterMathtext-pprint_val"><strong>pprint_val</strong></a>(self, x, d)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="LogFormatterMathtext-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><strong>locs</strong> = None</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -999,107 +801,6 @@ Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a
 <dl><dt><a name="LogLocator-set_view_interval"><strong>set_view_interval</strong></a>(self, interval)</dt></dl>
 
 <dl><dt><a name="LogLocator-verify_intervals"><strong>verify_intervals</strong></a>(self)</dt></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><strong>dataInterval</strong> = None</dl>
-
-<dl><dt><strong>viewInterval</strong> = None</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="MinuteLocator">class <strong>MinuteLocator</strong></a>(<a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Make&nbsp;ticks&nbsp;on&nbsp;minutes&nbsp;which&nbsp;are&nbsp;multiples&nbsp;of&nbsp;base<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.ticker.html#MinuteLocator">MinuteLocator</a></dd>
-<dd><a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a></dd>
-<dd><a href="matplotlib.ticker.html#Locator">Locator</a></dd>
-<dd><a href="matplotlib.ticker.html#TickHelper">TickHelper</a></dd>
-</dl>
-<hr>
-Methods defined here:<br>
-<dl><dt><a name="MinuteLocator-__init__"><strong>__init__</strong></a>(self, base)</dt></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a>:<br>
-<dl><dt><a name="MinuteLocator-__call__"><strong>__call__</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;ticks</tt></dd></dl>
-
-<dl><dt><a name="MinuteLocator-autoscale"><strong>autoscale</strong></a>(self)</dt><dd><tt>Set&nbsp;the&nbsp;view&nbsp;limits&nbsp;to&nbsp;the&nbsp;nearest&nbsp;multiples&nbsp;of&nbsp;base&nbsp;that<br>
-contain&nbsp;the&nbsp;data</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
-<dl><dt><a name="MinuteLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
-<dl><dt><a name="MinuteLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
-
-<dl><dt><a name="MinuteLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
-
-<dl><dt><a name="MinuteLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><a name="MinuteLocator-set_data_interval"><strong>set_data_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="MinuteLocator-set_view_interval"><strong>set_view_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="MinuteLocator-verify_intervals"><strong>verify_intervals</strong></a>(self)</dt></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><strong>dataInterval</strong> = None</dl>
-
-<dl><dt><strong>viewInterval</strong> = None</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="MonthLocator">class <strong>MonthLocator</strong></a>(<a href="matplotlib.ticker.html#Locator">Locator</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Make&nbsp;ticks&nbsp;on&nbsp;jan&nbsp;1st&nbsp;of&nbsp;each&nbsp;year&nbsp;that&nbsp;is&nbsp;a&nbsp;multiple&nbsp;of&nbsp;base<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.ticker.html#MonthLocator">MonthLocator</a></dd>
-<dd><a href="matplotlib.ticker.html#Locator">Locator</a></dd>
-<dd><a href="matplotlib.ticker.html#TickHelper">TickHelper</a></dd>
-</dl>
-<hr>
-Methods defined here:<br>
-<dl><dt><a name="MonthLocator-__call__"><strong>__call__</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;ticks</tt></dd></dl>
-
-<dl><dt><a name="MonthLocator-__init__"><strong>__init__</strong></a>(self, base<font color="#909090">=1</font>)</dt><dd><tt>mark&nbsp;years&nbsp;that&nbsp;are&nbsp;multiple&nbsp;of&nbsp;base</tt></dd></dl>
-
-<dl><dt><a name="MonthLocator-autoscale"><strong>autoscale</strong></a>(self)</dt><dd><tt>Set&nbsp;the&nbsp;view&nbsp;limits&nbsp;to&nbsp;the&nbsp;nearest&nbsp;multiples&nbsp;of&nbsp;base&nbsp;that<br>
-contain&nbsp;the&nbsp;data</tt></dd></dl>
-
-<hr>
-Data and other attributes defined here:<br>
-<dl><dt><strong>epochConverter</strong> = &lt;matplotlib.dates.EpochConverter instance&gt;<dd><tt>Represent&nbsp;time&nbsp;in&nbsp;the&nbsp;epoch</tt></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
-<dl><dt><a name="MonthLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
-<dl><dt><a name="MonthLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
-
-<dl><dt><a name="MonthLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
-
-<dl><dt><a name="MonthLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><a name="MonthLocator-set_data_interval"><strong>set_data_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="MonthLocator-set_view_interval"><strong>set_view_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="MonthLocator-verify_intervals"><strong>verify_intervals</strong></a>(self)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -1171,7 +872,15 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="NullFormatter-__call__"><strong>__call__</strong></a>(self, x, pos)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
+<dl><dt><a name="NullFormatter-__call__"><strong>__call__</strong></a>(self, x, pos<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="NullFormatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><strong>locs</strong> = None</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -1249,9 +958,17 @@ not&nbsp;set,&nbsp;the&nbsp;formatter&nbsp;will&nbsp;do&nbsp;str&nbsp;conversion
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="ScalarFormatter-__call__"><strong>__call__</strong></a>(self, x, pos)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
+<dl><dt><a name="ScalarFormatter-__call__"><strong>__call__</strong></a>(self, x, pos<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
 
 <dl><dt><a name="ScalarFormatter-pprint_val"><strong>pprint_val</strong></a>(self, x, d)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="ScalarFormatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><strong>locs</strong> = None</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -1287,155 +1004,6 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>viewInterval</strong> = None</dl>
 
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="WeekMultiLocator">class <strong>WeekMultiLocator</strong></a>(<a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Make&nbsp;ticks&nbsp;on&nbsp;weeks&nbsp;which&nbsp;are&nbsp;multiples&nbsp;of&nbsp;base<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.ticker.html#WeekMultiLocator">WeekMultiLocator</a></dd>
-<dd><a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a></dd>
-<dd><a href="matplotlib.ticker.html#Locator">Locator</a></dd>
-<dd><a href="matplotlib.ticker.html#TickHelper">TickHelper</a></dd>
-</dl>
-<hr>
-Methods defined here:<br>
-<dl><dt><a name="WeekMultiLocator-__init__"><strong>__init__</strong></a>(self, base)</dt></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a>:<br>
-<dl><dt><a name="WeekMultiLocator-__call__"><strong>__call__</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;ticks</tt></dd></dl>
-
-<dl><dt><a name="WeekMultiLocator-autoscale"><strong>autoscale</strong></a>(self)</dt><dd><tt>Set&nbsp;the&nbsp;view&nbsp;limits&nbsp;to&nbsp;the&nbsp;nearest&nbsp;multiples&nbsp;of&nbsp;base&nbsp;that<br>
-contain&nbsp;the&nbsp;data</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
-<dl><dt><a name="WeekMultiLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
-<dl><dt><a name="WeekMultiLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
-
-<dl><dt><a name="WeekMultiLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
-
-<dl><dt><a name="WeekMultiLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><a name="WeekMultiLocator-set_data_interval"><strong>set_data_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="WeekMultiLocator-set_view_interval"><strong>set_view_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="WeekMultiLocator-verify_intervals"><strong>verify_intervals</strong></a>(self)</dt></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><strong>dataInterval</strong> = None</dl>
-
-<dl><dt><strong>viewInterval</strong> = None</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="WeekdayLocator">class <strong>WeekdayLocator</strong></a>(<a href="matplotlib.ticker.html#Locator">Locator</a>)</font></td></tr>
-    
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.ticker.html#WeekdayLocator">WeekdayLocator</a></dd>
-<dd><a href="matplotlib.ticker.html#Locator">Locator</a></dd>
-<dd><a href="matplotlib.ticker.html#TickHelper">TickHelper</a></dd>
-</dl>
-<hr>
-Methods defined here:<br>
-<dl><dt><a name="WeekdayLocator-__call__"><strong>__call__</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="WeekdayLocator-__init__"><strong>__init__</strong></a>(self, day)</dt><dd><tt>Use&nbsp;ticks&nbsp;on&nbsp;weekdays&nbsp;that&nbsp;match&nbsp;day&nbsp;numbered&nbsp;from&nbsp;monday&nbsp;=0.<br>
-matplotlib.dates&nbsp;defines&nbsp;constants&nbsp;MONDAY&nbsp;thru&nbsp;SUNDAY</tt></dd></dl>
-
-<dl><dt><a name="WeekdayLocator-autoscale"><strong>autoscale</strong></a>(self)</dt><dd><tt>Set&nbsp;the&nbsp;view&nbsp;limits&nbsp;to&nbsp;the&nbsp;nearest&nbsp;days&nbsp;that&nbsp;are&nbsp;on&nbsp;the<br>
-specified&nbsp;day&nbsp;that&nbsp;contains&nbsp;the&nbsp;data</tt></dd></dl>
-
-<dl><dt><a name="WeekdayLocator-get_ticklocs"><strong>get_ticklocs</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;tick&nbsp;locations&nbsp;in&nbsp;seconds&nbsp;since&nbsp;epoch</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
-<dl><dt><a name="WeekdayLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
-<dl><dt><a name="WeekdayLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
-
-<dl><dt><a name="WeekdayLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
-
-<dl><dt><a name="WeekdayLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><a name="WeekdayLocator-set_data_interval"><strong>set_data_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="WeekdayLocator-set_view_interval"><strong>set_view_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="WeekdayLocator-verify_intervals"><strong>verify_intervals</strong></a>(self)</dt></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><strong>dataInterval</strong> = None</dl>
-
-<dl><dt><strong>viewInterval</strong> = None</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="YearLocator">class <strong>YearLocator</strong></a>(<a href="matplotlib.ticker.html#Locator">Locator</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Make&nbsp;ticks&nbsp;on&nbsp;jan&nbsp;1st&nbsp;of&nbsp;each&nbsp;year&nbsp;that&nbsp;is&nbsp;a&nbsp;multiple&nbsp;of&nbsp;base<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.ticker.html#YearLocator">YearLocator</a></dd>
-<dd><a href="matplotlib.ticker.html#Locator">Locator</a></dd>
-<dd><a href="matplotlib.ticker.html#TickHelper">TickHelper</a></dd>
-</dl>
-<hr>
-Methods defined here:<br>
-<dl><dt><a name="YearLocator-__call__"><strong>__call__</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;ticks</tt></dd></dl>
-
-<dl><dt><a name="YearLocator-__init__"><strong>__init__</strong></a>(self, base<font color="#909090">=1</font>)</dt><dd><tt>mark&nbsp;years&nbsp;that&nbsp;are&nbsp;multiple&nbsp;of&nbsp;base</tt></dd></dl>
-
-<dl><dt><a name="YearLocator-autoscale"><strong>autoscale</strong></a>(self)</dt><dd><tt>Set&nbsp;the&nbsp;view&nbsp;limits&nbsp;to&nbsp;the&nbsp;nearest&nbsp;multiples&nbsp;of&nbsp;base&nbsp;that<br>
-contain&nbsp;the&nbsp;data</tt></dd></dl>
-
-<hr>
-Data and other attributes defined here:<br>
-<dl><dt><strong>epochConverter</strong> = &lt;matplotlib.dates.EpochConverter instance&gt;<dd><tt>Represent&nbsp;time&nbsp;in&nbsp;the&nbsp;epoch</tt></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
-<dl><dt><a name="YearLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
-<dl><dt><a name="YearLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
-
-<dl><dt><a name="YearLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
-
-<dl><dt><a name="YearLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><a name="YearLocator-set_data_interval"><strong>set_data_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="YearLocator-set_view_interval"><strong>set_view_interval</strong></a>(self, interval)</dt></dl>
-
-<dl><dt><a name="YearLocator-verify_intervals"><strong>verify_intervals</strong></a>(self)</dt></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
-<dl><dt><strong>dataInterval</strong> = None</dl>
-
-<dl><dt><strong>viewInterval</strong> = None</dl>
-
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -1462,10 +1030,6 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>Float</strong> = 'd'<br>
-<strong>SEC_PER_DAY</strong> = 86400<br>
-<strong>SEC_PER_HOUR</strong> = 3600<br>
-<strong>SEC_PER_MIN</strong> = 60<br>
-<strong>SEC_PER_WEEK</strong> = 604800<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>log</strong> = &lt;ufunc 'log'&gt;<br>
 <strong>logical_and</strong> = &lt;ufunc 'logical_and'&gt;</td></tr></table>

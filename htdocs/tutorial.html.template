@@ -146,14 +146,21 @@ There are several ways to set line properties
 # Multiple keyword args are allowed 
 plot(x, y, linewidth=2.0)  
 
-# plot returns a list of Line2D instances
-lines = plot(x, y, 'o')
-line1 = lines[0]             # get the first line
-line1.set_antialiased(False) # turn off antialising
+# Use the setter methods of the Line2D instance.  plot returns a list
+# of lines (eg line1, line2 = plot(x1,y1,x2,x2)).  Below I have only
+# one line so it is a list of length 1.  I use tuple unpacking in the
+# line, = plot(x, y, 'o') to get the first element of the list
+line, = plot(x, y, 'o')
+line.set_antialiased(False) # turn off antialising
 
-# The example below uses matlab handle graphics style command
-# to set multiple properties on a list of lines
+# Use the set command.  The example below uses matlab handle graphics
+# style command to set multiple properties on a list of lines
 lines = plot(x1, y1, x2, y2) 
+set(lines, color='r', linewidth=2.0)
+
+
+# In the last example, the matlab style where the keywords are strings
+# is also allowed, but not as nice, in my opinion.
 set(lines, 'color', 'r', 'linewidth', 2.0)
 </pre>
 
@@ -496,7 +503,8 @@ or to close the figure window.</i> </td></tr> </table><br>
 
 The toolbar2 buttons behave very differently from the classic the
 classic matplotlib toolbar (else why introduce a new one!) despite the
-visual similarity of the forward and back buttons<p>
+visual similarity of the forward and back buttons.  See below for
+details.<p>
 
 <table>
 
