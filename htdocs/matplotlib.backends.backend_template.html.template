@@ -128,6 +128,8 @@ Methods defined here:<br>
 Methods inherited from <a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>:<br>
 <dl><dt><a name="AxisTextTemplate-__del__"><strong>__del__</strong></a>(self)</dt><dd><tt>Bye&nbsp;bye</tt></dd></dl>
 
+<dl><dt><a name="AxisTextTemplate-copy_properties"><strong>copy_properties</strong></a>(self, text)</dt></dl>
+
 <dl><dt><a name="AxisTextTemplate-erase"><strong>erase</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="AxisTextTemplate-get_fontangle"><strong>get_fontangle</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;font&nbsp;angle&nbsp;as&nbsp;string</tt></dd></dl>
@@ -232,6 +234,8 @@ Methods defined here:<br>
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>:<br>
 <dl><dt><a name="AxisTextTemplate-__del__"><strong>__del__</strong></a>(self)</dt><dd><tt>Bye&nbsp;bye</tt></dd></dl>
+
+<dl><dt><a name="AxisTextTemplate-copy_properties"><strong>copy_properties</strong></a>(self, text)</dt></dl>
 
 <dl><dt><a name="AxisTextTemplate-erase"><strong>erase</strong></a>(self)</dt></dl>
 
@@ -489,9 +493,13 @@ matlab&nbsp;format&nbsp;string,&nbsp;a&nbsp;html&nbsp;hex&nbsp;color&nbsp;string
 (usually&nbsp;0).&nbsp;&nbsp;Dash&nbsp;list&nbsp;specifies&nbsp;the&nbsp;on-off&nbsp;sequence&nbsp;as<br>
 points</tt></dd></dl>
 
-<dl><dt><a name="GraphicsContextTemplate-set_foreground"><strong>set_foreground</strong></a>(self, fg)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color.&nbsp;&nbsp;fg&nbsp;can&nbsp;be&nbsp;a&nbsp;matlab&nbsp;format&nbsp;string,&nbsp;a<br>
+<dl><dt><a name="GraphicsContextTemplate-set_foreground"><strong>set_foreground</strong></a>(self, fg, isRGB<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color.&nbsp;&nbsp;fg&nbsp;can&nbsp;be&nbsp;a&nbsp;matlab&nbsp;format&nbsp;string,&nbsp;a<br>
 html&nbsp;hex&nbsp;color&nbsp;string,&nbsp;an&nbsp;rgb&nbsp;unit&nbsp;tuple,&nbsp;or&nbsp;a&nbsp;float&nbsp;between&nbsp;0<br>
-and&nbsp;1.&nbsp;&nbsp;In&nbsp;the&nbsp;latter&nbsp;case,&nbsp;grayscale&nbsp;is&nbsp;used.</tt></dd></dl>
+and&nbsp;1.&nbsp;&nbsp;In&nbsp;the&nbsp;latter&nbsp;case,&nbsp;grayscale&nbsp;is&nbsp;used.<br>
+&nbsp;<br>
+The&nbsp;GraphicsContext&nbsp;converts&nbsp;colors&nbsp;to&nbsp;rgb&nbsp;internally.&nbsp;&nbsp;If&nbsp;you<br>
+know&nbsp;the&nbsp;color&nbsp;is&nbsp;rgb&nbsp;already,&nbsp;you&nbsp;can&nbsp;set&nbsp;isRGB&nbsp;to&nbsp;True&nbsp;to<br>
+avoid&nbsp;the&nbsp;performace&nbsp;hit&nbsp;of&nbsp;the&nbsp;conversion</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextTemplate-set_graylevel"><strong>set_graylevel</strong></a>(self, frac)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color&nbsp;to&nbsp;be&nbsp;a&nbsp;gray&nbsp;level&nbsp;with&nbsp;frac&nbsp;frac</tt></dd></dl>
 

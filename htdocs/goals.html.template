@@ -8,8 +8,9 @@ td_remaining = 'bgcolor=#efefef align="left"'
 
 Here is a growing list, and status updates, of things that I think
 need to be done to achieve a useful, publication quality 2D plotting
-library.  If you have any suggestions, additions or comments,
-email me @myemail@ or the mailing list.<p>
+library.  If you have any suggestions, additions or comments, email me
+@myemail@ or the <a href=http://sourceforge.net/mail/?group_id=80706>
+mailing list</a>.<p>
 
 <br>
 <table border=2 cellpadding=2 cellspacing=0>
@@ -55,8 +56,8 @@ email me @myemail@ or the mailing list.<p>
 
 <tr> <td> Support arbitrary location, rotation and fonts for axis text
    </td> <td @td_partial@> Partially done.  This is backend dependent.
-   The GD and PS backends support arbitrary rotations.  The GTK
-   backend still only supports 'horizontal' and 'vertical'.  Full font
+   The GD and PS backends support arbitrary rotations.  The GTK and WX
+   backends still support only 'horizontal' and 'vertical'.  Full font
    support (font family, font angle, font weight, font size) is
    available for all backends; see <a href=fonts.html>fonts</a>.</td>
 
@@ -65,11 +66,9 @@ email me @myemail@ or the mailing list.<p>
        Plot legends
     </td>
 
-    <td @td_done@>
-	Done, matlab compatible legends added in CVS after 0.29.  See
-	<a href=examples/legend_demo.py>legend_demo.py</a> and the <a
-	href=matplotlib.matlab.html#-legend>legend</a> command.
-    </td>
+    <td @td_done@> Done, matlab compatible legend command.  See <a
+	href=examples/legend_demo.py>legend_demo.py</a> and the <a
+	href=matplotlib.matlab.html#-legend>legend</a> command.  </td>
 
 </tr>
 
@@ -79,21 +78,20 @@ email me @myemail@ or the mailing list.<p>
       Allow high resolution printing to a variety of output formats
     </td>
 
-    <td @td_done@> As of version 0.29, matplotlib now supports
-      multiple backend renders, including GTK, GD and postscript with
-      arbitrary resolutions-- see <a href="backends.html">output
-      devices</a> </td> </tr>
+    <td @td_done@>matplotlib supports multiple backend renders,
+      including GTK, GD and postscript with arbitrary resolutions--
+      see <a href="backends.html">output devices</a> </td> </tr>
 
 <tr> <td> Allow interactive control of plot </td>
 
     <td @td_partial@> An improved interactive command line environment
-        is provided interactive2.py, which allows you to use
-        matplotlib interactively from the prompt, though there are
-        still some problems with this interpreter in the way it
-        handles cutting and pasting of text directly into the
+        for the GTK backend is provided interactive2.py, which allows
+        you to use matplotlib interactively from the prompt, though
+        there are still some problems with this interpreter in the way
+        it handles cutting and pasting of text directly into the
         interpreter.  Also, it would be nicer if there were a way to
-        do this w/o forcing users to use a custom interpreter, but I
-        don't see how to right now.  See also interactive.py.</td>
+        do this w/o forcing users to use a custom interpreter - note
+        to self, look into gui_thread.  See also interactive.py.</td>
         </tr>
 
 <tr>
@@ -114,7 +112,7 @@ email me @myemail@ or the mailing list.<p>
       Support log scaling	
     </td>
 
-    <td @td_done@> Added as of matplotlib-0.30.  See <a
+    <td @td_done@> See <a
 	href=matplotlib.matlab.html#-semilogx>semilogx</a>, <a
 	href=matplotlib.matlab.html#-semilogy>semilogy</a>, and <a
 	href=matplotlib.matlab.html#-loglog>loglog</a>, and demo <a

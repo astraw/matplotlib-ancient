@@ -18,32 +18,40 @@ running with the GTK backend.  For more specific information regarding
 a particular output device (GTK, PS, GD or WX), see <a
 href=backends.html>matplotlib outputs</a>.
 
-<h2> Win 32 Quickstart for GTK backend</h2>
+<h2> Win 32 Quickstart</h2>
 
 If you don't already have python installed, you may want to consider
-using the <a href=nthought.com/python/>enthought edition</a> of
-python, which has scipy, Numeric, and wxpython, plus a lot of other
-goodies, preinstalled.
+using the <a href=http://www.enthought.com/python/>enthought
+edition</a> of python, which has scipy, Numeric, and wxpython, plus a
+lot of other goodies, preinstalled.  
+
+The following quickstart instructions are for the GTK backend -- note
+if you use the enthought python you won't need Numeric.
+
+<ul> 
 
 <li>Install <a
 href=http://sourceforge.net/project/showfiles.php?group_id=1369&release_id=176455>
 Numeric</a> (currently version 23.1).  Note, you'll want the "numpy",
 not "numarray" files.</li>
 
-<ul>
 <li>Install the <a href=http://prdownloads.sourceforge.net/gtk-win>
 GTK runtime</a> (currently version 2.2.4.1).</li>
 
 <li>Install <a
 href=http://www.pcpm.ucl.ac.be/~gustin/win32_ports/binaries/pygtk-2.0.0.win32-py2.3.exe>pygtk-2.0.0</a></li>
 
-<li>Modify your path.  For GTK, add the <tt>bin</tt> and <tt>lib</tt>
-subdirs of your GTK runtime install directory to the PATH environment
-variable.  For Windows 2000, NT or XP, right click My
+<li>Modify your path.  Check <a
+href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.012.htp>the
+pygtk FAQ</a> for information on how to do this right.  In a nutshell,
+for GTK, add the <tt>bin</tt> and <tt>lib</tt> subdirs of your GTK
+runtime install directory to the PATH environment variable.  For
+Windows 2000, NT or XP, right click My
 Computer->Properties->Advanced->Environment variables.  For older
 versions of windows, edit <tt>c:\autoexec.bat</tt></li>
 
-<li> Install matplotlib using the windows installer on the <a ref=http://sourceforge.net/projects/matplotlib>download page<a></li>
+<li> Install matplotlib using the windows installer on the <a
+ref=http://sourceforge.net/projects/matplotlib>download page<a></li>
 
 </ul> 
 
@@ -55,7 +63,7 @@ interface GTK, you need to have GNOME 2 and at least pygtk-1.99.16
 installed.  Don't assume that because you are running redhat 9 that
 you have the latest libs.  Redhat 8 and 9 come with the GNOME2, but
 you will still need to upgrade to at least pygtk-1.99.16.  The latest
-version (currently 2.0.0) is recommened.  I don't have specific
+version (currently 2.0.0) is recommended.  I don't have specific
 information about the other linux distributions.  Debian users consult
 <a href=backends.html#Debian>matplotlib outputs</a>
 

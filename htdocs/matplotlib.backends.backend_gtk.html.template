@@ -15,13 +15,14 @@
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="gtk.gdk.html">gtk.gdk</a><br>
 <a href="gobject.html">gobject</a><br>
-</td><td width="25%" valign=top><a href="gtk.html">gtk</a><br>
-<a href="math.html">math</a><br>
-</td><td width="25%" valign=top><a href="os.html">os</a><br>
-<a href="pango.html">pango</a><br>
-</td><td width="25%" valign=top><a href="pygtk.html">pygtk</a><br>
+<a href="gtk.html">gtk</a><br>
+</td><td width="25%" valign=top><a href="math.html">math</a><br>
+<a href="matplotlib.html">matplotlib</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="pango.html">pango</a><br>
+<a href="pygtk.html">pygtk</a><br>
 <a href="sys.html">sys</a><br>
-</td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -75,8 +76,7 @@
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#RendererGTK">RendererGTK</a>
 </font></dt></dl>
 </dd>
-<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#ShowOn">ShowOn</a>
-</font></dt><dt><font face="helvetica, arial"><a href="gtk.html#Toolbar">gtk.Toolbar</a>(<a href="gtk.html#Container">gtk.Container</a>)
+<dt><font face="helvetica, arial"><a href="gtk.html#Toolbar">gtk.Toolbar</a>(<a href="gtk.html#Container">gtk.Container</a>)
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#NavigationToolbar">NavigationToolbar</a>
@@ -114,6 +114,8 @@ Data and other attributes defined here:<br>
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>:<br>
 <dl><dt><a name="AxisTextGTK-__del__"><strong>__del__</strong></a>(self)</dt><dd><tt>Bye&nbsp;bye</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGTK-copy_properties"><strong>copy_properties</strong></a>(self, text)</dt></dl>
 
 <dl><dt><a name="AxisTextGTK-erase"><strong>erase</strong></a>(self)</dt></dl>
 
@@ -221,6 +223,8 @@ Data and other attributes defined here:<br>
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>:<br>
 <dl><dt><a name="AxisTextGTK-__del__"><strong>__del__</strong></a>(self)</dt><dd><tt>Bye&nbsp;bye</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGTK-copy_properties"><strong>copy_properties</strong></a>(self, text)</dt></dl>
 
 <dl><dt><a name="AxisTextGTK-erase"><strong>erase</strong></a>(self)</dt></dl>
 
@@ -357,7 +361,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (136605040)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (136610200)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -1001,6 +1005,8 @@ Methods defined here:<br>
 
 <dl><dt><a name="FigureGTK-realize"><strong>realize</strong></a>(self, widget)</dt></dl>
 
+<dl><dt><a name="FigureGTK-set_do_plot"><strong>set_do_plot</strong></a>(self, b)</dt></dl>
+
 <dl><dt><a name="FigureGTK-text"><strong>text</strong></a>(self, x, y, s, *args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
 the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
 
@@ -1016,7 +1022,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135923664)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135924224)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -1384,6 +1390,8 @@ Methods defined here:<br>
 
 <dl><dt><a name="FigureGTK-realize"><strong>realize</strong></a>(self, widget)</dt></dl>
 
+<dl><dt><a name="FigureGTK-set_do_plot"><strong>set_do_plot</strong></a>(self, b)</dt></dl>
+
 <dl><dt><a name="FigureGTK-text"><strong>text</strong></a>(self, x, y, s, *args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
 the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
 
@@ -1399,7 +1407,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135923664)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135924224)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -1887,7 +1895,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (135926400)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (135930208)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -2311,28 +2319,6 @@ gc&nbsp;is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="RendererGTK-new_gc"><strong>new_gc</strong></a>(self)</dt></dl>
 
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="ShowOn">class <strong>ShowOn</strong></a></font></td></tr>
-    
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="ShowOn-__init__"><strong>__init__</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="ShowOn-enter_mainloop"><strong>enter_mainloop</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="ShowOn-get"><strong>get</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="ShowOn-is_mainloop_on"><strong>is_mainloop_on</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="ShowOn-set"><strong>set</strong></a>(self, on)</dt></dl>
-
-<hr>
-Data and other attributes defined here:<br>
-<dl><dt><strong>show</strong> = 0</dl>
-
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -2349,6 +2335,7 @@ Data and other attributes defined here:<br>
  <dl><dt><a name="-show"><strong>show</strong></a>()</dt><dd><tt>Show&nbsp;all&nbsp;the&nbsp;figures&nbsp;and&nbsp;enter&nbsp;the&nbsp;gtk&nbsp;mainloop<br>
 &nbsp;<br>
 This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;script</tt></dd></dl>
+ <dl><dt><a name="-show_xvfb"><strong>show_xvfb</strong></a>()</dt><dd><tt>Print&nbsp;the&nbsp;pending&nbsp;figures&nbsp;only&nbsp;then&nbsp;quit,&nbsp;no&nbsp;screen&nbsp;draw</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">

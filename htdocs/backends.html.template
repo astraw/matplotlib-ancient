@@ -4,11 +4,11 @@
 
 The matplotlib core graphics routines interact with an abstract
 renderer and graphics context to allow device independent ouput.
-Currently, output to pygtk, postscript and gdmodule are supported, and
-wxwindows is under active development.  With not too much effort, you
-can port matplotlib to your favorite display; high on my list of
-priorities are SVG, PDF, Tkinter and PIL.  If you are interested in
-porting to one of these platforms, please contact me!<p>
+Currently, output to pygtk, wxpython, postscript and gdmodule are
+supported.  With not too much effort, you can port matplotlib to your
+favorite display; high on my list of priorities are SVG, PDF, Tkinter
+and PIL.  If you are interested in porting to one of these platforms,
+please contact me!<p>
  
 You can choose your backend renderer from the command line prompt.
 Most if not all matplotlib scripts can generate output to any of the
@@ -20,7 +20,7 @@ line with the <tt>-d</tt> flag, as in
 > python subplot_demo.py -dGTK  # the GTK backend
 > python subplot_demo.py -dPS   # the postscript backend
 > python subplot_demo.py -dGD   # the GD backend
-> python subplot_demo.py -dWX   # the WX backend - alpha version
+> python subplot_demo.py -dWX   # the WX backend
 </pre>
 
 For backends that do not have a GUI, no output will be produced unless
@@ -46,7 +46,7 @@ matplotlib.matlab</tt>, just do, for example
 
 <pre>
 import matplotlib
-matplotlib.use('GTK')
+matplotlib.use('PS')
 </pre>
 
 The current backend strings that are supported are <a
@@ -70,14 +70,15 @@ href=http://sourceforge.net/projects/numpy>Numeric</a> module.<p>
 
 <a name=GTK><h3>GTK</h3></a>
 
-This is the default backend and the only one supported in early
-versions of matplotlib; it requires
+This is the default backend and the first one supported by matplotlib;
+it requires
 
 <ul> 
 
   <li><a href=http://www.pfdubois.com/numpy>Numeric</a></li>
 
-  <li>GTK2</li> 
+  <li><a href=http://prdownloads.sourceforge.net/gtk-win>
+GTK runtime</a></li> 
 
   <li><a href=http://www.daa.com.au/~james/software/pygtk>pygtk</a>
   version 1.99.16 or later</li>
@@ -85,10 +86,6 @@ versions of matplotlib; it requires
 </ul>
 
 <h4>Redhat Users</h4>
-
-  GTK2 became the default with the Redhat Linux 8 series.  If your
-  distro is older than that, you'll need to upgrade your desktop,
-  upgrade your gtk libs, or upgrade your distro.<p>
 
   GTK2 became the default with the Redhat Linux 8 series.  If your
   distro is older than that, you'll need to upgrade your desktop,
@@ -121,15 +118,12 @@ versions of matplotlib; it requires
 <a name=WX><h3>WX</h3></a>
 
 
-Requires <a href=http://www.wxpython.org>wxpython</a>.  This is a
-development version and is released primarily for testing and
-debugging.  See the code matplotlib/backends/backend_wx.py for a
-report on existing features and known bugs.  If you have wxpython
-installed, you can take it for a test drive with <tt>python
-yourscript.py -dWX</tt> and please report any bugs not listed in the
-KNOWN BUGS section of the wx src to the <a
-href=http://sourceforge.net/mailarchive/forum.php?forum_id=36187>matplotlib-devel</a>
-mailing list.
+Requires <a href=http://www.wxpython.org>wxpython</a>.  Windows users
+may want to consider the <a
+href=http://www.enthought.com/python>enthought edition</a> of python,
+which comes with wxpython and Numeric built in
+
+
 
 <a name=GD><h3>GD output</h3></a>
   

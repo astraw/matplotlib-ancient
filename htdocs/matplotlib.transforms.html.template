@@ -491,9 +491,23 @@ To&nbsp;do&nbsp;a&nbsp;log&nbsp;transform,&nbsp;use&nbsp;funcs=(log10,&nbsp;pow1
 
 <dl><dt><a name="Transform-inverse_scale"><strong>inverse_scale</strong></a>(self, x)</dt><dd><tt>Return&nbsp;the&nbsp;inverse&nbsp;transform&nbsp;of&nbsp;scale&nbsp;x</tt></dd></dl>
 
-<dl><dt><a name="Transform-positions"><strong>positions</strong></a>(self, x)</dt><dd><tt><a href="#Transform">Transform</a>&nbsp;the&nbsp;positions&nbsp;in&nbsp;x.</tt></dd></dl>
+<dl><dt><a name="Transform-position_scale"><strong>position_scale</strong></a>(self, pos, scale, isScalarOrArray<font color="#909090">=False</font>)</dt><dd><tt><a href="#Transform">Transform</a>&nbsp;scalar&nbsp;position&nbsp;and&nbsp;scale<br>
+&nbsp;<br>
+Doing&nbsp;both&nbsp;together&nbsp;reduces&nbsp;duplication&nbsp;of&nbsp;function&nbsp;calls,&nbsp;eg,<br>
+for&nbsp;a&nbsp;x&nbsp;position&nbsp;and&nbsp;width&nbsp;if&nbsp;both&nbsp;use&nbsp;same&nbsp;transform<br>
+&nbsp;<br>
+set&nbsp;isScalarOrArray&nbsp;to&nbsp;True&nbsp;if&nbsp;you&nbsp;know&nbsp;x&nbsp;is&nbsp;a&nbsp;scalar&nbsp;or&nbsp;array<br>
+for&nbsp;performace</tt></dd></dl>
 
-<dl><dt><a name="Transform-scale"><strong>scale</strong></a>(self, s)</dt><dd><tt><a href="#Transform">Transform</a>&nbsp;the&nbsp;scale&nbsp;in&nbsp;s</tt></dd></dl>
+<dl><dt><a name="Transform-positions"><strong>positions</strong></a>(self, x, isScalarOrArray<font color="#909090">=False</font>)</dt><dd><tt><a href="#Transform">Transform</a>&nbsp;the&nbsp;positions&nbsp;in&nbsp;x.<br>
+&nbsp;<br>
+set&nbsp;isScalarOrArray&nbsp;to&nbsp;True&nbsp;if&nbsp;you&nbsp;know&nbsp;x&nbsp;is&nbsp;a&nbsp;scalar&nbsp;or&nbsp;array<br>
+for&nbsp;performace</tt></dd></dl>
+
+<dl><dt><a name="Transform-scale"><strong>scale</strong></a>(self, s, isScalarOrArray<font color="#909090">=False</font>)</dt><dd><tt><a href="#Transform">Transform</a>&nbsp;the&nbsp;scale&nbsp;in&nbsp;s<br>
+&nbsp;<br>
+set&nbsp;isScalarOrArray&nbsp;to&nbsp;True&nbsp;if&nbsp;you&nbsp;know&nbsp;x&nbsp;is&nbsp;a&nbsp;scalar&nbsp;or&nbsp;array<br>
+for&nbsp;performace</tt></dd></dl>
 
 <dl><dt><a name="Transform-set_funcs"><strong>set_funcs</strong></a>(self, funcs)</dt><dd><tt>Set&nbsp;the&nbsp;func,&nbsp;ifunc&nbsp;to&nbsp;funcs</tt></dd></dl>
 

@@ -1,3 +1,28 @@
+new_to_41 = ( ('Pcolor optimizations', 
+"""Several optimizations have improved the performance of pcolor
+across all backends, 4x on the GTK backend"""),
+
+	('PS save from GTK backend',
+"""
+An alpha version of the PS export functionality from the GTK backend.
+Mostly works with a few know problems.  You can simply call
+savefig('somefile.ps') or use the PS extension when saving from the
+GUI.
+"""),	
+
+	('Bug fixes',
+"""
+Fixed bugs in semilogy and in setting dashes under some versions of
+Numeric
+"""),	
+
+	('bar takes (optional)multiple color args',
+"""
+You can now pass bar a len(x) list of color args to have bars with
+different colors.
+"""),	
+)
+
 new_to_40 = ( ('Wx python backend', 
 """ Jeremy O'Donoghue has done an amazing job implementing the backend
 for <a href=http://www.wxpython.org>wxpython</a>.  See <a
@@ -275,6 +300,13 @@ defined in figure.py.
 )
 
 @header@
+
+
+<h2> What's new in matplotlib 0.41</h2>
+ + for title, new in new_to_41:
+   <h4>@title@</h4>
+   @new@<br>
+ -
 
 <h2> What's new in matplotlib 0.40</h2>
  + for title, new in new_to_40:

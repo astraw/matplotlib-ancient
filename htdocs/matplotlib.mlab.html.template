@@ -106,7 +106,7 @@ about&nbsp;the&nbsp;function&nbsp;arguments&nbsp;NFFT,&nbsp;detrend,&nbsp;window
 well&nbsp;as&nbsp;the&nbsp;methods&nbsp;used&nbsp;to&nbsp;compute&nbsp;Pxy,&nbsp;Pxx&nbsp;and&nbsp;Pyy.<br>
 &nbsp;<br>
 Returns&nbsp;the&nbsp;tuple&nbsp;Cxy,&nbsp;freqs</tt></dd></dl>
- <dl><dt><a name="-cohere_pairs"><strong>cohere_pairs</strong></a>(X, ij, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>, preferSpeedOverMemory<font color="#909090">=1</font>, progressCallback<font color="#909090">=&lt;function donothing_callback&gt;</font>)</dt><dd><tt>Cxy,&nbsp;Phase,&nbsp;freqs&nbsp;=&nbsp;<a href="#-cohere_pairs">cohere_pairs</a>(&nbsp;X,&nbsp;ij,&nbsp;...)<br>
+ <dl><dt><a name="-cohere_pairs"><strong>cohere_pairs</strong></a>(X, ij, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>, preferSpeedOverMemory<font color="#909090">=True</font>, progressCallback<font color="#909090">=&lt;function donothing_callback&gt;</font>, returnPxx<font color="#909090">=False</font>)</dt><dd><tt>Cxy,&nbsp;Phase,&nbsp;freqs&nbsp;=&nbsp;<a href="#-cohere_pairs">cohere_pairs</a>(&nbsp;X,&nbsp;ij,&nbsp;...)<br>
 &nbsp;<br>
 Compute&nbsp;the&nbsp;coherence&nbsp;for&nbsp;all&nbsp;pairs&nbsp;in&nbsp;ij.&nbsp;&nbsp;X&nbsp;is&nbsp;a<br>
 numSamples,numCols&nbsp;Numeric&nbsp;array.&nbsp;&nbsp;ij&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;tuples&nbsp;(i,j).<br>
@@ -189,6 +189,8 @@ frequency.<br>
 NFFT&nbsp;must&nbsp;be&nbsp;a&nbsp;power&nbsp;of&nbsp;2<br>
 &nbsp;<br>
 Returns&nbsp;the&nbsp;tuple&nbsp;Pxy,&nbsp;freqs<br>
+&nbsp;<br>
+&nbsp;<br>
 &nbsp;<br>
 Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
@@ -386,6 +388,15 @@ Example&nbsp;2:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;y0&nbsp;=&nbsp;1<br>
 &nbsp;&nbsp;&nbsp;&nbsp;yout&nbsp;=&nbsp;<a href="#-rk4">rk4</a>(derivs,&nbsp;y0,&nbsp;t)</tt></dd></dl>
  <dl><dt><a name="-searchsorted"><strong>searchsorted</strong></a> = binarysearch(...)</dt><dd><tt>binarysearch(a,v)</tt></dd></dl>
+ <dl><dt><a name="-specgram"><strong>specgram</strong></a>(x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>)</dt><dd><tt>Compute&nbsp;a&nbsp;spectrogram&nbsp;of&nbsp;data&nbsp;in&nbsp;x.&nbsp;&nbsp;Data&nbsp;are&nbsp;split&nbsp;into&nbsp;NFFT<br>
+length&nbsp;segements&nbsp;and&nbsp;the&nbsp;PSD&nbsp;of&nbsp;each&nbsp;section&nbsp;is&nbsp;computed.&nbsp;&nbsp;The<br>
+windowing&nbsp;function&nbsp;window&nbsp;is&nbsp;applied&nbsp;to&nbsp;each&nbsp;segment,&nbsp;and&nbsp;the<br>
+amount&nbsp;of&nbsp;overlap&nbsp;of&nbsp;each&nbsp;segment&nbsp;is&nbsp;specified&nbsp;with&nbsp;noverlap<br>
+&nbsp;<br>
+See&nbsp;pdf&nbsp;for&nbsp;more&nbsp;info.<br>
+&nbsp;<br>
+The&nbsp;returned&nbsp;times&nbsp;are&nbsp;the&nbsp;midpoints&nbsp;of&nbsp;the&nbsp;intervals&nbsp;over&nbsp;which<br>
+the&nbsp;ffts&nbsp;are&nbsp;calculated</tt></dd></dl>
  <dl><dt><a name="-sqrtm"><strong>sqrtm</strong></a>(x)</dt><dd><tt>Returns&nbsp;the&nbsp;square&nbsp;root&nbsp;of&nbsp;a&nbsp;square&nbsp;matrix.<br>
 This&nbsp;means&nbsp;that&nbsp;s=<a href="#-sqrtm">sqrtm</a>(x)&nbsp;implies&nbsp;s*s&nbsp;=&nbsp;x.<br>
 Note&nbsp;that&nbsp;s&nbsp;and&nbsp;x&nbsp;are&nbsp;matrices.</tt></dd></dl>
@@ -413,6 +424,7 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
 <strong>Complex32</strong> = 'F'<br>
 <strong>Complex64</strong> = 'D'<br>
 <strong>Complex8</strong> = 'F'<br>
+<strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
 <strong>Float0</strong> = 'f'<br>
 <strong>Float16</strong> = 'f'<br>
@@ -428,6 +440,7 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
 <strong>NewAxis</strong> = None<br>
 <strong>PrecisionError</strong> = 'PrecisionError'<br>
 <strong>PyObject</strong> = 'O'<br>
+<strong>True</strong> = True<br>
 <strong>UInt</strong> = 'u'<br>
 <strong>UInt16</strong> = 'w'<br>
 <strong>UInt32</strong> = 'u'<br>

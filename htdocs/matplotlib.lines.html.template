@@ -88,7 +88,7 @@ transy&nbsp;:&nbsp;a&nbsp;Transorm&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Line2D-set_markersize"><strong>set_markersize</strong></a>(self, sz)</dt></dl>
 
-<dl><dt><a name="Line2D-set_vertical_offset"><strong>set_vertical_offset</strong></a>(self, voff)</dt></dl>
+<dl><dt><a name="Line2D-set_vertical_offset"><strong>set_vertical_offset</strong></a>(self, voff, transOffset<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="Line2D-set_xclip"><strong>set_xclip</strong></a>(self, xmin, xmax)</dt></dl>
 

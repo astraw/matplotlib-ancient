@@ -176,7 +176,10 @@ x&nbsp;and&nbsp;y&nbsp;are&nbsp;Numeric&nbsp;arrays<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>
 &nbsp;<br>
 xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
-on&nbsp;the&nbsp;bar&nbsp;chart</tt></dd></dl>
+on&nbsp;the&nbsp;bar&nbsp;chart<br>
+&nbsp;<br>
+color&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;string&nbsp;or&nbsp;tuple,&nbsp;or&nbsp;it&nbsp;can&nbsp;be<br>
+a&nbsp;len(x)&nbsp;list&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;strings&nbsp;or&nbsp;tuples</tt></dd></dl>
 
 <dl><dt><a name="Axes-clear"><strong>clear</strong></a>(self)</dt></dl>
 
@@ -195,6 +198,9 @@ Returns&nbsp;the&nbsp;tuple&nbsp;Cxy,&nbsp;freqs<br>
 Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+
+<dl><dt><a name="Axes-convert_text"><strong>convert_text</strong></a>(self, func)</dt><dd><tt>Convert&nbsp;all&nbsp;text&nbsp;instances&nbsp;using&nbsp;func.&nbsp;&nbsp;Used&nbsp;for&nbsp;converting<br>
+between&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Axes-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram<br>
 method.&nbsp;&nbsp;The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length<br>
@@ -794,7 +800,10 @@ x&nbsp;and&nbsp;y&nbsp;are&nbsp;Numeric&nbsp;arrays<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>
 &nbsp;<br>
 xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
-on&nbsp;the&nbsp;bar&nbsp;chart</tt></dd></dl>
+on&nbsp;the&nbsp;bar&nbsp;chart<br>
+&nbsp;<br>
+color&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;string&nbsp;or&nbsp;tuple,&nbsp;or&nbsp;it&nbsp;can&nbsp;be<br>
+a&nbsp;len(x)&nbsp;list&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;strings&nbsp;or&nbsp;tuples</tt></dd></dl>
 
 <dl><dt><a name="Subplot-clear"><strong>clear</strong></a>(self)</dt></dl>
 
@@ -813,6 +822,9 @@ Returns&nbsp;the&nbsp;tuple&nbsp;Cxy,&nbsp;freqs<br>
 Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+
+<dl><dt><a name="Subplot-convert_text"><strong>convert_text</strong></a>(self, func)</dt><dd><tt>Convert&nbsp;all&nbsp;text&nbsp;instances&nbsp;using&nbsp;func.&nbsp;&nbsp;Used&nbsp;for&nbsp;converting<br>
+between&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Subplot-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram<br>
 method.&nbsp;&nbsp;The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length<br>
@@ -1588,6 +1600,7 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 &nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
 specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
  <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
+ <dl><dt><a name="-reshape"><strong>reshape</strong></a>(...)</dt><dd><tt><a href="#-reshape">reshape</a>(a,&nbsp;(d1,&nbsp;d2,&nbsp;...,&nbsp;dn)).&nbsp;&nbsp;Change&nbsp;the&nbsp;shape&nbsp;of&nbsp;a&nbsp;to&nbsp;be&nbsp;an&nbsp;n-dimensional&nbsp;array&nbsp;with&nbsp;dimensions&nbsp;given&nbsp;by&nbsp;d1...dn.&nbsp;&nbsp;Note:&nbsp;the&nbsp;size&nbsp;specified&nbsp;for&nbsp;the&nbsp;new&nbsp;array&nbsp;must&nbsp;be&nbsp;exactly&nbsp;equal&nbsp;to&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;&nbsp;old&nbsp;one&nbsp;or&nbsp;an&nbsp;error&nbsp;will&nbsp;occur.</tt></dd></dl>
  <dl><dt><a name="-take"><strong>take</strong></a>(...)</dt><dd><tt><a href="#-take">take</a>(a,&nbsp;indices,&nbsp;axis=0).&nbsp;&nbsp;Selects&nbsp;the&nbsp;elements&nbsp;in&nbsp;indices&nbsp;from&nbsp;array&nbsp;a&nbsp;along&nbsp;the&nbsp;given&nbsp;axis.</tt></dd></dl>
  <dl><dt><a name="-zeros"><strong>zeros</strong></a>(...)</dt><dd><tt><a href="#-zeros">zeros</a>((d1,...,dn),typecode='l',savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;of&nbsp;shape&nbsp;(d1,...,dn)&nbsp;and&nbsp;type&nbsp;typecode&nbsp;with&nbsp;all&nbsp;it's&nbsp;entries&nbsp;initialized&nbsp;to&nbsp;zero.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero&nbsp;the&nbsp;array&nbsp;will&nbsp;be&nbsp;a&nbsp;spacesaver&nbsp;array.</tt></dd></dl>
 </td></tr></table><p>
@@ -1599,6 +1612,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
+<strong>PyObject</strong> = 'O'<br>
 <strong>True</strong> = True<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>generators</strong> = _Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 4096)<br>

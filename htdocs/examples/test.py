@@ -1,5 +1,10 @@
-from matplotlib.matlab import *
+import matplotlib
+matplotlib.use('WX')
+matplotlib.interactive(True)
 
-plot([1,2,3], [4,5,6],
-     [1,2,3], [1,4,9])
+from matplotlib.matlab import *
+plot([1,2,3,4])
+xlabel('time')
+#savefig('test')
 show()
+

@@ -301,6 +301,7 @@ h&nbsp;is&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;class,&nbsp;eg&nbsp;a&nbsp;L
 if&nbsp;s&nbsp;is&nbsp;'somename',&nbsp;this&nbsp;function&nbsp;returns<br>
 &nbsp;<br>
 &nbsp;&nbsp;o.get_somename()</tt></dd></dl>
+ <dl><dt><a name="-get_current_fig_manager"><strong>get_current_fig_manager</strong></a>()</dt></dl>
  <dl><dt><a name="-get_plot_commands"><strong>get_plot_commands</strong></a>()</dt></dl>
  <dl><dt><a name="-grid"><strong>grid</strong></a>(b)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;grid&nbsp;to&nbsp;be&nbsp;on&nbsp;or&nbsp;off&nbsp;(b&nbsp;is&nbsp;a&nbsp;boolean)</tt></dd></dl>
  <dl><dt><a name="-hist"><strong>hist</strong></a>(x, bins<font color="#909090">=10</font>, noplot<font color="#909090">=0</font>, normed<font color="#909090">=0</font>)</dt><dd><tt>Compute&nbsp;the&nbsp;histogram&nbsp;of&nbsp;x.&nbsp;&nbsp;bins&nbsp;is&nbsp;either&nbsp;an&nbsp;integer&nbsp;number&nbsp;of<br>
@@ -672,6 +673,7 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>Complex32</strong> = 'F'<br>
 <strong>Complex64</strong> = 'D'<br>
 <strong>Complex8</strong> = 'F'<br>
+<strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
 <strong>Float0</strong> = 'f'<br>
 <strong>Float16</strong> = 'f'<br>
@@ -687,6 +689,7 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>NewAxis</strong> = None<br>
 <strong>PrecisionError</strong> = 'PrecisionError'<br>
 <strong>PyObject</strong> = 'O'<br>
+<strong>True</strong> = True<br>
 <strong>UInt</strong> = 'u'<br>
 <strong>UInt16</strong> = 'w'<br>
 <strong>UInt32</strong> = 'u'<br>
