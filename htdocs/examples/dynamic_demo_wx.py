@@ -19,8 +19,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.2  2004/01/27 18:23:38  jdh2358
-0.42 release
+Revision 1.3  2004/01/28 21:57:23  jdh2358
+refactored figure backend
 
 Revision 1.1  2003/12/30 17:22:09  jodonoghue
 First version of dynamic_demo for backend_wx

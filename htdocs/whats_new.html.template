@@ -1,3 +1,10 @@
+new_to_43 = ( 
+
+	('GD supports clipping', 
+"""Info about new gd requirements here"""),
+
+)
+
 new_to_42 = ( 
 
 	('EPS output from PS backend', 
