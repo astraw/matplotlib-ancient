@@ -43,6 +43,27 @@ information and <a href=NUMARRAY_ISSUES>numarray issues</a> for a
 summary of known issues in using numarray.
 """),
 
+    ('data clipping off by default', """\
+Data clipping, as opposed to viewport clipping, is turned off by
+default.  You can change the default behavior in <a
+href=.matplotlibrc>.matplotlibrc</a> or set it to be true when needed
+as in <a href=examples/stock_demo.py</a>
+"""),
+
+    ('kwargs in plot commands', """\
+The plot commands now take kwargs that are can be used to set line
+properties (any property that has a set_* method).  You can use this
+to set a line label (for auto legends), linewidth, anitialising,
+marker face color, etc.  Here is an example:
+
+<pre>
+plot([1,2,3], [1,2,3], 'go-', label='line 1', linewidth=2)
+plot([1,2,3], [1,4,9], 'rs',  label='line 2')
+axis([0, 4, 0, 10])
+legend()
+</pre>
+"""),
+
 	('Bugfixes', """\
 
 <ul>
@@ -51,7 +72,8 @@ summary of known issues in using numarray.
 
 </ul>
 
-
+"""
+),
 )
 
 new_to_50 = ( 

@@ -16,12 +16,14 @@ platforms; it should run anywhere that python and Numeric run.
 To get the most out of matplotlib, you will probably want to install
 one or more of the additional backends, which provide output to
 various GUI and image rendering libraries.  Each of these has
-different prerequistes. <p>
+different prerequistes and strengths; see <a
+href=faq.html#WHICHBACKEND>which backend should I use?</a>. <p>
 
-With the windows installer, the postscript and Agg backends should
-work out of the box if you have Numeric already installed.  For other
-backends and operating systems, follow the instructions below and on
-<a href=backends.html>matplotlib outputs</a>.<p>
+With the windows installer, the postscript, Agg and TkAgg backends
+should work out of the box if you have Numeric already installed.  For
+other backends (WX, Paint) and operating systems, follow the
+instructions below and on <a href=backends.html>matplotlib
+backends</a>.<p>
 
 Note that if you install matplotlib anywhere other than the default
 location, you will need to set the MATPLOTLIBDATA environment variable
@@ -31,15 +33,17 @@ to point to the install base dir.
 
 The GTK backend was the first and thus arguably most mature backend.
 Below is a quickguide to what you'll need to get matplotlib up and
-running with the GTK backend.
+running with the GTK backend.  
 
 <h2> Windows GTK Quickstart</h2>
 
-If you don't already have python installed, you may want to consider
-using the <a href=http://www.enthought.com/python/>enthought
-edition</a> of python, which has scipy, Numeric, and wxpython, plus a
-lot of other goodies, preinstalled.
-
+These install instructions will provide the <a
+href=backends.html#GTK>GTK<a/> and <a
+href=backends.html#GTK>GTK<a/>GTKAgg</a> backends on windows.  If you
+don't already have python installed, you may want to consider using
+the <a href=http://www.enthought.com/python/>enthought edition</a> of
+python, which has scipy, Numeric, and wxpython, plus a lot of other
+goodies, preinstalled.
 
 <ul> 
 
@@ -65,6 +69,8 @@ FAQ entry</a> for information on how to do this right.
 ref=http://sourceforge.net/projects/matplotlib>download page<a></li>
 
 </ul> 
+
+
 
 <h2>Linux GTK quickstart</h2> 
 

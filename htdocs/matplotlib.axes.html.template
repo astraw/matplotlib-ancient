@@ -213,6 +213,14 @@ specifying&nbsp;the&nbsp;legend&nbsp;location<br>
 USAGE:&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;Make&nbsp;a&nbsp;legend&nbsp;with&nbsp;existing&nbsp;lines<br>
+&nbsp;<br>
+&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#Axes-legend">legend</a>()<br>
+&nbsp;<br>
+&nbsp;&nbsp;legend&nbsp;by&nbsp;itself&nbsp;will&nbsp;try&nbsp;and&nbsp;build&nbsp;a&nbsp;legend&nbsp;using&nbsp;the&nbsp;label<br>
+&nbsp;&nbsp;property&nbsp;of&nbsp;the&nbsp;lines.&nbsp;&nbsp;You&nbsp;can&nbsp;set&nbsp;the&nbsp;label&nbsp;of&nbsp;a&nbsp;line&nbsp;by<br>
+&nbsp;&nbsp;doing&nbsp;<a href="#Axes-plot">plot</a>(x,&nbsp;y,&nbsp;label='my&nbsp;data')&nbsp;or<br>
+&nbsp;&nbsp;line.set_label('my&nbsp;data')<br>
+&nbsp;&nbsp;<br>
 &nbsp;&nbsp;<a href="#Axes-legend">legend</a>(&nbsp;LABELS&nbsp;)<br>
 &nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#Axes-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)&nbsp;<br>
 &nbsp;<br>
@@ -289,7 +297,7 @@ Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
 will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 
-<dl><dt><a name="Axes-plot"><strong>plot</strong></a>(self, *args)</dt><dd><tt>Emulate&nbsp;matlab's&nbsp;plot&nbsp;command.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
+<dl><dt><a name="Axes-plot"><strong>plot</strong></a>(self, *args, **kwargs)</dt><dd><tt>Emulate&nbsp;matlab's&nbsp;plot&nbsp;command.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
 argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional<br>
 format&nbsp;string.&nbsp;&nbsp;For&nbsp;example,&nbsp;all&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;legal,<br>
 assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;Axis&nbsp;instance:<br>
@@ -684,6 +692,14 @@ specifying&nbsp;the&nbsp;legend&nbsp;location<br>
 USAGE:&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;Make&nbsp;a&nbsp;legend&nbsp;with&nbsp;existing&nbsp;lines<br>
+&nbsp;<br>
+&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#Subplot-legend">legend</a>()<br>
+&nbsp;<br>
+&nbsp;&nbsp;legend&nbsp;by&nbsp;itself&nbsp;will&nbsp;try&nbsp;and&nbsp;build&nbsp;a&nbsp;legend&nbsp;using&nbsp;the&nbsp;label<br>
+&nbsp;&nbsp;property&nbsp;of&nbsp;the&nbsp;lines.&nbsp;&nbsp;You&nbsp;can&nbsp;set&nbsp;the&nbsp;label&nbsp;of&nbsp;a&nbsp;line&nbsp;by<br>
+&nbsp;&nbsp;doing&nbsp;<a href="#Subplot-plot">plot</a>(x,&nbsp;y,&nbsp;label='my&nbsp;data')&nbsp;or<br>
+&nbsp;&nbsp;line.set_label('my&nbsp;data')<br>
+&nbsp;&nbsp;<br>
 &nbsp;&nbsp;<a href="#Subplot-legend">legend</a>(&nbsp;LABELS&nbsp;)<br>
 &nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#Subplot-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)&nbsp;<br>
 &nbsp;<br>
@@ -760,7 +776,7 @@ Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
 will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 
-<dl><dt><a name="Subplot-plot"><strong>plot</strong></a>(self, *args)</dt><dd><tt>Emulate&nbsp;matlab's&nbsp;plot&nbsp;command.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
+<dl><dt><a name="Subplot-plot"><strong>plot</strong></a>(self, *args, **kwargs)</dt><dd><tt>Emulate&nbsp;matlab's&nbsp;plot&nbsp;command.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
 argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional<br>
 format&nbsp;string.&nbsp;&nbsp;For&nbsp;example,&nbsp;all&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;legal,<br>
 assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;Axis&nbsp;instance:<br>
@@ -988,5 +1004,5 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>lineMarkers</strong> = {'+': 1, ',': 1, '.': 1, '&lt;': 1, '&gt;': 1, '^': 1, 'o': 1, 's': 1, 'v': 1, 'x': 1}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1}<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'Agg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTK', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
 @footer@

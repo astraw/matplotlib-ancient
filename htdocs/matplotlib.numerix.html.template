@@ -10,20 +10,22 @@
 0.&nbsp;&nbsp;If&nbsp;the&nbsp;value&nbsp;"--numarray"&nbsp;or&nbsp;"--Numeric"&nbsp;is&nbsp;specified&nbsp;on&nbsp;the<br>
 command&nbsp;line,&nbsp;then&nbsp;numerix&nbsp;imports&nbsp;the&nbsp;specified&nbsp;array&nbsp;package.<br>
 &nbsp;<br>
-1.&nbsp;&nbsp;If&nbsp;the&nbsp;environment&nbsp;variable&nbsp;NUMERIX&nbsp;is&nbsp;defined&nbsp;as&nbsp;either&nbsp;"Numeric"<br>
+1.&nbsp;The&nbsp;value&nbsp;of&nbsp;numerix&nbsp;in&nbsp;~/.matplotlibrc:&nbsp;either&nbsp;Numeric&nbsp;or&nbsp;numarray<br>
+&nbsp;<br>
+2.&nbsp;&nbsp;If&nbsp;the&nbsp;environment&nbsp;variable&nbsp;NUMERIX&nbsp;is&nbsp;defined&nbsp;as&nbsp;either&nbsp;"Numeric"<br>
 or&nbsp;as&nbsp;"numarray",&nbsp;then&nbsp;numerix&nbsp;will&nbsp;import&nbsp;from&nbsp;the&nbsp;specified&nbsp;array&nbsp;package.<br>
 &nbsp;<br>
-2.&nbsp;&nbsp;If&nbsp;the&nbsp;file&nbsp;numerix&nbsp;or&nbsp;.numerix&nbsp;in&nbsp;the&nbsp;HOME&nbsp;directory&nbsp;of&nbsp;the&nbsp;current<br>
+3.&nbsp;&nbsp;If&nbsp;the&nbsp;file&nbsp;numerix&nbsp;or&nbsp;.numerix&nbsp;in&nbsp;the&nbsp;HOME&nbsp;directory&nbsp;of&nbsp;the&nbsp;current<br>
 user&nbsp;contains&nbsp;a&nbsp;single&nbsp;line&nbsp;specifying&nbsp;either&nbsp;"Numeric"&nbsp;or&nbsp;"numarray",<br>
 then&nbsp;the&nbsp;specified&nbsp;array&nbsp;package&nbsp;is&nbsp;imported.<br>
 &nbsp;<br>
-3.&nbsp;If&nbsp;none&nbsp;of&nbsp;the&nbsp;above&nbsp;is&nbsp;done,&nbsp;the&nbsp;default&nbsp;array&nbsp;package&nbsp;is&nbsp;Numeric.<br>
+4.&nbsp;If&nbsp;none&nbsp;of&nbsp;the&nbsp;above&nbsp;is&nbsp;done,&nbsp;the&nbsp;default&nbsp;array&nbsp;package&nbsp;is&nbsp;Numeric.<br>
 &nbsp;<br>
-4.&nbsp;If&nbsp;the&nbsp;Numeric&nbsp;is&nbsp;selected&nbsp;and&nbsp;the&nbsp;import&nbsp;fails,&nbsp;&nbsp;numarray&nbsp;is&nbsp;tried.<br>
+5.&nbsp;If&nbsp;the&nbsp;Numeric&nbsp;is&nbsp;selected&nbsp;and&nbsp;the&nbsp;import&nbsp;fails,&nbsp;&nbsp;numarray&nbsp;is&nbsp;tried.<br>
 &nbsp;<br>
-To&nbsp;summarize:&nbsp;the&nbsp;commandline&nbsp;is&nbsp;examined&nbsp;first,&nbsp;the&nbsp;environment<br>
-second,&nbsp;the&nbsp;configuration&nbsp;file&nbsp;last,&nbsp;and&nbsp;the&nbsp;default&nbsp;array&nbsp;package&nbsp;is<br>
-Numeric.&nbsp;&nbsp;If&nbsp;everything&nbsp;else&nbsp;fails,&nbsp;numarray&nbsp;is&nbsp;tried.</tt></p>
+To&nbsp;summarize:&nbsp;the&nbsp;commandline&nbsp;is&nbsp;examined&nbsp;first,&nbsp;the&nbsp;rc&nbsp;file&nbsp;seconds,<br>
+the&nbsp;environment&nbsp;third,&nbsp;the&nbsp;configuration&nbsp;file&nbsp;next,&nbsp;and&nbsp;the&nbsp;default<br>
+array&nbsp;package&nbsp;is&nbsp;Numeric.&nbsp;&nbsp;If&nbsp;everything&nbsp;else&nbsp;fails,&nbsp;numarray&nbsp;is&nbsp;tried.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -81,14 +83,12 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>Complex32</strong> = 'F'<br>
 <strong>Complex64</strong> = 'D'<br>
 <strong>Complex8</strong> = 'F'<br>
-<strong>FILE</strong> = '.numerix'<br>
 <strong>Float</strong> = 'd'<br>
 <strong>Float0</strong> = 'f'<br>
 <strong>Float16</strong> = 'f'<br>
 <strong>Float32</strong> = 'f'<br>
 <strong>Float64</strong> = 'd'<br>
 <strong>Float8</strong> = 'f'<br>
-<strong>HOME</strong> = '/home/jdhunter'<br>
 <strong>Int</strong> = 'l'<br>
 <strong>Int0</strong> = '1'<br>
 <strong>Int16</strong> = 's'<br>
@@ -152,6 +152,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>not_equal</strong> = &lt;ufunc 'not_equal'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTK', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}<br>
 <strong>remainder</strong> = &lt;ufunc 'remainder'&gt;<br>
 <strong>right_shift</strong> = &lt;ufunc 'right_shift'&gt;<br>
 <strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
@@ -162,5 +163,5 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>tanh</strong> = &lt;ufunc 'tanh'&gt;<br>
 <strong>true_divide</strong> = &lt;ufunc 'true_divide'&gt;<br>
 <strong>typecodes</strong> = {'Character': 'c', 'Complex': 'FD', 'Float': 'fd', 'Integer': '1sil', 'UnsignedInteger': 'bwu'}<br>
-<strong>which</strong> = ('numeric', 'defaulted')</td></tr></table>
+<strong>which</strong> = ('numeric', 'rc')</td></tr></table>
 @footer@

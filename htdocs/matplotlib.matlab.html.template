@@ -438,49 +438,66 @@ Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
 &nbsp;<br>
 will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
- <dl><dt><a name="-plot"><strong>plot</strong></a>(*args, **kwargs)</dt><dd><tt>&nbsp;plot&nbsp;lines.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length&nbsp;argument,&nbsp;allowing&nbsp;for<br>
-&nbsp;multiple&nbsp;x,&nbsp;y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional&nbsp;format&nbsp;string.&nbsp;&nbsp;For<br>
-&nbsp;example,&nbsp;all&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;legal<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;<a href="#-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x<br>
-&nbsp;&nbsp;&nbsp;<a href="#-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x&nbsp;with&nbsp;blue&nbsp;circles<br>
-&nbsp;&nbsp;&nbsp;<a href="#-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(len(y))<br>
-&nbsp;&nbsp;&nbsp;<a href="#-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto&nbsp;with&nbsp;red&nbsp;plusses<br>
+ <dl><dt><a name="-plot"><strong>plot</strong></a>(*args, **kwargs)</dt><dd><tt>plot&nbsp;lines.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length&nbsp;argument,&nbsp;allowing&nbsp;for<br>
+multiple&nbsp;x,&nbsp;y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional&nbsp;format&nbsp;string.&nbsp;&nbsp;For<br>
+example,&nbsp;all&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;legal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<a href="#-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x<br>
+&nbsp;&nbsp;<a href="#-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x&nbsp;with&nbsp;blue&nbsp;circles<br>
+&nbsp;&nbsp;<a href="#-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(len(y))<br>
+&nbsp;&nbsp;<a href="#-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto&nbsp;with&nbsp;red&nbsp;plusses<br>
 &nbsp;<br>
-&nbsp;An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
+An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;<a href="#-plot">plot</a>(x1,&nbsp;y1,&nbsp;'g^',&nbsp;x2,&nbsp;y2,&nbsp;'l-')&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<a href="#-plot">plot</a>(x1,&nbsp;y1,&nbsp;'g^',&nbsp;x2,&nbsp;y2,&nbsp;'l-')&nbsp;&nbsp;<br>
 &nbsp;<br>
-&nbsp;Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added<br>
 &nbsp;<br>
-&nbsp;The&nbsp;following&nbsp;line&nbsp;styles&nbsp;are&nbsp;supported:<br>
+The&nbsp;following&nbsp;line&nbsp;styles&nbsp;are&nbsp;supported:<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;:&nbsp;solid&nbsp;line<br>
-&nbsp;&nbsp;&nbsp;--&nbsp;:&nbsp;dashed&nbsp;line<br>
-&nbsp;&nbsp;&nbsp;-.&nbsp;:&nbsp;dash-dot&nbsp;line<br>
-&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;:&nbsp;dotted&nbsp;line<br>
-&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;:&nbsp;points<br>
-&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;:&nbsp;pixels<br>
-&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;:&nbsp;circle&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;^&nbsp;&nbsp;:&nbsp;triangle&nbsp;up&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;v&nbsp;&nbsp;:&nbsp;triangle&nbsp;down&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&lt;&nbsp;&nbsp;:&nbsp;triangle&nbsp;left&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;:&nbsp;triangle&nbsp;right&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;s&nbsp;&nbsp;:&nbsp;square&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;:&nbsp;plus&nbsp;symbols<br>
+&nbsp;&nbsp;-&nbsp;&nbsp;:&nbsp;solid&nbsp;line<br>
+&nbsp;&nbsp;--&nbsp;:&nbsp;dashed&nbsp;line<br>
+&nbsp;&nbsp;-.&nbsp;:&nbsp;dash-dot&nbsp;line<br>
+&nbsp;&nbsp;:&nbsp;&nbsp;:&nbsp;dotted&nbsp;line<br>
+&nbsp;&nbsp;.&nbsp;&nbsp;:&nbsp;points<br>
+&nbsp;&nbsp;,&nbsp;&nbsp;:&nbsp;pixels<br>
+&nbsp;&nbsp;o&nbsp;&nbsp;:&nbsp;circle&nbsp;symbols<br>
+&nbsp;&nbsp;^&nbsp;&nbsp;:&nbsp;triangle&nbsp;up&nbsp;symbols<br>
+&nbsp;&nbsp;v&nbsp;&nbsp;:&nbsp;triangle&nbsp;down&nbsp;symbols<br>
+&nbsp;&nbsp;&lt;&nbsp;&nbsp;:&nbsp;triangle&nbsp;left&nbsp;symbols<br>
+&nbsp;&nbsp;&gt;&nbsp;&nbsp;:&nbsp;triangle&nbsp;right&nbsp;symbols<br>
+&nbsp;&nbsp;s&nbsp;&nbsp;:&nbsp;square&nbsp;symbols<br>
+&nbsp;&nbsp;+&nbsp;&nbsp;:&nbsp;plus&nbsp;symbols<br>
 &nbsp;<br>
-&nbsp;The&nbsp;following&nbsp;color&nbsp;strings&nbsp;are&nbsp;supported<br>
+The&nbsp;following&nbsp;color&nbsp;strings&nbsp;are&nbsp;supported<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;b&nbsp;&nbsp;:&nbsp;blue<br>
-&nbsp;&nbsp;&nbsp;g&nbsp;&nbsp;:&nbsp;green<br>
-&nbsp;&nbsp;&nbsp;r&nbsp;&nbsp;:&nbsp;red<br>
-&nbsp;&nbsp;&nbsp;c&nbsp;&nbsp;:&nbsp;cyan<br>
-&nbsp;&nbsp;&nbsp;m&nbsp;&nbsp;:&nbsp;magenta<br>
-&nbsp;&nbsp;&nbsp;y&nbsp;&nbsp;:&nbsp;yellow<br>
-&nbsp;&nbsp;&nbsp;k&nbsp;&nbsp;:&nbsp;black&nbsp;<br>
-&nbsp;&nbsp;&nbsp;w&nbsp;&nbsp;:&nbsp;white<br>
+&nbsp;&nbsp;b&nbsp;&nbsp;:&nbsp;blue<br>
+&nbsp;&nbsp;g&nbsp;&nbsp;:&nbsp;green<br>
+&nbsp;&nbsp;r&nbsp;&nbsp;:&nbsp;red<br>
+&nbsp;&nbsp;c&nbsp;&nbsp;:&nbsp;cyan<br>
+&nbsp;&nbsp;m&nbsp;&nbsp;:&nbsp;magenta<br>
+&nbsp;&nbsp;y&nbsp;&nbsp;:&nbsp;yellow<br>
+&nbsp;&nbsp;k&nbsp;&nbsp;:&nbsp;black&nbsp;<br>
+&nbsp;&nbsp;w&nbsp;&nbsp;:&nbsp;white<br>
 &nbsp;<br>
-Line&nbsp;styles&nbsp;and&nbsp;colors&nbsp;are&nbsp;combined&nbsp;in&nbsp;a&nbsp;single&nbsp;format&nbsp;string</tt></dd></dl>
+Line&nbsp;styles&nbsp;and&nbsp;colors&nbsp;are&nbsp;combined&nbsp;in&nbsp;a&nbsp;single&nbsp;format&nbsp;string<br>
+&nbsp;<br>
+The&nbsp;kwargs&nbsp;that&nbsp;are&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;set&nbsp;line&nbsp;properties&nbsp;(any<br>
+property&nbsp;that&nbsp;has&nbsp;a&nbsp;set_*&nbsp;method).&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;to&nbsp;set&nbsp;a&nbsp;line<br>
+label&nbsp;(for&nbsp;auto&nbsp;legends),&nbsp;linewidth,&nbsp;anitialising,&nbsp;marker&nbsp;face<br>
+color,&nbsp;etc.&nbsp;&nbsp;Here&nbsp;is&nbsp;an&nbsp;example:<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#-plot">plot</a>([1,2,3],&nbsp;[1,2,3],&nbsp;'go-',&nbsp;label='line&nbsp;1',&nbsp;linewidth=2)<br>
+&nbsp;&nbsp;<a href="#-plot">plot</a>([1,2,3],&nbsp;[1,4,9],&nbsp;'rs',&nbsp;&nbsp;label='line&nbsp;2')<br>
+&nbsp;&nbsp;<a href="#-axis">axis</a>([0,&nbsp;4,&nbsp;0,&nbsp;10])<br>
+&nbsp;&nbsp;<a href="#-legend">legend</a>()<br>
+&nbsp;<br>
+If&nbsp;you&nbsp;make&nbsp;multiple&nbsp;lines&nbsp;with&nbsp;one&nbsp;plot&nbsp;command,&nbsp;the&nbsp;kwargs&nbsp;apply<br>
+to&nbsp;all&nbsp;those&nbsp;lines,&nbsp;eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#-plot">plot</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;antialising=False)<br>
+&nbsp;<br>
+Neither&nbsp;line&nbsp;will&nbsp;be&nbsp;antialiased.</tt></dd></dl>
  <dl><dt><a name="-plotting"><strong>plotting</strong></a>()</dt><dd><tt>Plotting&nbsp;commands<br>
 &nbsp;<br>
 axes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Create&nbsp;a&nbsp;new&nbsp;axes<br>
@@ -728,7 +745,6 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>Complex32</strong> = 'F'<br>
 <strong>Complex64</strong> = 'D'<br>
 <strong>Complex8</strong> = 'F'<br>
-<strong>FILE</strong> = '.numerix'<br>
 <strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
 <strong>Float0</strong> = 'f'<br>
@@ -736,7 +752,6 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>Float32</strong> = 'f'<br>
 <strong>Float64</strong> = 'd'<br>
 <strong>Float8</strong> = 'f'<br>
-<strong>HOME</strong> = '/home/jdhunter'<br>
 <strong>Int</strong> = 'l'<br>
 <strong>Int0</strong> = '1'<br>
 <strong>Int16</strong> = 's'<br>
@@ -802,7 +817,7 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>not_equal</strong> = &lt;ufunc 'not_equal'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'Agg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTK', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}<br>
 <strong>readme</strong> = '<font color="#c040c0">\n</font>MLab2.py, release 1<font color="#c040c0">\n\n</font>Created on February 2003 b...<font color="#c040c0">\n</font>Look at: http://pdilib.sf.net for new releases.<font color="#c040c0">\n</font>'<br>
 <strong>remainder</strong> = &lt;ufunc 'remainder'&gt;<br>
 <strong>right_shift</strong> = &lt;ufunc 'right_shift'&gt;<br>
@@ -814,5 +829,5 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>tanh</strong> = &lt;ufunc 'tanh'&gt;<br>
 <strong>true_divide</strong> = &lt;ufunc 'true_divide'&gt;<br>
 <strong>typecodes</strong> = {'Character': 'c', 'Complex': 'FD', 'Float': 'fd', 'Integer': '1sil', 'UnsignedInteger': 'bwu'}<br>
-<strong>which</strong> = ('numeric', 'defaulted')</td></tr></table>
+<strong>which</strong> = ('numeric', 'rc')</td></tr></table>
 @footer@

@@ -14,10 +14,10 @@ seamlessly.  See <a href=NUMARRAY_ISSUES>NUMARRAY_ISSUES</a> and the
     ('MATPLOTLIBRC',
     'How do I customize the default behavior of matplotib?',
     """\
-Recent versions of matplotlib use a configuration file to set
-everything from the default font, to the figure size, to the default
-line width.  See <a href=.matplotlibrc>.matplotlibrc</a> for a sample
-config file and information on how to use it.
+Recent versions of matplotlib (0.51 or later) use a configuration file
+to set everything from the default font, to the figure size, to the
+default line width.  See <a href=.matplotlibrc>.matplotlibrc</a> for a
+sample config file and information on how to use it.
 """),
 	
     ('GTKPATH',
@@ -34,6 +34,60 @@ GTK install tree.  Read <a
 href=http://www.mail-archive.com/pygtk@daa.com.au/msg07324.html>this
 thread</a>, which is filled with good advice.  """
     ),
+
+
+    ('WHICHBACKEND',
+     'Which backend should I use?',
+     """\
+Each of the backends offers different strengths.  I'll summarize some
+of them. 
+
+<h4>Image generation</h4>
+
+For pure image generation (no GUI) you can choose from the Agg, Paint,
+GD, or PS backends.  At this point, I advise people to use the <a
+href=http://antigrain.com>agg</a> backend because:
+
+<ul>
+  <li>it's the fastest</li>
+  <li>it uses freetype2 (as does GD) which renders nicely even
+      at small resolutions </li>
+  <li>there are clipping issues with GD and Paint </li>
+  <li>it supports fast antialiased drawing and alpha blending </li>
+  <li>it supports <a href=matplotlib.mathtext.html>mathtext</a></li>
+</ul>
+
+It is likely that with time many of these limitiations or problems
+will be fixed on the other backends.<p>
+
+For publication submission or use with TeX, however, the postscript
+backend is naturally a good choice.
+
+<h4>GUI</h4>
+
+Currently there are several choices for GUIs: GTK, Wx, TkAgg, and
+GTKAgg, with different advantages.
+
+<ul>
+
+<li>Speed: TkAgg and GTKAgg are likely to be the fastest since most of Agg is renderered in C extension code</li>
+
+<li>Stability: GTK was the first backend and thus has been most
+thoroughly vetted for bugs.  The GTKAgg backend reuses the GTK widget
+code, so should likewise be quite stable</li>
+
+<li>Interactivity: All of the GUI backends can be used interactively
+from a python shell (see <a href=interactive.html>interactive</a>) but
+TkAgg is the hands-down winner here since it can be use from any
+python shell whereas the GTK and Wx backends require a GUI specific
+shell </li>
+
+<li>Pretty widgets: If you want to embed matplotlib in an application
+and pretty GUIs are important to you, Wx, GTK, or GTKAgg are probably
+your best best.  Tk widgets are not visually stunning. </li>
+
+</ul>
+"""),
     
     ('BATCHMODE',
      'Can I just generate images without having a window popup?',
@@ -203,16 +257,16 @@ remove font.cache and rerun your script, capturing them to a file.
 @header@
 <h2> matplotlib FAQ </h2>
 
-<h3> Questions </h3>
+<h2> Questions </h2>
  <ul>
  + for name,q,a, in FAQs:
    <li><a href=faq.html#@name@>@q@</a></li>
  -
  </ul>
 
-<h3> Answers </h3>
+<h2> Answers </h2>
  + for name,q,a, in FAQs:
-   <h4><a name=@name@>@q@</a></h4>
+   <h3><a name=@name@><font color="#0000EE">@q@</font></a></h3>
      @a@
    <p>
  -

@@ -24,5 +24,11 @@ matplotlib
   <li>John Gill wrote the table class and examples</li>
 
   <li>David Moore wrote the paint backend</li>
+
+  <li>Todd Miller contributed the TkAgg backend and the numerix
+  module, which allows matplotlib to work with either numeric or
+  numarray</li>
+
+
 </ul>
 @footer@

@@ -31,7 +31,9 @@ which supports freetype2.  freetype 2 tends to render fonts better at
 very small raster sizes.  Look for freetype2 font support in Paint in
 the near future.  See <a href=faq.html#APPSERVER>matplotlib images in
 html</a> for more information.  The Agg and GD image backends both
-support freetype2.<p>
+support freetype2.  If you are trying to decide among an image
+backend, see the <a href=faq.html#WHICHBACKEND>which backend should I
+use</a><p>
 
 For platform independent font finding, matplotlib uses fonttools and
 TTFQuery.  Since several of the matplotlib backends now depend on

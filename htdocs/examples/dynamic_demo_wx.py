@@ -19,8 +19,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.15  2004/02/27 14:47:48  jdh2358
-added matplotlibrc and tk win32 compile fixes
+Revision 1.16  2004/02/27 17:45:04  jdh2358
+updated htdocs
 
 Revision 1.2  2004/02/26 20:22:58  jaytmiller
 Added the "numerix" Numeric/numarray selector module enabling matplotlib
