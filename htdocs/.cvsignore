@@ -1,3 +1,4 @@
+*.pyc
 *html
 site.tar.gz
 drafts

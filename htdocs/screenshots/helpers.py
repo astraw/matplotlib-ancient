@@ -1,0 +1,71 @@
+import time
+from matplotlib.numerix import *
+
+
+def load_quotes(fname, maxq=None):
+    """
+    Load quotes from the representative data files vineet sent If any
+    of the values are missing I force all missing.  Quotes are sorted
+    in increasing time.  Return value is a list of tuples
+
+      (epoch, open, high, low, close, volume )
+    """
+    quotes = []
+    
+    for i, line in enumerate(file(fname)):
+        if maxq is not None and i>maxq: break
+        ts,o,h,l,c,v = line.split(',')
+
+        e = time.mktime(time.strptime(ts.strip('"'), '%Y%m%d%H%M%S')) # convert to epoch
+        o,h,l,c,v = [float(val) for val in o,h,l,c,v]
+
+        if o==-1 or h==-1 or l==-1 or c==-1 or v==-1:
+            o,h,l,c,v = -1, -1, -1, -1,-1
+        quotes.append((e,o,h,l,c,v))
+
+    quotes.sort()  # increasing time
+    return quotes
+
+
+def movavg(s, n):
+    """
+    returns an n period moving average for the time series s
+       
+    s is a list ordered from oldest (index 0) to most recent (index -1)
+    n is an integer
+
+        returns a numeric array of the moving average
+    """
+    s = array(s)
+    c = cumsum(s)
+    return (c[n-1:] - c[:-n+1]) / float(n-1)
+
+def fill_over(ax, x, y, val, color, over=True):
+    """
+    Plot filled x,y for all y over val
+    if over = False, fill all areas < val
+    """
+    ybase = asarray(y)-val
+    crossings = nonzero(less(ybase[:-1] * ybase[1:],0))
+    
+    if ybase[0]>=0: fillon = over
+    else:           fillon = not over
+
+
+    indLast = 0
+    for ind in crossings:        
+        if fillon:
+            thisX = x[indLast:ind+1]
+            thisY = y[indLast:ind+1]
+            thisY[0] = val
+            thisY[-1] = val
+            ax.fill(thisX, thisY, color)
+        fillon = not fillon
+        indLast = ind
+
+    
+def random_signal(N, tau):
+    'generate a length N  random signal with time constant tau'
+    t = arange(float(N))
+    filter = exp(-t/tau)
+    return convolve( randn(N), filter, mode=2)[:len(t)]
