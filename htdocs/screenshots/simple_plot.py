@@ -7,7 +7,7 @@ xlabel('time (s)')
 ylabel('voltage (mV)')
 title('About as simple as it gets, folks')
 
-savefig('simple_plot_small.png', dpi=75)
-savefig('simple_plot_large.png', dpi=150)
+savefig('simple_plot_small.png', dpi=60)
+savefig('simple_plot_large.png', dpi=120)
 
 show()

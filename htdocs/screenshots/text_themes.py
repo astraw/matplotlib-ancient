@@ -19,6 +19,6 @@ text(2, 0.65, 'cos(2 pi t) exp(-t)', font, color='k')
 xlabel('time (s)', font)
 ylabel('voltage (mV)', font)
 
-savefig('text_themes_small.png', dpi=75)
-savefig('text_themes_large.png', dpi=150)
+savefig('text_themes_small.png', dpi=60)
+savefig('text_themes_large.png', dpi=120)
 show()

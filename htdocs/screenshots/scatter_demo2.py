@@ -15,8 +15,8 @@ xlabel('Delta day i')
 ylabel('Delta day i+1')
 title('Delta price as a function of volume and percent change')
 grid(True)
-savefig('scatter_demo2_small.png', dpi=75)
-savefig('scatter_demo2_large.png', dpi=150)
+savefig('scatter_demo2_small.png', dpi=60)
+savefig('scatter_demo2_large.png', dpi=120)
 
 show()
 

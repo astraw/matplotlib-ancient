@@ -19,8 +19,8 @@ title('Minimum Message Length')
 set(gca(), 'yticklabels', [])
 set(gca(), 'xticklabels', [])
 
-savefig('legend_demo_small', dpi=75)
-savefig('legend_demo_large', dpi=150)
+savefig('legend_demo_small', dpi=60)
+savefig('legend_demo_large', dpi=120)
 
 show()
 

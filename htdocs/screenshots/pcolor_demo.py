@@ -13,7 +13,7 @@ Z = func3(X, Y)
 pcolor(X, Y, Z, shading='flat')
 axis('off')
 
-savefig('pcolor_demo_small', dpi=100)
-savefig('pcolor_demo_large', dpi=150)
+savefig('pcolor_demo_small', dpi=60)
+savefig('pcolor_demo_large', dpi=120)
 
 show()

@@ -17,6 +17,6 @@ ylabel('P')
 title('Histogram of IQ: mu=100, sigma=15')
 
 
-savefig('histogram_demo_small.png', dpi=75)
-savefig('histogram_demo_large.png', dpi=150)
+savefig('histogram_demo_small.png', dpi=60)
+savefig('histogram_demo_large.png', dpi=120)
 show()

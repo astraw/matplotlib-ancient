@@ -38,7 +38,7 @@ if 1:
     set(a, 'yticks', [])
 
 
-savefig('axes_demo_small', dpi=75)
-savefig('axes_demo_large', dpi=150)
+savefig('axes_demo_small', dpi=60)
+savefig('axes_demo_large', dpi=120)
 
 show()

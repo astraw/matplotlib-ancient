@@ -56,7 +56,7 @@ if 1:   # plot the EEG
     xlabel('time (s)')
 
 
-savefig('mri_with_eeg_small', dpi=75)
-savefig('mri_with_eeg_large', dpi=150)
+savefig('mri_with_eeg_small', dpi=60)
+savefig('mri_with_eeg_large', dpi=120)
 
 show()

@@ -23,8 +23,8 @@ set(gca(), 'yticks', arange(0,41,10))
 
 legend( (p1[0], p2[0]), ('Men', 'Women') )
 
-savefig('barchart_demo_small.png', dpi=75)
-savefig('barchart_demo_large.png', dpi=150)
+savefig('barchart_demo_small.png', dpi=60)
+savefig('barchart_demo_large.png', dpi=120)
 
 
 show()
