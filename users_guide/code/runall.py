@@ -2,21 +2,21 @@ import os
 files = (
     'alignment_demo.py',
     'axes_demo.py',
+    'color_demo.py',            
+    'date_ticker_demo.py',
     'figure_mosaic.py',
     'fonts_demo_kw.py',
     'from_pil.py',
     'image_demo.py',
     'image_origin.py',
     'layer_images.py',
+    'linear_regression.py',
+    'major_minor_demo.py',
+    'mathtext_demo.py',
+    'poly_regression.py',
     'simple_imshow.py',
     'simple_plot_tkagg.py',
     'subplot_demo.py',
-    'mathtext_demo.py',
-    'major_minor_demo.py',
-    'date_ticker_demo.py',
-    'linear_regression.py',
-    'poly_regression.py',
-    'color_demo.py',            
     )
 
 for fname in files:
