@@ -15,7 +15,7 @@ status summary: linux (all backends working), OSX (tkagg and gtk*
 work), win32 (tkagg only).  Thanks Fernando Perez!			   
 """),
 
-    ('Log ticking and formatting', """\ Excellent improvements in log
+    ('Log ticking and formatting', """Excellent improvements in log
 ticking and formatting.  You can now do log plots in any base with
 major and minor tick support.  You can easily customize the location
 of the minor ticks with the subs arguments.  See the new
