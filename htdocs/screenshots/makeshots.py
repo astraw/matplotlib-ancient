@@ -1,18 +1,19 @@
 import sys, os
 
+default = 'Agg'
 # do not remove the pngs - some are screenshots!
-files = {'simple_plot.py'    : 'GD', 
-         'axes_demo.py'      : 'GD',   # a color bug
-         'histogram_demo.py' : 'GD', 
-         'mri_with_eeg.py'   : 'GD', 
-         'barchart_demo.py'  : 'GD',
-         'table_demo.py'     : 'GD', 
-         'legend_demo.py'    : 'GD', 
-         'pcolor_demo.py'    : 'GD', 
+files = {'simple_plot.py'    : default, 
+         'axes_demo.py'      : default,   # a color bug
+         'histogram_demo.py' : default, 
+         #'mri_with_eeg.py'   : default, 
+         'barchart_demo.py'  : default,
+         'table_demo.py'     : default, 
+         'legend_demo.py'    : default, 
+         #'pcolor_demo.py'    : default, 
          'text_themes.py'    : 'GTK',   # font problem
-         'log_shot.py'       : 'GD',
-         'align_text.py'     : 'GD',          
-         'scatter_demo2.py'  : 'GTK',    # color bug, some circles not filled
+         'log_shot.py'       : default,
+         'align_text.py'     : default,          
+         'scatter_demo2.py'  : 'Agg',    # color bug, some circles not filled
          }
 
 for fname, backend in files.items():

@@ -60,7 +60,7 @@
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="FigureCanvasPS-draw"><strong>draw</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="FigureCanvasPS-print_figure"><strong>print_figure</strong></a>(self, filename, dpi, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt>dpi&nbsp;is&nbsp;ignored&nbsp;for&nbsp;PS&nbsp;output,&nbsp;it&nbsp;depends&nbsp;on&nbsp;the&nbsp;output&nbsp;device</tt></dd></dl>
+<dl><dt><a name="FigureCanvasPS-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=72</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt><dd><tt>dpi&nbsp;is&nbsp;ignored&nbsp;for&nbsp;PS&nbsp;output,&nbsp;it&nbsp;depends&nbsp;on&nbsp;the&nbsp;output&nbsp;device</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
@@ -231,6 +231,11 @@ specifications</tt></dd></dl>
 <dl><dt><a name="RendererPS-get_text_extent"><strong>get_text_extent</strong></a>(self, t)</dt></dl>
 
 <dl><dt><a name="RendererPS-new_gc"><strong>new_gc</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
+<dl><dt><a name="RendererPS-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;points&nbsp;to&nbsp;display&nbsp;units;&nbsp;unless&nbsp;your&nbsp;backend&nbsp;doesn't<br>
+have&nbsp;dpi,&nbsp;eg,&nbsp;postscript,&nbsp;you&nbsp;need&nbsp;to&nbsp;overrride&nbsp;this&nbsp;function</tt></dd></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

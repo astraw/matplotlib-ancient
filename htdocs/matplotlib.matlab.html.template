@@ -530,7 +530,10 @@ in&nbsp;dots&nbsp;per&nbsp;inch.<br>
 Output&nbsp;file&nbsp;types&nbsp;currently&nbsp;supported&nbsp;are&nbsp;jpeg&nbsp;and&nbsp;png&nbsp;and&nbsp;will&nbsp;be<br>
 deduced&nbsp;by&nbsp;the&nbsp;extension&nbsp;to&nbsp;fname<br>
 &nbsp;<br>
-facecolor&nbsp;and&nbsp;edgecolor&nbsp;are&nbsp;the&nbsp;colors&nbsp;os&nbsp;the&nbsp;figure&nbsp;rectangle</tt></dd></dl>
+facecolor&nbsp;and&nbsp;edgecolor&nbsp;are&nbsp;the&nbsp;colors&nbsp;os&nbsp;the&nbsp;figure&nbsp;rectangle<br>
+&nbsp;<br>
+orientation&nbsp;is&nbsp;either&nbsp;'landscape'&nbsp;or&nbsp;'portrait'&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends.</tt></dd></dl>
  <dl><dt><a name="-scatter"><strong>scatter</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-scatter">scatter</a>(self,&nbsp;x,&nbsp;y,&nbsp;s=None,&nbsp;c='b'):<br>
 &nbsp;<br>
 Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data<br>
@@ -578,6 +581,17 @@ The&nbsp;background&nbsp;color&nbsp;of&nbsp;the&nbsp;subplot&nbsp;can&nbsp;be&nb
 argument&nbsp;'axisbg',&nbsp;which&nbsp;takes&nbsp;a&nbsp;color&nbsp;string&nbsp;or&nbsp;gdk.Color&nbsp;as&nbsp;value,&nbsp;as&nbsp;in<br>
 &nbsp;<br>
 <a href="#-subplot">subplot</a>(211,&nbsp;axisbg='y')</tt></dd></dl>
+ <dl><dt><a name="-table"><strong>table</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-table">table</a>(cellText=None,&nbsp;cellColours=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cellLoc='right',&nbsp;colWidths=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rowLabels=None,&nbsp;rowColours=None,&nbsp;rowLoc='left',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colLabels=None,&nbsp;colColours=None,&nbsp;colLoc='center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loc='bottom',&nbsp;bbox=None):<br>
+&nbsp;<br>
+Add&nbsp;a&nbsp;table&nbsp;to&nbsp;the&nbsp;current&nbsp;axes.&nbsp;&nbsp;Returns&nbsp;a&nbsp;table&nbsp;instance.&nbsp;&nbsp;For<br>
+finer&nbsp;grained&nbsp;control&nbsp;over&nbsp;tables,&nbsp;use&nbsp;the&nbsp;Table&nbsp;class&nbsp;and&nbsp;add&nbsp;it<br>
+to&nbsp;the&nbsp;axes&nbsp;with&nbsp;add_table.<br>
+&nbsp;<br>
+Thanks&nbsp;to&nbsp;John&nbsp;Gill&nbsp;for&nbsp;providing&nbsp;the&nbsp;class&nbsp;and&nbsp;table.</tt></dd></dl>
  <dl><dt><a name="-take"><strong>take</strong></a>(...)</dt><dd><tt><a href="#-take">take</a>(a,&nbsp;indices,&nbsp;axis=0).&nbsp;&nbsp;Selects&nbsp;the&nbsp;elements&nbsp;in&nbsp;indices&nbsp;from&nbsp;array&nbsp;a&nbsp;along&nbsp;the&nbsp;given&nbsp;axis.</tt></dd></dl>
  <dl><dt><a name="-text"><strong>text</strong></a>(x, y, label, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;axis&nbsp;at&nbsp;location&nbsp;x,y<br>
 &nbsp;<br>

@@ -1798,28 +1798,28 @@ Methods inherited from <a href="wxPython.stattool.html#wxToolBarPtr">wxPython.st
 
 <hr>
 Methods inherited from <a href="wxPython.stattool.html#wxToolBarBasePtr">wxPython.stattool.wxToolBarBasePtr</a>:<br>
-<dl><dt><a name="NavigationToolbarWx-AddCheckLabelTool"><strong>AddCheckLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-AddCheckLabelTool"><strong>AddCheckLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddCheckTool"><strong>AddCheckTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-AddCheckTool"><strong>AddCheckTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-AddControl"><strong>AddControl</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddLabelTool"><strong>AddLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>The&nbsp;full&nbsp;<a href="#NavigationToolbarWx-AddTool">AddTool</a>()&nbsp;function.<br>
+<dl><dt><a name="NavigationToolbarWx-AddLabelTool"><strong>AddLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>The&nbsp;full&nbsp;<a href="#NavigationToolbarWx-AddTool">AddTool</a>()&nbsp;function.<br>
 &nbsp;<br>
 If&nbsp;bmpDisabled&nbsp;is&nbsp;wxNullBitmap,&nbsp;a&nbsp;shadowed&nbsp;version&nbsp;of&nbsp;the&nbsp;normal&nbsp;bitmap<br>
 is&nbsp;created&nbsp;and&nbsp;used&nbsp;as&nbsp;the&nbsp;disabled&nbsp;image.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddRadioLabelTool"><strong>AddRadioLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
+<dl><dt><a name="NavigationToolbarWx-AddRadioLabelTool"><strong>AddRadioLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
 other&nbsp;toggled&nbsp;radio&nbsp;tools&nbsp;in&nbsp;the&nbsp;same&nbsp;group&nbsp;when&nbsp;it&nbsp;happens</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddRadioTool"><strong>AddRadioTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
+<dl><dt><a name="NavigationToolbarWx-AddRadioTool"><strong>AddRadioTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
 other&nbsp;toggled&nbsp;radio&nbsp;tools&nbsp;in&nbsp;the&nbsp;same&nbsp;group&nbsp;when&nbsp;it&nbsp;happens</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-AddSeparator"><strong>AddSeparator</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
 <dl><dt><a name="NavigationToolbarWx-AddSimpleTool"><strong>AddSimpleTool</strong></a>(self, id, bitmap, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>, isToggle<font color="#909090">=0</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;add&nbsp;a&nbsp;tool&nbsp;to&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddTool"><strong>AddTool</strong></a>(self, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;add&nbsp;a&nbsp;tool&nbsp;to&nbsp;the&nbsp;toolbar.</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-AddTool"><strong>AddTool</strong></a>(self, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;add&nbsp;a&nbsp;tool&nbsp;to&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-ClearTools"><strong>ClearTools</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
@@ -1863,14 +1863,14 @@ other&nbsp;toggled&nbsp;radio&nbsp;tools&nbsp;in&nbsp;the&nbsp;same&nbsp;group&n
 
 <dl><dt><a name="NavigationToolbarWx-InsertControl"><strong>InsertControl</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
-<dl><dt><a name="NavigationToolbarWx-InsertLabelTool"><strong>InsertLabelTool</strong></a>(self, pos, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Insert&nbsp;the&nbsp;new&nbsp;tool&nbsp;at&nbsp;the&nbsp;given&nbsp;position,&nbsp;if&nbsp;pos&nbsp;==&nbsp;GetToolsCount(),&nbsp;it<br>
+<dl><dt><a name="NavigationToolbarWx-InsertLabelTool"><strong>InsertLabelTool</strong></a>(self, pos, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Insert&nbsp;the&nbsp;new&nbsp;tool&nbsp;at&nbsp;the&nbsp;given&nbsp;position,&nbsp;if&nbsp;pos&nbsp;==&nbsp;GetToolsCount(),&nbsp;it<br>
 is&nbsp;equivalent&nbsp;to&nbsp;<a href="#NavigationToolbarWx-AddTool">AddTool</a>()</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-InsertSeparator"><strong>InsertSeparator</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
 <dl><dt><a name="NavigationToolbarWx-InsertSimpleTool"><strong>InsertSimpleTool</strong></a>(self, pos, id, bitmap, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>, isToggle<font color="#909090">=0</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;insert&nbsp;a&nbsp;tool&nbsp;in&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-InsertTool"><strong>InsertTool</strong></a>(self, pos, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;insert&nbsp;a&nbsp;tool&nbsp;in&nbsp;the&nbsp;toolbar.</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-InsertTool"><strong>InsertTool</strong></a>(self, pos, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;insert&nbsp;a&nbsp;tool&nbsp;in&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-IsVertical"><strong>IsVertical</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
@@ -2323,6 +2323,11 @@ Data and other attributes defined here:<br>
 <dl><dt><strong>fontnames</strong> = {'Courier': 75, 'Decorative': 71, 'Modern': 75, 'Roman': 72, 'Sans': 74, 'Script': 73, 'courier': 75}</dl>
 
 <dl><dt><strong>fontweights</strong> = {'bold': 92, 'heavy': 92, 'light': 91, 'normal': 90, 'ultrabold': 92, 'ultralight': 91}</dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
+<dl><dt><a name="RendererWx-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;points&nbsp;to&nbsp;display&nbsp;units;&nbsp;unless&nbsp;your&nbsp;backend&nbsp;doesn't<br>
+have&nbsp;dpi,&nbsp;eg,&nbsp;postscript,&nbsp;you&nbsp;need&nbsp;to&nbsp;overrride&nbsp;this&nbsp;function</tt></dd></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -2788,28 +2793,28 @@ Methods inherited from <a href="wxPython.stattool.html#wxToolBarPtr">wxPython.st
 
 <hr>
 Methods inherited from <a href="wxPython.stattool.html#wxToolBarBasePtr">wxPython.stattool.wxToolBarBasePtr</a>:<br>
-<dl><dt><a name="NavigationToolbarWx-AddCheckLabelTool"><strong>AddCheckLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-AddCheckLabelTool"><strong>AddCheckLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddCheckTool"><strong>AddCheckTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-AddCheckTool"><strong>AddCheckTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-AddControl"><strong>AddControl</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddLabelTool"><strong>AddLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>The&nbsp;full&nbsp;<a href="#Toolbar-AddTool">AddTool</a>()&nbsp;function.<br>
+<dl><dt><a name="NavigationToolbarWx-AddLabelTool"><strong>AddLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>The&nbsp;full&nbsp;<a href="#Toolbar-AddTool">AddTool</a>()&nbsp;function.<br>
 &nbsp;<br>
 If&nbsp;bmpDisabled&nbsp;is&nbsp;wxNullBitmap,&nbsp;a&nbsp;shadowed&nbsp;version&nbsp;of&nbsp;the&nbsp;normal&nbsp;bitmap<br>
 is&nbsp;created&nbsp;and&nbsp;used&nbsp;as&nbsp;the&nbsp;disabled&nbsp;image.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddRadioLabelTool"><strong>AddRadioLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
+<dl><dt><a name="NavigationToolbarWx-AddRadioLabelTool"><strong>AddRadioLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
 other&nbsp;toggled&nbsp;radio&nbsp;tools&nbsp;in&nbsp;the&nbsp;same&nbsp;group&nbsp;when&nbsp;it&nbsp;happens</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddRadioTool"><strong>AddRadioTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
+<dl><dt><a name="NavigationToolbarWx-AddRadioTool"><strong>AddRadioTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
 other&nbsp;toggled&nbsp;radio&nbsp;tools&nbsp;in&nbsp;the&nbsp;same&nbsp;group&nbsp;when&nbsp;it&nbsp;happens</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-AddSeparator"><strong>AddSeparator</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
 <dl><dt><a name="NavigationToolbarWx-AddSimpleTool"><strong>AddSimpleTool</strong></a>(self, id, bitmap, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>, isToggle<font color="#909090">=0</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;add&nbsp;a&nbsp;tool&nbsp;to&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddTool"><strong>AddTool</strong></a>(self, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;add&nbsp;a&nbsp;tool&nbsp;to&nbsp;the&nbsp;toolbar.</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-AddTool"><strong>AddTool</strong></a>(self, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;add&nbsp;a&nbsp;tool&nbsp;to&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-ClearTools"><strong>ClearTools</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
@@ -2853,14 +2858,14 @@ other&nbsp;toggled&nbsp;radio&nbsp;tools&nbsp;in&nbsp;the&nbsp;same&nbsp;group&n
 
 <dl><dt><a name="NavigationToolbarWx-InsertControl"><strong>InsertControl</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
-<dl><dt><a name="NavigationToolbarWx-InsertLabelTool"><strong>InsertLabelTool</strong></a>(self, pos, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Insert&nbsp;the&nbsp;new&nbsp;tool&nbsp;at&nbsp;the&nbsp;given&nbsp;position,&nbsp;if&nbsp;pos&nbsp;==&nbsp;GetToolsCount(),&nbsp;it<br>
+<dl><dt><a name="NavigationToolbarWx-InsertLabelTool"><strong>InsertLabelTool</strong></a>(self, pos, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Insert&nbsp;the&nbsp;new&nbsp;tool&nbsp;at&nbsp;the&nbsp;given&nbsp;position,&nbsp;if&nbsp;pos&nbsp;==&nbsp;GetToolsCount(),&nbsp;it<br>
 is&nbsp;equivalent&nbsp;to&nbsp;<a href="#Toolbar-AddTool">AddTool</a>()</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-InsertSeparator"><strong>InsertSeparator</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
 <dl><dt><a name="NavigationToolbarWx-InsertSimpleTool"><strong>InsertSimpleTool</strong></a>(self, pos, id, bitmap, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>, isToggle<font color="#909090">=0</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;insert&nbsp;a&nbsp;tool&nbsp;in&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-InsertTool"><strong>InsertTool</strong></a>(self, pos, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;insert&nbsp;a&nbsp;tool&nbsp;in&nbsp;the&nbsp;toolbar.</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-InsertTool"><strong>InsertTool</strong></a>(self, pos, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;insert&nbsp;a&nbsp;tool&nbsp;in&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-IsVertical"><strong>IsVertical</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
@@ -3697,11 +3702,11 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxBITMAP_TYPE_XPM</strong> = 9<br>
 <strong>wxBITMAP_TYPE_XPM_DATA</strong> = 10<br>
 <strong>wxBLACK</strong> = wxColour(0, 0, 0)<br>
-<strong>wxBLACK_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _840f578_wxBrush_p&gt;<br>
-<strong>wxBLACK_DASHED_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840f428_wxPen_p&gt;<br>
-<strong>wxBLACK_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840f328_wxPen_p&gt;<br>
+<strong>wxBLACK_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8415cc0_wxBrush_p&gt;<br>
+<strong>wxBLACK_DASHED_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840bac8_wxPen_p&gt;<br>
+<strong>wxBLACK_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840ba08_wxPen_p&gt;<br>
 <strong>wxBLUE</strong> = wxColour(0, 0, 255)<br>
-<strong>wxBLUE_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8419028_wxBrush_p&gt;<br>
+<strong>wxBLUE_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8409ed8_wxBrush_p&gt;<br>
 <strong>wxBOLD</strong> = 92<br>
 <strong>wxBORDER</strong> = 33554432<br>
 <strong>wxBORDER_DEFAULT</strong> = 0<br>
@@ -3751,7 +3756,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxCONVERT_SUBSTITUTE</strong> = 1<br>
 <strong>wxCOPY</strong> = 5<br>
 <strong>wxCROSSDIAG_HATCH</strong> = 112<br>
-<strong>wxCROSS_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _8419c60_wxCursor_p&gt;<br>
+<strong>wxCROSS_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _8416800_wxCursor_p&gt;<br>
 <strong>wxCROSS_HATCH</strong> = 114<br>
 <strong>wxCURSOR_ARROW</strong> = 1<br>
 <strong>wxCURSOR_ARROWWAIT</strong> = 28<br>
@@ -3784,8 +3789,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxCURSOR_WAIT</strong> = 24<br>
 <strong>wxCURSOR_WATCH</strong> = 25<br>
 <strong>wxCYAN</strong> = wxColour(0, 255, 255)<br>
-<strong>wxCYAN_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _840f508_wxBrush_p&gt;<br>
-<strong>wxCYAN_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840f2a8_wxPen_p&gt;<br>
+<strong>wxCYAN_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _840bc18_wxBrush_p&gt;<br>
+<strong>wxCYAN_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840b988_wxPen_p&gt;<br>
 <strong>wxCenter</strong> = 6<br>
 <strong>wxCentre</strong> = 6<br>
 <strong>wxCentreX</strong> = 7<br>
@@ -3833,7 +3838,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxDUPLEX_VERTICAL</strong> = 2<br>
 <strong>wxDefaultPosition</strong> = wxPoint(-1, -1)<br>
 <strong>wxDefaultSize</strong> = wxSize(-1, -1)<br>
-<strong>wxDefaultValidator</strong> = &lt;wxPython.windows.wxValidatorPtr instance; proxy... wxValidator instance at _418088c0_wxValidator_p&gt;<br>
+<strong>wxDefaultValidator</strong> = &lt;wxPython.windows.wxValidatorPtr instance; proxy... wxValidator instance at _418d68c0_wxValidator_p&gt;<br>
 <strong>wxDragCancel</strong> = 5<br>
 <strong>wxDragCopy</strong> = 2<br>
 <strong>wxDragError</strong> = 0<br>
@@ -4122,7 +4127,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxFULLSCREEN_NOMENUBAR</strong> = 1<br>
 <strong>wxFULLSCREEN_NOSTATUSBAR</strong> = 4<br>
 <strong>wxFULLSCREEN_NOTOOLBAR</strong> = 2<br>
-<strong>wxFormatInvalid</strong> = &lt;wxPython.clip_dnd.wxDataFormatPtr instance; pro...xDataFormat instance at _412bb8a8_wxDataFormat_p&gt;<br>
+<strong>wxFormatInvalid</strong> = &lt;wxPython.clip_dnd.wxDataFormatPtr instance; pro...xDataFormat instance at _413898a8_wxDataFormat_p&gt;<br>
 <strong>wxFromCurrent</strong> = 1<br>
 <strong>wxFromEnd</strong> = 2<br>
 <strong>wxFromStart</strong> = 0<br>
@@ -4131,16 +4136,16 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxGA_SMOOTH</strong> = 32<br>
 <strong>wxGA_VERTICAL</strong> = 8<br>
 <strong>wxGREEN</strong> = wxColour(0, 255, 0)<br>
-<strong>wxGREEN_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _840f338_wxBrush_p&gt;<br>
-<strong>wxGREEN_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840f2e8_wxPen_p&gt;<br>
-<strong>wxGREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8419170_wxBrush_p&gt;<br>
-<strong>wxGREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840f468_wxPen_p&gt;<br>
+<strong>wxGREEN_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _840a0a0_wxBrush_p&gt;<br>
+<strong>wxGREEN_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840b9c8_wxPen_p&gt;<br>
+<strong>wxGREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8409e48_wxBrush_p&gt;<br>
+<strong>wxGREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840bb08_wxPen_p&gt;<br>
 <strong>wxGROW</strong> = 8192<br>
 <strong>wxHELP</strong> = 32768<br>
 <strong>wxHIDE_READONLY</strong> = 8<br>
 <strong>wxHORIZONTAL</strong> = 4<br>
 <strong>wxHORIZONTAL_HATCH</strong> = 115<br>
-<strong>wxHOURGLASS_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _8419dc8_wxCursor_p&gt;<br>
+<strong>wxHOURGLASS_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _8416968_wxCursor_p&gt;<br>
 <strong>wxHSCROLL</strong> = 1073741824<br>
 <strong>wxHT_MAX</strong> = 14<br>
 <strong>wxHT_NOWHERE</strong> = 0<br>
@@ -4243,7 +4248,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxIMAGE_LIST_STATE</strong> = 2<br>
 <strong>wxINVERT</strong> = 2<br>
 <strong>wxITALIC</strong> = 93<br>
-<strong>wxITALIC_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _840f1a8_wxFont_p&gt;<br>
+<strong>wxITALIC_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _8415e48_wxFont_p&gt;<br>
 <strong>wxITEM_CHECK</strong> = 1<br>
 <strong>wxITEM_MAX</strong> = 3<br>
 <strong>wxITEM_NORMAL</strong> = 0<br>
@@ -4536,8 +4541,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxLEFT</strong> = 16<br>
 <strong>wxLIGHT</strong> = 91<br>
 <strong>wxLIGHT_GREY</strong> = wxColour(192, 192, 192)<br>
-<strong>wxLIGHT_GREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _84191e0_wxBrush_p&gt;<br>
-<strong>wxLIGHT_GREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840f4e8_wxPen_p&gt;<br>
+<strong>wxLIGHT_GREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _840bd08_wxBrush_p&gt;<br>
+<strong>wxLIGHT_GREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840bb88_wxPen_p&gt;<br>
 <strong>wxLIST_ALIGN_DEFAULT</strong> = 0<br>
 <strong>wxLIST_ALIGN_LEFT</strong> = 1<br>
 <strong>wxLIST_ALIGN_SNAP_TO_GRID</strong> = 3<br>
@@ -4614,8 +4619,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxMAXIMIZE</strong> = 8192<br>
 <strong>wxMAXIMIZE_BOX</strong> = 512<br>
 <strong>wxMB_DOCKABLE</strong> = 1<br>
-<strong>wxMEDIUM_GREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _84191a8_wxBrush_p&gt;<br>
-<strong>wxMEDIUM_GREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840f4a8_wxPen_p&gt;<br>
+<strong>wxMEDIUM_GREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _840bcd0_wxBrush_p&gt;<br>
+<strong>wxMEDIUM_GREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840bb48_wxPen_p&gt;<br>
 <strong>wxMENU_TEAROFF</strong> = 1<br>
 <strong>wxMINIMIZE</strong> = 16384<br>
 <strong>wxMINIMIZE_BOX</strong> = 1024<br>
@@ -4648,7 +4653,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxNO</strong> = 8<br>
 <strong>wxNOR</strong> = 9<br>
 <strong>wxNORMAL</strong> = 90<br>
-<strong>wxNORMAL_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _8404bc8_wxFont_p&gt;<br>
+<strong>wxNORMAL_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _83f4c70_wxFont_p&gt;<br>
 <strong>wxNORTH</strong> = 64<br>
 <strong>wxNOT_FOUND</strong> = -1<br>
 <strong>wxNO_3D</strong> = 8388608<br>
@@ -4656,16 +4661,16 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxNO_DEFAULT</strong> = 128<br>
 <strong>wxNO_FULL_REPAINT_ON_RESIZE</strong> = 65536<br>
 <strong>wxNO_OP</strong> = 8<br>
-<strong>wxNullAcceleratorTable</strong> = &lt;wxPython.misc.wxAcceleratorTablePtr instance; p...Table instance at _417f8460_wxAcceleratorTable_p&gt;<br>
-<strong>wxNullBitmap</strong> = &lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417f8468_wxBitmap_p&gt;<br>
-<strong>wxNullBrush</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _417f8494_wxBrush_p&gt;<br>
+<strong>wxNullAcceleratorTable</strong> = &lt;wxPython.misc.wxAcceleratorTablePtr instance; p...Table instance at _418c6460_wxAcceleratorTable_p&gt;<br>
+<strong>wxNullBitmap</strong> = &lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418c6468_wxBitmap_p&gt;<br>
+<strong>wxNullBrush</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _418c6494_wxBrush_p&gt;<br>
 <strong>wxNullColour</strong> = wxColour(-1, -1, -1)<br>
-<strong>wxNullCursor</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _417f8480_wxCursor_p&gt;<br>
-<strong>wxNullFont</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _417f84a0_wxFont_p&gt;<br>
-<strong>wxNullIcon</strong> = &lt;wxPython.gdi.wxIconPtr instance; proxy of C++ wxIcon instance at _417f8474_wxIcon_p&gt;<br>
-<strong>wxNullImage</strong> = &lt;wxPython.image.wxImagePtr instance; proxy of C++ wxImage instance at _4180109c_wxImage_p&gt;<br>
-<strong>wxNullPalette</strong> = &lt;wxPython.gdi.wxPalettePtr instance; proxy of C++ wxPalette instance at _417f84b8_wxPalette_p&gt;<br>
-<strong>wxNullPen</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _417f8488_wxPen_p&gt;<br>
+<strong>wxNullCursor</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _418c6480_wxCursor_p&gt;<br>
+<strong>wxNullFont</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _418c64a0_wxFont_p&gt;<br>
+<strong>wxNullIcon</strong> = &lt;wxPython.gdi.wxIconPtr instance; proxy of C++ wxIcon instance at _418c6474_wxIcon_p&gt;<br>
+<strong>wxNullImage</strong> = &lt;wxPython.image.wxImagePtr instance; proxy of C++ wxImage instance at _418cf09c_wxImage_p&gt;<br>
+<strong>wxNullPalette</strong> = &lt;wxPython.gdi.wxPalettePtr instance; proxy of C++ wxPalette instance at _418c64b8_wxPalette_p&gt;<br>
+<strong>wxNullPen</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _418c6488_wxPen_p&gt;<br>
 <strong>wxODDEVEN_RULE</strong> = 1<br>
 <strong>wxOK</strong> = 4<br>
 <strong>wxOPEN</strong> = 1<br>
@@ -4792,8 +4797,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxRB_GROUP</strong> = 4<br>
 <strong>wxRB_SINGLE</strong> = 8<br>
 <strong>wxRED</strong> = wxColour(255, 0, 0)<br>
-<strong>wxRED_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8419138_wxBrush_p&gt;<br>
-<strong>wxRED_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840f268_wxPen_p&gt;<br>
+<strong>wxRED_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8409e38_wxBrush_p&gt;<br>
+<strong>wxRED_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840b948_wxPen_p&gt;<br>
 <strong>wxRELEASE_NUMBER</strong> = 2<br>
 <strong>wxRELEASE_VERSION</strong> = 2<br>
 <strong>wxRESET</strong> = 16384<br>
@@ -4856,7 +4861,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxSL_SELRANGE</strong> = 2048<br>
 <strong>wxSL_TOP</strong> = 128<br>
 <strong>wxSL_VERTICAL</strong> = 8<br>
-<strong>wxSMALL_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _840e268_wxFont_p&gt;<br>
+<strong>wxSMALL_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _8409798_wxFont_p&gt;<br>
 <strong>wxSOLID</strong> = 100<br>
 <strong>wxSOUTH</strong> = 128<br>
 <strong>wxSPLASH_CENTRE_ON_PARENT</strong> = 1<br>
@@ -4882,7 +4887,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxSP_VERTICAL</strong> = 8<br>
 <strong>wxSP_WRAP</strong> = 8192<br>
 <strong>wxSRC_INVERT</strong> = 11<br>
-<strong>wxSTANDARD_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _84192c0_wxCursor_p&gt;<br>
+<strong>wxSTANDARD_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _840bd50_wxCursor_p&gt;<br>
 <strong>wxSTATIC_BORDER</strong> = 16777216<br>
 <strong>wxSTAY_ON_TOP</strong> = 32768<br>
 <strong>wxSTIPPLE</strong> = 110<br>
@@ -4892,7 +4897,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxSUBREL_VERSION</strong> = 4<br>
 <strong>wxSUNKEN_BORDER</strong> = 134217728<br>
 <strong>wxSWISS</strong> = 74<br>
-<strong>wxSWISS_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _840f1f8_wxFont_p&gt;<br>
+<strong>wxSWISS_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _840a008_wxFont_p&gt;<br>
 <strong>wxSW_3D</strong> = 192<br>
 <strong>wxSW_3DBORDER</strong> = 128<br>
 <strong>wxSW_3DSASH</strong> = 64<br>
@@ -5037,8 +5042,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxTRACE_RefCount</strong> = 'refcount'<br>
 <strong>wxTRACE_ResAlloc</strong> = 'resalloc'<br>
 <strong>wxTRANSPARENT</strong> = 106<br>
-<strong>wxTRANSPARENT_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _840f4f8_wxBrush_p&gt;<br>
-<strong>wxTRANSPARENT_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840f3e8_wxPen_p&gt;<br>
+<strong>wxTRANSPARENT_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8409850_wxBrush_p&gt;<br>
+<strong>wxTRANSPARENT_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840ba88_wxPen_p&gt;<br>
 <strong>wxTRANSPARENT_WINDOW</strong> = 1048576<br>
 <strong>wxTREE_HITTEST_ABOVE</strong> = 1<br>
 <strong>wxTREE_HITTEST_BELOW</strong> = 2<br>
@@ -5070,12 +5075,12 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxTR_ROW_LINES</strong> = 1024<br>
 <strong>wxTR_SINGLE</strong> = 0<br>
 <strong>wxTR_TWIST_BUTTONS</strong> = 2<br>
-<strong>wxTheBrushList</strong> = &lt;wxPython.gdi.wxBrushListPtr instance; proxy of C++ wxBrushList instance at _840a808_wxBrushList_p&gt;<br>
-<strong>wxTheClipboard</strong> = &lt;wxPython.clip_dnd.wxClipboardPtr instance; prox...+ wxClipboard instance at _841b820_wxClipboard_p&gt;<br>
-<strong>wxTheColourDatabase</strong> = &lt;wxPython.gdi.wxColourDatabasePtr instance; prox...Database instance at _822f4f0_wxColourDatabase_p&gt;<br>
-<strong>wxTheFontList</strong> = &lt;wxPython.fonts.wxFontListPtr instance; proxy of C++ wxFontList instance at _840a848_wxFontList_p&gt;<br>
-<strong>wxTheMimeTypesManager</strong> = &lt;wxPython.misc2.wxMimeTypesManagerPtr instance; ...nager instance at _418073a0_wxMimeTypesManager_p&gt;<br>
-<strong>wxThePenList</strong> = &lt;wxPython.gdi.wxPenListPtr instance; proxy of C++ wxPenList instance at _840a828_wxPenList_p&gt;<br>
+<strong>wxTheBrushList</strong> = &lt;wxPython.gdi.wxBrushListPtr instance; proxy of C++ wxBrushList instance at _84071f0_wxBrushList_p&gt;<br>
+<strong>wxTheClipboard</strong> = &lt;wxPython.clip_dnd.wxClipboardPtr instance; prox...+ wxClipboard instance at _84183c0_wxClipboard_p&gt;<br>
+<strong>wxTheColourDatabase</strong> = &lt;wxPython.gdi.wxColourDatabasePtr instance; prox...Database instance at _82326b8_wxColourDatabase_p&gt;<br>
+<strong>wxTheFontList</strong> = &lt;wxPython.fonts.wxFontListPtr instance; proxy of C++ wxFontList instance at _8407230_wxFontList_p&gt;<br>
+<strong>wxTheMimeTypesManager</strong> = &lt;wxPython.misc2.wxMimeTypesManagerPtr instance; ...nager instance at _418d53a0_wxMimeTypesManager_p&gt;<br>
+<strong>wxThePenList</strong> = &lt;wxPython.gdi.wxPenListPtr instance; proxy of C++ wxPenList instance at _8407210_wxPenList_p&gt;<br>
 <strong>wxTop</strong> = 1<br>
 <strong>wxTraceMemAlloc</strong> = 1<br>
 <strong>wxTraceMessages</strong> = 2<br>
@@ -5100,8 +5105,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxWANTS_CHARS</strong> = 262144<br>
 <strong>wxWEST</strong> = 16<br>
 <strong>wxWHITE</strong> = wxColour(255, 255, 255)<br>
-<strong>wxWHITE_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _840f348_wxBrush_p&gt;<br>
-<strong>wxWHITE_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840f3a8_wxPen_p&gt;<br>
+<strong>wxWHITE_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8409f70_wxBrush_p&gt;<br>
+<strong>wxWHITE_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _840ba48_wxPen_p&gt;<br>
 <strong>wxWINDING_RULE</strong> = 2<br>
 <strong>wxWS_EX_BLOCK_EVENTS</strong> = 2<br>
 <strong>wxWS_EX_TRANSIENT</strong> = 4<br>
@@ -5111,5 +5116,5 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxYES</strong> = 2<br>
 <strong>wxYES_DEFAULT</strong> = 0<br>
 <strong>wxYES_NO</strong> = 10<br>
-<strong>wxapp</strong> = &lt;wxPython.wx.wxPySimpleApp instance; proxy of C++ wxPyApp instance at _84c5990_wxPyApp_p&gt;</td></tr></table>
+<strong>wxapp</strong> = &lt;wxPython.wx.wxPySimpleApp instance; proxy of C++ wxPyApp instance at _8523890_wxPyApp_p&gt;</td></tr></table>
 @footer@

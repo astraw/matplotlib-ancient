@@ -394,6 +394,12 @@ Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
 
+<dl><dt><a name="Axes-table"><strong>table</strong></a>(self, cellText<font color="#909090">=None</font>, cellColours<font color="#909090">=None</font>, cellLoc<font color="#909090">='right'</font>, colWidths<font color="#909090">=None</font>, rowLabels<font color="#909090">=None</font>, rowColours<font color="#909090">=None</font>, rowLoc<font color="#909090">='left'</font>, colLabels<font color="#909090">=None</font>, colColours<font color="#909090">=None</font>, colLoc<font color="#909090">='center'</font>, loc<font color="#909090">='bottom'</font>, bbox<font color="#909090">=None</font>)</dt><dd><tt>Create&nbsp;a&nbsp;table&nbsp;and&nbsp;add&nbsp;it&nbsp;to&nbsp;the&nbsp;axes.&nbsp;&nbsp;Returns&nbsp;a&nbsp;table<br>
+instance.&nbsp;&nbsp;For&nbsp;finer&nbsp;grained&nbsp;control&nbsp;over&nbsp;tables,&nbsp;use&nbsp;the<br>
+Table&nbsp;class&nbsp;and&nbsp;add&nbsp;it&nbsp;to&nbsp;the&nbsp;axes&nbsp;with&nbsp;add_table.<br>
+&nbsp;<br>
+Thanks&nbsp;to&nbsp;John&nbsp;Gill&nbsp;for&nbsp;providing&nbsp;the&nbsp;class&nbsp;and&nbsp;table.</tt></dd></dl>
+
 <dl><dt><a name="Axes-text"><strong>text</strong></a>(self, x, y, text, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;axis&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(data&nbsp;coords)<br>
 &nbsp;<br>
 fontdict&nbsp;is&nbsp;a&nbsp;dictionary&nbsp;to&nbsp;override&nbsp;the&nbsp;default&nbsp;text&nbsp;properties.<br>
@@ -855,6 +861,12 @@ the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
 Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+
+<dl><dt><a name="Subplot-table"><strong>table</strong></a>(self, cellText<font color="#909090">=None</font>, cellColours<font color="#909090">=None</font>, cellLoc<font color="#909090">='right'</font>, colWidths<font color="#909090">=None</font>, rowLabels<font color="#909090">=None</font>, rowColours<font color="#909090">=None</font>, rowLoc<font color="#909090">='left'</font>, colLabels<font color="#909090">=None</font>, colColours<font color="#909090">=None</font>, colLoc<font color="#909090">='center'</font>, loc<font color="#909090">='bottom'</font>, bbox<font color="#909090">=None</font>)</dt><dd><tt>Create&nbsp;a&nbsp;table&nbsp;and&nbsp;add&nbsp;it&nbsp;to&nbsp;the&nbsp;axes.&nbsp;&nbsp;Returns&nbsp;a&nbsp;table<br>
+instance.&nbsp;&nbsp;For&nbsp;finer&nbsp;grained&nbsp;control&nbsp;over&nbsp;tables,&nbsp;use&nbsp;the<br>
+Table&nbsp;class&nbsp;and&nbsp;add&nbsp;it&nbsp;to&nbsp;the&nbsp;axes&nbsp;with&nbsp;add_table.<br>
+&nbsp;<br>
+Thanks&nbsp;to&nbsp;John&nbsp;Gill&nbsp;for&nbsp;providing&nbsp;the&nbsp;class&nbsp;and&nbsp;table.</tt></dd></dl>
 
 <dl><dt><a name="Subplot-text"><strong>text</strong></a>(self, x, y, text, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;axis&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(data&nbsp;coords)<br>
 &nbsp;<br>

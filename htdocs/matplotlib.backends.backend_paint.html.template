@@ -122,13 +122,15 @@ is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 <dl><dt><a name="RendererPaint-get_text_scale"><strong>get_text_scale</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;scale&nbsp;factor&nbsp;for&nbsp;fontsize&nbsp;taking&nbsp;screendpi&nbsp;and&nbsp;pixels&nbsp;per<br>
 inch&nbsp;into&nbsp;account</tt></dd></dl>
 
-<dl><dt><a name="RendererPaint-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;GraphicsContextPaint</tt></dd></dl>
-
 <dl><dt><a name="RendererPaint-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt></dl>
 
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>fontd</strong> = {}</dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
+<dl><dt><a name="RendererPaint-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;GraphicsContextBase</tt></dd></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

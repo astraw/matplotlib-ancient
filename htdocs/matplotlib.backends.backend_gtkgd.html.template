@@ -99,7 +99,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135922360)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135914360)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -437,7 +437,8 @@ figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-gd_to_gtk_drawable"><strong>gd_to_gtk_drawable</strong></a>(...)</dt><dd><tt>Draw&nbsp;to&nbsp;a&nbsp;gtk&nbsp;drawable&nbsp;from&nbsp;a&nbsp;gd&nbsp;image.</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-gd_to_gtk_drawable"><strong>gd_to_gtk_drawable</strong></a>(drawable, gdImage)</dt><dd><tt>Draw&nbsp;to&nbsp;a&nbsp;gtk.gdk.Drawable&nbsp;from&nbsp;a&nbsp;gd.Image.&nbsp;&nbsp;&nbsp;drawable&nbsp;must&nbsp;be<br>
+the&nbsp;same&nbsp;size&nbsp;as&nbsp;image</tt></dd></dl>
  <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -447,7 +448,7 @@ figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
-<strong>PIXELS_PER_INCH</strong> = 75<br>
+<strong>PIXELS_PER_INCH</strong> = 72<br>
 <strong>True</strong> = True<br>
 <strong>colorManager</strong> = &lt;matplotlib.backends.backend_gtk.ColorManagerGTK instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>

@@ -10,30 +10,82 @@
 Features&nbsp;that&nbsp;are&nbsp;implemented<br>
 &nbsp;<br>
 &nbsp;*&nbsp;capstyles&nbsp;and&nbsp;join&nbsp;styles<br>
-&nbsp;<br>
 &nbsp;*&nbsp;dashes<br>
-&nbsp;<br>
+&nbsp;*&nbsp;linewidth&nbsp;<br>
 &nbsp;*&nbsp;lines,&nbsp;rectangles,&nbsp;ellipses<br>
-&nbsp;<br>
 &nbsp;*&nbsp;clipping&nbsp;to&nbsp;a&nbsp;rectangle<br>
-&nbsp;<br>
 &nbsp;*&nbsp;output&nbsp;to&nbsp;RGBA&nbsp;and&nbsp;PNG<br>
-&nbsp;<br>
 &nbsp;*&nbsp;alpha&nbsp;blending<br>
+&nbsp;*&nbsp;DPI&nbsp;scaling&nbsp;properly&nbsp;-&nbsp;everything&nbsp;scales&nbsp;properly&nbsp;(dashes,&nbsp;linewidths,&nbsp;etc)<br>
+&nbsp;*&nbsp;draw&nbsp;polygon&nbsp;<br>
+&nbsp;*&nbsp;freetype1<br>
 &nbsp;<br>
-Features&nbsp;that&nbsp;need&nbsp;to&nbsp;be&nbsp;implemented<br>
+TODO:<br>
 &nbsp;<br>
-&nbsp;*&nbsp;text&nbsp;/&nbsp;freetype2<br>
+&nbsp;*&nbsp;use&nbsp;ttf&nbsp;manager&nbsp;to&nbsp;get&nbsp;font&nbsp;-&nbsp;right&nbsp;now&nbsp;I&nbsp;just&nbsp;use&nbsp;Vera<br>
+&nbsp;*&nbsp;freetype2<br>
 &nbsp;<br>
-&nbsp;*&nbsp;arbitary&nbsp;paths&nbsp;/&nbsp;stroking&nbsp;and&nbsp;filling&nbsp;+&nbsp;odd/even&nbsp;fill&nbsp;rules<br>
+INSTALLING&nbsp;<br>
 &nbsp;<br>
-&nbsp;*&nbsp;arbitrary&nbsp;clipping&nbsp;paths<br>
+&nbsp;&nbsp;REQUIREMENTs<br>
 &nbsp;<br>
-&nbsp;*&nbsp;DPI&nbsp;scaling<br>
+&nbsp;&nbsp;&nbsp;&nbsp;python2.2+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Numeric&nbsp;22+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;agg2&nbsp;(see&nbsp;below)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;freetype&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;libpng<br>
+&nbsp;&nbsp;&nbsp;&nbsp;libz<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;Install&nbsp;AGG2&nbsp;(cut&nbsp;and&nbsp;paste&nbsp;below&nbsp;into&nbsp;xterm&nbsp;should&nbsp;work)<br>
 &nbsp;<br>
-&nbsp;*&nbsp;linewidth<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wget&nbsp;<a href="http://www.antigrain.com/agg2.tar.gz">http://www.antigrain.com/agg2.tar.gz</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;tar&nbsp;xvfz&nbsp;agg2.tar.gz<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;agg2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;make<br>
 &nbsp;<br>
-&nbsp;*&nbsp;circle&nbsp;centers&nbsp;off?&nbsp;--&nbsp;eg&nbsp;subplot_demo</tt></p>
+&nbsp;&nbsp;&nbsp;&nbsp;(Optional)&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;make&nbsp;the&nbsp;examples:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;examples/X11<br>
+&nbsp;&nbsp;&nbsp;&nbsp;make<br>
+&nbsp;<br>
+&nbsp;&nbsp;Installing&nbsp;backend_agg<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;Grab&nbsp;the&nbsp;latest&nbsp;CVS:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cvs&nbsp;-d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/matplotlib&nbsp;login&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cvs&nbsp;-z3&nbsp;-d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/matplotlib&nbsp;co&nbsp;matplotlib<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;Edit&nbsp;setup.py:&nbsp;change&nbsp;aggsrc&nbsp;to&nbsp;point&nbsp;to&nbsp;the&nbsp;agg2&nbsp;src&nbsp;tree&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;replace&nbsp;if&nbsp;0:&nbsp;with&nbsp;if&nbsp;1:&nbsp;in&nbsp;the&nbsp;backend_agg&nbsp;section<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;Then&nbsp;just&nbsp;do&nbsp;the&nbsp;usual&nbsp;thing:&nbsp;python&nbsp;setup.py&nbsp;build<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;Please&nbsp;let&nbsp;me&nbsp;know&nbsp;if&nbsp;you&nbsp;encounter&nbsp;build&nbsp;problems,&nbsp;and&nbsp;tell&nbsp;me<br>
+&nbsp;&nbsp;&nbsp;platform,&nbsp;gcc&nbsp;version,&nbsp;etc...&nbsp;&nbsp;Currently&nbsp;the&nbsp;paths&nbsp;in&nbsp;setupext.py<br>
+&nbsp;&nbsp;&nbsp;assume&nbsp;as&nbsp;linux&nbsp;like&nbsp;filesystem&nbsp;(eg&nbsp;X11&nbsp;include&nbsp;dir,&nbsp;location&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;libttf,&nbsp;etcc)&nbsp;so&nbsp;you&nbsp;may&nbsp;need&nbsp;to&nbsp;tweak&nbsp;these<br>
+&nbsp;<br>
+&nbsp;&nbsp;Using&nbsp;agg&nbsp;backend<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;python&nbsp;somefile.py&nbsp;-dAgg&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;or<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;matplotlib<br>
+&nbsp;&nbsp;&nbsp;&nbsp;matplotlib.use('Agg')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+TODO:<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;implement&nbsp;ttf&nbsp;font&nbsp;manager<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;allow&nbsp;save&nbsp;to&nbsp;file&nbsp;handle<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;allow&nbsp;load&nbsp;from&nbsp;png<br>
+&nbsp;<br>
+&nbsp;<br>
+Errors:&nbsp;running&nbsp;python2.2&nbsp;on&nbsp;bace.bsd<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;_backend_agg&nbsp;import&nbsp;<a href="#RendererAgg">RendererAgg</a>&nbsp;as&nbsp;_RendererAgg,&nbsp;Font<br>
+ImportError:&nbsp;/usr/lib/python2.2/site-packages/matplotlib/backends/_backend_agg.so:&nbsp;undefined&nbsp;symbol:&nbsp;__gxx_personality_v0</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -125,6 +177,9 @@ context&nbsp;instance&nbsp;that&nbsp;controls&nbsp;the&nbsp;colors/styles<br>&nb
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="RendererAgg-__init__"><strong>__init__</strong></a>(self, width, height, dpi)</dt></dl>
 
+<dl><dt><a name="RendererAgg-compute_text_offsets"><strong>compute_text_offsets</strong></a>(self, t, props)</dt><dd><tt>Return&nbsp;the&nbsp;(x,y)&nbsp;offsets&nbsp;to&nbsp;adjust&nbsp;for&nbsp;the&nbsp;alignment<br>
+specifications</tt></dd></dl>
+
 <dl><dt><a name="RendererAgg-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, gcFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
 from&nbsp;0.0&nbsp;to&nbsp;360.0<br>
 &nbsp;<br>
@@ -137,12 +192,30 @@ ignored</tt></dd></dl>
 <dl><dt><a name="RendererAgg-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
 point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
 
+<dl><dt><a name="RendererAgg-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;point&nbsp;at&nbsp;x,y</tt></dd></dl>
+
+<dl><dt><a name="RendererAgg-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, t)</dt><dd><tt>Render&nbsp;the&nbsp;text&nbsp;using&nbsp;the&nbsp;RendererPaint&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="RendererAgg-get_agg_color"><strong>get_agg_color</strong></a>(self, rgb)</dt><dd><tt>returns&nbsp;an&nbsp;agg&nbsp;color&nbsp;object&nbsp;based&nbsp;on&nbsp;the&nbsp;given&nbsp;rgb&nbsp;tuple</tt></dd></dl>
+
+<dl><dt><a name="RendererAgg-get_text_extent"><strong>get_text_extent</strong></a>(self, t)</dt><dd><tt>Return&nbsp;the&nbsp;ink&nbsp;extent&nbsp;of&nbsp;the&nbsp;text&nbsp;as&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="RendererAgg-get_text_scale"><strong>get_text_scale</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;scale&nbsp;factor&nbsp;for&nbsp;fontsize&nbsp;taking&nbsp;screendpi&nbsp;and&nbsp;pixels&nbsp;per<br>
+inch&nbsp;into&nbsp;account</tt></dd></dl>
+
+<dl><dt><a name="RendererAgg-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;point&nbsp;measures&nbsp;to&nbsp;pixes&nbsp;using&nbsp;dpi&nbsp;and&nbsp;the&nbsp;pixels&nbsp;per<br>
+inch&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>fontd</strong> = {}</dl>
+
+<dl><dt><strong>offsetd</strong> = {}</dl>
+
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
 <dl><dt><a name="RendererAgg-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
 point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
-
-<dl><dt><a name="RendererAgg-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;point&nbsp;at&nbsp;x,y</tt></dd></dl>
 
 <dl><dt><a name="RendererAgg-draw_polygon"><strong>draw_polygon</strong></a>(self, gcEdge, gcFace, points)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon.&nbsp;&nbsp;points&nbsp;is&nbsp;a&nbsp;len&nbsp;vertices&nbsp;tuple,&nbsp;each&nbsp;element<br>
 giving&nbsp;the&nbsp;x,y&nbsp;coords&nbsp;a&nbsp;vertex<br>
@@ -155,10 +228,6 @@ is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="RendererAgg-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, t)</dt><dd><tt>Draw&nbsp;a&nbsp;text&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="RendererAgg-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
-
 <dl><dt><a name="RendererAgg-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;GraphicsContextBase</tt></dd></dl>
 
 </td></tr></table></td></tr></table><p>
@@ -168,7 +237,10 @@ is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-Font"><strong>Font</strong></a>(...)</dt><dd><tt><a href="#-Font">Font</a>(filename,&nbsp;size&nbsp;=&nbsp;12,&nbsp;rotate&nbsp;=&nbsp;0)<br>
+&nbsp;<br>
+Load&nbsp;the&nbsp;named&nbsp;font&nbsp;and&nbsp;return&nbsp;the&nbsp;font&nbsp;object</tt></dd></dl>
+ <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
  <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -179,5 +251,8 @@ is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
-<strong>True</strong> = True</td></tr></table>
+<strong>PIXELS_PER_INCH</strong> = 96<br>
+<strong>TEMPFONTCONST</strong> = '/usr/local/share/matplotlib/Vera.ttf'<br>
+<strong>True</strong> = True<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
 @footer@

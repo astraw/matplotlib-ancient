@@ -134,9 +134,7 @@ graphics&nbsp;context&nbsp;attributes&nbsp;(cap&nbsp;styles,&nbsp;join&nbsp;styl
 colors)&nbsp;to&nbsp;a&nbsp;particular&nbsp;backend.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="GraphicsContextGD-__init__"><strong>__init__</strong></a>(self, im, dpi)</dt><dd><tt>Initialize&nbsp;with&nbsp;a&nbsp;gd&nbsp;image</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextGD-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt></dl>
+<dl><dt><a name="GraphicsContextGD-__init__"><strong>__init__</strong></a>(self, im, renderer)</dt><dd><tt>Initialize&nbsp;with&nbsp;a&nbsp;gd&nbsp;image</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextGD-set_clip_rectangle"><strong>set_clip_rectangle</strong></a>(self, rectangle)</dt></dl>
 
@@ -243,6 +241,9 @@ gc&nbsp;is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 inch&nbsp;into&nbsp;account</tt></dd></dl>
 
 <dl><dt><a name="RendererGD-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;<a href="#GraphicsContextGD">GraphicsContextGD</a></tt></dd></dl>
+
+<dl><dt><a name="RendererGD-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;point&nbsp;measures&nbsp;to&nbsp;pixes&nbsp;using&nbsp;dpi&nbsp;and&nbsp;the&nbsp;pixels&nbsp;per<br>
+inch&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>

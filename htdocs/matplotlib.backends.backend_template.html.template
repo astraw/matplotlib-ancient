@@ -312,6 +312,10 @@ coords&nbsp;using&nbsp;GraphicsContext&nbsp;gc</tt></dd></dl>
 
 <dl><dt><a name="RendererTemplate-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;<a href="#GraphicsContextTemplate">GraphicsContextTemplate</a></tt></dd></dl>
 
+<dl><dt><a name="RendererTemplate-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;points&nbsp;to&nbsp;display&nbsp;units.&nbsp;&nbsp;Many&nbsp;imaging&nbsp;systems&nbsp;assume<br>
+some&nbsp;value&nbsp;for&nbsp;pixels&nbsp;per&nbsp;inch.&nbsp;&nbsp;Eg,&nbsp;suppose&nbsp;yours&nbsp;is&nbsp;96&nbsp;and<br>
+dpi&nbsp;=&nbsp;300.&nbsp;&nbsp;Then&nbsp;points&nbsp;to&nbsp;pixels&nbsp;is</tt></dd></dl>
+
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -323,7 +327,7 @@ coords&nbsp;using&nbsp;GraphicsContext&nbsp;gc</tt></dd></dl>
 should&nbsp;be&nbsp;done&nbsp;in&nbsp;interactive&nbsp;python&nbsp;mode</tt></dd></dl>
  <dl><dt><a name="-error_msg"><strong>error_msg</strong></a> = error_msg_template(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
  <dl><dt><a name="-error_msg_template"><strong>error_msg_template</strong></a>(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
- <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, figsize, dpi)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
+ <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
  <dl><dt><a name="-show"><strong>show</strong></a>()</dt><dd><tt>This&nbsp;is&nbsp;usually&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;a&nbsp;matlab&nbsp;script&nbsp;and&nbsp;tells&nbsp;the<br>
 backend&nbsp;that&nbsp;it&nbsp;is&nbsp;time&nbsp;to&nbsp;draw.&nbsp;&nbsp;In&nbsp;interactive&nbsp;mode,&nbsp;this&nbsp;may&nbsp;be<br>
 a&nbsp;do&nbsp;nothing&nbsp;func.&nbsp;&nbsp;See&nbsp;the&nbsp;GTK&nbsp;backend&nbsp;for&nbsp;an&nbsp;example&nbsp;of&nbsp;how&nbsp;to<br>

@@ -137,7 +137,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (136665056)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (136655128)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -785,7 +785,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135922360)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135914360)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -1332,7 +1332,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (135928344)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (135920344)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -1769,7 +1769,8 @@ inch&nbsp;into&nbsp;account</tt></dd></dl>
 
 <dl><dt><a name="RendererGTK-new_gc"><strong>new_gc</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="RendererGTK-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>Convert&nbsp;points&nbsp;to&nbsp;pixels</tt></dd></dl>
+<dl><dt><a name="RendererGTK-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;point&nbsp;measures&nbsp;to&nbsp;pixes&nbsp;using&nbsp;dpi&nbsp;and&nbsp;the&nbsp;pixels&nbsp;per<br>
+inch&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -1811,7 +1812,7 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
 <strong>Int16</strong> = 's'<br>
-<strong>PIXELS_PER_INCH</strong> = 75<br>
+<strong>PIXELS_PER_INCH</strong> = 72<br>
 <strong>True</strong> = True<br>
 <strong>colorManager</strong> = &lt;matplotlib.backends.backend_gtk.ColorManagerGTK instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>

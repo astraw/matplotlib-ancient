@@ -220,14 +220,6 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#eeaa77">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
-    
-<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-data_table"><strong>data_table</strong></a>(axes, cellText<font color="#909090">=None</font>, cellColours<font color="#909090">=None</font>, cellLoc<font color="#909090">='right'</font>, colWidths<font color="#909090">=None</font>, rowLabels<font color="#909090">=None</font>, rowColours<font color="#909090">=None</font>, rowLoc<font color="#909090">='left'</font>, colLabels<font color="#909090">=None</font>, colColours<font color="#909090">=None</font>, colLoc<font color="#909090">='center'</font>, loc<font color="#909090">='bottom'</font>, bbox<font color="#909090">=None</font>)</dt><dd><tt>Create&nbsp;a&nbsp;simple&nbsp;table.</tt></dd></dl>
-</td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>

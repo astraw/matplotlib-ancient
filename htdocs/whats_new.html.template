@@ -1,32 +1,42 @@
 new_to_50 = ( 
+
+    ('Antigrain backend: Agg', """Adding to the growing list of image
+backends is <a href=http://antigrain.com>Antigrain</a>.  This is a
+backend written mostly in extension code and is the fastest of all the
+image backends.  Agg supports freetype fonts, antialiased drawing,
+alpha blending, and much more. The windows installer contains
+everything you need except Numeric to use the agg backend out of the
+box; for other platforms see <a href=backends.html#Agg>The Agg
+Backend</a> """ ),
+
     #TODO: pypaint?
-    ('Paint/libart backend', """\
-David Moore wrote a backend for <a
+    ('Paint/libart backend', """David Moore wrote a backend for <a
 href=http://pypaint.sourceforge.net>pypaint</a>, a <a
 href=http://www.levien.com/libart>libart</a> wrapper.  libart is a
 high quality, cross platform image renderer that supports antialiased
 lines, freetype fonts, and other capabilities to soon be exploited.
-Thanks David!""" ),
+Thanks David!  See <a href=backends.html#Paint>The Paint Backend</a>
+for more information and install instructions""" ),
+
 
         ('The Matplotlib <a href=faq.html>FAQ</a>', 'Matplotlib now has a FAQ.'),
 
-#        #TODO: backend specific info
-#        ('Alpha channel attribute', """\
-#All the figure elements now have an alpha attribute to allow blending
-#and translucency.  Not all backends are currenly capable of supporting
-#alpha"""),
+        ('Alpha channel attribute', """All the figure elements now
+have an alpha attribute to allow blending and translucency.  Not all
+backends are currenly capable of supporting alpha - currently only
+Agg, but Paint should be able to support this soon - see the scatter
+<a href=screenshots.html#scatter_demo2>screenshot</a> for an example
+of alpha at work."""),
 
-        #TODO: update links
-        ('Table class added', """\
-John Gill has developed a very nice <a
-href=matplotlib.table.html>table</a> class that plays well with bar
-charts ad stacked bar charts.  See example code and and screenshot <a
-href=screenshots.html#table_demo>table_demo</a>.
-"""),
+
+        ('Table class added', """John Gill has developed a very nice
+<a href=matplotlib.table.html>Table</a> class and
+href=matplotlib.matlab.html#-table>table</a>function that plays well
+with bar charts and stacked bar charts.  See example code and
+screenshot <a href=screenshots.html#table_demo>table_demo</a>.  """),
 
 	('Added x linesyle', """Matt MacMahon submitted a patch for an
 'x' linestyle.  Thanks Matt! """ ),
-
 
 	('gd module on win32', """\
 With much weeping and gnashing of teeth and help from half the people
@@ -39,8 +49,11 @@ the GD backend."""
 	('GD supports clipping and antialiased line drawing', """\
 See instructions about upgrading gd and gdmodule at <a
 href=backends.html#GD>Installing the GD backend</a>.  The line object
-has a new 'antialiased' property, that if true, the backend will
-render the line antialiased if supported.  """),
+has a new 'antialiased' property, that if True, the backend will
+render the line antialiased if supported.  Note antialiased drawing
+under GD is slow, so be sure to turn the property off <tt>set(lines,
+'antialiased', False)</tt> if you experience performance problems.  If
+you need performance and antialiasing, use the agg backend."""),
 
 	('wild and wonderful bar charts', """\
 You can provide an optional argument bottom to the <a
@@ -90,7 +103,7 @@ migrating applications to the new API."""),
   <li> GTK : Dash spacing was not properly scaling with DPI</li> 
   <li> GTK : Rotated text did not display correctly in some cases</li> 
 
-<li> GTK : Lots of optimizations using cacheing in GTK backend for
+  <li> GTK : Lots of optimizations using cacheing in GTK backend for
   improved performace for monitoring / animation scripts.  Discovered
   and patched a memory leak in pygtk -
   http://bugzilla.gnome.org/show_bug.cgi?id=133681 which was causing
