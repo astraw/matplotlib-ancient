@@ -49,7 +49,7 @@ table2 =  LinkBox(header='Documentation', links=(
     ('FAQ', 'faq.html'),    
     ('Matlab&nbsp;interface', 'matlab_commands.html'),
     ('Class&nbsp;library', 'classdocs.html'),
-    ('Output formats', 'backends.html'),
+    ('Backends', 'backends.html'),
     ('Fonts', 'fonts.html'),
     ('Interactive', 'interactive.html'),
     ('Goals', 'goals.html'),

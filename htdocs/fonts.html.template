@@ -38,10 +38,12 @@ TTFQuery.  Since several of the matplotlib backends now depend on
 those packages, they are distributed with the src distribution and
 will be installed automatically by the matplotlib windows installer.
 If you want to build them with matplotlib yourself from src, set the
-<tt>BUILD_TONTTOOLS</tt> flag in the matplotlib setup.py file.<p>
+<tt>BUILD_TONTTOOLS</tt> flag in the matplotlib setup.py file.  See <a
+href=faq.html#FONTCACHE>ttfquery font cache</a> for information on how
+ttfquery searches your system and caches the fonts it finds.<p>
 
 If you are aware of other freely distributable ttf fonts, please
-contact me -  @myemail@.
+contact me.
 
 <h3><a name=GTKFONTS>GTK</a></h3>
 

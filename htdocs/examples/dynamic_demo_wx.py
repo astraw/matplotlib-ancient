@@ -19,8 +19,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.13  2004/02/16 18:04:59  jdh2358
-fexed wx to work on windows and linux
+Revision 1.14  2004/02/17 15:10:58  jdh2358
+updating to 0.50
 
 Revision 1.1  2003/12/30 17:22:09  jodonoghue
 First version of dynamic_demo for backend_wx

@@ -39,6 +39,8 @@ screenshot <a href=screenshots.html#table_demo>table_demo</a>."""),
 	('Added x linesyle', """Matt MacMahon submitted a patch for an
 'x' linestyle.  Thanks Matt! """ ),
 
+	('Exposed legend properties', """Added methods to access the legend primities: text, lines, and rectangles to allow fine-grained control over legend properties; see <a href=examples/legend_demo.py>legend_demo.py</a>""" ),
+	
 	('gd module on win32', """\
 With much weeping and gnashing of teeth and help from half the people
 on this globe, built a gdmodule win32 installer.  Special thanks to

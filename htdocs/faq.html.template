@@ -173,6 +173,19 @@ Apparently GTK changed the default pango font file, because this is a new proble
 times = "times new roman,angsana new,mingliu,simsun,gulimche,ms gothic,latha,mangal,code2000"
 </pre>
 """ ),
+
+     ('FONTCACHE',
+      "On windows with GD/Agg/Paint, the first time I ran my script I got a bunch or error messages but don't anymore",
+    """\
+These modules use FontTools and TTFQuery to find freetype fonts.  The
+first time you import one of these backends, a font registry created
+in site-packages/ttfquery/font.cache.  As you system is scanned for
+fonts, some errors may be caught if a font file is not readable, etc.
+Generally, this is not a major problem, as long as most system fonts
+are found.  In subsequent runs, the font.cache is already built so you
+won't see the messages again.  If you want to see the error messages,
+remove font.cache and rerun your script, capturing them to a file.
+""" ),
      
      
     

@@ -152,6 +152,8 @@ capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;cap
 
 <dl><dt><a name="Axes-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="Axes-get_legend"><strong>get_legend</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;Legend&nbsp;instance,&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;legend&nbsp;is&nbsp;defined</tt></dd></dl>
+
 <dl><dt><a name="Axes-get_lines"><strong>get_lines</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Axes-get_xaxis"><strong>get_xaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;XAxis&nbsp;instance</tt></dd></dl>
@@ -238,10 +240,7 @@ The&nbsp;location&nbsp;codes&nbsp;are<br>
 &nbsp;&nbsp;'center&nbsp;right'&nbsp;:&nbsp;7,<br>
 &nbsp;&nbsp;'lower&nbsp;center'&nbsp;:&nbsp;8,<br>
 &nbsp;&nbsp;'upper&nbsp;center'&nbsp;:&nbsp;9,<br>
-&nbsp;&nbsp;'center'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
-&nbsp;<br>
-Return&nbsp;value&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;text,&nbsp;line&nbsp;instances&nbsp;that&nbsp;make<br>
-up&nbsp;the&nbsp;legend</tt></dd></dl>
+&nbsp;&nbsp;'center'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,</tt></dd></dl>
 
 <dl><dt><a name="Axes-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
 to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
@@ -622,6 +621,8 @@ capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;cap
 
 <dl><dt><a name="Subplot-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="Subplot-get_legend"><strong>get_legend</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;Legend&nbsp;instance,&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;legend&nbsp;is&nbsp;defined</tt></dd></dl>
+
 <dl><dt><a name="Subplot-get_lines"><strong>get_lines</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Subplot-get_xaxis"><strong>get_xaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;XAxis&nbsp;instance</tt></dd></dl>
@@ -708,10 +709,7 @@ The&nbsp;location&nbsp;codes&nbsp;are<br>
 &nbsp;&nbsp;'center&nbsp;right'&nbsp;:&nbsp;7,<br>
 &nbsp;&nbsp;'lower&nbsp;center'&nbsp;:&nbsp;8,<br>
 &nbsp;&nbsp;'upper&nbsp;center'&nbsp;:&nbsp;9,<br>
-&nbsp;&nbsp;'center'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
-&nbsp;<br>
-Return&nbsp;value&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;text,&nbsp;line&nbsp;instances&nbsp;that&nbsp;make<br>
-up&nbsp;the&nbsp;legend</tt></dd></dl>
+&nbsp;&nbsp;'center'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,</tt></dd></dl>
 
 <dl><dt><a name="Subplot-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
 to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>

@@ -79,7 +79,17 @@ up&nbsp;the&nbsp;legend<br>&nbsp;</tt></td></tr>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Legend-__init__"><strong>__init__</strong></a>(self, axis, handles, labels, loc)</dt></dl>
 
+<dl><dt><a name="Legend-draw_frame"><strong>draw_frame</strong></a>(self, b)</dt><dd><tt>b&nbsp;is&nbsp;a&nbsp;boolean.&nbsp;&nbsp;Set&nbsp;draw&nbsp;frame&nbsp;to&nbsp;b</tt></dd></dl>
+
 <dl><dt><a name="Legend-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Legend-get_frame"><strong>get_frame</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Rectangle&nbsp;instance&nbsp;used&nbsp;to&nbsp;frame&nbsp;the&nbsp;legend</tt></dd></dl>
+
+<dl><dt><a name="Legend-get_lines"><strong>get_lines</strong></a>(self)</dt><dd><tt>return&nbsp;a&nbsp;list&nbsp;of&nbsp;lines.Line2D&nbsp;instances&nbsp;in&nbsp;the&nbsp;legend</tt></dd></dl>
+
+<dl><dt><a name="Legend-get_patches"><strong>get_patches</strong></a>(self)</dt><dd><tt>return&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;instances&nbsp;in&nbsp;the&nbsp;legend</tt></dd></dl>
+
+<dl><dt><a name="Legend-get_texts"><strong>get_texts</strong></a>(self)</dt><dd><tt>return&nbsp;a&nbsp;list&nbsp;of&nbsp;text.Text&nbsp;instance&nbsp;in&nbsp;the&nbsp;legend</tt></dd></dl>
 
 <dl><dt><a name="Legend-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt></dl>
 

@@ -57,7 +57,7 @@ REQUIREMENTS<br>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="FigureCanvasPaint-draw"><strong>draw</strong></a>(self)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;using&nbsp;<a href="#RendererPaint">RendererPaint</a>&nbsp;instance&nbsp;renderer</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasPaint-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=300</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy&nbsp;using&nbsp;self.<strong>renderer</strong>&nbsp;as&nbsp;the<br>
+<dl><dt><a name="FigureCanvasPaint-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy&nbsp;using&nbsp;self.<strong>renderer</strong>&nbsp;as&nbsp;the<br>
 renderer&nbsp;if&nbsp;neccessary</tt></dd></dl>
 
 <hr>
