@@ -25,7 +25,7 @@
 
 \layout Chapter
 
-A tour of ipython
+A tour of IPython
 \layout Standard
 
 One of Python's most useful features is its interactive interpreter.
@@ -124,7 +124,10 @@ This document is not meant to replace the comprehensive IPython manual,
 .
  Instead, we will present here some relevant parts of it for everyday use,
  and refer readers to the full manual for in-depth details.
- The following article by Jeremy Jones provides an introductory tutorial
+ 
+\layout Standard
+
+Additionally, this article by Jeremy Jones provides an introductory tutorial
  about IPython:
 \newline 
 
@@ -136,6 +139,15 @@ This document is not meant to replace the comprehensive IPython manual,
 \layout Section
 
 Main IPython features
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Main features
+\end_inset 
+
+
 \layout Standard
 
 This section summarizes the most important user-visible features of IPython,
@@ -337,16 +349,330 @@ profile
 ') convenient for rapid interactive work.
 \layout Section
 
-Effective interactive work
+Effective interactive work 
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Interactive use
+\end_inset 
+
+
+\layout Standard
+
+IPython has been designed to try to make interactive work as fluid and efficient
+ as possible.
+ All of its features try to maximize the output-per-keystroke, so that as
+ you work at an interactive console, minimal typing produces results.
+ It makes extensive use of the readline library, has its own control system
+ (magics), caches previous inputs and outputs, has a macro system, etc.
+ Becoming familiar with these features, while not necessary for basic use,
+ will make long-term use of the system much more pleasant and productive.
 \layout Subsection
 
 Magic functions
+\layout Standard
+
+The default Python interactive shell only allows valid Python code to be
+ typed at its input prompt.
+ While this appears like a reasonable approach in principle, in practical
+ use it turns out to be rather limiting.
+ A good interactive environment should allow you to control the environment
+ itself, in hopefully the most typing-efficient way.
+ Verbosity in code is a good thing, since code is a long-lived entity, and
+ deciphering three-letter acronyms for variable names, 6 months after a
+ program was written, is typically an exercise in frustration.
+ 
+\layout Standard
+
+However at an interactive prompt, where every keystroke counts and things
+ are not meant to be permanent, compact and efficient control of your environmen
+t is an important feature.
+ The default Python shell does not offer this, and the Python language's
+ verbosity, which is an asset for the long-term readability of code, becomes
+ a bit of a liability in this context.
+\layout Standard
+
+For this reason, IPython offers a system of `magic' commands, which serve
+ to control IPython itself and perform a number of common tasks.
+ Users of IDL will be familiar with the `dot' commands, like 
+\family typewriter 
+.stop
+\family default 
+, which perform similar functions in that system.
+ In IPython, the magic system covers much more functionality and is fully
+ user-extensible.
+ This allows users to add all the control they may desire to their everyday
+ working environment.
+ 
+\layout Standard
+
+The magics system is patterned after the time-honored Unix shells, with
+ whitespace separating arguments, no parentheses required, and dashes for
+ specifying options to commands.
+ Many builtin magics also are named like the Unix commands they mimic, so
+ that an IPython environment can be used `out of the box' by any Unix user
+ with ease.
+\layout Standard
+
+IPython will treat any line whose first character is a 
+\family typewriter 
+%
+\family default 
+ as a special call to a magic function.
+ For example: typing 
+\family typewriter 
+`%cd mydir'
+\family default 
+ (without the quotes) changes you working directory to 
+\family typewriter 
+`mydir'
+\family default 
+, if it exists.
+ For any magic function, typing its name followed by 
+\family typewriter 
+?
+\family default 
+ will show you the magic's information and docstring, just like for other
+ regular Python objects.
+ Simply typing 
+\family typewriter 
+magic
+\family default 
+ at the prompt will print an overview of the system, and a list of all the
+ existing magics with their docstrings.
+\layout Standard
+
+If you have 'automagic' enabled, you don't need to type in the 
+\family typewriter 
+%
+\family default 
+ explicitly.
+ Automagic is enabled by default, and you can configure this in your 
+\family typewriter 
+ipythonrc
+\family default 
+ file, via the command line option 
+\family typewriter 
+-automagic 
+\family default 
+or even toggle it at runtime with the 
+\family typewriter 
+%automagic
+\family default 
+ function.
+ IPython will scan its internal list of magic functions and call one if
+ it exists.
+ With automagic on you can then just type `
+\family typewriter 
+cd mydir
+\family default 
+' to go to directory `
+\family typewriter 
+mydir
+\family default 
+'.
+ The automagic system has the lowest possible precedence in name searches,
+ so defining an identifier with the same name as an existing magic function
+ will shadow it for automagic use.
+ You can still access the shadowed magic function by explicitly using the
+ 
+\family typewriter 
+%
+\family default 
+ character at the beginning of the line.
+\layout Standard
+
+An example (with automagic on) should clarify all this:
+\layout LyX-Code
+
+In [1]: cd ipython 
+\emph on 
+\color blue
+# %cd is called by automagic
+\layout LyX-Code
+
+/home/fperez/ipython
+\layout LyX-Code
+
+In [2]: cd = 1 
+\emph on 
+\color blue
+# now cd is just a variable
+\layout LyX-Code
+
+In [3]: cd ..
+ 
+\emph on 
+\color blue
+# and doesn't work as a function anymore
+\layout LyX-Code
+
+------------------------------------------------------------
+\layout LyX-Code
+
+    File "<console>", line 1
+\layout LyX-Code
+
+      cd ..
+\layout LyX-Code
+
+          ^
+\layout LyX-Code
+
+SyntaxError: invalid syntax
+\layout LyX-Code
+
+\layout LyX-Code
+
+In [4]: %cd ..
+ 
+\emph on 
+\color blue
+# but %cd always works
+\layout LyX-Code
+
+/home/fperez
+\layout LyX-Code
+
+In [5]: del cd 
+\emph on 
+\color blue
+# if you remove the cd variable
+\layout LyX-Code
+
+In [6]: cd ipython 
+\emph on 
+\color blue
+# automagic can work again
+\layout LyX-Code
+
+/home/fperez/ipython
 \layout Subsection
 
 Object exploration
 \layout Standard
 
-The first screenshot in Fig.\SpecialChar ~
+Python is a language with exceptional introspection capabilities.
+ This means that, within the language itself, it is possible to extract
+ a remarkable amount of information about all objects currently in memory.
+ However the default Python shell exposes very little of this power in an
+ easy to use manner; IPython provides a lot of functionality to remedy this.
+\layout Standard
+
+The bulk of IPython's introspection system is accessible via only two keys:
+ the question mark 
+\family typewriter 
+?
+\family default 
+ and the 
+\family typewriter 
+<TAB>
+\family default 
+ key.
+ Under the hood, these two keys control a fairly complex set of libraries
+ which ultimately rely on the 
+\family typewriter 
+readline 
+\family default 
+and 
+\family typewriter 
+inspect
+\family default 
+ modules from the Python standard library.
+ But for regular use, you should never need to remember anything beyond
+ these two.
+ As an example, consider defining a variable named 
+\family typewriter 
+mylist
+\family default 
+, which starts as an empty list:
+\layout LyX-Code
+
+In [1]: mylist=[]
+\layout Standard
+
+now you can find out some things about it by using the question mark:
+\layout LyX-Code
+
+In [2]: mylist?
+\layout LyX-Code
+
+Type:           list
+\layout LyX-Code
+
+Base Class:     <type 'list'>
+\layout LyX-Code
+
+String Form:    []
+\layout LyX-Code
+
+Namespace:      Interactive
+\layout LyX-Code
+
+Length:         0
+\layout LyX-Code
+
+Docstring:
+\layout LyX-Code
+
+    list() -> new list
+\layout LyX-Code
+
+    list(sequence) -> new list initialized from sequence's items
+\layout Standard
+
+next, by adding a period (the standard Python attribute separator) and hitting
+ 
+\family typewriter 
+TAB
+\family default 
+, IPython will show you all the attributes which this object has:
+\layout LyX-Code
+
+In [3]: mylist.
+\emph on 
+\color blue
+<The TAB key was pressed here>
+\layout LyX-Code
+
+mylist.append   mylist.extend   mylist.insert   mylist.remove mylist.sort
+\layout LyX-Code
+
+mylist.count    mylist.index    mylist.pop      mylist.reverse
+\layout Standard
+
+you can then request further details about any of them:
+\layout LyX-Code
+
+In [3]: mylist.append?
+\layout LyX-Code
+
+Type:           builtin_function_or_method
+\layout LyX-Code
+
+Base Class:     <type 'builtin_function_or_method'>
+\layout LyX-Code
+
+String Form:    <built-in method append of list object at 0x403b2b6c>
+\layout LyX-Code
+
+Namespace:      Interactive
+\layout LyX-Code
+
+Docstring:
+\layout LyX-Code
+
+    L.append(object) -- append object to end
+\layout Standard
+
+The 
+\family typewriter 
+? 
+\family default 
+system can be doubled.
+ The first screenshot in Fig.\SpecialChar ~
 
 \begin_inset LatexCommand \ref{fig:ipscr_code}
 
@@ -361,7 +687,11 @@ In [1]: import code
 In [2]: code??
 \layout Standard
 
-It shows the source for the 
+Using 
+\family typewriter 
+??
+\family default 
+ shows the syntax-highlighted source for the 
 \family typewriter 
 code
 \family default 
@@ -377,8 +707,8 @@ inspect
  
 \layout Standard
 
-This can be done for entire modules, as in the example given, or for individual
- functions or even methods of object instances.
+This can be done for entire modules, as in the prvious example, for individual
+ functions, or even methods of object instances.
  The second screenshot in the same figure shows source for the 
 \family typewriter 
 timeit
@@ -408,11 +738,6 @@ The magic commands
 \family default 
  will respectively print the docstring, function definition line, full source
  code and the complete file for any object (when they can be found).
- If automagic is on (it is by default), you don't need to type the '
-\family typewriter 
-%
-\family default 
-' explicitly.
 \layout Standard
 
 
@@ -454,12 +779,11 @@ IPython can show syntax-highlighted source code for objects whose source
 
 \layout Subsection
 
-I/O prompts
+Input and Ouptut cached prompts
 \layout Standard
 
-Use the output cache.
- All output results are automatically stored in a global dictionary named
- 
+In IPython, all output results are automatically stored in a global dictionary
+ named 
 \family typewriter 
 Out
 \family default 
@@ -497,11 +821,58 @@ ___
  are always kept updated with the for the last three results.
  This allows you to recall any previous result and further use it for new
  calculations.
+ For example:
+\layout LyX-Code
+
+In [1]: 2+4
+\layout LyX-Code
+
+Out[1]: 6
+\layout LyX-Code
+
+\layout LyX-Code
+
+In [2]: _+9
+\layout LyX-Code
+
+Out[2]: 15
+\layout LyX-Code
+
+\layout LyX-Code
+
+In [3]: _+__
+\layout LyX-Code
+
+Out[3]: 21
+\layout LyX-Code
+
+\layout LyX-Code
+
+In [4]: print _1
+\layout LyX-Code
+
+6
+\layout LyX-Code
+
+\layout LyX-Code
+
+In [5]: print Out[1]
+\layout LyX-Code
+
+6
+\layout LyX-Code
+
+\layout LyX-Code
+
+In [6]: _2**3
+\layout LyX-Code
+
+Out[6]: 3375
 \layout Standard
 
-Put a '
+You can put a 
 \family typewriter 
-;
+`;
 \family default 
 ' at the end of a line to supress the printing of output.
  This is useful when doing calculations which generate long output you are
@@ -510,7 +881,7 @@ Put a '
 \family typewriter 
 _*
 \family default 
- variables ant the 
+ variables and the 
 \family typewriter 
 Out[]
 \family default 
@@ -529,17 +900,10 @@ In
 'exec In[22:29]+In[34]'
 \family default 
  (using Python slicing notation).
- If you need to execute the same set of lines often, you can assign them
- to a macro with the 
-\family typewriter 
-%macro
-\family default 
  
-\family typewriter 
-function.
 \layout Standard
 
-Use your input history.
+At any time, your input history remains available.
  The 
 \family typewriter 
 %hist
@@ -557,6 +921,150 @@ Use your input history.
 \family default 
 ; these logs can later be either reloaded as IPython sessions or used as
  code for your programs.
+\layout Standard
+
+If you need to execute the same set of lines often, you can assign them
+ to a macro with the 
+\family typewriter 
+%macro 
+\family default 
+magic function.
+ Macros are simply short names for groups of input lines, which can be re-execut
+ed by only typing that name.
+ Typing 
+\family typewriter 
+macro?
+\family default 
+ at the prompt will show you the function's full documentation.
+ For example, if your history contains:
+\layout LyX-Code
+
+44: x=1
+\layout LyX-Code
+
+45: y=3
+\layout LyX-Code
+
+46: z=x+y
+\layout LyX-Code
+
+47: print x
+\layout LyX-Code
+
+48: a=5
+\layout LyX-Code
+
+49: print 'x',x,'y',y
+\layout Standard
+
+You can create a macro with lines 44 through 47 (included) and line 49 called
+ 
+\family typewriter 
+my_macro
+\family default 
+ with:
+\layout LyX-Code
+
+In [51]: %macro my_macro 44:48 49
+\layout Standard
+
+Now, simply typing 
+\family typewriter 
+my_macro
+\family default 
+ will re-execute all this code in one pass.
+ The number range follows standard Python list slicing notation, where
+\family typewriter 
+ n:m
+\family default 
+ means the numbers 
+\begin_inset Formula $(n,n+1,\ldots,m-1).$
+\end_inset 
+
+
+\layout Standard
+
+You should note that macros execute in the current context, so if any variable
+ changes, the macro will pick up the new value every time it is executed:
+\layout LyX-Code
+
+In [1]: x=1
+\layout LyX-Code
+
+In [2]: y=x*5
+\layout LyX-Code
+
+In [3]: z=x+3
+\layout LyX-Code
+
+In [4]: print 'y is:',y,'and z is:',z
+\layout LyX-Code
+
+y is: 5 and z is: 4
+\layout LyX-Code
+
+
+\emph on 
+\color blue
+# make a macro with lines 2,3,4 (note Python list slice syntax):
+\layout LyX-Code
+
+In [5]: macro yz 2:5
+\layout LyX-Code
+
+Macro `yz` created.
+ To execute, type its name (without quotes).
+\layout LyX-Code
+
+Macro contents:
+\layout LyX-Code
+
+y=x*5
+\layout LyX-Code
+
+z=x+3
+\layout LyX-Code
+
+print 'y is:',y,'and z is:',z
+\layout LyX-Code
+
+
+\emph on 
+\color blue
+# now, run the macro directly:
+\layout LyX-Code
+
+In [6]: yz
+\layout LyX-Code
+
+Out[6]: Executing Macro...
+\layout LyX-Code
+
+y is: 5 and z is: 4
+\layout LyX-Code
+
+
+\emph on 
+\color blue
+# we change the value of x
+\layout LyX-Code
+
+In [7]: x=9
+\layout LyX-Code
+
+
+\emph on 
+\color blue
+# and now if we rerun the macro, we get the new values:
+\layout LyX-Code
+
+In [8]: yz
+\layout LyX-Code
+
+Out[8]: Executing Macro...
+\layout LyX-Code
+
+y is: 45 and z is: 12
 \layout Subsection
 
 Running code
@@ -568,8 +1076,17 @@ The
 \family default 
  magic command allows you to run any python script and load all of its data
  directly into the interactive namespace.
- Since the file is re-read from disk each time, changes you make to it are
- reflected immediately (in contrast to the behavior of 
+ 
+\family typewriter 
+%run 
+\family default 
+is a sophisticated wrapper around the Python 
+\family typewriter 
+execfile()
+\family default 
+ builtin function; since the file is re-read from disk each time, changes
+ you make to it are reflected immediately (in contrast to the behavior of
+ 
 \family typewriter 
 import
 \family default 
@@ -613,17 +1130,20 @@ debugger (
 \family default 
  can be used as the main tool for efficient interactive development of code
  which you write in your editor of choice.
-\layout Standard
-
-dreload...
- a recursive reload command.
 \layout Subsection
 
 Access to the underlying Operating System
 \layout Standard
 
-Lines starting with ! are passed directly to the system shell, and using
- !! captures shell output into python variables for further use.
+Lines starting with 
+\family typewriter 
+!
+\family default 
+ are passed directly to the system shell, and using 
+\family typewriter 
+!!
+\family default 
+ captures shell output into python variables for further use.
 \layout Standard
 
 Define your own system aliases.
@@ -691,19 +1211,10 @@ $
  You can also expand complete python expressions.
 \layout Subsection
 
-More
-\layout Itemize
+Access to an editor
+\layout Standard
 
-Define your own macros with 
-\family typewriter 
-%macro
-\family default 
-.
- This can be useful for automating sequences of expressions when working
- interactively.
-\layout Itemize
-
-Use 
+You can use 
 \family typewriter 
 %edit
 \family default 
@@ -711,6 +1222,46 @@ Use
  While IPython doesn't support true multiline editing, this command allows
  you to call an editor on the spot, and IPython will execute the code you
  type in there as if it were typed interactively.
+ 
+\layout Standard
+
+
+\family typewriter 
+%edit
+\family default 
+ runs your IPython configured editor.
+ By default this is read from your environment variable 
+\family typewriter 
+$EDITOR
+\family default 
+.
+ If this isn't found, it will default to 
+\family typewriter 
+vi
+\family default 
+ under Linux/Unix and to 
+\family typewriter 
+notepad
+\family default 
+ under Windows.
+ 
+\layout Standard
+
+You can also set the value of this editor via the command-line option '-editor'
+ or in your ipythonrc file.
+ This is useful if you wish to use specifically for IPython an editor different
+ from your typical default (and for Windows users who typically don't set
+ environment variables).
+\layout Standard
+
+This command allows you to conveniently edit multi-line code right in your
+ IPython session.
+\layout Standard
+
+If called without arguments, %edit opens up an empty editor with a temporary
+ file and will execute the contents of this file when you close it (don't
+ forget to save it!).
+ 
 \layout Section
 
 Customizing IPython
@@ -737,6 +1288,15 @@ Use profiles to maintain different configurations (modules to load, function
 \layout Section
 
 Debugging and profiling with IPython 
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Debugging and profiling
+\end_inset 
+
+
 \layout Standard
 
 The Python debugger.
@@ -800,6 +1360,15 @@ profile
 \layout Section
 
 Embedding IPython into your programs 
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Embedding
+\end_inset 
+
+
 \layout Standard
 
 A few lines of code are enough to load a complete IPython inside your own
@@ -815,6 +1384,15 @@ You can call IPython as a python shell inside your own python programs.
 \layout Section
 
 Integration with Matplotlib
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Matplotlib
+\end_inset 
+
+
 \layout Standard
 
 The matplotlib library (
