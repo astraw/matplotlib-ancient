@@ -27,6 +27,7 @@ The <a href=matplotlib.matlab.html#-imread>imread</a> function is used
 to load PNGs into arrays.  I'd like to add more image loaders and
 savers down the road."""),
 
+
     ('New event handling',  """\
 The functions mpl_connect and mpl_disconnect are used for backend
 independent event handling.  The callback signature is <tt>func(event)</tt>.
@@ -53,6 +54,18 @@ figures (multiple subplots, images, etc..)  now leak no more than
 Vertical mathtext in backend_agg (ylabels now work properly!).
 mathtext with arbitrary rotations in PS.  Thanks Jim Benson and Paul
 Barrett!"""),
+
+    ('local rc files', """\
+You can put a .matplotlibrc file in a dir to override the one in your
+HOME dir.  If you have a project, say a book, and you want to make a
+bunch of images with the same look and feel for the book, you can
+place a custom rc file in the code dir for that book and this won't
+affect the configs you use for normal, interactive use."""), 
+
+    ('Installing', """\
+Updated installing instructions at <a
+href=installing.html>installing</a> (see also INSTALL in src distro).
+Fixed a tk/osx install problem in setupext.py</a>"""),
 
     ('bug fixes', """\
 Numerous bug fixes and minor enhancements detailed at
