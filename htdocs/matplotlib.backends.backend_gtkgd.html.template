@@ -12,7 +12,11 @@ image&nbsp;rendering.<br>
 &nbsp;<br>
 In&nbsp;real&nbsp;production&nbsp;code&nbsp;the&nbsp;image&nbsp;copy&nbsp;step&nbsp;gd-&gt;gtk&nbsp;will&nbsp;have&nbsp;to&nbsp;be<br>
 done&nbsp;in&nbsp;C&nbsp;since&nbsp;it's&nbsp;god&nbsp;awful&nbsp;slow,&nbsp;but&nbsp;this&nbsp;is&nbsp;just&nbsp;a&nbsp;test&nbsp;of&nbsp;the<br>
-new&nbsp;backend&nbsp;setup.</tt></p>
+new&nbsp;backend&nbsp;setup.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;backend_gtkgd&nbsp;does&nbsp;not&nbsp;define&nbsp;or&nbsp;import&nbsp;the&nbsp;Renderer&nbsp;or<br>
+GraphicsContext.&nbsp;&nbsp;It&nbsp;doesn't&nbsp;need&nbsp;one&nbsp;since&nbsp;all&nbsp;the&nbsp;drawing&nbsp;is&nbsp;done&nbsp;by<br>
+the&nbsp;gd&nbsp;backend.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -95,7 +99,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135922264)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135924616)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -445,7 +449,7 @@ figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected
 <td width="100%"><strong>False</strong> = False<br>
 <strong>PIXELS_PER_INCH</strong> = 75<br>
 <strong>True</strong> = True<br>
-<strong>__warningregistry__</strong> = {('Python C API version mismatch for module _gtkgd:...API version 1012, module _gtkgd has version 1011.', &lt;class exceptions.RuntimeWarning&gt;, 24): 1}<br>
+<strong>__warningregistry__</strong> = {('Python C API version mismatch for module _gtkgd:...API version 1012, module _gtkgd has version 1011.', &lt;class exceptions.RuntimeWarning&gt;, 28): 1}<br>
 <strong>colorManager</strong> = &lt;matplotlib.backends.backend_gtk.ColorManagerGTK instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
 @footer@

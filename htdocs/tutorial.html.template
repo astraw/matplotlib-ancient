@@ -11,10 +11,14 @@ font_props = (
 )
 
  
-@header@ <h2>Using matplotlib</h2> Using matplotlib should come
-naturally if you have ever plotted with matlab.  The basic entity is a
-figure, which contains axes, which contain plots.  The axes are
-decorated with xlabels, ylabels, titles, ticklabels, and text.<p>
+@header@ 
+
+<h2>Using matplotlib</h2> 
+
+Using matplotlib should come naturally if you have ever plotted with
+matlab.  The basic entity is a figure, which contains axes, which
+contain plots.  The axes are decorated with xlabels, ylabels, titles,
+ticklabels, and text.<p>
 
 Here is about the simplest script you can use to create a figure with
 matplotlib<p>
