@@ -2,22 +2,22 @@
 # lambert conformal conic map projection, drawing coastlines, state and
 # country boundaries, and parallels/meridians.
 
-from basemap import *
+from matplotlib.toolkits.basemap import Basemap, interp
 from pylab import *
 import cPickle
 
 # read in topo data from pickle (on a regular lat/lon grid)
 # longitudes go from 20 to 380.
-topodict = cPickle.load(open('data/etopo20.pickle','rb'))
+topodict = cPickle.load(open('etopo20.pickle','rb'))
 topoin = topodict['data']; lons = topodict['lons']; lats = topodict['lats']
 
 # setup of basemap ('lcc' = lambert conformal conic).
 m = Basemap(-145.5,1.,-2.566,46.352,\
-              resolution='c',area_thresh=10000.,projection='lcc',\
-              lat_1=50.,lon_0=-107.)
+            resolution='c',area_thresh=10000.,projection='lcc',\
+            lat_1=50.,lon_0=-107.)
 # define grid (nx x ny regularly spaced native projection grid)
 nx = int((m.xmax-m.xmin)/40000.)+1; ny = int((m.ymax-m.ymin)/40000.)+1
-lonsout, latsout = m.projtran.makegrid(nx,ny)
+lonsout, latsout = m.makegrid(nx,ny)
 topodat = interp(topoin,lons,lats,lonsout,latsout)
 xsize = rcParams['figure.figsize'][0]
 fig=figure(figsize=(xsize,m.aspect*xsize))
@@ -34,12 +34,12 @@ m.drawstates(ax)
 #m.fillcontinents(ax)
 # draw parallels
 delat = 20.
-parallels = N.arange(0.,90.+delat,delat).tolist()+\
-          N.arange(-delat,-90.-delat,-delat).tolist()
+parallels = arange(0.,90.+delat,delat).tolist()+\
+          arange(-delat,-90.-delat,-delat).tolist()
 m.drawparallels(ax,parallels)
 # draw meridians
 delon = 30.
-meridians = N.arange(0.,360.,delon)
+meridians = arange(0.,360.,delon)
 m.drawmeridians(ax,meridians)
 ax.set_xticks([]) # no ticks
 ax.set_yticks([])

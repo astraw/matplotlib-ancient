@@ -37,6 +37,7 @@ modules = (
     'matplotlib.table',
     'matplotlib.text',
     'matplotlib.ticker',
+    'matplotlib.toolkits.basemap.basemap',
     'matplotlib.transforms' )
 
 

@@ -199,6 +199,7 @@ table2 =  LinkBox(header='Documentation', links=(
     ('pylab&nbsp;interface', 'pylab_commands.html'),
     ('Class&nbsp;library', 'classdocs.html'),
     ('Backends', 'backends.html'),
+    ('Toolkits', 'toolkits.html'),
     ('Fonts', 'fonts.html'),
     ('Interactive', 'interactive.html'),
     ('Goals', 'goals.html'),
@@ -234,6 +235,7 @@ docs = [modname + '.html.template' for modname in modules]
 files = [
     'backends.html.template',
     'classdocs.html.template',
+    'toolkits.html.template',
     'credits.html.template',
     'faq.html.template',
     'fonts.html.template',

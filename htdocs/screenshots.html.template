@@ -63,9 +63,9 @@ illustrate plotting techniques, not market analysis!""", 1),
 ('plotmap', """Jeff Whitaker provided this example showing how to
 efficiently plot a collection of lines over a colormap image using the
 <a
-href=http://www.cdc.noaa.gov/people/jeffrey.s.whitaker/python/basemap>basemap
-matplotlib toolkit</a>.  Many map projections are handled via the proj
-command line tool: cylindrical equidistant, mercator, lambert
+href=toolkits.html>basemap
+matplotlib toolkit</a> (available from the <a href="http://sourceforge.net/projects/matplotlib">download</a> page).  Many map projections are handled via the proj4
+library: cylindrical equidistant, mercator, lambert
 conformal conic, lambert azimuthal equal area, albers equal area conic
 and stereographic.  """, 1),
 
