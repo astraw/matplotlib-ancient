@@ -350,7 +350,29 @@ Shading:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(C,&nbsp;shading='flat')&nbsp;&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C,&nbsp;shading='faceted')<br>
 &nbsp;<br>
-returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects</tt></dd></dl>
+returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects<br>
+&nbsp;<br>
+Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit<br>
+counterintuitive&nbsp;for&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
+&nbsp;<br>
+&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
+&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
+&nbsp;<br>
+&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
+&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
+&nbsp;<br>
+will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
+happy&nbsp;with<br>
+&nbsp;<br>
+&nbsp;<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
+&nbsp;<br>
+Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
+&nbsp;<br>
+&nbsp;<a href="#Axes-pcolor">pcolor</a>(transpose(Z))<br>
+&nbsp;<br>
+will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
+and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 
 <dl><dt><a name="Axes-plot"><strong>plot</strong></a>(self, *args)</dt><dd><tt>Emulate&nbsp;matlab's&nbsp;plot&nbsp;command.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
 argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional<br>
@@ -946,7 +968,29 @@ Shading:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(C,&nbsp;shading='flat')&nbsp;&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C,&nbsp;shading='faceted')<br>
 &nbsp;<br>
-returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects</tt></dd></dl>
+returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects<br>
+&nbsp;<br>
+Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit<br>
+counterintuitive&nbsp;for&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
+&nbsp;<br>
+&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
+&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
+&nbsp;<br>
+&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
+&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
+&nbsp;<br>
+will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
+happy&nbsp;with<br>
+&nbsp;<br>
+&nbsp;<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
+&nbsp;<br>
+Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
+&nbsp;<br>
+&nbsp;<a href="#Subplot-pcolor">pcolor</a>(transpose(Z))<br>
+&nbsp;<br>
+will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
+and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 
 <dl><dt><a name="Subplot-plot"><strong>plot</strong></a>(self, *args)</dt><dd><tt>Emulate&nbsp;matlab's&nbsp;plot&nbsp;command.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
 argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional<br>

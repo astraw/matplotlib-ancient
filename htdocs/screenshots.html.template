@@ -56,24 +56,25 @@ and the default color is red, but you can override the defaults, as in
 the function label in the axes.  See <a
 href=matlab.html#-text>text</a> for more information.  This example
 uses a python dictionary to control text themes, but you can also use
-matlab handle graphics calls.  See the examples file
-examples/text_handles.py in the src distribution for a handle graphics
-demo.""", 1),
+matlab handle graphics calls.  See the examples file <a
+href=examples/text_handles.py>text_handles.py</a> in the src
+distribution for a handle graphics demo.""", 1),
 
 ('axes_demo', 
 """Arbitrary placement of axes is possible with the <a
 href=matlab.html#-axes>axes</a> command.  Here, two inset axes are
 placed over a <a href=matplotlib.matlab.html#-subplot>subplot</a>.""", 1), 
 
-('eeg', """ You can embed matplotlib into a pygtk application.  The <a
-href=matplotlib.backends.backend_gtk.html#FigureGTK>FigureGTK</a>
-class is derived from <a
-href=http://www.gnome.org/~james/pygtk-docs/class-gtkdrawingarea.html>gtk.DrawingArea</a>.
-Here is a screenshot of an eeg viewer written in pygtk using
-matplotlib.  The code demo linked above is a much simpler example of
-embedding matplotlib in pygtk.  For an example of how to use the
-navigation toolbar in your applications, see
-examples/embedding_in_gtk2.py in the src distribution.""", 0),
+('eeg', """ You can embed matplotlib into a pygtk or wxpython
+application.  Here is a screenshot of an eeg viewer written in pygtk
+using matplotlib.  The code demo linked above is a much simpler
+example of embedding matplotlib in pygtk.  For an example of how to
+use the navigation toolbar in your applications, see <a
+href=examples/embedding_in_gtk2.py>embedding_in_gtk2.py</a>.  If you
+want to use matplotlib in a wx application, see <a
+href=examples/embedding_in_wx.py>embedding_in_wx.py</a>.  If you want
+to work with <a href=http://glade.gnome.org>glade</a>, see <a
+href=examples/mpl_with_glade.py>mpl_with_glade.py</a> """, 0),
 
 )
 

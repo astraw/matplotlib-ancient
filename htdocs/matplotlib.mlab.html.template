@@ -222,9 +222,9 @@ assuming&nbsp;x&nbsp;is&nbsp;a&nbsp;vector&nbsp;of&nbsp;zeros&nbsp;and&nbsp;ones
 &nbsp;<br>
 If&nbsp;there&nbsp;are&nbsp;two&nbsp;equally&nbsp;long&nbsp;stretches,&nbsp;pick&nbsp;the&nbsp;first</tt></dd></dl>
  <dl><dt><a name="-mean"><strong>mean</strong></a>(x, dim<font color="#909090">=None</font>)</dt></dl>
- <dl><dt><a name="-meshgrid"><strong>meshgrid</strong></a>(x, y)</dt><dd><tt>For&nbsp;vectors&nbsp;x,&nbsp;y&nbsp;with&nbsp;lengths&nbsp;Nx=len(x)&nbsp;and&nbsp;Ny=len(y),&nbsp;return&nbsp;X=Nx<br>
-x&nbsp;Ny&nbsp;and&nbsp;Y=Nx&nbsp;x&nbsp;Ny&nbsp;matrices&nbsp;with&nbsp;the&nbsp;elements&nbsp;of&nbsp;x&nbsp;and&nbsp;y&nbsp;repeated<br>
-to&nbsp;fill&nbsp;the&nbsp;matrix<br>
+ <dl><dt><a name="-meshgrid"><strong>meshgrid</strong></a>(x, y)</dt><dd><tt>For&nbsp;vectors&nbsp;x,&nbsp;y&nbsp;with&nbsp;lengths&nbsp;Nx=len(x)&nbsp;and&nbsp;Ny=len(y),&nbsp;return&nbsp;X,&nbsp;Y<br>
+where&nbsp;X&nbsp;and&nbsp;Y&nbsp;are&nbsp;(Ny,&nbsp;Nx)&nbsp;shaped&nbsp;arrays&nbsp;with&nbsp;the&nbsp;elements&nbsp;of&nbsp;x<br>
+and&nbsp;y&nbsp;repeated&nbsp;to&nbsp;fill&nbsp;the&nbsp;matrix<br>
 &nbsp;<br>
 EG,<br>
 &nbsp;<br>

@@ -5,72 +5,7 @@
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_wx</strong></big></big></font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/backends/backend_wx.py">/matplotlib/backends/backend_wx.py</a></font></td></tr></table>
-    <p><tt>KNOWN&nbsp;BUGS&nbsp;-<br>
-&nbsp;<br>
-&nbsp;-&nbsp;Have&nbsp;succeeded&nbsp;in&nbsp;making&nbsp;the&nbsp;mousewheel&nbsp;not&nbsp;work&nbsp;at&nbsp;all&nbsp;again&nbsp;-&nbsp;I<br>
-&nbsp;&nbsp;&nbsp;need&nbsp;to&nbsp;find&nbsp;a&nbsp;way&nbsp;to&nbsp;make&nbsp;this&nbsp;work&nbsp;on&nbsp;both&nbsp;Windows&nbsp;and&nbsp;Linux<br>
-&nbsp;&nbsp;&nbsp;(there&nbsp;are&nbsp;some&nbsp;small&nbsp;wxWindows&nbsp;implementation&nbsp;differences)<br>
-&nbsp;-&nbsp;Under&nbsp;Windows&nbsp;2000,&nbsp;the&nbsp;<a href="#Figure">Figure</a>&nbsp;window&nbsp;is&nbsp;larger&nbsp;than&nbsp;the&nbsp;figure<br>
-&nbsp;&nbsp;&nbsp;(OK&nbsp;on&nbsp;Linux,&nbsp;however)<br>
-&nbsp;-&nbsp;we&nbsp;need&nbsp;to&nbsp;come&nbsp;up&nbsp;with&nbsp;a&nbsp;way&nbsp;of&nbsp;standardizing&nbsp;font&nbsp;names&nbsp;between<br>
-&nbsp;&nbsp;&nbsp;backends.&nbsp;&nbsp;I've&nbsp;thought&nbsp;about&nbsp;this&nbsp;but&nbsp;don't&nbsp;have&nbsp;a&nbsp;good&nbsp;solution.<br>
-&nbsp;-&nbsp;Vertical&nbsp;text&nbsp;renders&nbsp;horizontally&nbsp;if&nbsp;you&nbsp;use&nbsp;a&nbsp;non&nbsp;TrueType&nbsp;font<br>
-&nbsp;&nbsp;&nbsp;on&nbsp;Windows.&nbsp;This&nbsp;is&nbsp;a&nbsp;known&nbsp;wxPython&nbsp;issue.&nbsp;Work-around&nbsp;is&nbsp;to&nbsp;ensure<br>
-&nbsp;&nbsp;&nbsp;that&nbsp;you&nbsp;use&nbsp;a&nbsp;TrueType&nbsp;font.<br>
-&nbsp;-&nbsp;Pcolor&nbsp;demo&nbsp;puts&nbsp;chart&nbsp;slightly&nbsp;outside&nbsp;bounding&nbsp;box&nbsp;(approx&nbsp;1-2&nbsp;pixels<br>
-&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;bottom&nbsp;left)<br>
-&nbsp;-&nbsp;<a href="#AxisTextWx">AxisTextWx</a>&nbsp;does&nbsp;not&nbsp;support&nbsp;resize()&nbsp;method&nbsp;-&nbsp;see&nbsp;figtext.py<br>
-&nbsp;<br>
-Not&nbsp;implemented:<br>
-&nbsp;<br>
-&nbsp;-&nbsp;Printing<br>
-&nbsp;<br>
-Fixed&nbsp;this&nbsp;release:<br>
-&nbsp;<br>
-&nbsp;-&nbsp;Implemented&nbsp;change&nbsp;to&nbsp;specification&nbsp;of&nbsp;dotted&nbsp;lines&nbsp;-&nbsp;now&nbsp;cleaner<br>
-&nbsp;&nbsp;&nbsp;after&nbsp;JDH&nbsp;backend&nbsp;update&nbsp;[Fixed&nbsp;-&nbsp;JOD]<br>
-&nbsp;-&nbsp;Size&nbsp;of&nbsp;figure&nbsp;under&nbsp;wx&nbsp;is&nbsp;mauch&nbsp;larger&nbsp;than&nbsp;under&nbsp;GTK.[Fixed&nbsp;-&nbsp;JOD]<br>
-&nbsp;-&nbsp;logo.py&nbsp;example&nbsp;now&nbsp;works&nbsp;correctly&nbsp;[Fixed&nbsp;-&nbsp;front-end&nbsp;improvement]<br>
-&nbsp;<br>
-&nbsp;<br>
-Examples&nbsp;which&nbsp;work&nbsp;on&nbsp;this&nbsp;release:<br>
-&nbsp;---------------------------------------------------------------<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Windows&nbsp;2000&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;Linux&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;wxPython&nbsp;2.3.3&nbsp;&nbsp;|&nbsp;&nbsp;wxPython&nbsp;2.4.2.4&nbsp;|<br>
-&nbsp;--------------------------------------------------------------|<br>
-&nbsp;-&nbsp;arctest.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;axes_demo.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;color_demo.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;dynamic_demo.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;embedding_in_gtk.py&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;embedding_in_wx.py&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TBC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;errorbar_demo.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;figtext.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;FAIL&nbsp;(5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;FAIL&nbsp;(5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;histogram_demo.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;interactive.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;interactive2.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;legend_demo.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;line_styles.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;log_demo.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;logo.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;mpl_with_glade.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;mri_demo.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;mri_demo_with_eeg.py&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;multiple_figs_demo.py&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;pcolor_demo.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;scatter_demo.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;simple_plot.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;stock_demo.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;subplot_demo.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK<br>
-&nbsp;-&nbsp;system_monitor.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A&nbsp;(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;text_handles.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;text_themes.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;-&nbsp;vline_demo.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
-&nbsp;---------------------------------------------------------------<br>
-&nbsp;<br>
-&nbsp;(2)&nbsp;-&nbsp;Script&nbsp;uses&nbsp;GTK-specific&nbsp;features&nbsp;-&nbsp;cannot&nbsp;not&nbsp;run,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;wxPython&nbsp;equivalent&nbsp;should&nbsp;be&nbsp;written.<br>
-&nbsp;(5)&nbsp;-&nbsp;<a href="#Figure">Figure</a>&nbsp;title&nbsp;is&nbsp;not&nbsp;redrawn&nbsp;correctly.</tt></p>
+    <p></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -133,12 +68,13 @@ Examples&nbsp;which&nbsp;work&nbsp;on&nbsp;this&nbsp;release:<br>
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#FigureManagerWx">FigureManagerWx</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#FigureManagerWx">FigureManagerWx</a>
 </font></dt></dl>
 </dd>
 <dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#GraphicsContextWx">GraphicsContextWx</a>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#GraphicsContextWx">GraphicsContextWx</a>(<a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>, <a href="wxPython.gdi.html#wxMemoryDC">wxPython.gdi.wxMemoryDC</a>)
 </font></dt></dl>
 </dd>
 <dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>
@@ -158,6 +94,12 @@ Examples&nbsp;which&nbsp;work&nbsp;on&nbsp;this&nbsp;release:<br>
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#FigureFrameWx">FigureFrameWx</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="wxPython.gdi.html#wxMemoryDC">wxPython.gdi.wxMemoryDC</a>(<a href="wxPython.gdi.html#wxMemoryDCPtr">wxPython.gdi.wxMemoryDCPtr</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#GraphicsContextWx">GraphicsContextWx</a>(<a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>, <a href="wxPython.gdi.html#wxMemoryDC">wxPython.gdi.wxMemoryDC</a>)
 </font></dt></dl>
 </dd>
 <dt><font face="helvetica, arial"><a href="wxPython.windows.html#wxPanel">wxPython.windows.wxPanel</a>(<a href="wxPython.windows.html#wxPanelPtr">wxPython.windows.wxPanelPtr</a>)
@@ -197,7 +139,7 @@ Examples&nbsp;which&nbsp;work&nbsp;on&nbsp;this&nbsp;release:<br>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="AxisTextWx-__init__"><strong>__init__</strong></a>(self, dpi, bbox, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, text<font color="#909090">=''</font>, color<font color="#909090">='k'</font>, verticalalignment<font color="#909090">='bottom'</font>, horizontalalignment<font color="#909090">='left'</font>, fontname<font color="#909090">='Sans'</font>, fontsize<font color="#909090">=10</font>, fontweight<font color="#909090">='normal'</font>, fontangle<font color="#909090">='normal'</font>, rotation<font color="#909090">=None</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt></dl>
+<dl><dt><a name="AxisTextWx-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
 
 <dl><dt><a name="AxisTextWx-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;ink&nbsp;extent&nbsp;of&nbsp;the&nbsp;text&nbsp;as&nbsp;(left,&nbsp;bottom,&nbsp;width,&nbsp;height)</tt></dd></dl>
 
@@ -304,7 +246,7 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="AxisTextWx-__init__"><strong>__init__</strong></a>(self, dpi, bbox, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, text<font color="#909090">=''</font>, color<font color="#909090">='k'</font>, verticalalignment<font color="#909090">='bottom'</font>, horizontalalignment<font color="#909090">='left'</font>, fontname<font color="#909090">='Sans'</font>, fontsize<font color="#909090">=10</font>, fontweight<font color="#909090">='normal'</font>, fontangle<font color="#909090">='normal'</font>, rotation<font color="#909090">=None</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt></dl>
+<dl><dt><a name="AxisTextWx-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
 
 <dl><dt><a name="AxisTextWx-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;ink&nbsp;extent&nbsp;of&nbsp;the&nbsp;text&nbsp;as&nbsp;(left,&nbsp;bottom,&nbsp;width,&nbsp;height)</tt></dd></dl>
 
@@ -430,10 +372,10 @@ Methods defined here:<br>
 
 <dl><dt><a name="FigureWx-add_axis"><strong>add_axis</strong></a>(self, a)</dt><dd><tt>Add&nbsp;an&nbsp;instance&nbsp;of&nbsp;Axis&nbsp;to&nbsp;the&nbsp;figure.</tt></dd></dl>
 
-<dl><dt><a name="FigureWx-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, isPaint<font color="#909090">=False</font>, *args, **kwargs)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;using&nbsp;<a href="#RendererWx">RendererWx</a>&nbsp;instance&nbsp;drawable,&nbsp;or&nbsp;using&nbsp;a<br>
+<dl><dt><a name="FigureWx-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;using&nbsp;<a href="#RendererWx">RendererWx</a>&nbsp;instance&nbsp;drawable,&nbsp;or&nbsp;using&nbsp;a<br>
 previously&nbsp;defined&nbsp;drawable&nbsp;if&nbsp;none&nbsp;is&nbsp;specified.</tt></dd></dl>
 
-<dl><dt><a name="FigureWx-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=300</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy&nbsp;using&nbsp;self.<strong>drawable</strong>&nbsp;as&nbsp;the<br>
+<dl><dt><a name="FigureWx-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy&nbsp;using&nbsp;self.<strong>drawable</strong>&nbsp;as&nbsp;the<br>
 renderer&nbsp;if&nbsp;necessary</tt></dd></dl>
 
 <dl><dt><a name="FigureWx-realize"><strong>realize</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;will&nbsp;be&nbsp;called&nbsp;when&nbsp;the&nbsp;system&nbsp;is&nbsp;ready&nbsp;to&nbsp;draw,<br>
@@ -1270,6 +1212,35 @@ Methods inherited from <a href="wxPython.misc.html#wxObjectPtr">wxPython.misc.wx
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>FigureManager</strong> = <a name="FigureManager">class FigureManagerWx</a>(<a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;class&nbsp;manages&nbsp;the&nbsp;axes&nbsp;and&nbsp;subplots&nbsp;within&nbsp;a&nbsp;single&nbsp;figure.<br>
+&nbsp;<br>
+It&nbsp;is&nbsp;instantiated&nbsp;by&nbsp;GcfWx&nbsp;whenever&nbsp;a&nbsp;new&nbsp;figure&nbsp;is&nbsp;created.&nbsp;GcfWx&nbsp;is<br>
+responsible&nbsp;for&nbsp;managing&nbsp;multiple&nbsp;instances&nbsp;of&nbsp;<a href="#FigureManagerWx">FigureManagerWx</a>.<br>
+&nbsp;<br>
+NB:&nbsp;<a href="matplotlib.backend_bases.html#FigureManagerBase">FigureManagerBase</a>&nbsp;is&nbsp;found&nbsp;in&nbsp;_matlab_helpers<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="FigureManagerWx-__init__"><strong>__init__</strong></a>(self, figure, num, frame)</dt></dl>
+
+<dl><dt><a name="FigureManagerWx-add_axes"><strong>add_axes</strong></a>(self, rect, axisbg)</dt></dl>
+
+<dl><dt><a name="FigureManagerWx-add_subplot"><strong>add_subplot</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="FigureManagerWx-set_current_axes"><strong>set_current_axes</strong></a>(self, a)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>:<br>
+<dl><dt><a name="FigureManagerWx-destroy"><strong>destroy</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureManagerWx-get_current_axis"><strong>get_current_axis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="FigureManagerWx">class <strong>FigureManagerWx</strong></a>(<a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
@@ -1330,10 +1301,10 @@ Methods defined here:<br>
 
 <dl><dt><a name="FigureWx-add_axis"><strong>add_axis</strong></a>(self, a)</dt><dd><tt>Add&nbsp;an&nbsp;instance&nbsp;of&nbsp;Axis&nbsp;to&nbsp;the&nbsp;figure.</tt></dd></dl>
 
-<dl><dt><a name="FigureWx-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, isPaint<font color="#909090">=False</font>, *args, **kwargs)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;using&nbsp;<a href="#RendererWx">RendererWx</a>&nbsp;instance&nbsp;drawable,&nbsp;or&nbsp;using&nbsp;a<br>
+<dl><dt><a name="FigureWx-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;using&nbsp;<a href="#RendererWx">RendererWx</a>&nbsp;instance&nbsp;drawable,&nbsp;or&nbsp;using&nbsp;a<br>
 previously&nbsp;defined&nbsp;drawable&nbsp;if&nbsp;none&nbsp;is&nbsp;specified.</tt></dd></dl>
 
-<dl><dt><a name="FigureWx-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=300</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy&nbsp;using&nbsp;self.<strong>drawable</strong>&nbsp;as&nbsp;the<br>
+<dl><dt><a name="FigureWx-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy&nbsp;using&nbsp;self.<strong>drawable</strong>&nbsp;as&nbsp;the<br>
 renderer&nbsp;if&nbsp;necessary</tt></dd></dl>
 
 <dl><dt><a name="FigureWx-realize"><strong>realize</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;will&nbsp;be&nbsp;called&nbsp;when&nbsp;the&nbsp;system&nbsp;is&nbsp;ready&nbsp;to&nbsp;draw,<br>
@@ -1720,7 +1691,7 @@ Methods inherited from <a href="wxPython.misc.html#wxObjectPtr">wxPython.misc.wx
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="GraphicsContextWx">class <strong>GraphicsContextWx</strong></a>(<a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="GraphicsContextWx">class <strong>GraphicsContextWx</strong></a>(<a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>, <a href="wxPython.gdi.html#wxMemoryDC">wxPython.gdi.wxMemoryDC</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>The&nbsp;graphics&nbsp;context&nbsp;provides&nbsp;the&nbsp;color,&nbsp;line&nbsp;styles,&nbsp;etc...<br>
@@ -1735,8 +1706,17 @@ interval,&nbsp;eg,&nbsp;(0.5,&nbsp;0.0,&nbsp;1.0).&nbsp;&nbsp;wxPython&nbsp;uses
 since&nbsp;wxPython&nbsp;colour&nbsp;management&nbsp;is&nbsp;rather&nbsp;simple,&nbsp;I&nbsp;have&nbsp;not&nbsp;chosen<br>
 to&nbsp;implement&nbsp;a&nbsp;separate&nbsp;colour&nbsp;manager&nbsp;class.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="GraphicsContextWx-__init__"><strong>__init__</strong></a>(self, wxDC, win, drawable)</dt></dl>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.backends.backend_wx.html#GraphicsContextWx">GraphicsContextWx</a></dd>
+<dd><a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a></dd>
+<dd><a href="wxPython.gdi.html#wxMemoryDC">wxPython.gdi.wxMemoryDC</a></dd>
+<dd><a href="wxPython.gdi.html#wxMemoryDCPtr">wxPython.gdi.wxMemoryDCPtr</a></dd>
+<dd><a href="wxPython.gdi.html#wxDCPtr">wxPython.gdi.wxDCPtr</a></dd>
+<dd><a href="wxPython.misc.html#wxObjectPtr">wxPython.misc.wxObjectPtr</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="GraphicsContextWx-__init__"><strong>__init__</strong></a>(self, bitmap, drawable)</dt></dl>
 
 <dl><dt><a name="GraphicsContextWx-get_wxcolour"><strong>get_wxcolour</strong></a>(self)</dt><dd><tt>return&nbsp;a&nbsp;wxColour&nbsp;from&nbsp;RGB&nbsp;format</tt></dd></dl>
 
@@ -1785,6 +1765,218 @@ matlab&nbsp;format&nbsp;string,&nbsp;a&nbsp;html&nbsp;hex&nbsp;color&nbsp;string
 <dl><dt><a name="GraphicsContextWx-set_dashes"><strong>set_dashes</strong></a>(self, dash_offset, dash_list)</dt><dd><tt>Set&nbsp;the&nbsp;dash&nbsp;style&nbsp;for&nbsp;the&nbsp;gc.&nbsp;&nbsp;dash&nbsp;offset&nbsp;is&nbsp;the&nbsp;offset<br>
 (usually&nbsp;0).&nbsp;&nbsp;Dash&nbsp;list&nbsp;specifies&nbsp;the&nbsp;on-off&nbsp;sequence&nbsp;as<br>
 points</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="wxPython.gdi.html#wxMemoryDCPtr">wxPython.gdi.wxMemoryDCPtr</a>:<br>
+<dl><dt><a name="GraphicsContextWx-SelectObject"><strong>SelectObject</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="wxPython.gdi.html#wxDCPtr">wxPython.gdi.wxDCPtr</a>:<br>
+<dl><dt><a name="GraphicsContextWx-BeginDrawing"><strong>BeginDrawing</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-Blit"><strong>Blit</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-CalcBoundingBox"><strong>CalcBoundingBox</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-CanDrawBitmap"><strong>CanDrawBitmap</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-CanGetTextExtent"><strong>CanGetTextExtent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-Clear"><strong>Clear</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-CrossHair"><strong>CrossHair</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DestroyClippingRegion"><strong>DestroyClippingRegion</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DeviceToLogicalX"><strong>DeviceToLogicalX</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DeviceToLogicalXRel"><strong>DeviceToLogicalXRel</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DeviceToLogicalY"><strong>DeviceToLogicalY</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DeviceToLogicalYRel"><strong>DeviceToLogicalYRel</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawArc"><strong>DrawArc</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawBitmap"><strong>DrawBitmap</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawCircle"><strong>DrawCircle</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawEllipse"><strong>DrawEllipse</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawEllipseList"><strong>DrawEllipseList</strong></a>(self, ellipses, pens<font color="#909090">=None</font>, brushes<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawEllipticArc"><strong>DrawEllipticArc</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawIcon"><strong>DrawIcon</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawImageLabel"><strong>DrawImageLabel</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawLabel"><strong>DrawLabel</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawLine"><strong>DrawLine</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawLineList"><strong>DrawLineList</strong></a>(self, lines, pens<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawLines"><strong>DrawLines</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawPoint"><strong>DrawPoint</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawPointList"><strong>DrawPointList</strong></a>(self, points, pens<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawPolygon"><strong>DrawPolygon</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawPolygonList"><strong>DrawPolygonList</strong></a>(self, polygons, pens<font color="#909090">=None</font>, brushes<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawRectangle"><strong>DrawRectangle</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawRectangleList"><strong>DrawRectangleList</strong></a>(self, rectangles, pens<font color="#909090">=None</font>, brushes<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawRectangleRect"><strong>DrawRectangleRect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawRotatedText"><strong>DrawRotatedText</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawRoundedRectangle"><strong>DrawRoundedRectangle</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawSpline"><strong>DrawSpline</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawText"><strong>DrawText</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-DrawTextList"><strong>DrawTextList</strong></a>(self, textList, coords, foregrounds<font color="#909090">=None</font>, backgrounds<font color="#909090">=None</font>, fonts<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-EndDoc"><strong>EndDoc</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-EndDrawing"><strong>EndDrawing</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-EndPage"><strong>EndPage</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-FloodFill"><strong>FloodFill</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetBackground"><strong>GetBackground</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetBoundingBox"><strong>GetBoundingBox</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetBrush"><strong>GetBrush</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetCharHeight"><strong>GetCharHeight</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetCharWidth"><strong>GetCharWidth</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetClippingBox"><strong>GetClippingBox</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetDepth"><strong>GetDepth</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetDeviceOrigin"><strong>GetDeviceOrigin</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetFont"><strong>GetFont</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetFullTextExtent"><strong>GetFullTextExtent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetLogicalFunction"><strong>GetLogicalFunction</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetLogicalOrigin"><strong>GetLogicalOrigin</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetLogicalScale"><strong>GetLogicalScale</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetMapMode"><strong>GetMapMode</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetMultiLineTextExtent"><strong>GetMultiLineTextExtent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetOptimization"><strong>GetOptimization</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetPPI"><strong>GetPPI</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetPen"><strong>GetPen</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetPixel"><strong>GetPixel</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetSize"><strong>GetSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetSizeMM"><strong>GetSizeMM</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetSizeTuple"><strong>GetSizeTuple</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetTextBackground"><strong>GetTextBackground</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetTextExtent"><strong>GetTextExtent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetTextForeground"><strong>GetTextForeground</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetUserScale"><strong>GetUserScale</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-LogicalToDeviceX"><strong>LogicalToDeviceX</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-LogicalToDeviceXRel"><strong>LogicalToDeviceXRel</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-LogicalToDeviceY"><strong>LogicalToDeviceY</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-LogicalToDeviceYRel"><strong>LogicalToDeviceYRel</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-MaxX"><strong>MaxX</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-MaxY"><strong>MaxY</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-MinX"><strong>MinX</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-MinY"><strong>MinY</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-Ok"><strong>Ok</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-ResetBoundingBox"><strong>ResetBoundingBox</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetAxisOrientation"><strong>SetAxisOrientation</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetBackground"><strong>SetBackground</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetBackgroundMode"><strong>SetBackgroundMode</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetBrush"><strong>SetBrush</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetClippingRect"><strong>SetClippingRect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetClippingRegion"><strong>SetClippingRegion</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetClippingRegionAsRegion"><strong>SetClippingRegionAsRegion</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetDeviceOrigin"><strong>SetDeviceOrigin</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetFont"><strong>SetFont</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetLogicalFunction"><strong>SetLogicalFunction</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetLogicalOrigin"><strong>SetLogicalOrigin</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetLogicalScale"><strong>SetLogicalScale</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetMapMode"><strong>SetMapMode</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetOptimization"><strong>SetOptimization</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetPalette"><strong>SetPalette</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetPen"><strong>SetPen</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetTextBackground"><strong>SetTextBackground</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetTextForeground"><strong>SetTextForeground</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-SetUserScale"><strong>SetUserScale</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-StartDoc"><strong>StartDoc</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-StartPage"><strong>StartPage</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-__del__"><strong>__del__</strong></a>(self, delfunc<font color="#909090">=&lt;built-in function delete_wxDC&gt;</font>)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-__nonzero__"><strong>__nonzero__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="wxPython.misc.html#wxObjectPtr">wxPython.misc.wxObjectPtr</a>:<br>
+<dl><dt><a name="GraphicsContextWx-Destroy"><strong>Destroy</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="GraphicsContextWx-GetClassName"><strong>GetClassName</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -2238,28 +2430,28 @@ Methods inherited from <a href="wxPython.stattool.html#wxToolBarPtr">wxPython.st
 
 <hr>
 Methods inherited from <a href="wxPython.stattool.html#wxToolBarBasePtr">wxPython.stattool.wxToolBarBasePtr</a>:<br>
-<dl><dt><a name="NavigationToolbarWx-AddCheckLabelTool"><strong>AddCheckLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-AddCheckLabelTool"><strong>AddCheckLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddCheckTool"><strong>AddCheckTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-AddCheckTool"><strong>AddCheckTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-AddControl"><strong>AddControl</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddLabelTool"><strong>AddLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>The&nbsp;full&nbsp;<a href="#NavigationToolbarWx-AddTool">AddTool</a>()&nbsp;function.<br>
+<dl><dt><a name="NavigationToolbarWx-AddLabelTool"><strong>AddLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>The&nbsp;full&nbsp;<a href="#NavigationToolbarWx-AddTool">AddTool</a>()&nbsp;function.<br>
 &nbsp;<br>
 If&nbsp;bmpDisabled&nbsp;is&nbsp;wxNullBitmap,&nbsp;a&nbsp;shadowed&nbsp;version&nbsp;of&nbsp;the&nbsp;normal&nbsp;bitmap<br>
 is&nbsp;created&nbsp;and&nbsp;used&nbsp;as&nbsp;the&nbsp;disabled&nbsp;image.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddRadioLabelTool"><strong>AddRadioLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
+<dl><dt><a name="NavigationToolbarWx-AddRadioLabelTool"><strong>AddRadioLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
 other&nbsp;toggled&nbsp;radio&nbsp;tools&nbsp;in&nbsp;the&nbsp;same&nbsp;group&nbsp;when&nbsp;it&nbsp;happens</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddRadioTool"><strong>AddRadioTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
+<dl><dt><a name="NavigationToolbarWx-AddRadioTool"><strong>AddRadioTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
 other&nbsp;toggled&nbsp;radio&nbsp;tools&nbsp;in&nbsp;the&nbsp;same&nbsp;group&nbsp;when&nbsp;it&nbsp;happens</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-AddSeparator"><strong>AddSeparator</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
 <dl><dt><a name="NavigationToolbarWx-AddSimpleTool"><strong>AddSimpleTool</strong></a>(self, id, bitmap, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>, isToggle<font color="#909090">=0</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;add&nbsp;a&nbsp;tool&nbsp;to&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddTool"><strong>AddTool</strong></a>(self, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;add&nbsp;a&nbsp;tool&nbsp;to&nbsp;the&nbsp;toolbar.</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-AddTool"><strong>AddTool</strong></a>(self, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;add&nbsp;a&nbsp;tool&nbsp;to&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-ClearTools"><strong>ClearTools</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
@@ -2303,14 +2495,14 @@ other&nbsp;toggled&nbsp;radio&nbsp;tools&nbsp;in&nbsp;the&nbsp;same&nbsp;group&n
 
 <dl><dt><a name="NavigationToolbarWx-InsertControl"><strong>InsertControl</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
-<dl><dt><a name="NavigationToolbarWx-InsertLabelTool"><strong>InsertLabelTool</strong></a>(self, pos, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Insert&nbsp;the&nbsp;new&nbsp;tool&nbsp;at&nbsp;the&nbsp;given&nbsp;position,&nbsp;if&nbsp;pos&nbsp;==&nbsp;GetToolsCount(),&nbsp;it<br>
+<dl><dt><a name="NavigationToolbarWx-InsertLabelTool"><strong>InsertLabelTool</strong></a>(self, pos, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Insert&nbsp;the&nbsp;new&nbsp;tool&nbsp;at&nbsp;the&nbsp;given&nbsp;position,&nbsp;if&nbsp;pos&nbsp;==&nbsp;GetToolsCount(),&nbsp;it<br>
 is&nbsp;equivalent&nbsp;to&nbsp;<a href="#NavigationToolbarWx-AddTool">AddTool</a>()</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-InsertSeparator"><strong>InsertSeparator</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
 <dl><dt><a name="NavigationToolbarWx-InsertSimpleTool"><strong>InsertSimpleTool</strong></a>(self, pos, id, bitmap, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>, isToggle<font color="#909090">=0</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;insert&nbsp;a&nbsp;tool&nbsp;in&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-InsertTool"><strong>InsertTool</strong></a>(self, pos, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;insert&nbsp;a&nbsp;tool&nbsp;in&nbsp;the&nbsp;toolbar.</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-InsertTool"><strong>InsertTool</strong></a>(self, pos, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;insert&nbsp;a&nbsp;tool&nbsp;in&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-IsVertical"><strong>IsVertical</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
@@ -2720,7 +2912,7 @@ context&nbsp;instance&nbsp;that&nbsp;controls&nbsp;the&nbsp;colors/styles.&nbsp;
 'drawable'&nbsp;instance&nbsp;used&nbsp;by&nbsp;many&nbsp;classes&nbsp;in&nbsp;the&nbsp;hierarchy.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="RendererWx-__init__"><strong>__init__</strong></a>(self, win)</dt><dd><tt>Initialise&nbsp;a&nbsp;wxWindows&nbsp;renderer&nbsp;instance.</tt></dd></dl>
+<dl><dt><a name="RendererWx-__init__"><strong>__init__</strong></a>(self, bitmap)</dt><dd><tt>Initialise&nbsp;a&nbsp;wxWindows&nbsp;renderer&nbsp;instance.</tt></dd></dl>
 
 <dl><dt><a name="RendererWx-draw_arc"><strong>draw_arc</strong></a>(self, gc, faceColor, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
 from&nbsp;0.0&nbsp;to&nbsp;360.0.<br>
@@ -2745,12 +2937,9 @@ gc&nbsp;is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="RendererWx-draw_text"><strong>draw_text</strong></a>(self, gc, t, x, y)</dt><dd><tt>Draw&nbsp;text&nbsp;at&nbsp;x,&nbsp;y&nbsp;using&nbsp;attributes&nbsp;from&nbsp;gc</tt></dd></dl>
 
-<dl><dt><a name="RendererWx-get_gc"><strong>get_gc</strong></a>(self)</dt><dd><tt>Fetch&nbsp;the&nbsp;locally&nbsp;cached&nbsp;gc,&nbsp;or&nbsp;create&nbsp;a&nbsp;new&nbsp;one&nbsp;if&nbsp;there&nbsp;is&nbsp;not&nbsp;one<br>
-already.</tt></dd></dl>
+<dl><dt><a name="RendererWx-get_gc"><strong>get_gc</strong></a>(self)</dt><dd><tt>Fetch&nbsp;the&nbsp;locally&nbsp;cached&nbsp;gc.</tt></dd></dl>
 
-<dl><dt><a name="RendererWx-new_gc"><strong>new_gc</strong></a>(self, wxDC<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;<a href="#GraphicsContextWx">GraphicsContextWx</a>,&nbsp;and&nbsp;sets&nbsp;the&nbsp;current&nbsp;gc&nbsp;copy</tt></dd></dl>
-
-<dl><dt><a name="RendererWx-set_gc"><strong>set_gc</strong></a>(self, gc)</dt><dd><tt>Set&nbsp;the&nbsp;locally&nbsp;cached&nbsp;gc.</tt></dd></dl>
+<dl><dt><a name="RendererWx-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;<a href="#GraphicsContextWx">GraphicsContextWx</a>,&nbsp;and&nbsp;sets&nbsp;the&nbsp;current&nbsp;gc&nbsp;copy</tt></dd></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -3238,28 +3427,28 @@ Methods inherited from <a href="wxPython.stattool.html#wxToolBarPtr">wxPython.st
 
 <hr>
 Methods inherited from <a href="wxPython.stattool.html#wxToolBarBasePtr">wxPython.stattool.wxToolBarBasePtr</a>:<br>
-<dl><dt><a name="NavigationToolbarWx-AddCheckLabelTool"><strong>AddCheckLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-AddCheckLabelTool"><strong>AddCheckLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddCheckTool"><strong>AddCheckTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-AddCheckTool"><strong>AddCheckTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;check&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-AddControl"><strong>AddControl</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddLabelTool"><strong>AddLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>The&nbsp;full&nbsp;<a href="#Toolbar-AddTool">AddTool</a>()&nbsp;function.<br>
+<dl><dt><a name="NavigationToolbarWx-AddLabelTool"><strong>AddLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>The&nbsp;full&nbsp;<a href="#Toolbar-AddTool">AddTool</a>()&nbsp;function.<br>
 &nbsp;<br>
 If&nbsp;bmpDisabled&nbsp;is&nbsp;wxNullBitmap,&nbsp;a&nbsp;shadowed&nbsp;version&nbsp;of&nbsp;the&nbsp;normal&nbsp;bitmap<br>
 is&nbsp;created&nbsp;and&nbsp;used&nbsp;as&nbsp;the&nbsp;disabled&nbsp;image.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddRadioLabelTool"><strong>AddRadioLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
+<dl><dt><a name="NavigationToolbarWx-AddRadioLabelTool"><strong>AddRadioLabelTool</strong></a>(self, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
 other&nbsp;toggled&nbsp;radio&nbsp;tools&nbsp;in&nbsp;the&nbsp;same&nbsp;group&nbsp;when&nbsp;it&nbsp;happens</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddRadioTool"><strong>AddRadioTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
+<dl><dt><a name="NavigationToolbarWx-AddRadioTool"><strong>AddRadioTool</strong></a>(self, id, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;radio&nbsp;tool,&nbsp;i.e.&nbsp;a&nbsp;tool&nbsp;which&nbsp;can&nbsp;be&nbsp;toggled&nbsp;and&nbsp;releases&nbsp;any<br>
 other&nbsp;toggled&nbsp;radio&nbsp;tools&nbsp;in&nbsp;the&nbsp;same&nbsp;group&nbsp;when&nbsp;it&nbsp;happens</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-AddSeparator"><strong>AddSeparator</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
 <dl><dt><a name="NavigationToolbarWx-AddSimpleTool"><strong>AddSimpleTool</strong></a>(self, id, bitmap, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>, isToggle<font color="#909090">=0</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;add&nbsp;a&nbsp;tool&nbsp;to&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-AddTool"><strong>AddTool</strong></a>(self, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;add&nbsp;a&nbsp;tool&nbsp;to&nbsp;the&nbsp;toolbar.</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-AddTool"><strong>AddTool</strong></a>(self, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;add&nbsp;a&nbsp;tool&nbsp;to&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-ClearTools"><strong>ClearTools</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
@@ -3303,14 +3492,14 @@ other&nbsp;toggled&nbsp;radio&nbsp;tools&nbsp;in&nbsp;the&nbsp;same&nbsp;group&n
 
 <dl><dt><a name="NavigationToolbarWx-InsertControl"><strong>InsertControl</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
-<dl><dt><a name="NavigationToolbarWx-InsertLabelTool"><strong>InsertLabelTool</strong></a>(self, pos, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Insert&nbsp;the&nbsp;new&nbsp;tool&nbsp;at&nbsp;the&nbsp;given&nbsp;position,&nbsp;if&nbsp;pos&nbsp;==&nbsp;GetToolsCount(),&nbsp;it<br>
+<dl><dt><a name="NavigationToolbarWx-InsertLabelTool"><strong>InsertLabelTool</strong></a>(self, pos, id, label, bitmap, bmpDisabled<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, kind<font color="#909090">=0</font>, shortHelp<font color="#909090">=''</font>, longHelp<font color="#909090">=''</font>, clientData<font color="#909090">=None</font>)</dt><dd><tt>Insert&nbsp;the&nbsp;new&nbsp;tool&nbsp;at&nbsp;the&nbsp;given&nbsp;position,&nbsp;if&nbsp;pos&nbsp;==&nbsp;GetToolsCount(),&nbsp;it<br>
 is&nbsp;equivalent&nbsp;to&nbsp;<a href="#Toolbar-AddTool">AddTool</a>()</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-InsertSeparator"><strong>InsertSeparator</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
 <dl><dt><a name="NavigationToolbarWx-InsertSimpleTool"><strong>InsertSimpleTool</strong></a>(self, pos, id, bitmap, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>, isToggle<font color="#909090">=0</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;insert&nbsp;a&nbsp;tool&nbsp;in&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-InsertTool"><strong>InsertTool</strong></a>(self, pos, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;insert&nbsp;a&nbsp;tool&nbsp;in&nbsp;the&nbsp;toolbar.</tt></dd></dl>
+<dl><dt><a name="NavigationToolbarWx-InsertTool"><strong>InsertTool</strong></a>(self, pos, id, bitmap, pushedBitmap<font color="#909090">=&lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;</font>, isToggle<font color="#909090">=0</font>, clientData<font color="#909090">=None</font>, shortHelpString<font color="#909090">=''</font>, longHelpString<font color="#909090">=''</font>)</dt><dd><tt>Old&nbsp;style&nbsp;method&nbsp;to&nbsp;insert&nbsp;a&nbsp;tool&nbsp;in&nbsp;the&nbsp;toolbar.</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-IsVertical"><strong>IsVertical</strong></a>(self, *_args, **_kwargs)</dt></dl>
 
@@ -3728,6 +3917,7 @@ should&nbsp;be&nbsp;done&nbsp;in&nbsp;interactive&nbsp;python&nbsp;mode</tt></dd
  <dl><dt><a name="-ptrmap"><strong>ptrmap</strong></a>(...)</dt></dl>
  <dl><dt><a name="-ptrset"><strong>ptrset</strong></a>(...)</dt></dl>
  <dl><dt><a name="-ptrvalue"><strong>ptrvalue</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-raise_msg_to_str"><strong>raise_msg_to_str</strong></a>(msg)</dt><dd><tt>msg&nbsp;is&nbsp;a&nbsp;return&nbsp;arg&nbsp;from&nbsp;a&nbsp;raise.&nbsp;&nbsp;Join&nbsp;with&nbsp;new&nbsp;lines</tt></dd></dl>
  <dl><dt><a name="-show"><strong>show</strong></a>()</dt><dd><tt>Current&nbsp;implementation&nbsp;assumes&nbsp;that&nbsp;matplotlib&nbsp;is&nbsp;executed&nbsp;in&nbsp;a&nbsp;PyCrust<br>
 shell.&nbsp;It&nbsp;appears&nbsp;to&nbsp;be&nbsp;possible&nbsp;to&nbsp;execute&nbsp;wxPython&nbsp;applications&nbsp;from<br>
 within&nbsp;a&nbsp;PyCrust&nbsp;without&nbsp;having&nbsp;to&nbsp;ensure&nbsp;that&nbsp;wxPython&nbsp;has&nbsp;been&nbsp;created<br>
@@ -4046,6 +4236,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>WXK_UP</strong> = 317<br>
 <strong>cvar</strong> = &lt;Global variables&gt;<br>
 <strong>cvs_id</strong> = '$Id$'<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>false</strong> = False<br>
 <strong>true</strong> = True<br>
 <strong>wxACCEL_ALT</strong> = 1<br>
@@ -4144,11 +4335,11 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxBITMAP_TYPE_XPM</strong> = 9<br>
 <strong>wxBITMAP_TYPE_XPM_DATA</strong> = 10<br>
 <strong>wxBLACK</strong> = wxColour(0, 0, 0)<br>
-<strong>wxBLACK_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _841f750_wxBrush_p&gt;<br>
-<strong>wxBLACK_DASHED_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8415c10_wxPen_p&gt;<br>
-<strong>wxBLACK_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8415b50_wxPen_p&gt;<br>
+<strong>wxBLACK_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8410f50_wxBrush_p&gt;<br>
+<strong>wxBLACK_DASHED_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8412088_wxPen_p&gt;<br>
+<strong>wxBLACK_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8400850_wxPen_p&gt;<br>
 <strong>wxBLUE</strong> = wxColour(0, 0, 255)<br>
-<strong>wxBLUE_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _841f388_wxBrush_p&gt;<br>
+<strong>wxBLUE_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _841a768_wxBrush_p&gt;<br>
 <strong>wxBOLD</strong> = 92<br>
 <strong>wxBORDER</strong> = 33554432<br>
 <strong>wxBORDER_DEFAULT</strong> = 0<br>
@@ -4198,7 +4389,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxCONVERT_SUBSTITUTE</strong> = 1<br>
 <strong>wxCOPY</strong> = 5<br>
 <strong>wxCROSSDIAG_HATCH</strong> = 112<br>
-<strong>wxCROSS_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _84201a0_wxCursor_p&gt;<br>
+<strong>wxCROSS_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _841c8d0_wxCursor_p&gt;<br>
 <strong>wxCROSS_HATCH</strong> = 114<br>
 <strong>wxCURSOR_ARROW</strong> = 1<br>
 <strong>wxCURSOR_ARROWWAIT</strong> = 28<br>
@@ -4231,8 +4422,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxCURSOR_WAIT</strong> = 24<br>
 <strong>wxCURSOR_WATCH</strong> = 25<br>
 <strong>wxCYAN</strong> = wxColour(0, 255, 255)<br>
-<strong>wxCYAN_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8414808_wxBrush_p&gt;<br>
-<strong>wxCYAN_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _84147c8_wxPen_p&gt;<br>
+<strong>wxCYAN_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8400860_wxBrush_p&gt;<br>
+<strong>wxCYAN_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _84007d0_wxPen_p&gt;<br>
 <strong>wxCenter</strong> = 6<br>
 <strong>wxCentre</strong> = 6<br>
 <strong>wxCentreX</strong> = 7<br>
@@ -4280,7 +4471,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxDUPLEX_VERTICAL</strong> = 2<br>
 <strong>wxDefaultPosition</strong> = wxPoint(-1, -1)<br>
 <strong>wxDefaultSize</strong> = wxSize(-1, -1)<br>
-<strong>wxDefaultValidator</strong> = &lt;wxPython.windows.wxValidatorPtr instance; proxy... wxValidator instance at _417f88c0_wxValidator_p&gt;<br>
+<strong>wxDefaultValidator</strong> = &lt;wxPython.windows.wxValidatorPtr instance; proxy... wxValidator instance at _418bc8c0_wxValidator_p&gt;<br>
 <strong>wxDragCancel</strong> = 5<br>
 <strong>wxDragCopy</strong> = 2<br>
 <strong>wxDragError</strong> = 0<br>
@@ -4569,7 +4760,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxFULLSCREEN_NOMENUBAR</strong> = 1<br>
 <strong>wxFULLSCREEN_NOSTATUSBAR</strong> = 4<br>
 <strong>wxFULLSCREEN_NOTOOLBAR</strong> = 2<br>
-<strong>wxFormatInvalid</strong> = &lt;wxPython.clip_dnd.wxDataFormatPtr instance; pro...xDataFormat instance at _412ab8a8_wxDataFormat_p&gt;<br>
+<strong>wxFormatInvalid</strong> = &lt;wxPython.clip_dnd.wxDataFormatPtr instance; pro...xDataFormat instance at _4136f8a8_wxDataFormat_p&gt;<br>
 <strong>wxFromCurrent</strong> = 1<br>
 <strong>wxFromEnd</strong> = 2<br>
 <strong>wxFromStart</strong> = 0<br>
@@ -4578,16 +4769,16 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxGA_SMOOTH</strong> = 32<br>
 <strong>wxGA_VERTICAL</strong> = 8<br>
 <strong>wxGREEN</strong> = wxColour(0, 255, 0)<br>
-<strong>wxGREEN_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8413c90_wxBrush_p&gt;<br>
-<strong>wxGREEN_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _841f580_wxPen_p&gt;<br>
-<strong>wxGREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8415d60_wxBrush_p&gt;<br>
-<strong>wxGREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8415c50_wxPen_p&gt;<br>
+<strong>wxGREEN_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _84110a0_wxBrush_p&gt;<br>
+<strong>wxGREEN_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8400810_wxPen_p&gt;<br>
+<strong>wxGREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _84122a0_wxBrush_p&gt;<br>
+<strong>wxGREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _84120c8_wxPen_p&gt;<br>
 <strong>wxGROW</strong> = 8192<br>
 <strong>wxHELP</strong> = 32768<br>
 <strong>wxHIDE_READONLY</strong> = 8<br>
 <strong>wxHORIZONTAL</strong> = 4<br>
 <strong>wxHORIZONTAL_HATCH</strong> = 115<br>
-<strong>wxHOURGLASS_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _8423030_wxCursor_p&gt;<br>
+<strong>wxHOURGLASS_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _841ca38_wxCursor_p&gt;<br>
 <strong>wxHSCROLL</strong> = 1073741824<br>
 <strong>wxHT_MAX</strong> = 14<br>
 <strong>wxHT_NOWHERE</strong> = 0<br>
@@ -4690,7 +4881,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxIMAGE_LIST_STATE</strong> = 2<br>
 <strong>wxINVERT</strong> = 2<br>
 <strong>wxITALIC</strong> = 93<br>
-<strong>wxITALIC_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _8209650_wxFont_p&gt;<br>
+<strong>wxITALIC_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _8410280_wxFont_p&gt;<br>
 <strong>wxITEM_CHECK</strong> = 1<br>
 <strong>wxITEM_MAX</strong> = 3<br>
 <strong>wxITEM_NORMAL</strong> = 0<br>
@@ -4983,8 +5174,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxLEFT</strong> = 16<br>
 <strong>wxLIGHT</strong> = 91<br>
 <strong>wxLIGHT_GREY</strong> = wxColour(192, 192, 192)<br>
-<strong>wxLIGHT_GREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8415cf0_wxBrush_p&gt;<br>
-<strong>wxLIGHT_GREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8415cd0_wxPen_p&gt;<br>
+<strong>wxLIGHT_GREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8412310_wxBrush_p&gt;<br>
+<strong>wxLIGHT_GREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8412148_wxPen_p&gt;<br>
 <strong>wxLIST_ALIGN_DEFAULT</strong> = 0<br>
 <strong>wxLIST_ALIGN_LEFT</strong> = 1<br>
 <strong>wxLIST_ALIGN_SNAP_TO_GRID</strong> = 3<br>
@@ -5061,8 +5252,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxMAXIMIZE</strong> = 8192<br>
 <strong>wxMAXIMIZE_BOX</strong> = 512<br>
 <strong>wxMB_DOCKABLE</strong> = 1<br>
-<strong>wxMEDIUM_GREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8415ce0_wxBrush_p&gt;<br>
-<strong>wxMEDIUM_GREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8415c90_wxPen_p&gt;<br>
+<strong>wxMEDIUM_GREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _84122d8_wxBrush_p&gt;<br>
+<strong>wxMEDIUM_GREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8412108_wxPen_p&gt;<br>
 <strong>wxMENU_TEAROFF</strong> = 1<br>
 <strong>wxMINIMIZE</strong> = 16384<br>
 <strong>wxMINIMIZE_BOX</strong> = 1024<br>
@@ -5095,7 +5286,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxNO</strong> = 8<br>
 <strong>wxNOR</strong> = 9<br>
 <strong>wxNORMAL</strong> = 90<br>
-<strong>wxNORMAL_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _8408de0_wxFont_p&gt;<br>
+<strong>wxNORMAL_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _83feee8_wxFont_p&gt;<br>
 <strong>wxNORTH</strong> = 64<br>
 <strong>wxNOT_FOUND</strong> = -1<br>
 <strong>wxNO_3D</strong> = 8388608<br>
@@ -5103,16 +5294,16 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxNO_DEFAULT</strong> = 128<br>
 <strong>wxNO_FULL_REPAINT_ON_RESIZE</strong> = 65536<br>
 <strong>wxNO_OP</strong> = 8<br>
-<strong>wxNullAcceleratorTable</strong> = &lt;wxPython.misc.wxAcceleratorTablePtr instance; p...Table instance at _417e8460_wxAcceleratorTable_p&gt;<br>
-<strong>wxNullBitmap</strong> = &lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _417e8468_wxBitmap_p&gt;<br>
-<strong>wxNullBrush</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _417e8494_wxBrush_p&gt;<br>
+<strong>wxNullAcceleratorTable</strong> = &lt;wxPython.misc.wxAcceleratorTablePtr instance; p...Table instance at _418ac460_wxAcceleratorTable_p&gt;<br>
+<strong>wxNullBitmap</strong> = &lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _418ac468_wxBitmap_p&gt;<br>
+<strong>wxNullBrush</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _418ac494_wxBrush_p&gt;<br>
 <strong>wxNullColour</strong> = wxColour(-1, -1, -1)<br>
-<strong>wxNullCursor</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _417e8480_wxCursor_p&gt;<br>
-<strong>wxNullFont</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _417e84a0_wxFont_p&gt;<br>
-<strong>wxNullIcon</strong> = &lt;wxPython.gdi.wxIconPtr instance; proxy of C++ wxIcon instance at _417e8474_wxIcon_p&gt;<br>
-<strong>wxNullImage</strong> = &lt;wxPython.image.wxImagePtr instance; proxy of C++ wxImage instance at _417f109c_wxImage_p&gt;<br>
-<strong>wxNullPalette</strong> = &lt;wxPython.gdi.wxPalettePtr instance; proxy of C++ wxPalette instance at _417e84b8_wxPalette_p&gt;<br>
-<strong>wxNullPen</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _417e8488_wxPen_p&gt;<br>
+<strong>wxNullCursor</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _418ac480_wxCursor_p&gt;<br>
+<strong>wxNullFont</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _418ac4a0_wxFont_p&gt;<br>
+<strong>wxNullIcon</strong> = &lt;wxPython.gdi.wxIconPtr instance; proxy of C++ wxIcon instance at _418ac474_wxIcon_p&gt;<br>
+<strong>wxNullImage</strong> = &lt;wxPython.image.wxImagePtr instance; proxy of C++ wxImage instance at _418b509c_wxImage_p&gt;<br>
+<strong>wxNullPalette</strong> = &lt;wxPython.gdi.wxPalettePtr instance; proxy of C++ wxPalette instance at _418ac4b8_wxPalette_p&gt;<br>
+<strong>wxNullPen</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _418ac488_wxPen_p&gt;<br>
 <strong>wxODDEVEN_RULE</strong> = 1<br>
 <strong>wxOK</strong> = 4<br>
 <strong>wxOPEN</strong> = 1<br>
@@ -5239,8 +5430,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxRB_GROUP</strong> = 4<br>
 <strong>wxRB_SINGLE</strong> = 8<br>
 <strong>wxRED</strong> = wxColour(255, 0, 0)<br>
-<strong>wxRED_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8414818_wxBrush_p&gt;<br>
-<strong>wxRED_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8414788_wxPen_p&gt;<br>
+<strong>wxRED_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8412268_wxBrush_p&gt;<br>
+<strong>wxRED_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8410f40_wxPen_p&gt;<br>
 <strong>wxRELEASE_NUMBER</strong> = 2<br>
 <strong>wxRELEASE_VERSION</strong> = 2<br>
 <strong>wxRESET</strong> = 16384<br>
@@ -5303,7 +5494,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxSL_SELRANGE</strong> = 2048<br>
 <strong>wxSL_TOP</strong> = 128<br>
 <strong>wxSL_VERTICAL</strong> = 8<br>
-<strong>wxSMALL_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _841f3f8_wxFont_p&gt;<br>
+<strong>wxSMALL_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _8411090_wxFont_p&gt;<br>
 <strong>wxSOLID</strong> = 100<br>
 <strong>wxSOUTH</strong> = 128<br>
 <strong>wxSPLASH_CENTRE_ON_PARENT</strong> = 1<br>
@@ -5329,7 +5520,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxSP_VERTICAL</strong> = 8<br>
 <strong>wxSP_WRAP</strong> = 8192<br>
 <strong>wxSRC_INVERT</strong> = 11<br>
-<strong>wxSTANDARD_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _8415ec0_wxCursor_p&gt;<br>
+<strong>wxSTANDARD_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _8412320_wxCursor_p&gt;<br>
 <strong>wxSTATIC_BORDER</strong> = 16777216<br>
 <strong>wxSTAY_ON_TOP</strong> = 32768<br>
 <strong>wxSTIPPLE</strong> = 110<br>
@@ -5339,7 +5530,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxSUBREL_VERSION</strong> = 4<br>
 <strong>wxSUNKEN_BORDER</strong> = 134217728<br>
 <strong>wxSWISS</strong> = 74<br>
-<strong>wxSWISS_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _841fa90_wxFont_p&gt;<br>
+<strong>wxSWISS_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _8410ef0_wxFont_p&gt;<br>
 <strong>wxSW_3D</strong> = 192<br>
 <strong>wxSW_3DBORDER</strong> = 128<br>
 <strong>wxSW_3DSASH</strong> = 64<br>
@@ -5484,8 +5675,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxTRACE_RefCount</strong> = 'refcount'<br>
 <strong>wxTRACE_ResAlloc</strong> = 'resalloc'<br>
 <strong>wxTRANSPARENT</strong> = 106<br>
-<strong>wxTRANSPARENT_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _841f760_wxBrush_p&gt;<br>
-<strong>wxTRANSPARENT_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8415bd0_wxPen_p&gt;<br>
+<strong>wxTRANSPARENT_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _84121d8_wxBrush_p&gt;<br>
+<strong>wxTRANSPARENT_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8412048_wxPen_p&gt;<br>
 <strong>wxTRANSPARENT_WINDOW</strong> = 1048576<br>
 <strong>wxTREE_HITTEST_ABOVE</strong> = 1<br>
 <strong>wxTREE_HITTEST_BELOW</strong> = 2<br>
@@ -5517,12 +5708,12 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxTR_ROW_LINES</strong> = 1024<br>
 <strong>wxTR_SINGLE</strong> = 0<br>
 <strong>wxTR_TWIST_BUTTONS</strong> = 2<br>
-<strong>wxTheBrushList</strong> = &lt;wxPython.gdi.wxBrushListPtr instance; proxy of C++ wxBrushList instance at _8411240_wxBrushList_p&gt;<br>
-<strong>wxTheClipboard</strong> = &lt;wxPython.clip_dnd.wxClipboardPtr instance; prox...+ wxClipboard instance at _8421d48_wxClipboard_p&gt;<br>
-<strong>wxTheColourDatabase</strong> = &lt;wxPython.gdi.wxColourDatabasePtr instance; prox...Database instance at _840f038_wxColourDatabase_p&gt;<br>
-<strong>wxTheFontList</strong> = &lt;wxPython.fonts.wxFontListPtr instance; proxy of C++ wxFontList instance at _8411280_wxFontList_p&gt;<br>
-<strong>wxTheMimeTypesManager</strong> = &lt;wxPython.misc2.wxMimeTypesManagerPtr instance; ...nager instance at _417f73a0_wxMimeTypesManager_p&gt;<br>
-<strong>wxThePenList</strong> = &lt;wxPython.gdi.wxPenListPtr instance; proxy of C++ wxPenList instance at _8411260_wxPenList_p&gt;<br>
+<strong>wxTheBrushList</strong> = &lt;wxPython.gdi.wxBrushListPtr instance; proxy of C++ wxBrushList instance at _83fee68_wxBrushList_p&gt;<br>
+<strong>wxTheClipboard</strong> = &lt;wxPython.clip_dnd.wxClipboardPtr instance; prox...+ wxClipboard instance at _841e490_wxClipboard_p&gt;<br>
+<strong>wxTheColourDatabase</strong> = &lt;wxPython.gdi.wxColourDatabasePtr instance; prox...Database instance at _8404780_wxColourDatabase_p&gt;<br>
+<strong>wxTheFontList</strong> = &lt;wxPython.fonts.wxFontListPtr instance; proxy of C++ wxFontList instance at _83feea8_wxFontList_p&gt;<br>
+<strong>wxTheMimeTypesManager</strong> = &lt;wxPython.misc2.wxMimeTypesManagerPtr instance; ...nager instance at _418bb3a0_wxMimeTypesManager_p&gt;<br>
+<strong>wxThePenList</strong> = &lt;wxPython.gdi.wxPenListPtr instance; proxy of C++ wxPenList instance at _83fee88_wxPenList_p&gt;<br>
 <strong>wxTop</strong> = 1<br>
 <strong>wxTraceMemAlloc</strong> = 1<br>
 <strong>wxTraceMessages</strong> = 2<br>
@@ -5547,8 +5738,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxWANTS_CHARS</strong> = 262144<br>
 <strong>wxWEST</strong> = 16<br>
 <strong>wxWHITE</strong> = wxColour(255, 255, 255)<br>
-<strong>wxWHITE_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8413ca0_wxBrush_p&gt;<br>
-<strong>wxWHITE_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8415b90_wxPen_p&gt;<br>
+<strong>wxWHITE_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _841bbf0_wxBrush_p&gt;<br>
+<strong>wxWHITE_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8411fc8_wxPen_p&gt;<br>
 <strong>wxWINDING_RULE</strong> = 2<br>
 <strong>wxWS_EX_BLOCK_EVENTS</strong> = 2<br>
 <strong>wxWS_EX_TRANSIENT</strong> = 4<br>
@@ -5558,5 +5749,5 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxYES</strong> = 2<br>
 <strong>wxYES_DEFAULT</strong> = 0<br>
 <strong>wxYES_NO</strong> = 10<br>
-<strong>wxapp</strong> = &lt;wxPython.wx.wxPySimpleApp instance; proxy of C++ wxPyApp instance at _84de720_wxPyApp_p&gt;</td></tr></table>
+<strong>wxapp</strong> = &lt;wxPython.wx.wxPySimpleApp instance; proxy of C++ wxPyApp instance at _852c828_wxPyApp_p&gt;</td></tr></table>
 @footer@
