@@ -664,7 +664,6 @@ import
 \layout LyX-Code
 
 
-\series bold 
 \color blue
 # Appreviate the module name: m is an alias
 \layout LyX-Code
@@ -681,7 +680,6 @@ import
 \layout LyX-Code
 
 
-\series bold 
 \color blue
 # Import just the names you need
 \layout LyX-Code
@@ -698,7 +696,6 @@ import
 \layout LyX-Code
 
 
-\series bold 
 \color blue
 # Import everything - use with caution!
 \layout LyX-Code
@@ -977,6 +974,11 @@ We've encountered a number of types of objects above: int, float, long,
  if you need to embed string characters in the string itself
 \layout LyX-Code
 
+
+\color blue
+# single, double and triple quoted strings
+\layout LyX-Code
+
 >>> s = 'Hi Mom!'
 \layout LyX-Code
 
@@ -987,6 +989,11 @@ We've encountered a number of types of objects above: int, float, long,
 \layout Standard
 
 You can add strings together to concatenate them
+\layout LyX-Code
+
+
+\color blue
+# concatenating strings
 \layout LyX-Code
 
 >>> first = 'John'
@@ -1003,6 +1010,11 @@ You can add strings together to concatenate them
 
 or call string methods to process them: upcase them or downcase them, or
  replace one character with another
+\layout LyX-Code
+
+
+\color blue
+# string methods
 \layout LyX-Code
 
 >>> last.lower()
@@ -1056,6 +1068,11 @@ You can access individual characters, or slices of the string (substrings),
  0; you can use negative indices to access the last elements in the sequence
 \layout LyX-Code
 
+
+\color blue
+# string indexing
+\layout LyX-Code
+
 >>> last = 'Hunter'
 \layout LyX-Code
 
@@ -1079,6 +1096,11 @@ You can access individual characters, or slices of the string (substrings),
 
 To access substrings, or generically in terms of the sequence protocol,
  slices, you use a colon to indicate a range
+\layout LyX-Code
+
+
+\color blue
+# string slicing
 \layout LyX-Code
 
 >>> last[0:2]
@@ -1140,6 +1162,16 @@ indmax
 \layout LyX-Code
 
 'ter'
+\layout Standard
+
+There is a third number that can be placed in a slice, a step, with syntax
+ indmin:indmax:step; eg, a step of 2 will skip every second letter
+\layout LyX-Code
+
+>>> last[1:6:2]
+\layout LyX-Code
+
+'utr'
 \layout Standard
 
 Although this may be more that you want to know about slicing strings, the
@@ -1212,7 +1244,6 @@ A computer scientist is someone who fixes things that aren't broken
 \layout LyX-Code
 
 
-\series bold 
 \color blue
 # The newbie way
 \layout LyX-Code
@@ -1243,7 +1274,6 @@ myexp
 \layout LyX-Code
 
 
-\series bold 
 \color blue
 # On the path to elightenment
 \layout LyX-Code
@@ -1300,7 +1330,6 @@ os.path.join
 \layout LyX-Code
 
 
-\series bold 
 \color blue
 # the zen master approach
 \layout LyX-Code
@@ -1353,6 +1382,143 @@ OK, I promised to torture you a bit more with string interpolation -- don't
 'The mass of the sun is 1.9889e+30 kg'
 \layout LyX-Code
 
+\layout Standard
+
+There are two string methods, 
+\family typewriter 
+split
+\family default 
+ and 
+\family typewriter 
+join
+\family default 
+, that arise frequenctly in Numeric processing, specifically in the context
+ of processing data files that have comma, tab, or space separated numbers
+ in them.
+ 
+\family typewriter 
+split
+\family default 
+ takes a single string, and splits it on the indicated character to a sequence
+ of strings.
+ This is useful to take a single line of space or comma separated values
+ and split them into individual numbers
+\layout LyX-Code
+
+
+\color blue
+# s is a single string and we split it into a list of strings
+\layout LyX-Code
+
+
+\color blue
+# for further processing
+\layout LyX-Code
+
+>>> s = '1.0 2.0 3.0 4.0 5.0'
+\layout LyX-Code
+
+>>> s.split(' ')
+\layout LyX-Code
+
+['1.0', '2.0', '3.0', '4.0', '5.0']
+\layout Standard
+
+The return value, with square brackets, indicates that python has returned
+ a list of strings.
+ These individual strings need further processing to convert them into actual
+ floats, but that is the first step.
+  The conversion to floats will be discussed in the next session, when we
+ learn about list comprehensions.
+ The converse method is join, which is often used to create string output
+ to an ASCII file from a list of numbers.
+ In this case you want to join a list of numbers into a single line for
+ printing to a file.
+ The example below will be clearer after the next section, in which lists
+ are discussed
+\layout LyX-Code
+
+
+\color blue
+# vals is a list of floats and we convert it to a single
+\layout LyX-Code
+
+
+\color blue
+# space separated string
+\layout LyX-Code
+
+>>> vals = [1.0, 2.0, 3.0, 4.0, 5.0]
+\layout LyX-Code
+
+>>> ' '.join([str(val) for val in vals])
+\layout LyX-Code
+
+'1.0 2.0 3.0 4.0 5.0'
+\layout Standard
+
+There are two new things in the example above.
+ One, we called the join method directly on a string itself, and not on
+ a variable name.
+ Eg, in the previous examples, we always used the name of the object when
+ accessing attributes, eg 
+\family typewriter 
+x.real
+\family default 
+ or 
+\family typewriter 
+s.upper()
+\family default 
+.
+ In this example, we call the 
+\family typewriter 
+join
+\family default 
+ method on the string which is a single space.
+ The second new feature is that we use a list comprehension 
+\family typewriter 
+[str(val) for val in vals] 
+\family default 
+as the argument to 
+\family typewriter 
+join
+\family default 
+.
+ 
+\family typewriter 
+join
+\family default 
+ requires a sequence of strings, and the list comprehension converts a list
+ of floats to a strings.
+ This can be confusing at first, so don't dispair if it is.
+ But it is worth bringing up early because list comprehensions are a very
+ useful feature of python.
+ To help elucidate, compare 
+\family typewriter 
+vals
+\family default 
+, which is a list of floats, with the conversion of 
+\family typewriter 
+vals
+\family default 
+ to a list of strings using list comprehensions in the next line
+\layout LyX-Code
+
+
+\color blue
+# converting a list of floats to a list of strings
+\layout LyX-Code
+
+>>> vals
+\layout LyX-Code
+
+[1.0, 2.0, 3.0, 4.0, 5.0]
+\layout LyX-Code
+
+>>> [str(val) for val in vals] 
+\layout LyX-Code
+
+['1.0', '2.0', '3.0', '4.0', '5.0']
 \layout Section
 
 The basic python data structures
