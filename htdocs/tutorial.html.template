@@ -1,14 +1,32 @@
 plot_table_border = 'border=1 cellspacing=1 cellpadding=1'
 
 font_props = (
-    ('fontweight', 'normal | bold | light t'),
+    ('alpha', 'The alpha transparency on 0-1 scale'),
+    ('color', 'a matplotlib color argument'),
     ('fontangle', 'italic | normal | oblique'),
-    ('verticalalignment', 'bottom | center | top'),
-    ('horizontalalignment', 'left | center | right'),
-    ('fontname', 'Sans | Helvetica | Courier | Others'),
+    ('fontname', 'Sans | Helvetica | Courier | Times | Others'),
     ('fontsize', 'an scalar, eg, 10'),
+    ('fontweight', 'normal | bold | light t'),
+    ('horizontalalignment', 'left | center | right'),
     ('rotation', 'horizontal | vertical'),
+    ('verticalalignment', 'bottom | center | top'),
 )
+
+line_props = (
+    ('alpha', 'The alpha transparency on 0-1 scale'),
+    ('antialiased', 'True|False use antialised rendering'),
+    ('color', 'a matplotlib color arg'),
+    ('data_clipping', 'Whether to use numeric to clip data'),
+    ('label', 'a string optionally used for legend'),
+    ('linestyle', "One of -- :  -.  -"),
+    ('linewidth', 'a float, the line width in points'),
+    ('marker', "One of + ,  o . s v x > < ^"),
+    ('markeredgecolor', 'The edge color if a marker is used'),
+    ('markerfacecolor', 'The face color if a marker is used'),
+    ('markersize', 'The size of the marker in points'),
+    ('vertical_offset', 'An offset used to move line up or down'),       
+)
+
 
  
 @header@ 
@@ -104,6 +122,39 @@ show()
     </td></tr>
 </table>
 </td></tr></table><br>
+
+
+<h3><a name=lineprops>Controlling line properties</a></h3>
+
+Lines have many attributes that you can set: linewidth, dash style,
+antialiased, etc.  See <a
+href=matplotlib.lines.html>lines</a> for the current line
+documentation.<p>
+
+There are several ways to set line properties
+<pre>
+# Use keyword args - requires matplotlib-0.51 or later.
+# Multiple keyword args are allowed 
+plot(x, y, linewidth=2.0)  
+
+# plot returns a list of Line2D instances
+lines = plot(x, y, 'o')
+line1 = lines[0]             # get the first line
+line1.set_antialiased(False) # turn off antialising
+
+# The example below uses matlab handle graphics style command
+# to set multiple properties on a list of lines
+lines = plot(x1, y1, x2, y2) 
+set(lines, 'color', 'r', 'linewidth', 2.0)
+</pre>
+
+<h4>Line Properties</h4>
+<table @default_table@>
+    <tr><th >Property</th> <th>Values</th></tr>
+    + for prop,values in line_props:
+      <tr><td align=left>@prop@</td> <td align=left>@values@</td></tr>
+    -
+</table><br>
 
 <a name=figs_and_axes>
 <h3>Working with multiple figure and axes</h3>
@@ -233,7 +284,7 @@ show()
 </table><br>
 
 
-<h4>Controlling text properties with handle graphics</h4>
+<h4><a name=handle>Controlling text properties with handle graphics</a></h4>
 
 If you want to change a text property, and you like to use matlab
 handle graphics, you can use the <a
@@ -254,7 +305,7 @@ set(labels, 'color', 'r', 'fontweight', 'bold')
 </pre>
 
 
-<h4>Controlling text using object methods</h4>
+<h4><a name=oo>Controlling text using object methods</a></h4>
 
 The <a href=matplotlib.matlab.html#-set>set</a> command is just a
 wrapper around the Text set methods.  If you prefer using instance
@@ -304,6 +355,82 @@ individual pieces of text can selectively override properties by
 passing keyword arguments.  For example the <a
 href=matplotlib.matlab.html#-text>text</a> command uses color black
 with the color string 'k'.<p>
+
+
+<h4><a name=mathtext>Writing mathematical expressions</aa></h4>
+
+As of matplotlib-0.51, you can use TeX markup in your expressions.
+You need to compile matplotlib with <tt>BUILD_FT2FONT</tt> This is
+already compiled for you in the windows installer; if you are building
+yourself, set <tt>BUILD_FT2FONT = True</tt> in <tt>setup.py</tt>.  Not
+all backends currently support mathtext (but most do) - see the <a
+href=matplotlib.mathtext.html>mathtext</a> documentation for usage,
+requirements and backend information.<p>
+
+Any text element can use math text.  You need to use raw strings
+(preceed the quotes with an <tt>'r'</tt>), and surround the string
+text with dollar signs, as in TeX.
+
+<pre>
+# plain text
+title('alpha > beta')
+
+# math text
+title(r'$\alpha > \beta$')
+</pre>
+
+To make subscripts and superscripts use the '_' and '^' symbols, as in 
+
+<pre>
+title(r'$\alpha_i > \beta_i$')
+</pre>
+
+You can also use a large number of the TeX symbols, as in <tt>\infty,
+\leftarrow, \sum, \int</tt>; see <a
+href=matplotlib.mathtext.html>mathtext</a> for a complete list.  The
+over/under subscript/superscript style is also supported.  To write
+the sum of x_i from 0 to infinity, you could do <p>
+
+<pre>
+text(1, -0.6, r'$\sum_{i=0}^\infty x_i$')
+</pre>
+
+The default font is <i>italics</i> for mathematical symbols.  To
+change fonts, eg, to write "sin" in a roman font, enclose the text in
+a font command, as in
+
+<pre>
+text(1,2, r's(t) = $\cal{A}\rm{sin}(2 \omega t)$')
+</pre>
+
+Here "s" and "t" are variable in italics font (default), "sin" is in
+roman font, and the amplitude "A" is in caligraphy font. The font
+choices are roman <tt>\\rm</tt>, italics <tt>\\it</tt>, caligraphy
+<tt>\\cal</tt>, and typewriter <tt>\\tt</tt> <p>
+
+
+<table @plot_table_border@><tr><td>
+<table>
+    <caption><h4>Using math text</h4></caption>
+    <tr><td valign=top><img src=tut/mathtext_tut.png></td></tr>
+    <tr><td valign=top halign=left>
+<pre>
+from matplotlib.matlab import *
+t = arange(0.0, 2.0, 0.01)
+s = sin(2*pi*t)
+plot(t,s)
+title(r'$\alpha_i > \beta_i$', fontsize=20)
+text(1, -0.6, r'$\sum_{i=0}^\infty x_i$', fontsize=20)
+text(0.6, 0.6, r'$\cal{A}\rm{sin}(2 \omega t)$', fontsize=20)
+xlabel('time (s)')
+ylabel('volts (mV)')
+savefig('mathtext_tut', dpi=50)
+show()
+</pre>
+    </td></tr>
+</table>
+</td></tr></table><br>
+
 
 <a name="navigation">
 <h3>Interactive navigation</h3>

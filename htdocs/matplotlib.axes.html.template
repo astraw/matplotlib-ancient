@@ -139,6 +139,9 @@ xerr&nbsp;and&nbsp;yerr&nbsp;may&nbsp;be&nbsp;any&nbsp;of:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;an&nbsp;N-element&nbsp;list&nbsp;or&nbsp;tuple&nbsp;-&nbsp;symmetric&nbsp;errorbars&nbsp;+/-&nbsp;value<br>
 &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;rank-1,&nbsp;Nx2&nbsp;Numpy&nbsp;array&nbsp;&nbsp;-&nbsp;asymmetric&nbsp;errorbars&nbsp;-column1/+column2<br>
 &nbsp;<br>
+Alternatively,&nbsp;x,&nbsp;y,&nbsp;xerr,&nbsp;and&nbsp;yerr&nbsp;can&nbsp;all&nbsp;be&nbsp;scalars,&nbsp;which<br>
+plots&nbsp;a&nbsp;single&nbsp;error&nbsp;bar&nbsp;at&nbsp;x,&nbsp;y.<br>
+&nbsp;<br>
 fmt&nbsp;is&nbsp;the&nbsp;plot&nbsp;format&nbsp;symbol&nbsp;for&nbsp;y.&nbsp;&nbsp;if&nbsp;fmt&nbsp;is&nbsp;None,&nbsp;just<br>
 plot&nbsp;the&nbsp;errorbars&nbsp;with&nbsp;no&nbsp;line&nbsp;symbols.&nbsp;&nbsp;This&nbsp;can&nbsp;be&nbsp;useful<br>
 for&nbsp;creating&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;errorbars<br>
@@ -618,6 +621,9 @@ xerr&nbsp;and&nbsp;yerr&nbsp;may&nbsp;be&nbsp;any&nbsp;of:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;an&nbsp;N-element&nbsp;list&nbsp;or&nbsp;tuple&nbsp;-&nbsp;symmetric&nbsp;errorbars&nbsp;+/-&nbsp;value<br>
 &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;rank-1,&nbsp;Nx2&nbsp;Numpy&nbsp;array&nbsp;&nbsp;-&nbsp;asymmetric&nbsp;errorbars&nbsp;-column1/+column2<br>
 &nbsp;<br>
+Alternatively,&nbsp;x,&nbsp;y,&nbsp;xerr,&nbsp;and&nbsp;yerr&nbsp;can&nbsp;all&nbsp;be&nbsp;scalars,&nbsp;which<br>
+plots&nbsp;a&nbsp;single&nbsp;error&nbsp;bar&nbsp;at&nbsp;x,&nbsp;y.<br>
+&nbsp;<br>
 fmt&nbsp;is&nbsp;the&nbsp;plot&nbsp;format&nbsp;symbol&nbsp;for&nbsp;y.&nbsp;&nbsp;if&nbsp;fmt&nbsp;is&nbsp;None,&nbsp;just<br>
 plot&nbsp;the&nbsp;errorbars&nbsp;with&nbsp;no&nbsp;line&nbsp;symbols.&nbsp;&nbsp;This&nbsp;can&nbsp;be&nbsp;useful<br>
 for&nbsp;creating&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;errorbars<br>
@@ -1004,5 +1010,5 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>lineMarkers</strong> = {'+': 1, ',': 1, '.': 1, '&lt;': 1, '&gt;': 1, '^': 1, 'o': 1, 's': 1, 'v': 1, 'x': 1}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1}<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTK', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
 @footer@

@@ -11,18 +11,15 @@ rendering, it has all of the features of agg, including fast
 antialiased rendering, freetype2, alpha blending, mathtext, and so on.
 See the <a href=backends.html#TkAgg>TkAgg backend</a>.""" ),
     
-    ('freetype2 suuport added for agg backend', """\
-With freetype2, agg now renders fonts nicely even at very small raster
-sizes.""" ),
+    ('freetype2 support added for agg backend', """\ With freetype2,
+agg now renders fonts nicely even at very small raster sizes.""" ),
 
-    ('math text', """\
-matplotlib now ships with the <a
+    ('math text', """\ matplotlib now ships with the <a
 href=http://www.math.utah.edu/~beebe/fonts/bakoma.html>BaKoMa</a> TeX
 Computer Modern fonts, and displays math text using TeX expressions.
 See <a href=screenshots.html#mathtext_demo>screenshot</a> and the <a
 href=matplotlib.mathtext.html>mathtext</a> documentation for usage
-information.  Not available (yet) on all backends.
-"""),
+information.  Not available (yet) on all backends.  """),
 
     ('configuration file', """\
 A configuration file is placed in your install path
@@ -64,11 +61,15 @@ legend()
 </pre>
 """),
 
-	('Bugfixes', """\
+	('Bugfixes and minor improvements', """\
 
 <ul>
 
-  <li> GTK : fixed a subplot selection GUI bug specific to python2.2</li>
+  <li> GTK : fixed a subplot selection GUI bug specific to
+  python2.2</li>
+  <li> ALL : Fixed a multiple column subplot layout bug</li>
+  <li> PS : Fixed an afm parser - thanks Dominique</li>
+  <li> Agg : Agg now respects antialiased=False</li>
 
 </ul>
 

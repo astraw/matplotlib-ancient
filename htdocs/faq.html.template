@@ -4,7 +4,7 @@ FAQs = (
     'Does matplotlib work with numarray?',
     """\
 Yes.  Todd Miller has added a numeric module which allows you to
-choose between Numeric or numarray at the prompt, in a config file, or
+choose between Numeric or numarray at the promptw, in a config file, or
 using an environment variable.  For the most part, this works
 seamlessly.  See <a href=NUMARRAY_ISSUES>NUMARRAY_ISSUES</a> and the
 <a href=matplotlib.numerix.html>numerix</a> module for information.
@@ -87,6 +87,21 @@ and pretty GUIs are important to you, Wx, GTK, or GTKAgg are probably
 your best best.  Tk widgets are not visually stunning. </li>
 
 </ul>
+
+My default backend is GTKAgg.
+
+"""),
+
+    ('MATHTEXT',
+     'Can I include math expressions in my figures?',
+     """\
+As of matplotlib-0.51, you can use TeX markup in any text element.
+Just use raw strings and enclose the strings with dollar signs, as in
+<tt>title(r'\\alpha > \\beta_i$)</tt>.  See <a
+href=screenshots.html#mathtext_demo>screenshot</a> and the <a
+href=matplotlib.mathtext.html>mathtext</a> documentation for usage,
+requirements and backend information.
+
 """),
     
     ('BATCHMODE',
@@ -216,7 +231,7 @@ performance.  If you find areas that need improvement, let me know.
 Not currently, except as pcolor data.  It's in the works; stay tuned."""),
 
     ('ROTATETICKS',
-     'How do I make vertical xticklabels',
+     'How do I make vertical xticklabels?',
      """\
 You can set the rotation of any text instance to vertical
 
