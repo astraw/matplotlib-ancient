@@ -1,0 +1,556 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.dates</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/dates.py">/usr/local/lib/python2.3/site-packages/matplotlib/dates.py</a></font></td></tr></table>
+    <p><tt>The&nbsp;dates&nbsp;module&nbsp;is&nbsp;built&nbsp;around&nbsp;the&nbsp;assumption&nbsp;that&nbsp;users&nbsp;will&nbsp;want<br>
+to&nbsp;specify&nbsp;dates&nbsp;in&nbsp;a&nbsp;variety&nbsp;of&nbsp;ways.<br>
+&nbsp;<br>
+The&nbsp;goal&nbsp;of&nbsp;the&nbsp;converter&nbsp;classes&nbsp;defined&nbsp;here&nbsp;is&nbsp;to&nbsp;hide&nbsp;all&nbsp;the<br>
+conversions&nbsp;required&nbsp;to&nbsp;plot&nbsp;data&nbsp;on&nbsp;the&nbsp;screen&nbsp;from&nbsp;you,&nbsp;and&nbsp;to<br>
+provide&nbsp;an&nbsp;abstract&nbsp;interface&nbsp;to&nbsp;matplotlib&nbsp;plotting&nbsp;routines&nbsp;so&nbsp;you<br>
+can&nbsp;use&nbsp;date&nbsp;instances&nbsp;of&nbsp;your&nbsp;choice.&nbsp;&nbsp;You&nbsp;pass&nbsp;these&nbsp;converter<br>
+classes&nbsp;to&nbsp;date&nbsp;plotting&nbsp;functions&nbsp;and&nbsp;these&nbsp;functions&nbsp;will&nbsp;do&nbsp;the<br>
+rest.<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;converters&nbsp;are&nbsp;provided<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;<a href="#EpochConverter">EpochConverter</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;dates&nbsp;are&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;<a href="#PyDatetimeConverter">PyDatetimeConverter</a>&nbsp;-&nbsp;dates&nbsp;are&nbsp;python2.3&nbsp;date/datetime&nbsp;instances<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;<a href="#MxDatetimeConverter">MxDatetimeConverter</a>&nbsp;-&nbsp;dates&nbsp;are&nbsp;egenix&nbsp;mx.Datetime&nbsp;instances<br>
+&nbsp;<br>
+You&nbsp;can&nbsp;provide&nbsp;your&nbsp;own&nbsp;converter&nbsp;by&nbsp;deriving&nbsp;from&nbsp;the&nbsp;base&nbsp;class<br>
+<a href="#DateConverter">DateConverter</a>&nbsp;and&nbsp;overriding&nbsp;the&nbsp;methods&nbsp;epoch&nbsp;and&nbsp;from_epoch.&nbsp;&nbsp;If&nbsp;you<br>
+define&nbsp;one&nbsp;for&nbsp;a&nbsp;widely&nbsp;used&nbsp;date&nbsp;class,&nbsp;or&nbsp;extend&nbsp;the&nbsp;ones&nbsp;here,<br>
+please&nbsp;contribute&nbsp;the&nbsp;code&nbsp;back!&nbsp;&nbsp;All&nbsp;conversions&nbsp;are&nbsp;done&nbsp;to&nbsp;and&nbsp;from<br>
+seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;locatime.<br>
+&nbsp;<br>
+Here&nbsp;is&nbsp;an&nbsp;example&nbsp;of&nbsp;how&nbsp;you&nbsp;could&nbsp;plot&nbsp;dates&nbsp;with&nbsp;python&nbsp;datetime<br>
+instances&nbsp;in&nbsp;the&nbsp;eastern&nbsp;time&nbsp;zone::<br>
+&nbsp;<br>
+&nbsp;&nbsp;from&nbsp;matplotlib.dates&nbsp;import&nbsp;<a href="#PyDatetimeConverter">PyDatetimeConverter</a>,&nbsp;Eastern<br>
+&nbsp;&nbsp;from&nbsp;matplotlib.matlab&nbsp;import&nbsp;*<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;dates&nbsp;=&nbsp;[&nbsp;dt1,&nbsp;dt2,&nbsp;dt2,&nbsp;...]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;datetime&nbsp;instances<br>
+&nbsp;&nbsp;vals&nbsp;&nbsp;=&nbsp;[&nbsp;val1,&nbsp;val2,&nbsp;val3,&nbsp;...]&nbsp;&nbsp;#&nbsp;the&nbsp;y&nbsp;values<br>
+&nbsp;&nbsp;converter&nbsp;=&nbsp;<a href="#PyDatetimeConverter">PyDatetimeConverter</a>(Eastern)&nbsp;&nbsp;#&nbsp;dates&nbsp;are&nbsp;in&nbsp;Eastern&nbsp;tz<br>
+&nbsp;&nbsp;ax&nbsp;=&nbsp;subplot(111)<br>
+&nbsp;&nbsp;plot_date(dates,&nbsp;vals,&nbsp;converter)<br>
+&nbsp;<br>
+The&nbsp;matplotlib.ticker&nbsp;module&nbsp;provides&nbsp;many&nbsp;custom&nbsp;tick&nbsp;locators&nbsp;and<br>
+formatters&nbsp;for&nbsp;you&nbsp;so&nbsp;you&nbsp;don't&nbsp;have&nbsp;to&nbsp;work&nbsp;at&nbsp;the&nbsp;level&nbsp;of<br>
+manipulating&nbsp;epoch&nbsp;seconds&nbsp;to&nbsp;set&nbsp;your&nbsp;ticks.&nbsp;&nbsp;Eg,&nbsp;to&nbsp;set&nbsp;the&nbsp;ticks&nbsp;on<br>
+the&nbsp;years,&nbsp;you&nbsp;would&nbsp;do::<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;matplotlib.ticker&nbsp;import&nbsp;YearLocator<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;...&nbsp;your&nbsp;plot&nbsp;here&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;years&nbsp;=&nbsp;YearLocator(5)&nbsp;&nbsp;&nbsp;#&nbsp;every&nbsp;5&nbsp;years<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ax.xaxis.set_major_locator(years)<br>
+&nbsp;<br>
+and&nbsp;the&nbsp;date&nbsp;tick&nbsp;locator&nbsp;will&nbsp;try&nbsp;and&nbsp;pick&nbsp;the&nbsp;best&nbsp;axis&nbsp;range&nbsp;and<br>
+tick&nbsp;locations&nbsp;for&nbsp;you,&nbsp;ie,&nbsp;on&nbsp;multiples&nbsp;of&nbsp;5&nbsp;years.&nbsp;&nbsp;Although&nbsp;the<br>
+default&nbsp;choices&nbsp;will&nbsp;probably&nbsp;be&nbsp;good,&nbsp;if&nbsp;you&nbsp;are&nbsp;unhappy&nbsp;with&nbsp;the<br>
+range&nbsp;choices&nbsp;the&nbsp;locator&nbsp;makes&nbsp;for&nbsp;you,&nbsp;you&nbsp;can&nbsp;use&nbsp;your&nbsp;date<br>
+instances&nbsp;and&nbsp;converter&nbsp;to&nbsp;specify&nbsp;them&nbsp;yourself,&nbsp;as&nbsp;in::<br>
+&nbsp;<br>
+&nbsp;&nbsp;dmin&nbsp;=&nbsp;converter(&nbsp;datetime(2002,01,15)&nbsp;)<br>
+&nbsp;&nbsp;dmax&nbsp;=&nbsp;converter(&nbsp;datetime(2004,01,15)&nbsp;)<br>
+&nbsp;&nbsp;ax.set_xlim(&nbsp;(dmin,&nbsp;dmax)&nbsp;)<br>
+&nbsp;<br>
+Use&nbsp;date&nbsp;formatters&nbsp;to&nbsp;specify&nbsp;major&nbsp;and&nbsp;minor&nbsp;tick&nbsp;formats.&nbsp;&nbsp;Minor<br>
+ticks&nbsp;are&nbsp;off&nbsp;by&nbsp;default,&nbsp;but&nbsp;you&nbsp;can&nbsp;turn&nbsp;them&nbsp;on&nbsp;by&nbsp;passing&nbsp;a&nbsp;date<br>
+locator&nbsp;and&nbsp;date&nbsp;formatter&nbsp;to&nbsp;the&nbsp;axis.&nbsp;&nbsp;The&nbsp;relevant&nbsp;methods&nbsp;are::<br>
+&nbsp;<br>
+&nbsp;&nbsp;ax.xaxis.set_major_locator(&nbsp;majLocator&nbsp;)<br>
+&nbsp;&nbsp;ax.xaxis.set_major_formatter(&nbsp;majFormatter&nbsp;)<br>
+&nbsp;<br>
+&nbsp;&nbsp;ax.xaxis.set_minor_locator(&nbsp;minLocator&nbsp;)<br>
+&nbsp;&nbsp;ax.xaxis.set_minor_formatter(&nbsp;minFormatter&nbsp;)<br>
+&nbsp;<br>
+where&nbsp;majLocator&nbsp;and&nbsp;minLocator&nbsp;are&nbsp;matplotlib.ticker.Locator&nbsp;instance<br>
+and&nbsp;majFormatter&nbsp;and&nbsp;minFormatter&nbsp;are&nbsp;matplotlib.ticker.Formatter<br>
+instances.&nbsp;&nbsp;Many&nbsp;date&nbsp;locators&nbsp;are&nbsp;provided:&nbsp;MinuteLocator,<br>
+HourLocator,&nbsp;DayLocator,&nbsp;WeekdayLocator,&nbsp;MonthLocator,&nbsp;YearLocator.<br>
+Most&nbsp;of&nbsp;these&nbsp;take&nbsp;an&nbsp;argument&nbsp;to,&nbsp;for&nbsp;example,&nbsp;select&nbsp;only&nbsp;hours&nbsp;or<br>
+years&nbsp;that&nbsp;are&nbsp;multiples&nbsp;of&nbsp;some&nbsp;number.&nbsp;&nbsp;The&nbsp;DateFormatter&nbsp;class<br>
+takes&nbsp;a&nbsp;strftime&nbsp;format&nbsp;string&nbsp;to&nbsp;format&nbsp;the&nbsp;dates&nbsp;on&nbsp;the&nbsp;major&nbsp;and<br>
+minor&nbsp;ticker.&nbsp;&nbsp;The&nbsp;minor&nbsp;ticker&nbsp;is&nbsp;off&nbsp;by&nbsp;default&nbsp;in&nbsp;all&nbsp;plots&nbsp;so&nbsp;you<br>
+will&nbsp;need&nbsp;to&nbsp;set&nbsp;the&nbsp;minor&nbsp;locator&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;turn&nbsp;them&nbsp;on,&nbsp;and<br>
+the&nbsp;minor&nbsp;formatter&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;label&nbsp;them.<br>
+&nbsp;<br>
+Here&nbsp;is&nbsp;an&nbsp;example&nbsp;setting&nbsp;the&nbsp;major&nbsp;date&nbsp;formatter<br>
+strftime&nbsp;string,&nbsp;as&nbsp;in::<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;formatter&nbsp;=&nbsp;DateFormatter('%Y')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ax.xaxis.set_major_formatter(formatter)<br>
+&nbsp;<br>
+See&nbsp;the&nbsp;examples/dates*.py&nbsp;in&nbsp;the&nbsp;matplotlib&nbsp;src&nbsp;distribution&nbsp;for<br>
+complete&nbsp;demos,&nbsp;and&nbsp;the&nbsp;matplotlib.ticker&nbsp;help&nbsp;for&nbsp;more&nbsp;information&nbsp;on<br>
+tick&nbsp;locators&nbsp;and&nbsp;formatters.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="time.html">time</a><br>
+<a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="mx.html">mx</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.dates.html#DateConverter">DateConverter</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.dates.html#EpochConverter">EpochConverter</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.dates.html#MxDatetimeConverter">MxDatetimeConverter</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.dates.html#PyDatetimeConverter">PyDatetimeConverter</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="datetime.html#tzinfo">datetime.tzinfo</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.dates.html#FixedOffset">FixedOffset</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.dates.html#LocalTimezone">LocalTimezone</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.dates.html#USTimeZone">USTimeZone</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.dates.html#UTC">UTC</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DateConverter">class <strong>DateConverter</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>An&nbsp;abstract&nbsp;class&nbsp;to&nbsp;allow&nbsp;users&nbsp;to&nbsp;specify&nbsp;dates&nbsp;however&nbsp;they<br>
+want.&nbsp;&nbsp;The&nbsp;class&nbsp;provides&nbsp;a&nbsp;standard&nbsp;set&nbsp;of&nbsp;calls&nbsp;which&nbsp;take&nbsp;the<br>
+users&nbsp;date&nbsp;instance&nbsp;and&nbsp;convert&nbsp;to&nbsp;to&nbsp;the&nbsp;output&nbsp;indicated.&nbsp;&nbsp;This<br>
+allows&nbsp;you&nbsp;to&nbsp;store&nbsp;dates&nbsp;as&nbsp;mx&nbsp;datetimes,&nbsp;python&nbsp;datetimes,<br>
+epochs&nbsp;etc.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="DateConverter-__call__"><strong>__call__</strong></a>(self, x)</dt><dd><tt>convert&nbsp;userland&nbsp;datetime&nbsp;instance&nbsp;x&nbsp;to&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-add_month"><strong>add_month</strong></a>(self, x, direction<font color="#909090">=1</font>)</dt><dd><tt>return&nbsp;now&nbsp;plus&nbsp;one&nbsp;month&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-add_year"><strong>add_year</strong></a>(self, x, direction<font color="#909090">=1</font>)</dt><dd><tt>return&nbsp;now&nbsp;plus&nbsp;one&nbsp;year&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-ceil_day"><strong>ceil_day</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;day</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-ceil_hour"><strong>ceil_hour</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;hour&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-ceil_minute"><strong>ceil_minute</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;minute</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-ceil_month"><strong>ceil_month</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;month</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-ceil_year"><strong>ceil_year</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;year</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-day_of_week"><strong>day_of_week</strong></a>(self, x)</dt><dd><tt>return&nbsp;day&nbsp;of&nbsp;week;&nbsp;monday&nbsp;is&nbsp;0</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-epoch"><strong>epoch</strong></a>(self, x)</dt><dd><tt>convert&nbsp;userland&nbsp;datetime&nbsp;instance&nbsp;x&nbsp;to&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-floor_day"><strong>floor_day</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;day</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-floor_hour"><strong>floor_hour</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;hour&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-floor_minute"><strong>floor_minute</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;minute</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-floor_month"><strong>floor_month</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;month</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-floor_year"><strong>floor_year</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;year</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-from_epoch"><strong>from_epoch</strong></a>(self, e)</dt><dd><tt>return&nbsp;an&nbsp;instance&nbsp;of&nbsp;your&nbsp;date&nbsp;from&nbsp;the&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-hms"><strong>hms</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;hour,&nbsp;minute,&nbsp;second</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-strftime"><strong>strftime</strong></a>(self, fmt, x)</dt><dd><tt>format&nbsp;x&nbsp;using&nbsp;strftime&nbsp;format&nbsp;string&nbsp;fmt</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-strptime"><strong>strptime</strong></a>(self, datestr, fmt)</dt><dd><tt>return&nbsp;an&nbsp;instance&nbsp;of&nbsp;your&nbsp;date&nbsp;from&nbsp;a&nbsp;date&nbsp;string&nbsp;and&nbsp;fouermat</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-ymd"><strong>ymd</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;year&nbsp;month&nbsp;day.&nbsp;month&nbsp;and&nbsp;day&nbsp;are&nbsp;indexed&nbsp;from&nbsp;1</tt></dd></dl>
+
+<dl><dt><a name="DateConverter-ymdhms_to_epoch"><strong>ymdhms_to_epoch</strong></a>(self, year, month, day, hour, minute, second)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="EpochConverter">class <strong>EpochConverter</strong></a>(<a href="matplotlib.dates.html#DateConverter">DateConverter</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Represent&nbsp;time&nbsp;in&nbsp;the&nbsp;epoch<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="EpochConverter-ceil_day"><strong>ceil_day</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;day</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-ceil_hour"><strong>ceil_hour</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;hour</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-ceil_minute"><strong>ceil_minute</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;minute</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-day_of_week"><strong>day_of_week</strong></a>(self, x)</dt><dd><tt>return&nbsp;day&nbsp;of&nbsp;week;&nbsp;monday&nbsp;is&nbsp;0</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-epoch"><strong>epoch</strong></a>(self, x)</dt><dd><tt>convert&nbsp;userland&nbsp;datetime&nbsp;instance&nbsp;x&nbsp;to&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-floor_day"><strong>floor_day</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;day</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-floor_hour"><strong>floor_hour</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;hour</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-floor_minute"><strong>floor_minute</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;minute</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-from_epoch"><strong>from_epoch</strong></a>(self, e)</dt><dd><tt>return&nbsp;an&nbsp;instance&nbsp;of&nbsp;your&nbsp;date&nbsp;from&nbsp;the&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-hms"><strong>hms</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;hour,&nbsp;minute,&nbsp;second</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-strftime"><strong>strftime</strong></a>(self, fmt, x)</dt><dd><tt>format&nbsp;x&nbsp;using&nbsp;strftime&nbsp;format&nbsp;string&nbsp;fmt</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-strptime"><strong>strptime</strong></a>(self, datestr, fmt)</dt><dd><tt>return&nbsp;an&nbsp;instance&nbsp;of&nbsp;your&nbsp;date&nbsp;from&nbsp;a&nbsp;date&nbsp;string&nbsp;and&nbsp;format</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-ymd"><strong>ymd</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;year&nbsp;month&nbsp;day.&nbsp;month&nbsp;and&nbsp;day&nbsp;are&nbsp;indexed&nbsp;from&nbsp;1</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.dates.html#DateConverter">DateConverter</a>:<br>
+<dl><dt><a name="EpochConverter-__call__"><strong>__call__</strong></a>(self, x)</dt><dd><tt>convert&nbsp;userland&nbsp;datetime&nbsp;instance&nbsp;x&nbsp;to&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-add_month"><strong>add_month</strong></a>(self, x, direction<font color="#909090">=1</font>)</dt><dd><tt>return&nbsp;now&nbsp;plus&nbsp;one&nbsp;month&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-add_year"><strong>add_year</strong></a>(self, x, direction<font color="#909090">=1</font>)</dt><dd><tt>return&nbsp;now&nbsp;plus&nbsp;one&nbsp;year&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-ceil_month"><strong>ceil_month</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;month</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-ceil_year"><strong>ceil_year</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;year</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-floor_month"><strong>floor_month</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;month</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-floor_year"><strong>floor_year</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;year</tt></dd></dl>
+
+<dl><dt><a name="EpochConverter-ymdhms_to_epoch"><strong>ymdhms_to_epoch</strong></a>(self, year, month, day, hour, minute, second)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FixedOffset">class <strong>FixedOffset</strong></a>(<a href="datetime.html#tzinfo">datetime.tzinfo</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Fixed&nbsp;offset&nbsp;in&nbsp;minutes&nbsp;east&nbsp;from&nbsp;<a href="#UTC">UTC</a>.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.dates.html#FixedOffset">FixedOffset</a></dd>
+<dd><a href="datetime.html#tzinfo">datetime.tzinfo</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FixedOffset-__init__"><strong>__init__</strong></a>(self, offset, name)</dt></dl>
+
+<dl><dt><a name="FixedOffset-dst"><strong>dst</strong></a>(self, dt)</dt></dl>
+
+<dl><dt><a name="FixedOffset-tzname"><strong>tzname</strong></a>(self, dt)</dt></dl>
+
+<dl><dt><a name="FixedOffset-utcoffset"><strong>utcoffset</strong></a>(self, dt)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__dict__</strong> = &lt;dictproxy object&gt;<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dl>
+
+<dl><dt><strong>__weakref__</strong> = &lt;attribute '__weakref__' of 'FixedOffset' objects&gt;<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dl>
+
+<hr>
+Methods inherited from <a href="datetime.html#tzinfo">datetime.tzinfo</a>:<br>
+<dl><dt><a name="FixedOffset-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#FixedOffset-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="FixedOffset-__reduce__"><strong>__reduce__</strong></a>(...)</dt><dd><tt>-&gt;&nbsp;(cls,&nbsp;state)</tt></dd></dl>
+
+<dl><dt><a name="FixedOffset-fromutc"><strong>fromutc</strong></a>(...)</dt><dd><tt>datetime&nbsp;in&nbsp;<a href="#UTC">UTC</a>&nbsp;-&gt;&nbsp;datetime&nbsp;in&nbsp;local&nbsp;time.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="datetime.html#tzinfo">datetime.tzinfo</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#FixedOffset-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="LocalTimezone">class <strong>LocalTimezone</strong></a>(<a href="datetime.html#tzinfo">datetime.tzinfo</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.dates.html#LocalTimezone">LocalTimezone</a></dd>
+<dd><a href="datetime.html#tzinfo">datetime.tzinfo</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="LocalTimezone-dst"><strong>dst</strong></a>(self, dt)</dt></dl>
+
+<dl><dt><a name="LocalTimezone-tzname"><strong>tzname</strong></a>(self, dt)</dt></dl>
+
+<dl><dt><a name="LocalTimezone-utcoffset"><strong>utcoffset</strong></a>(self, dt)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__dict__</strong> = &lt;dictproxy object&gt;<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dl>
+
+<dl><dt><strong>__weakref__</strong> = &lt;attribute '__weakref__' of 'LocalTimezone' objects&gt;<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dl>
+
+<hr>
+Methods inherited from <a href="datetime.html#tzinfo">datetime.tzinfo</a>:<br>
+<dl><dt><a name="LocalTimezone-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#LocalTimezone-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="LocalTimezone-__reduce__"><strong>__reduce__</strong></a>(...)</dt><dd><tt>-&gt;&nbsp;(cls,&nbsp;state)</tt></dd></dl>
+
+<dl><dt><a name="LocalTimezone-fromutc"><strong>fromutc</strong></a>(...)</dt><dd><tt>datetime&nbsp;in&nbsp;<a href="#UTC">UTC</a>&nbsp;-&gt;&nbsp;datetime&nbsp;in&nbsp;local&nbsp;time.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="datetime.html#tzinfo">datetime.tzinfo</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#LocalTimezone-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MxDatetimeConverter">class <strong>MxDatetimeConverter</strong></a>(<a href="matplotlib.dates.html#DateConverter">DateConverter</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Convert&nbsp;egenix&nbsp;mx.Datetime&nbsp;instances<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="MxDatetimeConverter-epoch"><strong>epoch</strong></a>(self, x)</dt><dd><tt>convert&nbsp;userland&nbsp;datetime&nbsp;instance&nbsp;x&nbsp;to&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-from_epoch"><strong>from_epoch</strong></a>(self, e)</dt><dd><tt>return&nbsp;an&nbsp;instance&nbsp;of&nbsp;your&nbsp;date&nbsp;from&nbsp;the&nbsp;epoch</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.dates.html#DateConverter">DateConverter</a>:<br>
+<dl><dt><a name="MxDatetimeConverter-__call__"><strong>__call__</strong></a>(self, x)</dt><dd><tt>convert&nbsp;userland&nbsp;datetime&nbsp;instance&nbsp;x&nbsp;to&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-add_month"><strong>add_month</strong></a>(self, x, direction<font color="#909090">=1</font>)</dt><dd><tt>return&nbsp;now&nbsp;plus&nbsp;one&nbsp;month&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-add_year"><strong>add_year</strong></a>(self, x, direction<font color="#909090">=1</font>)</dt><dd><tt>return&nbsp;now&nbsp;plus&nbsp;one&nbsp;year&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-ceil_day"><strong>ceil_day</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;day</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-ceil_hour"><strong>ceil_hour</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;hour&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-ceil_minute"><strong>ceil_minute</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;minute</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-ceil_month"><strong>ceil_month</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;month</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-ceil_year"><strong>ceil_year</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;year</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-day_of_week"><strong>day_of_week</strong></a>(self, x)</dt><dd><tt>return&nbsp;day&nbsp;of&nbsp;week;&nbsp;monday&nbsp;is&nbsp;0</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-floor_day"><strong>floor_day</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;day</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-floor_hour"><strong>floor_hour</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;hour&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-floor_minute"><strong>floor_minute</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;minute</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-floor_month"><strong>floor_month</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;month</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-floor_year"><strong>floor_year</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;year</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-hms"><strong>hms</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;hour,&nbsp;minute,&nbsp;second</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-strftime"><strong>strftime</strong></a>(self, fmt, x)</dt><dd><tt>format&nbsp;x&nbsp;using&nbsp;strftime&nbsp;format&nbsp;string&nbsp;fmt</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-strptime"><strong>strptime</strong></a>(self, datestr, fmt)</dt><dd><tt>return&nbsp;an&nbsp;instance&nbsp;of&nbsp;your&nbsp;date&nbsp;from&nbsp;a&nbsp;date&nbsp;string&nbsp;and&nbsp;fouermat</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-ymd"><strong>ymd</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;year&nbsp;month&nbsp;day.&nbsp;month&nbsp;and&nbsp;day&nbsp;are&nbsp;indexed&nbsp;from&nbsp;1</tt></dd></dl>
+
+<dl><dt><a name="MxDatetimeConverter-ymdhms_to_epoch"><strong>ymdhms_to_epoch</strong></a>(self, year, month, day, hour, minute, second)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PyDatetimeConverter">class <strong>PyDatetimeConverter</strong></a>(<a href="matplotlib.dates.html#DateConverter">DateConverter</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Convert&nbsp;python2.3&nbsp;date&nbsp;or&nbsp;datetime&nbsp;instances<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="PyDatetimeConverter-day_of_week"><strong>day_of_week</strong></a>(self, x)</dt><dd><tt>return&nbsp;day&nbsp;of&nbsp;week;&nbsp;monday&nbsp;is&nbsp;0</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-epoch"><strong>epoch</strong></a>(self, x)</dt><dd><tt>convert&nbsp;userland&nbsp;datetime&nbsp;instance&nbsp;x&nbsp;to&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-from_epoch"><strong>from_epoch</strong></a>(self, e)</dt><dd><tt>return&nbsp;an&nbsp;instance&nbsp;of&nbsp;your&nbsp;date&nbsp;from&nbsp;the&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-hms"><strong>hms</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;hour,&nbsp;minute,&nbsp;second</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-strftime"><strong>strftime</strong></a>(self, fmt, x)</dt><dd><tt>format&nbsp;x&nbsp;using&nbsp;strftime&nbsp;format&nbsp;string&nbsp;fmt</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-strptime"><strong>strptime</strong></a>(self, datestr, fmt)</dt><dd><tt>return&nbsp;an&nbsp;instance&nbsp;of&nbsp;your&nbsp;date&nbsp;from&nbsp;a&nbsp;date&nbsp;string&nbsp;and&nbsp;format</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-ymd"><strong>ymd</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;year&nbsp;month&nbsp;day.&nbsp;month&nbsp;and&nbsp;day&nbsp;are&nbsp;indexed&nbsp;from&nbsp;1</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.dates.html#DateConverter">DateConverter</a>:<br>
+<dl><dt><a name="PyDatetimeConverter-__call__"><strong>__call__</strong></a>(self, x)</dt><dd><tt>convert&nbsp;userland&nbsp;datetime&nbsp;instance&nbsp;x&nbsp;to&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-add_month"><strong>add_month</strong></a>(self, x, direction<font color="#909090">=1</font>)</dt><dd><tt>return&nbsp;now&nbsp;plus&nbsp;one&nbsp;month&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-add_year"><strong>add_year</strong></a>(self, x, direction<font color="#909090">=1</font>)</dt><dd><tt>return&nbsp;now&nbsp;plus&nbsp;one&nbsp;year&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-ceil_day"><strong>ceil_day</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;day</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-ceil_hour"><strong>ceil_hour</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;hour&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-ceil_minute"><strong>ceil_minute</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;minute</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-ceil_month"><strong>ceil_month</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;month</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-ceil_year"><strong>ceil_year</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;year</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-floor_day"><strong>floor_day</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;day</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-floor_hour"><strong>floor_hour</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;hour&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-floor_minute"><strong>floor_minute</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;minute</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-floor_month"><strong>floor_month</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;month</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-floor_year"><strong>floor_year</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;year</tt></dd></dl>
+
+<dl><dt><a name="PyDatetimeConverter-ymdhms_to_epoch"><strong>ymdhms_to_epoch</strong></a>(self, year, month, day, hour, minute, second)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="USTimeZone">class <strong>USTimeZone</strong></a>(<a href="datetime.html#tzinfo">datetime.tzinfo</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.dates.html#USTimeZone">USTimeZone</a></dd>
+<dd><a href="datetime.html#tzinfo">datetime.tzinfo</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="USTimeZone-__init__"><strong>__init__</strong></a>(self, hours, reprname, stdname, dstname)</dt></dl>
+
+<dl><dt><a name="USTimeZone-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="USTimeZone-dst"><strong>dst</strong></a>(self, dt)</dt></dl>
+
+<dl><dt><a name="USTimeZone-tzname"><strong>tzname</strong></a>(self, dt)</dt></dl>
+
+<dl><dt><a name="USTimeZone-utcoffset"><strong>utcoffset</strong></a>(self, dt)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__dict__</strong> = &lt;dictproxy object&gt;<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dl>
+
+<dl><dt><strong>__weakref__</strong> = &lt;attribute '__weakref__' of 'USTimeZone' objects&gt;<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dl>
+
+<hr>
+Methods inherited from <a href="datetime.html#tzinfo">datetime.tzinfo</a>:<br>
+<dl><dt><a name="USTimeZone-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#USTimeZone-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="USTimeZone-__reduce__"><strong>__reduce__</strong></a>(...)</dt><dd><tt>-&gt;&nbsp;(cls,&nbsp;state)</tt></dd></dl>
+
+<dl><dt><a name="USTimeZone-fromutc"><strong>fromutc</strong></a>(...)</dt><dd><tt>datetime&nbsp;in&nbsp;<a href="#UTC">UTC</a>&nbsp;-&gt;&nbsp;datetime&nbsp;in&nbsp;local&nbsp;time.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="datetime.html#tzinfo">datetime.tzinfo</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#USTimeZone-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="UTC">class <strong>UTC</strong></a>(<a href="datetime.html#tzinfo">datetime.tzinfo</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#UTC">UTC</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.dates.html#UTC">UTC</a></dd>
+<dd><a href="datetime.html#tzinfo">datetime.tzinfo</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="UTC-dst"><strong>dst</strong></a>(self, dt)</dt></dl>
+
+<dl><dt><a name="UTC-tzname"><strong>tzname</strong></a>(self, dt)</dt></dl>
+
+<dl><dt><a name="UTC-utcoffset"><strong>utcoffset</strong></a>(self, dt)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__dict__</strong> = &lt;dictproxy object&gt;<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dl>
+
+<dl><dt><strong>__weakref__</strong> = &lt;attribute '__weakref__' of 'UTC' objects&gt;<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dl>
+
+<hr>
+Methods inherited from <a href="datetime.html#tzinfo">datetime.tzinfo</a>:<br>
+<dl><dt><a name="UTC-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#UTC-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="UTC-__reduce__"><strong>__reduce__</strong></a>(...)</dt><dd><tt>-&gt;&nbsp;(cls,&nbsp;state)</tt></dd></dl>
+
+<dl><dt><a name="UTC-fromutc"><strong>fromutc</strong></a>(...)</dt><dd><tt>datetime&nbsp;in&nbsp;<a href="#UTC">UTC</a>&nbsp;-&gt;&nbsp;datetime&nbsp;in&nbsp;local&nbsp;time.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="datetime.html#tzinfo">datetime.tzinfo</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#UTC-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-first_sunday_on_or_after"><strong>first_sunday_on_or_after</strong></a>(dt)</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Central</strong> = Central<br>
+<strong>DSTDIFF</strong> = datetime.timedelta(0, 3600)<br>
+<strong>DSTEND</strong> = datetime.datetime(1, 10, 25, 1, 0)<br>
+<strong>DSTOFFSET</strong> = datetime.timedelta(-1, 68400)<br>
+<strong>DSTSTART</strong> = datetime.datetime(1, 4, 1, 2, 0)<br>
+<strong>Eastern</strong> = Eastern<br>
+<strong>FRIDAY</strong> = 4<br>
+<strong>HOUR</strong> = datetime.timedelta(0, 3600)<br>
+<strong>Local</strong> = &lt;matplotlib.dates.LocalTimezone object&gt;<br>
+<strong>MONDAY</strong> = 0<br>
+<strong>Mountain</strong> = Mountain<br>
+<strong>Pacific</strong> = Pacific<br>
+<strong>SATURDAY</strong> = 5<br>
+<strong>SEC_PER_DAY</strong> = 86400<br>
+<strong>SEC_PER_HOUR</strong> = 3600<br>
+<strong>SEC_PER_MIN</strong> = 60<br>
+<strong>SEC_PER_WEEK</strong> = 604800<br>
+<strong>STDOFFSET</strong> = datetime.timedelta(-1, 64800)<br>
+<strong>SUNDAY</strong> = 6<br>
+<strong>THURSDAY</strong> = 3<br>
+<strong>TUESDAY</strong> = 1<br>
+<strong>WEDNESDAY</strong> = 2<br>
+<strong>WEEKDAYS</strong> = (0, 1, 2, 3, 4, 5, 6)<br>
+<strong>ZERO</strong> = datetime.timedelta(0)<br>
+<strong>__warningregistry__</strong> = {('integer multiplication', &lt;class exceptions.OverflowWarning&gt;, 158): 1, ('integer multiplication', &lt;class exceptions.OverflowWarning&gt;, 160): 1}<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>utc</strong> = &lt;matplotlib.dates.UTC object&gt;</td></tr></table>
+@footer@

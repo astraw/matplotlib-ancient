@@ -1,0 +1,82 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.finance</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/finance.py">/usr/local/lib/python2.3/site-packages/matplotlib/finance.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;collection&nbsp;of&nbsp;modules&nbsp;for&nbsp;collecting,&nbsp;analyzing&nbsp;and&nbsp;plotting<br>
+financial&nbsp;data.&nbsp;&nbsp;&nbsp;User&nbsp;contributions&nbsp;welcome!</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-candlestick"><strong>candlestick</strong></a>(ax, quotes, width<font color="#909090">=0.20000000000000001</font>, colorup<font color="#909090">='k'</font>, colordown<font color="#909090">='r'</font>, converter<font color="#909090">=&lt;matplotlib.dates.EpochConverter instance&gt;</font>)</dt><dd><tt>quotes&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;(time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low,&nbsp;...)&nbsp;&nbsp;tuples.<br>
+As&nbsp;long&nbsp;as&nbsp;the&nbsp;first&nbsp;5&nbsp;elements&nbsp;of&nbsp;the&nbsp;tuples&nbsp;are&nbsp;these&nbsp;values,<br>
+the&nbsp;tuple&nbsp;can&nbsp;be&nbsp;as&nbsp;long&nbsp;as&nbsp;you&nbsp;want&nbsp;(eg&nbsp;it&nbsp;may&nbsp;store&nbsp;volume).<br>
+&nbsp;<br>
+Plot&nbsp;the&nbsp;time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low&nbsp;as&nbsp;a&nbsp;vertical&nbsp;line&nbsp;ranging<br>
+from&nbsp;low&nbsp;to&nbsp;high.&nbsp;&nbsp;Use&nbsp;a&nbsp;rectangular&nbsp;bar&nbsp;to&nbsp;represent&nbsp;the<br>
+open-close&nbsp;span.&nbsp;&nbsp;If&nbsp;close&nbsp;&gt;=&nbsp;open,&nbsp;use&nbsp;colorup&nbsp;to&nbsp;color&nbsp;the&nbsp;bar,<br>
+otherwise&nbsp;use&nbsp;colordown<br>
+&nbsp;<br>
+ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;an&nbsp;Axes&nbsp;instance&nbsp;to&nbsp;plot&nbsp;to<br>
+width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;fraction&nbsp;of&nbsp;a&nbsp;day&nbsp;for&nbsp;the&nbsp;rectangle&nbsp;width<br>
+colorup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;rectangle&nbsp;where&nbsp;close&nbsp;&gt;=&nbsp;open<br>
+colordown&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;rectangle&nbsp;where&nbsp;close&nbsp;&lt;&nbsp;&nbsp;open&nbsp;&nbsp;&nbsp;&nbsp;<br>
+converter&nbsp;&nbsp;&nbsp;:&nbsp;dates.DateConverter&nbsp;instance&nbsp;used&nbsp;to&nbsp;convert&nbsp;your&nbsp;times.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;your&nbsp;data&nbsp;is&nbsp;already&nbsp;epoch,&nbsp;you&nbsp;can&nbsp;use&nbsp;converter=None<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;lines,&nbsp;patches&nbsp;where&nbsp;lines&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines<br>
+added&nbsp;and&nbsp;patches&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;rectangle&nbsp;patches&nbsp;added</tt></dd></dl>
+ <dl><dt><a name="-plot_day_summary"><strong>plot_day_summary</strong></a>(ax, quotes, ticksize<font color="#909090">=0.20000000000000001</font>, colorup<font color="#909090">='k'</font>, colordown<font color="#909090">='r'</font>, converter<font color="#909090">=&lt;matplotlib.dates.EpochConverter instance&gt;</font>)</dt><dd><tt>quotes&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;(time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low,&nbsp;...)&nbsp;tuples<br>
+&nbsp;<br>
+Represent&nbsp;the&nbsp;time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low&nbsp;as&nbsp;a&nbsp;vertical&nbsp;line<br>
+ranging&nbsp;from&nbsp;low&nbsp;to&nbsp;high.&nbsp;&nbsp;The&nbsp;left&nbsp;tick&nbsp;is&nbsp;the&nbsp;open&nbsp;and&nbsp;the&nbsp;right<br>
+tick&nbsp;is&nbsp;the&nbsp;close.<br>
+&nbsp;<br>
+ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;an&nbsp;Axes&nbsp;instance&nbsp;to&nbsp;plot&nbsp;to<br>
+ticksize&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;fraction&nbsp;of&nbsp;a&nbsp;day&nbsp;for&nbsp;the&nbsp;open&nbsp;and&nbsp;close&nbsp;ticks<br>
+colorup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;lines&nbsp;where&nbsp;close&nbsp;&gt;=&nbsp;open<br>
+colordown&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;lines&nbsp;where&nbsp;close&nbsp;&lt;&nbsp;&nbsp;open&nbsp;&nbsp;&nbsp;&nbsp;<br>
+converter&nbsp;&nbsp;&nbsp;:&nbsp;dates.DateConverter&nbsp;instance&nbsp;used&nbsp;to&nbsp;convert&nbsp;your&nbsp;times.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;your&nbsp;data&nbsp;is&nbsp;already&nbsp;epoch,&nbsp;you&nbsp;can&nbsp;use&nbsp;converter=None<br>
+return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;added</tt></dd></dl>
+ <dl><dt><a name="-quotes_historical_yahoo"><strong>quotes_historical_yahoo</strong></a>(ticker, date1, date2, converter<font color="#909090">=&lt;matplotlib.dates.EpochConverter instance&gt;</font>)</dt><dd><tt>Get&nbsp;historical&nbsp;data&nbsp;for&nbsp;ticker&nbsp;between&nbsp;date1&nbsp;and&nbsp;date2.&nbsp;&nbsp;converter<br>
+is&nbsp;a&nbsp;DateConverter&nbsp;class&nbsp;appropriate&nbsp;for&nbsp;converting&nbsp;your&nbsp;dates<br>
+&nbsp;<br>
+results&nbsp;are&nbsp;a&nbsp;list&nbsp;of<br>
+&nbsp;<br>
+d,&nbsp;open,&nbsp;high,&nbsp;low,&nbsp;close,&nbsp;volume<br>
+&nbsp;<br>
+where&nbsp;d&nbsp;is&nbsp;an&nbsp;instnace&nbsp;of&nbsp;your&nbsp;datetime&nbsp;supplied&nbsp;by&nbsp;the&nbsp;converter</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>FRIDAY</strong> = 4<br>
+<strong>MONDAY</strong> = 0<br>
+<strong>SATURDAY</strong> = 5<br>
+<strong>SEC_PER_DAY</strong> = 86400<br>
+<strong>SUNDAY</strong> = 6<br>
+<strong>THURSDAY</strong> = 3<br>
+<strong>TUESDAY</strong> = 1<br>
+<strong>WEDNESDAY</strong> = 2<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
+@footer@

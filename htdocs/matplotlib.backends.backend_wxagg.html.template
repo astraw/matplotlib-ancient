@@ -1,0 +1,2784 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_wxagg</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_wxagg.py">/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_wxagg.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="StringIO.html">StringIO</a><br>
+<a href="clip_dndc.html">clip_dndc</a><br>
+<a href="cmndlgsc.html">cmndlgsc</a><br>
+<a href="controls2c.html">controls2c</a><br>
+<a href="controlsc.html">controlsc</a><br>
+<a href="eventsc.html">eventsc</a><br>
+<a href="filesysc.html">filesysc</a><br>
+<a href="fontsc.html">fontsc</a><br>
+</td><td width="25%" valign=top><a href="framesc.html">framesc</a><br>
+<a href="gdic.html">gdic</a><br>
+<a href="imagec.html">imagec</a><br>
+<a href="locale.html">locale</a><br>
+<a href="math.html">math</a><br>
+<a href="matplotlib.html">matplotlib</a><br>
+<a href="mdic.html">mdic</a><br>
+<a href="misc2c.html">misc2c</a><br>
+</td><td width="25%" valign=top><a href="miscc.html">miscc</a><br>
+<a href="os.html">os</a><br>
+<a href="printfwc.html">printfwc</a><br>
+<a href="sizersc.html">sizersc</a><br>
+<a href="stattoolc.html">stattoolc</a><br>
+<a href="streamsc.html">streamsc</a><br>
+<a href="sys.html">sys</a><br>
+<a href="types.html">types</a><br>
+</td><td width="25%" valign=top><a href="utilsc.html">utilsc</a><br>
+<a href="windows2c.html">windows2c</a><br>
+<a href="windows3c.html">windows3c</a><br>
+<a href="windowsc.html">windowsc</a><br>
+<a href="wxPython.wx.html">wxPython.wx</a><br>
+<a href="wxPython.wxc.html">wxPython.wxc</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#FigureCanvasWx">matplotlib.backends.backend_wx.FigureCanvasWx</a>(<a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>, <a href="wxPython.windows.html#wxPanel">wxPython.windows.wxPanel</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wxagg.html#FigureCanvasWxAgg">FigureCanvasWxAgg</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#FigureFrameWx">matplotlib.backends.backend_wx.FigureFrameWx</a>(<a href="wxPython.frames.html#wxFrame">wxPython.frames.wxFrame</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wxagg.html#FigureFrameWxAgg">FigureFrameWxAgg</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FigureCanvasWxAgg">class <strong>FigureCanvasWxAgg</strong></a>(<a href="matplotlib.backends.backend_wx.html#FigureCanvasWx">matplotlib.backends.backend_wx.FigureCanvasWx</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;FigureCanvas&nbsp;contains&nbsp;the&nbsp;figure&nbsp;and&nbsp;does&nbsp;event&nbsp;handling.<br>
+&nbsp;<br>
+In&nbsp;the&nbsp;wxPython&nbsp;backend,&nbsp;it&nbsp;is&nbsp;derived&nbsp;from&nbsp;wxPanel,&nbsp;and&nbsp;(usually)<br>
+lives&nbsp;inside&nbsp;a&nbsp;frame&nbsp;instantiated&nbsp;by&nbsp;a&nbsp;FigureManagerWx.&nbsp;The&nbsp;parent<br>
+window&nbsp;probably&nbsp;implements&nbsp;a&nbsp;wxSizer&nbsp;to&nbsp;control&nbsp;the&nbsp;displayed<br>
+control&nbsp;size&nbsp;-&nbsp;but&nbsp;we&nbsp;give&nbsp;a&nbsp;hint&nbsp;as&nbsp;to&nbsp;our&nbsp;preferred&nbsp;minimum<br>
+size.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.backends.backend_wxagg.html#FigureCanvasWxAgg">FigureCanvasWxAgg</a></dd>
+<dd><a href="matplotlib.backends.backend_wx.html#FigureCanvasWx">matplotlib.backends.backend_wx.FigureCanvasWx</a></dd>
+<dd><a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a></dd>
+<dd><a href="wxPython.windows.html#wxPanel">wxPython.windows.wxPanel</a></dd>
+<dd><a href="wxPython.windows.html#wxPanelPtr">wxPython.windows.wxPanelPtr</a></dd>
+<dd><a href="wxPython.windows.html#wxWindowPtr">wxPython.windows.wxWindowPtr</a></dd>
+<dd><a href="wxPython.windows.html#wxEvtHandlerPtr">wxPython.windows.wxEvtHandlerPtr</a></dd>
+<dd><a href="wxPython.misc.html#wxObjectPtr">wxPython.misc.wxObjectPtr</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FigureCanvasWxAgg-draw"><strong>draw</strong></a>(self)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;using&nbsp;agg</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backends.backend_wx.html#FigureCanvasWx">matplotlib.backends.backend_wx.FigureCanvasWx</a>:<br>
+<dl><dt><a name="FigureCanvasWxAgg-__init__"><strong>__init__</strong></a>(self, parent, id, figure)</dt><dd><tt>Initialise&nbsp;a&nbsp;FigureWx&nbsp;instance.<br>
+&nbsp;<br>
+-&nbsp;Initialise&nbsp;the&nbsp;FigureBase&nbsp;and&nbsp;wxPanel&nbsp;parents.<br>
+-&nbsp;Set&nbsp;event&nbsp;handlers&nbsp;for:<br>
+&nbsp;&nbsp;EVT_SIZE&nbsp;&nbsp;(Resize&nbsp;event)<br>
+&nbsp;&nbsp;EVT_PAINT&nbsp;(Paint&nbsp;event)</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-add_axis"><strong>add_axis</strong></a>(self, a)</dt><dd><tt>Add&nbsp;an&nbsp;instance&nbsp;of&nbsp;Axis&nbsp;to&nbsp;the&nbsp;figure.</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-gui_repaint"><strong>gui_repaint</strong></a>(self)</dt><dd><tt>Performs&nbsp;update&nbsp;of&nbsp;the&nbsp;displayed&nbsp;image&nbsp;on&nbsp;the&nbsp;GUI&nbsp;canvas<br>
+&nbsp;<br>
+MUST&nbsp;NOT&nbsp;be&nbsp;called&nbsp;during&nbsp;a&nbsp;Paint&nbsp;event</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-realize"><strong>realize</strong></a>(self)</dt><dd><tt>This&nbsp;method&nbsp;will&nbsp;be&nbsp;called&nbsp;when&nbsp;the&nbsp;system&nbsp;is&nbsp;ready&nbsp;to&nbsp;draw,<br>
+eg&nbsp;when&nbsp;a&nbsp;GUI&nbsp;window&nbsp;is&nbsp;realized</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><a name="FigureCanvasWxAgg-switch_backends"><strong>switch_backends</strong></a>(self, FigureCanvasClass)</dt><dd><tt>instantiate&nbsp;an&nbsp;instance&nbsp;of&nbsp;FigureCanvasClass<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;used&nbsp;for&nbsp;backend&nbsp;switching,&nbsp;eg,&nbsp;to&nbsp;instantiate&nbsp;a<br>
+FigureCanvasPS&nbsp;from&nbsp;a&nbsp;FigureCanvasGTK.&nbsp;&nbsp;Note,&nbsp;deep&nbsp;copying&nbsp;is<br>
+not&nbsp;done,&nbsp;so&nbsp;any&nbsp;changes&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;instances&nbsp;(eg,&nbsp;setting<br>
+figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected&nbsp;in&nbsp;the&nbsp;other</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="wxPython.windows.html#wxPanelPtr">wxPython.windows.wxPanelPtr</a>:<br>
+<dl><dt><a name="FigureCanvasWxAgg-Create"><strong>Create</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-InitDialog"><strong>InitDialog</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="wxPython.windows.html#wxWindowPtr">wxPython.windows.wxWindowPtr</a>:<br>
+<dl><dt><a name="FigureCanvasWxAgg-AcceptsFocus"><strong>AcceptsFocus</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-AddChild"><strong>AddChild</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-CaptureMouse"><strong>CaptureMouse</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Center"><strong>Center</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-CenterOnParent"><strong>CenterOnParent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-CenterOnScreen"><strong>CenterOnScreen</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Centre"><strong>Centre</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-CentreOnParent"><strong>CentreOnParent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-CentreOnScreen"><strong>CentreOnScreen</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Clear"><strong>Clear</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-ClientToScreen"><strong>ClientToScreen</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-ClientToScreenXY"><strong>ClientToScreenXY</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Close"><strong>Close</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-ConvertDialogPointToPixels"><strong>ConvertDialogPointToPixels</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-ConvertDialogSizeToPixels"><strong>ConvertDialogSizeToPixels</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-ConvertPixelPointToDialog"><strong>ConvertPixelPointToDialog</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-ConvertPixelSizeToDialog"><strong>ConvertPixelSizeToDialog</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-DLG_PNT"><strong>DLG_PNT</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-DLG_SZE"><strong>DLG_SZE</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Destroy"><strong>Destroy</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-DestroyChildren"><strong>DestroyChildren</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Disable"><strong>Disable</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Enable"><strong>Enable</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-FindWindowById"><strong>FindWindowById</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-FindWindowByName"><strong>FindWindowByName</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Fit"><strong>Fit</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-FitInside"><strong>FitInside</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Freeze"><strong>Freeze</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetAcceleratorTable"><strong>GetAcceleratorTable</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetAdjustedBestSize"><strong>GetAdjustedBestSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetAutoLayout"><strong>GetAutoLayout</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetBackgroundColour"><strong>GetBackgroundColour</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetBestSize"><strong>GetBestSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetBestVirtualSize"><strong>GetBestVirtualSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetBorder"><strong>GetBorder</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetCaret"><strong>GetCaret</strong></a>(self, *_args, **_kwargs)</dt><dd><tt>#&nbsp;replaces&nbsp;broken&nbsp;shadow&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetCharHeight"><strong>GetCharHeight</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetCharWidth"><strong>GetCharWidth</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetChildren"><strong>GetChildren</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetClientAreaOrigin"><strong>GetClientAreaOrigin</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetClientRect"><strong>GetClientRect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetClientSize"><strong>GetClientSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetClientSizeTuple"><strong>GetClientSizeTuple</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetConstraints"><strong>GetConstraints</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetContainingSizer"><strong>GetContainingSizer</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetCursor"><strong>GetCursor</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetDefaultItem"><strong>GetDefaultItem</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetDropTarget"><strong>GetDropTarget</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetEventHandler"><strong>GetEventHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetFont"><strong>GetFont</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetForegroundColour"><strong>GetForegroundColour</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetFullTextExtent"><strong>GetFullTextExtent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetGrandParent"><strong>GetGrandParent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetHandle"><strong>GetHandle</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetHelpText"><strong>GetHelpText</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetId"><strong>GetId</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetLabel"><strong>GetLabel</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetMaxSize"><strong>GetMaxSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetName"><strong>GetName</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetParent"><strong>GetParent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetPosition"><strong>GetPosition</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetPositionTuple"><strong>GetPositionTuple</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetRect"><strong>GetRect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetScrollPos"><strong>GetScrollPos</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetScrollRange"><strong>GetScrollRange</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetScrollThumb"><strong>GetScrollThumb</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetSize"><strong>GetSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetSizeTuple"><strong>GetSizeTuple</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetSizer"><strong>GetSizer</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetTextExtent"><strong>GetTextExtent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetThemeEnabled"><strong>GetThemeEnabled</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetTitle"><strong>GetTitle</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetToolTip"><strong>GetToolTip</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetUpdateRegion"><strong>GetUpdateRegion</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetValidator"><strong>GetValidator</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetVirtualSize"><strong>GetVirtualSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetVirtualSizeTuple"><strong>GetVirtualSizeTuple</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetWindowStyleFlag"><strong>GetWindowStyleFlag</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-HasCapture"><strong>HasCapture</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-HasScrollbar"><strong>HasScrollbar</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Hide"><strong>Hide</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-HitTest"><strong>HitTest</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-IsBeingDeleted"><strong>IsBeingDeleted</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-IsEnabled"><strong>IsEnabled</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-IsExposed"><strong>IsExposed</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-IsExposedPoint"><strong>IsExposedPoint</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-IsExposedRect"><strong>IsExposedRect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-IsRetained"><strong>IsRetained</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-IsShown"><strong>IsShown</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-IsTopLevel"><strong>IsTopLevel</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Layout"><strong>Layout</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-LineDown"><strong>LineDown</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-LineUp"><strong>LineUp</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Lower"><strong>Lower</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-MakeModal"><strong>MakeModal</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Move"><strong>Move</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-MoveXY"><strong>MoveXY</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-PageDown"><strong>PageDown</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-PageUp"><strong>PageUp</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-PopEventHandler"><strong>PopEventHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-PopupMenu"><strong>PopupMenu</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-PopupMenuXY"><strong>PopupMenuXY</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-PushEventHandler"><strong>PushEventHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Raise"><strong>Raise</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Refresh"><strong>Refresh</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-RefreshRect"><strong>RefreshRect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-ReleaseMouse"><strong>ReleaseMouse</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-RemoveChild"><strong>RemoveChild</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-RemoveEventHandler"><strong>RemoveEventHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Reparent"><strong>Reparent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-ScreenToClient"><strong>ScreenToClient</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-ScreenToClientXY"><strong>ScreenToClientXY</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-ScrollLines"><strong>ScrollLines</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-ScrollPages"><strong>ScrollPages</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-ScrollWindow"><strong>ScrollWindow</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetAcceleratorTable"><strong>SetAcceleratorTable</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetAutoLayout"><strong>SetAutoLayout</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetBackgroundColour"><strong>SetBackgroundColour</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetCaret"><strong>SetCaret</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetClientSize"><strong>SetClientSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetClientSizeWH"><strong>SetClientSizeWH</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetConstraints"><strong>SetConstraints</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetContainingSizer"><strong>SetContainingSizer</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetCursor"><strong>SetCursor</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetDefaultItem"><strong>SetDefaultItem</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetDimensions"><strong>SetDimensions</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetDropTarget"><strong>SetDropTarget</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetEventHandler"><strong>SetEventHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetExtraStyle"><strong>SetExtraStyle</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetFocus"><strong>SetFocus</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetFocusFromKbd"><strong>SetFocusFromKbd</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetFont"><strong>SetFont</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetForegroundColour"><strong>SetForegroundColour</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetHelpText"><strong>SetHelpText</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetHelpTextForId"><strong>SetHelpTextForId</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetId"><strong>SetId</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetLabel"><strong>SetLabel</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetName"><strong>SetName</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetPosition"><strong>SetPosition</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetRect"><strong>SetRect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetScrollPos"><strong>SetScrollPos</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetScrollbar"><strong>SetScrollbar</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetSize"><strong>SetSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetSizeHints"><strong>SetSizeHints</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetSizer"><strong>SetSizer</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetSizerAndFit"><strong>SetSizerAndFit</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetThemeEnabled"><strong>SetThemeEnabled</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetTitle"><strong>SetTitle</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetTmpDefaultItem"><strong>SetTmpDefaultItem</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetToolTip"><strong>SetToolTip</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetToolTipString"><strong>SetToolTipString</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetValidator"><strong>SetValidator</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetVirtualSize"><strong>SetVirtualSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetVirtualSizeHints"><strong>SetVirtualSizeHints</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetVirtualSizeWH"><strong>SetVirtualSizeWH</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetWindowStyle"><strong>SetWindowStyle</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetWindowStyleFlag"><strong>SetWindowStyleFlag</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Show"><strong>Show</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Thaw"><strong>Thaw</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-TransferDataFromWindow"><strong>TransferDataFromWindow</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-TransferDataToWindow"><strong>TransferDataToWindow</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-UnsetConstraints"><strong>UnsetConstraints</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Update"><strong>Update</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-UpdateWindowUI"><strong>UpdateWindowUI</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Validate"><strong>Validate</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-WarpPointer"><strong>WarpPointer</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<hr>
+Methods inherited from <a href="wxPython.windows.html#wxEvtHandlerPtr">wxPython.windows.wxEvtHandlerPtr</a>:<br>
+<dl><dt><a name="FigureCanvasWxAgg-AddPendingEvent"><strong>AddPendingEvent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Connect"><strong>Connect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-Disconnect"><strong>Disconnect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetEvtHandlerEnabled"><strong>GetEvtHandlerEnabled</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetNextHandler"><strong>GetNextHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-GetPreviousHandler"><strong>GetPreviousHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-ProcessEvent"><strong>ProcessEvent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetEvtHandlerEnabled"><strong>SetEvtHandlerEnabled</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetNextHandler"><strong>SetNextHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetPreviousHandler"><strong>SetPreviousHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<hr>
+Methods inherited from <a href="wxPython.misc.html#wxObjectPtr">wxPython.misc.wxObjectPtr</a>:<br>
+<dl><dt><a name="FigureCanvasWxAgg-GetClassName"><strong>GetClassName</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FigureFrameWxAgg">class <strong>FigureFrameWxAgg</strong></a>(<a href="matplotlib.backends.backend_wx.html#FigureFrameWx">matplotlib.backends.backend_wx.FigureFrameWx</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.backends.backend_wxagg.html#FigureFrameWxAgg">FigureFrameWxAgg</a></dd>
+<dd><a href="matplotlib.backends.backend_wx.html#FigureFrameWx">matplotlib.backends.backend_wx.FigureFrameWx</a></dd>
+<dd><a href="wxPython.frames.html#wxFrame">wxPython.frames.wxFrame</a></dd>
+<dd><a href="wxPython.frames.html#wxFramePtr">wxPython.frames.wxFramePtr</a></dd>
+<dd><a href="wxPython.frames.html#wxTopLevelWindowPtr">wxPython.frames.wxTopLevelWindowPtr</a></dd>
+<dd><a href="wxPython.windows.html#wxWindowPtr">wxPython.windows.wxWindowPtr</a></dd>
+<dd><a href="wxPython.windows.html#wxEvtHandlerPtr">wxPython.windows.wxEvtHandlerPtr</a></dd>
+<dd><a href="wxPython.misc.html#wxObjectPtr">wxPython.misc.wxObjectPtr</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FigureFrameWxAgg-get_canvas"><strong>get_canvas</strong></a>(self, fig)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backends.backend_wx.html#FigureFrameWx">matplotlib.backends.backend_wx.FigureFrameWx</a>:<br>
+<dl><dt><a name="FigureFrameWxAgg-GetToolBar"><strong>GetToolBar</strong></a>(self)</dt><dd><tt>Override&nbsp;wxFrame::GetToolBar&nbsp;as&nbsp;we&nbsp;don't&nbsp;have&nbsp;managed&nbsp;toolbar</tt></dd></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-__init__"><strong>__init__</strong></a>(self, num, fig)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-get_figure_manager"><strong>get_figure_manager</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="wxPython.frames.html#wxFramePtr">wxPython.frames.wxFramePtr</a>:<br>
+<dl><dt><a name="FigureFrameWxAgg-Command"><strong>Command</strong></a> = ProcessCommand(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Create"><strong>Create</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-CreateStatusBar"><strong>CreateStatusBar</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-CreateToolBar"><strong>CreateToolBar</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-DoGiveHelp"><strong>DoGiveHelp</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetClientAreaOrigin"><strong>GetClientAreaOrigin</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetMenuBar"><strong>GetMenuBar</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetStatusBar"><strong>GetStatusBar</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetStatusBarPane"><strong>GetStatusBarPane</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-PopStatusText"><strong>PopStatusText</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ProcessCommand"><strong>ProcessCommand</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-PushStatusText"><strong>PushStatusText</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SendSizeEvent"><strong>SendSizeEvent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetMenuBar"><strong>SetMenuBar</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetStatusBar"><strong>SetStatusBar</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetStatusBarPane"><strong>SetStatusBarPane</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetStatusText"><strong>SetStatusText</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetStatusWidths"><strong>SetStatusWidths</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetToolBar"><strong>SetToolBar</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="wxPython.frames.html#wxTopLevelWindowPtr">wxPython.frames.wxTopLevelWindowPtr</a>:<br>
+<dl><dt><a name="FigureFrameWxAgg-GetIcon"><strong>GetIcon</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetTitle"><strong>GetTitle</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Iconize"><strong>Iconize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-IsFullScreen"><strong>IsFullScreen</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-IsIconized"><strong>IsIconized</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-IsMaximized"><strong>IsMaximized</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Maximize"><strong>Maximize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Restore"><strong>Restore</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetIcon"><strong>SetIcon</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetIcons"><strong>SetIcons</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetShape"><strong>SetShape</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetTitle"><strong>SetTitle</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ShowFullScreen"><strong>ShowFullScreen</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<hr>
+Methods inherited from <a href="wxPython.windows.html#wxWindowPtr">wxPython.windows.wxWindowPtr</a>:<br>
+<dl><dt><a name="FigureFrameWxAgg-AcceptsFocus"><strong>AcceptsFocus</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-AddChild"><strong>AddChild</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-CaptureMouse"><strong>CaptureMouse</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Center"><strong>Center</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-CenterOnParent"><strong>CenterOnParent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-CenterOnScreen"><strong>CenterOnScreen</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Centre"><strong>Centre</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-CentreOnParent"><strong>CentreOnParent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-CentreOnScreen"><strong>CentreOnScreen</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Clear"><strong>Clear</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ClientToScreen"><strong>ClientToScreen</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ClientToScreenXY"><strong>ClientToScreenXY</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Close"><strong>Close</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ConvertDialogPointToPixels"><strong>ConvertDialogPointToPixels</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ConvertDialogSizeToPixels"><strong>ConvertDialogSizeToPixels</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ConvertPixelPointToDialog"><strong>ConvertPixelPointToDialog</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ConvertPixelSizeToDialog"><strong>ConvertPixelSizeToDialog</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-DLG_PNT"><strong>DLG_PNT</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-DLG_SZE"><strong>DLG_SZE</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Destroy"><strong>Destroy</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-DestroyChildren"><strong>DestroyChildren</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Disable"><strong>Disable</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Enable"><strong>Enable</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-FindWindowById"><strong>FindWindowById</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-FindWindowByName"><strong>FindWindowByName</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Fit"><strong>Fit</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-FitInside"><strong>FitInside</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Freeze"><strong>Freeze</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetAcceleratorTable"><strong>GetAcceleratorTable</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetAdjustedBestSize"><strong>GetAdjustedBestSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetAutoLayout"><strong>GetAutoLayout</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetBackgroundColour"><strong>GetBackgroundColour</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetBestSize"><strong>GetBestSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetBestVirtualSize"><strong>GetBestVirtualSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetBorder"><strong>GetBorder</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetCaret"><strong>GetCaret</strong></a>(self, *_args, **_kwargs)</dt><dd><tt>#&nbsp;replaces&nbsp;broken&nbsp;shadow&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetCharHeight"><strong>GetCharHeight</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetCharWidth"><strong>GetCharWidth</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetChildren"><strong>GetChildren</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetClientRect"><strong>GetClientRect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetClientSize"><strong>GetClientSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetClientSizeTuple"><strong>GetClientSizeTuple</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetConstraints"><strong>GetConstraints</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetContainingSizer"><strong>GetContainingSizer</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetCursor"><strong>GetCursor</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetDefaultItem"><strong>GetDefaultItem</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetDropTarget"><strong>GetDropTarget</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetEventHandler"><strong>GetEventHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetFont"><strong>GetFont</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetForegroundColour"><strong>GetForegroundColour</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetFullTextExtent"><strong>GetFullTextExtent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetGrandParent"><strong>GetGrandParent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetHandle"><strong>GetHandle</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetHelpText"><strong>GetHelpText</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetId"><strong>GetId</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetLabel"><strong>GetLabel</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetMaxSize"><strong>GetMaxSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetName"><strong>GetName</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetParent"><strong>GetParent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetPosition"><strong>GetPosition</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetPositionTuple"><strong>GetPositionTuple</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetRect"><strong>GetRect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetScrollPos"><strong>GetScrollPos</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetScrollRange"><strong>GetScrollRange</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetScrollThumb"><strong>GetScrollThumb</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetSize"><strong>GetSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetSizeTuple"><strong>GetSizeTuple</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetSizer"><strong>GetSizer</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetTextExtent"><strong>GetTextExtent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetThemeEnabled"><strong>GetThemeEnabled</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetToolTip"><strong>GetToolTip</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetUpdateRegion"><strong>GetUpdateRegion</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetValidator"><strong>GetValidator</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetVirtualSize"><strong>GetVirtualSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetVirtualSizeTuple"><strong>GetVirtualSizeTuple</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetWindowStyleFlag"><strong>GetWindowStyleFlag</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-HasCapture"><strong>HasCapture</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-HasScrollbar"><strong>HasScrollbar</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Hide"><strong>Hide</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-HitTest"><strong>HitTest</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-InitDialog"><strong>InitDialog</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-IsBeingDeleted"><strong>IsBeingDeleted</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-IsEnabled"><strong>IsEnabled</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-IsExposed"><strong>IsExposed</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-IsExposedPoint"><strong>IsExposedPoint</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-IsExposedRect"><strong>IsExposedRect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-IsRetained"><strong>IsRetained</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-IsShown"><strong>IsShown</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-IsTopLevel"><strong>IsTopLevel</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Layout"><strong>Layout</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-LineDown"><strong>LineDown</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-LineUp"><strong>LineUp</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Lower"><strong>Lower</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-MakeModal"><strong>MakeModal</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Move"><strong>Move</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-MoveXY"><strong>MoveXY</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-PageDown"><strong>PageDown</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-PageUp"><strong>PageUp</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-PopEventHandler"><strong>PopEventHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-PopupMenu"><strong>PopupMenu</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-PopupMenuXY"><strong>PopupMenuXY</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-PushEventHandler"><strong>PushEventHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Raise"><strong>Raise</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Refresh"><strong>Refresh</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-RefreshRect"><strong>RefreshRect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ReleaseMouse"><strong>ReleaseMouse</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-RemoveChild"><strong>RemoveChild</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-RemoveEventHandler"><strong>RemoveEventHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Reparent"><strong>Reparent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ScreenToClient"><strong>ScreenToClient</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ScreenToClientXY"><strong>ScreenToClientXY</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ScrollLines"><strong>ScrollLines</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ScrollPages"><strong>ScrollPages</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ScrollWindow"><strong>ScrollWindow</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetAcceleratorTable"><strong>SetAcceleratorTable</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetAutoLayout"><strong>SetAutoLayout</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetBackgroundColour"><strong>SetBackgroundColour</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetCaret"><strong>SetCaret</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetClientSize"><strong>SetClientSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetClientSizeWH"><strong>SetClientSizeWH</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetConstraints"><strong>SetConstraints</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetContainingSizer"><strong>SetContainingSizer</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetCursor"><strong>SetCursor</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetDefaultItem"><strong>SetDefaultItem</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetDimensions"><strong>SetDimensions</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetDropTarget"><strong>SetDropTarget</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetEventHandler"><strong>SetEventHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetExtraStyle"><strong>SetExtraStyle</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetFocus"><strong>SetFocus</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetFocusFromKbd"><strong>SetFocusFromKbd</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetFont"><strong>SetFont</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetForegroundColour"><strong>SetForegroundColour</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetHelpText"><strong>SetHelpText</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetHelpTextForId"><strong>SetHelpTextForId</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetId"><strong>SetId</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetLabel"><strong>SetLabel</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetName"><strong>SetName</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetPosition"><strong>SetPosition</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetRect"><strong>SetRect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetScrollPos"><strong>SetScrollPos</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetScrollbar"><strong>SetScrollbar</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetSize"><strong>SetSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetSizeHints"><strong>SetSizeHints</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetSizer"><strong>SetSizer</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetSizerAndFit"><strong>SetSizerAndFit</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetThemeEnabled"><strong>SetThemeEnabled</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetTmpDefaultItem"><strong>SetTmpDefaultItem</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetToolTip"><strong>SetToolTip</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetToolTipString"><strong>SetToolTipString</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetValidator"><strong>SetValidator</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetVirtualSize"><strong>SetVirtualSize</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetVirtualSizeHints"><strong>SetVirtualSizeHints</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetVirtualSizeWH"><strong>SetVirtualSizeWH</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetWindowStyle"><strong>SetWindowStyle</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetWindowStyleFlag"><strong>SetWindowStyleFlag</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Show"><strong>Show</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Thaw"><strong>Thaw</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-TransferDataFromWindow"><strong>TransferDataFromWindow</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-TransferDataToWindow"><strong>TransferDataToWindow</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-UnsetConstraints"><strong>UnsetConstraints</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Update"><strong>Update</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-UpdateWindowUI"><strong>UpdateWindowUI</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Validate"><strong>Validate</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-WarpPointer"><strong>WarpPointer</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<hr>
+Methods inherited from <a href="wxPython.windows.html#wxEvtHandlerPtr">wxPython.windows.wxEvtHandlerPtr</a>:<br>
+<dl><dt><a name="FigureFrameWxAgg-AddPendingEvent"><strong>AddPendingEvent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Connect"><strong>Connect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-Disconnect"><strong>Disconnect</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetEvtHandlerEnabled"><strong>GetEvtHandlerEnabled</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetNextHandler"><strong>GetNextHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-GetPreviousHandler"><strong>GetPreviousHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-ProcessEvent"><strong>ProcessEvent</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetEvtHandlerEnabled"><strong>SetEvtHandlerEnabled</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetNextHandler"><strong>SetNextHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<dl><dt><a name="FigureFrameWxAgg-SetPreviousHandler"><strong>SetPreviousHandler</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+<hr>
+Methods inherited from <a href="wxPython.misc.html#wxObjectPtr">wxPython.misc.wxObjectPtr</a>:<br>
+<dl><dt><a name="FigureFrameWxAgg-GetClassName"><strong>GetClassName</strong></a>(self, *_args, **_kwargs)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
+ <dl><dt><a name="-ptradd"><strong>ptradd</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-ptrcast"><strong>ptrcast</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-ptrcreate"><strong>ptrcreate</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-ptrfree"><strong>ptrfree</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-ptrmap"><strong>ptrmap</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-ptrset"><strong>ptrset</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-ptrvalue"><strong>ptrvalue</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxApp_CleanUp"><strong>wxApp_CleanUp</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxApp_GetMacAboutMenuItemId"><strong>wxApp_GetMacAboutMenuItemId</strong></a> = wxPyApp_GetMacAboutMenuItemId(...)</dt></dl>
+ <dl><dt><a name="-wxApp_GetMacDefaultEncodingIsPC"><strong>wxApp_GetMacDefaultEncodingIsPC</strong></a> = wxPyApp_GetMacDefaultEncodingIsPC(...)</dt></dl>
+ <dl><dt><a name="-wxApp_GetMacExitMenuItemId"><strong>wxApp_GetMacExitMenuItemId</strong></a> = wxPyApp_GetMacExitMenuItemId(...)</dt></dl>
+ <dl><dt><a name="-wxApp_GetMacHelpMenuTitleName"><strong>wxApp_GetMacHelpMenuTitleName</strong></a> = wxPyApp_GetMacHelpMenuTitleName(...)</dt></dl>
+ <dl><dt><a name="-wxApp_GetMacPreferencesMenuItemId"><strong>wxApp_GetMacPreferencesMenuItemId</strong></a> = wxPyApp_GetMacPreferencesMenuItemId(...)</dt></dl>
+ <dl><dt><a name="-wxApp_GetMacSupportPCMenuShortcuts"><strong>wxApp_GetMacSupportPCMenuShortcuts</strong></a> = wxPyApp_GetMacSupportPCMenuShortcuts(...)</dt></dl>
+ <dl><dt><a name="-wxApp_SetMacAboutMenuItemId"><strong>wxApp_SetMacAboutMenuItemId</strong></a> = wxPyApp_SetMacAboutMenuItemId(...)</dt></dl>
+ <dl><dt><a name="-wxApp_SetMacDefaultEncodingIsPC"><strong>wxApp_SetMacDefaultEncodingIsPC</strong></a> = wxPyApp_SetMacDefaultEncodingIsPC(...)</dt></dl>
+ <dl><dt><a name="-wxApp_SetMacExitMenuItemId"><strong>wxApp_SetMacExitMenuItemId</strong></a> = wxPyApp_SetMacExitMenuItemId(...)</dt></dl>
+ <dl><dt><a name="-wxApp_SetMacHelpMenuTitleName"><strong>wxApp_SetMacHelpMenuTitleName</strong></a> = wxPyApp_SetMacHelpMenuTitleName(...)</dt></dl>
+ <dl><dt><a name="-wxApp_SetMacPreferencesMenuItemId"><strong>wxApp_SetMacPreferencesMenuItemId</strong></a> = wxPyApp_SetMacPreferencesMenuItemId(...)</dt></dl>
+ <dl><dt><a name="-wxApp_SetMacSupportPCMenuShortcuts"><strong>wxApp_SetMacSupportPCMenuShortcuts</strong></a> = wxPyApp_SetMacSupportPCMenuShortcuts(...)</dt></dl>
+ <dl><dt><a name="-wxArtProvider_PopProvider"><strong>wxArtProvider_PopProvider</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxArtProvider_PushProvider"><strong>wxArtProvider_PushProvider</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxArtProvider_RemoveProvider"><strong>wxArtProvider_RemoveProvider</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxBeginBusyCursor"><strong>wxBeginBusyCursor</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxBell"><strong>wxBell</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxCaret_GetBlinkTime"><strong>wxCaret_GetBlinkTime</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxCaret_SetBlinkTime"><strong>wxCaret_SetBlinkTime</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxClientDisplayRect"><strong>wxClientDisplayRect</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxColourDisplay"><strong>wxColourDisplay</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxConfigBase_DontCreateOnDemand"><strong>wxConfigBase_DontCreateOnDemand</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDateTime_ConvertYearToBC"><strong>wxDateTime_ConvertYearToBC</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDateTime_GetAmPmStrings"><strong>wxDateTime_GetAmPmStrings</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDateTime_GetCentury"><strong>wxDateTime_GetCentury</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDateTime_GetCountry"><strong>wxDateTime_GetCountry</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDateTime_GetCurrentMonth"><strong>wxDateTime_GetCurrentMonth</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDateTime_GetCurrentYear"><strong>wxDateTime_GetCurrentYear</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDateTime_GetMonthName"><strong>wxDateTime_GetMonthName</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDateTime_GetNumberOfDaysInMonth"><strong>wxDateTime_GetNumberOfDaysInMonth</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDateTime_GetNumberOfDaysinYear"><strong>wxDateTime_GetNumberOfDaysinYear</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDateTime_GetWeekDayName"><strong>wxDateTime_GetWeekDayName</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDateTime_IsDSTApplicable"><strong>wxDateTime_IsDSTApplicable</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDateTime_IsLeapYear"><strong>wxDateTime_IsLeapYear</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDateTime_IsWestEuropeanCountry"><strong>wxDateTime_IsWestEuropeanCountry</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDateTime_SetCountry"><strong>wxDateTime_SetCountry</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDirSelector"><strong>wxDirSelector</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDisplayDepth"><strong>wxDisplayDepth</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDisplaySize"><strong>wxDisplaySize</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxDisplaySizeMM"><strong>wxDisplaySizeMM</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxEnableTopLevelWindows"><strong>wxEnableTopLevelWindows</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxEncodingConverter_GetAllEquivalents"><strong>wxEncodingConverter_GetAllEquivalents</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxEncodingConverter_GetPlatformEquivalents"><strong>wxEncodingConverter_GetPlatformEquivalents</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxEndBusyCursor"><strong>wxEndBusyCursor</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxExecute"><strong>wxExecute</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxFileSelector"><strong>wxFileSelector</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxFileSystem_AddHandler"><strong>wxFileSystem_AddHandler</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxFileSystem_CleanUpHandlers"><strong>wxFileSystem_CleanUpHandlers</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxFileSystem_FileNameToURL"><strong>wxFileSystem_FileNameToURL</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxFileSystem_URLToFileName"><strong>wxFileSystem_URLToFileName</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxFileType_ExpandCommand"><strong>wxFileType_ExpandCommand</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxFontMapper_GetDefaultConfigPath"><strong>wxFontMapper_GetDefaultConfigPath</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxFontMapper_GetEncodingDescription"><strong>wxFontMapper_GetEncodingDescription</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxFontMapper_GetEncodingName"><strong>wxFontMapper_GetEncodingName</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxFont_GetDefaultEncoding"><strong>wxFont_GetDefaultEncoding</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxFont_SetDefaultEncoding"><strong>wxFont_SetDefaultEncoding</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetCurrentId"><strong>wxGetCurrentId</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetCurrentTime"><strong>wxGetCurrentTime</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetDisplayDepth"><strong>wxGetDisplayDepth</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetElapsedTime"><strong>wxGetElapsedTime</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetEmailAddress"><strong>wxGetEmailAddress</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetFullHostName"><strong>wxGetFullHostName</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetHomeDir"><strong>wxGetHomeDir</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetHostName"><strong>wxGetHostName</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetLocalTime"><strong>wxGetLocalTime</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetLocalTimeMillis"><strong>wxGetLocalTimeMillis</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetMousePosition"><strong>wxGetMousePosition</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetNumberFromUser"><strong>wxGetNumberFromUser</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetOsDescription"><strong>wxGetOsDescription</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetOsVersion"><strong>wxGetOsVersion</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetPasswordFromUser"><strong>wxGetPasswordFromUser</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetProcessId"><strong>wxGetProcessId</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetSingleChoice"><strong>wxGetSingleChoice</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetSingleChoiceIndex"><strong>wxGetSingleChoiceIndex</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetTextFromUser"><strong>wxGetTextFromUser</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetTranslation"><strong>wxGetTranslation</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetUTCTime"><strong>wxGetUTCTime</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetUserHome"><strong>wxGetUserHome</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetUserId"><strong>wxGetUserId</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxGetUserName"><strong>wxGetUserName</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxImage_AddHandler"><strong>wxImage_AddHandler</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxImage_CanRead"><strong>wxImage_CanRead</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxImage_CanReadStream"><strong>wxImage_CanReadStream</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxImage_GetImageCount"><strong>wxImage_GetImageCount</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxImage_InsertHandler"><strong>wxImage_InsertHandler</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxImage_RemoveHandler"><strong>wxImage_RemoveHandler</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxInitAllImageHandlers"><strong>wxInitAllImageHandlers</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxIntersectRect"><strong>wxIntersectRect</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxIsBusy"><strong>wxIsBusy</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxIsDragResultOk"><strong>wxIsDragResultOk</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLoadFileSelector"><strong>wxLoadFileSelector</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLocale_AddCatalogLookupPathPrefix"><strong>wxLocale_AddCatalogLookupPathPrefix</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLocale_AddLanguage"><strong>wxLocale_AddLanguage</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLocale_GetSystemEncoding"><strong>wxLocale_GetSystemEncoding</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLocale_GetSystemEncodingName"><strong>wxLocale_GetSystemEncodingName</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLocale_GetSystemLanguage"><strong>wxLocale_GetSystemLanguage</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLogDebug"><strong>wxLogDebug</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLogError"><strong>wxLogError</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLogFatalError"><strong>wxLogFatalError</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLogGeneric"><strong>wxLogGeneric</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLogInfo"><strong>wxLogInfo</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLogMessage"><strong>wxLogMessage</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLogStatus"><strong>wxLogStatus</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLogStatusFrame"><strong>wxLogStatusFrame</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLogSysError"><strong>wxLogSysError</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLogTrace"><strong>wxLogTrace</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLogTraceMask"><strong>wxLogTraceMask</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLogVerbose"><strong>wxLogVerbose</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLogWarning"><strong>wxLogWarning</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_AddTraceMask"><strong>wxLog_AddTraceMask</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_ClearTraceMasks"><strong>wxLog_ClearTraceMasks</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_DontCreateOnDemand"><strong>wxLog_DontCreateOnDemand</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_EnableLogging"><strong>wxLog_EnableLogging</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_FlushActive"><strong>wxLog_FlushActive</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_GetLogLevel"><strong>wxLog_GetLogLevel</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_GetTimestamp"><strong>wxLog_GetTimestamp</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_GetTraceMask"><strong>wxLog_GetTraceMask</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_GetTraceMasks"><strong>wxLog_GetTraceMasks</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_IsAllowedTraceMask"><strong>wxLog_IsAllowedTraceMask</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_IsEnabled"><strong>wxLog_IsEnabled</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_OnLog"><strong>wxLog_OnLog</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_RemoveTraceMask"><strong>wxLog_RemoveTraceMask</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_Resume"><strong>wxLog_Resume</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_SetLogLevel"><strong>wxLog_SetLogLevel</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_SetTimestamp"><strong>wxLog_SetTimestamp</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_SetTraceMask"><strong>wxLog_SetTraceMask</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_SetVerbose"><strong>wxLog_SetVerbose</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxLog_Suspend"><strong>wxLog_Suspend</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxMemoryFSHandler_RemoveFile"><strong>wxMemoryFSHandler_RemoveFile</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxMenuItem_GetLabelFromText"><strong>wxMenuItem_GetLabelFromText</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxMessageBox"><strong>wxMessageBox</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxMimeTypesManager_IsOfType"><strong>wxMimeTypesManager_IsOfType</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxMutexGuiEnter"><strong>wxMutexGuiEnter</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxMutexGuiLeave"><strong>wxMutexGuiLeave</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxNewEventType"><strong>wxNewEventType</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxNewId"><strong>wxNewId</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxNow"><strong>wxNow</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPostEvent"><strong>wxPostEvent</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPostScriptDC_GetResolution"><strong>wxPostScriptDC_GetResolution</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPostScriptDC_SetResolution"><strong>wxPostScriptDC_SetResolution</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPrinter_GetLastError"><strong>wxPrinter_GetLastError</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxProcess_Exists"><strong>wxProcess_Exists</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxProcess_Kill"><strong>wxProcess_Kill</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPyApp_GetMacAboutMenuItemId"><strong>wxPyApp_GetMacAboutMenuItemId</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPyApp_GetMacDefaultEncodingIsPC"><strong>wxPyApp_GetMacDefaultEncodingIsPC</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPyApp_GetMacExitMenuItemId"><strong>wxPyApp_GetMacExitMenuItemId</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPyApp_GetMacHelpMenuTitleName"><strong>wxPyApp_GetMacHelpMenuTitleName</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPyApp_GetMacPreferencesMenuItemId"><strong>wxPyApp_GetMacPreferencesMenuItemId</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPyApp_GetMacSupportPCMenuShortcuts"><strong>wxPyApp_GetMacSupportPCMenuShortcuts</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPyApp_SetMacAboutMenuItemId"><strong>wxPyApp_SetMacAboutMenuItemId</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPyApp_SetMacDefaultEncodingIsPC"><strong>wxPyApp_SetMacDefaultEncodingIsPC</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPyApp_SetMacExitMenuItemId"><strong>wxPyApp_SetMacExitMenuItemId</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPyApp_SetMacHelpMenuTitleName"><strong>wxPyApp_SetMacHelpMenuTitleName</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPyApp_SetMacPreferencesMenuItemId"><strong>wxPyApp_SetMacPreferencesMenuItemId</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxPyApp_SetMacSupportPCMenuShortcuts"><strong>wxPyApp_SetMacSupportPCMenuShortcuts</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxRegisterId"><strong>wxRegisterId</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxSafeShowMessage"><strong>wxSafeShowMessage</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxSafeYield"><strong>wxSafeYield</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxSaveFileSelector"><strong>wxSaveFileSelector</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxSetCursor"><strong>wxSetCursor</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxShell"><strong>wxShell</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxShowTip"><strong>wxShowTip</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxShutdown"><strong>wxShutdown</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxSleep"><strong>wxSleep</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxStartTimer"><strong>wxStartTimer</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxStripMenuCodes"><strong>wxStripMenuCodes</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxSysErrorCode"><strong>wxSysErrorCode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxSysErrorMsg"><strong>wxSysErrorMsg</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxSystemSettings_GetMetric"><strong>wxSystemSettings_GetMetric</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxSystemSettings_GetScreenType"><strong>wxSystemSettings_GetScreenType</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxSystemSettings_GetSystemMetric"><strong>wxSystemSettings_GetSystemMetric</strong></a> = wxSystemSettings_GetMetric(...)</dt></dl>
+ <dl><dt><a name="-wxSystemSettings_HasFeature"><strong>wxSystemSettings_HasFeature</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxSystemSettings_SetScreenType"><strong>wxSystemSettings_SetScreenType</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxThread_IsMain"><strong>wxThread_IsMain</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxToolTip_Enable"><strong>wxToolTip_Enable</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxToolTip_SetDelay"><strong>wxToolTip_SetDelay</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxTrap"><strong>wxTrap</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxUsleep"><strong>wxUsleep</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxValidator_IsSilent"><strong>wxValidator_IsSilent</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxValidator_SetBellOnError"><strong>wxValidator_SetBellOnError</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxWakeUpIdle"><strong>wxWakeUpIdle</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxWindow_NewControlId"><strong>wxWindow_NewControlId</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxWindow_NextControlId"><strong>wxWindow_NextControlId</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxWindow_PrevControlId"><strong>wxWindow_PrevControlId</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxYield"><strong>wxYield</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-wxYieldIfNeeded"><strong>wxYieldIfNeeded</strong></a>(...)</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>FALSE</strong> = False<br>
+<strong>IDM_WINDOWCASCADE</strong> = 4002<br>
+<strong>IDM_WINDOWICONS</strong> = 4003<br>
+<strong>IDM_WINDOWNEXT</strong> = 4004<br>
+<strong>IDM_WINDOWTILE</strong> = 4001<br>
+<strong>IDM_WINDOWTILEHOR</strong> = 4001<br>
+<strong>IDM_WINDOWTILEVERT</strong> = 4005<br>
+<strong>NULL</strong> = None<br>
+<strong>TRUE</strong> = True<br>
+<strong>WXK_ADD</strong> = 337<br>
+<strong>WXK_ALT</strong> = 307<br>
+<strong>WXK_BACK</strong> = 8<br>
+<strong>WXK_CANCEL</strong> = 303<br>
+<strong>WXK_CAPITAL</strong> = 311<br>
+<strong>WXK_CLEAR</strong> = 305<br>
+<strong>WXK_CONTROL</strong> = 308<br>
+<strong>WXK_DECIMAL</strong> = 340<br>
+<strong>WXK_DELETE</strong> = 127<br>
+<strong>WXK_DIVIDE</strong> = 341<br>
+<strong>WXK_DOWN</strong> = 319<br>
+<strong>WXK_END</strong> = 314<br>
+<strong>WXK_ESCAPE</strong> = 27<br>
+<strong>WXK_EXECUTE</strong> = 322<br>
+<strong>WXK_F1</strong> = 342<br>
+<strong>WXK_F10</strong> = 351<br>
+<strong>WXK_F11</strong> = 352<br>
+<strong>WXK_F12</strong> = 353<br>
+<strong>WXK_F13</strong> = 354<br>
+<strong>WXK_F14</strong> = 355<br>
+<strong>WXK_F15</strong> = 356<br>
+<strong>WXK_F16</strong> = 357<br>
+<strong>WXK_F17</strong> = 358<br>
+<strong>WXK_F18</strong> = 359<br>
+<strong>WXK_F19</strong> = 360<br>
+<strong>WXK_F2</strong> = 343<br>
+<strong>WXK_F20</strong> = 361<br>
+<strong>WXK_F21</strong> = 362<br>
+<strong>WXK_F22</strong> = 363<br>
+<strong>WXK_F23</strong> = 364<br>
+<strong>WXK_F24</strong> = 365<br>
+<strong>WXK_F3</strong> = 344<br>
+<strong>WXK_F4</strong> = 345<br>
+<strong>WXK_F5</strong> = 346<br>
+<strong>WXK_F6</strong> = 347<br>
+<strong>WXK_F7</strong> = 348<br>
+<strong>WXK_F8</strong> = 349<br>
+<strong>WXK_F9</strong> = 350<br>
+<strong>WXK_HELP</strong> = 325<br>
+<strong>WXK_HOME</strong> = 315<br>
+<strong>WXK_INSERT</strong> = 324<br>
+<strong>WXK_LBUTTON</strong> = 301<br>
+<strong>WXK_LEFT</strong> = 316<br>
+<strong>WXK_MBUTTON</strong> = 304<br>
+<strong>WXK_MENU</strong> = 309<br>
+<strong>WXK_MULTIPLY</strong> = 336<br>
+<strong>WXK_NEXT</strong> = 313<br>
+<strong>WXK_NUMLOCK</strong> = 366<br>
+<strong>WXK_NUMPAD0</strong> = 326<br>
+<strong>WXK_NUMPAD1</strong> = 327<br>
+<strong>WXK_NUMPAD2</strong> = 328<br>
+<strong>WXK_NUMPAD3</strong> = 329<br>
+<strong>WXK_NUMPAD4</strong> = 330<br>
+<strong>WXK_NUMPAD5</strong> = 331<br>
+<strong>WXK_NUMPAD6</strong> = 332<br>
+<strong>WXK_NUMPAD7</strong> = 333<br>
+<strong>WXK_NUMPAD8</strong> = 334<br>
+<strong>WXK_NUMPAD9</strong> = 335<br>
+<strong>WXK_NUMPAD_ADD</strong> = 392<br>
+<strong>WXK_NUMPAD_BEGIN</strong> = 387<br>
+<strong>WXK_NUMPAD_DECIMAL</strong> = 395<br>
+<strong>WXK_NUMPAD_DELETE</strong> = 389<br>
+<strong>WXK_NUMPAD_DIVIDE</strong> = 396<br>
+<strong>WXK_NUMPAD_DOWN</strong> = 381<br>
+<strong>WXK_NUMPAD_END</strong> = 386<br>
+<strong>WXK_NUMPAD_ENTER</strong> = 372<br>
+<strong>WXK_NUMPAD_EQUAL</strong> = 390<br>
+<strong>WXK_NUMPAD_F1</strong> = 373<br>
+<strong>WXK_NUMPAD_F2</strong> = 374<br>
+<strong>WXK_NUMPAD_F3</strong> = 375<br>
+<strong>WXK_NUMPAD_F4</strong> = 376<br>
+<strong>WXK_NUMPAD_HOME</strong> = 377<br>
+<strong>WXK_NUMPAD_INSERT</strong> = 388<br>
+<strong>WXK_NUMPAD_LEFT</strong> = 378<br>
+<strong>WXK_NUMPAD_MULTIPLY</strong> = 391<br>
+<strong>WXK_NUMPAD_NEXT</strong> = 384<br>
+<strong>WXK_NUMPAD_PAGEDOWN</strong> = 385<br>
+<strong>WXK_NUMPAD_PAGEUP</strong> = 383<br>
+<strong>WXK_NUMPAD_PRIOR</strong> = 382<br>
+<strong>WXK_NUMPAD_RIGHT</strong> = 380<br>
+<strong>WXK_NUMPAD_SEPARATOR</strong> = 393<br>
+<strong>WXK_NUMPAD_SPACE</strong> = 370<br>
+<strong>WXK_NUMPAD_SUBTRACT</strong> = 394<br>
+<strong>WXK_NUMPAD_TAB</strong> = 371<br>
+<strong>WXK_NUMPAD_UP</strong> = 379<br>
+<strong>WXK_PAGEDOWN</strong> = 369<br>
+<strong>WXK_PAGEUP</strong> = 368<br>
+<strong>WXK_PAUSE</strong> = 310<br>
+<strong>WXK_PRINT</strong> = 321<br>
+<strong>WXK_PRIOR</strong> = 312<br>
+<strong>WXK_RBUTTON</strong> = 302<br>
+<strong>WXK_RETURN</strong> = 13<br>
+<strong>WXK_RIGHT</strong> = 318<br>
+<strong>WXK_SCROLL</strong> = 367<br>
+<strong>WXK_SELECT</strong> = 320<br>
+<strong>WXK_SEPARATOR</strong> = 338<br>
+<strong>WXK_SHIFT</strong> = 306<br>
+<strong>WXK_SNAPSHOT</strong> = 323<br>
+<strong>WXK_SPACE</strong> = 32<br>
+<strong>WXK_START</strong> = 300<br>
+<strong>WXK_SUBTRACT</strong> = 339<br>
+<strong>WXK_TAB</strong> = 9<br>
+<strong>WXK_UP</strong> = 317<br>
+<strong>cvar</strong> = &lt;Global variables&gt;<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>false</strong> = False<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}<br>
+<strong>true</strong> = True<br>
+<strong>wxACCEL_ALT</strong> = 1<br>
+<strong>wxACCEL_CTRL</strong> = 2<br>
+<strong>wxACCEL_NORMAL</strong> = 0<br>
+<strong>wxACCEL_SHIFT</strong> = 4<br>
+<strong>wxADJUST_MINSIZE</strong> = 32768<br>
+<strong>wxALIGN_BOTTOM</strong> = 1024<br>
+<strong>wxALIGN_CENTER</strong> = 2304<br>
+<strong>wxALIGN_CENTER_HORIZONTAL</strong> = 256<br>
+<strong>wxALIGN_CENTER_VERTICAL</strong> = 2048<br>
+<strong>wxALIGN_CENTRE</strong> = 2304<br>
+<strong>wxALIGN_CENTRE_HORIZONTAL</strong> = 256<br>
+<strong>wxALIGN_CENTRE_VERTICAL</strong> = 2048<br>
+<strong>wxALIGN_LEFT</strong> = 0<br>
+<strong>wxALIGN_RIGHT</strong> = 512<br>
+<strong>wxALIGN_TOP</strong> = 0<br>
+<strong>wxALL</strong> = 240<br>
+<strong>wxAND</strong> = 6<br>
+<strong>wxAND_INVERT</strong> = 7<br>
+<strong>wxAND_REVERSE</strong> = 4<br>
+<strong>wxART_ADD_BOOKMARK</strong> = 'wxART_ADD_BOOKMARK'<br>
+<strong>wxART_CMN_DIALOG</strong> = 'wxART_CMN_DIALOG_C'<br>
+<strong>wxART_CROSS_MARK</strong> = 'wxART_CROSS_MARK'<br>
+<strong>wxART_DEL_BOOKMARK</strong> = 'wxART_DEL_BOOKMARK'<br>
+<strong>wxART_ERROR</strong> = 'wxART_ERROR'<br>
+<strong>wxART_EXECUTABLE_FILE</strong> = 'wxART_EXECUTABLE_FILE'<br>
+<strong>wxART_FILE_OPEN</strong> = 'wxART_FILE_OPEN'<br>
+<strong>wxART_FOLDER</strong> = 'wxART_FOLDER'<br>
+<strong>wxART_FRAME_ICON</strong> = 'wxART_FRAME_ICON_C'<br>
+<strong>wxART_GO_BACK</strong> = 'wxART_GO_BACK'<br>
+<strong>wxART_GO_DIR_UP</strong> = 'wxART_GO_DIR_UP'<br>
+<strong>wxART_GO_DOWN</strong> = 'wxART_GO_DOWN'<br>
+<strong>wxART_GO_FORWARD</strong> = 'wxART_GO_FORWARD'<br>
+<strong>wxART_GO_HOME</strong> = 'wxART_GO_HOME'<br>
+<strong>wxART_GO_TO_PARENT</strong> = 'wxART_GO_TO_PARENT'<br>
+<strong>wxART_GO_UP</strong> = 'wxART_GO_UP'<br>
+<strong>wxART_HELP</strong> = 'wxART_HELP'<br>
+<strong>wxART_HELP_BOOK</strong> = 'wxART_HELP_BOOK'<br>
+<strong>wxART_HELP_BROWSER</strong> = 'wxART_HELP_BROWSER_C'<br>
+<strong>wxART_HELP_FOLDER</strong> = 'wxART_HELP_FOLDER'<br>
+<strong>wxART_HELP_PAGE</strong> = 'wxART_HELP_PAGE'<br>
+<strong>wxART_HELP_SETTINGS</strong> = 'wxART_HELP_SETTINGS'<br>
+<strong>wxART_HELP_SIDE_PANEL</strong> = 'wxART_HELP_SIDE_PANEL'<br>
+<strong>wxART_INFORMATION</strong> = 'wxART_INFORMATION'<br>
+<strong>wxART_LIST_VIEW</strong> = 'wxART_LIST_VIEW'<br>
+<strong>wxART_MENU</strong> = 'wxART_MENU_C'<br>
+<strong>wxART_MESSAGE_BOX</strong> = 'wxART_MESSAGE_BOX_C'<br>
+<strong>wxART_NEW_DIR</strong> = 'wxART_NEW_DIR'<br>
+<strong>wxART_NORMAL_FILE</strong> = 'wxART_NORMAL_FILE'<br>
+<strong>wxART_OTHER</strong> = 'wxART_OTHER_C'<br>
+<strong>wxART_PRINT</strong> = 'wxART_PRINT'<br>
+<strong>wxART_QUESTION</strong> = 'wxART_QUESTION'<br>
+<strong>wxART_REPORT_VIEW</strong> = 'wxART_REPORT_VIEW'<br>
+<strong>wxART_TICK_MARK</strong> = 'wxART_TICK_MARK'<br>
+<strong>wxART_TIP</strong> = 'wxART_TIP'<br>
+<strong>wxART_TOOLBAR</strong> = 'wxART_TOOLBAR_C'<br>
+<strong>wxART_WARNING</strong> = 'wxART_WARNING'<br>
+<strong>wxAbove</strong> = 3<br>
+<strong>wxAbsolute</strong> = 8<br>
+<strong>wxAsIs</strong> = 1<br>
+<strong>wxBACKINGSTORE</strong> = 131072<br>
+<strong>wxBACKWARD</strong> = 8192<br>
+<strong>wxBDIAGONAL_HATCH</strong> = 111<br>
+<strong>wxBITMAP_TYPE_ANI</strong> = 27<br>
+<strong>wxBITMAP_TYPE_ANY</strong> = 50<br>
+<strong>wxBITMAP_TYPE_BMP</strong> = 1<br>
+<strong>wxBITMAP_TYPE_BMP_RESOURCE</strong> = 2<br>
+<strong>wxBITMAP_TYPE_CUR</strong> = 5<br>
+<strong>wxBITMAP_TYPE_CUR_RESOURCE</strong> = 6<br>
+<strong>wxBITMAP_TYPE_GIF</strong> = 13<br>
+<strong>wxBITMAP_TYPE_GIF_RESOURCE</strong> = 14<br>
+<strong>wxBITMAP_TYPE_ICO</strong> = 3<br>
+<strong>wxBITMAP_TYPE_ICON</strong> = 25<br>
+<strong>wxBITMAP_TYPE_ICON_RESOURCE</strong> = 26<br>
+<strong>wxBITMAP_TYPE_ICO_RESOURCE</strong> = 4<br>
+<strong>wxBITMAP_TYPE_IFF</strong> = 28<br>
+<strong>wxBITMAP_TYPE_INVALID</strong> = 0<br>
+<strong>wxBITMAP_TYPE_JPEG</strong> = 17<br>
+<strong>wxBITMAP_TYPE_JPEG_RESOURCE</strong> = 18<br>
+<strong>wxBITMAP_TYPE_MACCURSOR</strong> = 29<br>
+<strong>wxBITMAP_TYPE_MACCURSOR_RESOURCE</strong> = 30<br>
+<strong>wxBITMAP_TYPE_PCX</strong> = 21<br>
+<strong>wxBITMAP_TYPE_PCX_RESOURCE</strong> = 22<br>
+<strong>wxBITMAP_TYPE_PICT</strong> = 23<br>
+<strong>wxBITMAP_TYPE_PICT_RESOURCE</strong> = 24<br>
+<strong>wxBITMAP_TYPE_PNG</strong> = 15<br>
+<strong>wxBITMAP_TYPE_PNG_RESOURCE</strong> = 16<br>
+<strong>wxBITMAP_TYPE_PNM</strong> = 19<br>
+<strong>wxBITMAP_TYPE_PNM_RESOURCE</strong> = 20<br>
+<strong>wxBITMAP_TYPE_RESOURCE</strong> = 2<br>
+<strong>wxBITMAP_TYPE_TIF</strong> = 11<br>
+<strong>wxBITMAP_TYPE_TIF_RESOURCE</strong> = 12<br>
+<strong>wxBITMAP_TYPE_XBM</strong> = 7<br>
+<strong>wxBITMAP_TYPE_XBM_DATA</strong> = 8<br>
+<strong>wxBITMAP_TYPE_XPM</strong> = 9<br>
+<strong>wxBITMAP_TYPE_XPM_DATA</strong> = 10<br>
+<strong>wxBLACK</strong> = wxColour(0, 0, 0)<br>
+<strong>wxBLACK_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _833e3e8_wxBrush_p&gt;<br>
+<strong>wxBLACK_DASHED_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8340730_wxPen_p&gt;<br>
+<strong>wxBLACK_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _83413e8_wxPen_p&gt;<br>
+<strong>wxBLUE</strong> = wxColour(0, 0, 255)<br>
+<strong>wxBLUE_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8340780_wxBrush_p&gt;<br>
+<strong>wxBOLD</strong> = 92<br>
+<strong>wxBORDER</strong> = 33554432<br>
+<strong>wxBORDER_DEFAULT</strong> = 0<br>
+<strong>wxBORDER_DOUBLE</strong> = 268435456<br>
+<strong>wxBORDER_MASK</strong> = 522190848<br>
+<strong>wxBORDER_NONE</strong> = 2097152<br>
+<strong>wxBORDER_RAISED</strong> = 67108864<br>
+<strong>wxBORDER_SIMPLE</strong> = 33554432<br>
+<strong>wxBORDER_STATIC</strong> = 16777216<br>
+<strong>wxBORDER_SUNKEN</strong> = 134217728<br>
+<strong>wxBOTH</strong> = 12<br>
+<strong>wxBOTTOM</strong> = 128<br>
+<strong>wxBU_AUTODRAW</strong> = 4<br>
+<strong>wxBU_BOTTOM</strong> = 512<br>
+<strong>wxBU_EXACTFIT</strong> = 1<br>
+<strong>wxBU_LEFT</strong> = 64<br>
+<strong>wxBU_NOAUTODRAW</strong> = 0<br>
+<strong>wxBU_RIGHT</strong> = 256<br>
+<strong>wxBU_TOP</strong> = 128<br>
+<strong>wxBelow</strong> = 4<br>
+<strong>wxBottom</strong> = 3<br>
+<strong>wxCANCEL</strong> = 16<br>
+<strong>wxCAPTION</strong> = 536870912<br>
+<strong>wxCAP_BUTT</strong> = 132<br>
+<strong>wxCAP_PROJECTING</strong> = 131<br>
+<strong>wxCAP_ROUND</strong> = 130<br>
+<strong>wxCB_DROPDOWN</strong> = 32<br>
+<strong>wxCB_READONLY</strong> = 16<br>
+<strong>wxCB_SIMPLE</strong> = 4<br>
+<strong>wxCB_SORT</strong> = 8<br>
+<strong>wxCENTER</strong> = 1<br>
+<strong>wxCENTER_FRAME</strong> = 0<br>
+<strong>wxCENTER_ON_SCREEN</strong> = 2<br>
+<strong>wxCENTRE</strong> = 1<br>
+<strong>wxCENTRE_ON_SCREEN</strong> = 2<br>
+<strong>wxCHANGE_DIR</strong> = 64<br>
+<strong>wxCHOICEDLG_STYLE</strong> = 536870997<br>
+<strong>wxCLEAR</strong> = 0<br>
+<strong>wxCLIP_CHILDREN</strong> = 4194304<br>
+<strong>wxCLIP_SIBLINGS</strong> = 536870912<br>
+<strong>wxCOLOURED</strong> = 2048<br>
+<strong>wxCONFIG_USE_GLOBAL_FILE</strong> = 2<br>
+<strong>wxCONFIG_USE_LOCAL_FILE</strong> = 1<br>
+<strong>wxCONFIG_USE_NO_ESCAPE_CHARACTERS</strong> = 8<br>
+<strong>wxCONFIG_USE_RELATIVE_PATH</strong> = 4<br>
+<strong>wxCONVERT_STRICT</strong> = 0<br>
+<strong>wxCONVERT_SUBSTITUTE</strong> = 1<br>
+<strong>wxCOPY</strong> = 5<br>
+<strong>wxCROSSDIAG_HATCH</strong> = 112<br>
+<strong>wxCROSS_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _834cf70_wxCursor_p&gt;<br>
+<strong>wxCROSS_HATCH</strong> = 114<br>
+<strong>wxCURSOR_ARROW</strong> = 1<br>
+<strong>wxCURSOR_ARROWWAIT</strong> = 28<br>
+<strong>wxCURSOR_BLANK</strong> = 26<br>
+<strong>wxCURSOR_BULLSEYE</strong> = 3<br>
+<strong>wxCURSOR_CHAR</strong> = 4<br>
+<strong>wxCURSOR_CROSS</strong> = 5<br>
+<strong>wxCURSOR_DEFAULT</strong> = 27<br>
+<strong>wxCURSOR_HAND</strong> = 6<br>
+<strong>wxCURSOR_IBEAM</strong> = 7<br>
+<strong>wxCURSOR_LEFT_BUTTON</strong> = 8<br>
+<strong>wxCURSOR_MAGNIFIER</strong> = 9<br>
+<strong>wxCURSOR_MAX</strong> = 29<br>
+<strong>wxCURSOR_MIDDLE_BUTTON</strong> = 10<br>
+<strong>wxCURSOR_NONE</strong> = 0<br>
+<strong>wxCURSOR_NO_ENTRY</strong> = 11<br>
+<strong>wxCURSOR_PAINT_BRUSH</strong> = 12<br>
+<strong>wxCURSOR_PENCIL</strong> = 13<br>
+<strong>wxCURSOR_POINT_LEFT</strong> = 14<br>
+<strong>wxCURSOR_POINT_RIGHT</strong> = 15<br>
+<strong>wxCURSOR_QUESTION_ARROW</strong> = 16<br>
+<strong>wxCURSOR_RIGHT_ARROW</strong> = 2<br>
+<strong>wxCURSOR_RIGHT_BUTTON</strong> = 17<br>
+<strong>wxCURSOR_SIZENESW</strong> = 18<br>
+<strong>wxCURSOR_SIZENS</strong> = 19<br>
+<strong>wxCURSOR_SIZENWSE</strong> = 20<br>
+<strong>wxCURSOR_SIZEWE</strong> = 21<br>
+<strong>wxCURSOR_SIZING</strong> = 22<br>
+<strong>wxCURSOR_SPRAYCAN</strong> = 23<br>
+<strong>wxCURSOR_WAIT</strong> = 24<br>
+<strong>wxCURSOR_WATCH</strong> = 25<br>
+<strong>wxCYAN</strong> = wxColour(0, 255, 255)<br>
+<strong>wxCYAN_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8342780_wxBrush_p&gt;<br>
+<strong>wxCYAN_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _82cbab0_wxPen_p&gt;<br>
+<strong>wxCenter</strong> = 6<br>
+<strong>wxCentre</strong> = 6<br>
+<strong>wxCentreX</strong> = 7<br>
+<strong>wxCentreY</strong> = 8<br>
+<strong>wxDD_DEFAULT_STYLE</strong> = 536871104<br>
+<strong>wxDD_NEW_DIR_BUTTON</strong> = 128<br>
+<strong>wxDECORATIVE</strong> = 71<br>
+<strong>wxDEFAULT</strong> = 70<br>
+<strong>wxDEFAULT_DIALOG_STYLE</strong> = 536870912<br>
+<strong>wxDEFAULT_FRAME_STYLE</strong> = 541068864<br>
+<strong>wxDF_BITMAP</strong> = 2<br>
+<strong>wxDF_DIB</strong> = 8<br>
+<strong>wxDF_DIF</strong> = 5<br>
+<strong>wxDF_ENHMETAFILE</strong> = 14<br>
+<strong>wxDF_FILENAME</strong> = 15<br>
+<strong>wxDF_HTML</strong> = 30<br>
+<strong>wxDF_INVALID</strong> = 0<br>
+<strong>wxDF_LOCALE</strong> = 16<br>
+<strong>wxDF_MAX</strong> = 31<br>
+<strong>wxDF_METAFILE</strong> = 3<br>
+<strong>wxDF_OEMTEXT</strong> = 7<br>
+<strong>wxDF_PALETTE</strong> = 9<br>
+<strong>wxDF_PENDATA</strong> = 10<br>
+<strong>wxDF_PRIVATE</strong> = 20<br>
+<strong>wxDF_RIFF</strong> = 11<br>
+<strong>wxDF_SYLK</strong> = 4<br>
+<strong>wxDF_TEXT</strong> = 1<br>
+<strong>wxDF_TIFF</strong> = 6<br>
+<strong>wxDF_UNICODETEXT</strong> = 13<br>
+<strong>wxDF_WAVE</strong> = 12<br>
+<strong>wxDIALOG_MODAL</strong> = 32<br>
+<strong>wxDIALOG_MODELESS</strong> = 0<br>
+<strong>wxDIALOG_NO_PARENT</strong> = 1<br>
+<strong>wxDIRCTRL_3D_INTERNAL</strong> = 128<br>
+<strong>wxDIRCTRL_DIR_ONLY</strong> = 16<br>
+<strong>wxDIRCTRL_EDIT_LABELS</strong> = 256<br>
+<strong>wxDIRCTRL_SELECT_FIRST</strong> = 32<br>
+<strong>wxDIRCTRL_SHOW_FILTERS</strong> = 64<br>
+<strong>wxDOT</strong> = 101<br>
+<strong>wxDOT_DASH</strong> = 104<br>
+<strong>wxDOUBLE_BORDER</strong> = 268435456<br>
+<strong>wxDOWN</strong> = 128<br>
+<strong>wxDUPLEX_HORIZONTAL</strong> = 1<br>
+<strong>wxDUPLEX_SIMPLEX</strong> = 0<br>
+<strong>wxDUPLEX_VERTICAL</strong> = 2<br>
+<strong>wxDefaultPosition</strong> = wxPoint(-1, -1)<br>
+<strong>wxDefaultSize</strong> = wxSize(-1, -1)<br>
+<strong>wxDefaultValidator</strong> = &lt;wxPython.windows.wxValidatorPtr instance; proxy... wxValidator instance at _41b6b8c0_wxValidator_p&gt;<br>
+<strong>wxDragCancel</strong> = 5<br>
+<strong>wxDragCopy</strong> = 2<br>
+<strong>wxDragError</strong> = 0<br>
+<strong>wxDragLink</strong> = 4<br>
+<strong>wxDragMove</strong> = 3<br>
+<strong>wxDragNone</strong> = 1<br>
+<strong>wxDrag_AllowMove</strong> = 1<br>
+<strong>wxDrag_CopyOnly</strong> = 0<br>
+<strong>wxDrag_DefaultMove</strong> = 3<br>
+<strong>wxEAST</strong> = 32<br>
+<strong>wxED_BUTTONS_BOTTOM</strong> = 0<br>
+<strong>wxED_BUTTONS_RIGHT</strong> = 2<br>
+<strong>wxED_CLIENT_MARGIN</strong> = 4<br>
+<strong>wxED_STATIC_LINE</strong> = 1<br>
+<strong>wxEQUIV</strong> = 10<br>
+<strong>wxEVT_ACTIVATE</strong> = 10107<br>
+<strong>wxEVT_ACTIVATE_APP</strong> = 10105<br>
+<strong>wxEVT_CALCULATE_LAYOUT</strong> = 10183<br>
+<strong>wxEVT_CHAR</strong> = 10077<br>
+<strong>wxEVT_CHAR_HOOK</strong> = 10078<br>
+<strong>wxEVT_CHILD_FOCUS</strong> = 10063<br>
+<strong>wxEVT_CLOSE_WINDOW</strong> = 10102<br>
+<strong>wxEVT_COMMAND_BUTTON_CLICKED</strong> = 10031<br>
+<strong>wxEVT_COMMAND_CHECKBOX_CLICKED</strong> = 10032<br>
+<strong>wxEVT_COMMAND_CHECKLISTBOX_TOGGLED</strong> = 10036<br>
+<strong>wxEVT_COMMAND_CHOICE_SELECTED</strong> = 10033<br>
+<strong>wxEVT_COMMAND_COMBOBOX_SELECTED</strong> = 10043<br>
+<strong>wxEVT_COMMAND_ENTER</strong> = 10144<br>
+<strong>wxEVT_COMMAND_FIND</strong> = 10025<br>
+<strong>wxEVT_COMMAND_FIND_CLOSE</strong> = 10029<br>
+<strong>wxEVT_COMMAND_FIND_NEXT</strong> = 10026<br>
+<strong>wxEVT_COMMAND_FIND_REPLACE</strong> = 10027<br>
+<strong>wxEVT_COMMAND_FIND_REPLACE_ALL</strong> = 10028<br>
+<strong>wxEVT_COMMAND_KILL_FOCUS</strong> = 10143<br>
+<strong>wxEVT_COMMAND_LEFT_CLICK</strong> = 10138<br>
+<strong>wxEVT_COMMAND_LEFT_DCLICK</strong> = 10139<br>
+<strong>wxEVT_COMMAND_LISTBOX_DOUBLECLICKED</strong> = 10035<br>
+<strong>wxEVT_COMMAND_LISTBOX_SELECTED</strong> = 10034<br>
+<strong>wxEVT_COMMAND_LIST_BEGIN_DRAG</strong> = 10160<br>
+<strong>wxEVT_COMMAND_LIST_BEGIN_LABEL_EDIT</strong> = 10162<br>
+<strong>wxEVT_COMMAND_LIST_BEGIN_RDRAG</strong> = 10161<br>
+<strong>wxEVT_COMMAND_LIST_CACHE_HINT</strong> = 10181<br>
+<strong>wxEVT_COMMAND_LIST_COL_BEGIN_DRAG</strong> = 10174<br>
+<strong>wxEVT_COMMAND_LIST_COL_CLICK</strong> = 10172<br>
+<strong>wxEVT_COMMAND_LIST_COL_DRAGGING</strong> = 10175<br>
+<strong>wxEVT_COMMAND_LIST_COL_END_DRAG</strong> = 10176<br>
+<strong>wxEVT_COMMAND_LIST_COL_RIGHT_CLICK</strong> = 10173<br>
+<strong>wxEVT_COMMAND_LIST_DELETE_ALL_ITEMS</strong> = 10165<br>
+<strong>wxEVT_COMMAND_LIST_DELETE_ITEM</strong> = 10164<br>
+<strong>wxEVT_COMMAND_LIST_END_LABEL_EDIT</strong> = 10163<br>
+<strong>wxEVT_COMMAND_LIST_GET_INFO</strong> = 10166<br>
+<strong>wxEVT_COMMAND_LIST_INSERT_ITEM</strong> = 10171<br>
+<strong>wxEVT_COMMAND_LIST_ITEM_ACTIVATED</strong> = 10179<br>
+<strong>wxEVT_COMMAND_LIST_ITEM_DESELECTED</strong> = 10169<br>
+<strong>wxEVT_COMMAND_LIST_ITEM_FOCUSED</strong> = 10180<br>
+<strong>wxEVT_COMMAND_LIST_ITEM_MIDDLE_CLICK</strong> = 10178<br>
+<strong>wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK</strong> = 10177<br>
+<strong>wxEVT_COMMAND_LIST_ITEM_SELECTED</strong> = 10168<br>
+<strong>wxEVT_COMMAND_LIST_KEY_DOWN</strong> = 10170<br>
+<strong>wxEVT_COMMAND_LIST_SET_INFO</strong> = 10167<br>
+<strong>wxEVT_COMMAND_MENU_SELECTED</strong> = 10037<br>
+<strong>wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGED</strong> = 10148<br>
+<strong>wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGING</strong> = 10149<br>
+<strong>wxEVT_COMMAND_RADIOBOX_SELECTED</strong> = 10039<br>
+<strong>wxEVT_COMMAND_RADIOBUTTON_SELECTED</strong> = 10040<br>
+<strong>wxEVT_COMMAND_RIGHT_CLICK</strong> = 10140<br>
+<strong>wxEVT_COMMAND_RIGHT_DCLICK</strong> = 10141<br>
+<strong>wxEVT_COMMAND_SCROLLBAR_UPDATED</strong> = 10041<br>
+<strong>wxEVT_COMMAND_SET_FOCUS</strong> = 10142<br>
+<strong>wxEVT_COMMAND_SLIDER_UPDATED</strong> = 10038<br>
+<strong>wxEVT_COMMAND_SPINCTRL_UPDATED</strong> = 10046<br>
+<strong>wxEVT_COMMAND_SPLITTER_DOUBLECLICKED</strong> = 10157<br>
+<strong>wxEVT_COMMAND_SPLITTER_SASH_POS_CHANGED</strong> = 10155<br>
+<strong>wxEVT_COMMAND_SPLITTER_SASH_POS_CHANGING</strong> = 10156<br>
+<strong>wxEVT_COMMAND_SPLITTER_UNSPLIT</strong> = 10158<br>
+<strong>wxEVT_COMMAND_TEXT_ENTER</strong> = 10021<br>
+<strong>wxEVT_COMMAND_TEXT_MAXLEN</strong> = 10023<br>
+<strong>wxEVT_COMMAND_TEXT_UPDATED</strong> = 10020<br>
+<strong>wxEVT_COMMAND_TEXT_URL</strong> = 10022<br>
+<strong>wxEVT_COMMAND_TOGGLEBUTTON_CLICKED</strong> = 10147<br>
+<strong>wxEVT_COMMAND_TOOL_CLICKED</strong> = 10037<br>
+<strong>wxEVT_COMMAND_TOOL_ENTER</strong> = 10045<br>
+<strong>wxEVT_COMMAND_TOOL_RCLICKED</strong> = 10044<br>
+<strong>wxEVT_COMMAND_TREE_BEGIN_DRAG</strong> = 10002<br>
+<strong>wxEVT_COMMAND_TREE_BEGIN_LABEL_EDIT</strong> = 10004<br>
+<strong>wxEVT_COMMAND_TREE_BEGIN_RDRAG</strong> = 10003<br>
+<strong>wxEVT_COMMAND_TREE_DELETE_ITEM</strong> = 10006<br>
+<strong>wxEVT_COMMAND_TREE_END_DRAG</strong> = 10019<br>
+<strong>wxEVT_COMMAND_TREE_END_LABEL_EDIT</strong> = 10005<br>
+<strong>wxEVT_COMMAND_TREE_GET_INFO</strong> = 10007<br>
+<strong>wxEVT_COMMAND_TREE_ITEM_ACTIVATED</strong> = 10016<br>
+<strong>wxEVT_COMMAND_TREE_ITEM_COLLAPSED</strong> = 10011<br>
+<strong>wxEVT_COMMAND_TREE_ITEM_COLLAPSING</strong> = 10012<br>
+<strong>wxEVT_COMMAND_TREE_ITEM_EXPANDED</strong> = 10009<br>
+<strong>wxEVT_COMMAND_TREE_ITEM_EXPANDING</strong> = 10010<br>
+<strong>wxEVT_COMMAND_TREE_ITEM_MIDDLE_CLICK</strong> = 10018<br>
+<strong>wxEVT_COMMAND_TREE_ITEM_RIGHT_CLICK</strong> = 10017<br>
+<strong>wxEVT_COMMAND_TREE_KEY_DOWN</strong> = 10015<br>
+<strong>wxEVT_COMMAND_TREE_SEL_CHANGED</strong> = 10013<br>
+<strong>wxEVT_COMMAND_TREE_SEL_CHANGING</strong> = 10014<br>
+<strong>wxEVT_COMMAND_TREE_SET_INFO</strong> = 10008<br>
+<strong>wxEVT_COMMAND_VLBOX_SELECTED</strong> = 10042<br>
+<strong>wxEVT_COMPARE_ITEM</strong> = 10134<br>
+<strong>wxEVT_CONTEXT_MENU</strong> = 10121<br>
+<strong>wxEVT_CREATE</strong> = 10108<br>
+<strong>wxEVT_DESTROY</strong> = 10109<br>
+<strong>wxEVT_DISPLAY_CHANGED</strong> = 10123<br>
+<strong>wxEVT_DRAW_ITEM</strong> = 10132<br>
+<strong>wxEVT_DROP_FILES</strong> = 10131<br>
+<strong>wxEVT_END_PROCESS</strong> = 10024<br>
+<strong>wxEVT_END_SESSION</strong> = 10103<br>
+<strong>wxEVT_ENTER_WINDOW</strong> = 10056<br>
+<strong>wxEVT_ERASE_BACKGROUND</strong> = 10115<br>
+<strong>wxEVT_FIRST</strong> = 10000<br>
+<strong>wxEVT_ICONIZE</strong> = 10111<br>
+<strong>wxEVT_IDLE</strong> = 10136<br>
+<strong>wxEVT_INIT_DIALOG</strong> = 10135<br>
+<strong>wxEVT_JOY_BUTTON_DOWN</strong> = 10127<br>
+<strong>wxEVT_JOY_BUTTON_UP</strong> = 10128<br>
+<strong>wxEVT_JOY_MOVE</strong> = 10129<br>
+<strong>wxEVT_JOY_ZMOVE</strong> = 10130<br>
+<strong>wxEVT_KEY_DOWN</strong> = 10080<br>
+<strong>wxEVT_KEY_UP</strong> = 10081<br>
+<strong>wxEVT_KILL_FOCUS</strong> = 10062<br>
+<strong>wxEVT_LEAVE_WINDOW</strong> = 10057<br>
+<strong>wxEVT_LEFT_DCLICK</strong> = 10058<br>
+<strong>wxEVT_LEFT_DOWN</strong> = 10049<br>
+<strong>wxEVT_LEFT_UP</strong> = 10050<br>
+<strong>wxEVT_MAXIMIZE</strong> = 10112<br>
+<strong>wxEVT_MEASURE_ITEM</strong> = 10133<br>
+<strong>wxEVT_MENU_CLOSE</strong> = 10119<br>
+<strong>wxEVT_MENU_HIGHLIGHT</strong> = 10120<br>
+<strong>wxEVT_MENU_OPEN</strong> = 10118<br>
+<strong>wxEVT_MIDDLE_DCLICK</strong> = 10059<br>
+<strong>wxEVT_MIDDLE_DOWN</strong> = 10051<br>
+<strong>wxEVT_MIDDLE_UP</strong> = 10052<br>
+<strong>wxEVT_MOTION</strong> = 10055<br>
+<strong>wxEVT_MOUSEWHEEL</strong> = 10064<br>
+<strong>wxEVT_MOUSE_CAPTURE_CHANGED</strong> = 10113<br>
+<strong>wxEVT_MOVE</strong> = 10101<br>
+<strong>wxEVT_NAVIGATION_KEY</strong> = 10079<br>
+<strong>wxEVT_NC_ENTER_WINDOW</strong> = 10072<br>
+<strong>wxEVT_NC_LEAVE_WINDOW</strong> = 10073<br>
+<strong>wxEVT_NC_LEFT_DCLICK</strong> = 10074<br>
+<strong>wxEVT_NC_LEFT_DOWN</strong> = 10065<br>
+<strong>wxEVT_NC_LEFT_UP</strong> = 10066<br>
+<strong>wxEVT_NC_MIDDLE_DCLICK</strong> = 10075<br>
+<strong>wxEVT_NC_MIDDLE_DOWN</strong> = 10067<br>
+<strong>wxEVT_NC_MIDDLE_UP</strong> = 10068<br>
+<strong>wxEVT_NC_MOTION</strong> = 10071<br>
+<strong>wxEVT_NC_PAINT</strong> = 10116<br>
+<strong>wxEVT_NC_RIGHT_DCLICK</strong> = 10076<br>
+<strong>wxEVT_NC_RIGHT_DOWN</strong> = 10069<br>
+<strong>wxEVT_NC_RIGHT_UP</strong> = 10070<br>
+<strong>wxEVT_NULL</strong> = 10030<br>
+<strong>wxEVT_PAINT</strong> = 10114<br>
+<strong>wxEVT_PAINT_ICON</strong> = 10117<br>
+<strong>wxEVT_PALETTE_CHANGED</strong> = 10126<br>
+<strong>wxEVT_POWER</strong> = 10106<br>
+<strong>wxEVT_QUERY_END_SESSION</strong> = 10104<br>
+<strong>wxEVT_QUERY_LAYOUT_INFO</strong> = 10182<br>
+<strong>wxEVT_QUERY_NEW_PALETTE</strong> = 10125<br>
+<strong>wxEVT_RIGHT_DCLICK</strong> = 10060<br>
+<strong>wxEVT_RIGHT_DOWN</strong> = 10053<br>
+<strong>wxEVT_RIGHT_UP</strong> = 10054<br>
+<strong>wxEVT_SASH_DRAGGED</strong> = 10159<br>
+<strong>wxEVT_SCROLLWIN_BOTTOM</strong> = 10093<br>
+<strong>wxEVT_SCROLLWIN_LINEDOWN</strong> = 10095<br>
+<strong>wxEVT_SCROLLWIN_LINEUP</strong> = 10094<br>
+<strong>wxEVT_SCROLLWIN_PAGEDOWN</strong> = 10097<br>
+<strong>wxEVT_SCROLLWIN_PAGEUP</strong> = 10096<br>
+<strong>wxEVT_SCROLLWIN_THUMBRELEASE</strong> = 10099<br>
+<strong>wxEVT_SCROLLWIN_THUMBTRACK</strong> = 10098<br>
+<strong>wxEVT_SCROLLWIN_TOP</strong> = 10092<br>
+<strong>wxEVT_SCROLL_BOTTOM</strong> = 10084<br>
+<strong>wxEVT_SCROLL_ENDSCROLL</strong> = 10091<br>
+<strong>wxEVT_SCROLL_LINEDOWN</strong> = 10086<br>
+<strong>wxEVT_SCROLL_LINEUP</strong> = 10085<br>
+<strong>wxEVT_SCROLL_PAGEDOWN</strong> = 10088<br>
+<strong>wxEVT_SCROLL_PAGEUP</strong> = 10087<br>
+<strong>wxEVT_SCROLL_THUMBRELEASE</strong> = 10090<br>
+<strong>wxEVT_SCROLL_THUMBTRACK</strong> = 10089<br>
+<strong>wxEVT_SCROLL_TOP</strong> = 10083<br>
+<strong>wxEVT_SETTING_CHANGED</strong> = 10124<br>
+<strong>wxEVT_SET_CURSOR</strong> = 10082<br>
+<strong>wxEVT_SET_FOCUS</strong> = 10061<br>
+<strong>wxEVT_SHOW</strong> = 10110<br>
+<strong>wxEVT_SIZE</strong> = 10100<br>
+<strong>wxEVT_SYS_COLOUR_CHANGED</strong> = 10122<br>
+<strong>wxEVT_TIMER</strong> = 10048<br>
+<strong>wxEVT_UPDATE_UI</strong> = 10137<br>
+<strong>wxEXEC_ASYNC</strong> = 0<br>
+<strong>wxEXEC_MAKE_GROUP_LEADER</strong> = 4<br>
+<strong>wxEXEC_NOHIDE</strong> = 2<br>
+<strong>wxEXEC_SYNC</strong> = 1<br>
+<strong>wxEXPAND</strong> = 8192<br>
+<strong>wxEXT_DIALOG_STYLE</strong> = 536870917<br>
+<strong>wxFDIAGONAL_HATCH</strong> = 113<br>
+<strong>wxFILE_MUST_EXIST</strong> = 16<br>
+<strong>wxFIRST_MDI_CHILD</strong> = 4100<br>
+<strong>wxFIXED</strong> = 81<br>
+<strong>wxFIXED_LENGTH</strong> = 1024<br>
+<strong>wxFLOOD_BORDER</strong> = 2<br>
+<strong>wxFLOOD_SURFACE</strong> = 1<br>
+<strong>wxFONTENCODING_ALTERNATIVE</strong> = 18<br>
+<strong>wxFONTENCODING_BIG5</strong> = 29<br>
+<strong>wxFONTENCODING_BULGARIAN</strong> = 19<br>
+<strong>wxFONTENCODING_CP1250</strong> = 30<br>
+<strong>wxFONTENCODING_CP1251</strong> = 31<br>
+<strong>wxFONTENCODING_CP1252</strong> = 32<br>
+<strong>wxFONTENCODING_CP1253</strong> = 33<br>
+<strong>wxFONTENCODING_CP1254</strong> = 34<br>
+<strong>wxFONTENCODING_CP1255</strong> = 35<br>
+<strong>wxFONTENCODING_CP1256</strong> = 36<br>
+<strong>wxFONTENCODING_CP1257</strong> = 37<br>
+<strong>wxFONTENCODING_CP12_MAX</strong> = 38<br>
+<strong>wxFONTENCODING_CP437</strong> = 20<br>
+<strong>wxFONTENCODING_CP850</strong> = 21<br>
+<strong>wxFONTENCODING_CP852</strong> = 22<br>
+<strong>wxFONTENCODING_CP855</strong> = 23<br>
+<strong>wxFONTENCODING_CP866</strong> = 24<br>
+<strong>wxFONTENCODING_CP874</strong> = 25<br>
+<strong>wxFONTENCODING_CP932</strong> = 26<br>
+<strong>wxFONTENCODING_CP936</strong> = 27<br>
+<strong>wxFONTENCODING_CP949</strong> = 28<br>
+<strong>wxFONTENCODING_CP950</strong> = 29<br>
+<strong>wxFONTENCODING_DEFAULT</strong> = 0<br>
+<strong>wxFONTENCODING_EUC_JP</strong> = 41<br>
+<strong>wxFONTENCODING_GB2312</strong> = 27<br>
+<strong>wxFONTENCODING_ISO8859_1</strong> = 1<br>
+<strong>wxFONTENCODING_ISO8859_10</strong> = 10<br>
+<strong>wxFONTENCODING_ISO8859_11</strong> = 11<br>
+<strong>wxFONTENCODING_ISO8859_12</strong> = 12<br>
+<strong>wxFONTENCODING_ISO8859_13</strong> = 13<br>
+<strong>wxFONTENCODING_ISO8859_14</strong> = 14<br>
+<strong>wxFONTENCODING_ISO8859_15</strong> = 15<br>
+<strong>wxFONTENCODING_ISO8859_2</strong> = 2<br>
+<strong>wxFONTENCODING_ISO8859_3</strong> = 3<br>
+<strong>wxFONTENCODING_ISO8859_4</strong> = 4<br>
+<strong>wxFONTENCODING_ISO8859_5</strong> = 5<br>
+<strong>wxFONTENCODING_ISO8859_6</strong> = 6<br>
+<strong>wxFONTENCODING_ISO8859_7</strong> = 7<br>
+<strong>wxFONTENCODING_ISO8859_8</strong> = 8<br>
+<strong>wxFONTENCODING_ISO8859_9</strong> = 9<br>
+<strong>wxFONTENCODING_ISO8859_MAX</strong> = 16<br>
+<strong>wxFONTENCODING_KOI8</strong> = 17<br>
+<strong>wxFONTENCODING_MAX</strong> = 43<br>
+<strong>wxFONTENCODING_SHIFT_JIS</strong> = 26<br>
+<strong>wxFONTENCODING_SYSTEM</strong> = -1<br>
+<strong>wxFONTENCODING_UNICODE</strong> = 42<br>
+<strong>wxFONTENCODING_UTF7</strong> = 39<br>
+<strong>wxFONTENCODING_UTF8</strong> = 40<br>
+<strong>wxFONTFAMILY_DECORATIVE</strong> = 71<br>
+<strong>wxFONTFAMILY_DEFAULT</strong> = 70<br>
+<strong>wxFONTFAMILY_MAX</strong> = 77<br>
+<strong>wxFONTFAMILY_MODERN</strong> = 75<br>
+<strong>wxFONTFAMILY_ROMAN</strong> = 72<br>
+<strong>wxFONTFAMILY_SCRIPT</strong> = 73<br>
+<strong>wxFONTFAMILY_SWISS</strong> = 74<br>
+<strong>wxFONTFAMILY_TELETYPE</strong> = 76<br>
+<strong>wxFONTFAMILY_UNKNOWN</strong> = 77<br>
+<strong>wxFONTSTYLE_ITALIC</strong> = 93<br>
+<strong>wxFONTSTYLE_MAX</strong> = 95<br>
+<strong>wxFONTSTYLE_NORMAL</strong> = 90<br>
+<strong>wxFONTSTYLE_SLANT</strong> = 94<br>
+<strong>wxFONTWEIGHT_BOLD</strong> = 92<br>
+<strong>wxFONTWEIGHT_LIGHT</strong> = 91<br>
+<strong>wxFONTWEIGHT_MAX</strong> = 93<br>
+<strong>wxFONTWEIGHT_NORMAL</strong> = 90<br>
+<strong>wxFORWARD</strong> = 4096<br>
+<strong>wxFRAME_FLOAT_ON_PARENT</strong> = 8<br>
+<strong>wxFRAME_NO_TASKBAR</strong> = 2<br>
+<strong>wxFRAME_NO_WINDOW_MENU</strong> = 256<br>
+<strong>wxFRAME_SHAPED</strong> = 16<br>
+<strong>wxFRAME_TOOL_WINDOW</strong> = 4<br>
+<strong>wxFR_DOWN</strong> = 1<br>
+<strong>wxFR_MATCHCASE</strong> = 4<br>
+<strong>wxFR_NOMATCHCASE</strong> = 4<br>
+<strong>wxFR_NOUPDOWN</strong> = 2<br>
+<strong>wxFR_NOWHOLEWORD</strong> = 8<br>
+<strong>wxFR_REPLACEDIALOG</strong> = 1<br>
+<strong>wxFR_WHOLEWORD</strong> = 2<br>
+<strong>wxFULLSCREEN_ALL</strong> = 31<br>
+<strong>wxFULLSCREEN_NOBORDER</strong> = 8<br>
+<strong>wxFULLSCREEN_NOCAPTION</strong> = 16<br>
+<strong>wxFULLSCREEN_NOMENUBAR</strong> = 1<br>
+<strong>wxFULLSCREEN_NOSTATUSBAR</strong> = 4<br>
+<strong>wxFULLSCREEN_NOTOOLBAR</strong> = 2<br>
+<strong>wxFormatInvalid</strong> = &lt;wxPython.clip_dnd.wxDataFormatPtr instance; pro...xDataFormat instance at _4161e8a8_wxDataFormat_p&gt;<br>
+<strong>wxFromCurrent</strong> = 1<br>
+<strong>wxFromEnd</strong> = 2<br>
+<strong>wxFromStart</strong> = 0<br>
+<strong>wxGA_HORIZONTAL</strong> = 4<br>
+<strong>wxGA_PROGRESSBAR</strong> = 16<br>
+<strong>wxGA_SMOOTH</strong> = 32<br>
+<strong>wxGA_VERTICAL</strong> = 8<br>
+<strong>wxGREEN</strong> = wxColour(0, 255, 0)<br>
+<strong>wxGREEN_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8341580_wxBrush_p&gt;<br>
+<strong>wxGREEN_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _834c388_wxPen_p&gt;<br>
+<strong>wxGREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8342820_wxBrush_p&gt;<br>
+<strong>wxGREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8340770_wxPen_p&gt;<br>
+<strong>wxGROW</strong> = 8192<br>
+<strong>wxHELP</strong> = 32768<br>
+<strong>wxHIDE_READONLY</strong> = 8<br>
+<strong>wxHORIZONTAL</strong> = 4<br>
+<strong>wxHORIZONTAL_HATCH</strong> = 115<br>
+<strong>wxHOURGLASS_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _834d0d8_wxCursor_p&gt;<br>
+<strong>wxHSCROLL</strong> = 1073741824<br>
+<strong>wxHT_MAX</strong> = 14<br>
+<strong>wxHT_NOWHERE</strong> = 0<br>
+<strong>wxHT_SCROLLBAR_ARROW_LINE_1</strong> = 1<br>
+<strong>wxHT_SCROLLBAR_ARROW_LINE_2</strong> = 2<br>
+<strong>wxHT_SCROLLBAR_ARROW_PAGE_1</strong> = 3<br>
+<strong>wxHT_SCROLLBAR_ARROW_PAGE_2</strong> = 4<br>
+<strong>wxHT_SCROLLBAR_BAR_1</strong> = 6<br>
+<strong>wxHT_SCROLLBAR_BAR_2</strong> = 7<br>
+<strong>wxHT_SCROLLBAR_FIRST</strong> = 0<br>
+<strong>wxHT_SCROLLBAR_LAST</strong> = 8<br>
+<strong>wxHT_SCROLLBAR_THUMB</strong> = 5<br>
+<strong>wxHT_WINDOW_CORNER</strong> = 13<br>
+<strong>wxHT_WINDOW_HORZ_SCROLLBAR</strong> = 12<br>
+<strong>wxHT_WINDOW_INSIDE</strong> = 10<br>
+<strong>wxHT_WINDOW_OUTSIDE</strong> = 9<br>
+<strong>wxHT_WINDOW_VERT_SCROLLBAR</strong> = 11<br>
+<strong>wxHeight</strong> = 5<br>
+<strong>wxICONIZE</strong> = 16384<br>
+<strong>wxICON_ASTERISK</strong> = 2048<br>
+<strong>wxICON_ERROR</strong> = 512<br>
+<strong>wxICON_EXCLAMATION</strong> = 256<br>
+<strong>wxICON_HAND</strong> = 512<br>
+<strong>wxICON_INFORMATION</strong> = 2048<br>
+<strong>wxICON_MASK</strong> = 3840<br>
+<strong>wxICON_QUESTION</strong> = 1024<br>
+<strong>wxICON_STOP</strong> = 512<br>
+<strong>wxICON_WARNING</strong> = 256<br>
+<strong>wxID_ABORT</strong> = 5115<br>
+<strong>wxID_ABOUT</strong> = 5013<br>
+<strong>wxID_ANY</strong> = -1<br>
+<strong>wxID_APPLY</strong> = 5102<br>
+<strong>wxID_BACKWARD</strong> = 5107<br>
+<strong>wxID_CANCEL</strong> = 5101<br>
+<strong>wxID_CLEAR</strong> = 5033<br>
+<strong>wxID_CLOSE</strong> = 5001<br>
+<strong>wxID_CLOSE_ALL</strong> = 5018<br>
+<strong>wxID_CONTEXT_HELP</strong> = 5112<br>
+<strong>wxID_COPY</strong> = 5031<br>
+<strong>wxID_CUT</strong> = 5030<br>
+<strong>wxID_DEFAULT</strong> = 5108<br>
+<strong>wxID_DUPLICATE</strong> = 5035<br>
+<strong>wxID_EXIT</strong> = 5006<br>
+<strong>wxID_FILE1</strong> = 5050<br>
+<strong>wxID_FILE2</strong> = 5051<br>
+<strong>wxID_FILE3</strong> = 5052<br>
+<strong>wxID_FILE4</strong> = 5053<br>
+<strong>wxID_FILE5</strong> = 5054<br>
+<strong>wxID_FILE6</strong> = 5055<br>
+<strong>wxID_FILE7</strong> = 5056<br>
+<strong>wxID_FILE8</strong> = 5057<br>
+<strong>wxID_FILE9</strong> = 5058<br>
+<strong>wxID_FILTERLISTCTRL</strong> = 7001<br>
+<strong>wxID_FIND</strong> = 5034<br>
+<strong>wxID_FORWARD</strong> = 5106<br>
+<strong>wxID_HELP</strong> = 5009<br>
+<strong>wxID_HELP_COMMANDS</strong> = 5015<br>
+<strong>wxID_HELP_CONTENTS</strong> = 5014<br>
+<strong>wxID_HELP_CONTEXT</strong> = 5017<br>
+<strong>wxID_HELP_PROCEDURES</strong> = 5016<br>
+<strong>wxID_IGNORE</strong> = 5117<br>
+<strong>wxID_MORE</strong> = 5109<br>
+<strong>wxID_NEW</strong> = 5002<br>
+<strong>wxID_NO</strong> = 5104<br>
+<strong>wxID_NOTOALL</strong> = 5114<br>
+<strong>wxID_OK</strong> = 5100<br>
+<strong>wxID_OPEN</strong> = 5000<br>
+<strong>wxID_PASTE</strong> = 5032<br>
+<strong>wxID_PREVIEW</strong> = 5012<br>
+<strong>wxID_PREVIEW_CLOSE</strong> = 1<br>
+<strong>wxID_PREVIEW_FIRST</strong> = 6<br>
+<strong>wxID_PREVIEW_GOTO</strong> = 8<br>
+<strong>wxID_PREVIEW_LAST</strong> = 7<br>
+<strong>wxID_PREVIEW_NEXT</strong> = 2<br>
+<strong>wxID_PREVIEW_PREVIOUS</strong> = 3<br>
+<strong>wxID_PREVIEW_PRINT</strong> = 4<br>
+<strong>wxID_PREVIEW_ZOOM</strong> = 5<br>
+<strong>wxID_PRINT</strong> = 5010<br>
+<strong>wxID_PRINT_SETUP</strong> = 5011<br>
+<strong>wxID_REDO</strong> = 5008<br>
+<strong>wxID_RESET</strong> = 5111<br>
+<strong>wxID_RETRY</strong> = 5116<br>
+<strong>wxID_REVERT</strong> = 5005<br>
+<strong>wxID_SAVE</strong> = 5003<br>
+<strong>wxID_SAVEAS</strong> = 5004<br>
+<strong>wxID_SELECTALL</strong> = 5036<br>
+<strong>wxID_SEPARATOR</strong> = -1<br>
+<strong>wxID_SETUP</strong> = 5110<br>
+<strong>wxID_STATIC</strong> = 5105<br>
+<strong>wxID_TREECTRL</strong> = 7000<br>
+<strong>wxID_UNDO</strong> = 5007<br>
+<strong>wxID_YES</strong> = 5103<br>
+<strong>wxID_YESTOALL</strong> = 5113<br>
+<strong>wxIMAGELIST_DRAW_FOCUSED</strong> = 8<br>
+<strong>wxIMAGELIST_DRAW_NORMAL</strong> = 1<br>
+<strong>wxIMAGELIST_DRAW_SELECTED</strong> = 4<br>
+<strong>wxIMAGELIST_DRAW_TRANSPARENT</strong> = 2<br>
+<strong>wxIMAGE_LIST_NORMAL</strong> = 0<br>
+<strong>wxIMAGE_LIST_SMALL</strong> = 1<br>
+<strong>wxIMAGE_LIST_STATE</strong> = 2<br>
+<strong>wxINVERT</strong> = 2<br>
+<strong>wxITALIC</strong> = 93<br>
+<strong>wxITALIC_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _83403d0_wxFont_p&gt;<br>
+<strong>wxITEM_CHECK</strong> = 1<br>
+<strong>wxITEM_MAX</strong> = 3<br>
+<strong>wxITEM_NORMAL</strong> = 0<br>
+<strong>wxITEM_RADIO</strong> = 2<br>
+<strong>wxITEM_SEPARATOR</strong> = -1<br>
+<strong>wxInRegion</strong> = 2<br>
+<strong>wxJOIN_BEVEL</strong> = 120<br>
+<strong>wxJOIN_MITER</strong> = 121<br>
+<strong>wxJOIN_ROUND</strong> = 122<br>
+<strong>wxJOYSTICK1</strong> = 0<br>
+<strong>wxJOYSTICK2</strong> = 1<br>
+<strong>wxJOY_BUTTON1</strong> = 1<br>
+<strong>wxJOY_BUTTON2</strong> = 2<br>
+<strong>wxJOY_BUTTON3</strong> = 4<br>
+<strong>wxJOY_BUTTON4</strong> = 8<br>
+<strong>wxJOY_BUTTON_ANY</strong> = -1<br>
+<strong>wxKILL_ACCESS_DENIED</strong> = 2<br>
+<strong>wxKILL_BAD_SIGNAL</strong> = 1<br>
+<strong>wxKILL_ERROR</strong> = 4<br>
+<strong>wxKILL_NO_PROCESS</strong> = 3<br>
+<strong>wxKILL_OK</strong> = 0<br>
+<strong>wxLANDSCAPE</strong> = 2<br>
+<strong>wxLANGUAGE_ABKHAZIAN</strong> = 2<br>
+<strong>wxLANGUAGE_AFAR</strong> = 3<br>
+<strong>wxLANGUAGE_AFRIKAANS</strong> = 4<br>
+<strong>wxLANGUAGE_ALBANIAN</strong> = 5<br>
+<strong>wxLANGUAGE_AMHARIC</strong> = 6<br>
+<strong>wxLANGUAGE_ARABIC</strong> = 7<br>
+<strong>wxLANGUAGE_ARABIC_ALGERIA</strong> = 8<br>
+<strong>wxLANGUAGE_ARABIC_BAHRAIN</strong> = 9<br>
+<strong>wxLANGUAGE_ARABIC_EGYPT</strong> = 10<br>
+<strong>wxLANGUAGE_ARABIC_IRAQ</strong> = 11<br>
+<strong>wxLANGUAGE_ARABIC_JORDAN</strong> = 12<br>
+<strong>wxLANGUAGE_ARABIC_KUWAIT</strong> = 13<br>
+<strong>wxLANGUAGE_ARABIC_LEBANON</strong> = 14<br>
+<strong>wxLANGUAGE_ARABIC_LIBYA</strong> = 15<br>
+<strong>wxLANGUAGE_ARABIC_MOROCCO</strong> = 16<br>
+<strong>wxLANGUAGE_ARABIC_OMAN</strong> = 17<br>
+<strong>wxLANGUAGE_ARABIC_QATAR</strong> = 18<br>
+<strong>wxLANGUAGE_ARABIC_SAUDI_ARABIA</strong> = 19<br>
+<strong>wxLANGUAGE_ARABIC_SUDAN</strong> = 20<br>
+<strong>wxLANGUAGE_ARABIC_SYRIA</strong> = 21<br>
+<strong>wxLANGUAGE_ARABIC_TUNISIA</strong> = 22<br>
+<strong>wxLANGUAGE_ARABIC_UAE</strong> = 23<br>
+<strong>wxLANGUAGE_ARABIC_YEMEN</strong> = 24<br>
+<strong>wxLANGUAGE_ARMENIAN</strong> = 25<br>
+<strong>wxLANGUAGE_ASSAMESE</strong> = 26<br>
+<strong>wxLANGUAGE_AYMARA</strong> = 27<br>
+<strong>wxLANGUAGE_AZERI</strong> = 28<br>
+<strong>wxLANGUAGE_AZERI_CYRILLIC</strong> = 29<br>
+<strong>wxLANGUAGE_AZERI_LATIN</strong> = 30<br>
+<strong>wxLANGUAGE_BASHKIR</strong> = 31<br>
+<strong>wxLANGUAGE_BASQUE</strong> = 32<br>
+<strong>wxLANGUAGE_BELARUSIAN</strong> = 33<br>
+<strong>wxLANGUAGE_BENGALI</strong> = 34<br>
+<strong>wxLANGUAGE_BHUTANI</strong> = 35<br>
+<strong>wxLANGUAGE_BIHARI</strong> = 36<br>
+<strong>wxLANGUAGE_BISLAMA</strong> = 37<br>
+<strong>wxLANGUAGE_BRETON</strong> = 38<br>
+<strong>wxLANGUAGE_BULGARIAN</strong> = 39<br>
+<strong>wxLANGUAGE_BURMESE</strong> = 40<br>
+<strong>wxLANGUAGE_CAMBODIAN</strong> = 41<br>
+<strong>wxLANGUAGE_CATALAN</strong> = 42<br>
+<strong>wxLANGUAGE_CHINESE</strong> = 43<br>
+<strong>wxLANGUAGE_CHINESE_HONGKONG</strong> = 46<br>
+<strong>wxLANGUAGE_CHINESE_MACAU</strong> = 47<br>
+<strong>wxLANGUAGE_CHINESE_SIMPLIFIED</strong> = 44<br>
+<strong>wxLANGUAGE_CHINESE_SINGAPORE</strong> = 48<br>
+<strong>wxLANGUAGE_CHINESE_TAIWAN</strong> = 49<br>
+<strong>wxLANGUAGE_CHINESE_TRADITIONAL</strong> = 45<br>
+<strong>wxLANGUAGE_CORSICAN</strong> = 50<br>
+<strong>wxLANGUAGE_CROATIAN</strong> = 51<br>
+<strong>wxLANGUAGE_CZECH</strong> = 52<br>
+<strong>wxLANGUAGE_DANISH</strong> = 53<br>
+<strong>wxLANGUAGE_DEFAULT</strong> = 0<br>
+<strong>wxLANGUAGE_DUTCH</strong> = 54<br>
+<strong>wxLANGUAGE_DUTCH_BELGIAN</strong> = 55<br>
+<strong>wxLANGUAGE_ENGLISH</strong> = 56<br>
+<strong>wxLANGUAGE_ENGLISH_AUSTRALIA</strong> = 59<br>
+<strong>wxLANGUAGE_ENGLISH_BELIZE</strong> = 60<br>
+<strong>wxLANGUAGE_ENGLISH_BOTSWANA</strong> = 61<br>
+<strong>wxLANGUAGE_ENGLISH_CANADA</strong> = 62<br>
+<strong>wxLANGUAGE_ENGLISH_CARIBBEAN</strong> = 63<br>
+<strong>wxLANGUAGE_ENGLISH_DENMARK</strong> = 64<br>
+<strong>wxLANGUAGE_ENGLISH_EIRE</strong> = 65<br>
+<strong>wxLANGUAGE_ENGLISH_JAMAICA</strong> = 66<br>
+<strong>wxLANGUAGE_ENGLISH_NEW_ZEALAND</strong> = 67<br>
+<strong>wxLANGUAGE_ENGLISH_PHILIPPINES</strong> = 68<br>
+<strong>wxLANGUAGE_ENGLISH_SOUTH_AFRICA</strong> = 69<br>
+<strong>wxLANGUAGE_ENGLISH_TRINIDAD</strong> = 70<br>
+<strong>wxLANGUAGE_ENGLISH_UK</strong> = 57<br>
+<strong>wxLANGUAGE_ENGLISH_US</strong> = 58<br>
+<strong>wxLANGUAGE_ENGLISH_ZIMBABWE</strong> = 71<br>
+<strong>wxLANGUAGE_ESPERANTO</strong> = 72<br>
+<strong>wxLANGUAGE_ESTONIAN</strong> = 73<br>
+<strong>wxLANGUAGE_FAEROESE</strong> = 74<br>
+<strong>wxLANGUAGE_FARSI</strong> = 75<br>
+<strong>wxLANGUAGE_FIJI</strong> = 76<br>
+<strong>wxLANGUAGE_FINNISH</strong> = 77<br>
+<strong>wxLANGUAGE_FRENCH</strong> = 78<br>
+<strong>wxLANGUAGE_FRENCH_BELGIAN</strong> = 79<br>
+<strong>wxLANGUAGE_FRENCH_CANADIAN</strong> = 80<br>
+<strong>wxLANGUAGE_FRENCH_LUXEMBOURG</strong> = 81<br>
+<strong>wxLANGUAGE_FRENCH_MONACO</strong> = 82<br>
+<strong>wxLANGUAGE_FRENCH_SWISS</strong> = 83<br>
+<strong>wxLANGUAGE_FRISIAN</strong> = 84<br>
+<strong>wxLANGUAGE_GALICIAN</strong> = 85<br>
+<strong>wxLANGUAGE_GEORGIAN</strong> = 86<br>
+<strong>wxLANGUAGE_GERMAN</strong> = 87<br>
+<strong>wxLANGUAGE_GERMAN_AUSTRIAN</strong> = 88<br>
+<strong>wxLANGUAGE_GERMAN_BELGIUM</strong> = 89<br>
+<strong>wxLANGUAGE_GERMAN_LIECHTENSTEIN</strong> = 90<br>
+<strong>wxLANGUAGE_GERMAN_LUXEMBOURG</strong> = 91<br>
+<strong>wxLANGUAGE_GERMAN_SWISS</strong> = 92<br>
+<strong>wxLANGUAGE_GREEK</strong> = 93<br>
+<strong>wxLANGUAGE_GREENLANDIC</strong> = 94<br>
+<strong>wxLANGUAGE_GUARANI</strong> = 95<br>
+<strong>wxLANGUAGE_GUJARATI</strong> = 96<br>
+<strong>wxLANGUAGE_HAUSA</strong> = 97<br>
+<strong>wxLANGUAGE_HEBREW</strong> = 98<br>
+<strong>wxLANGUAGE_HINDI</strong> = 99<br>
+<strong>wxLANGUAGE_HUNGARIAN</strong> = 100<br>
+<strong>wxLANGUAGE_ICELANDIC</strong> = 101<br>
+<strong>wxLANGUAGE_INDONESIAN</strong> = 102<br>
+<strong>wxLANGUAGE_INTERLINGUA</strong> = 103<br>
+<strong>wxLANGUAGE_INTERLINGUE</strong> = 104<br>
+<strong>wxLANGUAGE_INUKTITUT</strong> = 105<br>
+<strong>wxLANGUAGE_INUPIAK</strong> = 106<br>
+<strong>wxLANGUAGE_IRISH</strong> = 107<br>
+<strong>wxLANGUAGE_ITALIAN</strong> = 108<br>
+<strong>wxLANGUAGE_ITALIAN_SWISS</strong> = 109<br>
+<strong>wxLANGUAGE_JAPANESE</strong> = 110<br>
+<strong>wxLANGUAGE_JAVANESE</strong> = 111<br>
+<strong>wxLANGUAGE_KANNADA</strong> = 112<br>
+<strong>wxLANGUAGE_KASHMIRI</strong> = 113<br>
+<strong>wxLANGUAGE_KASHMIRI_INDIA</strong> = 114<br>
+<strong>wxLANGUAGE_KAZAKH</strong> = 115<br>
+<strong>wxLANGUAGE_KERNEWEK</strong> = 116<br>
+<strong>wxLANGUAGE_KINYARWANDA</strong> = 117<br>
+<strong>wxLANGUAGE_KIRGHIZ</strong> = 118<br>
+<strong>wxLANGUAGE_KIRUNDI</strong> = 119<br>
+<strong>wxLANGUAGE_KONKANI</strong> = 120<br>
+<strong>wxLANGUAGE_KOREAN</strong> = 121<br>
+<strong>wxLANGUAGE_KURDISH</strong> = 122<br>
+<strong>wxLANGUAGE_LAOTHIAN</strong> = 123<br>
+<strong>wxLANGUAGE_LATIN</strong> = 124<br>
+<strong>wxLANGUAGE_LATVIAN</strong> = 125<br>
+<strong>wxLANGUAGE_LINGALA</strong> = 126<br>
+<strong>wxLANGUAGE_LITHUANIAN</strong> = 127<br>
+<strong>wxLANGUAGE_MACEDONIAN</strong> = 128<br>
+<strong>wxLANGUAGE_MALAGASY</strong> = 129<br>
+<strong>wxLANGUAGE_MALAY</strong> = 130<br>
+<strong>wxLANGUAGE_MALAYALAM</strong> = 131<br>
+<strong>wxLANGUAGE_MALAY_BRUNEI_DARUSSALAM</strong> = 132<br>
+<strong>wxLANGUAGE_MALAY_MALAYSIA</strong> = 133<br>
+<strong>wxLANGUAGE_MALTESE</strong> = 134<br>
+<strong>wxLANGUAGE_MANIPURI</strong> = 135<br>
+<strong>wxLANGUAGE_MAORI</strong> = 136<br>
+<strong>wxLANGUAGE_MARATHI</strong> = 137<br>
+<strong>wxLANGUAGE_MOLDAVIAN</strong> = 138<br>
+<strong>wxLANGUAGE_MONGOLIAN</strong> = 139<br>
+<strong>wxLANGUAGE_NAURU</strong> = 140<br>
+<strong>wxLANGUAGE_NEPALI</strong> = 141<br>
+<strong>wxLANGUAGE_NEPALI_INDIA</strong> = 142<br>
+<strong>wxLANGUAGE_NORWEGIAN_BOKMAL</strong> = 143<br>
+<strong>wxLANGUAGE_NORWEGIAN_NYNORSK</strong> = 144<br>
+<strong>wxLANGUAGE_OCCITAN</strong> = 145<br>
+<strong>wxLANGUAGE_ORIYA</strong> = 146<br>
+<strong>wxLANGUAGE_OROMO</strong> = 147<br>
+<strong>wxLANGUAGE_PASHTO</strong> = 148<br>
+<strong>wxLANGUAGE_POLISH</strong> = 149<br>
+<strong>wxLANGUAGE_PORTUGUESE</strong> = 150<br>
+<strong>wxLANGUAGE_PORTUGUESE_BRAZILIAN</strong> = 151<br>
+<strong>wxLANGUAGE_PUNJABI</strong> = 152<br>
+<strong>wxLANGUAGE_QUECHUA</strong> = 153<br>
+<strong>wxLANGUAGE_RHAETO_ROMANCE</strong> = 154<br>
+<strong>wxLANGUAGE_ROMANIAN</strong> = 155<br>
+<strong>wxLANGUAGE_RUSSIAN</strong> = 156<br>
+<strong>wxLANGUAGE_RUSSIAN_UKRAINE</strong> = 157<br>
+<strong>wxLANGUAGE_SAMOAN</strong> = 158<br>
+<strong>wxLANGUAGE_SANGHO</strong> = 159<br>
+<strong>wxLANGUAGE_SANSKRIT</strong> = 160<br>
+<strong>wxLANGUAGE_SCOTS_GAELIC</strong> = 161<br>
+<strong>wxLANGUAGE_SERBIAN</strong> = 162<br>
+<strong>wxLANGUAGE_SERBIAN_CYRILLIC</strong> = 163<br>
+<strong>wxLANGUAGE_SERBIAN_LATIN</strong> = 164<br>
+<strong>wxLANGUAGE_SERBO_CROATIAN</strong> = 165<br>
+<strong>wxLANGUAGE_SESOTHO</strong> = 166<br>
+<strong>wxLANGUAGE_SETSWANA</strong> = 167<br>
+<strong>wxLANGUAGE_SHONA</strong> = 168<br>
+<strong>wxLANGUAGE_SINDHI</strong> = 169<br>
+<strong>wxLANGUAGE_SINHALESE</strong> = 170<br>
+<strong>wxLANGUAGE_SISWATI</strong> = 171<br>
+<strong>wxLANGUAGE_SLOVAK</strong> = 172<br>
+<strong>wxLANGUAGE_SLOVENIAN</strong> = 173<br>
+<strong>wxLANGUAGE_SOMALI</strong> = 174<br>
+<strong>wxLANGUAGE_SPANISH</strong> = 175<br>
+<strong>wxLANGUAGE_SPANISH_ARGENTINA</strong> = 176<br>
+<strong>wxLANGUAGE_SPANISH_BOLIVIA</strong> = 177<br>
+<strong>wxLANGUAGE_SPANISH_CHILE</strong> = 178<br>
+<strong>wxLANGUAGE_SPANISH_COLOMBIA</strong> = 179<br>
+<strong>wxLANGUAGE_SPANISH_COSTA_RICA</strong> = 180<br>
+<strong>wxLANGUAGE_SPANISH_DOMINICAN_REPUBLIC</strong> = 181<br>
+<strong>wxLANGUAGE_SPANISH_ECUADOR</strong> = 182<br>
+<strong>wxLANGUAGE_SPANISH_EL_SALVADOR</strong> = 183<br>
+<strong>wxLANGUAGE_SPANISH_GUATEMALA</strong> = 184<br>
+<strong>wxLANGUAGE_SPANISH_HONDURAS</strong> = 185<br>
+<strong>wxLANGUAGE_SPANISH_MEXICAN</strong> = 186<br>
+<strong>wxLANGUAGE_SPANISH_MODERN</strong> = 187<br>
+<strong>wxLANGUAGE_SPANISH_NICARAGUA</strong> = 188<br>
+<strong>wxLANGUAGE_SPANISH_PANAMA</strong> = 189<br>
+<strong>wxLANGUAGE_SPANISH_PARAGUAY</strong> = 190<br>
+<strong>wxLANGUAGE_SPANISH_PERU</strong> = 191<br>
+<strong>wxLANGUAGE_SPANISH_PUERTO_RICO</strong> = 192<br>
+<strong>wxLANGUAGE_SPANISH_URUGUAY</strong> = 193<br>
+<strong>wxLANGUAGE_SPANISH_US</strong> = 194<br>
+<strong>wxLANGUAGE_SPANISH_VENEZUELA</strong> = 195<br>
+<strong>wxLANGUAGE_SUNDANESE</strong> = 196<br>
+<strong>wxLANGUAGE_SWAHILI</strong> = 197<br>
+<strong>wxLANGUAGE_SWEDISH</strong> = 198<br>
+<strong>wxLANGUAGE_SWEDISH_FINLAND</strong> = 199<br>
+<strong>wxLANGUAGE_TAGALOG</strong> = 200<br>
+<strong>wxLANGUAGE_TAJIK</strong> = 201<br>
+<strong>wxLANGUAGE_TAMIL</strong> = 202<br>
+<strong>wxLANGUAGE_TATAR</strong> = 203<br>
+<strong>wxLANGUAGE_TELUGU</strong> = 204<br>
+<strong>wxLANGUAGE_THAI</strong> = 205<br>
+<strong>wxLANGUAGE_TIBETAN</strong> = 206<br>
+<strong>wxLANGUAGE_TIGRINYA</strong> = 207<br>
+<strong>wxLANGUAGE_TONGA</strong> = 208<br>
+<strong>wxLANGUAGE_TSONGA</strong> = 209<br>
+<strong>wxLANGUAGE_TURKISH</strong> = 210<br>
+<strong>wxLANGUAGE_TURKMEN</strong> = 211<br>
+<strong>wxLANGUAGE_TWI</strong> = 212<br>
+<strong>wxLANGUAGE_UIGHUR</strong> = 213<br>
+<strong>wxLANGUAGE_UKRAINIAN</strong> = 214<br>
+<strong>wxLANGUAGE_UNKNOWN</strong> = 1<br>
+<strong>wxLANGUAGE_URDU</strong> = 215<br>
+<strong>wxLANGUAGE_URDU_INDIA</strong> = 216<br>
+<strong>wxLANGUAGE_URDU_PAKISTAN</strong> = 217<br>
+<strong>wxLANGUAGE_USER_DEFINED</strong> = 230<br>
+<strong>wxLANGUAGE_UZBEK</strong> = 218<br>
+<strong>wxLANGUAGE_UZBEK_CYRILLIC</strong> = 219<br>
+<strong>wxLANGUAGE_UZBEK_LATIN</strong> = 220<br>
+<strong>wxLANGUAGE_VIETNAMESE</strong> = 221<br>
+<strong>wxLANGUAGE_VOLAPUK</strong> = 222<br>
+<strong>wxLANGUAGE_WELSH</strong> = 223<br>
+<strong>wxLANGUAGE_WOLOF</strong> = 224<br>
+<strong>wxLANGUAGE_XHOSA</strong> = 225<br>
+<strong>wxLANGUAGE_YIDDISH</strong> = 226<br>
+<strong>wxLANGUAGE_YORUBA</strong> = 227<br>
+<strong>wxLANGUAGE_ZHUANG</strong> = 228<br>
+<strong>wxLANGUAGE_ZULU</strong> = 229<br>
+<strong>wxLAST_MDI_CHILD</strong> = 4600<br>
+<strong>wxLAYOUT_BOTTOM</strong> = 4<br>
+<strong>wxLAYOUT_HORIZONTAL</strong> = 0<br>
+<strong>wxLAYOUT_LEFT</strong> = 2<br>
+<strong>wxLAYOUT_NONE</strong> = 0<br>
+<strong>wxLAYOUT_RIGHT</strong> = 3<br>
+<strong>wxLAYOUT_TOP</strong> = 1<br>
+<strong>wxLAYOUT_VERTICAL</strong> = 1<br>
+<strong>wxLB_ALWAYS_SB</strong> = 1024<br>
+<strong>wxLB_EXTENDED</strong> = 128<br>
+<strong>wxLB_HSCROLL</strong> = 1073741824<br>
+<strong>wxLB_MULTIPLE</strong> = 64<br>
+<strong>wxLB_NEEDED_SB</strong> = 512<br>
+<strong>wxLB_OWNERDRAW</strong> = 256<br>
+<strong>wxLB_SINGLE</strong> = 32<br>
+<strong>wxLB_SORT</strong> = 16<br>
+<strong>wxLC_ALIGN_LEFT</strong> = 128<br>
+<strong>wxLC_ALIGN_TOP</strong> = 64<br>
+<strong>wxLC_AUTOARRANGE</strong> = 256<br>
+<strong>wxLC_EDIT_LABELS</strong> = 1024<br>
+<strong>wxLC_HRULES</strong> = 2<br>
+<strong>wxLC_ICON</strong> = 4<br>
+<strong>wxLC_LIST</strong> = 16<br>
+<strong>wxLC_MASK_ALIGN</strong> = 192<br>
+<strong>wxLC_MASK_SORT</strong> = 49152<br>
+<strong>wxLC_MASK_TYPE</strong> = 60<br>
+<strong>wxLC_NO_HEADER</strong> = 2048<br>
+<strong>wxLC_NO_SORT_HEADER</strong> = 4096<br>
+<strong>wxLC_REPORT</strong> = 32<br>
+<strong>wxLC_SINGLE_SEL</strong> = 8192<br>
+<strong>wxLC_SMALL_ICON</strong> = 8<br>
+<strong>wxLC_SORT_ASCENDING</strong> = 16384<br>
+<strong>wxLC_SORT_DESCENDING</strong> = 32768<br>
+<strong>wxLC_USER_TEXT</strong> = 512<br>
+<strong>wxLC_VIRTUAL</strong> = 512<br>
+<strong>wxLC_VRULES</strong> = 1<br>
+<strong>wxLEFT</strong> = 16<br>
+<strong>wxLIGHT</strong> = 91<br>
+<strong>wxLIGHT_GREY</strong> = wxColour(192, 192, 192)<br>
+<strong>wxLIGHT_GREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8342928_wxBrush_p&gt;<br>
+<strong>wxLIGHT_GREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8341570_wxPen_p&gt;<br>
+<strong>wxLIST_ALIGN_DEFAULT</strong> = 0<br>
+<strong>wxLIST_ALIGN_LEFT</strong> = 1<br>
+<strong>wxLIST_ALIGN_SNAP_TO_GRID</strong> = 3<br>
+<strong>wxLIST_ALIGN_TOP</strong> = 2<br>
+<strong>wxLIST_AUTOSIZE</strong> = -1<br>
+<strong>wxLIST_AUTOSIZE_USEHEADER</strong> = -2<br>
+<strong>wxLIST_FIND_DOWN</strong> = 1<br>
+<strong>wxLIST_FIND_LEFT</strong> = 2<br>
+<strong>wxLIST_FIND_RIGHT</strong> = 3<br>
+<strong>wxLIST_FIND_UP</strong> = 0<br>
+<strong>wxLIST_FORMAT_CENTER</strong> = 2<br>
+<strong>wxLIST_FORMAT_CENTRE</strong> = 2<br>
+<strong>wxLIST_FORMAT_LEFT</strong> = 0<br>
+<strong>wxLIST_FORMAT_RIGHT</strong> = 1<br>
+<strong>wxLIST_HITTEST_ABOVE</strong> = 1<br>
+<strong>wxLIST_HITTEST_BELOW</strong> = 2<br>
+<strong>wxLIST_HITTEST_NOWHERE</strong> = 4<br>
+<strong>wxLIST_HITTEST_ONITEM</strong> = 672<br>
+<strong>wxLIST_HITTEST_ONITEMICON</strong> = 32<br>
+<strong>wxLIST_HITTEST_ONITEMLABEL</strong> = 128<br>
+<strong>wxLIST_HITTEST_ONITEMRIGHT</strong> = 256<br>
+<strong>wxLIST_HITTEST_ONITEMSTATEICON</strong> = 512<br>
+<strong>wxLIST_HITTEST_TOLEFT</strong> = 1024<br>
+<strong>wxLIST_HITTEST_TORIGHT</strong> = 2048<br>
+<strong>wxLIST_MASK_DATA</strong> = 8<br>
+<strong>wxLIST_MASK_FORMAT</strong> = 64<br>
+<strong>wxLIST_MASK_IMAGE</strong> = 4<br>
+<strong>wxLIST_MASK_STATE</strong> = 1<br>
+<strong>wxLIST_MASK_TEXT</strong> = 2<br>
+<strong>wxLIST_MASK_WIDTH</strong> = 32<br>
+<strong>wxLIST_NEXT_ABOVE</strong> = 0<br>
+<strong>wxLIST_NEXT_ALL</strong> = 1<br>
+<strong>wxLIST_NEXT_BELOW</strong> = 2<br>
+<strong>wxLIST_NEXT_LEFT</strong> = 3<br>
+<strong>wxLIST_NEXT_RIGHT</strong> = 4<br>
+<strong>wxLIST_RECT_BOUNDS</strong> = 0<br>
+<strong>wxLIST_RECT_ICON</strong> = 1<br>
+<strong>wxLIST_RECT_LABEL</strong> = 2<br>
+<strong>wxLIST_SET_ITEM</strong> = 16<br>
+<strong>wxLIST_STATE_CUT</strong> = 8<br>
+<strong>wxLIST_STATE_DONTCARE</strong> = 0<br>
+<strong>wxLIST_STATE_DROPHILITED</strong> = 1<br>
+<strong>wxLIST_STATE_FOCUSED</strong> = 2<br>
+<strong>wxLIST_STATE_SELECTED</strong> = 4<br>
+<strong>wxLI_HORIZONTAL</strong> = 4<br>
+<strong>wxLI_VERTICAL</strong> = 8<br>
+<strong>wxLOCALE_CAT_DATE</strong> = 1<br>
+<strong>wxLOCALE_CAT_MAX</strong> = 3<br>
+<strong>wxLOCALE_CAT_MONEY</strong> = 2<br>
+<strong>wxLOCALE_CAT_NUMBER</strong> = 0<br>
+<strong>wxLOCALE_CONV_ENCODING</strong> = 2<br>
+<strong>wxLOCALE_DECIMAL_POINT</strong> = 1<br>
+<strong>wxLOCALE_LOAD_DEFAULT</strong> = 1<br>
+<strong>wxLOCALE_THOUSANDS_SEP</strong> = 0<br>
+<strong>wxLOG_Debug</strong> = 6<br>
+<strong>wxLOG_Error</strong> = 1<br>
+<strong>wxLOG_FatalError</strong> = 0<br>
+<strong>wxLOG_Info</strong> = 5<br>
+<strong>wxLOG_Message</strong> = 3<br>
+<strong>wxLOG_Progress</strong> = 8<br>
+<strong>wxLOG_Status</strong> = 4<br>
+<strong>wxLOG_Trace</strong> = 7<br>
+<strong>wxLOG_User</strong> = 100<br>
+<strong>wxLOG_Warning</strong> = 2<br>
+<strong>wxLONG_DASH</strong> = 102<br>
+<strong>wxLeft</strong> = 0<br>
+<strong>wxLeftOf</strong> = 5<br>
+<strong>wxMAILCAP_ALL</strong> = 15<br>
+<strong>wxMAILCAP_GNOME</strong> = 8<br>
+<strong>wxMAILCAP_KDE</strong> = 4<br>
+<strong>wxMAILCAP_NETSCAPE</strong> = 2<br>
+<strong>wxMAILCAP_STANDARD</strong> = 1<br>
+<strong>wxMAJOR_VERSION</strong> = 2<br>
+<strong>wxMAXIMIZE</strong> = 8192<br>
+<strong>wxMAXIMIZE_BOX</strong> = 512<br>
+<strong>wxMB_DOCKABLE</strong> = 1<br>
+<strong>wxMEDIUM_GREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8342858_wxBrush_p&gt;<br>
+<strong>wxMEDIUM_GREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8341530_wxPen_p&gt;<br>
+<strong>wxMENU_TEAROFF</strong> = 1<br>
+<strong>wxMINIMIZE</strong> = 16384<br>
+<strong>wxMINIMIZE_BOX</strong> = 1024<br>
+<strong>wxMINOR_VERSION</strong> = 4<br>
+<strong>wxMM_ANISOTROPIC</strong> = 8<br>
+<strong>wxMM_HIENGLISH</strong> = 5<br>
+<strong>wxMM_HIMETRIC</strong> = 3<br>
+<strong>wxMM_ISOTROPIC</strong> = 7<br>
+<strong>wxMM_LOENGLISH</strong> = 4<br>
+<strong>wxMM_LOMETRIC</strong> = 2<br>
+<strong>wxMM_METRIC</strong> = 10<br>
+<strong>wxMM_POINTS</strong> = 9<br>
+<strong>wxMM_TEXT</strong> = 1<br>
+<strong>wxMM_TWIPS</strong> = 6<br>
+<strong>wxMODERN</strong> = 75<br>
+<strong>wxMORE</strong> = 65536<br>
+<strong>wxMOUSE_BTN_ANY</strong> = -1<br>
+<strong>wxMOUSE_BTN_LEFT</strong> = 0<br>
+<strong>wxMOUSE_BTN_MIDDLE</strong> = 1<br>
+<strong>wxMOUSE_BTN_NONE</strong> = -1<br>
+<strong>wxMOUSE_BTN_RIGHT</strong> = 2<br>
+<strong>wxMULTIPLE</strong> = 32<br>
+<strong>wxNAND</strong> = 13<br>
+<strong>wxNB_BOTTOM</strong> = 128<br>
+<strong>wxNB_FIXEDWIDTH</strong> = 16<br>
+<strong>wxNB_LEFT</strong> = 32<br>
+<strong>wxNB_MULTILINE</strong> = 256<br>
+<strong>wxNB_RIGHT</strong> = 64<br>
+<strong>wxNB_TOP</strong> = 0<br>
+<strong>wxNO</strong> = 8<br>
+<strong>wxNOR</strong> = 9<br>
+<strong>wxNORMAL</strong> = 90<br>
+<strong>wxNORMAL_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _833daa0_wxFont_p&gt;<br>
+<strong>wxNORTH</strong> = 64<br>
+<strong>wxNOT_FOUND</strong> = -1<br>
+<strong>wxNO_3D</strong> = 8388608<br>
+<strong>wxNO_BORDER</strong> = 2097152<br>
+<strong>wxNO_DEFAULT</strong> = 128<br>
+<strong>wxNO_FULL_REPAINT_ON_RESIZE</strong> = 65536<br>
+<strong>wxNO_OP</strong> = 8<br>
+<strong>wxNullAcceleratorTable</strong> = &lt;wxPython.misc.wxAcceleratorTablePtr instance; p...Table instance at _41b5b460_wxAcceleratorTable_p&gt;<br>
+<strong>wxNullBitmap</strong> = &lt;wxPython.gdi.wxBitmapPtr instance; proxy of C++ wxBitmap instance at _41b5b468_wxBitmap_p&gt;<br>
+<strong>wxNullBrush</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _41b5b494_wxBrush_p&gt;<br>
+<strong>wxNullColour</strong> = wxColour(-1, -1, -1)<br>
+<strong>wxNullCursor</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _41b5b480_wxCursor_p&gt;<br>
+<strong>wxNullFont</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _41b5b4a0_wxFont_p&gt;<br>
+<strong>wxNullIcon</strong> = &lt;wxPython.gdi.wxIconPtr instance; proxy of C++ wxIcon instance at _41b5b474_wxIcon_p&gt;<br>
+<strong>wxNullImage</strong> = &lt;wxPython.image.wxImagePtr instance; proxy of C++ wxImage instance at _41b6409c_wxImage_p&gt;<br>
+<strong>wxNullPalette</strong> = &lt;wxPython.gdi.wxPalettePtr instance; proxy of C++ wxPalette instance at _41b5b4b8_wxPalette_p&gt;<br>
+<strong>wxNullPen</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _41b5b488_wxPen_p&gt;<br>
+<strong>wxODDEVEN_RULE</strong> = 1<br>
+<strong>wxOK</strong> = 4<br>
+<strong>wxOPEN</strong> = 1<br>
+<strong>wxOR</strong> = 14<br>
+<strong>wxOR_INVERT</strong> = 12<br>
+<strong>wxOR_REVERSE</strong> = 3<br>
+<strong>wxOVERWRITE_PROMPT</strong> = 4<br>
+<strong>wxOutRegion</strong> = 0<br>
+<strong>wxPAPER_10X11</strong> = 45<br>
+<strong>wxPAPER_10X14</strong> = 19<br>
+<strong>wxPAPER_11X17</strong> = 20<br>
+<strong>wxPAPER_15X11</strong> = 46<br>
+<strong>wxPAPER_9X11</strong> = 44<br>
+<strong>wxPAPER_A2</strong> = 64<br>
+<strong>wxPAPER_A3</strong> = 12<br>
+<strong>wxPAPER_A3_EXTRA</strong> = 61<br>
+<strong>wxPAPER_A3_EXTRA_TRANSVERSE</strong> = 66<br>
+<strong>wxPAPER_A3_TRANSVERSE</strong> = 65<br>
+<strong>wxPAPER_A4</strong> = 3<br>
+<strong>wxPAPER_A4SMALL</strong> = 13<br>
+<strong>wxPAPER_A4_EXTRA</strong> = 51<br>
+<strong>wxPAPER_A4_PLUS</strong> = 58<br>
+<strong>wxPAPER_A4_TRANSVERSE</strong> = 53<br>
+<strong>wxPAPER_A5</strong> = 14<br>
+<strong>wxPAPER_A5_EXTRA</strong> = 62<br>
+<strong>wxPAPER_A5_TRANSVERSE</strong> = 59<br>
+<strong>wxPAPER_A_PLUS</strong> = 55<br>
+<strong>wxPAPER_B4</strong> = 15<br>
+<strong>wxPAPER_B5</strong> = 16<br>
+<strong>wxPAPER_B5_EXTRA</strong> = 63<br>
+<strong>wxPAPER_B5_TRANSVERSE</strong> = 60<br>
+<strong>wxPAPER_B_PLUS</strong> = 56<br>
+<strong>wxPAPER_CSHEET</strong> = 4<br>
+<strong>wxPAPER_DSHEET</strong> = 5<br>
+<strong>wxPAPER_ENV_10</strong> = 23<br>
+<strong>wxPAPER_ENV_11</strong> = 24<br>
+<strong>wxPAPER_ENV_12</strong> = 25<br>
+<strong>wxPAPER_ENV_14</strong> = 26<br>
+<strong>wxPAPER_ENV_9</strong> = 22<br>
+<strong>wxPAPER_ENV_B4</strong> = 33<br>
+<strong>wxPAPER_ENV_B5</strong> = 34<br>
+<strong>wxPAPER_ENV_B6</strong> = 35<br>
+<strong>wxPAPER_ENV_C3</strong> = 29<br>
+<strong>wxPAPER_ENV_C4</strong> = 30<br>
+<strong>wxPAPER_ENV_C5</strong> = 28<br>
+<strong>wxPAPER_ENV_C6</strong> = 31<br>
+<strong>wxPAPER_ENV_C65</strong> = 32<br>
+<strong>wxPAPER_ENV_DL</strong> = 27<br>
+<strong>wxPAPER_ENV_INVITE</strong> = 47<br>
+<strong>wxPAPER_ENV_ITALY</strong> = 36<br>
+<strong>wxPAPER_ENV_MONARCH</strong> = 37<br>
+<strong>wxPAPER_ENV_PERSONAL</strong> = 38<br>
+<strong>wxPAPER_ESHEET</strong> = 6<br>
+<strong>wxPAPER_EXECUTIVE</strong> = 11<br>
+<strong>wxPAPER_FANFOLD_LGL_GERMAN</strong> = 41<br>
+<strong>wxPAPER_FANFOLD_STD_GERMAN</strong> = 40<br>
+<strong>wxPAPER_FANFOLD_US</strong> = 39<br>
+<strong>wxPAPER_FOLIO</strong> = 17<br>
+<strong>wxPAPER_ISO_B4</strong> = 42<br>
+<strong>wxPAPER_JAPANESE_POSTCARD</strong> = 43<br>
+<strong>wxPAPER_LEDGER</strong> = 9<br>
+<strong>wxPAPER_LEGAL</strong> = 2<br>
+<strong>wxPAPER_LEGAL_EXTRA</strong> = 49<br>
+<strong>wxPAPER_LETTER</strong> = 1<br>
+<strong>wxPAPER_LETTERSMALL</strong> = 7<br>
+<strong>wxPAPER_LETTER_EXTRA</strong> = 48<br>
+<strong>wxPAPER_LETTER_EXTRA_TRANSVERSE</strong> = 54<br>
+<strong>wxPAPER_LETTER_PLUS</strong> = 57<br>
+<strong>wxPAPER_LETTER_TRANSVERSE</strong> = 52<br>
+<strong>wxPAPER_NONE</strong> = 0<br>
+<strong>wxPAPER_NOTE</strong> = 21<br>
+<strong>wxPAPER_QUARTO</strong> = 18<br>
+<strong>wxPAPER_STATEMENT</strong> = 10<br>
+<strong>wxPAPER_TABLOID</strong> = 8<br>
+<strong>wxPAPER_TABLOID_EXTRA</strong> = 50<br>
+<strong>wxPASSWORD</strong> = 2048<br>
+<strong>wxPD_APP_MODAL</strong> = 2<br>
+<strong>wxPD_AUTO_HIDE</strong> = 4<br>
+<strong>wxPD_CAN_ABORT</strong> = 1<br>
+<strong>wxPD_ELAPSED_TIME</strong> = 8<br>
+<strong>wxPD_ESTIMATED_TIME</strong> = 16<br>
+<strong>wxPD_REMAINING_TIME</strong> = 64<br>
+<strong>wxPLATFORM_CURRENT</strong> = -1<br>
+<strong>wxPLATFORM_MAC</strong> = 3<br>
+<strong>wxPLATFORM_OS2</strong> = 2<br>
+<strong>wxPLATFORM_UNIX</strong> = 0<br>
+<strong>wxPLATFORM_WINDOWS</strong> = 1<br>
+<strong>wxPOPUP_WINDOW</strong> = 131072<br>
+<strong>wxPORTRAIT</strong> = 1<br>
+<strong>wxPREVIEW_DEFAULT</strong> = 126<br>
+<strong>wxPREVIEW_FIRST</strong> = 16<br>
+<strong>wxPREVIEW_GOTO</strong> = 64<br>
+<strong>wxPREVIEW_LAST</strong> = 32<br>
+<strong>wxPREVIEW_NEXT</strong> = 4<br>
+<strong>wxPREVIEW_PREVIOUS</strong> = 2<br>
+<strong>wxPREVIEW_PRINT</strong> = 1<br>
+<strong>wxPREVIEW_ZOOM</strong> = 8<br>
+<strong>wxPRINTER_CANCELLED</strong> = 1<br>
+<strong>wxPRINTER_ERROR</strong> = 2<br>
+<strong>wxPRINTER_NO_ERROR</strong> = 0<br>
+<strong>wxPRINT_MODE_FILE</strong> = 2<br>
+<strong>wxPRINT_MODE_NONE</strong> = 0<br>
+<strong>wxPRINT_MODE_PREVIEW</strong> = 1<br>
+<strong>wxPRINT_MODE_PRINTER</strong> = 3<br>
+<strong>wxPRINT_QUALITY_DRAFT</strong> = -4<br>
+<strong>wxPRINT_QUALITY_HIGH</strong> = -1<br>
+<strong>wxPRINT_QUALITY_LOW</strong> = -3<br>
+<strong>wxPRINT_QUALITY_MEDIUM</strong> = -2<br>
+<strong>wxPROCESS_ENTER</strong> = 1024<br>
+<strong>wxPYAPP_ASSERT_DIALOG</strong> = 4<br>
+<strong>wxPYAPP_ASSERT_EXCEPTION</strong> = 2<br>
+<strong>wxPYAPP_ASSERT_LOG</strong> = 8<br>
+<strong>wxPYAPP_ASSERT_SUPPRESS</strong> = 1<br>
+<strong>wxPartRegion</strong> = 1<br>
+<strong>wxPercentOf</strong> = 2<br>
+<strong>wxPlatform</strong> = '__WXGTK__'<br>
+<strong>wxPyDefaultPosition</strong> = wxPoint(-1, -1)<br>
+<strong>wxPyDefaultSize</strong> = wxSize(-1, -1)<br>
+<strong>wxRAISED_BORDER</strong> = 67108864<br>
+<strong>wxRA_HORIZONTAL</strong> = 4<br>
+<strong>wxRA_SPECIFY_COLS</strong> = 4<br>
+<strong>wxRA_SPECIFY_ROWS</strong> = 8<br>
+<strong>wxRA_VERTICAL</strong> = 8<br>
+<strong>wxRB_GROUP</strong> = 4<br>
+<strong>wxRB_SINGLE</strong> = 8<br>
+<strong>wxRED</strong> = wxColour(255, 0, 0)<br>
+<strong>wxRED_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _83427e8_wxBrush_p&gt;<br>
+<strong>wxRED_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _834c378_wxPen_p&gt;<br>
+<strong>wxRELEASE_NUMBER</strong> = 2<br>
+<strong>wxRELEASE_VERSION</strong> = 2<br>
+<strong>wxRESET</strong> = 16384<br>
+<strong>wxRESIZE_BORDER</strong> = 64<br>
+<strong>wxRESIZE_BOX</strong> = 512<br>
+<strong>wxRETAINED</strong> = 131072<br>
+<strong>wxRIGHT</strong> = 32<br>
+<strong>wxROMAN</strong> = 72<br>
+<strong>wxRight</strong> = 2<br>
+<strong>wxRightOf</strong> = 6<br>
+<strong>wxSASH_BOTTOM</strong> = 2<br>
+<strong>wxSASH_LEFT</strong> = 3<br>
+<strong>wxSASH_NONE</strong> = 100<br>
+<strong>wxSASH_RIGHT</strong> = 1<br>
+<strong>wxSASH_STATUS_OK</strong> = 0<br>
+<strong>wxSASH_STATUS_OUT_OF_RANGE</strong> = 1<br>
+<strong>wxSASH_TOP</strong> = 0<br>
+<strong>wxSAVE</strong> = 2<br>
+<strong>wxSB_HORIZONTAL</strong> = 4<br>
+<strong>wxSB_VERTICAL</strong> = 8<br>
+<strong>wxSCRIPT</strong> = 73<br>
+<strong>wxSET</strong> = 15<br>
+<strong>wxSETUP</strong> = 131072<br>
+<strong>wxSHAPED</strong> = 16384<br>
+<strong>wxSHORT_DASH</strong> = 103<br>
+<strong>wxSHRINK</strong> = 4096<br>
+<strong>wxSHUTDOWN_POWEROFF</strong> = 0<br>
+<strong>wxSHUTDOWN_REBOOT</strong> = 1<br>
+<strong>wxSIGABRT</strong> = 6<br>
+<strong>wxSIGALRM</strong> = 14<br>
+<strong>wxSIGBUS</strong> = 10<br>
+<strong>wxSIGEMT</strong> = 7<br>
+<strong>wxSIGFPE</strong> = 8<br>
+<strong>wxSIGHUP</strong> = 1<br>
+<strong>wxSIGILL</strong> = 4<br>
+<strong>wxSIGINT</strong> = 2<br>
+<strong>wxSIGIOT</strong> = 6<br>
+<strong>wxSIGKILL</strong> = 9<br>
+<strong>wxSIGNONE</strong> = 0<br>
+<strong>wxSIGPIPE</strong> = 13<br>
+<strong>wxSIGQUIT</strong> = 3<br>
+<strong>wxSIGSEGV</strong> = 11<br>
+<strong>wxSIGSYS</strong> = 12<br>
+<strong>wxSIGTERM</strong> = 15<br>
+<strong>wxSIGTRAP</strong> = 5<br>
+<strong>wxSIMPLE_BORDER</strong> = 33554432<br>
+<strong>wxSIZE_ALLOW_MINUS_ONE</strong> = 4<br>
+<strong>wxSIZE_AUTO</strong> = 3<br>
+<strong>wxSIZE_AUTO_HEIGHT</strong> = 2<br>
+<strong>wxSIZE_AUTO_WIDTH</strong> = 1<br>
+<strong>wxSIZE_USE_EXISTING</strong> = 0<br>
+<strong>wxSLANT</strong> = 94<br>
+<strong>wxSL_AUTOTICKS</strong> = 16<br>
+<strong>wxSL_BOTH</strong> = 1024<br>
+<strong>wxSL_BOTTOM</strong> = 512<br>
+<strong>wxSL_HORIZONTAL</strong> = 4<br>
+<strong>wxSL_LABELS</strong> = 32<br>
+<strong>wxSL_LEFT</strong> = 64<br>
+<strong>wxSL_RIGHT</strong> = 256<br>
+<strong>wxSL_SELRANGE</strong> = 2048<br>
+<strong>wxSL_TOP</strong> = 128<br>
+<strong>wxSL_VERTICAL</strong> = 8<br>
+<strong>wxSMALL_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _834bed8_wxFont_p&gt;<br>
+<strong>wxSOLID</strong> = 100<br>
+<strong>wxSOUTH</strong> = 128<br>
+<strong>wxSPLASH_CENTRE_ON_PARENT</strong> = 1<br>
+<strong>wxSPLASH_CENTRE_ON_SCREEN</strong> = 2<br>
+<strong>wxSPLASH_NO_CENTRE</strong> = 0<br>
+<strong>wxSPLASH_NO_TIMEOUT</strong> = 0<br>
+<strong>wxSPLASH_TIMEOUT</strong> = 4<br>
+<strong>wxSPLIT_DRAG_DRAGGING</strong> = 1<br>
+<strong>wxSPLIT_DRAG_LEFT_DOWN</strong> = 2<br>
+<strong>wxSPLIT_DRAG_NONE</strong> = 0<br>
+<strong>wxSPLIT_HORIZONTAL</strong> = 1<br>
+<strong>wxSPLIT_VERTICAL</strong> = 2<br>
+<strong>wxSP_3D</strong> = 768<br>
+<strong>wxSP_3DBORDER</strong> = 512<br>
+<strong>wxSP_3DSASH</strong> = 256<br>
+<strong>wxSP_ARROW_KEYS</strong> = 4096<br>
+<strong>wxSP_BORDER</strong> = 32<br>
+<strong>wxSP_FULLSASH</strong> = 1024<br>
+<strong>wxSP_HORIZONTAL</strong> = 4<br>
+<strong>wxSP_LIVE_UPDATE</strong> = 128<br>
+<strong>wxSP_NOBORDER</strong> = 0<br>
+<strong>wxSP_PERMIT_UNSPLIT</strong> = 64<br>
+<strong>wxSP_VERTICAL</strong> = 8<br>
+<strong>wxSP_WRAP</strong> = 8192<br>
+<strong>wxSRC_INVERT</strong> = 11<br>
+<strong>wxSTANDARD_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _834c680_wxCursor_p&gt;<br>
+<strong>wxSTATIC_BORDER</strong> = 16777216<br>
+<strong>wxSTAY_ON_TOP</strong> = 32768<br>
+<strong>wxSTIPPLE</strong> = 110<br>
+<strong>wxSTRETCH_NOT</strong> = 0<br>
+<strong>wxST_NO_AUTORESIZE</strong> = 1<br>
+<strong>wxST_SIZEGRIP</strong> = 16<br>
+<strong>wxSUBREL_VERSION</strong> = 4<br>
+<strong>wxSUNKEN_BORDER</strong> = 134217728<br>
+<strong>wxSWISS</strong> = 74<br>
+<strong>wxSWISS_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _8341f80_wxFont_p&gt;<br>
+<strong>wxSW_3D</strong> = 192<br>
+<strong>wxSW_3DBORDER</strong> = 128<br>
+<strong>wxSW_3DSASH</strong> = 64<br>
+<strong>wxSW_BORDER</strong> = 32<br>
+<strong>wxSYSTEM_MENU</strong> = 2048<br>
+<strong>wxSYS_ANSI_FIXED_FONT</strong> = 11<br>
+<strong>wxSYS_ANSI_VAR_FONT</strong> = 12<br>
+<strong>wxSYS_BORDER_X</strong> = 2<br>
+<strong>wxSYS_BORDER_Y</strong> = 3<br>
+<strong>wxSYS_CAN_DRAW_FRAME_DECORATIONS</strong> = 1<br>
+<strong>wxSYS_CAN_ICONIZE_FRAME</strong> = 2<br>
+<strong>wxSYS_CAPTION_Y</strong> = 32<br>
+<strong>wxSYS_COLOUR_3DDKSHADOW</strong> = 21<br>
+<strong>wxSYS_COLOUR_3DFACE</strong> = 15<br>
+<strong>wxSYS_COLOUR_3DHIGHLIGHT</strong> = 20<br>
+<strong>wxSYS_COLOUR_3DHILIGHT</strong> = 20<br>
+<strong>wxSYS_COLOUR_3DLIGHT</strong> = 22<br>
+<strong>wxSYS_COLOUR_3DSHADOW</strong> = 16<br>
+<strong>wxSYS_COLOUR_ACTIVEBORDER</strong> = 10<br>
+<strong>wxSYS_COLOUR_ACTIVECAPTION</strong> = 2<br>
+<strong>wxSYS_COLOUR_APPWORKSPACE</strong> = 12<br>
+<strong>wxSYS_COLOUR_BACKGROUND</strong> = 1<br>
+<strong>wxSYS_COLOUR_BTNFACE</strong> = 15<br>
+<strong>wxSYS_COLOUR_BTNHIGHLIGHT</strong> = 20<br>
+<strong>wxSYS_COLOUR_BTNHILIGHT</strong> = 20<br>
+<strong>wxSYS_COLOUR_BTNSHADOW</strong> = 16<br>
+<strong>wxSYS_COLOUR_BTNTEXT</strong> = 18<br>
+<strong>wxSYS_COLOUR_CAPTIONTEXT</strong> = 9<br>
+<strong>wxSYS_COLOUR_DESKTOP</strong> = 1<br>
+<strong>wxSYS_COLOUR_GRADIENTACTIVECAPTION</strong> = 27<br>
+<strong>wxSYS_COLOUR_GRADIENTINACTIVECAPTION</strong> = 28<br>
+<strong>wxSYS_COLOUR_GRAYTEXT</strong> = 17<br>
+<strong>wxSYS_COLOUR_HIGHLIGHT</strong> = 13<br>
+<strong>wxSYS_COLOUR_HIGHLIGHTTEXT</strong> = 14<br>
+<strong>wxSYS_COLOUR_HOTLIGHT</strong> = 26<br>
+<strong>wxSYS_COLOUR_INACTIVEBORDER</strong> = 11<br>
+<strong>wxSYS_COLOUR_INACTIVECAPTION</strong> = 3<br>
+<strong>wxSYS_COLOUR_INACTIVECAPTIONTEXT</strong> = 19<br>
+<strong>wxSYS_COLOUR_INFOBK</strong> = 24<br>
+<strong>wxSYS_COLOUR_INFOTEXT</strong> = 23<br>
+<strong>wxSYS_COLOUR_LISTBOX</strong> = 25<br>
+<strong>wxSYS_COLOUR_MAX</strong> = 31<br>
+<strong>wxSYS_COLOUR_MENU</strong> = 4<br>
+<strong>wxSYS_COLOUR_MENUBAR</strong> = 30<br>
+<strong>wxSYS_COLOUR_MENUHILIGHT</strong> = 29<br>
+<strong>wxSYS_COLOUR_MENUTEXT</strong> = 7<br>
+<strong>wxSYS_COLOUR_SCROLLBAR</strong> = 0<br>
+<strong>wxSYS_COLOUR_WINDOW</strong> = 5<br>
+<strong>wxSYS_COLOUR_WINDOWFRAME</strong> = 6<br>
+<strong>wxSYS_COLOUR_WINDOWTEXT</strong> = 8<br>
+<strong>wxSYS_CURSOR_X</strong> = 4<br>
+<strong>wxSYS_CURSOR_Y</strong> = 5<br>
+<strong>wxSYS_DCLICK_X</strong> = 6<br>
+<strong>wxSYS_DCLICK_Y</strong> = 7<br>
+<strong>wxSYS_DEFAULT_GUI_FONT</strong> = 17<br>
+<strong>wxSYS_DEFAULT_PALETTE</strong> = 15<br>
+<strong>wxSYS_DEVICE_DEFAULT_FONT</strong> = 14<br>
+<strong>wxSYS_DRAG_X</strong> = 8<br>
+<strong>wxSYS_DRAG_Y</strong> = 9<br>
+<strong>wxSYS_EDGE_X</strong> = 10<br>
+<strong>wxSYS_EDGE_Y</strong> = 11<br>
+<strong>wxSYS_FRAMESIZE_X</strong> = 23<br>
+<strong>wxSYS_FRAMESIZE_Y</strong> = 24<br>
+<strong>wxSYS_HSCROLL_ARROW_X</strong> = 12<br>
+<strong>wxSYS_HSCROLL_ARROW_Y</strong> = 13<br>
+<strong>wxSYS_HSCROLL_Y</strong> = 27<br>
+<strong>wxSYS_HTHUMB_X</strong> = 14<br>
+<strong>wxSYS_ICONSPACING_X</strong> = 17<br>
+<strong>wxSYS_ICONSPACING_Y</strong> = 18<br>
+<strong>wxSYS_ICON_X</strong> = 15<br>
+<strong>wxSYS_ICON_Y</strong> = 16<br>
+<strong>wxSYS_MENU_Y</strong> = 33<br>
+<strong>wxSYS_MOUSE_BUTTONS</strong> = 1<br>
+<strong>wxSYS_NETWORK_PRESENT</strong> = 34<br>
+<strong>wxSYS_OEM_FIXED_FONT</strong> = 10<br>
+<strong>wxSYS_PENWINDOWS_PRESENT</strong> = 35<br>
+<strong>wxSYS_SCREEN_DESKTOP</strong> = 4<br>
+<strong>wxSYS_SCREEN_NONE</strong> = 0<br>
+<strong>wxSYS_SCREEN_PDA</strong> = 2<br>
+<strong>wxSYS_SCREEN_SMALL</strong> = 3<br>
+<strong>wxSYS_SCREEN_TINY</strong> = 1<br>
+<strong>wxSYS_SCREEN_X</strong> = 21<br>
+<strong>wxSYS_SCREEN_Y</strong> = 22<br>
+<strong>wxSYS_SHOW_SOUNDS</strong> = 36<br>
+<strong>wxSYS_SMALLICON_X</strong> = 25<br>
+<strong>wxSYS_SMALLICON_Y</strong> = 26<br>
+<strong>wxSYS_SWAP_BUTTONS</strong> = 37<br>
+<strong>wxSYS_SYSTEM_FIXED_FONT</strong> = 16<br>
+<strong>wxSYS_SYSTEM_FONT</strong> = 13<br>
+<strong>wxSYS_VSCROLL_ARROW_X</strong> = 29<br>
+<strong>wxSYS_VSCROLL_ARROW_Y</strong> = 30<br>
+<strong>wxSYS_VSCROLL_X</strong> = 28<br>
+<strong>wxSYS_VTHUMB_Y</strong> = 31<br>
+<strong>wxSYS_WINDOWMIN_X</strong> = 19<br>
+<strong>wxSYS_WINDOWMIN_Y</strong> = 20<br>
+<strong>wxSameAs</strong> = 7<br>
+<strong>wxTAB_TRAVERSAL</strong> = 524288<br>
+<strong>wxTB_3DBUTTONS</strong> = 16<br>
+<strong>wxTB_DOCKABLE</strong> = 64<br>
+<strong>wxTB_FLAT</strong> = 32<br>
+<strong>wxTB_HORIZONTAL</strong> = 4<br>
+<strong>wxTB_NOALIGN</strong> = 1024<br>
+<strong>wxTB_NODIVIDER</strong> = 512<br>
+<strong>wxTB_NOICONS</strong> = 128<br>
+<strong>wxTB_TEXT</strong> = 256<br>
+<strong>wxTB_VERTICAL</strong> = 8<br>
+<strong>wxTELETYPE</strong> = 76<br>
+<strong>wxTE_AUTO_SCROLL</strong> = 8<br>
+<strong>wxTE_AUTO_URL</strong> = 4096<br>
+<strong>wxTE_CENTER</strong> = 256<br>
+<strong>wxTE_CENTRE</strong> = 256<br>
+<strong>wxTE_DONTWRAP</strong> = 1073741824<br>
+<strong>wxTE_LEFT</strong> = 0<br>
+<strong>wxTE_LINEWRAP</strong> = 16384<br>
+<strong>wxTE_MULTILINE</strong> = 32<br>
+<strong>wxTE_NOHIDESEL</strong> = 8192<br>
+<strong>wxTE_NO_VSCROLL</strong> = 2<br>
+<strong>wxTE_PASSWORD</strong> = 2048<br>
+<strong>wxTE_PROCESS_ENTER</strong> = 1024<br>
+<strong>wxTE_PROCESS_TAB</strong> = 64<br>
+<strong>wxTE_READONLY</strong> = 16<br>
+<strong>wxTE_RICH</strong> = 128<br>
+<strong>wxTE_RICH2</strong> = 32768<br>
+<strong>wxTE_RIGHT</strong> = 512<br>
+<strong>wxTE_WORDWRAP</strong> = 0<br>
+<strong>wxTHICK_FRAME</strong> = 64<br>
+<strong>wxTIMER_CONTINUOUS</strong> = 0<br>
+<strong>wxTIMER_ONE_SHOT</strong> = 1<br>
+<strong>wxTINY_CAPTION_HORIZ</strong> = 256<br>
+<strong>wxTINY_CAPTION_VERT</strong> = 128<br>
+<strong>wxTOOL_BOTTOM</strong> = 2<br>
+<strong>wxTOOL_LEFT</strong> = 3<br>
+<strong>wxTOOL_RIGHT</strong> = 4<br>
+<strong>wxTOOL_STYLE_BUTTON</strong> = 1<br>
+<strong>wxTOOL_STYLE_CONTROL</strong> = 3<br>
+<strong>wxTOOL_STYLE_SEPARATOR</strong> = 2<br>
+<strong>wxTOOL_TOP</strong> = 1<br>
+<strong>wxTOP</strong> = 64<br>
+<strong>wxTOPLEVEL_EX_DIALOG</strong> = 8<br>
+<strong>wxTRACE_MemAlloc</strong> = 'memalloc'<br>
+<strong>wxTRACE_Messages</strong> = 'messages'<br>
+<strong>wxTRACE_RefCount</strong> = 'refcount'<br>
+<strong>wxTRACE_ResAlloc</strong> = 'resalloc'<br>
+<strong>wxTRANSPARENT</strong> = 106<br>
+<strong>wxTRANSPARENT_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _833e3f8_wxBrush_p&gt;<br>
+<strong>wxTRANSPARENT_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _83406f0_wxPen_p&gt;<br>
+<strong>wxTRANSPARENT_WINDOW</strong> = 1048576<br>
+<strong>wxTREE_HITTEST_ABOVE</strong> = 1<br>
+<strong>wxTREE_HITTEST_BELOW</strong> = 2<br>
+<strong>wxTREE_HITTEST_NOWHERE</strong> = 4<br>
+<strong>wxTREE_HITTEST_ONITEM</strong> = 80<br>
+<strong>wxTREE_HITTEST_ONITEMBUTTON</strong> = 8<br>
+<strong>wxTREE_HITTEST_ONITEMICON</strong> = 16<br>
+<strong>wxTREE_HITTEST_ONITEMINDENT</strong> = 32<br>
+<strong>wxTREE_HITTEST_ONITEMLABEL</strong> = 64<br>
+<strong>wxTREE_HITTEST_ONITEMLOWERPART</strong> = 4096<br>
+<strong>wxTREE_HITTEST_ONITEMRIGHT</strong> = 128<br>
+<strong>wxTREE_HITTEST_ONITEMSTATEICON</strong> = 256<br>
+<strong>wxTREE_HITTEST_ONITEMUPPERPART</strong> = 2048<br>
+<strong>wxTREE_HITTEST_TOLEFT</strong> = 512<br>
+<strong>wxTREE_HITTEST_TORIGHT</strong> = 1024<br>
+<strong>wxTR_AQUA_BUTTONS</strong> = 16<br>
+<strong>wxTR_DEFAULT_STYLE</strong> = 9<br>
+<strong>wxTR_EDIT_LABELS</strong> = 512<br>
+<strong>wxTR_EXTENDED</strong> = 64<br>
+<strong>wxTR_FULL_ROW_HIGHLIGHT</strong> = 8192<br>
+<strong>wxTR_HAS_BUTTONS</strong> = 1<br>
+<strong>wxTR_HAS_VARIABLE_ROW_HEIGHT</strong> = 128<br>
+<strong>wxTR_HIDE_ROOT</strong> = 2048<br>
+<strong>wxTR_LINES_AT_ROOT</strong> = 8<br>
+<strong>wxTR_MAC_BUTTONS</strong> = 2<br>
+<strong>wxTR_MULTIPLE</strong> = 32<br>
+<strong>wxTR_NO_BUTTONS</strong> = 0<br>
+<strong>wxTR_NO_LINES</strong> = 4<br>
+<strong>wxTR_ROW_LINES</strong> = 1024<br>
+<strong>wxTR_SINGLE</strong> = 0<br>
+<strong>wxTR_TWIST_BUTTONS</strong> = 2<br>
+<strong>wxTheBrushList</strong> = &lt;wxPython.gdi.wxBrushListPtr instance; proxy of C++ wxBrushList instance at _833da20_wxBrushList_p&gt;<br>
+<strong>wxTheClipboard</strong> = &lt;wxPython.clip_dnd.wxClipboardPtr instance; prox...+ wxClipboard instance at _834eb30_wxClipboard_p&gt;<br>
+<strong>wxTheColourDatabase</strong> = &lt;wxPython.gdi.wxColourDatabasePtr instance; prox...Database instance at _832aa60_wxColourDatabase_p&gt;<br>
+<strong>wxTheFontList</strong> = &lt;wxPython.fonts.wxFontListPtr instance; proxy of C++ wxFontList instance at _833da60_wxFontList_p&gt;<br>
+<strong>wxTheMimeTypesManager</strong> = &lt;wxPython.misc2.wxMimeTypesManagerPtr instance; ...nager instance at _41b6a3a0_wxMimeTypesManager_p&gt;<br>
+<strong>wxThePenList</strong> = &lt;wxPython.gdi.wxPenListPtr instance; proxy of C++ wxPenList instance at _833da40_wxPenList_p&gt;<br>
+<strong>wxTop</strong> = 1<br>
+<strong>wxTraceMemAlloc</strong> = 1<br>
+<strong>wxTraceMessages</strong> = 2<br>
+<strong>wxTraceRefCount</strong> = 8<br>
+<strong>wxTraceResAlloc</strong> = 4<br>
+<strong>wxTreeItemIcon_Expanded</strong> = 2<br>
+<strong>wxTreeItemIcon_Max</strong> = 4<br>
+<strong>wxTreeItemIcon_Normal</strong> = 0<br>
+<strong>wxTreeItemIcon_Selected</strong> = 1<br>
+<strong>wxTreeItemIcon_SelectedExpanded</strong> = 3<br>
+<strong>wxUP</strong> = 64<br>
+<strong>wxUSER_COLOURS</strong> = 8388608<br>
+<strong>wxUSER_DASH</strong> = 105<br>
+<strong>wxUSE_UNICODE</strong> = 1<br>
+<strong>wxUnconstrained</strong> = 0<br>
+<strong>wxVARIABLE</strong> = 80<br>
+<strong>wxVERSION</strong> = (2, 4, 2, 4, 'u')<br>
+<strong>wxVERSION_STRING</strong> = '2.4.2.4u'<br>
+<strong>wxVERTICAL</strong> = 8<br>
+<strong>wxVERTICAL_HATCH</strong> = 116<br>
+<strong>wxVSCROLL</strong> = -2147483648<br>
+<strong>wxWANTS_CHARS</strong> = 262144<br>
+<strong>wxWEST</strong> = 16<br>
+<strong>wxWHITE</strong> = wxColour(255, 255, 255)<br>
+<strong>wxWHITE_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8341590_wxBrush_p&gt;<br>
+<strong>wxWHITE_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8341428_wxPen_p&gt;<br>
+<strong>wxWINDING_RULE</strong> = 2<br>
+<strong>wxWS_EX_BLOCK_EVENTS</strong> = 2<br>
+<strong>wxWS_EX_TRANSIENT</strong> = 4<br>
+<strong>wxWS_EX_VALIDATE_RECURSIVELY</strong> = 1<br>
+<strong>wxWidth</strong> = 4<br>
+<strong>wxXOR</strong> = 1<br>
+<strong>wxYES</strong> = 2<br>
+<strong>wxYES_DEFAULT</strong> = 0<br>
+<strong>wxYES_NO</strong> = 10</td></tr></table>
+@footer@

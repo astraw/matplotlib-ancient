@@ -1,0 +1,107 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.ft2font</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/ft2font.so">/usr/local/lib/python2.3/site-packages/matplotlib/ft2font.so</a></font></td></tr></table>
+    <p><tt>ft2font<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;&nbsp;<a href="#-FT2Font">FT2Font</a>(ttffile)<br>
+Face&nbsp;Constants<br>
+&nbsp;&nbsp;SCALABLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scalable<br>
+&nbsp;&nbsp;FIXED_SIZES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;FIXED_WIDTH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;SFNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;HORIZONTAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;VERTICAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;KERNING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;FAST_GLYPHS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;MULTIPLE_MASTERS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;GLYPH_NAMES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;EXTERNAL_STREAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Style&nbsp;Constants<br>
+&nbsp;&nbsp;ITALIC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;BOLD</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="exceptions.html#Exception">exceptions.Exception</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial">ft2font.error
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="error">class <strong>error</strong></a>(<a href="exceptions.html#Exception">exceptions.Exception</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><a name="error-__getitem__"><strong>__getitem__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="error-__init__"><strong>__init__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="error-__str__"><strong>__str__</strong></a>(...)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-FT2Font"><strong>FT2Font</strong></a>(...)</dt><dd><tt><a href="#-FT2Font">FT2Font</a>(ttffile)<br>
+&nbsp;<br>
+Create&nbsp;a&nbsp;new&nbsp;FT2Font&nbsp;object<br>
+The&nbsp;following&nbsp;global&nbsp;font&nbsp;attributes&nbsp;are&nbsp;defined:<br>
+&nbsp;&nbsp;num_faces&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;faces&nbsp;in&nbsp;file<br>
+&nbsp;&nbsp;face_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;flags&nbsp;&nbsp;(int&nbsp;type);&nbsp;see&nbsp;the&nbsp;ft2font&nbsp;constants<br>
+&nbsp;&nbsp;style_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style&nbsp;flags&nbsp;&nbsp;(int&nbsp;type);&nbsp;see&nbsp;the&nbsp;ft2font&nbsp;constants<br>
+&nbsp;&nbsp;num_glyphs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;glyphs&nbsp;in&nbsp;the&nbsp;face<br>
+&nbsp;&nbsp;family_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;family&nbsp;name<br>
+&nbsp;&nbsp;style_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;syle&nbsp;name<br>
+&nbsp;&nbsp;num_fixed_sizes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;bitmap&nbsp;in&nbsp;the&nbsp;face<br>
+&nbsp;&nbsp;scalable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;is&nbsp;scalable<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;are&nbsp;available,&nbsp;if&nbsp;scalable&nbsp;is&nbsp;true:<br>
+&nbsp;&nbsp;bbox&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;global&nbsp;bounding&nbsp;box&nbsp;(xmin,&nbsp;ymin,&nbsp;xmax,&nbsp;ymax)<br>
+&nbsp;&nbsp;units_per_EM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;font&nbsp;units&nbsp;covered&nbsp;by&nbsp;the&nbsp;EM<br>
+&nbsp;&nbsp;ascender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ascender&nbsp;in&nbsp;26.6&nbsp;units<br>
+&nbsp;&nbsp;descender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;descender&nbsp;in&nbsp;26.6&nbsp;units<br>
+&nbsp;&nbsp;height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;in&nbsp;26.6&nbsp;units;&nbsp;used&nbsp;to&nbsp;compute&nbsp;a&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line&nbsp;spacing&nbsp;(baseline-to-baseline&nbsp;distance)<br>
+&nbsp;&nbsp;max_advance_width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maximum&nbsp;horizontal&nbsp;cursor&nbsp;advance&nbsp;for&nbsp;all&nbsp;glyphs<br>
+&nbsp;&nbsp;max_advance_height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;same&nbsp;for&nbsp;vertical&nbsp;layout<br>
+&nbsp;&nbsp;underline_position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;position&nbsp;of&nbsp;the&nbsp;underline&nbsp;bar<br>
+&nbsp;&nbsp;underline_thickness&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;thickness&nbsp;of&nbsp;the&nbsp;underline</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>BOLD</strong> = 2<br>
+<strong>EXTERNAL_STREAM</strong> = 1024<br>
+<strong>FAST_GLYPHS</strong> = 128<br>
+<strong>FIXED_SIZES</strong> = 2<br>
+<strong>FIXED_WIDTH</strong> = 4<br>
+<strong>GLYPH_NAMES</strong> = 512<br>
+<strong>HORIZONTAL</strong> = 16<br>
+<strong>ITALIC</strong> = 1<br>
+<strong>KERNING</strong> = 64<br>
+<strong>MULTIPLE_MASTERS</strong> = 256<br>
+<strong>SCALABLE</strong> = 1<br>
+<strong>SFNT</strong> = 8<br>
+<strong>VERTICAL</strong> = 1</td></tr></table>
+@footer@
