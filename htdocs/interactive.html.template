@@ -7,8 +7,8 @@ mathematica.  Unfortunately, due to the 'mainloop' cycle of GUI
 toolkits, it is not yet possible to use matplotlib from an arbitrary
 python shell.  Instead, there are custom solutions depending on the
 GUI environment in which you use matplotlib.  If you know of solutions
-bettern than the ones presented here, please contact me (John
-D. Hunter @myemail@).<p>
+bettern than the ones presented here, please contact me -
+ @myemail@.<p>
 
 <h3>WX</h3>
 
@@ -36,12 +36,7 @@ plot commands immediately
 
 <pre>
 examples> ./interactive2.py
-Welcome to matplotlib.
-
-  help(matlab)   -- shows a list of all matlab compatible commands
-  help(plotting) -- shows a list of plot specific commands
-
->> plot([1,2,3])
+>>> plot([1,2,3])
 </pre>
 
 <h2>pygtk with threading</h2>
@@ -116,37 +111,8 @@ McErlean and John Finlay</a>.<p>
   <pre>
   > cd examples
   > ./interactive.py
-  Welcome to matplotlib.
-
-      help(matlab)   -- shows a list of all matlab compatible commands provided
-      help(plotting) -- shows a list of plot specific commands
-
-  >> plot([1,2,3])
+  >>> plot([1,2,3])
   </pre>
-
-
-<h3>If threading is still not working under linux</h3>
-
-  In some cases, I have needed to wipe clean the existing pygtk
-  installation before installing with threading.  If you have followed
-  the steps above and threading is still not working for you, you may
-  want to try this.<p>
-
-  Make a backup of your existing pygtk install tree and completely
-  remove it, eg<p>
-
-  <pre>
-  > cd /your/path/to/python/site-packages
-  > cp -a gtk-2.0 /some/backup/dir
-  > rm -rf gtk-2.0
-  </pre>
-
-  From a clean pygtk src tree<p>
-
-   <pre>
-   > ./configure --enable-thread  # and any other flags
-   > make install
-   </pre>
 
 
 @footer@

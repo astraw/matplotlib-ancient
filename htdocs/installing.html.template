@@ -9,9 +9,9 @@ If these dependencies are satisfied, just do the usual thing:<p>
   > python setup.py install
   </pre>
 
-I have installed and tested this on several linux and win32 platforms,
-but it should run anywhere that python and Numeric run.  The
-differnent output devices have different requirements.  
+Matplotlib is known to work on several linux, win32 and OS X
+platforms; it should run anywhere that python and Numeric run.  The
+different output devices have different requirements.
 
 Below is a quickguide to what you'll need to get matplotlib up and
 running with the GTK backend.  For more specific information regarding

@@ -35,13 +35,13 @@ accept it, it scales to arbitrary resolutions, you can import it
 directly into LaTeX document, and send it directly to postscript
 printers.<p>
 
-The only requirements maplotlib has to generate postscript output is
-the Numeric module and some afm fonts on your system.  Even the latter
-is only a quasi-requirement because matplotlib comes with some of the
-most popular font files.  These are <it>Adobe Font Metric</it> files,
-which have the '*.afm' extension.  matplotlib comes with it's own AFM
-parser to read these files and select the best match for the font
-you've chosen.  If you want additional fonts, set the <tt>AFMPATH</tt>
+The only requirement to generate postscript output is the Numeric
+module and some AFM fonts on your system.  Even the latter is only a
+quasi-requirement, because matplotlib ships with some of the most
+popular font files.  These are <it>Adobe Font Metric</it> files, which
+have the '*.afm' extension.  matplotlib comes with it's own AFM parser
+to read these files and select the best match for the font you've
+chosen.  If you want additional fonts, set the <tt>AFMPATH</tt>
 environment variable to point to the dir containing your AFM font
 files.  matplotlib willl recursively search any directory in
 <tt>AFMPATH</tt>, so you only need to specify a base directory if
@@ -63,6 +63,6 @@ these are the defaults.  If you want more, set the environment
 variable to point to them.<p>
 
 If you are aware of other freely distributable ttf fonts, please
-contact me (John D. Hunter @myemail@)
+contact me -  @myemail@.
 
 @footer@

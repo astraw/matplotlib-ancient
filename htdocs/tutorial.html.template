@@ -18,18 +18,6 @@ matlab.  The basic entity is a figure, which contains axes, which
 contain plots.  The axes are decorated with xlabels, ylabels, titles,
 ticklabels, and text.<p>
 
-
-matplotlib can be used either as a <a href=classdocs.html>class
-library</a>, in or in batch or <a
-href=interactive.html>interactive</a> mode with the <a
-href=matlab_commands.html>matlab compatibility interface</a>.  In
-interactive mode, you can create plots and manipulate them from the
-python shell.  However, because this requires some additional work to
-get a python interpreter working interactivly with a GUI toolkit (see
-<a href=interactive.html>interactive</a>), this tutorial will
-concentrate on using matplotlib in batch mode, where all the commands
-reside in a python script that creates the figure.<p>
-
 Here is about the simplest script you can use to create a figure with
 matplotlib<p>
 
@@ -162,7 +150,7 @@ specify an axes.  The <a href=matplotlib.matlab.html#-subplot>subplot</a> comman
 specifies <tt>numrows, numcols, fignum</tt> where <tt>fignum</tt>
 ranges from 1 to <tt>numrows*numcols</tt>.  The commas in the subplot
 command are optional if <tt>numrows*numcols<10</tt>.  So
-<tt>subplot(211)</tt> is identical to<tt>subplot(2,1,1)</tt>.  You can
+<tt>subplot(211)</tt> is identical to <tt>subplot(2,1,1)</tt>.  You can
 create an arbitrary number of subplots and axes.  If you want to place
 an axes manually, ie, not on a rectangular grid, use the <a
 href=matplotlib.matlab.html#-axes>axes</a> command, which allows you to specify

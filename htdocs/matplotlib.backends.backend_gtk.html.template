@@ -357,7 +357,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (136593672)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (136605040)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -991,6 +991,10 @@ Methods defined here:<br>
 
 <dl><dt><a name="FigureGTK-is_realized"><strong>is_realized</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="FigureGTK-key_press_event"><strong>key_press_event</strong></a>(self, widget, event)</dt></dl>
+
+<dl><dt><a name="FigureGTK-key_release_event"><strong>key_release_event</strong></a>(self, widget, event)</dt></dl>
+
 <dl><dt><a name="FigureGTK-motion_notify_event"><strong>motion_notify_event</strong></a>(self, widget, event)</dt></dl>
 
 <dl><dt><a name="FigureGTK-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>)</dt></dl>
@@ -1012,7 +1016,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135923536)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135923664)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -1370,6 +1374,10 @@ Methods defined here:<br>
 
 <dl><dt><a name="FigureGTK-is_realized"><strong>is_realized</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="FigureGTK-key_press_event"><strong>key_press_event</strong></a>(self, widget, event)</dt></dl>
+
+<dl><dt><a name="FigureGTK-key_release_event"><strong>key_release_event</strong></a>(self, widget, event)</dt></dl>
+
 <dl><dt><a name="FigureGTK-motion_notify_event"><strong>motion_notify_event</strong></a>(self, widget, event)</dt></dl>
 
 <dl><dt><a name="FigureGTK-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>)</dt></dl>
@@ -1391,7 +1399,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135923536)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135923664)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -1879,7 +1887,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (135926272)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (135926400)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>

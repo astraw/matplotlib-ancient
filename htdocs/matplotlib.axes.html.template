@@ -91,7 +91,8 @@ KNOWN&nbsp;BUGS<br>
 &nbsp;&nbsp;-&nbsp;DONE&nbsp;2003-11-16&nbsp;-&nbsp;xticklabels&nbsp;in&nbsp;PS&nbsp;backend&nbsp;need&nbsp;clip<br>
 &nbsp;<br>
 &nbsp;&nbsp;-&nbsp;x&nbsp;and&nbsp;y&nbsp;ticklabels&nbsp;overlap&nbsp;at&nbsp;origin<br>
-&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;parse&nbsp;error&nbsp;on&nbsp;lines&nbsp;like&nbsp;plot(bins,&nbsp;mu,&nbsp;bins,&nbsp;mu+sigma,&nbsp;'--')<br>
 OUTSTANDING&nbsp;ISSUES<br>
 &nbsp;<br>
 &nbsp;&nbsp;-&nbsp;rationalize&nbsp;DPI&nbsp;between&nbsp;backends&nbsp;-&nbsp;config&nbsp;file?<br>
