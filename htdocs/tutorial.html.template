@@ -494,9 +494,9 @@ or to close the figure window.</i> </td></tr> </table><br>
 
 <a name=toolbar2><h4>toolbar2</h4></a>
 
-These buttons behave very differently from the classic the classic
-matplotlib toolbar (else why introduce a new one!) despite the visual
-similarity of the forward and back buttons<p>
+The toolbar2 buttons behave very differently from the classic the
+classic matplotlib toolbar (else why introduce a new one!) despite the
+visual similarity of the forward and back buttons<p>
 
 <table>
 
@@ -510,23 +510,36 @@ first view.  For Home, Forward and Back, think web browser where data
 views are web pages.  Use the pan and zoom to rectangle to define new
 views.<p>
 
-The "Pan" button has two modes: pan and zoom.  Click this toolbar
+The "Pan/Zoom" button has two modes: pan and zoom.  Click this toolbar
 button to activate this mode.  Then put your mouse somewhere over an
-axes.  Mode 1: Press the left mouse button and hold it, dragging it to
-a new position.  When you release it, the data under the point where
-you pressed will be moved to the point where you released.  Mode 2:
-Press the right mouse button, dragging it to a new position.  The x
-axis will be zoomed in proportionate to the rightward movement and
-zoomed out proportionate to the leftward movement.  Ditto for the
-yaxis and up/down motions.  In Mode 2, you can use the modifier keys
-'x', 'y' or 'CONTROL' to constrain the zoom to the x axes, the y axes,
-or aspect ratio preserve, respectively.<p>
+axes.  
+
+<ul>
+<li>Mode 1: Press the left mouse button and hold it, dragging it to
+  a new position.  When you release it, the data under the point where
+  you pressed will be moved to the point where you released.  If you
+  press 'x' or 'y' while panning, the motion will be contrained to the
+  x or y axis, respectively</li>
+  
+<li> Mode 2: Press the right mouse button, dragging it to a new
+  position.  The x axis will be zoomed in proportionate to the
+  rightward movement and zoomed out proportionate to the leftward
+  movement.  Ditto for the yaxis and up/down motions.  The point under
+  your mouse when you begin the zoom should remain in place, allowing
+  you to zoom to an arbitrary point in the figure.  You can use the
+  modifier keys 'x', 'y' or 'CONTROL' to constrain the zoom to the x
+  axes, the y axes, or aspect ratio preserve, respectively.  </li>
+</ul>
+
+\end{itemize}
 
 The Zoom to rectangle button: Click this toolbar button to activate
 this mode.  Put your mouse somewhere over and axes and press the left
 mouse button.  Drag the mouse while holding the button to a new
 location and release.  The axes view limits will be zoomed to the
-rectangle you have defined.<p>
+rectangle you have defined.  There is also an experimental 'zoom out
+to rectangle' in this mode with the right button, which will place
+your entire axes in the region defined by the zoom out rectangle.<p>
 
 Save: click this button to launch a file save dialog.  All the *Agg
 backends know how to save the following image types: PNG, PS, EPS,

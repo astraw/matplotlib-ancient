@@ -11,6 +11,7 @@ files = (
     'simple_imshow.py',
     'simple_plot_tkagg.py',
     'subplot_demo.py',
+    'mathtext_demo.py',    
     )
 
 for fname in files:
