@@ -171,17 +171,6 @@ preview false
 \end_inset 
 
 
-\layout Chapter
-
-lyx examples
-\layout Standard
-
-See a 
-\begin_inset LatexCommand \cite{JDH04,PYTHON}
-
-\end_inset 
-
-
 \layout Standard
 
 

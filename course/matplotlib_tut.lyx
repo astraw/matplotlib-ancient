@@ -208,13 +208,15 @@ A short pylab tutorial
 Here is about the simplest code you can use to create a figure with matplotlib
  using the pylab interface.
  In this section, I'm assuming you are using ipython in the pylab mode --
- see the ipython chapter for details.
- 
+ see Section
+\begin_inset LatexCommand \ref{sec:ipython_pylab}
+
+\end_inset 
+
+ for details.
 \layout LyX-Code
 
 peds-pc311:~> pylab
-\layout LyX-Code
-
 \layout LyX-Code
 
 Python 2.3.3 (#2, Apr 13 2004, 17:41:29)
@@ -260,7 +262,10 @@ object? -> Details about 'object'.
  
 \layout LyX-Code
 
-In [1]: plot([1,2,3,4])
+In [1]: plot([1,2,3])
+\layout LyX-Code
+
+Out[1]: [<matplotlib.lines.Line2D instance at 0xb557a86c>]
 \layout Standard
 
 
@@ -427,31 +432,17 @@ Let's make the same figure we made using the object oriented API above,
 
 \end_inset 
 
-, but this time using the pylab 
-\layout LyX-Code
+, but this time using the pylab
+\begin_inset ERT
+status Collapsed
 
-from pylab import *
-\layout LyX-Code
+\layout Standard
 
-plot([1,2,3])
-\layout LyX-Code
+\backslash 
+lstinputlisting[caption={Creating a simple figure in pylab}]{examples/mpl_pylab.py}
+\end_inset 
 
-title('hi mom')
-\layout LyX-Code
 
-grid(True)
-\layout LyX-Code
-
-xlabel('time')
-\layout LyX-Code
-
-ylabel('volts')
-\layout LyX-Code
-
-savefig('../fig/mpl_one_two_three.png')
-\layout LyX-Code
-
-show()
 \layout Standard
 
 As you can see there is basically a direct translation between the OO interface
@@ -670,46 +661,20 @@ set
 get
 \family default 
  will work on a single instance or a sequence of instances
-\layout LyX-Code
-
-In [6]: x = rand(20); y = rand(20)
-\layout LyX-Code
-
-\layout LyX-Code
-
-In [7]: lines = plot(x,y,'o')
-\layout LyX-Code
-
- 
-\layout LyX-Code
-
-In [8]: type(lines)       
-\color blue
-# plot always returns a list
-\layout LyX-Code
-
-Out[8]: <type 'list'>
-\layout LyX-Code
-
- 
-\layout LyX-Code
-
-In [9]: len(lines)        
-\color blue
-# even if it has a single element
-\layout LyX-Code
-
-Out[9]: 1
 \layout Standard
 
-The simple figure that was created, a scattering of blue circles at random
- locations, is shown in Figure
-\begin_inset LatexCommand \ref{fig:mpl_setget1}
 
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+lstinputlisting{snippets/mpl_plot_line.ipy}
 \end_inset 
 
-.
-\layout LyX-Code
+
+\layout Standard
 
 
 \begin_inset Float figure
@@ -740,154 +705,43 @@ The default marker plot, before marker customization
 
 \layout Standard
 
-To see a listing of the properties of the line, and what their current values
- are, call 
+The simple figure that was created, a scattering of blue circles at random
+ locations, is shown in Figure
+\begin_inset LatexCommand \ref{fig:mpl_setget1}
+
+\end_inset 
+
+.
+ To see a listing of the properties of the line, and what their current
+ values are, call 
 \family typewriter 
 get(lines)
-\layout LyX-Code
-
-In [17]: get(lines)
-\layout LyX-Code
-
-    alpha = 1.0
-\layout LyX-Code
-
-    antialiased or aa = True
-\layout LyX-Code
-
-    clip_on = True
-\layout LyX-Code
-
-    color or c = blue
-\layout LyX-Code
-
-    figure = <matplotlib.figure.Figure instance at 0xb45351ec>
-\layout LyX-Code
-
-    label =
-\layout LyX-Code
-
-    linestyle or ls = None
-\layout LyX-Code
-
-    linewidth or lw = 0.5
-\layout LyX-Code
-
-    marker = o
-\layout LyX-Code
-
-    markeredgecolor or mec = black
-\layout LyX-Code
-
-    markeredgewidth or mew = 0.5
-\layout LyX-Code
-
-    markerfacecolor or mfc = blue
-\layout LyX-Code
-
-    markersize or ms = 6.0
-\layout LyX-Code
-
-    transform = <Affine object at 0x8560fd4>
-\layout LyX-Code
-
-    visible = True
-\layout LyX-Code
-
-    xdata = [ 0.92011374  0.21795347  0.09758196  0.9608943   0.82332173  0.08097414]...
-\layout LyX-Code
-
-    ydata = [ 0.86377059  0.25058593  0.04721988  0.22290987  0.23596015  0.39763723]...
-\layout LyX-Code
+\family default 
+ 
+\begin_inset ERT
+status Collapsed
 
 \layout Standard
 
-and to see the same listing of properties with information on legal values
+\backslash 
+lstinputlisting{snippets/mpl_get.ipy}
+\end_inset 
+
+ and to see the same listing of properties with information on legal values
  you can set them to, call 
 \family typewriter 
 set(lines)
-\layout LyX-Code
+\family default 
 
-\layout LyX-Code
+\begin_inset ERT
+status Collapsed
 
-In [19]: set(lines)
-\layout LyX-Code
+\layout Standard
 
-    alpha: float
-\layout LyX-Code
+\backslash 
+lstinputlisting{snippets/mpl_set.ipy}
+\end_inset 
 
-    antialiased or aa: [True | False]
-\layout LyX-Code
-
-    clip_box: a matplotlib.transform.Bbox instance
-\layout LyX-Code
-
-    clip_on: [True | False]
-\layout LyX-Code
-
-    color or c: any matplotlib color - see help(colors)
-\layout LyX-Code
-
-    dashes: sequence of on/off ink in points
-\layout LyX-Code
-
-    data: (array xdata, array ydata)
-\layout LyX-Code
-
-    data_clipping: [True | False]
-\layout LyX-Code
-
-    figure: a matplotlib.figure.Figure instance
-\layout LyX-Code
-
-    label: any string
-\layout LyX-Code
-
-    linestyle or ls: [ '-' | '--' | '-.' | ':' | 'steps' | 'None' ]
-\layout LyX-Code
-
-    linewidth or lw: float value in points
-\layout LyX-Code
-
-    lod: [True | False]
-\layout LyX-Code
-
-    marker: [ '+' | ',' | '.' | '1' | '2' | '3' | '4' | '<' | '>' | 'D' |
- 'H' | '^' | '_' | 'd' | 'h' | 'o' | 'p' | 's' | 'v' | 'x' | '|' ]
-\layout LyX-Code
-
-    markeredgecolor or mec: any matplotlib color - see help(colors)
-\layout LyX-Code
-
-    markeredgewidth or mew: float value in points
-\layout LyX-Code
-
-    markerfacecolor or mfc: any matplotlib color - see help(colors)
-\layout LyX-Code
-
-    markersize or ms: float
-\layout LyX-Code
-
-    transform: a matplotlib.transform transformation instance
-\layout LyX-Code
-
-    visible: [True | False]
-\layout LyX-Code
-
-    xclip: (xmin, xmax)
-\layout LyX-Code
-
-    xdata: array
-\layout LyX-Code
-
-    yclip: (ymin, ymax)
-\layout LyX-Code
-
-    ydata: array
-\layout LyX-Code
-
-    zorder: any number
-\layout LyX-Code
 
 \layout Standard
 
@@ -895,12 +749,13 @@ OK, we have a lot of options here.
   Let's change the marker properties, and add a linesytle
 \layout LyX-Code
 
-\layout LyX-Code
-
 In [20]: set(lines, markerfacecolor='green', markeredgecolor='red',
 \layout LyX-Code
 
-   ....:  markersize=20, markeredgewidth=3, linestyle='--', linewidth=3)
+   ....:  markersize=20, markeredgewidth=3, 
+\layout LyX-Code
+
+   ....: linestyle='--', linewidth=3)
 \layout LyX-Code
 
 \layout Standard
@@ -940,7 +795,7 @@ In [20]: set(lines, mfc='g', mec='r', ms=20, mew=3, ls='--', lw=3)
 
 \begin_inset Float figure
 wide false
-collapsed false
+collapsed true
 
 \layout Standard
 \align center 
@@ -977,113 +832,46 @@ plot
 
 \layout LyX-Code
 
-In [22]: plot(x, y, 'o', mfc='g', mec='r', ms=20, mew=3, ls='--', lw=3)
+In [6]: plot(x, y, 'o', mfc='g', mec='r', ms=20, mew=3, ls='--', lw=3)
 \layout LyX-Code
 
-Out[22]: [<matplotlib.lines.Line2D instance at 0xb40db42c>]
+Out[6]: [<matplotlib.lines.Line2D instance at 0xb40db42c>]
 \layout LyX-Code
 
 \layout Standard
 
 As noted above, 
-\emph on 
+\family typewriter 
 set
-\emph default 
- and get work on any Artist, so you can configure your axes or text instances
- this way.
-  Eg, xlabel returns a matplotlib.text.Text instance
-\layout LyX-Code
+\family default 
+ and 
+\family typewriter 
+get
+\family default 
+ work on any 
+\family typewriter 
+Artist
+\family default 
+, so you can configure your axes or text instances this way.
+  Eg, 
+\family typewriter 
+xlabel
+\family default 
+ returns a 
+\family typewriter 
+matplotlib.text.Text
+\family default 
+ instance 
+\begin_inset ERT
+status Open
 
-\layout LyX-Code
+\layout Standard
 
-In [23]: t = xlabel('time (s)')
-\layout LyX-Code
+\backslash 
+lstinputlisting{snippets/mpl_text_set.ipy}
+\end_inset 
 
- 
-\layout LyX-Code
 
-In [24]: set(t)
-\layout LyX-Code
-
-    alpha: float
-\layout LyX-Code
-
-    backgroundcolor: any matplotlib color - see help(colors)
-\layout LyX-Code
-
-    bbox: rectangle prop dict plus key 'pad' which is a pad in points
-\layout LyX-Code
-
-    clip_box: a matplotlib.transform.Bbox instance
-\layout LyX-Code
-
-    clip_on: [True | False]
-\layout LyX-Code
-
-    color: any matplotlib color - see help(colors)
-\layout LyX-Code
-
-    family: [ 'serif' | 'sans-serif' | 'cursive' | 'fantasy' | 'monospace'
- ]
-\layout LyX-Code
-
-    figure: a matplotlib.figure.Figure instance
-\layout LyX-Code
-
-    fontproperties: a matplotlib.font_manager.FontProperties instance
-\layout LyX-Code
-
-    horizontalalignment or ha: [ 'center' | 'right' | 'left' ]
-\layout LyX-Code
-
-    label: any string
-\layout LyX-Code
-
-    lod: [True | False]
-\layout LyX-Code
-
-    multialignment: ['left' | 'right' | 'center' ]
-\layout LyX-Code
-
-    name or fontname: string eg, ['Sans' | 'Courier' | 'Helvetica' ...]
-\layout LyX-Code
-
-    position: (x,y)
-\layout LyX-Code
-
-    rotation: [ angle in degrees 'vertical' | 'horizontal'
-\layout LyX-Code
-
-    size or fontsize: [ size in points | relative size eg 'smaller', 'x-large'
- ]    style or fontstyle: [ 'normal' | 'italic' | 'oblique']
-\layout LyX-Code
-
-    text: string
-\layout LyX-Code
-
-    transform: a matplotlib.transform transformation instance
-\layout LyX-Code
-
-    variant: [ 'normal' | 'small-caps' ]
-\layout LyX-Code
-
-    verticalalignment or va: [ 'center' | 'top' | 'bottom' ]
-\layout LyX-Code
-
-    visible: [True | False]
-\layout LyX-Code
-
-    weight or fontweight: [ 'normal' | 'bold' | 'heavy' | 'light' | 'ultrabold'
- | 'ultralight']
-\layout LyX-Code
-
-    x: float
-\layout LyX-Code
-
-    y: float
-\layout LyX-Code
-
-    zorder: any number
 \layout LyX-Code
 
 \layout Standard
@@ -1277,11 +1065,11 @@ matplotlib
 \backslash 
 .matplotlibrc 
 \color blue
-# on Microsoft windows
+# windows
 \color default
- /usr/local/share/matplotlib/.matplotlibrc  
+ /usr/share/matplotlib/.matplotlibrc  
 \color blue
-# on linux/UNIX machines
+# linux
 \layout Standard
 
 By default, the installer will overwrite the existing file in the install
@@ -1380,6 +1168,147 @@ Spectral analysis
 \layout Section
 
 Images
+\layout Standard
+
+Matplotlib has support for plotting images with imshow and figimage.
+ In imshow, the image data is scaled to fit into the current axes, and many
+ different interpolation schemes are supported to do the resampling, and
+ in figimage, the image data are transferred as a raw pixel dump to the
+ figure canvas without resampling.
+ You can add colorbars, set the default colormaps, and change the interpolation
+ schemes quite easily.
+ 
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename fig/mpl_image_jet.png
+	lyxscale 20
+	width 4in
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:mpl_imshow_jet}
+
+\end_inset 
+
+A simple image plot of a 2D matrix, using nearest neighbor interpolation
+ and the 
+\family typewriter 
+jet
+\family default 
+ colormap.
+\end_inset 
+
+
+\layout LyX-Code
+
+In [15]: x = arange(100.0); x.shape = 10,10
+\layout LyX-Code
+
+ 
+\layout LyX-Code
+
+In [16]: im = imshow(x, interpolation='nearest')
+\layout LyX-Code
+
+ 
+\layout LyX-Code
+
+In [17]: colorbar()
+\layout LyX-Code
+
+Out[17]: <matplotlib.axes.Axes instance at 0xb455496c>
+\layout Standard
+
+which creates the image shown in Figure 
+\begin_inset LatexCommand \ref{fig:mpl_imshow_jet}
+
+\end_inset 
+
+.
+  You can interactively update the default colormap and change the interpolation
+ scheme, which creates the image show in Figure 
+\begin_inset LatexCommand \ref{fig:mpl_imshow_hot}
+
+\end_inset 
+
+.
+\layout LyX-Code
+
+In [18]: im.set_interpolation('bilinear')
+\layout LyX-Code
+
+ 
+\layout LyX-Code
+
+In [19]: hot()
+\layout LyX-Code
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename fig/mpl_image_hot.png
+	lyxscale 20
+	width 4in
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:mpl_imshow_hot}
+
+\end_inset 
+
+The same image data, rendered with the hot colormap and bilinear interpolation.
+ matplotlib has 14 colormaps built-in, and you can define your own with
+ relative ease, and there are 16 interpolation methods.
+\end_inset 
+
+
+\layout Standard
+
+There is a lot more you can do with images: you can set the data extent
+ so that you can overlay contours or other plots, you can plot multiple
+ images to the same axes with different colors and transparency values,
+ you can load images with PIL or 
+\family typewriter 
+imread
+\family default 
+ and plot them in matplotlib, you can create montages of with 
+\family typewriter 
+figimage
+\family default 
+ placed around the figure window at different offsets, you can plot grayscale,
+ rgb or rgba data, and so on.
+  Consult the 
+\shape italic 
+Matplotlib User's Guide
+\shape default 
+ and the 
+\family typewriter 
+examples
+\family default 
+ subdirectory in the matplotlib source distribution for more information.
 \layout Section
 
 Customizing text and mathematical expressions

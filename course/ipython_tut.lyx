@@ -1641,6 +1641,11 @@ You can call IPython as a python shell inside your own python programs.
  in debugging and data analysis situations).
 \layout Section
 
+
+\begin_inset LatexCommand \label{sec:ipython_pylab}
+
+\end_inset 
+
 Integration with Matplotlib
 \begin_inset OptArg
 collapsed true

@@ -24,7 +24,6 @@ iso.SetInput(reader.GetOutput())
 decimate = vtk.vtkDecimate()
 decimate.SetInput(iso.GetOutput())
 
-
 # Some iso values
 #   vessles : 120
 #   cortex  : 100
