@@ -53,7 +53,7 @@ will create <tt>somefile.ps</tt> if called with <tt>-dPS</tt> and
 Alternatively, you can select the backend renderer in your script by
 calling the matplotlib <a href=matplotlib.pylab.html#-use>use</a>
 function.  At the top of your script (before you <tt>import
-matplotlib.matlab</tt>, just do, for example
+matplotlib.pylab</tt>, just do, for example
 
 <pre>
 import matplotlib

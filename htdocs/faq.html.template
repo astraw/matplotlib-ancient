@@ -347,7 +347,7 @@ There is no official documentation yet, but there are a few resources
       describes the translation from the matlab style interface to the
       pythonic, OO interface.</li>
 
-  <li> matplotlib/matlab.py in site-packages or the matplotlib src
+  <li> matplotlib.pylab.py in site-packages or the matplotlib src
       directory is a useful resource.  The pylab interface is just a
       thin wrapper around the API, so you can look and see how it is
       done there, translating all the gcf() calls to your figure
