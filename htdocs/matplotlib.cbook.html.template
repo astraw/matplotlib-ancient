@@ -261,6 +261,7 @@ v&nbsp;defaults&nbsp;to&nbsp;None.</tt></dl>
 Condensed&nbsp;by&nbsp;Alex&nbsp;Martelli&nbsp;from&nbsp;this&nbsp;thread&nbsp;on&nbsp;c.l.python<br>
 <a href="http://groups.google.com/groups?q=all+pairs+group:*python*&amp;hl=en&amp;lr=&amp;ie=UTF-8&amp;selm=mailman.4028.1096403649.5135.python-list%40python.org&amp;rnum=1">http://groups.google.com/groups?q=all+pairs+group:*python*&amp;hl=en&amp;lr=&amp;ie=UTF-8&amp;selm=mailman.4028.1096403649.5135.python-list%40python.org&amp;rnum=1</a></tt></dd></dl>
  <dl><dt><a name="-alltrue"><strong>alltrue</strong></a>(seq)</dt></dl>
+ <dl><dt><a name="-dict_delall"><strong>dict_delall</strong></a>(d, keys)</dt><dd><tt>delete&nbsp;all&nbsp;of&nbsp;the&nbsp;keys&nbsp;from&nbsp;the&nbsp;<a href="__builtin__.html#dict">dict</a>&nbsp;d</tt></dd></dl>
  <dl><dt><a name="-enumerate"><strong>enumerate</strong></a>(seq)</dt><dd><tt>#&nbsp;until&nbsp;2.3</tt></dd></dl>
  <dl><dt><a name="-exception_to_str"><strong>exception_to_str</strong></a>(s<font color="#909090">=None</font>)</dt></dl>
  <dl><dt><a name="-flatten"><strong>flatten</strong></a>(seq, scalarp<font color="#909090">=&lt;function is_scalar&gt;</font>)</dt><dd><tt>this&nbsp;generator&nbsp;flattens&nbsp;nested&nbsp;containers&nbsp;such&nbsp;as<br>
@@ -288,7 +289,17 @@ from&nbsp;Parmar&nbsp;and&nbsp;Martelli&nbsp;in&nbsp;the&nbsp;Python&nbsp;Cookbo
  <dl><dt><a name="-mkdirs"><strong>mkdirs</strong></a>(newdir, mode<font color="#909090">=511</font>)</dt></dl>
  <dl><dt><a name="-onetrue"><strong>onetrue</strong></a>(seq)</dt></dl>
  <dl><dt><a name="-pieces"><strong>pieces</strong></a>(seq, num<font color="#909090">=2</font>)</dt><dd><tt>Break&nbsp;up&nbsp;the&nbsp;seq&nbsp;into&nbsp;num&nbsp;tuples</tt></dd></dl>
+ <dl><dt><a name="-popd"><strong>popd</strong></a>(d, *args)</dt><dd><tt>Should&nbsp;behave&nbsp;like&nbsp;python2.3&nbsp;pop&nbsp;method;&nbsp;d&nbsp;is&nbsp;a&nbsp;<a href="__builtin__.html#dict">dict</a><br>
+&nbsp;<br>
+#&nbsp;returns&nbsp;value&nbsp;for&nbsp;key&nbsp;and&nbsp;deletes&nbsp;item;&nbsp;raises&nbsp;a&nbsp;KeyError&nbsp;if&nbsp;key<br>
+#&nbsp;is&nbsp;not&nbsp;in&nbsp;<a href="__builtin__.html#dict">dict</a><br>
+val&nbsp;=&nbsp;<a href="#-popd">popd</a>(d,&nbsp;key)<br>
+&nbsp;<br>
+#&nbsp;returns&nbsp;value&nbsp;for&nbsp;key&nbsp;if&nbsp;key&nbsp;exists,&nbsp;else&nbsp;default.&nbsp;&nbsp;Delete&nbsp;key,<br>
+#&nbsp;val&nbsp;item&nbsp;if&nbsp;it&nbsp;exists.&nbsp;&nbsp;Will&nbsp;not&nbsp;raise&nbsp;a&nbsp;KeyError<br>
+val&nbsp;=&nbsp;<a href="#-popd">popd</a>(d,&nbsp;key,&nbsp;default)</tt></dd></dl>
  <dl><dt><a name="-soundex"><strong>soundex</strong></a>(name, len<font color="#909090">=4</font>)</dt><dd><tt>soundex&nbsp;module&nbsp;conforming&nbsp;to&nbsp;Odell-Russell&nbsp;algorithm</tt></dd></dl>
+ <dl><dt><a name="-strip_math"><strong>strip_math</strong></a>(s)</dt><dd><tt>remove&nbsp;latex&nbsp;formatting&nbsp;from&nbsp;mathtext</tt></dd></dl>
  <dl><dt><a name="-unique"><strong>unique</strong></a>(x)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;unique&nbsp;elements&nbsp;of&nbsp;x</tt></dd></dl>
  <dl><dt><a name="-wrap"><strong>wrap</strong></a>(prefix, text, cols)</dt></dl>
 </td></tr></table><p>

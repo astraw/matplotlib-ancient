@@ -5,6 +5,124 @@
 versioninfo = {}
 
 
+versioninfo['0.65'] = (
+  ('matlab(TM) now pylab', """\
+matlab namespace renamed pylab - see <a
+href=matplotlib_to_pylab.py>matplotlib_to_pylab.py</a> for details on
+conversion.  <a href=http://ipython.scipy.org>ipython</a> pylab users
+should grab version 0.6.6.  You can import the matlab interface (now
+known as pylab interface) with
+
+<pre>
+   from pylab import blah              # OK
+   from matplotlib.pylab import blah   # OK
+   from matplotlib.matlab import blah  # Deprecated
+</pre>"""),
+
+  ('contour', """\
+contouring with the <a href=matplotlib.pylab.html#-contour>contour</a>
+function!!  Thanks to Nadia Dencheva.  See <a
+href=examples/contour_demo.py>contour_demo.py</a>.  And there was much
+rejoicing!
+  """),
+
+  ('enhanced set and get introspection', """\
+matlab compatible <a href=matplotlib.pylab.html#-set>set</a> and <a
+href=matplotlib.pylab.html#-get>get</a> introspection to determine
+settable properties and their values.  See <a
+href=examples/set_and_get.py>set_and_get.py</a>.  Sample usage
+
+<pre>
+   >>> lines = plot([1,2,3])  
+   >>> set(lines)
+       alpha: float
+       antialiased or aa: [True | False]
+       ...snip lots more...
+   >>> get(lines)
+       alpha = 1.0
+       antialiased or aa = True
+       ...snip lots more...
+</pre>  
+  """),
+
+  ('colormaps out the wazoo', """\
+Added many new matlab compatible colormaps - autumn bone cool
+copper flag gray hot hsv jet pink prism spring summer winter -
+Thanks Perry!  
+  """),
+
+  ('zordering', """\
+zorder to artists to control drawing order of lines, patches and text
+in axes.  See <a href=examples/zorder_demo.py>zorder_demo.py</a>.
+  """),
+
+  ('more cairo features', """\
+mathtext in cairo backend.  Also, printing now works to file
+object.  Thanks Steve Chaplin.
+  """),
+
+  ('printing in wx', """\
+Thanks Matthew Newville, who graciously volunteered to be the new wx
+backend maintainer.
+  """),
+
+  ('connect and disconnect', """\
+matlab interface functions <a href=matplotlib.pylab.html#-connect>connect</a> and <a href=matplotlib.pylab.html#-disconnect>disconnect</a> replace
+mpl_connect and disconnect for event handling.
+  """),
+
+
+  ('over plotting', """\
+over command for quick <a href=matplotlib.pylab.html#-over>over</a>
+plots when you're too lazy to worry about managing the <tt>hold</tt>
+state.  This will form the basis of the <tt>hold=True</tt> flag in later
+releases.
+  """),
+
+  ('text bounding boxes', """\
+All text instances now have a <tt>bbox</tt> property which is a dict of
+Rectangle properties.  If set, the text instance will display in a
+rectanglular bounding box.  Example usage
+<pre>
+    title('hi mom', bbox={'facecolor':'r', 'alpha':0.5})
+</pre>
+  
+  """),
+
+  ('legend properties exposed as keyword arguments', """
+See <a href=matplotlib.pylab.html#-legend>legend</a>.
+  """),
+
+  ('ishold', """\
+<a href=matplotlib.pylab.html#-ishold>ishold</a> to inspect the hold state.
+  """),
+
+  ('Sparsity pattern visualtization', """\
+New plotting functions <a href=matplotlib.pylab.html#-spy>spy</a>, <a href=matplotlib.pylab.html#-spy2>spy2</a> for matrix sparsity visualization.
+  """),
+
+('customizing polar plots', """\
+pylab interface functions <a
+href=matplotlib.pylab.html#-rgrids>rgrids</a> and <a
+href=matplotlib.pylab.html#-thetragrids>thetragrids</a> for
+customizing the grid locations and labels for polar plots - see
+<a href=examples/polar_demo.py>polar_demo.py</a>."""),
+
+('bug fixes', """\
+<ul>
+  <li>Fixed colorbar bug with scatter</li>
+  <li>SVG clipping problem - Thanks Norm Peterson</li>
+  <li>tk now supports multiple events and disconnects</li>
+  <li>numerous small legend bugs fixed</li>
+  <li>zoom to rect works with reversed axis limits - thanks Gregory</li>
+  <li>fontsizing problem fixes, ps plots correctly sized, landscape
+      support for ps output</li>
+  <li>smaller, leaner, meaner PS output - Thanks Jochen</li>
+  <li>make the Gtk backends build without an X-server connection -
+      Thanks Jochen</li>
+</ul>"""),
+)
+
 versioninfo['0.64'] = (
   ('polar plots', """\
 
@@ -48,11 +166,11 @@ xticks and yticks now take kwargs so you can do, for example
 
   ('PIL support', """\
 
-<a href=matplotlib.matlab.html#-imshow>imshow</a> now supports PIL
+<a href=matplotlib.pylab.html#-imshow>imshow</a> now supports PIL
 images - see <a href=examples/image_demo3.py>image_demo3.py</a>.
 Thanks Andrew Straw."""),
 
-  ('barh', '<a href=matplotlib.matlab.html#-barh>barh</a> for horizontal bar charts; see <a href=examples/barh_demo.py>barh_demo.py</a>'),
+  ('barh', '<a href=matplotlib.pylab.html#-barh>barh</a> for horizontal bar charts; see <a href=examples/barh_demo.py>barh_demo.py</a>'),
 
   ('Verbose', """\
 
@@ -109,10 +227,10 @@ at the time you compile matplotlib.  The win32 build is for numarray
 1.1."""),
 
         ('xlim, ylim, xticks and yticks',"""\
-New functions <a href=matplotlib.matlab.html#-xlim>xlim</a>, <a
-href=matplotlib.matlab.html#-ylim>ylim</a>, <a
-href=matplotlib.matlab.html#-xticks>xticks</a> and <a
-href=matplotlib.matlab.html#-yticks>yticks</a> to make setting axis
+New functions <a href=matplotlib.pylab.html#-xlim>xlim</a>, <a
+href=matplotlib.pylab.html#-ylim>ylim</a>, <a
+href=matplotlib.pylab.html#-xticks>xticks</a> and <a
+href=matplotlib.pylab.html#-yticks>yticks</a> to make setting axis
 limits, tick locations and labels more natural and elegant."""),
 
        ('print to file obj in agg', """\
@@ -130,10 +248,10 @@ href=examples/coords_report.py>coords_report.py</a> and <a
 href=date_demo1.py>date_demo1.py</a>."""),
 
         ('axhline, axvline, axhspan and axvspan', """\
-Added <a href=matplotlib.matlab.html#-axhline>axhline</a>, <a
-href=matplotlib.matlab.html#-axvline>axvline</a>, <a
-href=matplotlib.matlab.html#-axhspan>axhspan</a> and <a
-href=matplotlib.matlab.html#-axvspan>axvspan</a> for plotting lines
+Added <a href=matplotlib.pylab.html#-axhline>axhline</a>, <a
+href=matplotlib.pylab.html#-axvline>axvline</a>, <a
+href=matplotlib.pylab.html#-axhspan>axhspan</a> and <a
+href=matplotlib.pylab.html#-axvspan>axvspan</a> for plotting lines
 and rectangles (spans) in mixed data/axes coords.  This is useful if
 for example, you want to provide a threshold line or range where the x
 range spans the axes (0-1 in axes coords) and the y range is given in
@@ -157,7 +275,7 @@ ticking and formatting.  You can now do log plots in any base with
 major and minor tick support.  You can easily customize the location
 of the minor ticks with the subs arguments.  See the new
 <a href=screenshots.html#log_shot>screenshot and example</a> and help for
-the log funcs, eg <a href=matplotlib.matlab.html#-loglog>loglog</a>.
+the log funcs, eg <a href=matplotlib.pylab.html#-loglog>loglog</a>.
 Mathtext exponential labeling for log plots.  Thanks Darren Dale and
 Gregory Lielens.
 
@@ -204,7 +322,7 @@ Also, PS now embeds TrueType fonts so the same fonts you use in the
 *Agg GUIs should be displayed in PS output. Thanks Paul Barrett!"""),
 
     ('imread', """\
-The <a href=matplotlib.matlab.html#-imread>imread</a> function is used
+The <a href=matplotlib.pylab.html#-imread>imread</a> function is used
 to load PNGs into arrays.  I'd like to add more image loaders and
 savers down the road."""),
 
@@ -295,7 +413,7 @@ versioninfo['0.60'] = (
 
     ('figure images', """\
 pixel-by-pixel, not resampled, images with the <a
-href=matplotlib.matlab.html#-figimage>figimage</a> command.  Multiple
+href=matplotlib.pylab.html#-figimage>figimage</a> command.  Multiple
 figure images (ie mosaics) with alpha blending are supported.  See <a
 href=examples/figimage_demo.py>figimage_demo.py</a>
 """),
@@ -321,12 +439,12 @@ href=examples/image_origin.py>image_origin.py</a>
     ('support for py2exe', 'see <a href=py2exe_examples.zip>py2exe_examples.zip</a>'),
 
     ('new matplotlib.matlab command rc', """\
-Use <a href=matplotlib.matlab.html#-rc>rc</a> for dynamic control of rc
-parameters.  See matplotlib.matlab.html#-rc
+Use <a href=matplotlib.pylab.html#-rc>rc</a> for dynamic control of rc
+parameters.  See matplotlib.pylab.html#-rc
 and example <a href=examples/customize_rc.py>customize_rc.py</a>"""),
 
     ('draw command', """\
-new <a href=matplotlib.matlab.html#-draw>draw</a> command to redraw
+new <a href=matplotlib.pylab.html#-draw>draw</a> command to redraw
 the figure - use this in place of multiple calls to show.  This is
 equivalent to doing get_current_fig_manager().canvas.draw(), but takes
 less typing :-)
@@ -366,7 +484,7 @@ rather than a list of patches, but the API is largely compatible.  See
 is retained for full backward compatibility.  """),
 
     ('New scatter plots', """ The <a
-href=matplotlib.matlab.html#-scatter>scatter</a> command is rewritten, and
+href=matplotlib.pylab.html#-scatter>scatter</a> command is rewritten, and
 is implemented in the backend with a new polygon collection class.
 For large scatter plots, the performance is 5 times faster across all
 backends and 10 times faster for the *Agg backends.  Also, scatter
@@ -397,7 +515,7 @@ The text clipping problems have been fixed.  Added spacing commands
 nested subscripts if you do x_i_{j} (you need the curlys)"""),
 
     ('Many new plot symbols and markers', """Thanks Gary Ruben.  See
-<a href=matplotlib.matlab.html#-plot>plot</a>.
+<a href=matplotlib.pylab.html#-plot>plot</a>.
 """),
 
     ('Font cacheing', """Paul Barrett added caching support to the
@@ -418,7 +536,7 @@ Works with all text instances except mathtext."""),
 matlab compatible hold command determines whether subsequent plot
 commands overlay current plot or clear the axes by default.  Default
 setting is set in matplotlibrc and toggled by the <a
-href=matplotlib.matlab.html#-hold>hold</a> command.
+href=matplotlib.pylab.html#-hold>hold</a> command.
 """),
 
     ('New rc file options', """\
@@ -455,7 +573,7 @@ to work with text at an arbitrary angle, eg, 45 degrees.  See <a href=examples/a
 """),
 
     ('Added stem plotting command', """
-See <a href=matplotlib.matlab.html#-stem>stem</a> and <a href=examples/stem_plot.py>stem_plot.py</a>"""),
+See <a href=matplotlib.pylab.html#-stem>stem</a> and <a href=examples/stem_plot.py>stem_plot.py</a>"""),
 
     ('Bug fix roundup', """ See <a href=CHANGELOG>CHANGELOG</a> for
 details.  Executive summary: fixed ps centering, errorbar autoscaling,
@@ -504,7 +622,7 @@ locations.
      ),
 
     ('Date plot', """
-A new command <a href=matplotlib.matlab.html#-plot_date>plot_date</a>
+A new command <a href=matplotlib.pylab.html#-plot_date>plot_date</a>
 command for plotting date dependent data; see <a
 href=screenshots.html#date_demo>date demo</a>.  Converters supplied in
 the <a href=matplotlib.dates.html>dates</a> module allow you to work
@@ -534,8 +652,8 @@ environment variable if necessary.
 
     ('load and save commands', """
 Helper functions for loading and saving ASCII arrays.  See <a
-href=matplotlib.matlab.html#-load>load</a> and <a
-href=matplotlib.matlab.html#-save>save</a>.
+href=matplotlib.pylab.html#-load>load</a> and <a
+href=matplotlib.pylab.html#-save>save</a>.
 """),
 
     ('Two scales on the same axes',
@@ -571,7 +689,7 @@ Basic image support.  Images can be specified by Numeric float arrays
      imshow(X, cmap)  # plot X using colormap; see examples/pcolor_demo2.py
 </pre>
 
-see <a href=matplotlib.matlab.html#-imshow>imshow</a> and the
+see <a href=matplotlib.pylab.html#-imshow>imshow</a> and the
 image_demo*.py examples in the matplotlib src distribution.  Set
 BUILD_IMAGE in setup.py for image support.  Currently available on
 Agg, GTKAgg, TkAgg and GTK backends.  win32 GTK users should use
@@ -583,17 +701,17 @@ faster than pcolor's.
 
     ('Figure legends', """
 In addition to adding legends to the axes with the legend command, you
-can place legends anywhere in the figure with <a href=matplotlib.matlab.html#-figlegend>figlegend</a>
+can place legends anywhere in the figure with <a href=matplotlib.pylab.html#-figlegend>figlegend</a>
 """),
 
     ('fill command', """
-Andrew Straw wrote a <a href=matplotlib.matlab.html#-fill>fill</a>
+Andrew Straw wrote a <a href=matplotlib.pylab.html#-fill>fill</a>
 command to plot filled polygons.  See <a
 href=examples/fill_demo.py>fill_demo.py</a>
 """),
 
     ('specgram command', """ Make 2D spectrograms with <a
-href=matplotlib.matlab.html#-specgram>specgram</a>.  Requires image
+href=matplotlib.pylab.html#-specgram>specgram</a>.  Requires image
 support; see <a href=examples/specgram_demo.py>specgram_demo.py</a>
 """),
 
@@ -724,11 +842,11 @@ of alpha at work."""),
 
         ('Table class added', """John Gill has developed a very nice <a
 href=matplotlib.table.html>Table</a> class and <a
-href=matplotlib.matlab.html#-table>table</a> function that plays well
+href=matplotlib.pylab.html#-table>table</a> function that plays well
 with bar charts and stacked bar charts.  See example code and
 screenshot <a href=screenshots.html#table_demo>table_demo</a>."""),
 
-	('new plot commands <a href=matplotlib.matlab.html#-cla>cla</a> and <a href=matplotlib.matlab.html#-clf>clf</a>', """Clear the current axes or figure.  Useful in interactive plotting from a python shell""" ),
+	('new plot commands <a href=matplotlib.pylab.html#-cla>cla</a> and <a href=matplotlib.pylab.html#-clf>clf</a>', """Clear the current axes or figure.  Useful in interactive plotting from a python shell""" ),
 
 	('Added x linesyle', """Matt MacMahon submitted a patch for an
 'x' linestyle.  Thanks Matt! """ ),
@@ -754,7 +872,7 @@ you need performance and antialiasing, use the agg backend."""),
 
 	('wild and wonderful bar charts', """\
 You can provide an optional argument bottom to the <a
-href=matplotlib.matlab.html#-bar>bar</a> command to determine where
+href=matplotlib.pylab.html#-bar>bar</a> command to determine where
 the bottom of each bar is, default 0 for all.  This enables stacked
 bar plots and candelstick plots -- <a
 href=examples/bar_stacked.py>examples/bar_stacked.py</a>.  Thanks to
@@ -886,10 +1004,10 @@ report on what's working and what the outstanding issues are."""),
 	('New plotting functions',
 """
 Several new plotting functions are added.  <a
-href=matplotlib.matlab.html#-psd>psd</a> plots the power spectral
-density of a time series, <a href=matplotlib.matlab.html#-csd>csd</a>
+href=matplotlib.pylab.html#-psd>psd</a> plots the power spectral
+density of a time series, <a href=matplotlib.pylab.html#-csd>csd</a>
 plots the cross spectral density of two time series, and <a
-href=matplotlib.matlab.html#-cohere>cohere</a> plots the coherence.
+href=matplotlib.pylab.html#-cohere>cohere</a> plots the coherence.
 See the examples <a href=examples/psd_demo.py>psd_demo.py</a> and <a
 href=examples/csd_demo.py>csd_demo.py</a>
 """),	
@@ -922,7 +1040,7 @@ arbitrary units, relative axes units, or physical size.  Application
 programmers who want to create lines, patches and text directly using
 the API should read the <a href=matplotlib.transforms.html>transform
 module</a> docs for more info.  See <a
-href=matplotlib.matlab.html#-text>text</a> for an example of how to
+href=matplotlib.pylab.html#-text>text</a> for an example of how to
 specify text locations in axes coords (0,0 is lower left and 1,1 is
 upper right).
 """),
@@ -946,7 +1064,7 @@ mailing list.
 """),	
 	('Pseudo color plots',
 """
-The <a href=matplotlib.matlab.html#-pcolor>pcolor</a> command
+The <a href=matplotlib.pylab.html#-pcolor>pcolor</a> command
 generates pseudo color plots.  See <a
 href=screenshots.html#pcolor_demo>pcolor_demo</a> and <a
 href=screenshots.html#mri_with_eeg>mri_with_eeg</a> for screenshots
@@ -966,9 +1084,9 @@ versioninfo['0.29.2'] = (
 """
 Andrew Straw chipped in provided some code to support log scaling.
 Many thanks.  matplotlib now has three new commands <a
-    href=matplotlib.matlab.html#-semilogx>semilogx</a>, <a
-    href=matplotlib.matlab.html#-semilogy>semilogy</a>, and <a
-    href=matplotlib.matlab.html#-loglog>loglog</a>, and a new demo
+    href=matplotlib.pylab.html#-semilogx>semilogx</a>, <a
+    href=matplotlib.pylab.html#-semilogy>semilogy</a>, and <a
+    href=matplotlib.pylab.html#-loglog>loglog</a>, and a new demo
    <a href=examples/log_demo.py>log_demo.py</a>
 """),
     )
@@ -1086,7 +1204,7 @@ See the <a href=tutorial.html#text>text tutorial</a>.
 ('Multiple figures',
 """
 Multiple figures supported with the <a
-href=matplotlib.matlab.html#-figure>figure</a> command.  See the <a
+href=matplotlib.pylab.html#-figure>figure</a> command.  See the <a
 href=tutorial.html#figs_and_axes>Working with multiple figures and
 axes</a>.
 """),
@@ -1103,7 +1221,7 @@ interactively</a>.
 bug fix that caused saved figures to be corrupted by anything blocking
 the figure window.  A GUI widget has been added to the figure toolbar
 to save figures and a new command <a
-href=matplotlib.matlab.html#-savefig>savefig</a> has been added.  """),
+href=matplotlib.pylab.html#-savefig>savefig</a> has been added.  """),
 
 ('Navigation',
 """
@@ -1123,15 +1241,15 @@ in the src distribution.
 """
 A <a href=matplotlib.patches.html#Patch>Patch</a> class added for drawing patches
 (rectangles, polygons, circles).  This supports three new plotting
-commands <a href=matplotlib.matlab.html#-scatter>scatter</a>, <a
-href=matplotlib.matlab.html#-hist>hist</a> and <a href=matplotlib.matlab.html#-bar>bar</a>,
+commands <a href=matplotlib.pylab.html#-scatter>scatter</a>, <a
+href=matplotlib.pylab.html#-hist>hist</a> and <a href=matplotlib.pylab.html#-bar>bar</a>,
 with more to come.
 """),
 
 ('New commands',
 """
-New plotting commands <a href=matplotlib.matlab.html#-bar>bar</a>, <a href=matplotlib.matlab.html#-close>close</a>, <a href=matplotlib.matlab.html#-errorbar>errorbar</a>, <a href=matplotlib.matlab.html#-figure>figure</a>, <a href=matplotlib.matlab.html#-hist>hist</a>, <a href=matplotlib.matlab.html#-text>text</a>,
-  <a href=matplotlib.matlab.html#-scatter>scatter</a>, <a href=matplotlib.matlab.html#-savefig>savefig</a>, <a href=matplotlib.matlab.html#-ylabel>ylabel</a>.
+New plotting commands <a href=matplotlib.pylab.html#-bar>bar</a>, <a href=matplotlib.pylab.html#-close>close</a>, <a href=matplotlib.pylab.html#-errorbar>errorbar</a>, <a href=matplotlib.pylab.html#-figure>figure</a>, <a href=matplotlib.pylab.html#-hist>hist</a>, <a href=matplotlib.pylab.html#-text>text</a>,
+  <a href=matplotlib.pylab.html#-scatter>scatter</a>, <a href=matplotlib.pylab.html#-savefig>savefig</a>, <a href=matplotlib.pylab.html#-ylabel>ylabel</a>.
 """),
 
 ('Matplotlib on sourceforge',

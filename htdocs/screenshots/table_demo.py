@@ -1,6 +1,6 @@
 import matplotlib
 
-from matplotlib.matlab import *
+from pylab import *
 from colours import get_colours
 
 axes([0.2, 0.3, 0.7, 0.6])   # leave room below the axes for the table

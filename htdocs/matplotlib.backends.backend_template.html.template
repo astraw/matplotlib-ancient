@@ -27,7 +27,7 @@ off.&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;your&nbsp;backend&nbsp;with<br>
 &nbsp;<br>
 &nbsp;&nbsp;import&nbsp;matplotlib<br>
 &nbsp;&nbsp;matplotlib.use('xxx')<br>
-&nbsp;&nbsp;from&nbsp;matplotlib.matlab&nbsp;import&nbsp;*<br>
+&nbsp;&nbsp;from&nbsp;pylab&nbsp;import&nbsp;*<br>
 &nbsp;&nbsp;plot([1,2,3])<br>
 &nbsp;&nbsp;<a href="#-show">show</a>()<br>
 &nbsp;<br>
@@ -37,7 +37,7 @@ The&nbsp;files&nbsp;that&nbsp;are&nbsp;most&nbsp;relevant&nbsp;to&nbsp;backend_w
 &nbsp;&nbsp;matplotlib/backend_bases.py<br>
 &nbsp;&nbsp;matplotlib/backends/__init__.py<br>
 &nbsp;&nbsp;matplotlib/__init__.py<br>
-&nbsp;&nbsp;matplotlib/_matlab_helpers.py<br>
+&nbsp;&nbsp;matplotlib/_pylab_helpers.py<br>
 &nbsp;&nbsp;<br>
 Naming&nbsp;Conventions<br>
 &nbsp;<br>
@@ -167,7 +167,7 @@ Data and other attributes inherited from <a href="matplotlib.backend_bases.html#
 <font color="#000000" face="helvetica, arial"><strong>FigureManager</strong> = <a name="FigureManager">class FigureManagerTemplate</a>(<a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Wrap&nbsp;everything&nbsp;up&nbsp;into&nbsp;a&nbsp;window&nbsp;for&nbsp;the&nbsp;matlab&nbsp;interface<br>
+<td colspan=2><tt>Wrap&nbsp;everything&nbsp;up&nbsp;into&nbsp;a&nbsp;window&nbsp;for&nbsp;the&nbsp;pylab&nbsp;interface<br>
 &nbsp;<br>
 For&nbsp;non&nbsp;interactive&nbsp;backends,&nbsp;the&nbsp;base&nbsp;class&nbsp;does&nbsp;all&nbsp;the&nbsp;work<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
@@ -193,7 +193,7 @@ For&nbsp;non&nbsp;interactive&nbsp;backends,&nbsp;the&nbsp;base&nbsp;class&nbsp;
 <font color="#000000" face="helvetica, arial"><a name="FigureManagerTemplate">class <strong>FigureManagerTemplate</strong></a>(<a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Wrap&nbsp;everything&nbsp;up&nbsp;into&nbsp;a&nbsp;window&nbsp;for&nbsp;the&nbsp;matlab&nbsp;interface<br>
+<td colspan=2><tt>Wrap&nbsp;everything&nbsp;up&nbsp;into&nbsp;a&nbsp;window&nbsp;for&nbsp;the&nbsp;pylab&nbsp;interface<br>
 &nbsp;<br>
 For&nbsp;non&nbsp;interactive&nbsp;backends,&nbsp;the&nbsp;base&nbsp;class&nbsp;does&nbsp;all&nbsp;the&nbsp;work<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
@@ -308,11 +308,10 @@ avoid&nbsp;the&nbsp;performace&nbsp;hit&nbsp;of&nbsp;the&nbsp;conversion</tt></d
 context&nbsp;instance&nbsp;that&nbsp;controls&nbsp;the&nbsp;colors/styles<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="RendererTemplate-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, rgbFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
-from&nbsp;0.0&nbsp;to&nbsp;360.0.<br>
+<dl><dt><a name="RendererTemplate-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, rgbFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;using&nbsp;GraphicsContext&nbsp;instance&nbsp;gcEdge,&nbsp;centered&nbsp;at&nbsp;x,y,<br>
+with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles&nbsp;from&nbsp;0.0&nbsp;to&nbsp;360.0<br>
 &nbsp;<br>
-If&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;src&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
-is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
+If&nbsp;the&nbsp;color&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;arc&nbsp;with&nbsp;it.</tt></dd></dl>
 
 <dl><dt><a name="RendererTemplate-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin, bbox)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes;&nbsp;x&nbsp;is&nbsp;the<br>
 distance&nbsp;in&nbsp;pixels&nbsp;from&nbsp;the&nbsp;left&nbsp;hand&nbsp;side&nbsp;of&nbsp;the&nbsp;canvas.&nbsp;y&nbsp;is<br>
@@ -443,8 +442,9 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-Bbox"><strong>Bbox</strong></a>(...)</dt><dd><tt><a href="#-Bbox">Bbox</a>(ll,&nbsp;ur)</tt></dd></dl>
- <dl><dt><a name="-draw_if_interactive"><strong>draw_if_interactive</strong></a>()</dt><dd><tt>This&nbsp;should&nbsp;be&nbsp;overriden&nbsp;in&nbsp;a&nbsp;windowing&nbsp;environment&nbsp;if&nbsp;drawing<br>
-should&nbsp;be&nbsp;done&nbsp;in&nbsp;interactive&nbsp;python&nbsp;mode</tt></dd></dl>
+ <dl><dt><a name="-draw_if_interactive"><strong>draw_if_interactive</strong></a>()</dt><dd><tt>For&nbsp;image&nbsp;backends&nbsp;-&nbsp;is&nbsp;not&nbsp;required<br>
+For&nbsp;GUI&nbsp;backends&nbsp;-&nbsp;this&nbsp;should&nbsp;be&nbsp;overriden&nbsp;if&nbsp;drawing&nbsp;should&nbsp;be&nbsp;done&nbsp;in<br>
+interactive&nbsp;python&nbsp;mode</tt></dd></dl>
  <dl><dt><a name="-error_msg"><strong>error_msg</strong></a> = error_msg_template(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition.<br>
 -&nbsp;in&nbsp;a&nbsp;GUI&nbsp;backend,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog.<br>
 -&nbsp;in&nbsp;a&nbsp;non-GUI&nbsp;backend&nbsp;delete&nbsp;this&nbsp;function&nbsp;and&nbsp;use<br>
@@ -454,10 +454,11 @@ should&nbsp;be&nbsp;done&nbsp;in&nbsp;interactive&nbsp;python&nbsp;mode</tt></dd
 -&nbsp;in&nbsp;a&nbsp;non-GUI&nbsp;backend&nbsp;delete&nbsp;this&nbsp;function&nbsp;and&nbsp;use<br>
 'from&nbsp;matplotlib.backend_bases&nbsp;import&nbsp;error_msg'</tt></dd></dl>
  <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args, **kwargs)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
- <dl><dt><a name="-show"><strong>show</strong></a>()</dt><dd><tt>This&nbsp;is&nbsp;usually&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;a&nbsp;matlab&nbsp;script&nbsp;and&nbsp;tells&nbsp;the<br>
-backend&nbsp;that&nbsp;it&nbsp;is&nbsp;time&nbsp;to&nbsp;draw.&nbsp;&nbsp;In&nbsp;interactive&nbsp;mode,&nbsp;this&nbsp;may&nbsp;be<br>
-a&nbsp;do&nbsp;nothing&nbsp;func.&nbsp;&nbsp;See&nbsp;the&nbsp;GTK&nbsp;backend&nbsp;for&nbsp;an&nbsp;example&nbsp;of&nbsp;how&nbsp;to<br>
-handle&nbsp;interactive&nbsp;versus&nbsp;batch&nbsp;mode</tt></dd></dl>
+ <dl><dt><a name="-show"><strong>show</strong></a>()</dt><dd><tt>For&nbsp;image&nbsp;backends&nbsp;-&nbsp;is&nbsp;not&nbsp;required<br>
+For&nbsp;GUI&nbsp;backends&nbsp;-&nbsp;<a href="#-show">show</a>()&nbsp;is&nbsp;usually&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;a&nbsp;pylab&nbsp;script&nbsp;and<br>
+tells&nbsp;the&nbsp;backend&nbsp;that&nbsp;it&nbsp;is&nbsp;time&nbsp;to&nbsp;draw.&nbsp;&nbsp;In&nbsp;interactive&nbsp;mode,&nbsp;this&nbsp;may<br>
+be&nbsp;a&nbsp;do&nbsp;nothing&nbsp;func.&nbsp;&nbsp;See&nbsp;the&nbsp;GTK&nbsp;backend&nbsp;for&nbsp;an&nbsp;example&nbsp;of&nbsp;how&nbsp;to&nbsp;handle<br>
+interactive&nbsp;versus&nbsp;batch&nbsp;mode</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">

@@ -77,7 +77,20 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;text,&nbsp;line&nbsp
 up&nbsp;the&nbsp;legend<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Legend-__init__"><strong>__init__</strong></a>(self, parent, handles, labels, loc, isaxes<font color="#909090">=True</font>)</dt></dl>
+<dl><dt><a name="Legend-__init__"><strong>__init__</strong></a>(self, parent, handles, labels, loc, isaxes<font color="#909090">=True</font>, numpoints<font color="#909090">=4</font>, prop<font color="#909090">=&lt;matplotlib.font_manager.FontProperties instance&gt;</font>, pad<font color="#909090">=0.20000000000000001</font>, labelsep<font color="#909090">=0.0050000000000000001</font>, handlelen<font color="#909090">=0.050000000000000003</font>, handletextsep<font color="#909090">=0.02</font>, axespad<font color="#909090">=0.02</font>)</dt><dd><tt>&nbsp;&nbsp;parent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;artist&nbsp;that&nbsp;contains&nbsp;the&nbsp;legend<br>
+&nbsp;&nbsp;handles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;list&nbsp;of&nbsp;artists&nbsp;(lines,&nbsp;patches)&nbsp;to&nbsp;add&nbsp;to&nbsp;the&nbsp;legend<br>
+&nbsp;&nbsp;labels&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;to&nbsp;label&nbsp;the&nbsp;legend&nbsp;<br>
+&nbsp;&nbsp;loc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;location&nbsp;code<br>
+&nbsp;&nbsp;isaxes=True&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;whether&nbsp;this&nbsp;is&nbsp;an&nbsp;axes&nbsp;legend<br>
+&nbsp;&nbsp;numpoints&nbsp;=&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;number&nbsp;of&nbsp;points&nbsp;in&nbsp;the&nbsp;legend&nbsp;line<br>
+&nbsp;&nbsp;fontprop&nbsp;=&nbsp;FontProperties('smaller')&nbsp;&nbsp;#&nbsp;the&nbsp;font&nbsp;property<br>
+&nbsp;&nbsp;pad&nbsp;=&nbsp;0.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;fractional&nbsp;whitespace&nbsp;inside&nbsp;the&nbsp;legend&nbsp;border<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;dimensions&nbsp;are&nbsp;in&nbsp;axes&nbsp;coords<br>
+&nbsp;&nbsp;labelsep&nbsp;=&nbsp;0.005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;vertical&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;entries<br>
+&nbsp;&nbsp;handlelen&nbsp;=&nbsp;0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;legend&nbsp;lines<br>
+&nbsp;&nbsp;handletextsep&nbsp;=&nbsp;0.02&nbsp;#&nbsp;the&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;line&nbsp;and&nbsp;legend&nbsp;text<br>
+&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge</tt></dd></dl>
 
 <dl><dt><a name="Legend-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
@@ -95,57 +108,73 @@ up&nbsp;the&nbsp;legend<br>&nbsp;</tt></td></tr>
 
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>AXESPAD</strong> = 0.02</dl>
-
-<dl><dt><strong>FONTSIZE</strong> = 10</dl>
-
-<dl><dt><strong>HANDLELEN</strong> = 0.050000000000000003</dl>
-
-<dl><dt><strong>HANDLETEXTSEP</strong> = 0.02</dl>
-
-<dl><dt><strong>LABELSEP</strong> = 0.0050000000000000001</dl>
-
-<dl><dt><strong>NUMPOINTS</strong> = 4</dl>
-
-<dl><dt><strong>PAD</strong> = 0.20000000000000001</dl>
-
 <dl><dt><strong>codes</strong> = {'best': 0, 'center': 10, 'center left': 6, 'center right': 7, 'lower center': 8, 'lower left': 3, 'lower right': 4, 'right': 5, 'upper center': 9, 'upper left': 2, ...}</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="Legend-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
+<dl><dt><a name="Legend-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on&nbsp;all<br>
+backends</tt></dd></dl>
 
 <dl><dt><a name="Legend-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Legend-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Legend-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="Legend-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="Legend-get_zorder"><strong>get_zorder</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Legend-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Legend-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
 
 <dl><dt><a name="Legend-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
+all&nbsp;backends<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
 
-<dl><dt><a name="Legend-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+<dl><dt><a name="Legend-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.transform.Bbox&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Legend-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+<dl><dt><a name="Legend-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 
-<dl><dt><a name="Legend-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+<dl><dt><a name="Legend-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.figure.Figure&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Legend-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;line&nbsp;label&nbsp;to&nbsp;s&nbsp;for&nbsp;auto&nbsp;legend<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;string</tt></dd></dl>
 
 <dl><dt><a name="Legend-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+their&nbsp;contents&nbsp;accordingly<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 
-<dl><dt><a name="Legend-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+<dl><dt><a name="Legend-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.transform&nbsp;transformation&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Legend-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="Legend-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
+
+<dl><dt><a name="Legend-set_zorder"><strong>set_zorder</strong></a>(self, level)</dt><dd><tt>Set&nbsp;the&nbsp;zorder&nbsp;for&nbsp;the&nbsp;artist<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="Legend-update"><strong>update</strong></a>(self, props)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+<dl><dt><strong>zorder</strong> = 0</dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

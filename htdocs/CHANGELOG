@@ -1,6 +1,99 @@
 New entries should be added at the top
 
+2004-12-10 Added zorder to artists to control drawing order of lines,
+           patches and text in axes.  See examples/zoder_demo.py - JDH
 
+2004-12-10 Fixed colorbar bug with scatter - JDH
+
+2004-12-10 Added Nadia Dencheva <dencheva@stsci.edu> contour code - JDH
+
+2004-12-10 backend_cairo.py: got mathtext working - SC
+
+2004-12-09 Added Norm Peterson's svg clipping patch
+
+2004-12-09 Added Matthew Newville's wx printing patch
+
+2004-12-09 Migrated matlab to pylab - JDH
+
+2004-12-09 backend_gtk.py: split into two parts 
+           - backend_gdk.py - an image backend
+           - backend_gtk.py - A GUI backend that uses GDK - SC
+
+2004-12-08 backend_gtk.py: remove quit_after_print_xvfb(*args), show_xvfb(), 
+	   Dialog_MeasureTool(gtk.Dialog) one month after sending mail to
+           matplotlib-users asking if anyone still uses these functions - SC
+
+2004-12-02 backend_bases.py, backend_template.py: updated some of the method
+           documentation to make them consistent with each other - SC
+
+2004-12-04 Fixed multiple bindings per event for TkAgg mpl_connect and
+	mpl_disconnect.  Added a "test_disconnect" command line 
+	parameter to coords_demo.py  JTM
+
+2004-12-04 Fixed some legend bugs JDH
+
+2004-11-30 Added over command for oneoff over plots.  Eg over(plot, x,
+           y, lw=2).  Works with any plot function.
+ 
+2004-11-30 Added bbox property to text - JDH
+
+2004-11-29 Zoom to rect now respect reversed axes limits (for both 
+           linear and log axes). - GL
+           
+2004-11-29 Added the over command to the matlab interface.  over
+           allows you to add an overlay plot regardless of hold
+	   state. - JDH
+
+2004-11-25 Added Printf to mplutils for printf style format string
+           formatting in C++ (should help write better exceptions)
+
+2004-11-24 IMAGE_FORMAT: remove from agg and gtkagg backends as its no longer
+           used - SC
+
+2004-11-23 Added matplotlib compatible set and get introspection.  See
+           set_and_get.py
+
+2004-11-23 applied Norbert's patched and exposed legend configuration
+           to kwargs - JDH
+
+2004-11-23 backend_gtk.py: added a default exception handler - SC
+
+2004-11-18 backend_gtk.py: change so that the backend knows about all image
+           formats and does not need to use IMAGE_FORMAT in other backends - SC
+
+2004-11-18 Fixed some report_error bugs in string interpolation as
+           reported on SF bug tracker- JDH
+ 
+2004-11-17 backend_gtkcairo.py: change so all print_figure() calls render using
+           Cairo and get saved using backend_gtk.print_figure() - SC
+
+2004-11-13 backend_cairo.py: Discovered the magic number (96) required for
+	   Cairo PS plots to come out the right size. Restored Cairo PS output
+	   and added support for landscape mode	- SC
+
+2004-11-13 Added ishold - JDH
+
+2004-11-12 Added many new matlab colormaps - autumn bone cool copper
+      flag gray hot hsv jet pink prism spring summer winter - PG
+
+2004-11-11 greatly simplify the emitted postscript code - JV
+
+2004-11-12 Added new plotting functions spy, spy2 for sparse matrix
+           visualization - JDH
+
+2004-11-11 Added rgrids, thetragrids for customizing the grid
+           locations and labels for polar plots - JDH
+
+2004-11-11 make the Gtk backends build without an X-server connection - JV
+
+2004-11-10 matplotlib/__init__.py: Added FROZEN to signal we are running under
+           py2exe (or similar) - is used by backend_gtk.py - SC
+
+2004-11-09 backend_gtk.py: Made fix suggested by maffew@cat.org.au
+	   to prevent problems when py2exe calls pygtk.require(). - SC
+
+2004-11-09 backend_cairo.py: Added support for printing to a fileobject.
+           Disabled cairo PS output which is not working correctly. - SC
 
 ==============================================================
 2004-11-08 matplotlib-0.64 released

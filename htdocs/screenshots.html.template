@@ -4,38 +4,38 @@ shots = (
 
 ('subplot_demo', 
 """Multiple regular axes are created with <a
-href=matplotlib.matlab.html#-subplot>subplot</a>.  This is a screenshot of the
+href=matplotlib.pylab.html#-subplot>subplot</a>.  This is a screenshot of the
 matplotlib figure window.  Navigation controls on the bottom of the
 figure let you pan and zoom the X and Y axis of any combination of
 subplots together or separately""", 0),
 
 ('histogram_demo', 
-"""The <a href=matplotlib.matlab.html#-hist>hist</a> command
+"""The <a href=matplotlib.pylab.html#-hist>hist</a> command
 automatically generates histograms and will return the bin counts
 or probabilities""", 1),
 
-('barchart_demo', """The <a href=matplotlib.matlab.html#-bar>bar</a>
+('barchart_demo', """The <a href=matplotlib.pylab.html#-bar>bar</a>
 command takes error bars as an optional argument.  You can also use up
 and down bars, stacked bars, 'candlestick' bars, etc, ... See <a
 href=examples/bar_stacked.py>bar_stacked.py</a> for another example.
 You can make horizontal bar charts with the <a
-href=matplotlib.matlab.html#-barh>barh</a> command.
+href=matplotlib.pylab.html#-barh>barh</a> command.
 """, 1),
 
-('table_demo', """The <a href=matplotlib.matlab.html#-table>table</a>
+('table_demo', """The <a href=matplotlib.pylab.html#-table>table</a>
 is an interface to the <a href=matplotlib.table.html>Table</a> class
 to build tables on the axes. 
 """, 1),
 
 ('scatter_demo2', """The <a
-href=matplotlib.matlab.html#-scatter>scatter</a> command makes a
+href=matplotlib.pylab.html#-scatter>scatter</a> command makes a
 scatter plot with (optional) size and color arguments.  This example
 plots changes in Intel's stock price from one day to the next with the
 sizes coding trading volume and the colors coding price change in day
 i.  Here the alpha attribute is used to make semitransparent circle
 markers with the <a href=backends.html#Agg>Agg backend</a> """, 1),
 
-('fill_demo', """The <a href=matplotlib.matlab.html#-fill>fill</a>, command lets you
+('fill_demo', """The <a href=matplotlib.pylab.html#-fill>fill</a>, command lets you
 plot filled polygons.  Thanks to Andrew Straw for providing this
 function.""", 1),
 
@@ -62,19 +62,19 @@ efficiently plot a collection of lines over a colormap image.
 
 
 ('log_shot', """The <a
-href=matplotlib.matlab.html#-semilogx>semilogx</a>, <a
-href=matplotlib.matlab.html#-semilogy>semilogy</a> and <a
-href=matplotlib.matlab.html#-loglog>loglog</a> commands generate log
+href=matplotlib.pylab.html#-semilogx>semilogx</a>, <a
+href=matplotlib.pylab.html#-semilogy>semilogy</a> and <a
+href=matplotlib.pylab.html#-loglog>loglog</a> commands generate log
 scaling on the respective axes.  The lower subplot uses a base10 log
 on the xaxis and a base 4 log on the y.  Thanks to Andrew Straw,
 Darren Dale and Gregory Lielens for contributions to the log scaling
 infrastructure.""", 1),
 
-('polar_demo', """The <a href=matplotlib.matlab.html#-polar>polar</a> 
+('polar_demo', """The <a href=matplotlib.pylab.html#-polar>polar</a> 
 command generates polar plots.""", 1),
 
 ('legend_demo', """The <a
-href=matplotlib.matlab.html#-legend>legend</a> command automatically
+href=matplotlib.pylab.html#-legend>legend</a> command automatically
 generates figure legends, with matltab compatible legend placement
 commands.  Thanks to Charles Twardy for input on the legend
 command""", 1),
@@ -87,16 +87,16 @@ mathtext is an independent implementation, and does not required TeX
 or any external packages installed on your computer.""", 1),
 
 ('pcolor_demo', """The <a
-href=matplotlib.matlab.html#-pcolor>pcolor</a> command generates
+href=matplotlib.pylab.html#-pcolor>pcolor</a> command generates
 pseudo color plots.""", 1),
 
 ('layer_images', """You can layer multiple images of different shapes and colormaps with
 alpha blending using the <a
-href=matplotlib.matlab.html#-imshow>imshow</a> command.""", 1),
+href=matplotlib.pylab.html#-imshow>imshow</a> command.""", 1),
 
 ('mri_with_eeg', """A magnetic resonace image (MRI) displayed using <a
-href=matplotlib.matlab.html#-pcolor>pcolor</a>, image intensity in the
-MRI plotted with <a href=matplotlib.matlab.html#-hist>hist</a>, and
+href=matplotlib.pylab.html#-pcolor>pcolor</a>, image intensity in the
+MRI plotted with <a href=matplotlib.pylab.html#-hist>hist</a>, and
 some EEG channels plotted as <a
 href=matplotlib.lines.html#Line2D>lines</a> """, 1),
 
@@ -104,7 +104,7 @@ href=matplotlib.lines.html#Line2D>lines</a> """, 1),
 making a font dictionary.  Here the default font is <tt>courier</tt>
 and the default color is red, but you can override the defaults, as in
 the function label in the axes.  See <a
-href=matplotlib.matlab.html#-text>text</a> for more information.  This
+href=matplotlib.pylab.html#-text>text</a> for more information.  This
 example uses a python dictionary to control text themes, but you can
 also use matlab handle graphics calls.  See the examples file <a
 href=examples/text_handles.py>text_handles.py</a> in the src
@@ -116,13 +116,13 @@ distribution for a handle graphics demo.""", 1),
 
 ('axes_demo', 
 """Arbitrary placement of axes is possible with the <a
-href=matplotlib.matlab.html#-axes>axes</a> command.  Here, two inset axes are
-placed over a <a href=matplotlib.matlab.html#-subplot>subplot</a>.""", 1), 
+href=matplotlib.pylab.html#-axes>axes</a> command.  Here, two inset axes are
+placed over a <a href=matplotlib.pylab.html#-subplot>subplot</a>.""", 1), 
 
 ('eeg', """ You can embed matplotlib into a pygtk, wxpython or Tk
 applications.  Here is a screenshot of an eeg viewer written in pygtk
 using matplotlib; the lower axes is using <a
-href=matplotlib.matlab.html#-specgram>specgram</a> to plot the
+href=matplotlib.pylab.html#-specgram>specgram</a> to plot the
 spectrogram of one of the EEG channels.  The code demo linked above is
 a much simpler example of embedding matplotlib in pygtk.  For an
 example of how to use the navigation toolbar in your applications, see

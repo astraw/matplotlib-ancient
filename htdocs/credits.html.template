@@ -68,6 +68,8 @@ matplotlib was written by John Hunter<p>
   <li>Jochen Voss maintains the PS backend and has contributes several
   bugfixes.</li>
 
+  <li>Nadia Dencheva <dencheva@stsci.edu> of <a
+  href=http://www.stsci.edu/>STSci</a> provided the contouring code</li>
 </ul>
 
 @footer@

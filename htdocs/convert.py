@@ -8,7 +8,31 @@ rbe=re.compile('\s*\+')
 ren=re.compile('\s*-')
 rco=re.compile('\s*= ')
 
-        
+
+class NewsBox:
+    def __init__(self, body):
+        self.body = body
+
+    def format_header(self):
+        return """
+    <tr><td  bgcolor="red" align="left">
+        <font class="tableheading">
+                <b>News flash</b>
+        </font>
+    </td></tr>
+    """ % self.header
+            
+
+    def __repr__(self):
+        s =  '<table width=100% border=1 cellpadding=1 ' +\
+               'cellspacing=1>\n'
+        s += self.format_header()
+        s += '<tr><td valign="top" bgcolor=#efefef>\n'
+        s += '<font color="red">%s</font>'%self.body
+        s += '</td></tr>\n'
+        s += '</table>\n'
+        return s
+
 class LinkBox:
     def __init__(self, header, links):
         self.header = header
@@ -152,7 +176,9 @@ def isNewEntry(line):
     else:
         return 0
 
-
+news = NewsBox("""\
+matlab interface now named pylab.  See <a href=matlab_to_pylab.py>matlab_to_pylab.py</a> for conversion details</a>
+""")
 
 table1 =  LinkBox(header='Matplotlib', links=(
     ('Home', 'http://matplotlib.sourceforge.net'),
@@ -166,7 +192,7 @@ table1 =  LinkBox(header='Matplotlib', links=(
 table2 =  LinkBox(header='Documentation', links=(
     ('Tutorial', 'tutorial.html'),
     ('FAQ', 'faq.html'),    
-    ('Matlab&nbsp;interface', 'matlab_commands.html'),
+    ('pylab&nbsp;interface', 'pylab_commands.html'),
     ('Class&nbsp;library', 'classdocs.html'),
     ('Backends', 'backends.html'),
     ('Fonts', 'fonts.html'),
@@ -212,7 +238,7 @@ files = [
     'installing.html.template',
     'interactive.html.template',
     'license.html.template',
-    'matlab_commands.html.template', 
+    'pylab_commands.html.template', 
     'screenshots.html.template',
     'tutorial.html.template',
     'whats_new.html.template', 

@@ -4,15 +4,15 @@ plotcommands = get_mpl_commands()
 
 @header@
 
-<h2>Matlab compatible commands</h2>
+<h2>Matlab(TM) compatible commands</h2>
 
 Matplotlib provides a number of matlab compatible plotting commands.
 In addition to these, a large number of matlab compatible commands are
 provided by Numeric's MLab, Numeric and FFT modules.
-matplotlib.matlab imports these symbols, so when you do<p>
+matplotlib.pylab imports these symbols, so when you do<p>
 
 <pre>
-from matplotlib.matlab import *
+from pylab import *
 </pre>
 
 you have access to all of Numeric and MLab, as well as some additional
@@ -36,7 +36,7 @@ it a requirement for matplotlib.<p>
           <tr><th>Function</th><th>Description</th></tr>
           + for command, desc in commands:
               + if summary=='Plotting commands':
-              <tr><td><a href=matplotlib.matlab.html#-@command@>@command@</a></td><td>@desc@</td></tr>
+              <tr><td><a href=matplotlib.pylab.html#-@command@>@command@</a></td><td>@desc@</td></tr>
               = else:
               <tr><td>@command@</td><td>@desc@</td></tr>
               -

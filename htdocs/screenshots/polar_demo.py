@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from matplotlib.matlab import *
+from pylab import *
 
 # radar green, solid grid lines
 rc('grid', color='#316931', linewidth=1, linestyle='-')

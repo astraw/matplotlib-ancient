@@ -5,10 +5,10 @@
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.mlab</strong></big></big></font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/mlab.py">/usr/local/lib/python2.3/site-packages/matplotlib/mlab.py</a></font></td></tr></table>
-    <p><tt>Numerical&nbsp;python&nbsp;functions&nbsp;written&nbsp;for&nbsp;compatability&nbsp;with&nbsp;matlab<br>
+    <p><tt>Numerical&nbsp;python&nbsp;functions&nbsp;written&nbsp;for&nbsp;compatability&nbsp;with&nbsp;matlab(TM)<br>
 commands&nbsp;with&nbsp;the&nbsp;same&nbsp;names.&nbsp;&nbsp;<br>
 &nbsp;<br>
-&nbsp;&nbsp;Matlab&nbsp;compatible&nbsp;functions:<br>
+&nbsp;&nbsp;Matlab(TM)&nbsp;compatible&nbsp;functions:<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;cohere&nbsp;-&nbsp;Coherence&nbsp;(normalized&nbsp;cross&nbsp;spectral&nbsp;density)<br>
 &nbsp;<br>
@@ -42,7 +42,7 @@ commands&nbsp;with&nbsp;the&nbsp;same&nbsp;names.&nbsp;&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;trapz&nbsp;-&nbsp;trapeziodal&nbsp;integration<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;Functions&nbsp;that&nbsp;don't&nbsp;exist&nbsp;in&nbsp;matlab,&nbsp;but&nbsp;are&nbsp;useful&nbsp;anyway:<br>
+&nbsp;&nbsp;Functions&nbsp;that&nbsp;don't&nbsp;exist&nbsp;in&nbsp;matlab(TM),&nbsp;but&nbsp;are&nbsp;useful&nbsp;anyway:<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;cohere_pairs&nbsp;-&nbsp;Coherence&nbsp;over&nbsp;all&nbsp;pairs.&nbsp;&nbsp;This&nbsp;is&nbsp;not&nbsp;a&nbsp;matlab<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function,&nbsp;but&nbsp;we&nbsp;compute&nbsp;coherence&nbsp;a&nbsp;lot&nbsp;in&nbsp;my&nbsp;lab,&nbsp;and&nbsp;we<br>
@@ -283,6 +283,11 @@ Call&nbsp;it&nbsp;as&nbsp;(keywords&nbsp;are&nbsp;optional):<br>
 The&nbsp;function&nbsp;MyFunction()&nbsp;is&nbsp;responsible&nbsp;for&nbsp;handling&nbsp;the&nbsp;dictionary&nbsp;of<br>
 keywords&nbsp;it&nbsp;will&nbsp;recieve.</tt></dd></dl>
  <dl><dt><a name="-fromstring"><strong>fromstring</strong></a>(...)</dt><dd><tt><a href="#-fromstring">fromstring</a>(string,&nbsp;typecode='l',&nbsp;count=-1)&nbsp;returns&nbsp;a&nbsp;new&nbsp;1d&nbsp;array&nbsp;initialized&nbsp;from&nbsp;the&nbsp;raw&nbsp;binary&nbsp;data&nbsp;in&nbsp;string.&nbsp;&nbsp;If&nbsp;count&nbsp;is&nbsp;positive,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;have&nbsp;count&nbsp;elements,&nbsp;otherwise&nbsp;it's&nbsp;size&nbsp;is&nbsp;determined&nbsp;by&nbsp;the&nbsp;size&nbsp;of&nbsp;string.</tt></dd></dl>
+ <dl><dt><a name="-get_sparse_matrix"><strong>get_sparse_matrix</strong></a>(M, N, frac<font color="#909090">=0.10000000000000001</font>)</dt><dd><tt>return&nbsp;a&nbsp;MxN&nbsp;sparse&nbsp;matrix&nbsp;with&nbsp;frac&nbsp;elements&nbsp;randomly&nbsp;filled</tt></dd></dl>
+ <dl><dt><a name="-get_xyz_where"><strong>get_xyz_where</strong></a>(Z, Cond)</dt><dd><tt>Z&nbsp;and&nbsp;Cond&nbsp;are&nbsp;MxN&nbsp;matrices.&nbsp;&nbsp;Z&nbsp;are&nbsp;data&nbsp;and&nbsp;Cond&nbsp;is&nbsp;a&nbsp;boolean<br>
+matrix&nbsp;where&nbsp;some&nbsp;condition&nbsp;is&nbsp;satisfied.&nbsp;&nbsp;Return&nbsp;value&nbsp;is&nbsp;x,y,z<br>
+where&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;the&nbsp;indices&nbsp;into&nbsp;Z&nbsp;and&nbsp;z&nbsp;are&nbsp;the&nbsp;values&nbsp;of&nbsp;Z&nbsp;at<br>
+those&nbsp;indices.&nbsp;&nbsp;x,y,z&nbsp;are&nbsp;1D&nbsp;arrays</tt></dd></dl>
  <dl><dt><a name="-hist"><strong>hist</strong></a>(y, bins<font color="#909090">=10</font>, normed<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;histogram&nbsp;of&nbsp;y&nbsp;with&nbsp;bins&nbsp;equally&nbsp;sized&nbsp;bins.&nbsp;&nbsp;If&nbsp;bins<br>
 is&nbsp;an&nbsp;array,&nbsp;use&nbsp;the&nbsp;bins.&nbsp;&nbsp;Return&nbsp;value&nbsp;is<br>
 (n,x)&nbsp;where&nbsp;n&nbsp;is&nbsp;the&nbsp;count&nbsp;for&nbsp;each&nbsp;bin&nbsp;in&nbsp;x<br>

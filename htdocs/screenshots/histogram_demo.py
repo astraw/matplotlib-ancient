@@ -1,6 +1,6 @@
 from matplotlib import rcParams
 rcParams['text.fontname'] = 'cmr10'
-from matplotlib.matlab import *
+from pylab import *
 
 
 mu, sigma = 100, 15

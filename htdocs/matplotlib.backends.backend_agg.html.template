@@ -279,16 +279,16 @@ facecolors&nbsp;and&nbsp;edgecolors&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;R
 linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
 antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
 
-<dl><dt><a name="RendererAgg-draw_polygon"><strong>draw_polygon</strong></a>(self, gc, rgbFace, points)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon.&nbsp;&nbsp;points&nbsp;is&nbsp;a&nbsp;len&nbsp;vertices&nbsp;tuple,&nbsp;each&nbsp;element<br>
+<dl><dt><a name="RendererAgg-draw_polygon"><strong>draw_polygon</strong></a>(self, gc, rgbFace, points)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon&nbsp;using&nbsp;the&nbsp;GraphicsContext&nbsp;instance&nbsp;gc.<br>
+points&nbsp;is&nbsp;a&nbsp;len&nbsp;vertices&nbsp;tuple,&nbsp;each&nbsp;element<br>
 giving&nbsp;the&nbsp;x,y&nbsp;coords&nbsp;a&nbsp;vertex<br>
 &nbsp;<br>
-If&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;poly&nbsp;with&nbsp;it.&nbsp;&nbsp;gc<br>
-is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
+If&nbsp;the&nbsp;color&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;polygon&nbsp;with&nbsp;it</tt></dd></dl>
 
-<dl><dt><a name="RendererAgg-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gcEdge, gcFace, x, y, width, height)</dt><dd><tt>Draw&nbsp;a&nbsp;rectangle&nbsp;with&nbsp;lower&nbsp;left&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height.<br>
+<dl><dt><a name="RendererAgg-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gcEdge, rgbFace, x, y, width, height)</dt><dd><tt>Draw&nbsp;a&nbsp;non-filled&nbsp;rectangle&nbsp;using&nbsp;the&nbsp;GraphicsContext&nbsp;instance&nbsp;gcEdge,<br>
+with&nbsp;lower&nbsp;left&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height.<br>
 &nbsp;<br>
-If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
-is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
+If&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.</tt></dd></dl>
 
 <dl><dt><a name="RendererAgg-draw_regpoly_collection"><strong>draw_regpoly_collection</strong></a>(self, clipbox, offsets, transOffset, verts, sizes, facecolors, edgecolors, linewidths, antialiaseds)</dt><dd><tt>Draw&nbsp;a&nbsp;regular&nbsp;poly&nbsp;collection<br>
 &nbsp;<br>
@@ -333,8 +333,6 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
-<strong>IMAGE_FORMAT</strong> = ['eps', 'bmp', 'png', 'ps', 'raw', 'rgb', 'svg', 'jpg']<br>
-<strong>IMAGE_FORMAT_DEFAULT</strong> = 'png'<br>
 <strong>True</strong> = True<br>
 <strong>backend_version</strong> = 'v2.2'<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>

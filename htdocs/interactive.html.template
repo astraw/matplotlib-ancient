@@ -16,7 +16,7 @@ backend and interactive to be True in your <a
 href=.matplotlibrc>matplotlibrc</a> file and fire up python.  Then
 
 <pre>
->>> from matplotlib.matlab import *
+>>> from pylab import *
 >>> plot([1,2,3])
 >>> xlabel('hi mom')
 </pre>
@@ -26,7 +26,7 @@ figures from scripts, interactive mode can be slow since it redraws
 the figure with each command.  So you may want to think carefully
 before making this the default behavior.  TkAgg sets interactive mode
 to True when you issue the <a
-href=matplotlib.matlab.html#-show>show</a> command.<p>
+href=matplotlib.pylab.html#-show>show</a> command.<p>
 
 Unfortunately, due to the 'mainloop' cycle of GUI toolkits, it is not
 yet possible to use matplotlib from an arbitrary python shell with the
@@ -51,7 +51,7 @@ matplotlib in interactive mode.
   >>> import matplotlib
   >>> matplotlib.interactive(True)
   >>> matplotlib.use('WX') 
-  >>> from matplotlib.matlab import *
+  >>> from matplotlib.pylab import *
   >>> plot([1,2,3])
   >>> xlabel('time (s)')
 </pre>

@@ -14,13 +14,15 @@
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="MLab.html">MLab</a><br>
+<a href="matplotlib._contour.html">matplotlib._contour</a><br>
 <a href="matplotlib._image.html">matplotlib._image</a><br>
 </td><td width="25%" valign=top><a href="matplotlib.cm.html">matplotlib.cm</a><br>
 <a href="math.html">math</a><br>
-</td><td width="25%" valign=top><a href="matplotlib.html">matplotlib</a><br>
-<a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
-</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td></tr></table></td></tr></table><p>
+<a href="matplotlib.html">matplotlib</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
+<a href="random.html">random</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -54,7 +56,7 @@
 <font color="#000000" face="helvetica, arial"><a name="Axes">class <strong>Axes</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Emulate&nbsp;matlab's&nbsp;axes&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
+<td colspan=2><tt>Emulate&nbsp;matlab's&nbsp;(TM)&nbsp;axes&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;<a href="#Axes">Axes</a>(position=[left,&nbsp;bottom,&nbsp;width,&nbsp;height])<br>
 &nbsp;<br>
@@ -64,7 +66,7 @@ fraction&nbsp;of&nbsp;the&nbsp;total&nbsp;figure&nbsp;window.&nbsp;&nbsp;<br>
 axisbg&nbsp;is&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;axis&nbsp;background<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Axes-__init__"><strong>__init__</strong></a>(self, fig, rect, axisbg<font color="#909090">=None</font>, frameon<font color="#909090">=True</font>, **kwargs)</dt></dl>
+<dl><dt><a name="Axes-__init__"><strong>__init__</strong></a>(self, fig, rect, axisbg<font color="#909090">=None</font>, frameon<font color="#909090">=True</font>)</dt></dl>
 
 <dl><dt><a name="Axes-add_artist"><strong>add_artist</strong></a>(self, a)</dt><dd><tt>Add&nbsp;any&nbsp;artist&nbsp;to&nbsp;the&nbsp;axes</tt></dd></dl>
 
@@ -261,6 +263,61 @@ Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;An
 
 <dl><dt><a name="Axes-connect"><strong>connect</strong></a>(self, s, func)</dt></dl>
 
+<dl><dt><a name="Axes-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
+&nbsp;<br>
+plots&nbsp;contour&nbsp;lines&nbsp;of&nbsp;an&nbsp;image&nbsp;z<br>
+&nbsp;<br>
+z&nbsp;is&nbsp;a&nbsp;2D&nbsp;array&nbsp;of&nbsp;image&nbsp;values<br>
+x&nbsp;and&nbsp;y&nbsp;are&nbsp;2D&nbsp;arrays&nbsp;with&nbsp;coordinates&nbsp;of&nbsp;z&nbsp;values&nbsp;in&nbsp;the<br>
+two&nbsp;directions.&nbsp;x&nbsp;and&nbsp;y&nbsp;do&nbsp;not&nbsp;need&nbsp;to&nbsp;be&nbsp;evenly&nbsp;spaced&nbsp;but&nbsp;must<br>
+be&nbsp;of&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;z<br>
+&nbsp;<br>
+levels&nbsp;can&nbsp;be&nbsp;a&nbsp;list&nbsp;of&nbsp;level&nbsp;values&nbsp;or&nbsp;the&nbsp;number&nbsp;of&nbsp;levels&nbsp;to&nbsp;be<br>
+&nbsp;&nbsp;plotted.&nbsp;&nbsp;If&nbsp;levels&nbsp;==&nbsp;None,&nbsp;a&nbsp;default&nbsp;number&nbsp;of&nbsp;7&nbsp;evenly&nbsp;spaced<br>
+&nbsp;&nbsp;levels&nbsp;is&nbsp;plotted.<br>
+&nbsp;<br>
+colors&nbsp;is&nbsp;one&nbsp;of&nbsp;these:<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;(string,&nbsp;float,&nbsp;rgb,&nbsp;etc),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;different&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;different&nbsp;colors&nbsp;in&nbsp;the&nbsp;order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;one&nbsp;string&nbsp;color,&nbsp;e.g.&nbsp;colors&nbsp;=&nbsp;'r'&nbsp;or&nbsp;colors&nbsp;=&nbsp;'red',&nbsp;all&nbsp;levels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;this&nbsp;color<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;color&nbsp;for&nbsp;lines.color&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used.<br>
+&nbsp;<br>
+linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;number&nbsp;-&nbsp;all&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;with&nbsp;this&nbsp;linewidth,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.&nbsp;linewidths&nbsp;=&nbsp;0.6<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;numbers,&nbsp;e.g.&nbsp;linewidths&nbsp;=&nbsp;(0.4,&nbsp;0.8,&nbsp;1.2)&nbsp;different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;with&nbsp;different&nbsp;linewidths&nbsp;in&nbsp;the&nbsp;order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
+&nbsp;<br>
+reg&nbsp;is&nbsp;a&nbsp;2D&nbsp;region&nbsp;number&nbsp;array&nbsp;with&nbsp;the&nbsp;same&nbsp;dimensions&nbsp;as&nbsp;x&nbsp;and<br>
+&nbsp;&nbsp;y.&nbsp;The&nbsp;values&nbsp;of&nbsp;reg&nbsp;should&nbsp;be&nbsp;positive&nbsp;region&nbsp;numbers,&nbsp;and&nbsp;zero&nbsp;fro<br>
+&nbsp;&nbsp;zones&nbsp;wich&nbsp;do&nbsp;not&nbsp;exist.<br>
+&nbsp;<br>
+triangle&nbsp;-&nbsp;triangulation&nbsp;array&nbsp;-&nbsp;must&nbsp;be&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;reg<br>
+&nbsp;<br>
+alpha&nbsp;:&nbsp;the&nbsp;default&nbsp;transparency&nbsp;of&nbsp;contour&nbsp;lines<br>
+&nbsp;<br>
+fmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;for&nbsp;adding&nbsp;a&nbsp;label&nbsp;to&nbsp;each&nbsp;collection.<br>
+&nbsp;&nbsp;Currently&nbsp;this&nbsp;is&nbsp;useful&nbsp;for&nbsp;auto-legending&nbsp;and&nbsp;may&nbsp;be&nbsp;useful&nbsp;down<br>
+&nbsp;&nbsp;the&nbsp;road&nbsp;for&nbsp;legend&nbsp;labeling<br>
+&nbsp;<br>
+More&nbsp;information&nbsp;on&nbsp;reg&nbsp;and&nbsp;triangle&nbsp;arrays&nbsp;is&nbsp;in&nbsp;_contour.c<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;levels,&nbsp;collections&nbsp;where&nbsp;levels&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;contour<br>
+levels&nbsp;used&nbsp;and&nbsp;collections&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
+matplotlib.collections.LineCollection&nbsp;instances</tt></dd></dl>
+
 <dl><dt><a name="Axes-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
 &nbsp;<br>
@@ -282,7 +339,7 @@ Refs:<br>
 
 <dl><dt><a name="Axes-disconnect"><strong>disconnect</strong></a>(self, cid)</dt><dd><tt>disconnect&nbsp;from&nbsp;the&nbsp;<a href="#Axes">Axes</a>&nbsp;event.</tt></dd></dl>
 
-<dl><dt><a name="Axes-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt><dd><tt>Draw&nbsp;everything&nbsp;(plot&nbsp;lines,&nbsp;axes,&nbsp;labels)</tt></dd></dl>
+<dl><dt><a name="Axes-draw"><strong>draw</strong></a>(self, renderer)</dt><dd><tt>Draw&nbsp;everything&nbsp;(plot&nbsp;lines,&nbsp;axes,&nbsp;labels)</tt></dd></dl>
 
 <dl><dt><a name="Axes-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>, barsabove<font color="#909090">=False</font>, **kwargs)</dt><dd><tt>ERRORBAR(x,&nbsp;y,&nbsp;yerr=None,&nbsp;xerr=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmt='b-',&nbsp;ecolor=None,&nbsp;capsize=3,&nbsp;barsabove=False)<br>
@@ -393,7 +450,8 @@ major&nbsp;formatter</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_yticks"><strong>get_yticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;y&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
 
-<dl><dt><a name="Axes-grid"><strong>grid</strong></a>(self, b)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;grids&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean</tt></dd></dl>
+<dl><dt><a name="Axes-grid"><strong>grid</strong></a>(self, b<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;grids&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean<br>
+if&nbsp;b&nbsp;is&nbsp;None,&nbsp;toggle&nbsp;the&nbsp;grid&nbsp;state</tt></dd></dl>
 
 <dl><dt><a name="Axes-has_data"><strong>has_data</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;any&nbsp;artists&nbsp;have&nbsp;been&nbsp;added&nbsp;to&nbsp;axes</tt></dd></dl>
 
@@ -481,6 +539,8 @@ The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 
 <dl><dt><a name="Axes-in_axes"><strong>in_axes</strong></a>(self, xwin, ywin)</dt><dd><tt>return&nbsp;True&nbsp;is&nbsp;the&nbsp;point&nbsp;xwin,&nbsp;ywin&nbsp;(display&nbsp;coords)&nbsp;are&nbsp;in&nbsp;the&nbsp;<a href="#Axes">Axes</a></tt></dd></dl>
 
+<dl><dt><a name="Axes-ishold"><strong>ishold</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;HOLD&nbsp;status&nbsp;of&nbsp;the&nbsp;axes</tt></dd></dl>
+
 <dl><dt><a name="Axes-legend"><strong>legend</strong></a>(self, *args, **kwargs)</dt><dd><tt>LEGEND(*args,&nbsp;**kwargs)<br>
 &nbsp;<br>
 Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;current&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
@@ -494,8 +554,9 @@ USAGE:&nbsp;<br>
 &nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#Axes-legend">legend</a>()<br>
 &nbsp;<br>
 &nbsp;&nbsp;legend&nbsp;by&nbsp;itself&nbsp;will&nbsp;try&nbsp;and&nbsp;build&nbsp;a&nbsp;legend&nbsp;using&nbsp;the&nbsp;label<br>
-&nbsp;&nbsp;property&nbsp;of&nbsp;the&nbsp;lines.&nbsp;&nbsp;You&nbsp;can&nbsp;set&nbsp;the&nbsp;label&nbsp;of&nbsp;a&nbsp;line&nbsp;by&nbsp;doing<br>
-&nbsp;&nbsp;<a href="#Axes-plot">plot</a>(x,&nbsp;y,&nbsp;label='my&nbsp;data')&nbsp;or&nbsp;line.set_label('my&nbsp;data')<br>
+&nbsp;&nbsp;property&nbsp;of&nbsp;the&nbsp;lines/patches/collections.&nbsp;&nbsp;You&nbsp;can&nbsp;set&nbsp;the&nbsp;label&nbsp;of<br>
+&nbsp;&nbsp;a&nbsp;line&nbsp;by&nbsp;doing&nbsp;<a href="#Axes-plot">plot</a>(x,&nbsp;y,&nbsp;label='my&nbsp;data')&nbsp;or&nbsp;line.<a href="#Axes-set_label">set_label</a>('my<br>
+&nbsp;&nbsp;data')<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;automatically&nbsp;generate&nbsp;the&nbsp;legend&nbsp;from&nbsp;labels<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)&nbsp;<br>
@@ -529,7 +590,17 @@ in&nbsp;axes&nbsp;coords,&nbsp;ie,<br>
 &nbsp;&nbsp;loc&nbsp;=&nbsp;0,&nbsp;1&nbsp;is&nbsp;left&nbsp;top<br>
 &nbsp;&nbsp;loc&nbsp;=&nbsp;0.5,&nbsp;0.5&nbsp;is&nbsp;center,&nbsp;center<br>
 &nbsp;<br>
-and&nbsp;so&nbsp;on</tt></dd></dl>
+and&nbsp;so&nbsp;on.&nbsp;&nbsp;The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;supported<br>
+&nbsp;<br>
+&nbsp;&nbsp;numpoints&nbsp;=&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;number&nbsp;of&nbsp;points&nbsp;in&nbsp;the&nbsp;legend&nbsp;line<br>
+&nbsp;&nbsp;prop&nbsp;=&nbsp;FontProperties('smaller')&nbsp;&nbsp;#&nbsp;the&nbsp;font&nbsp;properties<br>
+&nbsp;&nbsp;pad&nbsp;=&nbsp;0.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;fractional&nbsp;whitespace&nbsp;inside&nbsp;the&nbsp;legend&nbsp;border<br>
+&nbsp;<br>
+&nbsp;&nbsp;#&nbsp;The&nbsp;kwarg&nbsp;dimensions&nbsp;are&nbsp;in&nbsp;axes&nbsp;coords<br>
+&nbsp;&nbsp;labelsep&nbsp;=&nbsp;0.005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;vertical&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;entries<br>
+&nbsp;&nbsp;handlelen&nbsp;=&nbsp;0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;legend&nbsp;lines<br>
+&nbsp;&nbsp;handletextsep&nbsp;=&nbsp;0.02&nbsp;#&nbsp;the&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;line&nbsp;and&nbsp;legend&nbsp;text<br>
+&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge</tt></dd></dl>
 
 <dl><dt><a name="Axes-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>LOGLOG(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -589,7 +660,7 @@ object<br>
 &nbsp;<br>
 Grid&nbsp;Orientation<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab(TM)&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
 &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
@@ -599,7 +670,7 @@ Grid&nbsp;Orientation<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;pylab.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
 &nbsp;&nbsp;&nbsp;&nbsp;happy&nbsp;with<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
@@ -640,7 +711,7 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects.<br>
 &nbsp;<br>
 Grid&nbsp;orientation<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab(TM)&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for&nbsp;x<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
@@ -773,7 +844,7 @@ sampling&nbsp;frequency.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detrend_linear,&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;custom&nbsp;function&nbsp;as&nbsp;well.<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;window&nbsp;-&nbsp;the&nbsp;function&nbsp;used&nbsp;to&nbsp;window&nbsp;the&nbsp;segments.&nbsp;&nbsp;window&nbsp;is&nbsp;a<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function,&nbsp;unlike&nbsp;in&nbsp;matlab&nbsp;where&nbsp;it&nbsp;is&nbsp;a&nbsp;vector.&nbsp;&nbsp;mlab&nbsp;defines<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function,&nbsp;unlike&nbsp;in&nbsp;matlab(TM)&nbsp;where&nbsp;it&nbsp;is&nbsp;a&nbsp;vector.&nbsp;&nbsp;mlab&nbsp;defines<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window_none,&nbsp;window_hanning,&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;custom&nbsp;function<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;well.<br>
 &nbsp;<br>
@@ -789,7 +860,7 @@ Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
 
-<dl><dt><a name="Axes-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=20</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>SCATTER(x,&nbsp;y,&nbsp;s=20,&nbsp;c='b',&nbsp;marker='o',&nbsp;cmap=None,&nbsp;norm=None,<br>
+<dl><dt><a name="Axes-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=20</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, **kwargs)</dt><dd><tt>SCATTER(x,&nbsp;y,&nbsp;s=20,&nbsp;c='b',&nbsp;marker='o',&nbsp;cmap=None,&nbsp;norm=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;alpha=1.0)<br>
 &nbsp;<br>
 Supported&nbsp;function&nbsp;signatures:<br>
@@ -989,6 +1060,18 @@ Return&nbsp;value&nbsp;is&nbsp;(Pxx,&nbsp;freqs,&nbsp;bins,&nbsp;im),&nbsp;where
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;im&nbsp;is&nbsp;a&nbsp;matplotlib.image.AxesImage.</tt></dd></dl>
 
+<dl><dt><a name="Axes-spy"><strong>spy</strong></a>(self, Z, marker<font color="#909090">='s'</font>, markersize<font color="#909090">=10</font>, **kwargs)</dt><dd><tt>SPY(Z,&nbsp;**kwrags)&nbsp;plots&nbsp;the&nbsp;sparsity&nbsp;pattern&nbsp;of&nbsp;the&nbsp;matrix&nbsp;S<br>
+using&nbsp;plot&nbsp;markers.<br>
+&nbsp;<br>
+kwargs&nbsp;give&nbsp;the&nbsp;marker&nbsp;properties&nbsp;-&nbsp;see&nbsp;help(plot)&nbsp;for&nbsp;more<br>
+information&nbsp;on&nbsp;marker&nbsp;properties<br>
+&nbsp;<br>
+The&nbsp;line&nbsp;handles&nbsp;are&nbsp;returned</tt></dd></dl>
+
+<dl><dt><a name="Axes-spy2"><strong>spy2</strong></a>(self, Z)</dt><dd><tt>SPY2(Z)&nbsp;plots&nbsp;the&nbsp;sparsity&nbsp;pattern&nbsp;of&nbsp;the&nbsp;matrix&nbsp;S&nbsp;as&nbsp;an&nbsp;image<br>
+&nbsp;<br>
+The&nbsp;image&nbsp;instance&nbsp;is&nbsp;returned</tt></dd></dl>
+
 <dl><dt><a name="Axes-stem"><strong>stem</strong></a>(self, x, y, linefmt<font color="#909090">='b-'</font>, markerfmt<font color="#909090">='bo'</font>, basefmt<font color="#909090">='r-'</font>)</dt><dd><tt>STEM(x,&nbsp;y,&nbsp;linefmt='b-',&nbsp;markerfmt='bo',&nbsp;basefmt='r-')<br>
 &nbsp;<br>
 A&nbsp;stem&nbsp;plot&nbsp;plots&nbsp;vertical&nbsp;lines&nbsp;(using&nbsp;linefmt)&nbsp;at&nbsp;each&nbsp;x&nbsp;location<br>
@@ -1054,39 +1137,69 @@ Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt><
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="Axes-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
+<dl><dt><a name="Axes-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on&nbsp;all<br>
+backends</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Axes-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_zorder"><strong>get_zorder</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Axes-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Axes-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
+all&nbsp;backends<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+<dl><dt><a name="Axes-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.transform.Bbox&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+<dl><dt><a name="Axes-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+<dl><dt><a name="Axes-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.figure.Figure&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;line&nbsp;label&nbsp;to&nbsp;s&nbsp;for&nbsp;auto&nbsp;legend<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;string</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+their&nbsp;contents&nbsp;accordingly<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+<dl><dt><a name="Axes-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.transform&nbsp;transformation&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="Axes-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_zorder"><strong>set_zorder</strong></a>(self, level)</dt><dd><tt>Set&nbsp;the&nbsp;zorder&nbsp;for&nbsp;the&nbsp;artist<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="Axes-update"><strong>update</strong></a>(self, props)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+<dl><dt><strong>zorder</strong> = 0</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -1134,21 +1247,37 @@ Methods defined here:<br>
 
 <dl><dt><a name="PolarAxes-has_data"><strong>has_data</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;any&nbsp;artists&nbsp;have&nbsp;been&nbsp;added&nbsp;to&nbsp;axes</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-set_rgridlabels"><strong>set_rgridlabels</strong></a>(self, radii, angle<font color="#909090">=22.5</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;radial&nbsp;grid&nbsp;labels&nbsp;at&nbsp;radial&nbsp;distances&nbsp;in&nbsp;radii&nbsp;along<br>
-the&nbsp;radius&nbsp;at&nbsp;angle</tt></dd></dl>
-
-<dl><dt><a name="PolarAxes-set_rgrids"><strong>set_rgrids</strong></a>(self, radii)</dt><dd><tt>set&nbsp;the&nbsp;radial&nbsp;locations&nbsp;of&nbsp;the&nbsp;r&nbsp;grids</tt></dd></dl>
-
-<dl><dt><a name="PolarAxes-set_thetagridlabels"><strong>set_thetagridlabels</strong></a>(self, angles, fmt<font color="#909090">='%d'</font>, frac<font color="#909090">=1.1000000000000001</font>, **kwargs)</dt><dd><tt>set&nbsp;the&nbsp;radial&nbsp;locations&nbsp;of&nbsp;the&nbsp;r&nbsp;grids<br>
+<dl><dt><a name="PolarAxes-set_rgrids"><strong>set_rgrids</strong></a>(self, radii, labels<font color="#909090">=None</font>, angle<font color="#909090">=22.5</font>, **kwargs)</dt><dd><tt>set&nbsp;the&nbsp;radial&nbsp;locations&nbsp;and&nbsp;labels&nbsp;of&nbsp;the&nbsp;r&nbsp;grids<br>
 &nbsp;<br>
-angles&nbsp;are&nbsp;in&nbsp;degrees<br>
+The&nbsp;labels&nbsp;will&nbsp;appear&nbsp;at&nbsp;radial&nbsp;distances&nbsp;radii&nbsp;at&nbsp;angle<br>
+&nbsp;<br>
+labels,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(radii)&nbsp;list&nbsp;of&nbsp;strings&nbsp;of&nbsp;the<br>
+labels&nbsp;to&nbsp;use&nbsp;at&nbsp;each&nbsp;angle.<br>
+&nbsp;<br>
+if&nbsp;labels&nbsp;is&nbsp;None,&nbsp;the&nbsp;self.<strong>rformatter</strong>&nbsp;will&nbsp;be&nbsp;used&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines,&nbsp;labels&nbsp;where&nbsp;the&nbsp;lines&nbsp;are<br>
+matplotlib.Line2D&nbsp;instances&nbsp;and&nbsp;the&nbsp;labels&nbsp;are&nbsp;matplotlib.Text<br>
+instances</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_thetagrids"><strong>set_thetagrids</strong></a>(self, angles, labels<font color="#909090">=None</font>, fmt<font color="#909090">='%d'</font>, frac<font color="#909090">=1.1000000000000001</font>, **kwargs)</dt><dd><tt>set&nbsp;the&nbsp;angles&nbsp;at&nbsp;which&nbsp;to&nbsp;place&nbsp;the&nbsp;theta&nbsp;grids&nbsp;(these<br>
+gridlines&nbsp;are&nbsp;equal&nbsp;along&nbsp;the&nbsp;theta&nbsp;dimension).&nbsp;&nbsp;angles&nbsp;is&nbsp;in<br>
+degrees<br>
+&nbsp;<br>
+labels,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(angles)&nbsp;list&nbsp;of&nbsp;strings&nbsp;of&nbsp;the<br>
+labels&nbsp;to&nbsp;use&nbsp;at&nbsp;each&nbsp;angle.<br>
+&nbsp;<br>
+if&nbsp;labels&nbsp;is&nbsp;None,&nbsp;the&nbsp;labels&nbsp;with&nbsp;be&nbsp;fmt%angle<br>
 &nbsp;<br>
 frac&nbsp;is&nbsp;the&nbsp;fraction&nbsp;of&nbsp;the&nbsp;polar&nbsp;axes&nbsp;radius&nbsp;at&nbsp;which&nbsp;to<br>
 place&nbsp;the&nbsp;label&nbsp;(1&nbsp;is&nbsp;the&nbsp;edge).Eg&nbsp;1.05&nbsp;isd&nbsp;outside&nbsp;the&nbsp;axes<br>
-and&nbsp;0.95&nbsp;is&nbsp;inside&nbsp;the&nbsp;axes</tt></dd></dl>
-
-<dl><dt><a name="PolarAxes-set_thetagrids"><strong>set_thetagrids</strong></a>(self, angles)</dt><dd><tt>set&nbsp;the&nbsp;angles&nbsp;at&nbsp;which&nbsp;to&nbsp;place&nbsp;the&nbsp;theta&nbsp;grids&nbsp;(these<br>
-gridlines&nbsp;are&nbsp;equal&nbsp;along&nbsp;the&nbsp;theta&nbsp;dimension).&nbsp;&nbsp;angles&nbsp;is&nbsp;in&nbsp;degrees</tt></dd></dl>
+and&nbsp;0.95&nbsp;is&nbsp;inside&nbsp;the&nbsp;axes<br>
+&nbsp;<br>
+kwargs&nbsp;are&nbsp;optional&nbsp;text&nbsp;properties&nbsp;for&nbsp;the&nbsp;labels<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines,&nbsp;labels&nbsp;where&nbsp;the&nbsp;lines&nbsp;are<br>
+matplotlib.Line2D&nbsp;instances&nbsp;and&nbsp;the&nbsp;labels&nbsp;are&nbsp;matplotlib.Text<br>
+instances</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-set_xlabel"><strong>set_xlabel</strong></a>(self, xlabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>xlabel&nbsp;not&nbsp;implemented</tt></dd></dl>
 
@@ -1350,6 +1479,61 @@ Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;An
 &nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-connect"><strong>connect</strong></a>(self, s, func)</dt></dl>
+
+<dl><dt><a name="PolarAxes-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
+&nbsp;<br>
+plots&nbsp;contour&nbsp;lines&nbsp;of&nbsp;an&nbsp;image&nbsp;z<br>
+&nbsp;<br>
+z&nbsp;is&nbsp;a&nbsp;2D&nbsp;array&nbsp;of&nbsp;image&nbsp;values<br>
+x&nbsp;and&nbsp;y&nbsp;are&nbsp;2D&nbsp;arrays&nbsp;with&nbsp;coordinates&nbsp;of&nbsp;z&nbsp;values&nbsp;in&nbsp;the<br>
+two&nbsp;directions.&nbsp;x&nbsp;and&nbsp;y&nbsp;do&nbsp;not&nbsp;need&nbsp;to&nbsp;be&nbsp;evenly&nbsp;spaced&nbsp;but&nbsp;must<br>
+be&nbsp;of&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;z<br>
+&nbsp;<br>
+levels&nbsp;can&nbsp;be&nbsp;a&nbsp;list&nbsp;of&nbsp;level&nbsp;values&nbsp;or&nbsp;the&nbsp;number&nbsp;of&nbsp;levels&nbsp;to&nbsp;be<br>
+&nbsp;&nbsp;plotted.&nbsp;&nbsp;If&nbsp;levels&nbsp;==&nbsp;None,&nbsp;a&nbsp;default&nbsp;number&nbsp;of&nbsp;7&nbsp;evenly&nbsp;spaced<br>
+&nbsp;&nbsp;levels&nbsp;is&nbsp;plotted.<br>
+&nbsp;<br>
+colors&nbsp;is&nbsp;one&nbsp;of&nbsp;these:<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;(string,&nbsp;float,&nbsp;rgb,&nbsp;etc),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;different&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;different&nbsp;colors&nbsp;in&nbsp;the&nbsp;order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;one&nbsp;string&nbsp;color,&nbsp;e.g.&nbsp;colors&nbsp;=&nbsp;'r'&nbsp;or&nbsp;colors&nbsp;=&nbsp;'red',&nbsp;all&nbsp;levels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;this&nbsp;color<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;color&nbsp;for&nbsp;lines.color&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used.<br>
+&nbsp;<br>
+linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;number&nbsp;-&nbsp;all&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;with&nbsp;this&nbsp;linewidth,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.&nbsp;linewidths&nbsp;=&nbsp;0.6<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;numbers,&nbsp;e.g.&nbsp;linewidths&nbsp;=&nbsp;(0.4,&nbsp;0.8,&nbsp;1.2)&nbsp;different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;with&nbsp;different&nbsp;linewidths&nbsp;in&nbsp;the&nbsp;order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
+&nbsp;<br>
+reg&nbsp;is&nbsp;a&nbsp;2D&nbsp;region&nbsp;number&nbsp;array&nbsp;with&nbsp;the&nbsp;same&nbsp;dimensions&nbsp;as&nbsp;x&nbsp;and<br>
+&nbsp;&nbsp;y.&nbsp;The&nbsp;values&nbsp;of&nbsp;reg&nbsp;should&nbsp;be&nbsp;positive&nbsp;region&nbsp;numbers,&nbsp;and&nbsp;zero&nbsp;fro<br>
+&nbsp;&nbsp;zones&nbsp;wich&nbsp;do&nbsp;not&nbsp;exist.<br>
+&nbsp;<br>
+triangle&nbsp;-&nbsp;triangulation&nbsp;array&nbsp;-&nbsp;must&nbsp;be&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;reg<br>
+&nbsp;<br>
+alpha&nbsp;:&nbsp;the&nbsp;default&nbsp;transparency&nbsp;of&nbsp;contour&nbsp;lines<br>
+&nbsp;<br>
+fmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;for&nbsp;adding&nbsp;a&nbsp;label&nbsp;to&nbsp;each&nbsp;collection.<br>
+&nbsp;&nbsp;Currently&nbsp;this&nbsp;is&nbsp;useful&nbsp;for&nbsp;auto-legending&nbsp;and&nbsp;may&nbsp;be&nbsp;useful&nbsp;down<br>
+&nbsp;&nbsp;the&nbsp;road&nbsp;for&nbsp;legend&nbsp;labeling<br>
+&nbsp;<br>
+More&nbsp;information&nbsp;on&nbsp;reg&nbsp;and&nbsp;triangle&nbsp;arrays&nbsp;is&nbsp;in&nbsp;_contour.c<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;levels,&nbsp;collections&nbsp;where&nbsp;levels&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;contour<br>
+levels&nbsp;used&nbsp;and&nbsp;collections&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
+matplotlib.collections.LineCollection&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
@@ -1563,6 +1747,8 @@ The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 
 <dl><dt><a name="PolarAxes-in_axes"><strong>in_axes</strong></a>(self, xwin, ywin)</dt><dd><tt>return&nbsp;True&nbsp;is&nbsp;the&nbsp;point&nbsp;xwin,&nbsp;ywin&nbsp;(display&nbsp;coords)&nbsp;are&nbsp;in&nbsp;the&nbsp;<a href="#Axes">Axes</a></tt></dd></dl>
 
+<dl><dt><a name="PolarAxes-ishold"><strong>ishold</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;HOLD&nbsp;status&nbsp;of&nbsp;the&nbsp;axes</tt></dd></dl>
+
 <dl><dt><a name="PolarAxes-legend"><strong>legend</strong></a>(self, *args, **kwargs)</dt><dd><tt>LEGEND(*args,&nbsp;**kwargs)<br>
 &nbsp;<br>
 Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;current&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
@@ -1576,8 +1762,9 @@ USAGE:&nbsp;<br>
 &nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#PolarAxes-legend">legend</a>()<br>
 &nbsp;<br>
 &nbsp;&nbsp;legend&nbsp;by&nbsp;itself&nbsp;will&nbsp;try&nbsp;and&nbsp;build&nbsp;a&nbsp;legend&nbsp;using&nbsp;the&nbsp;label<br>
-&nbsp;&nbsp;property&nbsp;of&nbsp;the&nbsp;lines.&nbsp;&nbsp;You&nbsp;can&nbsp;set&nbsp;the&nbsp;label&nbsp;of&nbsp;a&nbsp;line&nbsp;by&nbsp;doing<br>
-&nbsp;&nbsp;<a href="#PolarAxes-plot">plot</a>(x,&nbsp;y,&nbsp;label='my&nbsp;data')&nbsp;or&nbsp;line.set_label('my&nbsp;data')<br>
+&nbsp;&nbsp;property&nbsp;of&nbsp;the&nbsp;lines/patches/collections.&nbsp;&nbsp;You&nbsp;can&nbsp;set&nbsp;the&nbsp;label&nbsp;of<br>
+&nbsp;&nbsp;a&nbsp;line&nbsp;by&nbsp;doing&nbsp;<a href="#PolarAxes-plot">plot</a>(x,&nbsp;y,&nbsp;label='my&nbsp;data')&nbsp;or&nbsp;line.<a href="#PolarAxes-set_label">set_label</a>('my<br>
+&nbsp;&nbsp;data')<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;automatically&nbsp;generate&nbsp;the&nbsp;legend&nbsp;from&nbsp;labels<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)&nbsp;<br>
@@ -1611,7 +1798,17 @@ in&nbsp;axes&nbsp;coords,&nbsp;ie,<br>
 &nbsp;&nbsp;loc&nbsp;=&nbsp;0,&nbsp;1&nbsp;is&nbsp;left&nbsp;top<br>
 &nbsp;&nbsp;loc&nbsp;=&nbsp;0.5,&nbsp;0.5&nbsp;is&nbsp;center,&nbsp;center<br>
 &nbsp;<br>
-and&nbsp;so&nbsp;on</tt></dd></dl>
+and&nbsp;so&nbsp;on.&nbsp;&nbsp;The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;supported<br>
+&nbsp;<br>
+&nbsp;&nbsp;numpoints&nbsp;=&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;number&nbsp;of&nbsp;points&nbsp;in&nbsp;the&nbsp;legend&nbsp;line<br>
+&nbsp;&nbsp;prop&nbsp;=&nbsp;FontProperties('smaller')&nbsp;&nbsp;#&nbsp;the&nbsp;font&nbsp;properties<br>
+&nbsp;&nbsp;pad&nbsp;=&nbsp;0.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;fractional&nbsp;whitespace&nbsp;inside&nbsp;the&nbsp;legend&nbsp;border<br>
+&nbsp;<br>
+&nbsp;&nbsp;#&nbsp;The&nbsp;kwarg&nbsp;dimensions&nbsp;are&nbsp;in&nbsp;axes&nbsp;coords<br>
+&nbsp;&nbsp;labelsep&nbsp;=&nbsp;0.005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;vertical&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;entries<br>
+&nbsp;&nbsp;handlelen&nbsp;=&nbsp;0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;legend&nbsp;lines<br>
+&nbsp;&nbsp;handletextsep&nbsp;=&nbsp;0.02&nbsp;#&nbsp;the&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;line&nbsp;and&nbsp;legend&nbsp;text<br>
+&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>LOGLOG(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -1671,7 +1868,7 @@ object<br>
 &nbsp;<br>
 Grid&nbsp;Orientation<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab(TM)&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
 &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
@@ -1681,7 +1878,7 @@ Grid&nbsp;Orientation<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;pylab.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
 &nbsp;&nbsp;&nbsp;&nbsp;happy&nbsp;with<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
@@ -1722,7 +1919,7 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects.<br>
 &nbsp;<br>
 Grid&nbsp;orientation<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab(TM)&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for&nbsp;x<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
@@ -1855,7 +2052,7 @@ sampling&nbsp;frequency.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detrend_linear,&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;custom&nbsp;function&nbsp;as&nbsp;well.<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;window&nbsp;-&nbsp;the&nbsp;function&nbsp;used&nbsp;to&nbsp;window&nbsp;the&nbsp;segments.&nbsp;&nbsp;window&nbsp;is&nbsp;a<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function,&nbsp;unlike&nbsp;in&nbsp;matlab&nbsp;where&nbsp;it&nbsp;is&nbsp;a&nbsp;vector.&nbsp;&nbsp;mlab&nbsp;defines<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function,&nbsp;unlike&nbsp;in&nbsp;matlab(TM)&nbsp;where&nbsp;it&nbsp;is&nbsp;a&nbsp;vector.&nbsp;&nbsp;mlab&nbsp;defines<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window_none,&nbsp;window_hanning,&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;custom&nbsp;function<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;well.<br>
 &nbsp;<br>
@@ -1871,7 +2068,7 @@ Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=20</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>SCATTER(x,&nbsp;y,&nbsp;s=20,&nbsp;c='b',&nbsp;marker='o',&nbsp;cmap=None,&nbsp;norm=None,<br>
+<dl><dt><a name="PolarAxes-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=20</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, **kwargs)</dt><dd><tt>SCATTER(x,&nbsp;y,&nbsp;s=20,&nbsp;c='b',&nbsp;marker='o',&nbsp;cmap=None,&nbsp;norm=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;alpha=1.0)<br>
 &nbsp;<br>
 Supported&nbsp;function&nbsp;signatures:<br>
@@ -2052,6 +2249,18 @@ Return&nbsp;value&nbsp;is&nbsp;(Pxx,&nbsp;freqs,&nbsp;bins,&nbsp;im),&nbsp;where
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;im&nbsp;is&nbsp;a&nbsp;matplotlib.image.AxesImage.</tt></dd></dl>
 
+<dl><dt><a name="PolarAxes-spy"><strong>spy</strong></a>(self, Z, marker<font color="#909090">='s'</font>, markersize<font color="#909090">=10</font>, **kwargs)</dt><dd><tt>SPY(Z,&nbsp;**kwrags)&nbsp;plots&nbsp;the&nbsp;sparsity&nbsp;pattern&nbsp;of&nbsp;the&nbsp;matrix&nbsp;S<br>
+using&nbsp;plot&nbsp;markers.<br>
+&nbsp;<br>
+kwargs&nbsp;give&nbsp;the&nbsp;marker&nbsp;properties&nbsp;-&nbsp;see&nbsp;help(plot)&nbsp;for&nbsp;more<br>
+information&nbsp;on&nbsp;marker&nbsp;properties<br>
+&nbsp;<br>
+The&nbsp;line&nbsp;handles&nbsp;are&nbsp;returned</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-spy2"><strong>spy2</strong></a>(self, Z)</dt><dd><tt>SPY2(Z)&nbsp;plots&nbsp;the&nbsp;sparsity&nbsp;pattern&nbsp;of&nbsp;the&nbsp;matrix&nbsp;S&nbsp;as&nbsp;an&nbsp;image<br>
+&nbsp;<br>
+The&nbsp;image&nbsp;instance&nbsp;is&nbsp;returned</tt></dd></dl>
+
 <dl><dt><a name="PolarAxes-stem"><strong>stem</strong></a>(self, x, y, linefmt<font color="#909090">='b-'</font>, markerfmt<font color="#909090">='bo'</font>, basefmt<font color="#909090">='r-'</font>)</dt><dd><tt>STEM(x,&nbsp;y,&nbsp;linefmt='b-',&nbsp;markerfmt='bo',&nbsp;basefmt='r-')<br>
 &nbsp;<br>
 A&nbsp;stem&nbsp;plot&nbsp;plots&nbsp;vertical&nbsp;lines&nbsp;(using&nbsp;linefmt)&nbsp;at&nbsp;each&nbsp;x&nbsp;location<br>
@@ -2117,39 +2326,69 @@ Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt><
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="PolarAxes-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
+<dl><dt><a name="PolarAxes-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on&nbsp;all<br>
+backends</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="PolarAxes-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_zorder"><strong>get_zorder</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="PolarAxes-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="PolarAxes-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
+all&nbsp;backends<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+<dl><dt><a name="PolarAxes-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.transform.Bbox&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+<dl><dt><a name="PolarAxes-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+<dl><dt><a name="PolarAxes-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.figure.Figure&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;line&nbsp;label&nbsp;to&nbsp;s&nbsp;for&nbsp;auto&nbsp;legend<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;string</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+their&nbsp;contents&nbsp;accordingly<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+<dl><dt><a name="PolarAxes-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.transform&nbsp;transformation&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="PolarAxes-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_zorder"><strong>set_zorder</strong></a>(self, level)</dt><dd><tt>Set&nbsp;the&nbsp;zorder&nbsp;for&nbsp;the&nbsp;artist<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-update"><strong>update</strong></a>(self, props)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+<dl><dt><strong>zorder</strong> = 0</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -2158,9 +2397,9 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <font color="#000000" face="helvetica, arial"><a name="PolarSubplot">class <strong>PolarSubplot</strong></a>(<a href="matplotlib.axes.html#SubplotBase">SubplotBase</a>, <a href="matplotlib.axes.html#PolarAxes">PolarAxes</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Emulate&nbsp;matlab's&nbsp;subplot&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
+<td colspan=2><tt>Create&nbsp;a&nbsp;polar&nbsp;subplot&nbsp;with<br>
 &nbsp;<br>
-&nbsp;&nbsp;<a href="#Subplot">Subplot</a>(numRows,&nbsp;numCols,&nbsp;plotNum)<br>
+&nbsp;&nbsp;<a href="#PolarSubplot">PolarSubplot</a>(numRows,&nbsp;numCols,&nbsp;plotNum)<br>
 &nbsp;<br>
 where&nbsp;plotNum=1&nbsp;is&nbsp;the&nbsp;first&nbsp;plot&nbsp;number&nbsp;and&nbsp;increasing&nbsp;plotNums<br>
 fill&nbsp;rows&nbsp;first.&nbsp;&nbsp;max(plotNum)==numRows*numCols<br>
@@ -2207,21 +2446,37 @@ Methods inherited from <a href="matplotlib.axes.html#PolarAxes">PolarAxes</a>:<b
 
 <dl><dt><a name="PolarSubplot-has_data"><strong>has_data</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;any&nbsp;artists&nbsp;have&nbsp;been&nbsp;added&nbsp;to&nbsp;axes</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-set_rgridlabels"><strong>set_rgridlabels</strong></a>(self, radii, angle<font color="#909090">=22.5</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;radial&nbsp;grid&nbsp;labels&nbsp;at&nbsp;radial&nbsp;distances&nbsp;in&nbsp;radii&nbsp;along<br>
-the&nbsp;radius&nbsp;at&nbsp;angle</tt></dd></dl>
-
-<dl><dt><a name="PolarSubplot-set_rgrids"><strong>set_rgrids</strong></a>(self, radii)</dt><dd><tt>set&nbsp;the&nbsp;radial&nbsp;locations&nbsp;of&nbsp;the&nbsp;r&nbsp;grids</tt></dd></dl>
-
-<dl><dt><a name="PolarSubplot-set_thetagridlabels"><strong>set_thetagridlabels</strong></a>(self, angles, fmt<font color="#909090">='%d'</font>, frac<font color="#909090">=1.1000000000000001</font>, **kwargs)</dt><dd><tt>set&nbsp;the&nbsp;radial&nbsp;locations&nbsp;of&nbsp;the&nbsp;r&nbsp;grids<br>
+<dl><dt><a name="PolarSubplot-set_rgrids"><strong>set_rgrids</strong></a>(self, radii, labels<font color="#909090">=None</font>, angle<font color="#909090">=22.5</font>, **kwargs)</dt><dd><tt>set&nbsp;the&nbsp;radial&nbsp;locations&nbsp;and&nbsp;labels&nbsp;of&nbsp;the&nbsp;r&nbsp;grids<br>
 &nbsp;<br>
-angles&nbsp;are&nbsp;in&nbsp;degrees<br>
+The&nbsp;labels&nbsp;will&nbsp;appear&nbsp;at&nbsp;radial&nbsp;distances&nbsp;radii&nbsp;at&nbsp;angle<br>
+&nbsp;<br>
+labels,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(radii)&nbsp;list&nbsp;of&nbsp;strings&nbsp;of&nbsp;the<br>
+labels&nbsp;to&nbsp;use&nbsp;at&nbsp;each&nbsp;angle.<br>
+&nbsp;<br>
+if&nbsp;labels&nbsp;is&nbsp;None,&nbsp;the&nbsp;self.<strong>rformatter</strong>&nbsp;will&nbsp;be&nbsp;used&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines,&nbsp;labels&nbsp;where&nbsp;the&nbsp;lines&nbsp;are<br>
+matplotlib.Line2D&nbsp;instances&nbsp;and&nbsp;the&nbsp;labels&nbsp;are&nbsp;matplotlib.Text<br>
+instances</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_thetagrids"><strong>set_thetagrids</strong></a>(self, angles, labels<font color="#909090">=None</font>, fmt<font color="#909090">='%d'</font>, frac<font color="#909090">=1.1000000000000001</font>, **kwargs)</dt><dd><tt>set&nbsp;the&nbsp;angles&nbsp;at&nbsp;which&nbsp;to&nbsp;place&nbsp;the&nbsp;theta&nbsp;grids&nbsp;(these<br>
+gridlines&nbsp;are&nbsp;equal&nbsp;along&nbsp;the&nbsp;theta&nbsp;dimension).&nbsp;&nbsp;angles&nbsp;is&nbsp;in<br>
+degrees<br>
+&nbsp;<br>
+labels,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(angles)&nbsp;list&nbsp;of&nbsp;strings&nbsp;of&nbsp;the<br>
+labels&nbsp;to&nbsp;use&nbsp;at&nbsp;each&nbsp;angle.<br>
+&nbsp;<br>
+if&nbsp;labels&nbsp;is&nbsp;None,&nbsp;the&nbsp;labels&nbsp;with&nbsp;be&nbsp;fmt%angle<br>
 &nbsp;<br>
 frac&nbsp;is&nbsp;the&nbsp;fraction&nbsp;of&nbsp;the&nbsp;polar&nbsp;axes&nbsp;radius&nbsp;at&nbsp;which&nbsp;to<br>
 place&nbsp;the&nbsp;label&nbsp;(1&nbsp;is&nbsp;the&nbsp;edge).Eg&nbsp;1.05&nbsp;isd&nbsp;outside&nbsp;the&nbsp;axes<br>
-and&nbsp;0.95&nbsp;is&nbsp;inside&nbsp;the&nbsp;axes</tt></dd></dl>
-
-<dl><dt><a name="PolarSubplot-set_thetagrids"><strong>set_thetagrids</strong></a>(self, angles)</dt><dd><tt>set&nbsp;the&nbsp;angles&nbsp;at&nbsp;which&nbsp;to&nbsp;place&nbsp;the&nbsp;theta&nbsp;grids&nbsp;(these<br>
-gridlines&nbsp;are&nbsp;equal&nbsp;along&nbsp;the&nbsp;theta&nbsp;dimension).&nbsp;&nbsp;angles&nbsp;is&nbsp;in&nbsp;degrees</tt></dd></dl>
+and&nbsp;0.95&nbsp;is&nbsp;inside&nbsp;the&nbsp;axes<br>
+&nbsp;<br>
+kwargs&nbsp;are&nbsp;optional&nbsp;text&nbsp;properties&nbsp;for&nbsp;the&nbsp;labels<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines,&nbsp;labels&nbsp;where&nbsp;the&nbsp;lines&nbsp;are<br>
+matplotlib.Line2D&nbsp;instances&nbsp;and&nbsp;the&nbsp;labels&nbsp;are&nbsp;matplotlib.Text<br>
+instances</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-set_xlabel"><strong>set_xlabel</strong></a>(self, xlabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>xlabel&nbsp;not&nbsp;implemented</tt></dd></dl>
 
@@ -2423,6 +2678,61 @@ Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;An
 &nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-connect"><strong>connect</strong></a>(self, s, func)</dt></dl>
+
+<dl><dt><a name="PolarSubplot-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
+&nbsp;<br>
+plots&nbsp;contour&nbsp;lines&nbsp;of&nbsp;an&nbsp;image&nbsp;z<br>
+&nbsp;<br>
+z&nbsp;is&nbsp;a&nbsp;2D&nbsp;array&nbsp;of&nbsp;image&nbsp;values<br>
+x&nbsp;and&nbsp;y&nbsp;are&nbsp;2D&nbsp;arrays&nbsp;with&nbsp;coordinates&nbsp;of&nbsp;z&nbsp;values&nbsp;in&nbsp;the<br>
+two&nbsp;directions.&nbsp;x&nbsp;and&nbsp;y&nbsp;do&nbsp;not&nbsp;need&nbsp;to&nbsp;be&nbsp;evenly&nbsp;spaced&nbsp;but&nbsp;must<br>
+be&nbsp;of&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;z<br>
+&nbsp;<br>
+levels&nbsp;can&nbsp;be&nbsp;a&nbsp;list&nbsp;of&nbsp;level&nbsp;values&nbsp;or&nbsp;the&nbsp;number&nbsp;of&nbsp;levels&nbsp;to&nbsp;be<br>
+&nbsp;&nbsp;plotted.&nbsp;&nbsp;If&nbsp;levels&nbsp;==&nbsp;None,&nbsp;a&nbsp;default&nbsp;number&nbsp;of&nbsp;7&nbsp;evenly&nbsp;spaced<br>
+&nbsp;&nbsp;levels&nbsp;is&nbsp;plotted.<br>
+&nbsp;<br>
+colors&nbsp;is&nbsp;one&nbsp;of&nbsp;these:<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;(string,&nbsp;float,&nbsp;rgb,&nbsp;etc),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;different&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;different&nbsp;colors&nbsp;in&nbsp;the&nbsp;order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;one&nbsp;string&nbsp;color,&nbsp;e.g.&nbsp;colors&nbsp;=&nbsp;'r'&nbsp;or&nbsp;colors&nbsp;=&nbsp;'red',&nbsp;all&nbsp;levels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;this&nbsp;color<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;color&nbsp;for&nbsp;lines.color&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used.<br>
+&nbsp;<br>
+linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;number&nbsp;-&nbsp;all&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;with&nbsp;this&nbsp;linewidth,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.&nbsp;linewidths&nbsp;=&nbsp;0.6<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;numbers,&nbsp;e.g.&nbsp;linewidths&nbsp;=&nbsp;(0.4,&nbsp;0.8,&nbsp;1.2)&nbsp;different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;with&nbsp;different&nbsp;linewidths&nbsp;in&nbsp;the&nbsp;order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
+&nbsp;<br>
+reg&nbsp;is&nbsp;a&nbsp;2D&nbsp;region&nbsp;number&nbsp;array&nbsp;with&nbsp;the&nbsp;same&nbsp;dimensions&nbsp;as&nbsp;x&nbsp;and<br>
+&nbsp;&nbsp;y.&nbsp;The&nbsp;values&nbsp;of&nbsp;reg&nbsp;should&nbsp;be&nbsp;positive&nbsp;region&nbsp;numbers,&nbsp;and&nbsp;zero&nbsp;fro<br>
+&nbsp;&nbsp;zones&nbsp;wich&nbsp;do&nbsp;not&nbsp;exist.<br>
+&nbsp;<br>
+triangle&nbsp;-&nbsp;triangulation&nbsp;array&nbsp;-&nbsp;must&nbsp;be&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;reg<br>
+&nbsp;<br>
+alpha&nbsp;:&nbsp;the&nbsp;default&nbsp;transparency&nbsp;of&nbsp;contour&nbsp;lines<br>
+&nbsp;<br>
+fmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;for&nbsp;adding&nbsp;a&nbsp;label&nbsp;to&nbsp;each&nbsp;collection.<br>
+&nbsp;&nbsp;Currently&nbsp;this&nbsp;is&nbsp;useful&nbsp;for&nbsp;auto-legending&nbsp;and&nbsp;may&nbsp;be&nbsp;useful&nbsp;down<br>
+&nbsp;&nbsp;the&nbsp;road&nbsp;for&nbsp;legend&nbsp;labeling<br>
+&nbsp;<br>
+More&nbsp;information&nbsp;on&nbsp;reg&nbsp;and&nbsp;triangle&nbsp;arrays&nbsp;is&nbsp;in&nbsp;_contour.c<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;levels,&nbsp;collections&nbsp;where&nbsp;levels&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;contour<br>
+levels&nbsp;used&nbsp;and&nbsp;collections&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
+matplotlib.collections.LineCollection&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
@@ -2636,6 +2946,8 @@ The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 
 <dl><dt><a name="PolarSubplot-in_axes"><strong>in_axes</strong></a>(self, xwin, ywin)</dt><dd><tt>return&nbsp;True&nbsp;is&nbsp;the&nbsp;point&nbsp;xwin,&nbsp;ywin&nbsp;(display&nbsp;coords)&nbsp;are&nbsp;in&nbsp;the&nbsp;<a href="#Axes">Axes</a></tt></dd></dl>
 
+<dl><dt><a name="PolarSubplot-ishold"><strong>ishold</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;HOLD&nbsp;status&nbsp;of&nbsp;the&nbsp;axes</tt></dd></dl>
+
 <dl><dt><a name="PolarSubplot-legend"><strong>legend</strong></a>(self, *args, **kwargs)</dt><dd><tt>LEGEND(*args,&nbsp;**kwargs)<br>
 &nbsp;<br>
 Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;current&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
@@ -2649,8 +2961,9 @@ USAGE:&nbsp;<br>
 &nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#PolarSubplot-legend">legend</a>()<br>
 &nbsp;<br>
 &nbsp;&nbsp;legend&nbsp;by&nbsp;itself&nbsp;will&nbsp;try&nbsp;and&nbsp;build&nbsp;a&nbsp;legend&nbsp;using&nbsp;the&nbsp;label<br>
-&nbsp;&nbsp;property&nbsp;of&nbsp;the&nbsp;lines.&nbsp;&nbsp;You&nbsp;can&nbsp;set&nbsp;the&nbsp;label&nbsp;of&nbsp;a&nbsp;line&nbsp;by&nbsp;doing<br>
-&nbsp;&nbsp;<a href="#PolarSubplot-plot">plot</a>(x,&nbsp;y,&nbsp;label='my&nbsp;data')&nbsp;or&nbsp;line.set_label('my&nbsp;data')<br>
+&nbsp;&nbsp;property&nbsp;of&nbsp;the&nbsp;lines/patches/collections.&nbsp;&nbsp;You&nbsp;can&nbsp;set&nbsp;the&nbsp;label&nbsp;of<br>
+&nbsp;&nbsp;a&nbsp;line&nbsp;by&nbsp;doing&nbsp;<a href="#PolarSubplot-plot">plot</a>(x,&nbsp;y,&nbsp;label='my&nbsp;data')&nbsp;or&nbsp;line.<a href="#PolarSubplot-set_label">set_label</a>('my<br>
+&nbsp;&nbsp;data')<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;automatically&nbsp;generate&nbsp;the&nbsp;legend&nbsp;from&nbsp;labels<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)&nbsp;<br>
@@ -2684,7 +2997,17 @@ in&nbsp;axes&nbsp;coords,&nbsp;ie,<br>
 &nbsp;&nbsp;loc&nbsp;=&nbsp;0,&nbsp;1&nbsp;is&nbsp;left&nbsp;top<br>
 &nbsp;&nbsp;loc&nbsp;=&nbsp;0.5,&nbsp;0.5&nbsp;is&nbsp;center,&nbsp;center<br>
 &nbsp;<br>
-and&nbsp;so&nbsp;on</tt></dd></dl>
+and&nbsp;so&nbsp;on.&nbsp;&nbsp;The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;supported<br>
+&nbsp;<br>
+&nbsp;&nbsp;numpoints&nbsp;=&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;number&nbsp;of&nbsp;points&nbsp;in&nbsp;the&nbsp;legend&nbsp;line<br>
+&nbsp;&nbsp;prop&nbsp;=&nbsp;FontProperties('smaller')&nbsp;&nbsp;#&nbsp;the&nbsp;font&nbsp;properties<br>
+&nbsp;&nbsp;pad&nbsp;=&nbsp;0.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;fractional&nbsp;whitespace&nbsp;inside&nbsp;the&nbsp;legend&nbsp;border<br>
+&nbsp;<br>
+&nbsp;&nbsp;#&nbsp;The&nbsp;kwarg&nbsp;dimensions&nbsp;are&nbsp;in&nbsp;axes&nbsp;coords<br>
+&nbsp;&nbsp;labelsep&nbsp;=&nbsp;0.005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;vertical&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;entries<br>
+&nbsp;&nbsp;handlelen&nbsp;=&nbsp;0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;legend&nbsp;lines<br>
+&nbsp;&nbsp;handletextsep&nbsp;=&nbsp;0.02&nbsp;#&nbsp;the&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;line&nbsp;and&nbsp;legend&nbsp;text<br>
+&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>LOGLOG(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -2744,7 +3067,7 @@ object<br>
 &nbsp;<br>
 Grid&nbsp;Orientation<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab(TM)&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
 &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
@@ -2754,7 +3077,7 @@ Grid&nbsp;Orientation<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;pylab.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
 &nbsp;&nbsp;&nbsp;&nbsp;happy&nbsp;with<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
@@ -2795,7 +3118,7 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects.<br>
 &nbsp;<br>
 Grid&nbsp;orientation<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab(TM)&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for&nbsp;x<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
@@ -2928,7 +3251,7 @@ sampling&nbsp;frequency.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detrend_linear,&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;custom&nbsp;function&nbsp;as&nbsp;well.<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;window&nbsp;-&nbsp;the&nbsp;function&nbsp;used&nbsp;to&nbsp;window&nbsp;the&nbsp;segments.&nbsp;&nbsp;window&nbsp;is&nbsp;a<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function,&nbsp;unlike&nbsp;in&nbsp;matlab&nbsp;where&nbsp;it&nbsp;is&nbsp;a&nbsp;vector.&nbsp;&nbsp;mlab&nbsp;defines<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function,&nbsp;unlike&nbsp;in&nbsp;matlab(TM)&nbsp;where&nbsp;it&nbsp;is&nbsp;a&nbsp;vector.&nbsp;&nbsp;mlab&nbsp;defines<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window_none,&nbsp;window_hanning,&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;custom&nbsp;function<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;well.<br>
 &nbsp;<br>
@@ -2944,7 +3267,7 @@ Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=20</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>SCATTER(x,&nbsp;y,&nbsp;s=20,&nbsp;c='b',&nbsp;marker='o',&nbsp;cmap=None,&nbsp;norm=None,<br>
+<dl><dt><a name="PolarSubplot-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=20</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, **kwargs)</dt><dd><tt>SCATTER(x,&nbsp;y,&nbsp;s=20,&nbsp;c='b',&nbsp;marker='o',&nbsp;cmap=None,&nbsp;norm=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;alpha=1.0)<br>
 &nbsp;<br>
 Supported&nbsp;function&nbsp;signatures:<br>
@@ -3125,6 +3448,18 @@ Return&nbsp;value&nbsp;is&nbsp;(Pxx,&nbsp;freqs,&nbsp;bins,&nbsp;im),&nbsp;where
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;im&nbsp;is&nbsp;a&nbsp;matplotlib.image.AxesImage.</tt></dd></dl>
 
+<dl><dt><a name="PolarSubplot-spy"><strong>spy</strong></a>(self, Z, marker<font color="#909090">='s'</font>, markersize<font color="#909090">=10</font>, **kwargs)</dt><dd><tt>SPY(Z,&nbsp;**kwrags)&nbsp;plots&nbsp;the&nbsp;sparsity&nbsp;pattern&nbsp;of&nbsp;the&nbsp;matrix&nbsp;S<br>
+using&nbsp;plot&nbsp;markers.<br>
+&nbsp;<br>
+kwargs&nbsp;give&nbsp;the&nbsp;marker&nbsp;properties&nbsp;-&nbsp;see&nbsp;help(plot)&nbsp;for&nbsp;more<br>
+information&nbsp;on&nbsp;marker&nbsp;properties<br>
+&nbsp;<br>
+The&nbsp;line&nbsp;handles&nbsp;are&nbsp;returned</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-spy2"><strong>spy2</strong></a>(self, Z)</dt><dd><tt>SPY2(Z)&nbsp;plots&nbsp;the&nbsp;sparsity&nbsp;pattern&nbsp;of&nbsp;the&nbsp;matrix&nbsp;S&nbsp;as&nbsp;an&nbsp;image<br>
+&nbsp;<br>
+The&nbsp;image&nbsp;instance&nbsp;is&nbsp;returned</tt></dd></dl>
+
 <dl><dt><a name="PolarSubplot-stem"><strong>stem</strong></a>(self, x, y, linefmt<font color="#909090">='b-'</font>, markerfmt<font color="#909090">='bo'</font>, basefmt<font color="#909090">='r-'</font>)</dt><dd><tt>STEM(x,&nbsp;y,&nbsp;linefmt='b-',&nbsp;markerfmt='bo',&nbsp;basefmt='r-')<br>
 &nbsp;<br>
 A&nbsp;stem&nbsp;plot&nbsp;plots&nbsp;vertical&nbsp;lines&nbsp;(using&nbsp;linefmt)&nbsp;at&nbsp;each&nbsp;x&nbsp;location<br>
@@ -3190,39 +3525,69 @@ Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt><
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="PolarSubplot-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
+<dl><dt><a name="PolarSubplot-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on&nbsp;all<br>
+backends</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="PolarSubplot-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_zorder"><strong>get_zorder</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="PolarSubplot-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="PolarSubplot-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
+all&nbsp;backends<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+<dl><dt><a name="PolarSubplot-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.transform.Bbox&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+<dl><dt><a name="PolarSubplot-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+<dl><dt><a name="PolarSubplot-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.figure.Figure&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;line&nbsp;label&nbsp;to&nbsp;s&nbsp;for&nbsp;auto&nbsp;legend<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;string</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+their&nbsp;contents&nbsp;accordingly<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+<dl><dt><a name="PolarSubplot-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.transform&nbsp;transformation&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="PolarSubplot-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_zorder"><strong>set_zorder</strong></a>(self, level)</dt><dd><tt>Set&nbsp;the&nbsp;zorder&nbsp;for&nbsp;the&nbsp;artist<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-update"><strong>update</strong></a>(self, props)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+<dl><dt><strong>zorder</strong> = 0</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -3231,7 +3596,7 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <font color="#000000" face="helvetica, arial"><a name="Subplot">class <strong>Subplot</strong></a>(<a href="matplotlib.axes.html#SubplotBase">SubplotBase</a>, <a href="matplotlib.axes.html#Axes">Axes</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Emulate&nbsp;matlab's&nbsp;subplot&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
+<td colspan=2><tt>Emulate&nbsp;matlab's(TM)&nbsp;subplot&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
 &nbsp;<br>
 &nbsp;&nbsp;<a href="#Subplot">Subplot</a>(numRows,&nbsp;numCols,&nbsp;plotNum)<br>
 &nbsp;<br>
@@ -3460,6 +3825,61 @@ Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;An
 
 <dl><dt><a name="Subplot-connect"><strong>connect</strong></a>(self, s, func)</dt></dl>
 
+<dl><dt><a name="Subplot-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
+&nbsp;<br>
+plots&nbsp;contour&nbsp;lines&nbsp;of&nbsp;an&nbsp;image&nbsp;z<br>
+&nbsp;<br>
+z&nbsp;is&nbsp;a&nbsp;2D&nbsp;array&nbsp;of&nbsp;image&nbsp;values<br>
+x&nbsp;and&nbsp;y&nbsp;are&nbsp;2D&nbsp;arrays&nbsp;with&nbsp;coordinates&nbsp;of&nbsp;z&nbsp;values&nbsp;in&nbsp;the<br>
+two&nbsp;directions.&nbsp;x&nbsp;and&nbsp;y&nbsp;do&nbsp;not&nbsp;need&nbsp;to&nbsp;be&nbsp;evenly&nbsp;spaced&nbsp;but&nbsp;must<br>
+be&nbsp;of&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;z<br>
+&nbsp;<br>
+levels&nbsp;can&nbsp;be&nbsp;a&nbsp;list&nbsp;of&nbsp;level&nbsp;values&nbsp;or&nbsp;the&nbsp;number&nbsp;of&nbsp;levels&nbsp;to&nbsp;be<br>
+&nbsp;&nbsp;plotted.&nbsp;&nbsp;If&nbsp;levels&nbsp;==&nbsp;None,&nbsp;a&nbsp;default&nbsp;number&nbsp;of&nbsp;7&nbsp;evenly&nbsp;spaced<br>
+&nbsp;&nbsp;levels&nbsp;is&nbsp;plotted.<br>
+&nbsp;<br>
+colors&nbsp;is&nbsp;one&nbsp;of&nbsp;these:<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;(string,&nbsp;float,&nbsp;rgb,&nbsp;etc),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;different&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;different&nbsp;colors&nbsp;in&nbsp;the&nbsp;order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;one&nbsp;string&nbsp;color,&nbsp;e.g.&nbsp;colors&nbsp;=&nbsp;'r'&nbsp;or&nbsp;colors&nbsp;=&nbsp;'red',&nbsp;all&nbsp;levels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;this&nbsp;color<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;color&nbsp;for&nbsp;lines.color&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used.<br>
+&nbsp;<br>
+linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;number&nbsp;-&nbsp;all&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;with&nbsp;this&nbsp;linewidth,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.&nbsp;linewidths&nbsp;=&nbsp;0.6<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;numbers,&nbsp;e.g.&nbsp;linewidths&nbsp;=&nbsp;(0.4,&nbsp;0.8,&nbsp;1.2)&nbsp;different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;with&nbsp;different&nbsp;linewidths&nbsp;in&nbsp;the&nbsp;order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
+&nbsp;<br>
+reg&nbsp;is&nbsp;a&nbsp;2D&nbsp;region&nbsp;number&nbsp;array&nbsp;with&nbsp;the&nbsp;same&nbsp;dimensions&nbsp;as&nbsp;x&nbsp;and<br>
+&nbsp;&nbsp;y.&nbsp;The&nbsp;values&nbsp;of&nbsp;reg&nbsp;should&nbsp;be&nbsp;positive&nbsp;region&nbsp;numbers,&nbsp;and&nbsp;zero&nbsp;fro<br>
+&nbsp;&nbsp;zones&nbsp;wich&nbsp;do&nbsp;not&nbsp;exist.<br>
+&nbsp;<br>
+triangle&nbsp;-&nbsp;triangulation&nbsp;array&nbsp;-&nbsp;must&nbsp;be&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;reg<br>
+&nbsp;<br>
+alpha&nbsp;:&nbsp;the&nbsp;default&nbsp;transparency&nbsp;of&nbsp;contour&nbsp;lines<br>
+&nbsp;<br>
+fmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;for&nbsp;adding&nbsp;a&nbsp;label&nbsp;to&nbsp;each&nbsp;collection.<br>
+&nbsp;&nbsp;Currently&nbsp;this&nbsp;is&nbsp;useful&nbsp;for&nbsp;auto-legending&nbsp;and&nbsp;may&nbsp;be&nbsp;useful&nbsp;down<br>
+&nbsp;&nbsp;the&nbsp;road&nbsp;for&nbsp;legend&nbsp;labeling<br>
+&nbsp;<br>
+More&nbsp;information&nbsp;on&nbsp;reg&nbsp;and&nbsp;triangle&nbsp;arrays&nbsp;is&nbsp;in&nbsp;_contour.c<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;levels,&nbsp;collections&nbsp;where&nbsp;levels&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;contour<br>
+levels&nbsp;used&nbsp;and&nbsp;collections&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
+matplotlib.collections.LineCollection&nbsp;instances</tt></dd></dl>
+
 <dl><dt><a name="Subplot-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
 &nbsp;<br>
@@ -3481,7 +3901,7 @@ Refs:<br>
 
 <dl><dt><a name="Subplot-disconnect"><strong>disconnect</strong></a>(self, cid)</dt><dd><tt>disconnect&nbsp;from&nbsp;the&nbsp;<a href="#Axes">Axes</a>&nbsp;event.</tt></dd></dl>
 
-<dl><dt><a name="Subplot-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt><dd><tt>Draw&nbsp;everything&nbsp;(plot&nbsp;lines,&nbsp;axes,&nbsp;labels)</tt></dd></dl>
+<dl><dt><a name="Subplot-draw"><strong>draw</strong></a>(self, renderer)</dt><dd><tt>Draw&nbsp;everything&nbsp;(plot&nbsp;lines,&nbsp;axes,&nbsp;labels)</tt></dd></dl>
 
 <dl><dt><a name="Subplot-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>, barsabove<font color="#909090">=False</font>, **kwargs)</dt><dd><tt>ERRORBAR(x,&nbsp;y,&nbsp;yerr=None,&nbsp;xerr=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmt='b-',&nbsp;ecolor=None,&nbsp;capsize=3,&nbsp;barsabove=False)<br>
@@ -3592,7 +4012,8 @@ major&nbsp;formatter</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_yticks"><strong>get_yticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;y&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
 
-<dl><dt><a name="Subplot-grid"><strong>grid</strong></a>(self, b)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;grids&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean</tt></dd></dl>
+<dl><dt><a name="Subplot-grid"><strong>grid</strong></a>(self, b<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;grids&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean<br>
+if&nbsp;b&nbsp;is&nbsp;None,&nbsp;toggle&nbsp;the&nbsp;grid&nbsp;state</tt></dd></dl>
 
 <dl><dt><a name="Subplot-has_data"><strong>has_data</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;any&nbsp;artists&nbsp;have&nbsp;been&nbsp;added&nbsp;to&nbsp;axes</tt></dd></dl>
 
@@ -3680,6 +4101,8 @@ The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 
 <dl><dt><a name="Subplot-in_axes"><strong>in_axes</strong></a>(self, xwin, ywin)</dt><dd><tt>return&nbsp;True&nbsp;is&nbsp;the&nbsp;point&nbsp;xwin,&nbsp;ywin&nbsp;(display&nbsp;coords)&nbsp;are&nbsp;in&nbsp;the&nbsp;<a href="#Axes">Axes</a></tt></dd></dl>
 
+<dl><dt><a name="Subplot-ishold"><strong>ishold</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;HOLD&nbsp;status&nbsp;of&nbsp;the&nbsp;axes</tt></dd></dl>
+
 <dl><dt><a name="Subplot-legend"><strong>legend</strong></a>(self, *args, **kwargs)</dt><dd><tt>LEGEND(*args,&nbsp;**kwargs)<br>
 &nbsp;<br>
 Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;current&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
@@ -3693,8 +4116,9 @@ USAGE:&nbsp;<br>
 &nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#Subplot-legend">legend</a>()<br>
 &nbsp;<br>
 &nbsp;&nbsp;legend&nbsp;by&nbsp;itself&nbsp;will&nbsp;try&nbsp;and&nbsp;build&nbsp;a&nbsp;legend&nbsp;using&nbsp;the&nbsp;label<br>
-&nbsp;&nbsp;property&nbsp;of&nbsp;the&nbsp;lines.&nbsp;&nbsp;You&nbsp;can&nbsp;set&nbsp;the&nbsp;label&nbsp;of&nbsp;a&nbsp;line&nbsp;by&nbsp;doing<br>
-&nbsp;&nbsp;<a href="#Subplot-plot">plot</a>(x,&nbsp;y,&nbsp;label='my&nbsp;data')&nbsp;or&nbsp;line.set_label('my&nbsp;data')<br>
+&nbsp;&nbsp;property&nbsp;of&nbsp;the&nbsp;lines/patches/collections.&nbsp;&nbsp;You&nbsp;can&nbsp;set&nbsp;the&nbsp;label&nbsp;of<br>
+&nbsp;&nbsp;a&nbsp;line&nbsp;by&nbsp;doing&nbsp;<a href="#Subplot-plot">plot</a>(x,&nbsp;y,&nbsp;label='my&nbsp;data')&nbsp;or&nbsp;line.<a href="#Subplot-set_label">set_label</a>('my<br>
+&nbsp;&nbsp;data')<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;automatically&nbsp;generate&nbsp;the&nbsp;legend&nbsp;from&nbsp;labels<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)&nbsp;<br>
@@ -3728,7 +4152,17 @@ in&nbsp;axes&nbsp;coords,&nbsp;ie,<br>
 &nbsp;&nbsp;loc&nbsp;=&nbsp;0,&nbsp;1&nbsp;is&nbsp;left&nbsp;top<br>
 &nbsp;&nbsp;loc&nbsp;=&nbsp;0.5,&nbsp;0.5&nbsp;is&nbsp;center,&nbsp;center<br>
 &nbsp;<br>
-and&nbsp;so&nbsp;on</tt></dd></dl>
+and&nbsp;so&nbsp;on.&nbsp;&nbsp;The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;supported<br>
+&nbsp;<br>
+&nbsp;&nbsp;numpoints&nbsp;=&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;number&nbsp;of&nbsp;points&nbsp;in&nbsp;the&nbsp;legend&nbsp;line<br>
+&nbsp;&nbsp;prop&nbsp;=&nbsp;FontProperties('smaller')&nbsp;&nbsp;#&nbsp;the&nbsp;font&nbsp;properties<br>
+&nbsp;&nbsp;pad&nbsp;=&nbsp;0.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;fractional&nbsp;whitespace&nbsp;inside&nbsp;the&nbsp;legend&nbsp;border<br>
+&nbsp;<br>
+&nbsp;&nbsp;#&nbsp;The&nbsp;kwarg&nbsp;dimensions&nbsp;are&nbsp;in&nbsp;axes&nbsp;coords<br>
+&nbsp;&nbsp;labelsep&nbsp;=&nbsp;0.005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;vertical&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;entries<br>
+&nbsp;&nbsp;handlelen&nbsp;=&nbsp;0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;legend&nbsp;lines<br>
+&nbsp;&nbsp;handletextsep&nbsp;=&nbsp;0.02&nbsp;#&nbsp;the&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;line&nbsp;and&nbsp;legend&nbsp;text<br>
+&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge</tt></dd></dl>
 
 <dl><dt><a name="Subplot-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>LOGLOG(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -3788,7 +4222,7 @@ object<br>
 &nbsp;<br>
 Grid&nbsp;Orientation<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab(TM)&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
 &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
@@ -3798,7 +4232,7 @@ Grid&nbsp;Orientation<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;pylab.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
 &nbsp;&nbsp;&nbsp;&nbsp;happy&nbsp;with<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
@@ -3839,7 +4273,7 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects.<br>
 &nbsp;<br>
 Grid&nbsp;orientation<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab(TM)&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for&nbsp;x<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
@@ -3972,7 +4406,7 @@ sampling&nbsp;frequency.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detrend_linear,&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;custom&nbsp;function&nbsp;as&nbsp;well.<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;window&nbsp;-&nbsp;the&nbsp;function&nbsp;used&nbsp;to&nbsp;window&nbsp;the&nbsp;segments.&nbsp;&nbsp;window&nbsp;is&nbsp;a<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function,&nbsp;unlike&nbsp;in&nbsp;matlab&nbsp;where&nbsp;it&nbsp;is&nbsp;a&nbsp;vector.&nbsp;&nbsp;mlab&nbsp;defines<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function,&nbsp;unlike&nbsp;in&nbsp;matlab(TM)&nbsp;where&nbsp;it&nbsp;is&nbsp;a&nbsp;vector.&nbsp;&nbsp;mlab&nbsp;defines<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window_none,&nbsp;window_hanning,&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;custom&nbsp;function<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;well.<br>
 &nbsp;<br>
@@ -3988,7 +4422,7 @@ Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
 
-<dl><dt><a name="Subplot-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=20</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>SCATTER(x,&nbsp;y,&nbsp;s=20,&nbsp;c='b',&nbsp;marker='o',&nbsp;cmap=None,&nbsp;norm=None,<br>
+<dl><dt><a name="Subplot-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=20</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, **kwargs)</dt><dd><tt>SCATTER(x,&nbsp;y,&nbsp;s=20,&nbsp;c='b',&nbsp;marker='o',&nbsp;cmap=None,&nbsp;norm=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;alpha=1.0)<br>
 &nbsp;<br>
 Supported&nbsp;function&nbsp;signatures:<br>
@@ -4188,6 +4622,18 @@ Return&nbsp;value&nbsp;is&nbsp;(Pxx,&nbsp;freqs,&nbsp;bins,&nbsp;im),&nbsp;where
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;im&nbsp;is&nbsp;a&nbsp;matplotlib.image.AxesImage.</tt></dd></dl>
 
+<dl><dt><a name="Subplot-spy"><strong>spy</strong></a>(self, Z, marker<font color="#909090">='s'</font>, markersize<font color="#909090">=10</font>, **kwargs)</dt><dd><tt>SPY(Z,&nbsp;**kwrags)&nbsp;plots&nbsp;the&nbsp;sparsity&nbsp;pattern&nbsp;of&nbsp;the&nbsp;matrix&nbsp;S<br>
+using&nbsp;plot&nbsp;markers.<br>
+&nbsp;<br>
+kwargs&nbsp;give&nbsp;the&nbsp;marker&nbsp;properties&nbsp;-&nbsp;see&nbsp;help(plot)&nbsp;for&nbsp;more<br>
+information&nbsp;on&nbsp;marker&nbsp;properties<br>
+&nbsp;<br>
+The&nbsp;line&nbsp;handles&nbsp;are&nbsp;returned</tt></dd></dl>
+
+<dl><dt><a name="Subplot-spy2"><strong>spy2</strong></a>(self, Z)</dt><dd><tt>SPY2(Z)&nbsp;plots&nbsp;the&nbsp;sparsity&nbsp;pattern&nbsp;of&nbsp;the&nbsp;matrix&nbsp;S&nbsp;as&nbsp;an&nbsp;image<br>
+&nbsp;<br>
+The&nbsp;image&nbsp;instance&nbsp;is&nbsp;returned</tt></dd></dl>
+
 <dl><dt><a name="Subplot-stem"><strong>stem</strong></a>(self, x, y, linefmt<font color="#909090">='b-'</font>, markerfmt<font color="#909090">='bo'</font>, basefmt<font color="#909090">='r-'</font>)</dt><dd><tt>STEM(x,&nbsp;y,&nbsp;linefmt='b-',&nbsp;markerfmt='bo',&nbsp;basefmt='r-')<br>
 &nbsp;<br>
 A&nbsp;stem&nbsp;plot&nbsp;plots&nbsp;vertical&nbsp;lines&nbsp;(using&nbsp;linefmt)&nbsp;at&nbsp;each&nbsp;x&nbsp;location<br>
@@ -4253,39 +4699,69 @@ Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt><
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="Subplot-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
+<dl><dt><a name="Subplot-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on&nbsp;all<br>
+backends</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Subplot-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_zorder"><strong>get_zorder</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Subplot-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Subplot-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
+all&nbsp;backends<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+<dl><dt><a name="Subplot-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.transform.Bbox&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+<dl><dt><a name="Subplot-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+<dl><dt><a name="Subplot-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.figure.Figure&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;line&nbsp;label&nbsp;to&nbsp;s&nbsp;for&nbsp;auto&nbsp;legend<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;string</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+their&nbsp;contents&nbsp;accordingly<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+<dl><dt><a name="Subplot-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.transform&nbsp;transformation&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="Subplot-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_zorder"><strong>set_zorder</strong></a>(self, level)</dt><dd><tt>Set&nbsp;the&nbsp;zorder&nbsp;for&nbsp;the&nbsp;artist<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="Subplot-update"><strong>update</strong></a>(self, props)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+<dl><dt><strong>zorder</strong> = 0</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -4294,7 +4770,7 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <font color="#000000" face="helvetica, arial"><a name="SubplotBase">class <strong>SubplotBase</strong></a></font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Emulate&nbsp;matlab's&nbsp;subplot&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
+<td colspan=2><tt>Emulate&nbsp;matlab's(TM)&nbsp;subplot&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
 &nbsp;<br>
 &nbsp;&nbsp;<a href="#Subplot">Subplot</a>(numRows,&nbsp;numCols,&nbsp;plotNum)<br>
 &nbsp;<br>
@@ -4307,7 +4783,7 @@ in<br>
 &nbsp;&nbsp;<a href="#Subplot">Subplot</a>(211)&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;2&nbsp;rows,&nbsp;1&nbsp;column,&nbsp;first&nbsp;(upper)&nbsp;plot<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="SubplotBase-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+<dl><dt><a name="SubplotBase-__init__"><strong>__init__</strong></a>(self, *args)</dt></dl>
 
 <dl><dt><a name="SubplotBase-is_first_col"><strong>is_first_col</strong></a>(self)</dt></dl>
 
@@ -4337,6 +4813,7 @@ in<br>
 &nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
 specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
  <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
+ <dl><dt><a name="-zeros"><strong>zeros</strong></a>(...)</dt><dd><tt><a href="#-zeros">zeros</a>((d1,...,dn),typecode='l',savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;of&nbsp;shape&nbsp;(d1,...,dn)&nbsp;and&nbsp;type&nbsp;typecode&nbsp;with&nbsp;all&nbsp;it's&nbsp;entries&nbsp;initialized&nbsp;to&nbsp;zero.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero&nbsp;the&nbsp;array&nbsp;will&nbsp;be&nbsp;a&nbsp;spacesaver&nbsp;array.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -4346,7 +4823,9 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
+<strong>Float64</strong> = 'd'<br>
 <strong>IDENTITY</strong> = 0<br>
+<strong>Int32</strong> = 'i'<br>
 <strong>LOG10</strong> = 1<br>
 <strong>POLAR</strong> = 0<br>
 <strong>SEC_PER_DAY</strong> = 86400<br>
@@ -4355,6 +4834,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>SEC_PER_WEEK</strong> = 604800<br>
 <strong>True</strong> = True<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
+<strong>ceil</strong> = &lt;ufunc 'ceil'&gt;<br>
 <strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>generators</strong> = _Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 4096)<br>
@@ -4362,5 +4842,6 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1, 'None': 1, 'steps': 1}<br>
 <strong>log</strong> = &lt;ufunc 'log'&gt;<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>which</strong> = ('numeric', 'rc')</td></tr></table>
 @footer@

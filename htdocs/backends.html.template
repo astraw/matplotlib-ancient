@@ -42,7 +42,7 @@ command, the backend can be chosen from the command line with the
 
 
 For backends that do not have a GUI, no output will be produced unless
-a call to <a href=matplotlib.matlab.html#-savefig>savefig</a> is made.
+a call to <a href=matplotlib.pylab.html#-savefig>savefig</a> is made.
 The recommended way to use the savefig function is to not give an
 extension.  The backends will choose the proper extension.  This
 allows you to write a single script and select the output format from
@@ -51,7 +51,7 @@ will create <tt>somefile.ps</tt> if called with <tt>-dPS</tt> and
 <tt>somefile.png</tt> if called with <tt>-dGD</tt>, and so on.<p>
 
 Alternatively, you can select the backend renderer in your script by
-calling the matplotlib <a href=matplotlib.matlab.html#-use>use</a>
+calling the matplotlib <a href=matplotlib.pylab.html#-use>use</a>
 function.  At the top of your script (before you <tt>import
 matplotlib.matlab</tt>, just do, for example
 

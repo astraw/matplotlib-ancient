@@ -2,7 +2,7 @@ plot_table_border = 'border=1 cellspacing=1 cellpadding=1'
 
 font_props = (
     ('alpha', 'The alpha transparency on 0-1 scale'),
-    ('color', 'a matplotlib <a href=matplotlib.matlab#-colors>color</a> argument'),
+    ('color', 'a matplotlib <a href=pylab#-colors>color</a> argument'),
     ('fontangle', 'italic | normal | oblique'),
     ('fontname', 'Sans | Helvetica | Courier | Times | Others'),
     ('fontsize', 'an scalar, eg, 10'),
@@ -15,7 +15,7 @@ font_props = (
 line_props = (
     ('alpha', 'The alpha transparency on 0-1 scale'),
     ('antialiased', 'True | False -  use antialised rendering'),
-    ('color', 'a matplotlib <a href=matplotlib.matlab.html#-colors>color</a> arg'),
+    ('color', 'a matplotlib <a href=pylab.html#-colors>color</a> arg'),
     ('data_clipping', 'Whether to use numeric to clip data'),
     ('label', 'a string optionally used for legend'),
     ('linestyle', "One of -- :  -.  -"),
@@ -80,7 +80,7 @@ matplotlib<p>
     <tr><td valign=top><img src=tut/firstfig.png></td></tr>
     <tr><td valign=top halign=left>
 <pre>
-from matplotlib.matlab import *
+from pylab import *
 plot([1,2,3,4])
 show()
         </pre>
@@ -89,7 +89,7 @@ show()
 </td></tr>
 </table><br>
 
-<a href=matplotlib.matlab.html#-plot>plot</a> is a versatile command, and will
+<a href=pylab.html#-plot>plot</a> is a versatile command, and will
 take an arbitrary number of arguments.  For example, to plot x versus
 y, you can issue the command<p>
 
@@ -112,7 +112,7 @@ would issue<p>
     <tr><td valign=top><img src=tut/secondfig.png></td></tr>
     <tr><td valign=top halign=left>
 <pre>
-from matplotlib.matlab import *
+from pylab import *
 plot([1,2,3,4], [1,4,9,16], 'ro')
 axis([0, 6, 0, 20])
 savefig('secondfig.png')
@@ -122,9 +122,9 @@ show()
 </table>
 </td></tr></table><br>
 
-See the <a href=matplotlib.matlab.html#-plot>plot</a> documentation for a
+See the <a href=pylab.html#-plot>plot</a> documentation for a
 complete list of line styles and format strings.  The <a
-href=matplotlib.matlab.html#-axis>axis</a> command in the example above takes a
+href=pylab.html#-axis>axis</a> command in the example above takes a
 list of <tt>[xmin, xmax, ymin, ymax]</tt> and specifies the view port
 of the axes.<p>
 
@@ -142,7 +142,7 @@ Note if you are not familiar with Numeric or numarray, now would be a
 good time to check out the documentation at <a
 href=http://www.pfdubois.com/numpy>Numerical python</a> since a lot of
 the matplotlib examples assume you know Numeric, and the
-matplotlib.matlab imports all the numerical python and associated
+pylab imports all the numerical python and associated
 (MLab/FFT/etc) functionality.<p>
 
 <table @plot_table_border@><tr><td>
@@ -151,7 +151,7 @@ matplotlib.matlab imports all the numerical python and associated
     <tr><td valign=top><img src=tut/thirdfig.png></td></tr>
     <tr><td valign=top halign=left>
 <pre>
-from matplotlib.matlab import *
+from pylab import *
 t = arange(0.0, 5.2, 0.2)
 
 # red dashes, blue squares and green triangles
@@ -204,12 +204,12 @@ set(lines, 'color', 'r', 'linewidth', 2.0)
 <h3>Working with multiple figure and axes</h3>
 </a>
 
-Matlab, and matplotlib.matlab, have the concept of the current figure
+Matlab, and pylab, have the concept of the current figure
 and the current axes.  All plot and text label commands apply to the
 current axes.  The function <a
-href=matplotlib.matlab.html#-gca>gca</a> returns the current axes as
+href=pylab.html#-gca>gca</a> returns the current axes as
 an <a href=matplotlib.axes.html#Axes>Axes</a> instance, and <a
-href=matplotlib.matlab.html#-gcf>gcf</a> returns the current figure as
+href=pylab.html#-gcf>gcf</a> returns the current figure as
 a <a href=matplotlib.figure.html#Figure>Figure</a>
 instance.<p>
 
@@ -222,7 +222,7 @@ care of behind the scenes.  Here is an script to create two subplots<p>
     <tr><td valign=top><img src=tut/subplot.png></td></tr>
     <tr><td valign=top halign=left>
 <pre>
-from matplotlib.matlab import *
+from pylab import *
 
 def f(t):
     s1 = cos(2*pi*t)
@@ -244,17 +244,17 @@ show()
 </table>
 </td></tr></table><br>
 
-The <a href=matplotlib.matlab.html#-figure>figure</a> command here is optional
+The <a href=pylab.html#-figure>figure</a> command here is optional
 because 'figure(1)' will be created by default, just as a
 <tt>subplot(111)</tt> will be created by default if you don't manually
-specify an axes.  The <a href=matplotlib.matlab.html#-subplot>subplot</a> command
+specify an axes.  The <a href=pylab.html#-subplot>subplot</a> command
 specifies <tt>numrows, numcols, fignum</tt> where <tt>fignum</tt>
 ranges from 1 to <tt>numrows*numcols</tt>.  The commas in the subplot
 command are optional if <tt>numrows*numcols<10</tt>.  So
 <tt>subplot(211)</tt> is identical to <tt>subplot(2,1,1)</tt>.  You can
 create an arbitrary number of subplots and axes.  If you want to place
 an axes manually, ie, not on a rectangular grid, use the <a
-href=matplotlib.matlab.html#-axes>axes</a> command, which allows you to specify
+href=pylab.html#-axes>axes</a> command, which allows you to specify
 the location as <tt>axes([left, bottom, width, height])</tt> where all
 values are in fractional (0 to 1) coordinates.  See <a
 href=examples/axes_demo.py>axes_demo.py</a> for an example of placing
@@ -263,12 +263,12 @@ lots-o-subplots.<p>
 
 
 You can create multiple figures by using multiple <a
-href=matplotlib.matlab.html#-figure>figure</a> calls with an
+href=pylab.html#-figure>figure</a> calls with an
 increasing figure number.  Of course, each figure can contain as many
 axes and subplots as your heart desires.<p>
 
 <pre>
-from matplotlib.matlab import *
+from pylab import *
 
 figure(1)                # the first figure
 plot([1,2,3]) 
@@ -281,22 +281,22 @@ show()
 </pre>
 
 You can clear the current figure with <a
-href=matplotlib.matlab.html#-clf>clf</a> and the current axes with 
+href=pylab.html#-clf>clf</a> and the current axes with 
 <a
-href=matplotlib.matlab.html#-cla>cla</a>
+href=pylab.html#-cla>cla</a>
 
 <a name="text">
 <h3>Working with text</h3>
 </a>
 
 All of the text commands (<a
-href=matplotlib.matlab.html#-xlabel>xlabel</a>, <a
-href=matplotlib.matlab.html#-ylabel>ylabel</a>, <a
-href=matplotlib.matlab.html#-title>title</a>, and <a
-href=matplotlib.matlab.html#-text>text</a>) take optional keyword arguments or
+href=pylab.html#-xlabel>xlabel</a>, <a
+href=pylab.html#-ylabel>ylabel</a>, <a
+href=pylab.html#-title>title</a>, and <a
+href=pylab.html#-text>text</a>) take optional keyword arguments or
 dictionaries to specify the font properties.  There are three ways to
 specify font properties in matplotlib: handle graphics calls using <a
-href=matplotlib.matlab.html#-set>set</a>, object oriented methods, and font
+href=pylab.html#-set>set</a>, object oriented methods, and font
 dictionaries.<p>
 
 The text commands return an <a href=matplotlib.text.html>Text</a>
@@ -322,7 +322,7 @@ Here is an example adding text to a simple plot<p>
     <tr><td valign=top><img src=tut/text_simple.png></td></tr>
     <tr><td valign=top halign=left>
 <pre>
-from matplotlib.matlab import *
+from pylab import *
 plot([1,2,3])
 xlabel('time')
 ylabel('volts')
@@ -340,9 +340,9 @@ show()
 
 If you want to change a text property, and you like to use matlab
 handle graphics, you can use the <a
-href=matplotlib.matlab.html#-set>set</a> command to set any of the
+href=pylab.html#-set>set</a> command to set any of the
 properties listed in the table above.  For example, to make a red bold
-<a href=matplotlib.matlab.html#-xlabel>xlabel</a>, you would use<p>
+<a href=pylab.html#-xlabel>xlabel</a>, you would use<p>
 
 <pre>
 t = xlabel('time')
@@ -359,7 +359,7 @@ set(labels, color='r', fontweight='bold')
 
 <h4><a name=oo>Controlling text using object methods</a></h4>
 
-The <a href=matplotlib.matlab.html#-set>set</a> command is just a
+The <a href=pylab.html#-set>set</a> command is just a
 wrapper around the <a href=matplotlib.text.html>Text</a> set methods.
 If you prefer using instance methods, you just prepend <tt>set_</tt>
 to the text property and make a normal python instance method call, as
@@ -385,7 +385,7 @@ text commands, you could do something like<p>
     <tr><td valign=top><img src=tut/text_dict.png></td></tr>
     <tr><td valign=top halign=left>
 <pre>
-from matplotlib.matlab import *
+from pylab import *
 font = {'fontname'   : 'Courier',
         'color'      : 'r',
         'fontweight' : 'bold',
@@ -406,7 +406,7 @@ Now, all of the text has the default theme, which is set by the
 dictionary <tt>font</tt> (bold, Courier, red, 11 point), but
 individual pieces of text can selectively override properties by
 passing keyword arguments.  For example the <a
-href=matplotlib.matlab.html#-text>text</a> command uses color black
+href=pylab.html#-text>text</a> command uses color black
 with the color string 'k'.<p>
 
 
@@ -464,7 +464,7 @@ choices are roman <tt>\rm</tt>, italics <tt>\it</tt>, caligraphy
     <tr><td valign=top><img src=tut/mathtext_tut.png></td></tr>
     <tr><td valign=top halign=left>
 <pre>
-from matplotlib.matlab import *
+from pylab import *
 t = arange(0.0, 2.0, 0.01)
 s = sin(2*pi*t)
 plot(t,s)
@@ -613,7 +613,7 @@ href=.matplotlibrc>.matplotlibrc</a> for more information.<p>
 
 You can also dynamically change the defaults in a python script or
 interactively from the python shell using the <a
-href=matplotlib.matlab.html#-rc>rc</a> command.  For example to change
+href=pylab.html#-rc>rc</a> command.  For example to change
 the default line properties, you could do
 
 
@@ -624,7 +624,7 @@ the default line properties, you could do
 And the default lines would be thicker and red.  All rc parameters
 except <tt>backend, numerix, interactive, toolbar, timezone and
 datapath</tt> can be customized this way dyanmically.  See <a
-href=matplotlib.matlab.html#-rc>rc</a> for more information.
+href=pylab.html#-rc>rc</a> for more information.
 
 
 
@@ -632,13 +632,13 @@ href=matplotlib.matlab.html#-rc>rc</a> for more information.
 <h3>Controlling axes properties</h3>
 </a>
 
-The <a href=matplotlib.matlab.html#-axes>axes</a> and <a
-href=matplotlib.matlab.html#-subplot>subplot</a> commands return the
+The <a href=pylab.html#-axes>axes</a> and <a
+href=pylab.html#-subplot>subplot</a> commands return the
 Axes instance that is created, and you can use that to control
 properties of the axis, such as ticklines, ticklabels, gridlines, etc,
 using the set method calls from the <a href=axis.html#Axis>Axis</a>
 API.  Or if you prefer matlab handle graphics commands, you can use
-the <a href=matplotlib.matlab.html#-set>set</a> to control axis
+the <a href=pylab.html#-set>set</a> to control axis
 properties.<p>
 
 
@@ -661,7 +661,7 @@ One thing that comes up a lot in my plots when I have multiple
 subplots is that I often want to turn off the xticklabels on all
 except the lowest subplot, if the scaling is the same.  Here's how to
 do it with handle graphics; recall that <a
-href=matplotlib.matlab.html#-gca>gca</a> returns a handle to the
+href=pylab.html#-gca>gca</a> returns a handle to the
 current axis<p>
 
 <pre>
@@ -713,9 +713,9 @@ input from the user.  All graphical user interfaces (GUIs) provide
 event handling to determine things like key presses, mouse position,
 and button clicks.  matplotlib supports a number of GUIs, and provides
 an interface to the GUI event handling via the <a
-href=matplotlib.matlab.html#-mpl_connect>mpl_connect</a> and <a
-href=matplotlib.matlab.html#-mpl_disconnect>mpl_disconnect</a> methods
-of the matlab interface.  API users will probably want to use their
+href=pylab.html#-mpl_connect>mpl_connect</a> and <a
+href=pylab.html#-mpl_disconnect>mpl_disconnect</a> methods
+of the pylab interface.  API users will probably want to use their
 GUIs event handling directly, but do have the option of using their
 <tt>FigureCanvas.mpl_connect</tt> method.<p>
 
@@ -759,7 +759,7 @@ Here's an example to get the mouse location in data coordinates as the
 mouse moves
 
 <pre>
-from matplotlib.matlab import *
+from pylab import *
 
 plot(arange(10))
 
@@ -815,10 +815,10 @@ delta = datetime.timedelta(days=100)
 dates = drange(date1, date2, delta)
 </pre>
 
-The function <a href=matplotlib.matlab.html#-plot_date>plot_date</a>
+The function <a href=pylab.html#-plot_date>plot_date</a>
 is used to plot a series of y-values against floating point dates.
 Since the x axis is just a sequence of floats, you could just as
-easily use <a href=matplotlib.matlab.html#-plot>plot</a>.  In fact,
+easily use <a href=pylab.html#-plot>plot</a>.  In fact,
 this is just what plot_date does under the hood.  The only difference
 is that plot_date picks a date tick locator and a date tick formatter,
 and tries to make an intelligent default choice based on the range of

@@ -4,7 +4,7 @@ for this example.  Requires data files and modules provided by
 http://whitaker.homeunix.org/~jeff/plotmap.tar.gz, which in turn
 require the proj library from http://www.remotesensing.org/proj/
 """
-from matplotlib.matlab import *
+from pylab import *
 from matplotlib.collections import LineCollection 
 from proj import Proj
 import numarray, cPickle

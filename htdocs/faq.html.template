@@ -1,6 +1,51 @@
 
 FAQs = (
 
+    ('FAILURE',
+    "matplotlib compiled fine, but I can't get anything to plot" , """\
+The first thing to try is to remove <tt>site-packages/matplotlib</tt>
+and reinstall.  If you are running the windows installer or using some
+other package, that is all you need to do.  If you are compiling
+matplotlib yourself, you also need to remove the <tt>build</tt>
+subdirectory of the matplotlib src tree you are compiling from.  It is
+not enough to do <tt>python setup.py clean</tt>.  Try rebuilding and
+reinstalling matplotlib after removing these two directories and see
+if that helps.  If not, read on.<p>
+
+The best way to test your install is by running a script, not working
+interactively from a python shell or an integrated development
+environment such as IDLE.  Each of those brings additional
+complexities, as described at <a href=interactive.html>interactive
+matplotlib</a> and this <a href=faq.html#FREEZE>faq</a>.  So open up a
+UNIX shell (or a DOS command prompt) and cd into a directory
+containing a minimal example in a file.  Something like <a
+href=examples/simple_plot.py>simple_plot.py</a> or just this
+
+<pre>
+from pylab import *
+plot([1,2,3])
+show()
+</pre>
+
+and run it with (the verbose flag below is for matplotlib-0.64 or later)
+
+<pre>
+  > python simple_plot.py --verbose-helpful
+</pre>
+
+This will give you additional information about which backends
+matplotlib is loading, version information, and more.  At this point
+you might want to make sure you understand matplotlib's configuration
+process, governed by the configuration file <a
+href=.matplotlibrc>matplotlibrc</a> which contains instructions within
+and the concept of the matplotlib <a
+href=backends.html>backend</a>.<p>
+
+If you are still having trouble, please post a question and the output
+of <tt>--verbose-helpful</tt> to the <a
+href=http://sourceforge.net/mail/?group_id=80706>mailing list.</a>
+
+"""),
 
     ('PYGTK24',
     "I can't compile matplotlib with pygtk 2.4." , """\
@@ -93,7 +138,7 @@ a movie, and then cleans up.
 
 <pre>
 import os, sys
-from matplotlib.matlab import *
+from pylab import *
 
 files = []
 figure(figsize=(5,5))
@@ -118,7 +163,7 @@ for fname in files: os.remove(fname)
 
 
     ('WRONGDIR',
-    "When I try to import matplotlib.matlab, I get an error about no _transform.so or ft2font.so",
+    "When I try to import pylab, I get an error about no _transform.so or ft2font.so",
 
 """
 If you are trying to run matplotlib from the matplotlib build dir, you
@@ -195,18 +240,18 @@ to customize your figure interactively, if you want.
    ('USE',
     "matplotlib seems to be ignoring the <tt>use</tt> command",
 """
-You must use the use command before importing matplotlib.matlab, as
+You must use the use command before importing pylab, as
 described on <a href=backends.html>backends</a>
 
 <pre>
   >>> import matplotlib
   >>> matplotlib.use('Agg')
-  >>> from matplotlib.matlab import *
+  >>> from pylab import *
 </pre>
 
 Note that if you are using an IDE like pycrust, pythonwin, or IDLE,
-matplotlib.matlab may have already been loaded, and subsequent calls
-to <tt>use</tt> or <tt>from matplotlib.matlab import *</tt> will have
+pylab may have already been loaded, and subsequent calls
+to <tt>use</tt> or <tt>from pylab import *</tt> will have
 no effect unless you explicitly force a module reload.  """),
 
     ('VERSIONS',
@@ -282,7 +327,7 @@ default line width.  See <a href=.matplotlibrc>.matplotlibrc</a> for a
 sample config file and information on how to use it.  """),
 
     ('OO', 
-     'Is there any guide to using matplotlib with pythonic / OO /API rather than the matlab interface?', 
+     'Is there any guide to using matplotlib with pythonic / OO /API rather than the pylab interface?', 
 
 """
 
@@ -303,7 +348,7 @@ There is no official documentation yet, but there are a few resources
       pythonic, OO interface.</li>
 
   <li> matplotlib/matlab.py in site-packages or the matplotlib src
-      directory is a useful resource.  The matlab interface is just a
+      directory is a useful resource.  The pylab interface is just a
       thin wrapper around the API, so you can look and see how it is
       done there, translating all the gcf() calls to your figure
       instance, all the gca() calls to your axes instance, and so
@@ -347,7 +392,7 @@ You don't need anything special in your plotting script.  Eg, the
 following works fine with recent versions of py2exe
 
 <pre>
-from matplotlib.matlab import *
+from pylab import *
 plot([1,2,3])
 show()
 </pre>
@@ -380,7 +425,7 @@ py2exe wiki entry</a>.
     r"""
 If you want to customize a session of matplotlib, eg, the default font,
 linewidth, fontsize, etc, use the <a
-href=matplotlib.matlab.html#-rc>rc</a> command.  This changes the
+href=matplotlib.pylab.html#-rc>rc</a> command.  This changes the
 default for the rest of the session, or until you issue another rc
 command.  See <a examples/customize_rc.py>customize_rc.py</a> for
 example usage."""),
@@ -437,7 +482,7 @@ href=http://antigrain.com>agg</a> backend because:
   <li>there are clipping issues with GD and Paint </li>
   <li>it supports fast antialiased drawing and alpha blending </li>
   <li>it supports <a href=matplotlib.mathtext.html>mathtext</a></li>
-  <li>it supports images with <a href=matplotlib.matlab.html#-imshow>imshow</a></li>
+  <li>it supports images with <a href=matplotlib.pylab.html#-imshow>imshow</a></li>
 </ul>
 
 It is likely that with time many of these limitiations or problems
@@ -571,7 +616,7 @@ interactively from the shell.
 <b>IMPORTANT: show should called at most once per script and it should
 be the last line of your script.  At that point, the GUI takes control
 of the interpreter.  If you want to force a figure draw, use <a
-href=matplotlib.matlab.html#-draw>draw</a> instead.</b> """),
+href=matplotlib.pylab.html#-draw>draw</a> instead.</b> """),
  
     ('PSGUI',
      'Can I save PS/EPS from a GUI backend?',
@@ -588,7 +633,7 @@ work properly."""),
    """
 The default subplots take up a lot of room.  If you need extra space
 for particularly large labels and titles, consider using custom <a
-href=matplotlib.matlab.html#-axes>axes</a>, eg, <tt>axes([0.3, 0.3, 0.6,
+href=matplotlib.pylab.html#-axes>axes</a>, eg, <tt>axes([0.3, 0.3, 0.6,
 0.6])</tt> gives you more room to the left and at the bottom than the
 standard axes.</p>
 
@@ -622,7 +667,7 @@ href=examples/system_monitor.py>system_monitor.py</a>"""),
 subplot is just a helper function to generate regularly spaced axes.
 For more fine-grained control, you can position axes anywhere you want
 in any size using the axes command.  See
-the <a href=matplotlib.matlab.html#-axes>axes command</a> and the example
+the <a href=matplotlib.pylab.html#-axes>axes command</a> and the example
 <a href=examples/axes_demo.py>axes_demo.py<a/>.<p>
 
 """),
@@ -631,8 +676,8 @@ the <a href=matplotlib.matlab.html#-axes>axes command</a> and the example
     'Can matplotlib handle image data?',
      """
 Yes - you can now plot images from numerix arraysq with <a
-href=matplotlib.matlab.html#-imshow>imshow</a>.  You can load png
-files into arrays <a href=matplotlib.matlab.html#-imread>imread</a>;
+href=matplotlib.pylab.html#-imshow>imshow</a>.  You can load png
+files into arrays <a href=matplotlib.pylab.html#-imread>imread</a>;
 image loaders coming soon."""),
 
     ('ROTATETICKS',
@@ -641,7 +686,7 @@ image loaders coming soon."""),
 You can set the rotation of any text instance to vertical
 
 <pre>
-    from matplotlib.matlab import *
+    from pylab import *
     plot([1,2,3,4], [1,4,9,16])
     set(gca(), 'xticks', [1,2,3,4])
     labels = set(gca(), 'xticklabels', 
@@ -749,7 +794,7 @@ leaks.  </B>
 import os, sys, time
 import matplotlib
 matplotlib.use('Agg')
-from matplotlib.matlab import *
+from pylab import *
 
 
 def report_memory(i):
@@ -826,7 +871,7 @@ become a GUI wrapping library so we can focus on being a plotting
 library.<p>
 
 If you need a lot of control over GUI properties, you may want to skip
-the matlab interface and use the matplotlib API directly, eg build a
+the pylab interface and use the matplotlib API directly, eg build a
 GTK app which embeds matplotlib.  See examples/embedding_in*.py in the
 matplotlib src distribution or at <a
 href=http://matplotlib.sf.net/examples>examples</a> explaining how to

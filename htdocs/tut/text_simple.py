@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 plot([1,2,3])
 xlabel('time')
 ylabel('volts')

@@ -142,7 +142,9 @@ num&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;figure&nbsp;number<br>&nbsp;</tt></td
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="GraphicsContextBase">class <strong>GraphicsContextBase</strong></a></font></td></tr>
     
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>An&nbsp;abstract&nbsp;base&nbsp;class&nbsp;that&nbsp;provides&nbsp;color,&nbsp;line&nbsp;styles,&nbsp;etc...<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="GraphicsContextBase-__init__"><strong>__init__</strong></a>(self)</dt></dl>
 
@@ -330,15 +332,16 @@ enums&nbsp;values</tt></dd></dl>
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="RendererBase">class <strong>RendererBase</strong></a></font></td></tr>
     
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>An&nbsp;abstract&nbsp;base&nbsp;class&nbsp;to&nbsp;handle&nbsp;drawing/rendering&nbsp;operations<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="RendererBase-close_group"><strong>close_group</strong></a>(self, s)</dt><dd><tt>close&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, gcFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
-from&nbsp;0.0&nbsp;to&nbsp;360.0<br>
+<dl><dt><a name="RendererBase-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, rgbFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;using&nbsp;GraphicsContext&nbsp;instance&nbsp;gcEdge,&nbsp;centered&nbsp;at&nbsp;x,y,<br>
+with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles&nbsp;from&nbsp;0.0&nbsp;to&nbsp;360.0<br>
 &nbsp;<br>
-If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
-is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
+If&nbsp;the&nbsp;color&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;arc&nbsp;with&nbsp;it.</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin, bbox)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes;&nbsp;x&nbsp;is&nbsp;the<br>
 distance&nbsp;in&nbsp;pixels&nbsp;from&nbsp;the&nbsp;left&nbsp;hand&nbsp;side&nbsp;of&nbsp;the&nbsp;canvas.&nbsp;y&nbsp;is<br>
@@ -399,16 +402,16 @@ facecolors&nbsp;and&nbsp;edgecolors&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;R
 linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
 antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-draw_polygon"><strong>draw_polygon</strong></a>(self, gc, rgbFace, points)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon.&nbsp;&nbsp;points&nbsp;is&nbsp;a&nbsp;len&nbsp;vertices&nbsp;tuple,&nbsp;each&nbsp;element<br>
+<dl><dt><a name="RendererBase-draw_polygon"><strong>draw_polygon</strong></a>(self, gc, rgbFace, points)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon&nbsp;using&nbsp;the&nbsp;GraphicsContext&nbsp;instance&nbsp;gc.<br>
+points&nbsp;is&nbsp;a&nbsp;len&nbsp;vertices&nbsp;tuple,&nbsp;each&nbsp;element<br>
 giving&nbsp;the&nbsp;x,y&nbsp;coords&nbsp;a&nbsp;vertex<br>
 &nbsp;<br>
-If&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;poly&nbsp;with&nbsp;it.&nbsp;&nbsp;gc<br>
-is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
+If&nbsp;the&nbsp;color&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;polygon&nbsp;with&nbsp;it</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gcEdge, gcFace, x, y, width, height)</dt><dd><tt>Draw&nbsp;a&nbsp;rectangle&nbsp;with&nbsp;lower&nbsp;left&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height.<br>
+<dl><dt><a name="RendererBase-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gcEdge, rgbFace, x, y, width, height)</dt><dd><tt>Draw&nbsp;a&nbsp;non-filled&nbsp;rectangle&nbsp;using&nbsp;the&nbsp;GraphicsContext&nbsp;instance&nbsp;gcEdge,<br>
+with&nbsp;lower&nbsp;left&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height.<br>
 &nbsp;<br>
-If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
-is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
+If&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-draw_regpoly_collection"><strong>draw_regpoly_collection</strong></a>(self, clipbox, offsets, transOffset, verts, sizes, facecolors, edgecolors, linewidths, antialiaseds)</dt><dd><tt>Draw&nbsp;a&nbsp;regular&nbsp;poly&nbsp;collection<br>
 &nbsp;<br>
@@ -424,8 +427,8 @@ facecolors&nbsp;and&nbsp;edgecolors&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;R
 linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
 antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, s, prop, angle, ismath<font color="#909090">=False</font>)</dt><dd><tt>Draw&nbsp;string&nbsp;s&nbsp;at&nbsp;x,y&nbsp;(display&nbsp;coords)&nbsp;with&nbsp;font&nbsp;properties<br>
-instance&nbsp;prop&nbsp;at&nbsp;angle&nbsp;in&nbsp;degrees</tt></dd></dl>
+<dl><dt><a name="RendererBase-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, s, prop, angle, ismath<font color="#909090">=False</font>)</dt><dd><tt>Draw&nbsp;the&nbsp;text.Text&nbsp;instance&nbsp;s&nbsp;at&nbsp;x,y&nbsp;(display&nbsp;coords)&nbsp;with&nbsp;font<br>
+properties&nbsp;instance&nbsp;prop&nbsp;at&nbsp;angle&nbsp;in&nbsp;degrees</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer</tt></dd></dl>
 

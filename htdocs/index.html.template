@@ -34,7 +34,7 @@ commands = all_commands[0][1]
   summary of the goals of matplotlib and the progress so far can be
   found <a href=goals.html>here</a>.<p>
 
-  The plotting functions in the <a href=matplotlib.matlab.html>matlab
+  The plotting functions in the <a href=matplotlib.pylab.html>pylab
   interface</a> have a high degree of Matlab&reg compatibility.<p>
 
   <br>
@@ -44,7 +44,7 @@ commands = all_commands[0][1]
   + for command, desc in commands:
     <tr>
       <th align="left">
-        <a href=matplotlib.matlab.html#-@command@>@command@</a>
+        <a href=matplotlib.pylab.html#-@command@>@command@</a>
       </th>
 
       <td align="left">

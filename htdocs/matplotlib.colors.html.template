@@ -23,14 +23,16 @@ the&nbsp;colors.&nbsp;&nbsp;For&nbsp;the&nbsp;basic&nbsp;builtin&nbsp;colors,&nb
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;&nbsp;:&nbsp;black&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;w&nbsp;&nbsp;:&nbsp;white<br>
 &nbsp;<br>
-&nbsp;<br>
 For&nbsp;a&nbsp;greater&nbsp;range&nbsp;of&nbsp;colors,&nbsp;you&nbsp;have&nbsp;two&nbsp;options.&nbsp;&nbsp;You&nbsp;can&nbsp;specify<br>
 the&nbsp;color&nbsp;using&nbsp;an&nbsp;html&nbsp;hex&nbsp;string,&nbsp;as&nbsp;in<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;=&nbsp;'#eeefff'<br>
 &nbsp;<br>
 or&nbsp;you&nbsp;can&nbsp;pass&nbsp;an&nbsp;R,G,B&nbsp;tuple,&nbsp;where&nbsp;each&nbsp;of&nbsp;R,G,B&nbsp;are&nbsp;in&nbsp;the&nbsp;range<br>
-[0,1].</tt></p>
+[0,1].<br>
+&nbsp;<br>
+Finally,&nbsp;legal&nbsp;html&nbsp;names&nbsp;for&nbsp;colors,&nbsp;like&nbsp;'red',&nbsp;'burlywood'&nbsp;and<br>
+'chartreuse'&nbsp;are&nbsp;supported.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -191,6 +193,7 @@ gives&nbsp;the&nbsp;closest&nbsp;value&nbsp;for&nbsp;values&nbsp;of&nbsp;x&nbsp;
 <strong>Float</strong> = 'd'<br>
 <strong>Int</strong> = 'l'<br>
 <strong>True</strong> = True<br>
+<strong>cnames</strong> = {'aliceblue': '#F0F8FF', 'antiquewhite': '#FAEBD7', 'aqua': '#00FFFF', 'aquamarine': '#7FFFD4', 'azure': '#F0FFFF', 'beige': '#F5F5DC', 'bisque': '#FFE4C4', 'black': '#000000', 'blanchedalmond': '#FFEBCD', 'blue': '#0000FF', ...}<br>
 <strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>divide</strong> = &lt;ufunc 'divide'&gt;</td></tr></table>
 @footer@

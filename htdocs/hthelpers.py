@@ -30,10 +30,10 @@ modules = (
     'matplotlib.legend',
     'matplotlib.lines',
     'matplotlib.mathtext',
-    'matplotlib.matlab',
     'matplotlib.mlab',
     'matplotlib.numerix',
     'matplotlib.patches',
+    'matplotlib.pylab',    
     'matplotlib.table',
     'matplotlib.text',
     'matplotlib.ticker',
@@ -45,11 +45,11 @@ def get_mpl_commands():
     return value is a list of (header, commands) where commands is a
     list of (func, desc)
     """
-    import matplotlib.matlab
+    import matplotlib.pylab
     plot_commands = []
     # parse the header for the commands provided commands
     import inspect
-    for line in inspect.getsourcelines(matplotlib.matlab)[0]:
+    for line in inspect.getsourcelines(matplotlib.pylab)[0]:
         line = line.strip()
         if not len(line): continue
         if line.startswith('__end'): break

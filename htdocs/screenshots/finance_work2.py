@@ -20,7 +20,7 @@ from matplotlib.ticker import  IndexLocator, FuncFormatter, NullFormatter, Multi
 from matplotlib.dates import IndexDateFormatter
 from matplotlib.finance import candlestick2, plot_day_summary2, \
      volume_overlay, index_bar
-from matplotlib.matlab import *
+from pylab import *
 
 rcParams['timezone'] = 'US/Eastern'
 rc('grid', color=0.75, linestyle='-', linewidth=0.5)

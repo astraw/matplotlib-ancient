@@ -35,7 +35,7 @@ def make_shot(fname, backend):
         'from __future__ import division\n',
         'import matplotlib\n',
         'matplotlib.use("%s")\n' % backend,
-        'from matplotlib.matlab import *\n'
+        'from pylab import *\n'
         'figure(%s)\n' % figsize,
         ]
     
@@ -44,7 +44,7 @@ def make_shot(fname, backend):
         if line.strip().startswith('from __future__ import division'): continue
         if line.strip().startswith('matplotlib.use'): continue
         if line.strip().startswith('savefig'): continue
-        if line.strip().startswith('from matplotlib.matlab import *'): continue
+        if line.strip().startswith('from pylab import *'): continue
         if line.strip().startswith('show'): continue
         lines.append(line)
     basename, ext = os.path.splitext(fname)

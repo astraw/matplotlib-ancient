@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 
 # data are 256x256 16 bit integers
 dfile = '../../examples/data/s1045.ima'

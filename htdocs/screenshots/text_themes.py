@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 
 font = {'fontname'   : 'Courier',
         'color'      : 'r',

@@ -51,15 +51,21 @@ markeredgewidth&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;markter&nbsp;ed
 
 <dl><dt><a name="Line2D-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
+<dl><dt><a name="Line2D-get_aa"><strong>get_aa</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_antialiased</tt></dd></dl>
+
 <dl><dt><a name="Line2D-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Line2D-get_color"><strong>get_color</strong></a>(self)</dt></dl>
+<dl><dt><a name="Line2D-get_c"><strong>get_c</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_color</tt></dd></dl>
 
-<dl><dt><a name="Line2D-get_label"><strong>get_label</strong></a>(self)</dt></dl>
+<dl><dt><a name="Line2D-get_color"><strong>get_color</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Line2D-get_linestyle"><strong>get_linestyle</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Line2D-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Line2D-get_ls"><strong>get_ls</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_linestyle</tt></dd></dl>
+
+<dl><dt><a name="Line2D-get_lw"><strong>get_lw</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_linewidth</tt></dd></dl>
 
 <dl><dt><a name="Line2D-get_marker"><strong>get_marker</strong></a>(self)</dt></dl>
 
@@ -71,79 +77,167 @@ markeredgewidth&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;markter&nbsp;ed
 
 <dl><dt><a name="Line2D-get_markersize"><strong>get_markersize</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="Line2D-get_mec"><strong>get_mec</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_markeredgecolor</tt></dd></dl>
+
+<dl><dt><a name="Line2D-get_mew"><strong>get_mew</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_markeredgewidth</tt></dd></dl>
+
+<dl><dt><a name="Line2D-get_mfc"><strong>get_mfc</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_markerfacecolor</tt></dd></dl>
+
+<dl><dt><a name="Line2D-get_ms"><strong>get_ms</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_markersize</tt></dd></dl>
+
 <dl><dt><a name="Line2D-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer)</dt></dl>
 
 <dl><dt><a name="Line2D-get_xdata"><strong>get_xdata</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Line2D-get_ydata"><strong>get_ydata</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Line2D-set_antialiased"><strong>set_antialiased</strong></a>(self, b)</dt><dd><tt>True&nbsp;if&nbsp;line&nbsp;should&nbsp;be&nbsp;drawin&nbsp;with&nbsp;antialiased&nbsp;rendering</tt></dd></dl>
+<dl><dt><a name="Line2D-set_aa"><strong>set_aa</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_antialiased</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_color"><strong>set_color</strong></a>(self, color)</dt></dl>
+<dl><dt><a name="Line2D-set_antialiased"><strong>set_antialiased</strong></a>(self, b)</dt><dd><tt>True&nbsp;if&nbsp;line&nbsp;should&nbsp;be&nbsp;drawin&nbsp;with&nbsp;antialiased&nbsp;rendering<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_dashes"><strong>set_dashes</strong></a>(self, seq)</dt><dd><tt>seq&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dashes&nbsp;with&nbsp;on&nbsp;off&nbsp;ink&nbsp;in&nbsp;points</tt></dd></dl>
+<dl><dt><a name="Line2D-set_c"><strong>set_c</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_color</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_data"><strong>set_data</strong></a>(self, x, y)</dt></dl>
+<dl><dt><a name="Line2D-set_color"><strong>set_color</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;line<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;matplotlib&nbsp;color&nbsp;-&nbsp;see&nbsp;help(colors)</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_data_clipping"><strong>set_data_clipping</strong></a>(self, b)</dt><dd><tt>b&nbsp;is&nbsp;a&nbsp;boolean&nbsp;that&nbsp;sets&nbsp;whether&nbsp;data&nbsp;clipping&nbsp;is&nbsp;on</tt></dd></dl>
+<dl><dt><a name="Line2D-set_dashes"><strong>set_dashes</strong></a>(self, seq)</dt><dd><tt>Set&nbsp;the&nbsp;dash&nbsp;sequence,&nbsp;sequence&nbsp;of&nbsp;dashes&nbsp;with&nbsp;on&nbsp;off&nbsp;ink&nbsp;in&nbsp;points<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;on/off&nbsp;ink&nbsp;in&nbsp;points</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;line&nbsp;label&nbsp;to&nbsp;s&nbsp;for&nbsp;auto&nbsp;legend</tt></dd></dl>
+<dl><dt><a name="Line2D-set_data"><strong>set_data</strong></a>(self, *args)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;data<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;(array&nbsp;xdata,&nbsp;array&nbsp;ydata)</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_linestyle"><strong>set_linestyle</strong></a>(self, s)</dt></dl>
+<dl><dt><a name="Line2D-set_data_clipping"><strong>set_data_clipping</strong></a>(self, b)</dt><dd><tt>b&nbsp;is&nbsp;a&nbsp;boolean&nbsp;that&nbsp;sets&nbsp;whether&nbsp;data&nbsp;clipping&nbsp;is&nbsp;on<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_linewidth"><strong>set_linewidth</strong></a>(self, w)</dt></dl>
+<dl><dt><a name="Line2D-set_linestyle"><strong>set_linestyle</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;linestyle&nbsp;of&nbsp;the&nbsp;line<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[&nbsp;'-'&nbsp;|&nbsp;'--'&nbsp;|&nbsp;'-.'&nbsp;|&nbsp;':'&nbsp;|&nbsp;'steps'&nbsp;|&nbsp;'None'&nbsp;]</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_marker"><strong>set_marker</strong></a>(self, marker)</dt></dl>
+<dl><dt><a name="Line2D-set_linewidth"><strong>set_linewidth</strong></a>(self, w)</dt><dd><tt>Set&nbsp;the&nbsp;line&nbsp;width&nbsp;in&nbsp;points<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float&nbsp;value&nbsp;in&nbsp;points</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_markeredgecolor"><strong>set_markeredgecolor</strong></a>(self, ec)</dt></dl>
+<dl><dt><a name="Line2D-set_ls"><strong>set_ls</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_linestyle</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_markeredgewidth"><strong>set_markeredgewidth</strong></a>(self, ew)</dt></dl>
+<dl><dt><a name="Line2D-set_lw"><strong>set_lw</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_linewidth</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_markerfacecolor"><strong>set_markerfacecolor</strong></a>(self, fc)</dt></dl>
+<dl><dt><a name="Line2D-set_marker"><strong>set_marker</strong></a>(self, marker)</dt><dd><tt>Set&nbsp;the&nbsp;line&nbsp;marker<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[&nbsp;'+'&nbsp;|&nbsp;','&nbsp;|&nbsp;'.'&nbsp;|&nbsp;'1'&nbsp;|&nbsp;'2'&nbsp;|&nbsp;'3'&nbsp;|&nbsp;'4'&nbsp;|&nbsp;'&lt;'&nbsp;|&nbsp;'&gt;'&nbsp;|&nbsp;'D'&nbsp;|&nbsp;'H'&nbsp;|&nbsp;'^'&nbsp;|&nbsp;'_'&nbsp;|&nbsp;'d'&nbsp;|&nbsp;'h'&nbsp;|&nbsp;'o'&nbsp;|&nbsp;'p'&nbsp;|&nbsp;'s'&nbsp;|&nbsp;'v'&nbsp;|&nbsp;'x'&nbsp;|&nbsp;'|'&nbsp;]</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_markersize"><strong>set_markersize</strong></a>(self, sz)</dt></dl>
+<dl><dt><a name="Line2D-set_markeredgecolor"><strong>set_markeredgecolor</strong></a>(self, ec)</dt><dd><tt>Set&nbsp;the&nbsp;marker&nbsp;edge&nbsp;color<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;matplotlib&nbsp;color&nbsp;-&nbsp;see&nbsp;help(colors)</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_vertical_offset"><strong>set_vertical_offset</strong></a>(self, voff, transOffset<font color="#909090">=None</font>)</dt></dl>
+<dl><dt><a name="Line2D-set_markeredgewidth"><strong>set_markeredgewidth</strong></a>(self, ew)</dt><dd><tt>Set&nbsp;the&nbsp;marker&nbsp;edge&nbsp;width&nbsp;in&nbsp;points<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float&nbsp;value&nbsp;in&nbsp;points</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_xclip"><strong>set_xclip</strong></a>(self, xmin, xmax)</dt></dl>
+<dl><dt><a name="Line2D-set_markerfacecolor"><strong>set_markerfacecolor</strong></a>(self, fc)</dt><dd><tt>Set&nbsp;the&nbsp;marker&nbsp;face&nbsp;color<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;matplotlib&nbsp;color&nbsp;-&nbsp;see&nbsp;help(colors)</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_xdata"><strong>set_xdata</strong></a>(self, x)</dt></dl>
+<dl><dt><a name="Line2D-set_markersize"><strong>set_markersize</strong></a>(self, sz)</dt><dd><tt>Set&nbsp;the&nbsp;marker&nbsp;size&nbsp;in&nbsp;points<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_yclip"><strong>set_yclip</strong></a>(self, ymin, ymax)</dt></dl>
+<dl><dt><a name="Line2D-set_mec"><strong>set_mec</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_markeredgecolor</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_ydata"><strong>set_ydata</strong></a>(self, y)</dt></dl>
+<dl><dt><a name="Line2D-set_mew"><strong>set_mew</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_markeredgewidth</tt></dd></dl>
+
+<dl><dt><a name="Line2D-set_mfc"><strong>set_mfc</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_markerfacecolor</tt></dd></dl>
+
+<dl><dt><a name="Line2D-set_ms"><strong>set_ms</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_markersize</tt></dd></dl>
+
+<dl><dt><a name="Line2D-set_vertical_offset"><strong>set_vertical_offset</strong></a>(self, voff, transOffset<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;vertical&nbsp;offset&nbsp;of&nbsp;the&nbsp;line<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;DEPRECATED</tt></dd></dl>
+
+<dl><dt><a name="Line2D-set_xclip"><strong>set_xclip</strong></a>(self, *args)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;clipping&nbsp;range&nbsp;for&nbsp;data&nbsp;clipping&nbsp;to&nbsp;xmin,&nbsp;xmax<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;(xmin,&nbsp;xmax)</tt></dd></dl>
+
+<dl><dt><a name="Line2D-set_xdata"><strong>set_xdata</strong></a>(self, x)</dt><dd><tt>Set&nbsp;the&nbsp;data&nbsp;array&nbsp;for&nbsp;x<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;array</tt></dd></dl>
+
+<dl><dt><a name="Line2D-set_yclip"><strong>set_yclip</strong></a>(self, *args)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;clipping&nbsp;range&nbsp;for&nbsp;data&nbsp;clipping&nbsp;to&nbsp;ymin,&nbsp;ymax<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;(ymin,&nbsp;ymax)</tt></dd></dl>
+
+<dl><dt><a name="Line2D-set_ydata"><strong>set_ydata</strong></a>(self, y)</dt><dd><tt>Set&nbsp;the&nbsp;data&nbsp;array&nbsp;for&nbsp;y<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;array</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>zorder</strong> = 2</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="Line2D-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
+<dl><dt><a name="Line2D-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on&nbsp;all<br>
+backends</tt></dd></dl>
 
 <dl><dt><a name="Line2D-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Line2D-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Line2D-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="Line2D-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="Line2D-get_zorder"><strong>get_zorder</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Line2D-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Line2D-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
 
 <dl><dt><a name="Line2D-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
+all&nbsp;backends<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+<dl><dt><a name="Line2D-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.transform.Bbox&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+<dl><dt><a name="Line2D-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+<dl><dt><a name="Line2D-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.figure.Figure&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Line2D-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;line&nbsp;label&nbsp;to&nbsp;s&nbsp;for&nbsp;auto&nbsp;legend<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;string</tt></dd></dl>
 
 <dl><dt><a name="Line2D-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+their&nbsp;contents&nbsp;accordingly<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+<dl><dt><a name="Line2D-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.transform&nbsp;transformation&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Line2D-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="Line2D-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
+
+<dl><dt><a name="Line2D-set_zorder"><strong>set_zorder</strong></a>(self, level)</dt><dd><tt>Set&nbsp;the&nbsp;zorder&nbsp;for&nbsp;the&nbsp;artist<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="Line2D-update"><strong>update</strong></a>(self, props)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>

@@ -1,5 +1,5 @@
 # implement the example graphs/integral from pyx
-from matplotlib.matlab import *
+from pylab import *
 from matplotlib.patches import Polygon
 
 def func(x):
