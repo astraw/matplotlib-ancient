@@ -10,7 +10,9 @@ y = arange(-3.0, 3.0, dy)
 X,Y = meshgrid(x, y)
 
 Z = func3(X, Y)
-pcolor(X, Y, Z, shading='flat')
+#pcolor(X, Y, Z, shading='flat')       # slow
+im = imshow(Z, cmap=ColormapJet(256))  # fast
+gca().set_image_extent(-3, 3, -3, 3)
 axis('off')
 
 savefig('pcolor_demo_small', dpi=60)

@@ -78,6 +78,7 @@ href=http://antigrain.com>agg</a> backend because:
   <li>there are clipping issues with GD and Paint </li>
   <li>it supports fast antialiased drawing and alpha blending </li>
   <li>it supports <a href=matplotlib.mathtext.html>mathtext</a></li>
+  <li>it supports images with <a href=matplotlib.matlab.html#-imshow>imshow</a></li>
 </ul>
 
 It is likely that with time many of these limitiations or problems
@@ -244,10 +245,14 @@ these are the kinds of data I need to handle at work.  It is very good
 at handling data sets where the x axis is contiguous (eg, time) and
 only a small portion of data in displayed in the viewport; see for
 example <a href=examples/stock_demo.py>stock_demo.py<a/> where you can
-scroll through 2 months of minute-by-minute stock quote data.  The
-performance with higher dimensional data, eg, pseudocolor plots with
-x, y, and intensity parameters, leaves sometime to be desired.
-Improving the performance in these cases is fairly high up on the TODO list.
+scroll through 2 months of minute-by-minute stock quote data.<br>
+
+The performance with higher dimensional data, eg, pseudocolor plots
+with x, y, and intensity parameters, is now dramatically better with
+the image module.  Use imshow with a colormap in place of pcolor for
+fast image drawing.  See, for example, <a
+href=examples/specgram_demo.py>specgram_demo.py</a> and <a
+href=examples/image_demo.py>image_demo.py</a>.<br>
 
 Several people with high bandwidth requirements have reported being
 happy with matplotlib's performance.  If you find areas that need
@@ -258,7 +263,7 @@ improvement, let me know.  """),
      """
 Yes - you can now plot array images with <a
 href=matplotlib.matlab.html#-imshow>imshow</a>.  More image loaders
-coming soon """),
+coming soon. """),
 
     ('ROTATETICKS',
      'How do I make vertical xticklabels?',

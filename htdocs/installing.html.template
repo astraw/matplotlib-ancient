@@ -1,7 +1,8 @@
 @header@
 <h2>Installing matplotlib</h2>
-matplotlib requires <a href=http://python.org>python 2.2+</a>, <a
-href=http://www.pfdubois.com/numpy>Numeric</a>.
+matplotlib requires <a href=http://python.org>python 2.2+</a> and <a
+href=http://www.pfdubois.com/numpy>Numeric</a> or <a
+href=http://www.stsci.edu/resources/software_hardware/numarray>numarray</a>.
 
 If these dependencies are satisfied, just do the usual thing:<p>
 
@@ -20,9 +21,9 @@ different prerequistes and strengths; see <a
 href=faq.html#WHICHBACKEND>which backend should I use?</a>. <p>
 
 With the windows installer, the postscript, Agg and TkAgg backends
-should work out of the box if you have Numeric already installed.  For
-other backends (WX, Paint) and operating systems, follow the
-instructions below and on <a href=backends.html>matplotlib
+should work out of the box if you have Numeric/numarray already
+installed.  For other backends (WX, Paint) and operating systems,
+follow the instructions below and on <a href=backends.html>matplotlib
 backends</a>.<p>
 
 Note that if you install matplotlib anywhere other than the default
@@ -49,9 +50,8 @@ goodies, preinstalled.
 
 <li>Install <a
 href=http://sourceforge.net/project/showfiles.php?group_id=1369&release_id=176455>
-Numeric</a> (currently version 23.1).  Note, you'll want the "numpy",
-not "numarray" files.  If you are using the enthougt edition of
-python, you can skip this step.</li>
+Numeric/numarray</a>. If you are using the enthougt edition of python,
+you can skip this step.</li>
 
 <li>Install the <a href=http://prdownloads.sourceforge.net/gtk-win>
 GTK runtime</a> (currently version 2.2.4.1). <i>I recommend not using

@@ -33,6 +33,10 @@ sizes coding trading volume and the colors coding price change in day
 i.  Here the alpha attribute is used to make semitransparent circle
 markers with the <a href=backends.html#Agg>Agg backend</a> """, 1),
 
+('fill_demo', """The <a href=matplotlib.matlab.html#-fill>fill</a>, command lets you
+plot filled polygons.  Thanks to Andrew Straw for providing this
+function.""", 1),
+
 ('log_shot', """The <a
 href=matplotlib.matlab.html#-semilogx>semilogx</a>, <a
 href=matplotlib.matlab.html#-semilogy>semilogy</a> and <a

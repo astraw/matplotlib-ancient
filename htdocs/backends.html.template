@@ -78,9 +78,9 @@ href="fonts.html">fonts</a> for more information.<p>
 
 Each of the backends have a different set of requirements, listed
 below.  All require the <a
-href=http://sourceforge.net/projects/numpy>Numeric</a> module.  Note,
-matplotlib can also be made to work with numarray with minor changes;
-see the <a href=faq.html#NUMARRAY>FAQ</a>.<p>
+href=http://sourceforge.net/projects/numpy>Numeric or numarray</a>
+modules.  Note, matplotlib can also be made to work with numarray with
+minor changes; see the <a href=faq.html#NUMARRAY>FAQ</a>.<p>
 
 
 Specific information for installing the other backends can be found on
@@ -103,7 +103,7 @@ it requires
 
 <ul> 
 
-  <li><a href=http://www.pfdubois.com/numpy>Numeric</a></li>
+  <li><a href=http://www.pfdubois.com/numpy>Numeric/numarray</a></li>
 
   <li><a href=http://prdownloads.sourceforge.net/gtk-win>
 GTK runtime</a></li> 
@@ -207,7 +207,7 @@ graphing capabilities.  There are a number of prerequisites but they
 are easy to install (Windows users should skip ahead to the win32
 section).<p>
 
-The GD backend depends on Numeric, gdmodule, gd, TTFQuery and
+The GD backend depends on Numeric/numarray, gdmodule, gd, TTFQuery and
 fonttools.  To ease installation, the latter two packages now ship
 with matplotlib.  Set the flag <tt>BUILD_FONTTOOLS</tt> in setup.py to
 build both TTFQuery and fonttools with matplotlib.  Below are
@@ -215,7 +215,7 @@ instructions for building gdmoule.
 	
   <ul>
 
-  <li><a href=http://www.pfdubois.com/numpy>Numeric</a>  --
+  <li><a href=http://www.pfdubois.com/numpy>Numeric/numarray</a>  --
   Numeric processing in python</li>
 
   <li><a href=http://www.boutell.com/gd>GD lib</a> -- The GD library.
@@ -274,7 +274,7 @@ the formerly named <tt>GDFONTPATH</tt> is now called
 <a name=PS><h3>Postscript</h3></a>
 
 The only requirement is <a
-href=http://sourceforge.net/projects/numpy>Numeric</a><p>
+href=http://sourceforge.net/projects/numpy>Numeric/numarray</a><p>
 
 See the <a href=fonts.html#PSFONTS>fonts page</a> for more information
 about getting the postscript backend setup for proper font rendering;
@@ -292,7 +292,7 @@ engine that supports lots of nifty features.  The paint backend
 exposes some of them, and David has been extending it to expose more.<p>
 
 The paint backend requires <a
-href=http://sourceforge.net/projects/numpy>Numeric</a>, <a
+href=http://sourceforge.net/projects/numpy>Numeric/numarray</a>, <a
 href=http://sourceforge.net/projects/pypaint>pypaint</a> version 0.3.
 If you want cross-platform freetype font selection support, you'll
 also need TTFQuery and fonttools - these now ship with matplotlib in

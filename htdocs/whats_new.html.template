@@ -16,8 +16,8 @@ BUILD_IMAGE in setup.py for image support.  Currently available on
 Agg, GTKAgg, TkAgg and GTK backends.  win32 GTK users should use
 GTKAgg unless pygtk is compiled with Numeric support.
 
-The pseudocolor images generated with imshow are 8 million times
-faster than pcolors.
+The pseudo-color images generated with imshow are 8 million times
+faster than pcolor's.
 """),
 
     ('Figure legends', """
