@@ -145,8 +145,7 @@ OUTSTANDING&nbsp;ISSUES<br>
 </dd>
 </dl>
 </dd>
-<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#TickLocator">TickLocator</a>
-</font></dt></dl>
+</dl>
  <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
@@ -243,17 +242,25 @@ capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;cap
 
 <dl><dt><a name="Axes-get_xaxis"><strong>get_xaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;<a href="#XAxis">XAxis</a>&nbsp;instance</tt></dd></dl>
 
+<dl><dt><a name="Axes-get_xgridlines"><strong>get_xgridlines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;x&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
+
 <dl><dt><a name="Axes-get_xlim"><strong>get_xlim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;x&nbsp;axis&nbsp;range&nbsp;[xmin,&nbsp;xmax]</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_xticklabels"><strong>get_xticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_xticklines"><strong>get_xticklines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_xticks"><strong>get_xticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;x&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_yaxis"><strong>get_yaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;<a href="#YAxis">YAxis</a>&nbsp;instance</tt></dd></dl>
 
+<dl><dt><a name="Axes-get_ygridlines"><strong>get_ygridlines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;y&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
+
 <dl><dt><a name="Axes-get_ylim"><strong>get_ylim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;y&nbsp;axis&nbsp;range&nbsp;[ymin,&nbsp;ymax]</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_yticklabels"><strong>get_yticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_yticklines"><strong>get_yticklines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_yticks"><strong>get_yticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;y&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
 
@@ -562,7 +569,7 @@ offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;
 displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
 offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
 
-<dl><dt><a name="Axis-get_gridlines"><strong>get_gridlines</strong></a>()</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;for&nbsp;grid&nbsp;lines</tt></dd></dl>
+<dl><dt><a name="Axis-get_gridlines"><strong>get_gridlines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Axis-get_inches_transform"><strong>get_inches_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;inches&nbsp;to&nbsp;dots<br>
 &nbsp;<br>
@@ -588,6 +595,8 @@ offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
 
 <dl><dt><a name="Axis-get_ticklabels"><strong>get_ticklabels</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances&nbsp;for&nbsp;ticklabels</tt></dd></dl>
 
+<dl><dt><a name="Axis-get_ticklines"><strong>get_ticklines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;ticklines&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
+
 <dl><dt><a name="Axis-get_ticklocs"><strong>get_ticklocs</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;tick&nbsp;locations&nbsp;in&nbsp;data&nbsp;coordinates&nbsp;as&nbsp;a&nbsp;Numeric&nbsp;array</tt></dd></dl>
 
 <dl><dt><a name="Axis-get_ticks"><strong>get_ticks</strong></a>(self)</dt></dl>
@@ -600,7 +609,7 @@ offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
 
 <dl><dt><a name="Axis-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
 
-<dl><dt><a name="Axis-set_scale"><strong>set_scale</strong></a>(self, value)</dt></dl>
+<dl><dt><a name="Axis-set_scale"><strong>set_scale</strong></a>(self, value)</dt><dd><tt>Set&nbsp;the&nbsp;axis&nbsp;scale;&nbsp;either&nbsp;'linear'&nbsp;or&nbsp;'log'</tt></dd></dl>
 
 <dl><dt><a name="Axis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;&nbsp;ticklabels&nbsp;is&nbsp;a<br>
 sequence&nbsp;of&nbsp;strings.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
@@ -829,17 +838,25 @@ capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;cap
 
 <dl><dt><a name="Subplot-get_xaxis"><strong>get_xaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;<a href="#XAxis">XAxis</a>&nbsp;instance</tt></dd></dl>
 
+<dl><dt><a name="Subplot-get_xgridlines"><strong>get_xgridlines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;x&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
+
 <dl><dt><a name="Subplot-get_xlim"><strong>get_xlim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;x&nbsp;axis&nbsp;range&nbsp;[xmin,&nbsp;xmax]</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_xticklabels"><strong>get_xticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_xticklines"><strong>get_xticklines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_xticks"><strong>get_xticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;x&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_yaxis"><strong>get_yaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;<a href="#YAxis">YAxis</a>&nbsp;instance</tt></dd></dl>
 
+<dl><dt><a name="Subplot-get_ygridlines"><strong>get_ygridlines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;y&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
+
 <dl><dt><a name="Subplot-get_ylim"><strong>get_ylim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;y&nbsp;axis&nbsp;range&nbsp;[ymin,&nbsp;ymax]</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_yticklabels"><strong>get_yticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_yticklines"><strong>get_yticklines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_yticks"><strong>get_yticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;y&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
 
@@ -1134,15 +1151,16 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 &nbsp;<br>
 Publicly&nbsp;accessible&nbsp;attributes<br>
 &nbsp;<br>
-&nbsp;&nbsp;tickline&nbsp;&nbsp;:&nbsp;a&nbsp;Line2D&nbsp;instance<br>
-&nbsp;&nbsp;gridline&nbsp;&nbsp;:&nbsp;a&nbsp;Line2D&nbsp;instance<br>
-&nbsp;&nbsp;label&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;an&nbsp;AxisText&nbsp;instance<br>
-&nbsp;&nbsp;gridOn&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;tickline<br>
-&nbsp;&nbsp;tick1On&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;1st&nbsp;tickline<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(left&nbsp;for&nbsp;xtick&nbsp;and&nbsp;bottom&nbsp;for&nbsp;yticks)<br>
-&nbsp;&nbsp;tick2On&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;2nd&nbsp;tickline<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(left&nbsp;for&nbsp;xtick&nbsp;and&nbsp;bottom&nbsp;for&nbsp;yticks)<br>
-&nbsp;&nbsp;labelOn&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;tick&nbsp;label<br>&nbsp;</tt></td></tr>
+&nbsp;&nbsp;tick1line&nbsp;&nbsp;:&nbsp;a&nbsp;Line2D&nbsp;instance<br>
+&nbsp;&nbsp;tick2line&nbsp;&nbsp;:&nbsp;a&nbsp;Line2D&nbsp;instance<br>
+&nbsp;&nbsp;gridline&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;Line2D&nbsp;instance<br>
+&nbsp;&nbsp;label&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;an&nbsp;AxisText&nbsp;instance<br>
+&nbsp;&nbsp;gridOn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;tickline<br>
+&nbsp;&nbsp;tick1On&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;1st&nbsp;tickline<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(left&nbsp;for&nbsp;xtick&nbsp;and&nbsp;bottom&nbsp;for&nbsp;yticks)<br>
+&nbsp;&nbsp;tick2On&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;2nd&nbsp;tickline<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(left&nbsp;for&nbsp;xtick&nbsp;and&nbsp;bottom&nbsp;for&nbsp;yticks)<br>
+&nbsp;&nbsp;labelOn&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;tick&nbsp;label<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Tick-__init__"><strong>__init__</strong></a>(self, axes, loc, label, size<font color="#909090">=4</font>, gridOn<font color="#909090">=False</font>, tick1On<font color="#909090">=True</font>, tick2On<font color="#909090">=True</font>, labelOn<font color="#909090">=True</font>)</dt><dd><tt>bbox&nbsp;is&nbsp;the&nbsp;Bound2D&nbsp;bounding&nbsp;box&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;<a href="#Axes">Axes</a><br>
@@ -1187,22 +1205,6 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="TickLocator">class <strong>TickLocator</strong></a></font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Try&nbsp;and&nbsp;choose&nbsp;intelligent&nbsp;locations&nbsp;for&nbsp;ticks<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="TickLocator-__init__"><strong>__init__</strong></a>(self, bound)</dt><dd><tt>Bound&nbsp;is&nbsp;a&nbsp;Bound1d&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="TickLocator-get_locs"><strong>get_locs</strong></a>(self, num)</dt><dd><tt>Return&nbsp;num&nbsp;tick&nbsp;locs</tt></dd></dl>
-
-<dl><dt><a name="TickLocator-get_num_hint"><strong>get_num_hint</strong></a>(self, hint<font color="#909090">=5</font>)</dt><dd><tt>Pick&nbsp;a&nbsp;number&nbsp;of&nbsp;ticks&nbsp;close&nbsp;to&nbsp;hint&nbsp;that&nbsp;subdivide&nbsp;the&nbsp;axis&nbsp;nicely</tt></dd></dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="XAxis">class <strong>XAxis</strong></a>(<a href="matplotlib.axes.html#Axis">Axis</a>)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
@@ -1230,7 +1232,7 @@ offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;
 displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
 offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
 
-<dl><dt><a name="XAxis-get_gridlines"><strong>get_gridlines</strong></a>()</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;for&nbsp;grid&nbsp;lines</tt></dd></dl>
+<dl><dt><a name="XAxis-get_gridlines"><strong>get_gridlines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="XAxis-get_inches_transform"><strong>get_inches_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;inches&nbsp;to&nbsp;dots<br>
 &nbsp;<br>
@@ -1256,6 +1258,8 @@ offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
 
 <dl><dt><a name="XAxis-get_ticklabels"><strong>get_ticklabels</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances&nbsp;for&nbsp;ticklabels</tt></dd></dl>
 
+<dl><dt><a name="XAxis-get_ticklines"><strong>get_ticklines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;ticklines&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
+
 <dl><dt><a name="XAxis-get_ticklocs"><strong>get_ticklocs</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;tick&nbsp;locations&nbsp;in&nbsp;data&nbsp;coordinates&nbsp;as&nbsp;a&nbsp;Numeric&nbsp;array</tt></dd></dl>
 
 <dl><dt><a name="XAxis-get_ticks"><strong>get_ticks</strong></a>(self)</dt></dl>
@@ -1268,7 +1272,7 @@ offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
 
 <dl><dt><a name="XAxis-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
 
-<dl><dt><a name="XAxis-set_scale"><strong>set_scale</strong></a>(self, value)</dt></dl>
+<dl><dt><a name="XAxis-set_scale"><strong>set_scale</strong></a>(self, value)</dt><dd><tt>Set&nbsp;the&nbsp;axis&nbsp;scale;&nbsp;either&nbsp;'linear'&nbsp;or&nbsp;'log'</tt></dd></dl>
 
 <dl><dt><a name="XAxis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;&nbsp;ticklabels&nbsp;is&nbsp;a<br>
 sequence&nbsp;of&nbsp;strings.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
@@ -1393,7 +1397,7 @@ offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;
 displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
 offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
 
-<dl><dt><a name="YAxis-get_gridlines"><strong>get_gridlines</strong></a>()</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;for&nbsp;grid&nbsp;lines</tt></dd></dl>
+<dl><dt><a name="YAxis-get_gridlines"><strong>get_gridlines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="YAxis-get_inches_transform"><strong>get_inches_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;inches&nbsp;to&nbsp;dots<br>
 &nbsp;<br>
@@ -1419,6 +1423,8 @@ offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
 
 <dl><dt><a name="YAxis-get_ticklabels"><strong>get_ticklabels</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances&nbsp;for&nbsp;ticklabels</tt></dd></dl>
 
+<dl><dt><a name="YAxis-get_ticklines"><strong>get_ticklines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;ticklines&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
+
 <dl><dt><a name="YAxis-get_ticklocs"><strong>get_ticklocs</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;tick&nbsp;locations&nbsp;in&nbsp;data&nbsp;coordinates&nbsp;as&nbsp;a&nbsp;Numeric&nbsp;array</tt></dd></dl>
 
 <dl><dt><a name="YAxis-get_ticks"><strong>get_ticks</strong></a>(self)</dt></dl>
@@ -1431,7 +1437,7 @@ offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
 
 <dl><dt><a name="YAxis-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
 
-<dl><dt><a name="YAxis-set_scale"><strong>set_scale</strong></a>(self, value)</dt></dl>
+<dl><dt><a name="YAxis-set_scale"><strong>set_scale</strong></a>(self, value)</dt><dd><tt>Set&nbsp;the&nbsp;axis&nbsp;scale;&nbsp;either&nbsp;'linear'&nbsp;or&nbsp;'log'</tt></dd></dl>
 
 <dl><dt><a name="YAxis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;&nbsp;ticklabels&nbsp;is&nbsp;a<br>
 sequence&nbsp;of&nbsp;strings.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>

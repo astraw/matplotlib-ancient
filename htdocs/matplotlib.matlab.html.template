@@ -502,16 +502,19 @@ more&nbsp;info</tt></dd></dl>
  <dl><dt><a name="-semilogy"><strong>semilogy</strong></a>(*args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
 semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
 more&nbsp;info</tt></dd></dl>
- <dl><dt><a name="-set"><strong>set</strong></a>(h, s, val)</dt><dd><tt>Set&nbsp;handle&nbsp;h&nbsp;property&nbsp;in&nbsp;string&nbsp;s&nbsp;to&nbsp;value&nbsp;val<br>
+ <dl><dt><a name="-set"><strong>set</strong></a>(h, *args, **kwargs)</dt><dd><tt>Set&nbsp;handle&nbsp;h&nbsp;property&nbsp;in&nbsp;string&nbsp;s&nbsp;to&nbsp;value&nbsp;val<br>
 &nbsp;<br>
 h&nbsp;can&nbsp;be&nbsp;a&nbsp;handle&nbsp;or&nbsp;vector&nbsp;of&nbsp;handles.<br>
 &nbsp;<br>
 h&nbsp;is&nbsp;an&nbsp;instance&nbsp;(or&nbsp;vector&nbsp;of&nbsp;instances)&nbsp;of&nbsp;a&nbsp;class,&nbsp;eg&nbsp;a&nbsp;Line2D<br>
-or&nbsp;an&nbsp;Axes&nbsp;or&nbsp;AxisText.&nbsp;&nbsp;if&nbsp;s&nbsp;is&nbsp;'somename',&nbsp;this&nbsp;function&nbsp;calls<br>
+or&nbsp;an&nbsp;Axes&nbsp;or&nbsp;AxisText.<br>
 &nbsp;<br>
-&nbsp;&nbsp;o.set_somename(val)<br>
+args&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;string,&nbsp;value&nbsp;pairs.&nbsp;&nbsp;if&nbsp;the&nbsp;string<br>
+is&nbsp;'somename',&nbsp;set&nbsp;function&nbsp;calls<br>
 &nbsp;<br>
-for&nbsp;every&nbsp;instance&nbsp;in&nbsp;o&nbsp;in&nbsp;h</tt></dd></dl>
+&nbsp;&nbsp;o.set_somename(value)<br>
+&nbsp;<br>
+for&nbsp;every&nbsp;instance&nbsp;in&nbsp;h.</tt></dd></dl>
  <dl><dt><a name="-subplot"><strong>subplot</strong></a>(*args, **kwargs)</dt><dd><tt>Create&nbsp;a&nbsp;subplot&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
 &nbsp;<br>
 &nbsp;&nbsp;<a href="#-subplot">subplot</a>(numRows,&nbsp;numCols,&nbsp;plotNum)<br>

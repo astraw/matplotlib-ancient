@@ -19,12 +19,12 @@ A&nbsp;linear&nbsp;Transformation&nbsp;is&nbsp;specified&nbsp;by&nbsp;giving&nbs
 instance&nbsp;for&nbsp;the&nbsp;domain&nbsp;and&nbsp;range.&nbsp;&nbsp;The&nbsp;transform&nbsp;below&nbsp;maps&nbsp;the<br>
 interval&nbsp;[0,1]&nbsp;to&nbsp;[-10,10]<br>
 &nbsp;<br>
-&nbsp;&nbsp;t&nbsp;=&nbsp;<a href="#Transform">Transform</a>(&nbsp;<a href="#Bound1D">Bound1D</a>(0,1),&nbsp;<a href="#Bound1D">Bound1D</a>(-10,10)<br>
+&nbsp;&nbsp;t&nbsp;=&nbsp;<a href="#Transform">Transform</a>(&nbsp;<a href="#Bound1D">Bound1D</a>(0,1),&nbsp;<a href="#Bound1D">Bound1D</a>(-10,10)&nbsp;)<br>
 &nbsp;<br>
 Since&nbsp;all&nbsp;Transforms&nbsp;know&nbsp;their&nbsp;inverse&nbsp;function,&nbsp;you&nbsp;can&nbsp;compute&nbsp;an<br>
 inverse&nbsp;transformation&nbsp;by&nbsp;calling&nbsp;inverse_positions&nbsp;or&nbsp;inverse_scale<br>
 &nbsp;<br>
-&nbsp;&nbsp;t&nbsp;=&nbsp;<a href="#Transform">Transform</a>(&nbsp;<a href="#Bound1D">Bound1D</a>(0,1),&nbsp;<a href="#Bound1D">Bound1D</a>(-10,10)<br>
+&nbsp;&nbsp;t&nbsp;=&nbsp;<a href="#Transform">Transform</a>(&nbsp;<a href="#Bound1D">Bound1D</a>(0,1),&nbsp;<a href="#Bound1D">Bound1D</a>(-10,10)&nbsp;)<br>
 &nbsp;&nbsp;val&nbsp;=&nbsp;t.inverse_positions(5)&nbsp;&nbsp;#&nbsp;maps&nbsp;[-10,10]&nbsp;to&nbsp;[0,1]<br>
 &nbsp;<br>
 The&nbsp;difference&nbsp;between&nbsp;'positions'&nbsp;and&nbsp;'scale'&nbsp;is&nbsp;that&nbsp;the&nbsp;positions<br>
@@ -97,6 +97,16 @@ architecture<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dots&nbsp;=&nbsp;&nbsp;<a href="#Dots">Dots</a>(&nbsp;self.<strong>dpi</strong>)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;=&nbsp;&nbsp;<a href="#TransformSize">TransformSize</a>(cm,&nbsp;dots,&nbsp;offset)<br>
 &nbsp;<br>
+&nbsp;&nbsp;&nbsp;If&nbsp;you&nbsp;don't&nbsp;know&nbsp;the&nbsp;offset&nbsp;in&nbsp;output&nbsp;coords,&nbsp;you&nbsp;can&nbsp;supply&nbsp;an<br>
+&nbsp;&nbsp;&nbsp;optional&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the&nbsp;offset&nbsp;to&nbsp;output&nbsp;coords.&nbsp;&nbsp;Eg,<br>
+&nbsp;&nbsp;&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;offset&nbsp;by&nbsp;x&nbsp;in&nbsp;data&nbsp;coords,&nbsp;and&nbsp;the&nbsp;output&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;display&nbsp;coords,&nbsp;you&nbsp;can&nbsp;do<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset&nbsp;=&nbsp;0.2&nbsp;&nbsp;#&nbsp;x&nbsp;data&nbsp;coords<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cm&nbsp;=&nbsp;<a href="#Centimeter">Centimeter</a>(&nbsp;self.<strong>dpi</strong>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dots&nbsp;=&nbsp;&nbsp;<a href="#Dots">Dots</a>(&nbsp;self.<strong>dpi</strong>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;=&nbsp;&nbsp;<a href="#TransformSize">TransformSize</a>(cm,&nbsp;dots,&nbsp;offset,&nbsp;axes.xaxis.transData)<br>
+&nbsp;&nbsp;&nbsp;<br>
 &nbsp;*&nbsp;Combining&nbsp;the&nbsp;above,&nbsp;we&nbsp;can&nbsp;specify&nbsp;that&nbsp;a&nbsp;text&nbsp;instance&nbsp;is&nbsp;at&nbsp;an&nbsp;x<br>
 &nbsp;&nbsp;&nbsp;location&nbsp;in&nbsp;data&nbsp;coords&nbsp;and&nbsp;a&nbsp;y&nbsp;location&nbsp;in&nbsp;points&nbsp;relative&nbsp;to&nbsp;an<br>
 &nbsp;&nbsp;&nbsp;axis.&nbsp;&nbsp;Eg.&nbsp;the&nbsp;transformation&nbsp;below&nbsp;indicates&nbsp;that&nbsp;the&nbsp;x&nbsp;value&nbsp;of<br>
@@ -115,7 +125,7 @@ architecture<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verticalalignment='top',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;horizontalalignment='center',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transx&nbsp;=&nbsp;self.<strong>axes</strong>.xaxis.transData,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;transy&nbsp;is&nbsp;default,&nbsp;idenity&nbsp;transform)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;transy&nbsp;is&nbsp;default,&nbsp;identity&nbsp;transform)<br>
 &nbsp;<br>
 The&nbsp;unittest&nbsp;code&nbsp;for&nbsp;the&nbsp;transforms&nbsp;module&nbsp;is&nbsp;unit/transforms_unit.py</tt></p>
 <p>

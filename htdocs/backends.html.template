@@ -90,19 +90,15 @@ versions of matplotlib; it requires
   distro is older than that, you'll need to upgrade your desktop,
   upgrade your gtk libs, or upgrade your distro.<p>
 
-  I am not sure what the status of GTK2 versus version number is with
-  the other distros, but I would be happy for answers, so if you know,
-  please email me at John Hunter @myemail@.  If you put matplotlib in
-  the subject, the email will be sure to get past my spam filters.<p>
-
   GTK2 became the default with the Redhat Linux 8 series.  If your
   distro is older than that, you'll need to upgrade your desktop,
   upgrade your gtk libs, or upgrade your distro.<p>
 
   I am not sure what the status of GTK2 versus version number is with
   the other distros, but I would be happy for answers, so if you know,
-  please email me at John Hunter @myemail@.  If you put matplotlib in
-  the subject, the email will be sure to get past my spam filters.<p>
+  please email me @myemail@.  If you put matplotlib in the subject,
+  the email will be sure to get past my spam filters.<p>
+
 
 <h4>Windows Users</h4>
 
@@ -139,7 +135,8 @@ mailing list.
   
 The GD module can be used to create images with no X11 server, and is
 particularly useful for web application developers who want dynamic
-graphing capabilities.
+graphing capabilities.  There are a number of prerequisites but they
+are easy to install.
 	
   <ul>
 
