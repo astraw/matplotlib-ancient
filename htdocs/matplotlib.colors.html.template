@@ -38,7 +38,7 @@ or&nbsp;you&nbsp;can&nbsp;pass&nbsp;an&nbsp;R,G,B&nbsp;tuple,&nbsp;where&nbsp;ea
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="MLab.html">MLab</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numarray.linear_algebra.mlab.html">numarray.linear_algebra.mlab</a><br>
 </td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
@@ -140,14 +140,7 @@ control&nbsp;the&nbsp;color&nbsp;range&nbsp;(default&nbsp;min&nbsp;t&nbsp;max)</
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
-&nbsp;<br>
-&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
-specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
- <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
- <dl><dt><a name="-hex2color"><strong>hex2color</strong></a>(s)</dt><dd><tt>Convert&nbsp;hex&nbsp;string&nbsp;(like&nbsp;html&nbsp;uses,&nbsp;eg,&nbsp;#efefef)&nbsp;to&nbsp;a&nbsp;r,g,b&nbsp;tuple</tt></dd></dl>
- <dl><dt><a name="-take"><strong>take</strong></a>(...)</dt><dd><tt><a href="#-take">take</a>(a,&nbsp;indices,&nbsp;axis=0).&nbsp;&nbsp;Selects&nbsp;the&nbsp;elements&nbsp;in&nbsp;indices&nbsp;from&nbsp;array&nbsp;a&nbsp;along&nbsp;the&nbsp;given&nbsp;axis.</tt></dd></dl>
- <dl><dt><a name="-zeros"><strong>zeros</strong></a>(...)</dt><dd><tt><a href="#-zeros">zeros</a>((d1,...,dn),typecode='l',savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;of&nbsp;shape&nbsp;(d1,...,dn)&nbsp;and&nbsp;type&nbsp;typecode&nbsp;with&nbsp;all&nbsp;it's&nbsp;entries&nbsp;initialized&nbsp;to&nbsp;zero.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero&nbsp;the&nbsp;array&nbsp;will&nbsp;be&nbsp;a&nbsp;spacesaver&nbsp;array.</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-hex2color"><strong>hex2color</strong></a>(s)</dt><dd><tt>Convert&nbsp;hex&nbsp;string&nbsp;(like&nbsp;html&nbsp;uses,&nbsp;eg,&nbsp;#efefef)&nbsp;to&nbsp;a&nbsp;r,g,b&nbsp;tuple</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -156,8 +149,8 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
-<strong>Float</strong> = 'd'<br>
-<strong>Int</strong> = 'l'<br>
+<strong>Float</strong> = Float64<br>
+<strong>Int</strong> = Int32<br>
 <strong>True</strong> = True<br>
 <strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>

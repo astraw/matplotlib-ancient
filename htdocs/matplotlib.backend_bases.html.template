@@ -174,6 +174,9 @@ is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 <dl><dt><a name="RendererBase-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
 point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
 
+<dl><dt><a name="RendererBase-draw_mathtext"><strong>draw_mathtext</strong></a>(self, gc, x, y, s, prop, angle)</dt><dd><tt>Draw&nbsp;string&nbsp;s&nbsp;at&nbsp;x,y&nbsp;(display&nbsp;coords)&nbsp;with&nbsp;font&nbsp;properties<br>
+instance&nbsp;prop&nbsp;at&nbsp;angle&nbsp;in&nbsp;degrees</tt></dd></dl>
+
 <dl><dt><a name="RendererBase-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;point&nbsp;at&nbsp;x,y</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-draw_polygon"><strong>draw_polygon</strong></a>(self, gcEdge, gcFace, points)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon.&nbsp;&nbsp;points&nbsp;is&nbsp;a&nbsp;len&nbsp;vertices&nbsp;tuple,&nbsp;each&nbsp;element<br>
@@ -187,16 +190,24 @@ is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, t)</dt><dd><tt>Draw&nbsp;a&nbsp;text&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="RendererBase-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, s, prop, angle)</dt><dd><tt>Draw&nbsp;string&nbsp;s&nbsp;at&nbsp;x,y&nbsp;(display&nbsp;coords)&nbsp;with&nbsp;font&nbsp;properties<br>
+instance&nbsp;prop&nbsp;at&nbsp;angle&nbsp;in&nbsp;degrees</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer</tt></dd></dl>
 
+<dl><dt><a name="RendererBase-get_canvas_width_height"><strong>get_canvas_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;canvas&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords</tt></dd></dl>
+
 <dl><dt><a name="RendererBase-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="RendererBase-get_text_width_height"><strong>get_text_width_height</strong></a>(self, s, fontsize)</dt><dd><tt>get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;string&nbsp;s<br>
+with&nbsp;fontsize&nbsp;in&nbsp;points</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;<a href="#GraphicsContextBase">GraphicsContextBase</a></tt></dd></dl>
 
 <dl><dt><a name="RendererBase-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;points&nbsp;to&nbsp;display&nbsp;units;&nbsp;unless&nbsp;your&nbsp;backend&nbsp;doesn't<br>
 have&nbsp;dpi,&nbsp;eg,&nbsp;postscript,&nbsp;you&nbsp;need&nbsp;to&nbsp;overrride&nbsp;this&nbsp;function</tt></dd></dl>
+
+<dl><dt><a name="RendererBase-using_ft2font"><strong>using_ft2font</strong></a>(self)</dt></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -205,8 +216,7 @@ have&nbsp;dpi,&nbsp;eg,&nbsp;postscript,&nbsp;you&nbsp;need&nbsp;to&nbsp;overrri
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
- <dl><dt><a name="-error_msg"><strong>error_msg</strong></a>(msg, *args, **kwargs)</dt><dd><tt>Alert&nbsp;an&nbsp;error&nbsp;condition&nbsp;with&nbsp;message</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-error_msg"><strong>error_msg</strong></a>(msg, *args, **kwargs)</dt><dd><tt>Alert&nbsp;an&nbsp;error&nbsp;condition&nbsp;with&nbsp;message</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">

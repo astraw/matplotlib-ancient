@@ -934,7 +934,7 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
-<strong>Int16</strong> = 's'<br>
+<strong>Int16</strong> = Int16<br>
 <strong>PIXELS_PER_INCH</strong> = 75<br>
 <strong>True</strong> = True<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>

@@ -211,9 +211,6 @@ context&nbsp;instance&nbsp;that&nbsp;controls&nbsp;the&nbsp;colors/styles<br>&nb
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="RendererGD-__init__"><strong>__init__</strong></a>(self, im, dpi)</dt><dd><tt>Initialize&nbsp;the&nbsp;renderer&nbsp;with&nbsp;a&nbsp;gd&nbsp;image&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="RendererGD-compute_text_offsets"><strong>compute_text_offsets</strong></a>(self, t)</dt><dd><tt>Return&nbsp;the&nbsp;(x,y)&nbsp;offsets&nbsp;to&nbsp;adjust&nbsp;for&nbsp;the&nbsp;alignment<br>
-specifications</tt></dd></dl>
-
 <dl><dt><a name="RendererGD-draw_arc"><strong>draw_arc</strong></a>(self, gc, rgbFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
 from&nbsp;0.0&nbsp;to&nbsp;360.0</tt></dd></dl>
 
@@ -231,18 +228,23 @@ giving&nbsp;the&nbsp;x,y&nbsp;coords&nbsp;a&nbsp;vertex</tt></dd></dl>
 If&nbsp;filled=True,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;the&nbsp;gc&nbsp;foreground<br>
 gc&nbsp;is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="RendererGD-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, t)</dt><dd><tt>Render&nbsp;the&nbsp;text&nbsp;using&nbsp;the&nbsp;<a href="#RendererGD">RendererGD</a>&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="RendererGD-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, s, prop, angle)</dt><dd><tt>Render&nbsp;the&nbsp;text&nbsp;using&nbsp;the&nbsp;<a href="#RendererGD">RendererGD</a>&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="RendererGD-finish"><strong>finish</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="RendererGD-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer</tt></dd></dl>
+
 <dl><dt><a name="RendererGD-flush_clip"><strong>flush_clip</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RendererGD-get_canvas_width_height"><strong>get_canvas_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;canvas&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords</tt></dd></dl>
 
 <dl><dt><a name="RendererGD-get_gd_color"><strong>get_gd_color</strong></a>(self, rgb)</dt><dd><tt>RGB&nbsp;is&nbsp;a&nbsp;unit&nbsp;RGB&nbsp;tuple,&nbsp;return&nbsp;a&nbsp;gd&nbsp;color</tt></dd></dl>
 
-<dl><dt><a name="RendererGD-get_text_extent"><strong>get_text_extent</strong></a>(self, t)</dt></dl>
-
-<dl><dt><a name="RendererGD-get_text_scale"><strong>get_text_scale</strong></a>(self, t)</dt><dd><tt>Return&nbsp;the&nbsp;scale&nbsp;factor&nbsp;for&nbsp;fontsize&nbsp;taking&nbsp;screendpi&nbsp;and&nbsp;pixels&nbsp;per<br>
+<dl><dt><a name="RendererGD-get_text_scale"><strong>get_text_scale</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;scale&nbsp;factor&nbsp;for&nbsp;fontsize&nbsp;taking&nbsp;screendpi&nbsp;and&nbsp;pixels&nbsp;per<br>
 inch&nbsp;into&nbsp;account</tt></dd></dl>
+
+<dl><dt><a name="RendererGD-get_text_width_height"><strong>get_text_width_height</strong></a>(self, s, prop)</dt><dd><tt>get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;string&nbsp;s<br>
+with&nbsp;fontsize&nbsp;in&nbsp;points</tt></dd></dl>
 
 <dl><dt><a name="RendererGD-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;<a href="#GraphicsContextGD">GraphicsContextGD</a></tt></dd></dl>
 
@@ -253,7 +255,12 @@ inch&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
 <dl><dt><a name="RendererGD-draw_image"><strong>draw_image</strong></a>(self, x, y, im)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
 
-<dl><dt><a name="RendererGD-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer</tt></dd></dl>
+<dl><dt><a name="RendererGD-draw_mathtext"><strong>draw_mathtext</strong></a>(self, gc, x, y, s, prop, angle)</dt><dd><tt>Draw&nbsp;string&nbsp;s&nbsp;at&nbsp;x,y&nbsp;(display&nbsp;coords)&nbsp;with&nbsp;font&nbsp;properties<br>
+instance&nbsp;prop&nbsp;at&nbsp;angle&nbsp;in&nbsp;degrees</tt></dd></dl>
+
+<dl><dt><a name="RendererGD-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="RendererGD-using_ft2font"><strong>using_ft2font</strong></a>(self)</dt></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

@@ -13,7 +13,7 @@
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="MLab.html">MLab</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numarray.linear_algebra.mlab.html">numarray.linear_algebra.mlab</a><br>
 </td><td width="25%" valign=top><a href="math.html">math</a><br>
 </td><td width="25%" valign=top><a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
 </td><td width="25%" valign=top><a href="sys.html">sys</a><br>
@@ -324,8 +324,8 @@ returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects<br>
 Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit<br>
 counterintuitive&nbsp;for&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
-&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
-&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
+&nbsp;&nbsp;x&nbsp;=&nbsp;arange(7)<br>
+&nbsp;&nbsp;y&nbsp;=&nbsp;arange(5)<br>
 &nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
 &nbsp;<br>
 &nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
@@ -350,7 +350,7 @@ assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;Axis&nbsp;instance:<br>
 &nbsp;<br>
 &nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x<br>
 &nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x&nbsp;with&nbsp;blue&nbsp;circles<br>
-&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(len(y))<br>
+&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;=&nbsp;arange(len(y))<br>
 &nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto&nbsp;with&nbsp;red&nbsp;plusses<br>
 &nbsp;<br>
 An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
@@ -891,8 +891,8 @@ returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects<br>
 Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit<br>
 counterintuitive&nbsp;for&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
-&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
-&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
+&nbsp;&nbsp;x&nbsp;=&nbsp;arange(7)<br>
+&nbsp;&nbsp;y&nbsp;=&nbsp;arange(5)<br>
 &nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
 &nbsp;<br>
 &nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
@@ -917,7 +917,7 @@ assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;Axis&nbsp;instance:<br>
 &nbsp;<br>
 &nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x<br>
 &nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x&nbsp;with&nbsp;blue&nbsp;circles<br>
-&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(len(y))<br>
+&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;=&nbsp;arange(len(y))<br>
 &nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto&nbsp;with&nbsp;red&nbsp;plusses<br>
 &nbsp;<br>
 An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
@@ -1154,34 +1154,22 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#eeaa77">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
-    
-<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
-&nbsp;<br>
-&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
-specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
- <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
-</td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
-<strong>Float</strong> = 'd'<br>
+<strong>Float</strong> = Float64<br>
 <strong>SEC_PER_DAY</strong> = 86400<br>
 <strong>SEC_PER_HOUR</strong> = 3600<br>
 <strong>SEC_PER_WEEK</strong> = 604800<br>
 <strong>True</strong> = True<br>
-<strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
+<strong>absolute</strong> = &lt;UFunc: 'abs'&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>generators</strong> = _Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 4096)<br>
-<strong>lineMarkers</strong> = {'+': 1, ',': 1, '.': 1, '&lt;': 1, '&gt;': 1, '^': 1, 'o': 1, 's': 1, 'v': 1, 'x': 1}<br>
+<strong>lineMarkers</strong> = {'+': 1, ',': 1, '.': 1, '&lt;': 1, '&gt;': 1, '^': 1, 'd': 1, 'o': 1, 's': 1, 'v': 1, ...}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1}<br>
-<strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
+<strong>log10</strong> = &lt;UFunc: 'log10'&gt;<br>
 <strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
 @footer@

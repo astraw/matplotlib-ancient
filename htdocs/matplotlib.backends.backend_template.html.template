@@ -324,7 +324,17 @@ dpi&nbsp;=&nbsp;300.&nbsp;&nbsp;Then&nbsp;points&nbsp;to&nbsp;pixels&nbsp;is</tt
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
 <dl><dt><a name="RendererTemplate-draw_image"><strong>draw_image</strong></a>(self, x, y, im)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
 
+<dl><dt><a name="RendererTemplate-draw_mathtext"><strong>draw_mathtext</strong></a>(self, gc, x, y, s, prop, angle)</dt><dd><tt>Draw&nbsp;string&nbsp;s&nbsp;at&nbsp;x,y&nbsp;(display&nbsp;coords)&nbsp;with&nbsp;font&nbsp;properties<br>
+instance&nbsp;prop&nbsp;at&nbsp;angle&nbsp;in&nbsp;degrees</tt></dd></dl>
+
 <dl><dt><a name="RendererTemplate-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="RendererTemplate-get_canvas_width_height"><strong>get_canvas_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;canvas&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="RendererTemplate-get_text_width_height"><strong>get_text_width_height</strong></a>(self, s, fontsize)</dt><dd><tt>get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;string&nbsp;s<br>
+with&nbsp;fontsize&nbsp;in&nbsp;points</tt></dd></dl>
+
+<dl><dt><a name="RendererTemplate-using_ft2font"><strong>using_ft2font</strong></a>(self)</dt></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

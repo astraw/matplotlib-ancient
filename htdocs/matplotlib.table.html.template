@@ -198,7 +198,7 @@ up&nbsp;the&nbsp;table<br>&nbsp;</tt></td></tr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>AXESPAD</strong> = 0.02</dl>
 
-<dl><dt><strong>FONTSIZE</strong> = 10</dl>
+<dl><dt><strong>FONTSIZE</strong> = 'small'</dl>
 
 <dl><dt><strong>codes</strong> = {'best': 0, 'bottom': 17, 'bottom left': 12, 'bottom right': 13, 'center': 9, 'center left': 5, 'center right': 6, 'left': 15, 'lower center': 7, 'lower left': 3, ...}</dl>
 
@@ -240,8 +240,8 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
-<strong>Float</strong> = 'd'<br>
+<strong>Float</strong> = Float64<br>
 <strong>True</strong> = True<br>
-<strong>add</strong> = &lt;ufunc 'add'&gt;<br>
+<strong>add</strong> = &lt;UFunc: 'add'&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
 @footer@
