@@ -183,6 +183,30 @@ preview false
 
 \layout Section
 
+A tour of ipython
+\layout Standard
+
+
+\begin_inset Include \input{ipython_tut.lyx}
+preview false
+
+\end_inset 
+
+
+\layout Section
+
+A tour of scipy
+\layout Standard
+
+
+\begin_inset Include \input{scipy_tour.py.lyx}
+preview false
+
+\end_inset 
+
+
+\layout Section
+
 3D visualization with VTK
 \layout Standard
 
@@ -212,30 +236,6 @@ Interfacing with external libraries
 
 
 \begin_inset Include \input{wrapping.lyx}
-preview false
-
-\end_inset 
-
-
-\layout Section
-
-A tour of ipython
-\layout Standard
-
-
-\begin_inset Include \input{ipython_tut.lyx}
-preview false
-
-\end_inset 
-
-
-\layout Section
-
-A tour of scipy
-\layout Standard
-
-
-\begin_inset Include \input{scipy_tour.py.lyx}
 preview false
 
 \end_inset 
@@ -303,7 +303,7 @@ Somebody's head
 \layout Standard
 
 
-\begin_inset LatexCommand \BibTeX[plain]{python}
+\begin_inset LatexCommand \BibTeX[plain]{,/home/jdhunter/python/projects/course/python}
 
 \end_inset 
 

@@ -2,46 +2,43 @@
 import os
 import vtk
 
-# Create a rectangule cube
+# Create a rectangular cube.  VTK has a number of "source" classes to
+# create cubes, cones, cylinders, spheres, grids, images and even
+# mandlebrot sets!
 cube = vtk.vtkCubeSource()
 cube.SetXLength(10)
 cube.SetYLength(5)
 cube.SetZLength(20)
 cube.SetCenter(1,2,3)
 
-# And a cone
-cone = vtk.vtkConeSource()
-cone.SetHeight(10)
-cone.SetRadius(4)
-cone.SetResolution(30)
-cone.SetCenter(10,20,5)
-cone.SetDirection(1,2,3)
+# Set up the mappers to extract data primitives.  The output of the
+# mapper is polygon data that 
+mapper = vtk.vtkPolyDataMapper()
+mapper.SetInput(cube.GetOutput())
 
-# Set up the mappers to extract data primitives (polygons, etc)
-mapper1 = vtk.vtkPolyDataMapper()
-mapper1.SetInput(cube.GetOutput())
-mapper2 = vtk.vtkPolyDataMapper()
-mapper2.SetInput(cone.GetOutput())
+# The actors are the objects that are added to the scene.  Here you
+# can set properties of the actor, eg object (color, translucency,
+# etc)
+actor = vtk.vtkActor()
+actor.SetMapper(mapper)
+actor.GetProperty().SetColor(1,0,0)
 
-# Make the first cube transparent red
-actor1 = vtk.vtkActor()
-actor1.SetMapper(mapper1)
-actor1.GetProperty().SetOpacity(0.5)
-actor1.GetProperty().SetColor(1,0,0)
-
-# Make the second cube blue
-actor2 = vtk.vtkActor()
-actor2.SetMapper(mapper2)
-actor2.GetProperty().SetColor(0,0,1)
-
-# Set up the renderer and add the actor1
+# Rendering is the process of converting geometry (points, edges,
+# polygon faces), lights, camera angles and so on to a 2D image view
+# -- what you see on the screen.  The vtkRenderer is an abstract
+# interface to concrete implementations, eg vtkOpenGLRenderer for
+# hardware accelerated rendering
 ren = vtk.vtkRenderer()
-ren.AddActor(actor1)
-ren.AddActor(actor2)
+ren.AddActor(actor)
 
-# Set up the render window and interactor
+# The render window is a graphical user interface window in which the
+# renderer above draws the 2D rendered image
 renWin = vtk.vtkRenderWindow()
 renWin.AddRenderer(ren)
+
+# The render window interactor is a platform independent way for
+# supporting GUI interaction -- mouse presses, keyborar events, mouse
+# motion and so on
 iren = vtk.vtkRenderWindowInteractor()
 iren.SetRenderWindow(renWin)
 renWin.SetSize(450,450)

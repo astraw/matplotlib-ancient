@@ -25,5 +25,104 @@
 
 \layout Standard
 
-hello vtk
+The Visualization Toolkit is a library for creating, analyzing, and visualizing
+ 3D data, and is a high level library that sits on top of a low-level library
+ like OpenGL.
+ Because 3D interaction and visualization is so computationally intensive,
+ video cards come with special processors to do computations for 3D geometry
+ at the hardware level, and low-level software libraries like OpenGL are
+ used to communicate with the video card.
+ However, low level libraries are just that, and do not support the higher
+ level geometrical concepts that describe the problem at hand; eg OpenGL
+ has no concept of a cube -- you can create a cube by making six rectangular
+ faces placed in the proper positions -- but you can't say "draw me a cube"
+ 
+\begin_inset LatexCommand \cite{Redbook}
+
+\end_inset 
+
+.
+\layout Standard
+
+That is where high level libraries like VTK come in.
+ VTK is an enormously powerful and complex visualization library written
+ in C++ that can drive low level 3D libraries such as Mesa, a pure software
+ OpenGL implementation, and OpenGL itself.
+ It relies heavily on principles of object oriented design, and can be plugged
+ into all widely used graphical user interfaces: Cocoa, Win32, Tkinter,
+ WX, GTK, FLTK and more.
+ Wrappers of the C++ code exist for Python, Java and TCL.
+ VTK provides python users the ability to do cross-platform, hardware accelerate
+d rendering from the comfort of the python interpreter, all with better
+ quality than money can buy.
+\layout Standard
+
+VTK is a complex library -- with over 1000 classes and a deep inheritance
+ scheme, it has an API rivaling Java's in complexity.
+ The system was initially developed by Bill Schroeder and Will Lorenson,
+ who designed the library after working in visualization and animation for
+ 10 years.
+ The initial design identified only 25 core classes, and four software professio
+nals spent 10 months designing the library before touching a keyboard! These
+ original 25 classes still exist in the library today 
+\begin_inset LatexCommand \cite{SchroederEtal2002}
+
+\end_inset 
+
+.
+\layout Standard
+
+We'll start with a minimal example that creates and displays a cube.
+ The example below creates a cube.
+ The src for this example is 
+\family typewriter 
+code/vtk_hello.py
+\layout Standard
+
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+lstinputlisting[caption={A minimal VTK example to display a cube}]{code/vtk_hello.py}
+\end_inset 
+
+
+\layout Standard
+
+And we can also have a figure of a person's head, as shown in Fig.\SpecialChar ~
+
+\begin_inset LatexCommand \ref{fig:vtkcube}
+
+\end_inset 
+
+.
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename fig/vtkcube.png
+	lyxscale 30
+	width 80text%
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:vtkcube}
+
+\end_inset 
+
+A Cube, brought to you by VTK
+\end_inset 
+
+
 \the_end
