@@ -19,13 +19,19 @@ reader.Update()
 iso = vtk.vtkMarchingCubes()
 iso.SetInput(reader.GetOutput())
 
+# We'll run it though the decimation filter to make it a little
+# smaller.
+decimate = vtk.vtkDecimate()
+decimate.SetInput(iso.GetOutput())
+
+
 # Some iso values
 #   vessles : 120
 #   cortex  : 100
 #   face    :  20
 iso.SetValue(0,100)
 isoMapper = vtk.vtkPolyDataMapper()
-isoMapper.SetInput(iso.GetOutput())
+isoMapper.SetInput(decimate.GetOutput())
 
 # You can assign scalars to voxels, eg to map things onto the cortex
 # Here we are just dislpaying the anatomy so we turn scalars off
@@ -37,11 +43,13 @@ isoActor.SetMapper(isoMapper)
 isoActor.GetProperty().SetColor(colors.antique_white)
 
 
-# Let's save the data to a VTK file for external processing
-# Make sure the pipeline is up-to-date before writing
-iso.Update()
+# Let's save the data to a VTK file for external processing. The
+# Update command is used to make sure the pipeline is up-to-date
+# before writing
+
+decimate.Update()
 writer = vtk.vtkDataSetWriter()
-writer.SetInput(iso.GetOutput())
+writer.SetInput(decimate.GetOutput())
 writer.SetFileName('../data/bighead.vtk')
 writer.SetFileTypeToASCII()
 writer.Write()
