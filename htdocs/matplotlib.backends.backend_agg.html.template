@@ -1,0 +1,183 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_agg</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/backends/backend_agg.py">/matplotlib/backends/backend_agg.py</a></font></td></tr></table>
+    <p><tt>An&nbsp;agg&nbsp;<a href="http://antigrain.com/">http://antigrain.com/</a>&nbsp;backend<br>
+&nbsp;<br>
+Features&nbsp;that&nbsp;are&nbsp;implemented<br>
+&nbsp;<br>
+&nbsp;*&nbsp;capstyles&nbsp;and&nbsp;join&nbsp;styles<br>
+&nbsp;<br>
+&nbsp;*&nbsp;dashes<br>
+&nbsp;<br>
+&nbsp;*&nbsp;lines,&nbsp;rectangles,&nbsp;ellipses<br>
+&nbsp;<br>
+&nbsp;*&nbsp;clipping&nbsp;to&nbsp;a&nbsp;rectangle<br>
+&nbsp;<br>
+&nbsp;*&nbsp;output&nbsp;to&nbsp;RGBA&nbsp;and&nbsp;PNG<br>
+&nbsp;<br>
+&nbsp;*&nbsp;alpha&nbsp;blending<br>
+&nbsp;<br>
+Features&nbsp;that&nbsp;need&nbsp;to&nbsp;be&nbsp;implemented<br>
+&nbsp;<br>
+&nbsp;*&nbsp;text&nbsp;/&nbsp;freetype2<br>
+&nbsp;<br>
+&nbsp;*&nbsp;arbitary&nbsp;paths&nbsp;/&nbsp;stroking&nbsp;and&nbsp;filling&nbsp;+&nbsp;odd/even&nbsp;fill&nbsp;rules<br>
+&nbsp;<br>
+&nbsp;*&nbsp;arbitrary&nbsp;clipping&nbsp;paths<br>
+&nbsp;<br>
+&nbsp;*&nbsp;DPI&nbsp;scaling<br>
+&nbsp;<br>
+&nbsp;*&nbsp;linewidth<br>
+&nbsp;<br>
+&nbsp;*&nbsp;circle&nbsp;centers&nbsp;off?&nbsp;--&nbsp;eg&nbsp;subplot_demo</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_agg.html#FigureCanvasAgg">FigureCanvasAgg</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_agg.html#RendererAgg">RendererAgg</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FigureCanvasAgg">class <strong>FigureCanvasAgg</strong></a>(<a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;canvas&nbsp;the&nbsp;figure&nbsp;renders&nbsp;into.&nbsp;&nbsp;Calls&nbsp;the&nbsp;draw&nbsp;and&nbsp;print&nbsp;fig<br>
+methods,&nbsp;creates&nbsp;the&nbsp;renderers,&nbsp;etc...<br>
+&nbsp;<br>
+Public&nbsp;attribute<br>
+&nbsp;<br>
+&nbsp;&nbsp;figure&nbsp;-&nbsp;A&nbsp;Figure&nbsp;instance<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="FigureCanvasAgg-draw"><strong>draw</strong></a>(self)</dt><dd><tt>Draw&nbsp;the&nbsp;figure&nbsp;using&nbsp;the&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasAgg-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=300</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy.&nbsp;&nbsp;Set&nbsp;the&nbsp;figure&nbsp;patch&nbsp;face&nbsp;and<br>
+edge&nbsp;colors.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;because&nbsp;some&nbsp;of&nbsp;the&nbsp;GUIs&nbsp;have&nbsp;a<br>
+gray&nbsp;figure&nbsp;face&nbsp;color&nbsp;background&nbsp;and&nbsp;you'll&nbsp;probably&nbsp;want&nbsp;to<br>
+override&nbsp;this&nbsp;on&nbsp;hardcopy<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;extension&nbsp;matches&nbsp;PNG,&nbsp;write&nbsp;a&nbsp;PNG&nbsp;file<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;extension&nbsp;matches&nbsp;BMP&nbsp;or&nbsp;RAW,&nbsp;write&nbsp;an&nbsp;RGBA&nbsp;bitmap&nbsp;file<br>
+Here&nbsp;is&nbsp;an&nbsp;example&nbsp;PIL&nbsp;script&nbsp;to&nbsp;read&nbsp;and&nbsp;sisplay&nbsp;an&nbsp;RGBA&nbsp;file<br>
+created&nbsp;by&nbsp;backend_agg<br>
+&nbsp;<br>
+&nbsp;&nbsp;import&nbsp;Image<br>
+&nbsp;<br>
+&nbsp;&nbsp;fname&nbsp;=&nbsp;"somefile.rgba"<br>
+&nbsp;&nbsp;s&nbsp;=&nbsp;file(fname).read()<br>
+&nbsp;<br>
+&nbsp;&nbsp;M,N&nbsp;=&nbsp;576,&nbsp;432&nbsp;&nbsp;#&nbsp;the&nbsp;image&nbsp;dimensions<br>
+&nbsp;&nbsp;im&nbsp;=&nbsp;Image.fromstring("RGBA",&nbsp;(M,N),&nbsp;s)<br>
+&nbsp;&nbsp;im.show()</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><a name="FigureCanvasAgg-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
+
+<dl><dt><a name="FigureCanvasAgg-switch_backends"><strong>switch_backends</strong></a>(self, FigureCanvasClass)</dt><dd><tt>instantiate&nbsp;an&nbsp;instance&nbsp;of&nbsp;FigureCanvasClass<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;used&nbsp;for&nbsp;backend&nbsp;switching,&nbsp;eg,&nbsp;to&nbsp;instantiate&nbsp;a<br>
+FigureCanvasPS&nbsp;from&nbsp;a&nbsp;FigureCanvasGTK.&nbsp;&nbsp;Note,&nbsp;deep&nbsp;copying&nbsp;is<br>
+not&nbsp;done,&nbsp;so&nbsp;any&nbsp;changes&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;instances&nbsp;(eg,&nbsp;setting<br>
+figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected&nbsp;in&nbsp;the&nbsp;other</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RendererAgg">class <strong>RendererAgg</strong></a>(<a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;renderer&nbsp;handles&nbsp;all&nbsp;the&nbsp;drawing&nbsp;primitives&nbsp;using&nbsp;a&nbsp;graphics<br>
+context&nbsp;instance&nbsp;that&nbsp;controls&nbsp;the&nbsp;colors/styles<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="RendererAgg-__init__"><strong>__init__</strong></a>(self, width, height, dpi)</dt></dl>
+
+<dl><dt><a name="RendererAgg-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, gcFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
+from&nbsp;0.0&nbsp;to&nbsp;360.0<br>
+&nbsp;<br>
+If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
+is&nbsp;a&nbsp;GraphicsContext&nbsp;instance<br>
+&nbsp;<br>
+Currently,&nbsp;I'm&nbsp;only&nbsp;supporting&nbsp;ellipses,&nbsp;ie&nbsp;angle&nbsp;args&nbsp;are<br>
+ignored</tt></dd></dl>
+
+<dl><dt><a name="RendererAgg-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
+point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
+<dl><dt><a name="RendererAgg-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
+point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
+
+<dl><dt><a name="RendererAgg-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;point&nbsp;at&nbsp;x,y</tt></dd></dl>
+
+<dl><dt><a name="RendererAgg-draw_polygon"><strong>draw_polygon</strong></a>(self, gcEdge, gcFace, points)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon.&nbsp;&nbsp;points&nbsp;is&nbsp;a&nbsp;len&nbsp;vertices&nbsp;tuple,&nbsp;each&nbsp;element<br>
+giving&nbsp;the&nbsp;x,y&nbsp;coords&nbsp;a&nbsp;vertex<br>
+&nbsp;<br>
+If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
+is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="RendererAgg-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gcEdge, gcFace, x, y, width, height)</dt><dd><tt>Draw&nbsp;a&nbsp;rectangle&nbsp;with&nbsp;lower&nbsp;left&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height.<br>
+&nbsp;<br>
+If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
+is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="RendererAgg-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, t)</dt><dd><tt>Draw&nbsp;a&nbsp;text&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="RendererAgg-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="RendererAgg-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;GraphicsContextBase</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
+ <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>False</strong> = False<br>
+<strong>Float</strong> = 'd'<br>
+<strong>True</strong> = True</td></tr></table>
+@footer@

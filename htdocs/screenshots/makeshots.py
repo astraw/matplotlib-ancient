@@ -2,16 +2,17 @@ import sys, os
 
 # do not remove the pngs - some are screenshots!
 files = {'simple_plot.py'    : 'GD', 
-         'axes_demo.py'      : 'GTK',   # a color bug
+         'axes_demo.py'      : 'GD',   # a color bug
          'histogram_demo.py' : 'GD', 
-#         'mri_with_eeg.py'   : 'GD',   # bug in eeg offset
-         'barchart_demo.py'  : 'GD', 
+         'mri_with_eeg.py'   : 'GD', 
+         'barchart_demo.py'  : 'GD',
+         'table_demo.py'     : 'GD', 
          'legend_demo.py'    : 'GD', 
          'pcolor_demo.py'    : 'GD', 
          'text_themes.py'    : 'GTK',   # font problem
          'log_shot.py'       : 'GD',
-         'align_text.py'       : 'GTK',          
-         'scatter_demo2.py'  : 'GD',    # color bug, some circles not filled
+         'align_text.py'     : 'GD',          
+         'scatter_demo2.py'  : 'GTK',    # color bug, some circles not filled
          }
 
 for fname, backend in files.items():

@@ -1,0 +1,160 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_paint</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/backends/backend_paint.py">/matplotlib/backends/backend_paint.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;ia&nbsp;a&nbsp;paint&nbsp;(libart)&nbsp;backend<br>
+&nbsp;<br>
+You&nbsp;can&nbsp;select&nbsp;it&nbsp;as&nbsp;a&nbsp;backend&nbsp;with<br>
+&nbsp;<br>
+&nbsp;&nbsp;import&nbsp;matplotlib<br>
+&nbsp;&nbsp;matplotlib.use('Paint')<br>
+&nbsp;<br>
+REQUIREMENTS<br>
+&nbsp;<br>
+&nbsp;&nbsp;backend_paint&nbsp;requires&nbsp;pypaint-0.??,&nbsp;which&nbsp;in&nbsp;turn&nbsp;requires<br>
+&nbsp;&nbsp;libart&nbsp;and&nbsp;freetype1</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="paint.html">paint</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_paint.html#FigureCanvasPaint">FigureCanvasPaint</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_paint.html#RendererPaint">RendererPaint</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FigureCanvasPaint">class <strong>FigureCanvasPaint</strong></a>(<a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="FigureCanvasPaint-draw"><strong>draw</strong></a>(self)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;using&nbsp;<a href="#RendererPaint">RendererPaint</a>&nbsp;instance&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasPaint-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=300</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy&nbsp;using&nbsp;self.<strong>renderer</strong>&nbsp;as&nbsp;the<br>
+renderer&nbsp;if&nbsp;neccessary</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><a name="FigureCanvasPaint-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
+
+<dl><dt><a name="FigureCanvasPaint-switch_backends"><strong>switch_backends</strong></a>(self, FigureCanvasClass)</dt><dd><tt>instantiate&nbsp;an&nbsp;instance&nbsp;of&nbsp;FigureCanvasClass<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;used&nbsp;for&nbsp;backend&nbsp;switching,&nbsp;eg,&nbsp;to&nbsp;instantiate&nbsp;a<br>
+FigureCanvasPS&nbsp;from&nbsp;a&nbsp;FigureCanvasGTK.&nbsp;&nbsp;Note,&nbsp;deep&nbsp;copying&nbsp;is<br>
+not&nbsp;done,&nbsp;so&nbsp;any&nbsp;changes&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;instances&nbsp;(eg,&nbsp;setting<br>
+figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected&nbsp;in&nbsp;the&nbsp;other</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RendererPaint">class <strong>RendererPaint</strong></a>(<a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;renderer&nbsp;handles&nbsp;all&nbsp;the&nbsp;drawing&nbsp;primitives&nbsp;using&nbsp;a&nbsp;graphics<br>
+context&nbsp;instance&nbsp;that&nbsp;controls&nbsp;the&nbsp;colors/styles<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="RendererPaint-__init__"><strong>__init__</strong></a>(self, width, height, dpi)</dt><dd><tt>creates&nbsp;a&nbsp;new&nbsp;image</tt></dd></dl>
+
+<dl><dt><a name="RendererPaint-compute_text_offsets"><strong>compute_text_offsets</strong></a>(self, t)</dt><dd><tt>Return&nbsp;the&nbsp;(x,y)&nbsp;offsets&nbsp;to&nbsp;adjust&nbsp;for&nbsp;the&nbsp;alignment<br>
+specifications</tt></dd></dl>
+
+<dl><dt><a name="RendererPaint-dash_path"><strong>dash_path</strong></a>(self, gc, path)</dt><dd><tt>Add&nbsp;dashes&nbsp;to&nbsp;the&nbsp;path&nbsp;and&nbsp;return&nbsp;it&nbsp;if&nbsp;dashes&nbsp;are&nbsp;set</tt></dd></dl>
+
+<dl><dt><a name="RendererPaint-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, gcFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
+from&nbsp;0.0&nbsp;to&nbsp;360.0.<br>
+&nbsp;<br>
+If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
+is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="RendererPaint-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;line&nbsp;from&nbsp;x1,y1&nbsp;to&nbsp;x2,y2</tt></dd></dl>
+
+<dl><dt><a name="RendererPaint-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
+point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
+
+<dl><dt><a name="RendererPaint-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;point&nbsp;at&nbsp;x,y</tt></dd></dl>
+
+<dl><dt><a name="RendererPaint-draw_polygon"><strong>draw_polygon</strong></a>(self, gcEdge, gcFace, points)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon.&nbsp;&nbsp;points&nbsp;is&nbsp;a&nbsp;len&nbsp;vertices&nbsp;tuple,&nbsp;each&nbsp;element<br>
+giving&nbsp;the&nbsp;x,y&nbsp;coords&nbsp;a&nbsp;vertex.<br>
+&nbsp;<br>
+If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
+is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="RendererPaint-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gcEdge, gcFace, x, y, width, height)</dt><dd><tt>Draw&nbsp;a&nbsp;rectangle&nbsp;at&nbsp;lower&nbsp;left&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height.<br>
+&nbsp;<br>
+If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
+is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="RendererPaint-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, t)</dt><dd><tt>Render&nbsp;the&nbsp;text&nbsp;using&nbsp;the&nbsp;<a href="#RendererPaint">RendererPaint</a>&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="RendererPaint-get_paint_color"><strong>get_paint_color</strong></a>(self, rgb)</dt><dd><tt>returns&nbsp;a&nbsp;paint&nbsp;color&nbsp;object&nbsp;based&nbsp;on&nbsp;the&nbsp;given&nbsp;rgb&nbsp;tuple</tt></dd></dl>
+
+<dl><dt><a name="RendererPaint-get_text_extent"><strong>get_text_extent</strong></a>(self, t)</dt><dd><tt>Return&nbsp;the&nbsp;ink&nbsp;extent&nbsp;of&nbsp;the&nbsp;text&nbsp;as&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="RendererPaint-get_text_scale"><strong>get_text_scale</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;scale&nbsp;factor&nbsp;for&nbsp;fontsize&nbsp;taking&nbsp;screendpi&nbsp;and&nbsp;pixels&nbsp;per<br>
+inch&nbsp;into&nbsp;account</tt></dd></dl>
+
+<dl><dt><a name="RendererPaint-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;GraphicsContextPaint</tt></dd></dl>
+
+<dl><dt><a name="RendererPaint-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>fontd</strong> = {}</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-error_msg"><strong>error_msg</strong></a> = error_msg_paint(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
+ <dl><dt><a name="-error_msg_paint"><strong>error_msg_paint</strong></a>(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
+ <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a> = new_figure_manager_paint(num, *args)</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;figure&nbsp;num&nbsp;(default&nbsp;autoincrement).&nbsp;&nbsp;For&nbsp;GUI<br>
+backends,&nbsp;you'll&nbsp;need&nbsp;to&nbsp;instantiate&nbsp;a&nbsp;new&nbsp;window&nbsp;and&nbsp;embed<br>
+the&nbsp;figure&nbsp;in&nbsp;it.</tt></dd></dl>
+ <dl><dt><a name="-new_figure_manager_paint"><strong>new_figure_manager_paint</strong></a>(num, *args)</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;figure&nbsp;num&nbsp;(default&nbsp;autoincrement).&nbsp;&nbsp;For&nbsp;GUI<br>
+backends,&nbsp;you'll&nbsp;need&nbsp;to&nbsp;instantiate&nbsp;a&nbsp;new&nbsp;window&nbsp;and&nbsp;embed<br>
+the&nbsp;figure&nbsp;in&nbsp;it.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>False</strong> = False<br>
+<strong>PIXELS_PER_INCH</strong> = 96<br>
+<strong>TEMPFONTCONST</strong> = '/usr/local/share/matplotlib/Vera.ttf'<br>
+<strong>True</strong> = True<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
+@footer@
