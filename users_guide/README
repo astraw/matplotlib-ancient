@@ -1,11 +1,26 @@
-To builk the matplotlib users guide, you will need to 
+To build the matplotlib users guide, you will need to 
+
+  * PIL - some of the examples use it to show how to interact with
+    matplotlib and PIL (cut and paste of the following if you are on a
+    linux-like box and are a sudoer)
+
+      cd /var/tmp/
+      wget http://effbot.org/downloads/Imaging-1.1.4.tar.gz
+      tar xvfz Imaging-1.1.4.tar.gz
+      cd Imaging-1.1.4/
+      cd libImaging/
+      ./configure ; make
+      cd ..
+      sudo python setup.py install
 
   * add the styles dir to your TEXINPUTS environment variable
 
-  * Generate the figures (png and eps) by running the script runall.py
-    in the code dir.  Verify that the figures in the figures dir are
-    built.  Verify also that the *.dat files in data were built.  Or
-    run 'make figs'
+  * Generate the figures 
+     
+     > make figs
+
+    Verify that the figures in the figures dir are built.  Verify also
+    that the *.dat files in data were built.
 
   * build the docs
 
