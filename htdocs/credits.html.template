@@ -59,6 +59,9 @@ matplotlib was written by John Hunter<p>
   relies, and made a number of optimizations to the matplotlib
   mathtext grammar.</i>
 
+
+  <li>Andrew Dalke of Dalke Scientific Software contributed the
+  strftime formatting code to handle years earlier than 1900</li>
 </ul>
 
 @footer@
