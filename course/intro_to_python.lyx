@@ -139,6 +139,11 @@ But the typical scientist I encounter wants to solve a specific problem,
  interest to read several books or tutorials to get what they want.
  This guide is for them: a short overview of the language to help them get
  to what they want as quickly as possible.
+ We get to advanced material pretty quickly, so it may be touch sledding
+ if you are a python newbie.
+ Take in what you can, and if you start getting dizzy, skip ahead to the
+ next section; you can always come back to absorb more detail later, after
+ you get your real work done.
 \layout Section
 
 Hello Python
@@ -227,6 +232,11 @@ int main ()
 }
 \layout Section
 
+
+\begin_inset LatexCommand \label{sec:into_calculator}
+
+\end_inset 
+
 Python is a calculator
 \layout Standard
 
@@ -289,27 +299,27 @@ Python 3000 is a future python release that will clean up several things
  that Guido considers to be warts.
 \end_inset 
 
- Since the removal of the distinction is slated, you can invoke the time
- machine with the 
+ Since default integer division will be removed in the future, you can invoke
+ the time machine with the 
 \family typewriter 
 from __future__
 \family default 
- directive; these directives allow python programmers today to use features
+ directives; these directives allow python programmers today to use features
  that will become standard in future releases but are not included by default
  because they would break existing code.
  From future directives should be among the first lines you type in your
- python code if you are going to use them, otherwise they may not work The
- future division operator will assume floating point division by default,
+ python code if you are going to use them, otherwise they may not work.
+ The future division operator will assume floating point division by default,
 \begin_inset Foot
 collapsed false
 
 \layout Standard
 
-The astute reader will note that 2/3 was represented as 0.66666666666666663
- and not 0.66666666666666666 as might be expected.
- This is, of course, because computers are binary calculators, and there
- is no exact binary representation of 2/3, just as there is no exact binary
- representation of 0.1
+You may have noticed that 2/3 was represented as 0.66666666666666663 and
+ not 0.66666666666666666 as might be expected.
+ This is because computers are binary calculators, and there is no exact
+ binary representation of 2/3, just as there is no exact binary representation
+ of 0.1
 \layout LyX-Code
 
 >>> 0.1
@@ -962,6 +972,11 @@ __mul__
  let you make magic.
 \layout Section
 
+
+\begin_inset LatexCommand \label{sec:intro_string}
+
+\end_inset 
+
 Strings
 \layout Standard
 
@@ -1189,22 +1204,8 @@ What would you expect last[:] to return?
 One thing that comes up all the time is the need to create strings out of
  other strings and numbers, eg to create filenames from a combination of
  a base directory, some base filename, and some numbers.
- Scientists like to create lots of data files like
-\layout LyX-Code
-
-data/myexp01.dat
-\layout LyX-Code
-
-data/myexp02.dat
-\layout LyX-Code
-
-data/myexp03.dat
-\layout LyX-Code
-
-data/myexp04.dat
-\layout Standard
-
-and then write code to loop over these files and analyze them.
+ Scientists like to create lots of data files like and then write code to
+ loop over these files and analyze them.
  We're going to show how to do that, starting with the newbie way and progressiv
 ely building up to the way of python zen master.
  All of the methods below 
@@ -1344,8 +1345,41 @@ for i in (1,2,3,4):
 \layout LyX-Code
 
     print fname
+\layout Exercise
+
+Suppose you have data files named like
 \layout LyX-Code
 
+data/2005/exp0100.dat
+\layout LyX-Code
+
+data/2005/exp0101.dat
+\layout LyX-Code
+
+data/2005/exp0102.dat
+\layout LyX-Code
+
+...
+\layout LyX-Code
+
+data/2005/exp1000.dat
+\layout Standard
+
+Write the python code that iterates over these files, constructing the filenames
+ as strings in using 
+\family typewriter 
+os.path.join
+\family default 
+ to construct the paths in a platform-independent way.
+ 
+\shape italic 
+Hint
+\shape default 
+: read the help for 
+\family typewriter 
+os.path.join
+\family default 
+!
 \layout Standard
 
 OK, I promised to torture you a bit more with string interpolation -- don't
@@ -1629,7 +1663,7 @@ But the same operation is perfectly accetable for lists
 ['why not?', 'john', 3.0]
 \layout Standard
 
-lists also have a lot of methods, tuple have none, save the special double
+lists also have a lot of methods, tuples have none, save the special double
  underscore methods that are required for python objects and sequences
 \layout LyX-Code
 
@@ -1668,9 +1702,12 @@ hidden
 # reverse
 \layout LyX-Code
 
->>> dir(l)['__add__', '__class__', '__contains__', '__delattr__', '__delitem__',
- '__delslice__', '__doc__', '__eq__', '__ge__', '__getattribute__', '__getitem__
-', '__getslice__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__',
+>>> dir(l)
+\layout LyX-Code
+
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__delsli
+ce__', '__doc__', '__eq__', '__ge__', '__getattribute__', '__getitem__',
+ '__getslice__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__',
  '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__',
  '__reduce__', '__reduce_ex__', '__repr__', '__rmul__', '__setattr__', '__setite
 m__', '__setslice__', '__str__', 'append', 'count', 'extend', 'index', 'insert',
@@ -1678,9 +1715,9 @@ m__', '__setslice__', '__str__', 'append', 'count', 'extend', 'index', 'insert',
 \layout Standard
 
 Many of these list methods change, or mutate, the list, eg append adds an
- element to the list, 
+ element to the list
 \family typewriter 
-extend
+: extend
 \family default 
  extends the list with a sequence of elements, 
 \family typewriter 
@@ -1731,6 +1768,12 @@ We've seen a couple of examples of creating a list above -- let's look at
 \layout LyX-Code
 
 ['mom', 'hi', 1]
+\layout LyX-Code
+
+>>> len(x)
+\layout LyX-Code
+
+3
 \layout Standard
 
 We mentioned list comprehensions in the last section when discussing string
@@ -1852,47 +1895,58 @@ Dictionary lookup is very fast; Tim Peter's once joked that any python program
  eg, creating a cache of frequently used values.
  As a simple eaxample, suppose you needed to compute the product of two
  numbers between 1 and 100 in an inner loop -- you could use a dictionary
- to cache the product of all possible pairs of numbers < 100 .
+ to cache the cube of all odd of numbers < 100; if you were inteterested
+ in all numbers, you might simply use a list to store the cached cubes --
+ I am cacheing only the odd numbers to show you how a dictionary can be
+ used to represent a sparse data structure
 \layout LyX-Code
 
 \layout LyX-Code
 
->>> prod = dict([ ( (i,j), i*j ) for i in range(100) 
+>>> cubes = dict([ ( i, i**3 ) for i in range(1,100,2)])
 \layout LyX-Code
 
-                                 for j in range(i,100)] )
+>>> cubes[5]
 \layout LyX-Code
 
->>> prod[(8,12)]
-\layout LyX-Code
-
-96
+125
 \layout Standard
 
 The last example is syntactically a bit challenging, but bears careful study.
   We are initializing a dictionary with a list comprehension.
   The list comprehension is made up of length 2 tuples 
 \family typewriter 
-( (i,j), i*j)
+( i, i**3
 \family default 
  ).
   When a dictionary is initialized with a sequence of length 2 tuples, it
  assumes the first element of the tuple
 \family typewriter 
- (i,j)
+ i
 \family default 
- is the key and the second element i*j is the value.
-  Thus we have a lookup table from pairs of numbers 
-\family typewriter 
-i,j
-\family default 
- to their product.
+ is the 
+\shape italic 
+key
+\shape default 
+ and the second element i**3is the 
+\shape italic 
+value
+\shape default 
+.
+  Thus we have a lookup table from odd integers to to cube.
   Creating dictionaries from list comprehensions as in this example is something
  that hard-core python programmers do almost every day, and you should too.
 \layout Exercise
 
-Create a dictionary mapping integers from 0-1000 to their cube using list
- comprehensions.
+Create a lookup table of the product of all pairs of numbers less than 100.
+ The key will be a tuple of the two numbers 
+\family typewriter 
+(i,j)
+\family default 
+ and the value will be the product.
+ Hint: you can loop over multiple ranges in a list comprehension, eg 
+\family typewriter 
+[ something for i in range(Ni) for j in range(Nj)]
 \layout Section
 
 The Zen of Python
@@ -1944,15 +1998,18 @@ x = 1
 
 Note that this function does not return anything, because the append method
  modifies the list that was passed in.
- python is pretty flexible with functions: you can define functions within
+ You should be careful when designing functions that have side effects such
+ as modifying the structures that are passed in; they should be named and
+ documented in such a way that these side effects are clear.
+\layout Standard
+
+Python is pretty flexible with functions: you can define functions within
  function definitions (just be mindful of your indentation), you can attach
  attributes to functions (like other objects), you can pass functions as
  arguments to other functions.
-\layout Standard
-
-A function keyword argument defines a default value for a function that
+ A function keyword argument defines a default value for a function that
  can be overridden.
- Here is an example which provides a normalize keyword argument.
+ Below is an example which provides a normalize keyword argument.
  The default argument is 
 \family typewriter 
 normalize=None
@@ -1988,12 +2045,11 @@ This function could be called with or without a
 \family typewriter 
 normalize
 \family default 
- keyword argument, since if the argument is not passed, the dcefault of
- 
+ keyword argument, since if the argument is not passed, the default of 
 \family typewriter 
 None
 \family default 
- is assumed
+ is used and no normalization is done.
 \layout LyX-Code
 
 \layout LyX-Code
@@ -2022,6 +2078,765 @@ None
 \layout LyX-Code
 
 >>> psd(x, normalize=unitstd)
+\layout LyX-Code
+
+\layout Standard
+
+In Section
+\begin_inset LatexCommand \ref{sec:into_calculator}
+
+\end_inset 
+
+ we noticed that complex objects have the real and imag data attributes,
+ and the conjugate method.
+ An object is an instance of a class that defines it, and in python you
+ can easily define your own classes.
+ In that section, we emphasized that one of the important features of a
+ classes/objects is that they carry around their data and methods in a single
+ bundle.
+ Let's look at the mechnics of defining classes, and creating instances
+ (a.k.a.
+ objects) of these classes.
+ Classes have a special double underscore method __init__ that is used as
+ the function to initialize the class.
+ For this example, we'll continue with the normalize theme above, but in
+ this case the normalization requires some data parameters.
+ This example arises when you want to normalize an image which may range
+ over 0-255 (8 bit image) or from 0-65535 (16 bit image) to the 0-1 interval.
+ For 16 bit images, you would normally divide everything by 65525, but you
+ might want to configure this to a smaller number if your data doesn't use
+ the whole intensity range to enhance contrast.
+ For simplicitly, let's suppose our normalize class is only interested in
+ the pixel maximum, and will divide all the data by that value.
+\layout LyX-Code
+
+from __future__ import division  
+\color blue
+# make sure we do float division
+\layout LyX-Code
+
+class Normalize:
+\layout LyX-Code
+
+    """
+\layout LyX-Code
+
+    A class to normalize data by dividing it by a maximum value
+\layout LyX-Code
+
+    """
+\layout LyX-Code
+
+    def __init__(self, maxval):
+\layout LyX-Code
+
+        'maxval will be mapped to 1'
+\layout LyX-Code
+
+        self.maxval = maxval
+\layout LyX-Code
+
+    def __call__(self, data):
+\layout LyX-Code
+
+        'do the normalization'
+\layout LyX-Code
+
+        
+\color blue
+# in real life you would also want to clip all values of
+\layout LyX-Code
+
+
+\color blue
+        # data>maxval so that the returned value will be in the unit
+\layout LyX-Code
+
+
+\color blue
+        # interval
+\layout LyX-Code
+
+        return data/self.maxval
+\layout Standard
+
+The triple quoted string following the definition of class Normalize is
+ the class documentation stringd, and it will bre shown to the user when
+ they do 
+\family typewriter 
+help(Normalize)
+\family default 
+.
+ A commonly used convention is to name classes with 
+\shape italic 
+UpperCase
+\shape default 
+, but this is not required.
+ self is a special variable that a class can use to refer to its own data
+ and methods, and must be the first argument to all the class methods.
+ The 
+\family typewriter 
+__init__
+\family default 
+ method stores the normalization value maxval as a class attribute in 
+\family typewriter 
+self.maxval
+\family default 
+, and this value can later be reused by other class methods (as it is in
+ 
+\family typewriter 
+__call__
+\family default 
+) and it can be altered by the user of the class, as will illustrate below.
+ The 
+\family typewriter 
+__call__
+\family default 
+ method is another piece of python double underscore magic, it allows class
+ instances to be used as 
+\shape italic 
+functions
+\shape default 
+, eg you can call them just like you can call any function.
+ OK, now let's see how you could use this.
+ 
+\layout Standard
+
+The first line use used to create an 
+\shape italic 
+instance
+\shape default 
+ of the 
+\shape italic 
+class
+\shape default 
+ 
+\family typewriter 
+Normalize
+\family default 
+, and the special method 
+\family typewriter 
+__init__
+\family default 
+ is implicitly called.
+ The second line implicitly calls the special 
+\family typewriter 
+__call__
+\family default 
+method
+\layout LyX-Code
+
+>>> norm = Normalize(65356) 
+\color blue
+# good for 16 bit images
+\layout LyX-Code
+
+>>> norm(255)               
+\color blue
+# call this function
+\layout LyX-Code
+
+0.0039017075708427688
+\layout LyX-Code
+
+\layout LyX-Code
+
+
+\color blue
+# We can reset the maxval attribute, and the call method 
+\layout LyX-Code
+
+
+\color blue
+# is automagically updated
+\layout LyX-Code
+
+>>> norm.maxval = 255       
+\color blue
+# reset the maxval
+\layout LyX-Code
+
+>>> norm(255)               
+\color blue
+# and call it again
+\layout LyX-Code
+
+1.0
+\layout LyX-Code
+
+\layout LyX-Code
+
+
+\color blue
+# We can pass the norm instance to the psd function we defined above, which
+ 
+\layout LyX-Code
+
+
+\color blue
+# is expecting a function
+\layout LyX-Code
+
+>>> pdf(X, normalize=norm)            
+\layout Exercise
+
+Pretend that 
+\family typewriter 
+complex
+\family default 
+ were not built-in to the python core, and write your own complex class
+ 
+\family typewriter 
+MyComplex
+\family default 
+.
+ Provide 
+\family typewriter 
+real
+\family default 
+ and 
+\family typewriter 
+imag
+\family default 
+ attributes and the 
+\family typewriter 
+conjugate
+\family default 
+ method.
+ Define
+\family typewriter 
+ __abs__
+\family default 
+, 
+\family typewriter 
+__mul__
+\family default 
+ and 
+\family typewriter 
+__add__
+\family default 
+ to implement the absolute value of complex numbers, multiplication of complex
+ numbers and addition of complex numbers.
+ See the API definition of the python number protocol; although this is
+ written for C programmers, it contains information about the required function
+ call signatures for each of the double underscore methods that define the
+ number protocol in python; where they use 
+\family typewriter 
+o1
+\family default 
+ on that page, you would use 
+\family typewriter 
+self
+\family default 
+ in python, and where they use 
+\family typewriter 
+o2
+\family default 
+ you might use 
+\family typewriter 
+other
+\family default 
+ in python.
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+http://www.python.org/doc/current/api/number.html
+\end_inset 
+
+ To get you started, I'll show you what the 
+\family typewriter 
+__add__
+\family default 
+ method should look like
+\layout LyX-Code
+
+
+\color blue
+# An example double underscore method required in your MyComplex
+\layout LyX-Code
+
+
+\color blue
+# implementation
+\layout LyX-Code
+
+def __add__(self, other):
+\layout LyX-Code
+
+    'add self to other and return a new MyComplex instance'
+\layout LyX-Code
+
+    r = self.real + other.real
+\layout LyX-Code
+
+    i = self.imag + other.imag
+\layout LyX-Code
+
+    return MyComplex(r,i)
+\layout LyX-Code
+
+\layout LyX-Code
+
+
+\color blue
+# When you are finished, test your implementation with 
+\layout LyX-Code
+
+>>> x = MyComplex(2,3)
+\layout LyX-Code
+
+>>> y = MyComplex(0,1)
+\layout LyX-Code
+
+>>> x.real
+\layout LyX-Code
+
+2.0
+\layout LyX-Code
+
+>>> y.imag
+\layout LyX-Code
+
+1.0
+\layout LyX-Code
+
+>>> x.conjugate()
+\layout LyX-Code
+
+(2-3j)
+\layout LyX-Code
+
+>>> x+y
+\layout LyX-Code
+
+(2+4j)
+\layout LyX-Code
+
+>>> x*y
+\layout LyX-Code
+
+(-3+2j)
+\layout LyX-Code
+
+>>> abs(x*y)
+\layout LyX-Code
+
+3.6055512754639891
+\layout LyX-Code
+
+\layout Section
+
+Files and file like objects
+\layout Standard
+
+Working with files is one of the most common and important things we do
+ in scientific computing because that is usually where the data lives.
+ In Section
+\begin_inset LatexCommand \ref{sec:intro_string}
+
+\end_inset 
+
+, we went through the mechanics of automatically building file names like
+\layout LyX-Code
+
+data/myexp01.dat
+\layout LyX-Code
+
+data/myexp02.dat
+\layout LyX-Code
+
+data/myexp03.dat
+\layout LyX-Code
+
+data/myexp04.dat
+\layout Standard
+
+but we didn't actually do anything with these files.
+ Here we'll show how to read in the data and do something with it.
+ Python makes working with files easy and dare I say fun.
+ The test data set lives in 
+\family typewriter 
+data/family.csv
+\family default 
+ and is a standard comma separated value file that contains information
+ about my family: first name, last name, age, height in cm, weight in kg
+ and birthdate.
+ We'll open this file and parse it -- note that python has a standard module
+ for parsing CSV files that is much more sophisticated than what I am doing
+ here.
+ Nevertheless, it serves as an easy to understand example that is close
+ enough to real life that it is worth doing.
+ Here is what the data file looks like
+\layout LyX-Code
+
+First,Last,Age,Weight,Height,Birthday
+\layout LyX-Code
+
+John,Hunter,36,175,180,1968-03-05
+\layout LyX-Code
+
+Miriam,Sierig,33,135,177,1971-05-04
+\layout LyX-Code
+
+Rahel,Hunter,7,55,134,1998-02-25
+\layout LyX-Code
+
+Ava,Hunter,3,45,121,2001-04-26
+\layout LyX-Code
+
+Clara,Hunter,0,15,55,2004-10-02
+\layout Standard
+
+Here is the code to parse that file
+\layout LyX-Code
+
+
+\color blue
+# open the file for reading
+\layout LyX-Code
+
+fh = file('../data/family.csv', 'r')
+\layout LyX-Code
+
+
+\color blue
+# slurp the header, splitting on the comma
+\layout LyX-Code
+
+headers = fh.readline().split(',')
+\layout LyX-Code
+
+
+\color blue
+# now loop over the remaining lines in the file and parse them
+\layout LyX-Code
+
+for line in fh:
+\layout LyX-Code
+
+    
+\color blue
+# remove any leading or trailing white space
+\layout LyX-Code
+
+    line = line.strip()
+\layout LyX-Code
+
+    
+\color blue
+# split the line on the comma into separate variables
+\layout LyX-Code
+
+    first, last, age, weight, height, dob = line.split(',')
+\layout LyX-Code
+
+    
+\color blue
+# convert some of these strings to floats
+\layout LyX-Code
+
+    age, weight, height = [float(val) for val in (age, weight, height)]
+\layout LyX-Code
+
+    print first, last, age, weight, height, dob
+\layout Standard
+
+This example illustrates several interesting things.
+ The syntax for opening a file is 
+\family typewriter 
+file(filename, mode)
+\family default 
+ and the 
+\family typewriter 
+mode
+\family default 
+ is a string like 
+\family typewriter 
+'r'
+\family default 
+ or 
+\family typewriter 
+'w'
+\family default 
+ that determines whether you are opening in read or write mode.
+ You can also read and write binary files with 
+\family typewriter 
+'rb'
+\family default 
+ and
+\family typewriter 
+ 'wb'
+\family default 
+.
+ There are more options and you should do 
+\family typewriter 
+help(file)
+\family default 
+ to learn about them.
+ We then use the file 
+\family typewriter 
+readline
+\family default 
+ method to read in the first line of the file.
+ This returns a string (the line of text) and we call the string method
+ 
+\family typewriter 
+split(',')
+\family default 
+ to split that string wherever it sees a comma, and this returns a list
+ of strings which are the headers
+\layout LyX-Code
+
+>>> headers
+\layout LyX-Code
+
+['First', 'Last', 'Age', 'Weight', 'Height', 'Birthday
+\backslash 
+n']
+\layout Standard
+
+The new line character 
+\family typewriter 
+'
+\backslash 
+n'
+\family default 
+ at the end of 
+\family typewriter 
+'Birthday
+\backslash 
+n'
+\family default 
+ indicates we forgot to strip the string of whitespace.
+ To fix that, we should have done
+\layout LyX-Code
+
+>>> headers = fh.readline().strip().split(',')
+\layout LyX-Code
+
+>>> headers
+\layout LyX-Code
+
+['First', 'Last', 'Age', 'Weight', 'Height', 'Birthday'] 
+\layout Standard
+
+Notice how this works like a pipeline: 
+\family typewriter 
+fh.readline 
+\family default 
+returns a line of text as a string; we call the string method 
+\family typewriter 
+strip
+\family default 
+ which returns a string with all white space (spaces, tabs, newlines) removed
+ from the left and right; we then call the 
+\family typewriter 
+split
+\family default 
+ method on this stripped string to split it into a list of strings.
+\layout Standard
+
+Next we start to loop over the file -- this is a nice feature of python
+ file handles, you can iterate over them as a sequence.
+ We've learned our lesson about trailing newlines, so we first strip the
+ line with 
+\family typewriter 
+line = line.strip()
+\family default 
+.
+ The rest is string processing, splitting the line on a comma as we did
+ for the headers, and converting the strings to numbers where approriate
+ by calling f
+\family typewriter 
+loat(val)
+\family default 
+ for each of 
+\family typewriter 
+age
+\family default 
+, 
+\family typewriter 
+weight
+\family default 
+ and 
+\family typewriter 
+height
+\family default 
+.
+ Notice how we use list comprehensions and tuple unpacking -- the age, weight,
+ 
+\family typewriter 
+height = [float(val) for val in (age, weight, height)] 
+\family default 
+line, to convert several values at once.
+\layout Standard
+
+Now that we have all this data, how mught we store it.
+ We could store it in a 
+\family typewriter 
+results
+\family default 
+ list
+\layout LyX-Code
+
+results = []
+\layout LyX-Code
+
+for line in fh:
+\layout LyX-Code
+
+    
+\color blue
+# process the line as above to get the variables
+\layout LyX-Code
+
+    results.append( (first, last, age, weight, height, dob) )
+\layout LyX-Code
+
+\layout LyX-Code
+
+\layout LyX-Code
+
+
+\color blue
+# and later when we want to analyze the data
+\layout LyX-Code
+
+for first, last, age, weight, height, dob in results:
+\layout LyX-Code
+
+    
+\color blue
+# do something with the data
+\layout Exercise
+
+
+\family typewriter 
+zip
+\family default 
+ magic.
+  Python has a nice funcion 
+\family typewriter 
+zip
+\family default 
+ that lets you do very useful things with lists of tuples.
+  
+\family typewriter 
+results
+\family default 
+ above is a list of tuples -- each tuple is the 
+\family typewriter 
+first
+\family default 
+, 
+\family typewriter 
+last
+\family default 
+, 
+\family typewriter 
+age
+\family default 
+, 
+\family typewriter 
+weight
+\family default 
+, 
+\family typewriter 
+height
+\family default 
+, 
+\family typewriter 
+dob
+\family default 
+ for a family member.
+  What happens if you do 
+\layout LyX-Code
+
+>>> first, last, age, weight, height, dob = zip(*results)
+\layout Standard
+
+What is 
+\family typewriter 
+age
+\family default 
+ now?
+\layout Exercise
+
+Write a class 
+\family typewriter 
+Person
+\family default 
+ and store the attributes 
+\family typewriter 
+first
+\family default 
+, 
+\family typewriter 
+last
+\family default 
+, 
+\family typewriter 
+age
+\family default 
+, 
+\family typewriter 
+weight
+\family default 
+, 
+\family typewriter 
+height
+\family default 
+, 
+\family typewriter 
+dob
+\family default 
+ in that class.
+  Add a class instance to the results list, eg
+\layout LyX-Code
+
+results.append(Person(first, last, age, weight, height, dob))
+\layout Standard
+
+Python also has a special syntax for printing to an open writable file object
+\layout LyX-Code
+
+
+\color blue
+# open the file for writing
+\layout LyX-Code
+
+outfile = file('mydata.data', 'w') 
+\layout LyX-Code
+
+for x,y,z in myresults:
+\layout LyX-Code
+
+    print >> outfile, '%1.3f %1.3f %1.3f'%(x,y,z)
+\layout Standard
+
+Another really nice thing about file objects is that other classes can implement
+ the file protcol and allow you to use them as if they were files.
+ For example, the StringIO module in the standard library allows you to
+ read and write to strings as if they were files.
+ The urllib.urlopen function allows you to open a remove web page as a file
+ object.
+ Try this
+\layout LyX-Code
+
+
+\color blue
+# loop over the lines in google's html
+\layout LyX-Code
+
+from urllib import urlopen
+\layout LyX-Code
+
+for line in urlopen('http://www.google.com').readlines():
+\layout LyX-Code
+
+    print line,
 \layout LyX-Code
 
 \the_end
