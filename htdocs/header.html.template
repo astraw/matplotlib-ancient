@@ -11,9 +11,9 @@
              src=screenshots/logo.png></td>
     </tr>
     <tr>
-    <td valign=top>
+    <td valign=top width=20%>
         <table border=0 >
-            <tr><td valign=top>
+            <tr ><td valign=top>
                 + for table in tables:
                     @table@
                     <br>

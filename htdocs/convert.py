@@ -20,8 +20,7 @@ class NewsBox:
                 <b>News flash</b>
         </font>
     </td></tr>
-    """ % self.header
-            
+    """     
 
     def __repr__(self):
         s =  '<table width=100% border=1 cellpadding=1 ' +\
@@ -208,7 +207,7 @@ table3 =  LinkBox(header='Other', links=(
 
 params = {
     'myemail' : '<a href=mailto:jdhunter@ace.bsd.uchicago.edu> (jdhunter@ace.bsd.uchicago.edu)</a>',
-    'tables' : (table1, table2, table3),
+    'tables' : (news, table1, table2, table3),
     'default_table' :  'border=1 cellpadding=3 cellspacing=2', 
           }
 
