@@ -1,0 +1,17 @@
+peds-pc311:~> pylab
+Python 2.3.3 (#2, Apr 13 2004, 17:41:29)
+Type "copyright", "credits" or "license" for more information.
+ 
+IPython 0.6.12_cvs -- An enhanced Interactive Python.
+?       -> Introduction to IPython's features.
+%magic  -> Information about IPython's 'magic' % functions.
+help    -> Python's own help system.
+object? -> Details about 'object'. ?object also works, ?? prints more.
+ 
+  Welcome to pylab, a matplotlib-based Python environment
+    help(matplotlib) -> generic matplotlib information
+    help(pylab)      -> matlab-compatible commands from matplotlib
+    help(plotting)   -> plotting commands
+ 
+In [1]: plot([1,2,3])
+Out[1]: [<matplotlib.lines.Line2D instance at 0xb557a86c>]

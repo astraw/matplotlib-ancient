@@ -1259,7 +1259,7 @@ In [19]: hot()
 
 \begin_inset Float figure
 wide false
-collapsed false
+collapsed true
 
 \layout Standard
 \align center 
@@ -1309,6 +1309,55 @@ Matplotlib User's Guide
 examples
 \family default 
  subdirectory in the matplotlib source distribution for more information.
+ We'll clost off with a simple example of reading in a PNG and displaying
+ it
+\layout LyX-Code
+
+In [35]: im = imread('../data/ratner.png')
+\layout LyX-Code
+
+ 
+\layout LyX-Code
+
+In [36]: imshow(im)
+\layout LyX-Code
+
+Out[36]: <matplotlib.image.AxesImage instance at 0xb3ffba2c>
+\layout LyX-Code
+
+ 
+\layout LyX-Code
+
+In [37]: axis('off')
+\layout LyX-Code
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename fig/mpl_ratner.png
+	lyxscale 20
+	width 5in
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:mpl_ratner}
+
+\end_inset 
+
+Displaying image data from your camera in matplotlib
+\end_inset 
+
+
 \layout Section
 
 Customizing text and mathematical expressions
