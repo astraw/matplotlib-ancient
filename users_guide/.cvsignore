@@ -1,0 +1,8 @@
+*.ps
+*.eps
+*.dvi
+*.log
+*.pdf
+*.out
+*.aux
+auto
