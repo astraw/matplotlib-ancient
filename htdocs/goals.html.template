@@ -1,171 +1,46 @@
+import convert
 td_done = 'bgcolor=#bfbfbf align="left"'
 td_partial = 'bgcolor=#eeefff align="left"'
 td_remaining = 'bgcolor=#efefef align="left"'
-
+goaltable = convert.FormatGoals("goals.txt")
 
 @header@
 <h2>Goals for matplotlib</h2>
 
-Here is a growing list, and status updates, of things that I think
-need to be done to achieve a useful, publication quality 2D plotting
-library.  If you have any suggestions, additions or comments, email me
-@myemail@ or the <a href=http://sourceforge.net/mail/?group_id=80706>
-mailing list</a>.<p>
+The following table lists the planned enhancements and improvements
+planned for matplotlib broken down by category. In general, the
+higher the item is in the list under a category, the sooner it
+will be added. Items that are completed will be kept in the table
+for a few months for those that regularly review the status. 
+Typically, for completed items the release that it was completed for
+(or multiple releases if it was phased in) will be shown and links
+to the release notes provided.
+<p>
+Priorities can be changed in one of two ways: convincing one of
+the existing developers to make an item a higher priority (for
+example, if many users request the feature) or by helping to 
+add the feature yourself (i.e., becoming a new developer). Please
+submit suggestions or requests to the
+<a href=http://sourceforge.net/mail/?group_id=80706>
+mailing list</a>.
+<p>
 
 <br>
 <table border=2 cellpadding=2 cellspacing=0>
 
-<tr >
-  <th width=50%>
+<tr>
+  <th width=30%>
 	Goals
   </th>
-  <th width=50%>
+  <th width=20%>
 	Status
+  <th width=50%>
+    Comments
   </th>
 </tr>
 
 
-<tr>
-    <td>
-	Allow arbitrary location, size and number of axes
-    </td>
-
-    <td @td_done@>
-
-	Done. Use <a href=matplotlib.matlab.html#-subplot>subplot</a> for making
-	regular grids of axes and <a href=matplotlib.matlab.html#-axes>axes</a>
-	for custom placment
-
-    </td>
-</tr>
-
-<tr>
-    <td>
-	Allow full control of axes lines, tick lines, and grid lines.
-        Eg, location, color, line style, line width, etc, should be
-        under full control
-    </td>
-
-    <td @td_done@> DONE You can specify the linewidth and color of the tick
-	lines, axis lines and grid lines.  You now have full control
-	of the line attributes for the axes lines.  These can be
-	customized in the <a href=.matplotlibrc>matplotlibrc</a> file.
-	</td> </tr>
-
-<tr> <td> Support arbitrary location, rotation and fonts for axis text
-   </td> <td @td_partial@> Partially done.  This is backend dependent.
-   The Agg, GD and PS backends support arbitrary rotations.  The GTK and WX
-   backends still support only 'horizontal' and 'vertical'.  Full font
-   support (font family, font angle, font weight, font size) is
-   available for all backends; see <a href=fonts.html>fonts</a>.</td>
-
-</tr>
-    <td>
-       Plot legends
-    </td>
-
-    <td @td_done@> Done, matlab compatible legend command.  See <a
-	href=examples/legend_demo.py>legend_demo.py</a> and the <a
-	href=matplotlib.matlab.html#-legend>legend</a> command.  </td>
-
-</tr>
-
-
-<tr>
-    <td>
-      Allow high resolution printing to a variety of output formats
-    </td>
-
-    <td @td_done@>matplotlib supports multiple backend renders,
-      including and postscript with arbitrary resolutions--
-      see <a href="backends.html">output devices</a> </td> </tr>
-
-<tr> <td> Allow interactive control of plot </td>
-
-    <td @td_done@> 
-	With the tkagg backend, you can use matplotlib from an
-	arbitrary python shell.  For other backends, see the <a
-	href=interactive.html>interactive documentation</a>
-	</td>
-        </tr>
-
-<tr>
-
-    <td>
-      Support a richer char set for labeling, eg greek letters, as
-      well as sub and superscripts
-    </td>
-
-    <td @td_partial@> A lot of progress here using the BaKoMa computer
-      modern fonts and a TeX parser.  See <a
-      href=screenshots.html#mathtext_demo>screenshot</a> and the <a
-      href=matplotlib.mathtext.html>mathtext</a> documentation for
-      backend and usage information - not available yet on all
-      backends.  
-  </td> </tr>
-
-<tr>
-    <td>
-      Support log scaling	
-    </td>
-
-    <td @td_done@> See <a
-	href=matplotlib.matlab.html#-semilogx>semilogx</a>, <a
-	href=matplotlib.matlab.html#-semilogy>semilogy</a>, and <a
-	href=matplotlib.matlab.html#-loglog>loglog</a>, and demo <a
-	href=examples/log_demo.py>log_demo.py</a> </td> 
-</tr>
-
-<tr>
-    <td>
-      Add more 2D plot commands
-    </td>
-
-    <td @td_remaining@> polar, pie</td> 
-</tr>
-
-
-<tr>
-    <td>
-	Add more patch commands, like pcolor
-    </td>
-
-    <td @td_partial@> <a
-	href=matplotlib.matlab.html#-pcolor>pcolor</a> added.  See <a
-	href=screenshots.html#pcolor_demo>pcolor_demo</a> and <a
-	href=screenshots.html#mri_with_eeg>mri_with_eeg</a> for
-	screenshots and <a
-	href=examples/pcolor_demo.py>pcolor_demo.py</a> for some
-	example code.  On the list to do: contour.  </td> </tr>
-
-
-    <td>
-	Add image support
-    </td>
-    <td @td_partial@> 
-      Support for images from arrays with <a href=matplotlib.matlab.html#-imshow>imshow</a>
-   </td> </tr>
-
-
-    <td>
-	Add more efficient data handling for large scatter, pcolor, etc.
-    </td>
-    <td @td_remaining@> 
-      Near the top of the list of things to do
-   </td> </tr>
-
-
-<tr>
-    <td>
-	Add 3D plot commands
-    </td>
-
-    <td @td_remaining@>
-	After all the above goals are met (around matplotlib 1.0),
-	I'll add 3D plotting with a VTK backend.
-    </td>
-</tr>
-
+@goaltable@
 
 </table>
 

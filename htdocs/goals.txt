@@ -1,0 +1,232 @@
+# Goals and status This file is processed by convert.py to generate
+#the goals web page.  Format is that goal entries in the table follow
+#a line that contains only asterisks; first block is the description
+#of the goal (should be brief as possible; second block is the
+#status--it is recommended that goals recently finished say Done
+#(release number with a link to the release notes for that release for
+#the details); the third block is for any comments or associated
+#information. The blocks are separated by blank lines. Blocks 2 and 3
+#are optional.  lines starting with # are ignored.
+
+
+
+==========================================================================
+Plot Functionality
+###################
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Math and regular text
+*******************
+Support special symbols
+
+not started
+
+Many of the standard TeX symbols are already defined (see <a
+href=matplotlib.mathtext.html>mathtext</a>).  Adding composite symbols
+such as the Angstrom symbol requires additional work.
+*******************
+Postscript support
+
+not started
+*******************
+Relative font sizes
+
+not started
+
+This will allow specification of a font size relative to
+an existing font rather than in absolute terms, which will 
+make scaling all fonts within a plot simpler.
+*******************
+Parser fixes
+
+not started
+
+Over/under bug, groupings, recursive sub/superscipts.
+*******************
+kerning
+
+not started
+*******************
+vertical rotation
+
+not started
+*******************
+sqrt overlines
+
+not started
+*******************
+add spacing commands
+
+not started
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Plot types
+*******************
+Image support
+
+done
+
+AGG support appeared in 0.52, Postscript image support in 0.53.
+See <a href="http://matplotlib.sourceforge.net/matplotlib.matlab.html#-imshow">
+imshow</a>
+*******************
+Polar plots
+
+work underway
+*******************
+Shared axes
+
+not started
+
+Although it is now possible to have multiple plots share a common
+axis, this work would make it easier to create such plots.
+*******************
+Contour plots
+
+not started
+*******************
+Log histogram
+
+not started
+*******************
+2-D vector plots
+
+not started
+
+*******************
+Bezier curves, paths
+
+not started
+
+*******************
+3-D visualization
+
+some proof-of-concept work completed
+
+Most likely based on embedding VTK functionality.  Randy Heiland has
+done <a href=http://poincare.uits.iupui.edu/matplot>some basic
+work</a> to show how to use VTK with offline rendering in combination
+with matplotlib imshow to incorporate 3D but much more work is needed.
+
+*******************
+Pie Charts
+
+not started
+*******************
+Map Projections
+
+not started
+
+Support standard map projections (e.g., Mercator) as
+well as allowing user-defined 2-D coordinate mappings.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Axis autoranging and tick customization
+*******************
+Error bars included in auto ranging
+
+done
+
+Plots often clip error bars.
+===========================================================================
+GUI Functionality
+*******************
+Generalized event handling framework
+
+uncertain
+
+Provide a standard event handling framework that works
+with all GUI back-ends. Feasibility being studied.
+*******************
+Cursor read function
+
+not started
+
+Provide a standard function for reading cursor position from a program
+either immeditately or based on a specified event (e.g., keypress or
+mouse button).  The example <a
+href=examples/coords_demo.py>coords_demo.py</a> shows you how to use
+GUI callbacks to get the x and y mouse coordinates in display and data
+units with the GTK and Tk backend.  We would like to expand and
+generalize this code to make it part of the core classes across
+backends.
+
+********************
+Solve mainloop issues
+
+not started
+
+Develop standard way to show windows without entering 
+mainloop (e.g., for use with IDEs that
+already have mainloop running such as PyCrust).
+============================================================================
+Performance
+*******************
+Faster Postscript rendering
+
+not started
+
+Almost all of the time spent by the postscript backend is spent
+parsing the AFM files.  We need to implement caching of the parsing
+results to speed-up this backend.
+
+*******************
+Faster point and symbol plots
+
+not started
+
+Symbol and point plots currently loop over all points
+in Python. New backend functions that render within C
+would greatly speed up these kinds of plots.
+
+********************
+Faster math text
+
+not started
+============================================================================
+Documentation
+*******************
+Fixed and non-fixed interfaces
+
+not started
+
+Provide a guide to users as to what parts of matplotlib should
+not change and what parts may still change.
+============================================================================
+User Interface
+*******************
+Use of Traits package
+
+uncertain
+
+Allows validation of user-supplied plotting parameters
+============================================================================
+Backends
+*******************
+Various WX improvements and fixes
+
+not started
+
+Tooltips, close button, etc. 
+Jeremy, the author and maintainer of the wx backend, no longer has
+the time to fully maintain the wx backend, though he continues to
+work on it.  So we are looking for someone to help maintain
+the wx and wxagg backends.
+
+*******************
+PDF backend
+
+not started
+*******************
+SVG backend
+
+not started
+*******************
+Paint clipping problems
+
+very low priority
+
+The problem resides in the underlying libart package (which
+sees little maintenance).
+*******************
+GD color allocation
+
+very low priority

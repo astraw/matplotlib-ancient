@@ -36,6 +36,124 @@ class LinkBox:
         s += '</table>\n'
         return s
 
+class FormatGoals:
+    """Reads simple text file of goals and formats as html table"""
+    
+    def __init__(self, filename):
+        self.table = []
+        f = open(filename)
+        self.lines = f.readlines()
+        self.nline = 0
+        self.format_table()
+    def nextline(self):
+        self.nline += 1
+    def getline(self):
+        if self.nline >= len(self.lines):
+            return None
+        else:
+            return self.lines[self.nline].strip()
+            
+    def format_table(self):
+        while 1:
+            line = self.getline()
+            if line is None: # all done!
+                return
+            if isBlank(line) or isComment(line):  # comment or empty, ignore
+                pass
+            elif onlyContains(line, '='): # Toplevel table heading section
+                self.nextline()
+                self.table.append("<tr><td colspan=3 bgcolor=#c0c0c0><b>")
+                self.table.append(self.getline())
+                self.table.append("</b></td></tr>")
+            elif onlyContains(line, '+'): # Second level table heading section
+                self.nextline()
+                self.table.append("<tr><td colspan=3 bgcolor=#dddddd><b>")
+                self.table.append(self.getline())
+                self.table.append("</b></td></tr>")
+                
+            elif onlyContains(line, '*'): # Regular table entry
+                # suck up any intervening blank lines
+                self.nextline()
+                while isBlank(self.getline()):
+                    self.nextline()
+                self.parse_entry()
+                continue
+            else:
+                print "WARNING: goals text file is malformed at or around line", \
+                    self.nline
+            self.nextline()                      
+                                  
+    def parse_entry(self):
+        """Deal with the different components of a normal goal row"""
+        ncol = 0
+        cols = [[], [], []]
+        while 1:
+            line = self.getline()
+            if line is None or isNewEntry(line):   # End of file or new entry
+                self.addrow(cols)                  # only way out of this loop
+                return
+            if isComment(line):
+                pass
+            elif not isBlank(line):
+                cols[ncol].append(line)
+                self.nextline()
+            else: # suck up any following blank lines
+                while isBlank(line):
+                    self.nextline()
+                    line = self.getline()
+                    if line is None:
+                        break
+                ncol += 1
+                if ncol > 2:
+                    ncol = 2
+               
+    def addrow(self, cols):
+        """Format the entry for a row"""
+        ncol = 0
+        self.table.append("<tr>")
+        for col in cols:
+            self.table.append("<td>")
+            for line in col:
+                self.table.append(line)
+            if not len(col):
+                self.table.append("&nbsp;")
+                #self.table.append("<font color=#ffffff>.</font>") # need something in cell to format well
+            self.table.append("</td>")
+            ncol += 1
+        self.table.append("</tr>")      
+                    
+    def __repr__(self):
+        return "\n".join(self.table)
+
+# helper functions for FormatGoals
+def onlyContains(line, char):
+    """Does line only contain one or more instances of given character?
+    
+    (aside from leading or trailing whitespace)"""
+
+    tline = line.strip()
+    if len(tline) and len(tline)*char == tline:
+        return 1
+    else:
+        return 0
+
+def isComment(line):
+    return line.strip() and (line.strip()[0] == '#')
+    
+def isBlank(line):  
+    return not line.strip()
+    
+            
+def isNewEntry(line):
+    if (onlyContains(line, '=') or 
+        onlyContains(line, '+') or 
+        onlyContains(line, '*')):
+        return 1
+    else:
+        return 0
+
+
+
 table1 =  LinkBox(header='Matplotlib', links=(
     ('Home', 'http://matplotlib.sourceforge.net'),
     ('Download', 'http://sourceforge.net/projects/matplotlib'),
