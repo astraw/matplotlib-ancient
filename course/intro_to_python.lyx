@@ -26,6 +26,15 @@
 \layout Chapter
 
 A whirlwind tour of python and the standard library
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Python intro
+\end_inset 
+
+
 \layout Standard
 
 This is a quick-and-dirty introduction to the python language for the impatient
@@ -238,6 +247,15 @@ int main ()
 \end_inset 
 
 Python is a calculator
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Calculator
+\end_inset 
+
+
 \layout Standard
 
 Aside from my daughter's solar powered cash-register calculator, Python
@@ -598,6 +616,15 @@ OK, now you are an object oriented programmer.
 \layout Section
 
 Accessing the standard library
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Standard Library
+\end_inset 
+
+
 \layout Standard
 
 Arithmetic is fine, but before long you may find yourself tiring of it and
@@ -1556,6 +1583,15 @@ vals
 \layout Section
 
 The basic python data structures
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Data Structures
+\end_inset 
+
+
 \layout Standard
 
 Strings, covered in the last section, are sequences of characters.
@@ -1950,6 +1986,15 @@ Create a lookup table of the product of all pairs of numbers less than 100.
 \layout Section
 
 The Zen of Python
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Zen
+\end_inset 
+
+
 \layout Exercise
 
 
@@ -2429,6 +2474,15 @@ def __add__(self, other):
 \layout Section
 
 Files and file like objects
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Files
+\end_inset 
+
+
 \layout Standard
 
 Working with files is one of the most common and important things we do
@@ -2837,10 +2891,4 @@ for line in urlopen('http://www.google.com').readlines():
 \layout LyX-Code
 
     print line,
-\layout Section
-
-Some highlights of the standard library
-\layout Standard
-
-TODO
 \the_end

@@ -26,6 +26,15 @@
 \layout Chapter
 
 3D visualization with VTK
+\begin_inset OptArg
+collapsed false
+
+\layout Standard
+
+VTK
+\end_inset 
+
+
 \layout Standard
 
 The Visualization Toolkit is a library for creating, analyzing, and visualizing
@@ -107,6 +116,15 @@ Screenshots from pbrain, a python application for localizing subdural electrodes
 \layout Section
 
 Hello world in VTK
+\begin_inset OptArg
+collapsed false
+
+\layout Standard
+
+Hello VTK
+\end_inset 
+
+
 \layout Standard
 
 We'll start with a minimal example that creates and displays a cube.
@@ -246,6 +264,15 @@ vtkProperty
 \layout Section
 
 Working with medical image data
+\begin_inset OptArg
+collapsed false
+
+\layout Standard
+
+Medical images
+\end_inset 
+
+
 \layout Standard
 
 VTK has very strong support for medical image data, including volume data
