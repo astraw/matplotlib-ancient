@@ -662,6 +662,78 @@ consult <a href=backends.html>backends</a> and <a
 href=interactive.html>interactive</a>.
 
 
+<a name="events">
+<h3>Event handling</h3>
+</a>
+
+When visualizing data, it's often helpful to get some interactive
+input from the user.  All graphical user interfaces (GUIs) provide
+event handling to determine things like key presses, mouse position,
+and button clicks.  matplotlib supports a number of GUIs, and provides
+an interface to the GUI event handling via the <a
+href=matplotlib.matlab.html#mpl_connect>mpl_connect</a> and <a
+href=matplotlib.matlab.html#mpl_connect>mpl_disconnect</a> methods of
+the matlab interface (API users will probably want to use their GUIs
+event handling directly, but do have the option of using their
+<tt>FigureCanvas.mpl_connect</tt> method.<p>
+
+matplotlib uses a callback event handling mechanism.  The basic idea
+is that you register an event that you want to listen for, and the
+figure canvas, will call a user defined function when that event
+occurs.  For example, if you want to know where the user clicks a
+mouse on your figure, you could define a function
+
+<pre>
+def click(event):
+    print 'you clicked', event.x, event.y
+
+#register this function with the event handler
+mpl_connect('button_press_event', click)  
+</pre>
+
+Then whenever the user clicks anywhere on the figure canvas, your
+function will be called and passed a <a
+href=matplotlib.backend_bases.html#MplEvent>MplEvent</a> instance.
+The event instance will have the following attributes defined.
+<table>
+    <tr><td><b>Property</b></td><td><b>Meaning</b></td></tr>
+    <tr><td>x</td><td>x position - pixels from left of canvas</td></tr>
+    <tr><td>y</td><td>y position - pixels from bottom of canvas</td></tr>
+    <tr><td>button</td><td>button pressed None, 1, 2, 3</td></tr>
+    <tr><td>inaxes</td><td>the Axes instance if mouse is over axes (or None)</td></tr>
+    <tr><td>xdata</td><td>x coord of mouse in data coords (None if mouse
+    isn't over axes)</td></tr>
+    <tr><td>ydata</td><td>y coord of mouse in data coords (None if mouse
+    isn't over axes)</td></tr>
+    <tr><td>name</td><td>The string name of the event</td></tr>
+    <tr><td>canvas</td><td>The FigureCanvas instance the event occured in</td></tr>
+    <tr><td>key</td><td>The key press if any, eg 'a', 'b', '1'.  Also
+    records 'control and 'shift'</td></tr>
+</table>    
+You can connect to the following events: 'button_press_event',
+'button_release_event', 'motion_notify_event'.
+
+Here's an example to get the mouse location in data coordinates as the
+mouse moves
+
+<pre>
+from matplotlib.matlab import *
+
+plot(arange(10))
+
+def on_move(event):
+    # get the x and y pixel coords
+    x, y = event.x, event.y
+
+    if event.inaxes:
+        print 'data coords', event.xdata, event.ydata
+
+mpl_connect('motion_notify_event', on_move)
+
+show()
+
+</pre>
+
 
 
 
