@@ -8,13 +8,13 @@ default = 'Agg'
 # do not remove the pngs - some are screenshots!
 files = {
     'layer_images.py'  : default,        
-    'finance_work2.py'  : default,    
+#    'finance_work2.py'  : default,    
     'simple_plot.py'    : default, 
     'axes_demo.py'      : default,  # color allocation bug   
     'histogram_demo.py' : default, 
     'mri_with_eeg.py'   : default,
     'fill_demo.py'  : default,
-    'date_demo.py'  : default,         
+#    'date_demo.py'  : default,         
     'barchart_demo.py'  : default,
     'table_demo.py'     : default, 
     'legend_demo.py'    : default,

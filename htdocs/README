@@ -37,19 +37,9 @@ OK, YOU'RE STILL HERE?
       toolbar).  
 
 
-BUILDING THE DOCS IN A NUTSHELL
+BUILDING THE DOCS
 
-    All you need to do to build the html documentation is 'make
-    htmldocs'.  This runs process_docs.py and convert.py for you.  I
-    decoupled running the screenshot script from building the docs
-    because typically I need to rebuild the docs more often than I
-    need to rebuild the screenshots.  To build the shots do
-
-      > cd screenshots
-
-      > python makeshots.py 
-
-     
-    After you have done the point your browser at
-    file:///your/dev/matplotlb/htdocs/index.html
-
+    All you need to do to build the html documentation is run 'python
+    make.py'.  This runs makeshots.py, process_docs.py and convert.py
+    for you.  A tar file site.tar.gz is created, which I ship off to
+    the sf website.

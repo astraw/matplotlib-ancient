@@ -42,10 +42,11 @@ def get_mpl_commands():
     return value is a list of (header, commands) where commands is a
     list of (func, desc)
     """
-    
+    import matplotlib.matlab
     plot_commands = []
     # parse the header for the commands provided commands
-    for line in file('../lib/matplotlib/matlab.py'):
+    import inspect
+    for line in inspect.getsourcelines(matplotlib.matlab)[0]:
         line = line.strip()
         if not len(line): continue
         if line.startswith('__end'): break
