@@ -1,8 +1,10 @@
-from scipy import exp, arange, zeros, Float, ones, transpose
+from scipy import exp, arange,array
 from RandomArray import normal
 from scipy.optimize import leastsq
 
-parsTrue = 2.0, -.76, 0.1
+import pylab as P
+
+parsTrue = array([2.0, -.76, 0.1])
 distance = arange(0, 4, 0.001)
 
 def func(pars):
@@ -24,3 +26,9 @@ best, info, ier, mesg = leastsq(errfunc, guess, full_output=1)
 print 'true', parsTrue
 print 'best', best
 
+# Now use pylab to plot
+P.figure()
+P.plot(data,label='Noisy data')
+P.plot(func(best),lw=2,label='Best fit')
+P.legend()
+P.show()

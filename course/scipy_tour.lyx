@@ -26,13 +26,61 @@
 \layout Chapter
 
 A tour of scipy
-\layout Standard
+\layout Section
 
 Purpose
-\layout Standard
+\layout Section
 
 Module overview
-\layout Standard
+\layout Section
 
 Some examples
+\layout Standard
+
+A least squares fit
+\layout Standard
+
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+lstinputlisting{examples/scipy_least_squares_fit.py}
+\end_inset 
+
+
+\layout Standard
+
+Roots of a polynomial in 1d
+\layout Standard
+
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+lstinputlisting{examples/scipy_roots1d.py}
+\end_inset 
+
+
+\layout Standard
+
+Bessel functions
+\layout Standard
+
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+lstinputlisting{examples/scipy_bessel.py}
+\end_inset 
+
+
 \the_end

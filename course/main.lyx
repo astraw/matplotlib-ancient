@@ -71,17 +71,25 @@
 
 \layout Title
 
-Python and Scientific Computing
+Practical Scientific Computing
 \newline 
-
-\size larger 
-Notes
+in Python
 \layout Author
 
 John D.
  Hunter
 \newline 
-Fernando Perez
+Fernando P
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+'{e}
+\end_inset 
+
+rez
 \layout Standard
 
 

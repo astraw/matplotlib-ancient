@@ -19,10 +19,10 @@ def simple_print(input):
     inputs (ints).  """
 
     # note in the printf that newlines must be passed as \\n:
-    code = """
-    std::cout << "Printing from C++ (using std::cout) : " << input << std::endl;
+    code = '''
+    std::cout << "Printing from C++ (using std::cout) : "<<input<<std::endl;
     printf("And using C syntax (printf)    : %i\\n",input);
-    """
+    '''
     inline(code,['input'],
            verbose=2)  # see inline docstring for details
 
@@ -315,6 +315,54 @@ return_val = pow(x,n);
                   support_code = support,
                   libraries = ['m'],
                   )
+
+# Some callback examples
+def foo(x,y):
+     print "In Python's foo:"
+     print 'x',x
+     print 'y',y
+     return x
+
+def cfoo(x,y):
+      code = """
+      printf("Attemtping to call back foo() from C...\\n");
+      py::tuple foo_args(2);
+      py::object z;  // This will hold the return value of foo()
+      foo_args[0] = x;
+      foo_args[1] = y;
+      z = foo.call(foo_args);
+      printf("Exiting C code.\\n");
+      return_val = z;
+      """
+      return inline(code,"foo x y".split() )
+
+x=99
+y="Hello"
+
+print "Pure python..."
+z=foo(x,y)
+print "foo returned:",z
+print "\nVia weave..."
+z=cfoo(x,y)
+print "cfoo returned:",z
+
+# Complex numbers
+def complex_test():
+    a = zeros((4,4),Complex)
+    a[0,0] = 1+2j
+    a[1,1] = 2+3.5j
+    print 'Before\n',a
+    code = \
+"""
+std::complex<double> i(0, 1);
+std::cout << a(1,1) << std::endl;
+a(2,2) = 3.0+4.5*i;
+//a(2,2).imag = 4.5;
+"""
+    inline(code,['a'],type_converters = converters.blitz)
+    print 'After\n',a
+
+complex_test()
 
 #-----------------------------------------------------------------------------
 def sinC(x):
