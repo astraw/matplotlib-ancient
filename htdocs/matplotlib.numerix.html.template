@@ -99,7 +99,6 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>UnsignedInt32</strong> = 'u'<br>
 <strong>UnsignedInt8</strong> = 'b'<br>
 <strong>UnsignedInteger</strong> = 'u'<br>
-<strong>a</strong> = 'matplotlib.numerix'<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>add</strong> = &lt;ufunc 'add'&gt;<br>
 <strong>arccos</strong> = &lt;ufunc 'arccos'&gt;<br>
@@ -160,6 +159,6 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>true_divide</strong> = &lt;ufunc 'true_divide'&gt;<br>
 <strong>typecodes</strong> = {'Character': 'c', 'Complex': 'FD', 'Float': 'fd', 'Integer': '1sil', 'UnsignedInteger': 'bwu'}<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;<br>
-<strong>version</strong> = 'Numeric 23.5'<br>
+<strong>version</strong> = 'Numeric 23.1'<br>
 <strong>which</strong> = ('numeric', 'rc')</td></tr></table>
 @footer@

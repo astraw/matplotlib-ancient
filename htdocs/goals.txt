@@ -125,8 +125,17 @@ imshow</a>
 *******************
 Polar plots
 
-work underway
-*******************
+alpha
+
+In <a href="whats_new.html#0.64-polar_plots">matplotlib-0.64</a>, a <a
+href=matplotlib.axes.html#PolarAxes>PolarAxes</a> class was added to
+support plotting in polar coordinates, which is wrapped by the matlab
+interface command <a href=matplotlib.matlab.html#-polar>polar</a>
+command.  Note you can make other kinds of plots on polar, axes, eg
+scatter plots, as shown in <a
+href=examples/polar_scatter.py>polar_scatter.py</a>.
+
+******************* 
 Shared axes
 
 not started

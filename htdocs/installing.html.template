@@ -96,10 +96,11 @@ includes an additional requirement of the GTK runtime.<p>
 All of the GUI backends run on windows, but TkAgg is probably the best
 for interactive use from the standard python shell or ipython.  The
 windows installer (*.exe) on the download page contains all the code
-you need to get up and running.  However, there are many examples that
-are not included in the windows installer.  If you want to try the
-many demos that come in the matplotlib src distribution, download the
-zip file and look in the examples subdir.<p>
+you need to get up and running.  However, there are many <a
+href=examples>examples</a> that are not included in the windows
+installer.  If you want to try the many demos that come in the
+matplotlib src distribution, download the zip file and look in the
+examples subdir.<p>
 
 <i>Important: There are known conflicts with some of the backends with
 some python IDEs such as pycrust, idle.  If you want to use matplotlib

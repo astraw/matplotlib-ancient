@@ -303,7 +303,7 @@ from&nbsp;Parmar&nbsp;and&nbsp;Martelli&nbsp;in&nbsp;the&nbsp;Python&nbsp;Cookbo
 <strong>generators</strong> = _Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 4096)<br>
 <strong>major</strong> = 2<br>
 <strong>minor1</strong> = 3<br>
-<strong>minor2</strong> = 2<br>
+<strong>minor2</strong> = 3<br>
 <strong>s</strong> = 'final'<br>
 <strong>tmp</strong> = 0</td></tr></table>
 @footer@

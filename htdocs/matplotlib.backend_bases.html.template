@@ -90,10 +90,12 @@ mpl_disconnect</tt></dd></dl>
 <dl><dt><a name="FigureCanvasBase-mpl_disconnect"><strong>mpl_disconnect</strong></a>(self, cid)</dt><dd><tt>Connect&nbsp;s&nbsp;to&nbsp;func.&nbsp;return&nbsp;an&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect<br>
 Method&nbsp;should&nbsp;return&nbsp;None</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasBase-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=300</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy.&nbsp;&nbsp;Set&nbsp;the&nbsp;figure&nbsp;patch&nbsp;face&nbsp;and<br>
-edge&nbsp;colors.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;because&nbsp;some&nbsp;of&nbsp;the&nbsp;GUIs&nbsp;have&nbsp;a<br>
-gray&nbsp;figure&nbsp;face&nbsp;color&nbsp;background&nbsp;and&nbsp;you'll&nbsp;probably&nbsp;want&nbsp;to<br>
-override&nbsp;this&nbsp;on&nbsp;hardcopy</tt></dd></dl>
+<dl><dt><a name="FigureCanvasBase-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=300</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy.&nbsp;Set&nbsp;the&nbsp;figure&nbsp;patch&nbsp;face&nbsp;and&nbsp;edge<br>
+colors.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;because&nbsp;some&nbsp;of&nbsp;the&nbsp;GUIs&nbsp;have&nbsp;a&nbsp;gray&nbsp;figure<br>
+face&nbsp;color&nbsp;background&nbsp;and&nbsp;you'll&nbsp;probably&nbsp;want&nbsp;to&nbsp;override&nbsp;this&nbsp;on<br>
+hardcopy.<br>
+&nbsp;<br>
+orientation&nbsp;-&nbsp;only&nbsp;currently&nbsp;applies&nbsp;to&nbsp;PostScript&nbsp;printing.</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasBase-switch_backends"><strong>switch_backends</strong></a>(self, FigureCanvasClass)</dt><dd><tt>instantiate&nbsp;an&nbsp;instance&nbsp;of&nbsp;FigureCanvasClass<br>
 &nbsp;<br>
@@ -130,7 +132,7 @@ num&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;figure&nbsp;number<br>&nbsp;</tt></td
 
 <dl><dt><a name="FigureManagerBase-destroy"><strong>destroy</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="FigureManagerBase-get_current_axis"><strong>get_current_axis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+<dl><dt><a name="FigureManagerBase-get_current_axis"><strong>get_current_axis</strong></a>(self, **kwargs)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
 
 <dl><dt><a name="FigureManagerBase-set_current_axes"><strong>set_current_axes</strong></a>(self, a)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;axes&nbsp;to&nbsp;be&nbsp;a</tt></dd></dl>
 
@@ -149,7 +151,7 @@ num&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;figure&nbsp;number<br>&nbsp;</tt></td
 <dl><dt><a name="GraphicsContextBase-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="GraphicsContextBase-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;the&nbsp;object&nbsp;shuold&nbsp;try&nbsp;to&nbsp;do&nbsp;antialiased&nbsp;rendering</tt></dd></dl>
+<dl><dt><a name="GraphicsContextBase-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;the&nbsp;object&nbsp;should&nbsp;try&nbsp;to&nbsp;do&nbsp;antialiased&nbsp;rendering</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextBase-get_capstyle"><strong>get_capstyle</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;capstyle&nbsp;as&nbsp;a&nbsp;string&nbsp;in&nbsp;('butt',&nbsp;'round',&nbsp;'projecting')</tt></dd></dl>
 
@@ -184,7 +186,7 @@ all&nbsp;backends</tt></dd></dl>
 (usually&nbsp;0).&nbsp;&nbsp;Dash&nbsp;list&nbsp;specifies&nbsp;the&nbsp;on-off&nbsp;sequence&nbsp;as<br>
 points</tt></dd></dl>
 
-<dl><dt><a name="GraphicsContextBase-set_foreground"><strong>set_foreground</strong></a>(self, fg, isRGB<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color.&nbsp;&nbsp;fg&nbsp;can&nbsp;be&nbsp;a&nbsp;matlab&nbsp;format&nbsp;string,&nbsp;a<br>
+<dl><dt><a name="GraphicsContextBase-set_foreground"><strong>set_foreground</strong></a>(self, fg, isRGB<font color="#909090">=False</font>)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color.&nbsp;&nbsp;fg&nbsp;can&nbsp;be&nbsp;a&nbsp;matlab&nbsp;format&nbsp;string,&nbsp;a<br>
 html&nbsp;hex&nbsp;color&nbsp;string,&nbsp;an&nbsp;rgb&nbsp;unit&nbsp;tuple,&nbsp;or&nbsp;a&nbsp;float&nbsp;between&nbsp;0<br>
 and&nbsp;1.&nbsp;&nbsp;In&nbsp;the&nbsp;latter&nbsp;case,&nbsp;grayscale&nbsp;is&nbsp;used.<br>
 &nbsp;<br>
@@ -431,15 +433,18 @@ instance&nbsp;prop&nbsp;at&nbsp;angle&nbsp;in&nbsp;degrees</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-get_text_width_height"><strong>get_text_width_height</strong></a>(self, s, fontsize, ismath<font color="#909090">=False</font>)</dt><dd><tt>get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;string&nbsp;s<br>
-with&nbsp;fontsize&nbsp;in&nbsp;points</tt></dd></dl>
+<dl><dt><a name="RendererBase-get_text_width_height"><strong>get_text_width_height</strong></a>(self, s, prop, ismath)</dt><dd><tt>get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;string&nbsp;s<br>
+with&nbsp;FontPropertry&nbsp;prop</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;<a href="#GraphicsContextBase">GraphicsContextBase</a></tt></dd></dl>
 
 <dl><dt><a name="RendererBase-open_group"><strong>open_group</strong></a>(self, s)</dt><dd><tt>open&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;points&nbsp;to&nbsp;display&nbsp;units;&nbsp;unless&nbsp;your&nbsp;backend&nbsp;doesn't<br>
-have&nbsp;dpi,&nbsp;eg,&nbsp;postscript,&nbsp;you&nbsp;need&nbsp;to&nbsp;overrride&nbsp;this&nbsp;function</tt></dd></dl>
+<dl><dt><a name="RendererBase-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>Convert&nbsp;points&nbsp;to&nbsp;display&nbsp;units&nbsp;(as&nbsp;a&nbsp;float).<br>
+You&nbsp;need&nbsp;to&nbsp;override&nbsp;this&nbsp;function&nbsp;(unless&nbsp;your&nbsp;backend&nbsp;doesn't&nbsp;have<br>
+dpi,&nbsp;eg,&nbsp;postscript&nbsp;or&nbsp;svg).<br>
+Many&nbsp;imaging&nbsp;systems&nbsp;assume&nbsp;some&nbsp;value&nbsp;for&nbsp;pixels&nbsp;per&nbsp;inch.<br>
+points&nbsp;to&nbsp;pixels&nbsp;=&nbsp;points&nbsp;*&nbsp;pixels_per_inch/72.0&nbsp;*&nbsp;dpi/72.0</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-strip_math"><strong>strip_math</strong></a>(self, s)</dt></dl>
 
@@ -496,5 +501,6 @@ occurring&nbsp;later&nbsp;than&nbsp;the&nbsp;current&nbsp;position&nbsp;are&nbsp
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>log</strong> = &lt;ufunc 'log'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
-<strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;</td></tr></table>
+<strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

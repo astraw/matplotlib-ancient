@@ -15,10 +15,11 @@ operations.</tt></p>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="matplotlib._image.html">matplotlib._image</a><br>
-</td><td width="25%" valign=top><a href="matplotlib.cm.html">matplotlib.cm</a><br>
-</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="matplotlib.cm.html">matplotlib.cm</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
+<a href="os.html">os</a><br>
 </td><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -85,7 +86,7 @@ One&nbsp;of<br>
 
 <dl><dt><a name="AxesImage-make_image"><strong>make_image</strong></a>(self, flipy)</dt></dl>
 
-<dl><dt><a name="AxesImage-set_array"><strong>set_array</strong></a>(self, A)</dt><dd><tt>Set&nbsp;the&nbsp;image&nbsp;array&nbsp;from&nbsp;numeric/numarray&nbsp;A</tt></dd></dl>
+<dl><dt><a name="AxesImage-set_array"><strong>set_array</strong></a>(self, A)</dt><dd><tt>retained&nbsp;for&nbsp;backwards&nbsp;compatibility&nbsp;-&nbsp;use&nbsp;set_data&nbsp;instead</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-set_aspect"><strong>set_aspect</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;method&nbsp;used&nbsp;to&nbsp;constrain&nbsp;the&nbsp;aspoect&nbsp;ratio&nbsp;of&nbsp;the<br>
 image&nbsp;ehen&nbsp;resizing,<br>
@@ -94,6 +95,8 @@ One&nbsp;of<br>
 &nbsp;<br>
 'free'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;aspect&nbsp;ratio&nbsp;not&nbsp;constrained<br>
 'preserve'&nbsp;:&nbsp;preserve&nbsp;aspect&nbsp;ratio&nbsp;when&nbsp;resizing</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-set_data"><strong>set_data</strong></a>(self, A)</dt><dd><tt>Set&nbsp;the&nbsp;image&nbsp;array&nbsp;from&nbsp;numeric/numarray/PIL&nbsp;Image&nbsp;A</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-set_data_extent"><strong>set_data_extent</strong></a>(self, xmin, xmax, ymin, ymax)</dt><dd><tt>Set&nbsp;the&nbsp;data&nbsp;extent&nbsp;that&nbsp;the&nbsp;image&nbsp;pixels&nbsp;represent.&nbsp;&nbsp;If&nbsp;you<br>
 are&nbsp;using&nbsp;the&nbsp;matlab&nbsp;interface,&nbsp;use&nbsp;Axes.set_image_extent<br>
@@ -271,6 +274,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
  <dl><dt><a name="-imread"><strong>imread</strong></a>(fname)</dt><dd><tt>return&nbsp;image&nbsp;file&nbsp;in&nbsp;fname&nbsp;as&nbsp;numerix&nbsp;array<br>
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;MxNx4&nbsp;array&nbsp;of&nbsp;0-1&nbsp;normalized&nbsp;floats</tt></dd></dl>
+ <dl><dt><a name="-pil_to_array"><strong>pil_to_array</strong></a>(pilImage)</dt></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">

@@ -1,13 +1,90 @@
 New entries should be added at the top
 
+
+
 ==============================================================
+2004-11-08 matplotlib-0.64 released
+
+2004-11-04 Changed -dbackend processing to only use known backends, so
+           we don't clobber other non-matplotlib uses of -d, like -debug.
+
+2004-11-04 backend_agg.py: added IMAGE_FORMAT to list the formats that the 
+           backend can save to.
+           backend_gtkagg.py: added support for saving JPG files by using the
+           GTK backend - SC
+
+2004-10-31 backend_cairo.py: now produces png and ps files (although the figure
+           sizing needs some work). pycairo did not wrap all the necessary 
+           functions, so I wrapped them myself, they are included in the 
+           backend_cairo.py doc string. - SC
+
+2004-10-31 backend_ps.py: clean up the generated PostScript code, use
+           the PostScript stack to hold itermediate values instead of
+           storing them in the dictionary. - JV
+
+2004-10-30 backend_ps.py, ft2font.cpp, ft2font.h: fix the position of
+           text in the PostScript output.  The new FT2Font method
+           get_descent gives the distance between the lower edge of
+           the bounding box and the baseline of a string.  In
+           backend_ps the text is shifted upwards by this amount. - JV
+
+2004-10-30 backend_ps.py: clean up the code a lot.  Change the
+           PostScript output to be more DSC compliant.  All
+           definitions for the generated PostScript are now in a
+           PostScript dictionary 'mpldict'.  Moved the long comment
+           about drawing ellipses from the PostScript output into a
+           Python comment. - JV
+
+2004-10-30 backend_gtk.py: removed FigureCanvasGTK.realize() as its no longer 
+           needed. Merged ColorManager into GraphicsContext
+           backend_bases.py: For set_capstyle/joinstyle() only set cap or 
+           joinstyle if there is no error. - SC
+
+2004-10-30 backend_gtk.py: tidied up print_figure() and removed some of the 
+           dependency on widget events - SC
+
+2004-10-28 backend_cairo.py: The renderer is complete except for mathtext,
+           draw_image() and clipping. gtkcairo works reasonably well. cairo
+           does not yet create any files since I can't figure how to set the
+           'target surface', I don't think pycairo wraps the required functions
+	   - SC
+
+2004-10-28 backend_gtk.py: Improved the save dialog (GTK 2.4 only) so it 
+           presents the user with a menu of supported image formats - SC
+
+2004-10-28 backend_svg.py: change print_figure() to restore original face/edge 
+           color
+           backend_ps.py : change print_figure() to ensure original face/edge 
+           colors are restored even if there's an IOError - SC
+
+2004-10-27 Applied Norbert's errorbar patch to support barsabove kwarg
+
+2004-10-27 Applied Norbert's legend patch to support None handles
+
+2004-10-27 Added two more backends: backend_cairo.py, backend_gtkcairo.py
+           They are not complete yet, currently backend_gtkcairo just renders 
+           polygons, rectangles and lines - SC
+
+2004-10-21 Added polar axes and plots - JDH
+
+2004-10-20 Fixed corrcoef bug exposed by corrcoef(X) where X is matrix
+           - JDH
+
+2004-10-19 Added kwarg support to xticks and yticks to set ticklabel
+           text properties -- thanks to T. Edward Whalen for the suggestion
+
+2004-10-19 Added support for PIL images in imshow(), image.py - ADS
+
+2004-10-19 Re-worked exception handling in _image.py and _transforms.py
+           to avoid masking problems with shared libraries.  - JTM
+
 2004-10-16 Streamlined the matlab interface wrapper, removed the
-noplot option to hist - just use mlab.hist instead.
+           noplot option to hist - just use mlab.hist instead.
 
 2004-09-30 Added Andrew Dalke's strftime code to extend the range of
            dates supported by the DateFormatter - JDH
 
-2004-09-30 Added hbar - JDH
+2004-09-30 Added barh - JDH
 
 2004-09-30 Removed fallback to alternate array package from numerix
            so that ImportErrors are easier to debug.           JTM
@@ -659,5 +736,3 @@ This is the Old, stale, never used changelog
 2003-11-21 - make a dash-dot dict for the GC
 
 2003-12-15 - fix install path bug
-
- 

@@ -156,7 +156,7 @@ def isNewEntry(line):
 
 table1 =  LinkBox(header='Matplotlib', links=(
     ('Home', 'http://matplotlib.sourceforge.net'),
-    ('Download', 'http://sourceforge.net/projects/matplotlib'),
+    ('Download', 'http://sourceforge.net/projects/matplotlib'),    
     ('Installing', 'installing.html'),
     ('Screenshots', 'screenshots.html'),
     ("What's&nbsp;New", 'whats_new.html'),

@@ -20,8 +20,11 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.76  2004/10/18 15:23:31  jdh2358
-updated the build process
+Revision 1.77  2004/11/08 20:56:56  jdh2358
+sync to 0.64
+
+Revision 1.6  2004/10/26 18:08:13  astraw
+Converted to use new NavigationToolbar2 (from old Toolbar).
 
 Revision 1.5  2004/06/26 06:37:20  astraw
 Trivial bugfix to eliminate IndexError
@@ -55,8 +58,8 @@ First version of dynamic_demo for backend_wx
 
 import matplotlib
 matplotlib.use('WX')
-from matplotlib.backends.backend_wx import Toolbar, FigureCanvasWx,\
-     FigureManager
+from matplotlib.backends.backend_wx import FigureCanvasWx,\
+     FigureManager, NavigationToolbar2Wx
 
 from matplotlib.figure import Figure
 from matplotlib.axes import Subplot
@@ -73,7 +76,7 @@ class PlotFigure(wxFrame):
 
         self.fig = Figure((5,4), 75)
         self.canvas = FigureCanvasWx(self, -1, self.fig)
-        self.toolbar = Toolbar(self.canvas)
+        self.toolbar = NavigationToolbar2Wx(self.canvas)
         self.toolbar.Realize()
 
         # On Windows, default frame size behaviour is incorrect

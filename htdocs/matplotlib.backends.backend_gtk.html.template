@@ -31,8 +31,7 @@
     
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#ColorManagerGTK">ColorManagerGTK</a>
-</font></dt><dt><font face="helvetica, arial"><a href="gtk.html#Dialog">gtk.Dialog</a>(<a href="gtk.html#Window">gtk.Window</a>)
+<dt><font face="helvetica, arial"><a href="gtk.html#Dialog">gtk.Dialog</a>(<a href="gtk.html#Window">gtk.Window</a>)
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#Dialog_MeasureTool">Dialog_MeasureTool</a>
@@ -93,20 +92,6 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="ColorManagerGTK">class <strong>ColorManagerGTK</strong></a></font></td></tr>
-    
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="ColorManagerGTK-get_color"><strong>get_color</strong></a>(self, rgb)</dt><dd><tt>RGB&nbsp;is&nbsp;a&nbsp;unit&nbsp;RGB&nbsp;tuple,&nbsp;return&nbsp;a&nbsp;gtk.gdk.Color</tt></dd></dl>
-
-<dl><dt><a name="ColorManagerGTK-get_rgb"><strong>get_rgb</strong></a>(self, color)</dt><dd><tt>RGB&nbsp;is&nbsp;a&nbsp;unit&nbsp;RGB&nbsp;tuple,&nbsp;return&nbsp;a&nbsp;gtk.gdk.Color</tt></dd></dl>
-
-<dl><dt><a name="ColorManagerGTK-set_drawing_area"><strong>set_drawing_area</strong></a>(self, da)</dt></dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="Dialog_MeasureTool">class <strong>Dialog_MeasureTool</strong></a>(<a href="gtk.html#Dialog">gtk.Dialog</a>)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
@@ -151,7 +136,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137201128)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137229752)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -815,11 +800,12 @@ Methods defined here:<br>
 
 <dl><dt><a name="FigureCanvasGTK-mpl_disconnect"><strong>mpl_disconnect</strong></a>(self, cid)</dt></dl>
 
-<dl><dt><a name="FigureCanvasGTK-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>)</dt></dl>
-
-<dl><dt><a name="FigureCanvasGTK-realize"><strong>realize</strong></a>(self, widget)</dt></dl>
-
-<dl><dt><a name="FigureCanvasGTK-set_do_plot"><strong>set_do_plot</strong></a>(self, b)</dt><dd><tt>True&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;render&nbsp;to&nbsp;screen,&nbsp;False&nbsp;is&nbsp;hardcopy&nbsp;only</tt></dd></dl>
+<dl><dt><a name="FigureCanvasGTK-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy.&nbsp;&nbsp;Set&nbsp;the&nbsp;figure&nbsp;patch&nbsp;face&nbsp;and<br>
+edge&nbsp;colors.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;because&nbsp;some&nbsp;of&nbsp;the&nbsp;GUIs&nbsp;have&nbsp;a<br>
+gray&nbsp;figure&nbsp;face&nbsp;color&nbsp;background&nbsp;and&nbsp;you'll&nbsp;probably&nbsp;want&nbsp;to<br>
+override&nbsp;this&nbsp;on&nbsp;hardcopy<br>
+&nbsp;<br>
+orientation&nbsp;-&nbsp;only&nbsp;currently&nbsp;applies&nbsp;to&nbsp;PostScript&nbsp;printing.</tt></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -831,7 +817,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137164088)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137192704)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -992,6 +978,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="FigureCanvasGTK-queue_resize"><strong>queue_resize</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-rc_get_style"><strong>rc_get_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTK-realize"><strong>realize</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-remove_accelerator"><strong>remove_accelerator</strong></a>(...)</dt></dl>
 
@@ -1203,7 +1191,7 @@ window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;gtk.Window<br>&nbsp;</
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>:<br>
 <dl><dt><a name="FigureManagerGTK-clf"><strong>clf</strong></a>(self)</dt><dd><tt>clear&nbsp;the&nbsp;figure</tt></dd></dl>
 
-<dl><dt><a name="FigureManagerGTK-get_current_axis"><strong>get_current_axis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+<dl><dt><a name="FigureManagerGTK-get_current_axis"><strong>get_current_axis</strong></a>(self, **kwargs)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
 
 <dl><dt><a name="FigureManagerGTK-set_current_axes"><strong>set_current_axes</strong></a>(self, a)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;axes&nbsp;to&nbsp;be&nbsp;a</tt></dd></dl>
 
@@ -1234,7 +1222,7 @@ window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;gtk.Window<br>&nbsp;</
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>:<br>
 <dl><dt><a name="FigureManagerGTK-clf"><strong>clf</strong></a>(self)</dt><dd><tt>clear&nbsp;the&nbsp;figure</tt></dd></dl>
 
-<dl><dt><a name="FigureManagerGTK-get_current_axis"><strong>get_current_axis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+<dl><dt><a name="FigureManagerGTK-get_current_axis"><strong>get_current_axis</strong></a>(self, **kwargs)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
 
 <dl><dt><a name="FigureManagerGTK-set_current_axes"><strong>set_current_axes</strong></a>(self, a)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;axes&nbsp;to&nbsp;be&nbsp;a</tt></dd></dl>
 
@@ -1286,7 +1274,7 @@ Methods inherited from <a href="gtk.html#FileSelection">gtk.FileSelection</a>:<b
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#FileSelection">gtk.FileSelection</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileSelection (137209920)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileSelection (137238552)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.FileSelection' objects&gt;</dl>
 
@@ -1974,7 +1962,10 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="GraphicsContextGTK-__init__"><strong>__init__</strong></a>(self, gdkGC, renderer)</dt></dl>
+<dl><dt><a name="GraphicsContextGTK-__init__"><strong>__init__</strong></a>(self, renderer)</dt></dl>
+
+<dl><dt><a name="GraphicsContextGTK-rgb_to_gdk_color"><strong>rgb_to_gdk_color</strong></a>(self, rgb)</dt><dd><tt>Take&nbsp;an&nbsp;RGB&nbsp;tuple&nbsp;(with&nbsp;three&nbsp;0.0-1.0&nbsp;values)&nbsp;and&nbsp;return&nbsp;an&nbsp;allocated<br>
+gtk.gdk.Color</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextGTK-set_capstyle"><strong>set_capstyle</strong></a>(self, cs)</dt><dd><tt>Set&nbsp;the&nbsp;capstyle&nbsp;as&nbsp;a&nbsp;string&nbsp;in&nbsp;('butt',&nbsp;'round',&nbsp;'projecting')</tt></dd></dl>
 
@@ -1982,7 +1973,7 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 
 <dl><dt><a name="GraphicsContextGTK-set_dashes"><strong>set_dashes</strong></a>(self, dash_offset, dash_list)</dt></dl>
 
-<dl><dt><a name="GraphicsContextGTK-set_foreground"><strong>set_foreground</strong></a>(self, fg, isRGB<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color.&nbsp;&nbsp;fg&nbsp;can&nbsp;be&nbsp;a&nbsp;matlab&nbsp;format&nbsp;string,&nbsp;a<br>
+<dl><dt><a name="GraphicsContextGTK-set_foreground"><strong>set_foreground</strong></a>(self, fg, isRGB<font color="#909090">=False</font>)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color.&nbsp;&nbsp;fg&nbsp;can&nbsp;be&nbsp;a&nbsp;matlab&nbsp;format&nbsp;string,&nbsp;a<br>
 html&nbsp;hex&nbsp;color&nbsp;string,&nbsp;an&nbsp;rgb&nbsp;unit&nbsp;tuple,&nbsp;or&nbsp;a&nbsp;float&nbsp;between&nbsp;0<br>
 and&nbsp;1.&nbsp;&nbsp;In&nbsp;the&nbsp;latter&nbsp;case,&nbsp;grayscale&nbsp;is&nbsp;used.</tt></dd></dl>
 
@@ -1990,9 +1981,7 @@ and&nbsp;1.&nbsp;&nbsp;In&nbsp;the&nbsp;latter&nbsp;case,&nbsp;grayscale&nbsp;is
 
 <dl><dt><a name="GraphicsContextGTK-set_joinstyle"><strong>set_joinstyle</strong></a>(self, js)</dt><dd><tt>Set&nbsp;the&nbsp;join&nbsp;style&nbsp;to&nbsp;be&nbsp;one&nbsp;of&nbsp;('miter',&nbsp;'round',&nbsp;'bevel')</tt></dd></dl>
 
-<dl><dt><a name="GraphicsContextGTK-set_linestyle"><strong>set_linestyle</strong></a>(self, style)</dt></dl>
-
-<dl><dt><a name="GraphicsContextGTK-set_linewidth"><strong>set_linewidth</strong></a>(self, lw)</dt></dl>
+<dl><dt><a name="GraphicsContextGTK-set_linewidth"><strong>set_linewidth</strong></a>(self, w)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>:<br>
@@ -2001,7 +1990,7 @@ Methods inherited from <a href="matplotlib.backend_bases.html#GraphicsContextBas
 <dl><dt><a name="GraphicsContextGTK-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="GraphicsContextGTK-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;the&nbsp;object&nbsp;shuold&nbsp;try&nbsp;to&nbsp;do&nbsp;antialiased&nbsp;rendering</tt></dd></dl>
+<dl><dt><a name="GraphicsContextGTK-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;the&nbsp;object&nbsp;should&nbsp;try&nbsp;to&nbsp;do&nbsp;antialiased&nbsp;rendering</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextGTK-get_capstyle"><strong>get_capstyle</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;capstyle&nbsp;as&nbsp;a&nbsp;string&nbsp;in&nbsp;('butt',&nbsp;'round',&nbsp;'projecting')</tt></dd></dl>
 
@@ -2028,6 +2017,9 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextGTK-set_antialiased"><strong>set_antialiased</strong></a>(self, b)</dt><dd><tt>True&nbsp;if&nbsp;object&nbsp;should&nbsp;be&nbsp;drawn&nbsp;with&nbsp;antialiased&nbsp;rendering</tt></dd></dl>
 
+<dl><dt><a name="GraphicsContextGTK-set_linestyle"><strong>set_linestyle</strong></a>(self, style)</dt><dd><tt>Set&nbsp;the&nbsp;linestyle&nbsp;to&nbsp;be&nbsp;one&nbsp;of&nbsp;('solid',&nbsp;'dashed',&nbsp;'dashdot',<br>
+'dotted').</tt></dd></dl>
+
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
@@ -2051,7 +2043,7 @@ all&nbsp;backends</tt></dd></dl>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="NavigationToolbar-__init__"><strong>__init__</strong></a>(self, canvas, window<font color="#909090">=None</font>)</dt><dd><tt>figManager&nbsp;is&nbsp;the&nbsp;<a href="#FigureManagerGTK">FigureManagerGTK</a>&nbsp;instance&nbsp;that&nbsp;contains&nbsp;the<br>
+<dl><dt><a name="NavigationToolbar-__init__"><strong>__init__</strong></a>(self, canvas, window)</dt><dd><tt>figManager&nbsp;is&nbsp;the&nbsp;<a href="#FigureManagerGTK">FigureManagerGTK</a>&nbsp;instance&nbsp;that&nbsp;contains&nbsp;the<br>
 toolbar,&nbsp;with&nbsp;attributes&nbsp;figure,&nbsp;window&nbsp;and&nbsp;drawingArea</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbar-panx"><strong>panx</strong></a>(self, button, arg)</dt><dd><tt>arg&nbsp;is&nbsp;either&nbsp;user&nbsp;callback&nbsp;data&nbsp;or&nbsp;a&nbsp;scroll&nbsp;event</tt></dd></dl>
@@ -2122,7 +2114,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137166824)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137195440)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -2545,7 +2537,7 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="NavigationToolbar2GTK-__init__"><strong>__init__</strong></a>(self, canvas, *args)</dt></dl>
+<dl><dt><a name="NavigationToolbar2GTK-__init__"><strong>__init__</strong></a>(self, canvas, window)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-draw_rubberband"><strong>draw_rubberband</strong></a>(self, event, x0, y0, x1, y1)</dt><dd><tt>adapted&nbsp;from&nbsp;<a href="http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/189744">http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/189744</a></tt></dd></dl>
 
@@ -2647,7 +2639,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137166824)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137195440)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -3057,7 +3049,7 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="RendererGTK-__init__"><strong>__init__</strong></a>(self, gtkDA, gdkDrawable, dpi)</dt></dl>
+<dl><dt><a name="RendererGTK-__init__"><strong>__init__</strong></a>(self, gtkDA, gdkDrawable, width, height, dpi)</dt></dl>
 
 <dl><dt><a name="RendererGTK-draw_arc"><strong>draw_arc</strong></a>(self, gc, rgbFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height</tt></dd></dl>
 
@@ -3065,7 +3057,12 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 distance&nbsp;in&nbsp;pixels&nbsp;from&nbsp;the&nbsp;left&nbsp;hand&nbsp;side&nbsp;of&nbsp;the&nbsp;canvas.&nbsp;y&nbsp;is<br>
 the&nbsp;distance&nbsp;from&nbsp;the&nbsp;origin.&nbsp;&nbsp;That&nbsp;is,&nbsp;if&nbsp;origin&nbsp;is&nbsp;upper,&nbsp;y<br>
 is&nbsp;the&nbsp;distance&nbsp;from&nbsp;top.&nbsp;&nbsp;If&nbsp;origin&nbsp;is&nbsp;lower,&nbsp;y&nbsp;is&nbsp;the<br>
-distance&nbsp;from&nbsp;bottom</tt></dd></dl>
+distance&nbsp;from&nbsp;bottom<br>
+&nbsp;<br>
+origin&nbsp;is&nbsp;'upper'&nbsp;or&nbsp;'lower'<br>
+&nbsp;<br>
+bbox&nbsp;is&nbsp;a&nbsp;matplotlib.transforms.BBox&nbsp;instance&nbsp;for&nbsp;clipping,&nbsp;or<br>
+None</tt></dd></dl>
 
 <dl><dt><a name="RendererGTK-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;line&nbsp;from&nbsp;x1,y1&nbsp;to&nbsp;x2,y2</tt></dd></dl>
 
@@ -3089,8 +3086,8 @@ gc&nbsp;is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="RendererGTK-get_canvas_width_height"><strong>get_canvas_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;canvas&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords</tt></dd></dl>
 
-<dl><dt><a name="RendererGTK-get_pango_layout"><strong>get_pango_layout</strong></a>(self, s, prop)</dt><dd><tt>Return&nbsp;a&nbsp;pango&nbsp;layout&nbsp;instance&nbsp;for&nbsp;Text&nbsp;instance&nbsp;t.&nbsp;&nbsp;cache&nbsp;to<br>
-layoutd</tt></dd></dl>
+<dl><dt><a name="RendererGTK-get_pango_layout"><strong>get_pango_layout</strong></a>(self, s, prop)</dt><dd><tt>Return&nbsp;a&nbsp;pango&nbsp;layout&nbsp;instance&nbsp;for&nbsp;Text&nbsp;'s'&nbsp;with&nbsp;properties&nbsp;'prop'.<br>
+cache&nbsp;to&nbsp;layoutd</tt></dd></dl>
 
 <dl><dt><a name="RendererGTK-get_text_scale"><strong>get_text_scale</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;scale&nbsp;factor&nbsp;for&nbsp;fontsize&nbsp;taking&nbsp;screendpi&nbsp;and&nbsp;pixels&nbsp;per<br>
 inch&nbsp;into&nbsp;account</tt></dd></dl>
@@ -3100,10 +3097,7 @@ with&nbsp;FontPropertry&nbsp;prop</tt></dd></dl>
 
 <dl><dt><a name="RendererGTK-new_gc"><strong>new_gc</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="RendererGTK-offset_text_height"><strong>offset_text_height</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="RendererGTK-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;point&nbsp;measures&nbsp;to&nbsp;pixels&nbsp;using&nbsp;dpi&nbsp;and&nbsp;the&nbsp;pixels&nbsp;per<br>
-inch&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+<dl><dt><a name="RendererGTK-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>Convert&nbsp;point&nbsp;measures&nbsp;to&nbsp;display&nbsp;units&nbsp;(pixels,&nbsp;as&nbsp;a&nbsp;float)</tt></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -3191,12 +3185,14 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-draw_if_interactive"><strong>draw_if_interactive</strong></a>()</dt></dl>
+<td width="100%"><dl><dt><a name="-GTK_WIDGET_DRAWABLE"><strong>GTK_WIDGET_DRAWABLE</strong></a>(w)</dt><dd><tt>#&nbsp;ref&nbsp;gtk+/gtk/gtkwidget.h</tt></dd></dl>
+ <dl><dt><a name="-draw_if_interactive"><strong>draw_if_interactive</strong></a>()</dt></dl>
  <dl><dt><a name="-error_msg"><strong>error_msg</strong></a> = error_msg_gtk(msg, parent<font color="#909090">=None</font>)</dt></dl>
  <dl><dt><a name="-error_msg_gtk"><strong>error_msg_gtk</strong></a>(msg, parent<font color="#909090">=None</font>)</dt></dl>
  <dl><dt><a name="-fromstring"><strong>fromstring</strong></a>(...)</dt><dd><tt><a href="#-fromstring">fromstring</a>(string,&nbsp;typecode='l',&nbsp;count=-1)&nbsp;returns&nbsp;a&nbsp;new&nbsp;1d&nbsp;array&nbsp;initialized&nbsp;from&nbsp;the&nbsp;raw&nbsp;binary&nbsp;data&nbsp;in&nbsp;string.&nbsp;&nbsp;If&nbsp;count&nbsp;is&nbsp;positive,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;have&nbsp;count&nbsp;elements,&nbsp;otherwise&nbsp;it's&nbsp;size&nbsp;is&nbsp;determined&nbsp;by&nbsp;the&nbsp;size&nbsp;of&nbsp;string.</tt></dd></dl>
+ <dl><dt><a name="-gdk_pixmap_save"><strong>gdk_pixmap_save</strong></a>(pixmap, filename, ext, width, height)</dt><dd><tt>Save&nbsp;a&nbsp;gdk.Pixmap&nbsp;as&nbsp;a&nbsp;png&nbsp;or&nbsp;jpg&nbsp;file.<br>
+Can&nbsp;be&nbsp;called&nbsp;by&nbsp;other&nbsp;gtk&nbsp;backends&nbsp;after&nbsp;they&nbsp;have&nbsp;rendered&nbsp;to&nbsp;a&nbsp;pixmap.</tt></dd></dl>
  <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args, **kwargs)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
- <dl><dt><a name="-raise_msg_to_str"><strong>raise_msg_to_str</strong></a>(msg)</dt><dd><tt>msg&nbsp;is&nbsp;a&nbsp;return&nbsp;arg&nbsp;from&nbsp;a&nbsp;raise.&nbsp;&nbsp;Join&nbsp;with&nbsp;new&nbsp;lines</tt></dd></dl>
  <dl><dt><a name="-show"><strong>show</strong></a>(mainloop<font color="#909090">=True</font>)</dt><dd><tt>Show&nbsp;all&nbsp;the&nbsp;figures&nbsp;and&nbsp;enter&nbsp;the&nbsp;gtk&nbsp;main&nbsp;loop<br>
 &nbsp;<br>
 This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;script</tt></dd></dl>
@@ -3209,13 +3205,15 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>False</strong> = False<br>
+<td width="100%"><strong>DEBUG</strong> = False<br>
+<strong>False</strong> = False<br>
+<strong>IMAGE_FORMAT</strong> = ['eps', 'jpg', 'png', 'ps', 'svg']<br>
+<strong>IMAGE_FORMAT_DEFAULT</strong> = 'png'<br>
 <strong>PIXELS_PER_INCH</strong> = 96<br>
 <strong>True</strong> = True<br>
 <strong>UInt8</strong> = 'b'<br>
-<strong>backend_version</strong> = (2, 2, 0)<br>
+<strong>backend_version</strong> = '2.2.0'<br>
 <strong>basedir</strong> = '/usr/local/share/matplotlib'<br>
-<strong>colorManager</strong> = &lt;matplotlib.backends.backend_gtk.ColorManagerGTK instance&gt;<br>
 <strong>cursord</strong> = {0: &lt;GdkCursor&gt;, 1: &lt;GdkCursor&gt;, 2: &lt;GdkCursor&gt;, 3: &lt;GdkCursor&gt;}<br>
 <strong>cursors</strong> = &lt;matplotlib.backend_bases.Cursors instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>

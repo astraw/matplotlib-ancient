@@ -5,6 +5,8 @@ modules = (
     'matplotlib.axis',
     'matplotlib.backend_bases',
     'matplotlib.backends.backend_agg',
+    'matplotlib.backends.backend_cairo',
+    'matplotlib.backends.backend_gtkcairo',        
     'matplotlib.backends.backend_gd',
     'matplotlib.backends.backend_gtk',
     'matplotlib.backends.backend_gtkagg',

@@ -34,10 +34,17 @@
 <dt><font face="helvetica, arial"><a href="matplotlib.axes.html#Axes">Axes</a>
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#Subplot">Subplot</a>
+<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#PolarAxes">PolarAxes</a>
 </font></dt></dl>
 </dd>
 </dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#SubplotBase">SubplotBase</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#PolarSubplot">PolarSubplot</a>(<a href="matplotlib.axes.html#SubplotBase">SubplotBase</a>, <a href="matplotlib.axes.html#PolarAxes">PolarAxes</a>)
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.axes.html#Subplot">Subplot</a>(<a href="matplotlib.axes.html#SubplotBase">SubplotBase</a>, <a href="matplotlib.axes.html#Axes">Axes</a>)
+</font></dt></dl>
 </dd>
 </dl>
  <p>
@@ -57,7 +64,7 @@ fraction&nbsp;of&nbsp;the&nbsp;total&nbsp;figure&nbsp;window.&nbsp;&nbsp;<br>
 axisbg&nbsp;is&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;axis&nbsp;background<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Axes-__init__"><strong>__init__</strong></a>(self, fig, rect, axisbg<font color="#909090">=None</font>, frameon<font color="#909090">=True</font>)</dt></dl>
+<dl><dt><a name="Axes-__init__"><strong>__init__</strong></a>(self, fig, rect, axisbg<font color="#909090">=None</font>, frameon<font color="#909090">=True</font>, **kwargs)</dt></dl>
 
 <dl><dt><a name="Axes-add_artist"><strong>add_artist</strong></a>(self, a)</dt><dd><tt>Add&nbsp;any&nbsp;artist&nbsp;to&nbsp;the&nbsp;axes</tt></dd></dl>
 
@@ -277,8 +284,8 @@ Refs:<br>
 
 <dl><dt><a name="Axes-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt><dd><tt>Draw&nbsp;everything&nbsp;(plot&nbsp;lines,&nbsp;axes,&nbsp;labels)</tt></dd></dl>
 
-<dl><dt><a name="Axes-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>ERRORBAR(x,&nbsp;y,&nbsp;yerr=None,&nbsp;xerr=None,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmt='b-',&nbsp;ecolor=None,&nbsp;capsize=3)<br>
+<dl><dt><a name="Axes-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>, barsabove<font color="#909090">=False</font>, **kwargs)</dt><dd><tt>ERRORBAR(x,&nbsp;y,&nbsp;yerr=None,&nbsp;xerr=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmt='b-',&nbsp;ecolor=None,&nbsp;capsize=3,&nbsp;barsabove=False)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
 Vertical&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;yerr&nbsp;is&nbsp;not&nbsp;None<br>
@@ -304,6 +311,11 @@ plots&nbsp;a&nbsp;single&nbsp;error&nbsp;bar&nbsp;at&nbsp;x,&nbsp;y.<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps&nbsp;in&nbsp;points<br>
 &nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;barsabove,&nbsp;if&nbsp;True,&nbsp;will&nbsp;plot&nbsp;the&nbsp;errorbars&nbsp;above&nbsp;the&nbsp;plot&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;default&nbsp;is&nbsp;below<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;the&nbsp;plot&nbsp;command&nbsp;for&nbsp;the&nbsp;markers<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&nbsp;first&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
 y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.</tt></dd></dl>
 
@@ -328,6 +340,8 @@ format&nbsp;string.<br>
 The&nbsp;kwargs&nbsp;that&nbsp;are&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;set&nbsp;line&nbsp;properties&nbsp;(any<br>
 property&nbsp;that&nbsp;has&nbsp;a&nbsp;set_*&nbsp;method).&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;to&nbsp;set&nbsp;edge<br>
 color,&nbsp;face&nbsp;color,&nbsp;etc.</tt></dd></dl>
+
+<dl><dt><a name="Axes-format_coord"><strong>format_coord</strong></a>(self, x, y)</dt><dd><tt>return&nbsp;a&nbsp;format&nbsp;string&nbsp;formatting&nbsp;the&nbsp;x,&nbsp;y&nbsp;coord</tt></dd></dl>
 
 <dl><dt><a name="Axes-format_xdata"><strong>format_xdata</strong></a>(self, x)</dt><dd><tt>Return&nbsp;x&nbsp;string&nbsp;formatted.&nbsp;&nbsp;This&nbsp;function&nbsp;will&nbsp;use&nbsp;the&nbsp;attribute<br>
 self.<strong>fmt_xdata</strong>&nbsp;if&nbsp;it&nbsp;is&nbsp;callable,&nbsp;else&nbsp;will&nbsp;fall&nbsp;back&nbsp;on&nbsp;the&nbsp;xaxis<br>
@@ -416,13 +430,15 @@ Eg<br>
 <dl><dt><a name="Axes-imshow"><strong>imshow</strong></a>(self, X, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, aspect<font color="#909090">=None</font>, interpolation<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, origin<font color="#909090">=None</font>, extent<font color="#909090">=None</font>)</dt><dd><tt>IMSHOW(X,&nbsp;cmap=None,&nbsp;norm=None,&nbsp;aspect=None,&nbsp;interpolation=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha=1.0,&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;origin=None,&nbsp;extent=None)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;axes&nbsp;size<br>
+IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale&nbsp;to&nbsp;axes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size&nbsp;(X&nbsp;may&nbsp;be&nbsp;numarray/Numeric&nbsp;array&nbsp;or&nbsp;PIL&nbsp;image)<br>
 &nbsp;<br>
 IMSHOW(X,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;image&nbsp;scaling,<br>
 colormapping&nbsp;etc.&nbsp;See&nbsp;below&nbsp;for&nbsp;details<br>
 &nbsp;<br>
-Display&nbsp;the&nbsp;image&nbsp;in&nbsp;float&nbsp;array&nbsp;X;&nbsp;X&nbsp;can&nbsp;have&nbsp;the&nbsp;following&nbsp;shapes<br>
+&nbsp;<br>
+Display&nbsp;the&nbsp;image&nbsp;in&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;may&nbsp;be&nbsp;a&nbsp;float&nbsp;array&nbsp;or&nbsp;a<br>
+PIL&nbsp;image.&nbsp;If&nbsp;X&nbsp;is&nbsp;a&nbsp;float&nbsp;array,&nbsp;X&nbsp;can&nbsp;have&nbsp;the&nbsp;following&nbsp;shapes<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;MxN&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;luminance&nbsp;(grayscale)<br>
 &nbsp;<br>
@@ -435,7 +451,7 @@ A&nbsp;matplotlib.image.AxesImage&nbsp;instance&nbsp;is&nbsp;returned<br>
 The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
-&nbsp;&nbsp;&nbsp;&nbsp;image.cmap&nbsp;value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image.cmap&nbsp;value&nbsp;(Ignored&nbsp;when&nbsp;X&nbsp;has&nbsp;RGB(A)&nbsp;information)<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;aspect&nbsp;is&nbsp;one&nbsp;of:&nbsp;free&nbsp;or&nbsp;preserve.&nbsp;&nbsp;if&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
 &nbsp;&nbsp;&nbsp;&nbsp;image.aspect&nbsp;value<br>
@@ -445,7 +461,8 @@ The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.interpolation<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.normalize&nbsp;instance;&nbsp;default&nbsp;is<br>
-&nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1&nbsp;(Ignored&nbsp;when&nbsp;X&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PIL&nbsp;image).<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;to&nbsp;scale&nbsp;a&nbsp;luminance&nbsp;image&nbsp;to&nbsp;0-1.&nbsp;&nbsp;If<br>
 &nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;is&nbsp;None,&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;luminance&nbsp;values&nbsp;will&nbsp;be<br>
@@ -1075,7 +1092,2143 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Subplot">class <strong>Subplot</strong></a>(<a href="matplotlib.axes.html#Axes">Axes</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="PolarAxes">class <strong>PolarAxes</strong></a>(<a href="matplotlib.axes.html#Axes">Axes</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Make&nbsp;a&nbsp;<a href="#PolarAxes">PolarAxes</a>.&nbsp;&nbsp;The&nbsp;rectangular&nbsp;bounding&nbsp;box&nbsp;of&nbsp;the&nbsp;axes&nbsp;is&nbsp;given&nbsp;by<br>
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;<a href="#PolarAxes">PolarAxes</a>(position=[left,&nbsp;bottom,&nbsp;width,&nbsp;height])<br>
+&nbsp;<br>
+where&nbsp;all&nbsp;the&nbsp;arguments&nbsp;are&nbsp;fractions&nbsp;in&nbsp;[0,1]&nbsp;which&nbsp;specify&nbsp;the<br>
+fraction&nbsp;of&nbsp;the&nbsp;total&nbsp;figure&nbsp;window.&nbsp;&nbsp;<br>
+&nbsp;<br>
+axisbg&nbsp;is&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;axis&nbsp;background<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;thetagridlines&nbsp;&nbsp;:&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;for&nbsp;the&nbsp;theta&nbsp;grids<br>
+&nbsp;&nbsp;rgridlines&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;for&nbsp;the&nbsp;radial&nbsp;grids<br>
+&nbsp;&nbsp;thetagridlabels&nbsp;:&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;for&nbsp;the&nbsp;theta&nbsp;grid&nbsp;labels<br>
+&nbsp;&nbsp;rgridlabels&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;for&nbsp;the&nbsp;theta&nbsp;grid&nbsp;labels<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.axes.html#PolarAxes">PolarAxes</a></dd>
+<dd><a href="matplotlib.axes.html#Axes">Axes</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PolarAxes-__init__"><strong>__init__</strong></a>(self, *args, **kwarg)</dt></dl>
+
+<dl><dt><a name="PolarAxes-autoscale_view"><strong>autoscale_view</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PolarAxes-cla"><strong>cla</strong></a>(self)</dt><dd><tt>Clear&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
+
+<dl><dt><a name="PolarAxes-format_coord"><strong>format_coord</strong></a>(self, theta, r)</dt><dd><tt>return&nbsp;a&nbsp;format&nbsp;string&nbsp;formatting&nbsp;the&nbsp;coordinate</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_rmax"><strong>get_rmax</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;maximum&nbsp;radius&nbsp;in&nbsp;the&nbsp;view&nbsp;limits&nbsp;dimension</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-grid"><strong>grid</strong></a>(self, b)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;grids&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-has_data"><strong>has_data</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;any&nbsp;artists&nbsp;have&nbsp;been&nbsp;added&nbsp;to&nbsp;axes</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_rgridlabels"><strong>set_rgridlabels</strong></a>(self, radii, angle<font color="#909090">=22.5</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;radial&nbsp;grid&nbsp;labels&nbsp;at&nbsp;radial&nbsp;distances&nbsp;in&nbsp;radii&nbsp;along<br>
+the&nbsp;radius&nbsp;at&nbsp;angle</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_rgrids"><strong>set_rgrids</strong></a>(self, radii)</dt><dd><tt>set&nbsp;the&nbsp;radial&nbsp;locations&nbsp;of&nbsp;the&nbsp;r&nbsp;grids</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_thetagridlabels"><strong>set_thetagridlabels</strong></a>(self, angles, fmt<font color="#909090">='%d'</font>, frac<font color="#909090">=1.1000000000000001</font>, **kwargs)</dt><dd><tt>set&nbsp;the&nbsp;radial&nbsp;locations&nbsp;of&nbsp;the&nbsp;r&nbsp;grids<br>
+&nbsp;<br>
+angles&nbsp;are&nbsp;in&nbsp;degrees<br>
+&nbsp;<br>
+frac&nbsp;is&nbsp;the&nbsp;fraction&nbsp;of&nbsp;the&nbsp;polar&nbsp;axes&nbsp;radius&nbsp;at&nbsp;which&nbsp;to<br>
+place&nbsp;the&nbsp;label&nbsp;(1&nbsp;is&nbsp;the&nbsp;edge).Eg&nbsp;1.05&nbsp;isd&nbsp;outside&nbsp;the&nbsp;axes<br>
+and&nbsp;0.95&nbsp;is&nbsp;inside&nbsp;the&nbsp;axes</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_thetagrids"><strong>set_thetagrids</strong></a>(self, angles)</dt><dd><tt>set&nbsp;the&nbsp;angles&nbsp;at&nbsp;which&nbsp;to&nbsp;place&nbsp;the&nbsp;theta&nbsp;grids&nbsp;(these<br>
+gridlines&nbsp;are&nbsp;equal&nbsp;along&nbsp;the&nbsp;theta&nbsp;dimension).&nbsp;&nbsp;angles&nbsp;is&nbsp;in&nbsp;degrees</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_xlabel"><strong>set_xlabel</strong></a>(self, xlabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>xlabel&nbsp;not&nbsp;implemented</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_ylabel"><strong>set_ylabel</strong></a>(self, ylabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>ylabel&nbsp;not&nbsp;implemented</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>RESOLUTION</strong> = 200</dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.axes.html#Axes">Axes</a>:<br>
+<dl><dt><a name="PolarAxes-add_artist"><strong>add_artist</strong></a>(self, a)</dt><dd><tt>Add&nbsp;any&nbsp;artist&nbsp;to&nbsp;the&nbsp;axes</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-add_collection"><strong>add_collection</strong></a>(self, collection)</dt><dd><tt>add&nbsp;a&nbsp;Collection&nbsp;instance&nbsp;to&nbsp;<a href="#Axes">Axes</a></tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-add_line"><strong>add_line</strong></a>(self, l)</dt><dd><tt>Add&nbsp;a&nbsp;line&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;plot&nbsp;lines</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-add_patch"><strong>add_patch</strong></a>(self, p)</dt><dd><tt>Add&nbsp;a&nbsp;line&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;plot&nbsp;lines</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-add_table"><strong>add_table</strong></a>(self, tab)</dt><dd><tt>Add&nbsp;a&nbsp;table&nbsp;instance&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;axes&nbsp;tables</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-axhline"><strong>axhline</strong></a>(self, y<font color="#909090">=0</font>, xmin<font color="#909090">=0</font>, xmax<font color="#909090">=1</font>, **kwargs)</dt><dd><tt>AXHLINE(y=0,&nbsp;xmin=0,&nbsp;xmax=1,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Axis&nbsp;Horizontal&nbsp;Line<br>
+&nbsp;<br>
+Draw&nbsp;a&nbsp;horizontal&nbsp;line&nbsp;at&nbsp;y&nbsp;from&nbsp;xmin&nbsp;to&nbsp;xmax.&nbsp;&nbsp;With&nbsp;the&nbsp;default<br>
+values&nbsp;of&nbsp;xmin=0&nbsp;and&nbsp;xmax=1,&nbsp;this&nbsp;line&nbsp;will&nbsp;always&nbsp;span&nbsp;the&nbsp;horizontal<br>
+extent&nbsp;of&nbsp;the&nbsp;axes,&nbsp;regardless&nbsp;of&nbsp;the&nbsp;xlim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you<br>
+change&nbsp;them,&nbsp;eg&nbsp;with&nbsp;the&nbsp;xlim&nbsp;command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;horizontal&nbsp;extent<br>
+is&nbsp;in&nbsp;axes&nbsp;coords:&nbsp;0=left,&nbsp;0.5=middle,&nbsp;1.0=right&nbsp;but&nbsp;the&nbsp;y&nbsp;location&nbsp;is<br>
+in&nbsp;data&nbsp;coordinates.<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;the&nbsp;Line2D&nbsp;instance.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;kwargs&nbsp;to<br>
+plot,&nbsp;and&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;control&nbsp;the&nbsp;line&nbsp;properties.&nbsp;&nbsp;Eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;thick&nbsp;red&nbsp;hline&nbsp;at&nbsp;y=0&nbsp;that&nbsp;spans&nbsp;the&nbsp;xrange<br>
+&nbsp;&nbsp;<a href="#PolarAxes-axhline">axhline</a>(linewidth=4,&nbsp;color='r')<br>
+&nbsp;<br>
+&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;default&nbsp;hline&nbsp;at&nbsp;y=1&nbsp;that&nbsp;spans&nbsp;the&nbsp;xrange<br>
+&nbsp;&nbsp;<a href="#PolarAxes-axhline">axhline</a>(y=1)<br>
+&nbsp;<br>
+&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;default&nbsp;hline&nbsp;at&nbsp;y=.5&nbsp;that&nbsp;spans&nbsp;the&nbsp;the&nbsp;middle&nbsp;half&nbsp;of<br>
+&nbsp;&nbsp;#&nbsp;the&nbsp;xrange<br>
+&nbsp;&nbsp;<a href="#PolarAxes-axhline">axhline</a>(y=.5,&nbsp;xmin=0.25,&nbsp;xmax=0.75)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-axhspan"><strong>axhspan</strong></a>(self, ymin, ymax, xmin<font color="#909090">=0</font>, xmax<font color="#909090">=1</font>, **kwargs)</dt><dd><tt>AXHSPAN(ymin,&nbsp;ymax,&nbsp;xmin=0,&nbsp;xmax=1,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Axis&nbsp;Horizontal&nbsp;Span.&nbsp;&nbsp;ycoords&nbsp;are&nbsp;in&nbsp;data&nbsp;units&nbsp;and&nbsp;x<br>
+coords&nbsp;are&nbsp;in&nbsp;axes&nbsp;(relative&nbsp;0-1)&nbsp;units<br>
+&nbsp;<br>
+Draw&nbsp;a&nbsp;horizontal&nbsp;span&nbsp;(regtangle)&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;With&nbsp;the<br>
+default&nbsp;values&nbsp;of&nbsp;xmin=0&nbsp;and&nbsp;xmax=1,&nbsp;this&nbsp;always&nbsp;span&nbsp;the&nbsp;xrange,<br>
+regardless&nbsp;of&nbsp;the&nbsp;xlim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you&nbsp;change&nbsp;them,&nbsp;eg&nbsp;with&nbsp;the<br>
+xlim&nbsp;command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;horizontal&nbsp;extent&nbsp;is&nbsp;in&nbsp;axes&nbsp;coords:<br>
+0=left,&nbsp;0.5=middle,&nbsp;1.0=right&nbsp;but&nbsp;the&nbsp;y&nbsp;location&nbsp;is&nbsp;in&nbsp;data<br>
+coordinates.<br>
+&nbsp;<br>
+kwargs&nbsp;are&nbsp;the&nbsp;kwargs&nbsp;to&nbsp;Patch,&nbsp;eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;antialiased,&nbsp;aa<br>
+&nbsp;&nbsp;linewidth,&nbsp;&nbsp;&nbsp;lw<br>
+&nbsp;&nbsp;edgecolor,&nbsp;&nbsp;&nbsp;ec<br>
+&nbsp;&nbsp;facecolor,&nbsp;&nbsp;&nbsp;fc<br>
+&nbsp;<br>
+the&nbsp;terms&nbsp;on&nbsp;the&nbsp;right&nbsp;are&nbsp;aliases<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;the&nbsp;patches.Polygon&nbsp;instance.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#draws&nbsp;a&nbsp;gray&nbsp;rectangle&nbsp;from&nbsp;y=0.25-0.75&nbsp;that&nbsp;spans&nbsp;the&nbsp;horizontal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#extent&nbsp;of&nbsp;the&nbsp;axes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-axhspan">axhspan</a>(0.25,&nbsp;0.75,&nbsp;facecolor=0.5,&nbsp;alpha=0.5)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-axvline"><strong>axvline</strong></a>(self, x<font color="#909090">=0</font>, ymin<font color="#909090">=0</font>, ymax<font color="#909090">=1</font>, **kwargs)</dt><dd><tt>AXVLINE(x=0,&nbsp;ymin=0,&nbsp;ymax=1,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Axis&nbsp;Vertical&nbsp;Line<br>
+&nbsp;<br>
+Draw&nbsp;a&nbsp;vertical&nbsp;line&nbsp;at&nbsp;x&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;With&nbsp;the&nbsp;default&nbsp;values<br>
+of&nbsp;ymin=0&nbsp;and&nbsp;ymax=1,&nbsp;this&nbsp;line&nbsp;will&nbsp;always&nbsp;span&nbsp;the&nbsp;vertical&nbsp;extent<br>
+of&nbsp;the&nbsp;axes,&nbsp;regardless&nbsp;of&nbsp;the&nbsp;xlim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you&nbsp;change&nbsp;them,<br>
+eg&nbsp;with&nbsp;the&nbsp;xlim&nbsp;command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;vertical&nbsp;extent&nbsp;is&nbsp;in&nbsp;axes<br>
+coords:&nbsp;0=bottom,&nbsp;0.5=middle,&nbsp;1.0=top&nbsp;but&nbsp;the&nbsp;x&nbsp;location&nbsp;is&nbsp;in&nbsp;data<br>
+coordinates.<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;the&nbsp;Line2D&nbsp;instance.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;the&nbsp;same&nbsp;as<br>
+kwargs&nbsp;to&nbsp;plot,&nbsp;and&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;control&nbsp;the&nbsp;line&nbsp;properties.&nbsp;&nbsp;Eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;thick&nbsp;red&nbsp;vline&nbsp;at&nbsp;x=0&nbsp;that&nbsp;spans&nbsp;the&nbsp;yrange<br>
+&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;<a href="#PolarAxes-axvline">axvline</a>(linewidth=4,&nbsp;color='r')<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;default&nbsp;vline&nbsp;at&nbsp;x=1&nbsp;that&nbsp;spans&nbsp;the&nbsp;yrange<br>
+&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;<a href="#PolarAxes-axvline">axvline</a>(x=1)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;default&nbsp;vline&nbsp;at&nbsp;x=.5&nbsp;that&nbsp;spans&nbsp;the&nbsp;the&nbsp;middle&nbsp;half&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;yrange<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-axvline">axvline</a>(x=.5,&nbsp;ymin=0.25,&nbsp;ymax=0.75)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-axvspan"><strong>axvspan</strong></a>(self, xmin, xmax, ymin<font color="#909090">=0</font>, ymax<font color="#909090">=1</font>, **kwargs)</dt><dd><tt>AXVSPAN(xmin,&nbsp;xmax,&nbsp;ymin=0,&nbsp;ymax=1,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+axvspan&nbsp;:&nbsp;Axis&nbsp;Vertical&nbsp;Span.&nbsp;&nbsp;xcoords&nbsp;are&nbsp;in&nbsp;data&nbsp;units&nbsp;and&nbsp;y&nbsp;coords<br>
+are&nbsp;in&nbsp;axes&nbsp;(relative&nbsp;0-1)&nbsp;units<br>
+&nbsp;<br>
+Draw&nbsp;a&nbsp;vertical&nbsp;span&nbsp;(regtangle)&nbsp;from&nbsp;xmin&nbsp;to&nbsp;xmax.&nbsp;&nbsp;With&nbsp;the&nbsp;default<br>
+values&nbsp;of&nbsp;ymin=0&nbsp;and&nbsp;ymax=1,&nbsp;this&nbsp;always&nbsp;span&nbsp;the&nbsp;yrange,&nbsp;regardless<br>
+of&nbsp;the&nbsp;ylim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you&nbsp;change&nbsp;them,&nbsp;eg&nbsp;with&nbsp;the&nbsp;ylim<br>
+command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;vertical&nbsp;extent&nbsp;is&nbsp;in&nbsp;axes&nbsp;coords:&nbsp;0=bottom,<br>
+0.5=middle,&nbsp;1.0=top&nbsp;but&nbsp;the&nbsp;y&nbsp;location&nbsp;is&nbsp;in&nbsp;data&nbsp;coordinates.<br>
+&nbsp;<br>
+kwargs&nbsp;are&nbsp;the&nbsp;kwargs&nbsp;to&nbsp;Patch,&nbsp;eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;antialiased,&nbsp;aa<br>
+&nbsp;&nbsp;linewidth,&nbsp;&nbsp;&nbsp;lw<br>
+&nbsp;&nbsp;edgecolor,&nbsp;&nbsp;&nbsp;ec<br>
+&nbsp;&nbsp;facecolor,&nbsp;&nbsp;&nbsp;fc<br>
+&nbsp;<br>
+the&nbsp;terms&nbsp;on&nbsp;the&nbsp;right&nbsp;are&nbsp;aliases<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;the&nbsp;patches.Polygon&nbsp;instance.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;vertical&nbsp;green&nbsp;translucent&nbsp;rectangle&nbsp;from&nbsp;x=1.25&nbsp;to&nbsp;1.55&nbsp;that<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;spans&nbsp;the&nbsp;yrange&nbsp;of&nbsp;the&nbsp;axes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-axvspan">axvspan</a>(1.25,&nbsp;1.55,&nbsp;facecolor='g',&nbsp;alpha=0.5)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-bar"><strong>bar</strong></a>(self, left, height, width<font color="#909090">=0.80000000000000004</font>, bottom<font color="#909090">=0</font>, color<font color="#909090">='b'</font>, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, ecolor<font color="#909090">='k'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>BAR(left,&nbsp;height,&nbsp;width=0.8,&nbsp;bottom=0,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color='b',&nbsp;yerr=None,&nbsp;xerr=None,&nbsp;ecolor='k',&nbsp;capsize=3)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at<br>
+&nbsp;<br>
+&nbsp;&nbsp;left,&nbsp;left+width,&nbsp;0,&nbsp;height<br>
+&nbsp;<br>
+left&nbsp;and&nbsp;height&nbsp;are&nbsp;Numeric&nbsp;arrays.<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>
+&nbsp;<br>
+BAR(left,&nbsp;height,&nbsp;width,&nbsp;bottom,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color,&nbsp;yerr,&nbsp;xerr,&nbsp;capsize,&nbsp;yoff)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;the&nbsp;bar&nbsp;chart<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;bar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ecolor&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;any&nbsp;errorbar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;capsize&nbsp;determines&nbsp;the&nbsp;length&nbsp;in&nbsp;points&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps<br>
+&nbsp;<br>
+&nbsp;<br>
+The&nbsp;optional&nbsp;arguments&nbsp;color,&nbsp;width&nbsp;and&nbsp;bottom&nbsp;can&nbsp;be&nbsp;either<br>
+scalars&nbsp;or&nbsp;len(x)&nbsp;sequences<br>
+&nbsp;<br>
+This&nbsp;enables&nbsp;you&nbsp;to&nbsp;use&nbsp;bar&nbsp;as&nbsp;the&nbsp;basis&nbsp;for&nbsp;stacked&nbsp;bar<br>
+charts,&nbsp;or&nbsp;candlestick&nbsp;plots</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-barh"><strong>barh</strong></a>(self, x, y, height<font color="#909090">=0.80000000000000004</font>, left<font color="#909090">=0</font>, color<font color="#909090">='b'</font>, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, ecolor<font color="#909090">='k'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>BARH(x,&nbsp;y,&nbsp;height=0.8,&nbsp;left=0,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color='b',&nbsp;yerr=None,&nbsp;xerr=None,&nbsp;ecolor='k',&nbsp;capsize=3)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BARH(x,&nbsp;y)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;y&nbsp;values&nbsp;give&nbsp;the&nbsp;heights&nbsp;of&nbsp;the&nbsp;center&nbsp;of&nbsp;the&nbsp;bars.&nbsp;&nbsp;The<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;values&nbsp;give&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;bars.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>
+&nbsp;<br>
+Optional&nbsp;arguments<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;-&nbsp;the&nbsp;height&nbsp;(thickness)&nbsp;&nbsp;of&nbsp;the&nbsp;bar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;left&nbsp;&nbsp;-&nbsp;the&nbsp;x&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;left&nbsp;side&nbsp;of&nbsp;the&nbsp;bar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;bar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;the&nbsp;bar&nbsp;chart<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ecolor&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;any&nbsp;errorbar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;capsize&nbsp;determines&nbsp;the&nbsp;length&nbsp;in&nbsp;points&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps<br>
+&nbsp;<br>
+The&nbsp;optional&nbsp;arguments&nbsp;color,&nbsp;height&nbsp;and&nbsp;left&nbsp;can&nbsp;be&nbsp;either<br>
+scalars&nbsp;or&nbsp;len(x)&nbsp;sequences</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-clear"><strong>clear</strong></a>(self)</dt><dd><tt>clear&nbsp;the&nbsp;axes</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-cohere"><strong>cohere</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>COHERE(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
+&nbsp;<br>
+cohere&nbsp;the&nbsp;coherence&nbsp;between&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;Coherence&nbsp;is&nbsp;the&nbsp;normalized<br>
+cross&nbsp;spectral&nbsp;density<br>
+&nbsp;<br>
+&nbsp;&nbsp;Cxy&nbsp;=&nbsp;|Pxy|^2/(Pxx*Pyy)<br>
+&nbsp;<br>
+The&nbsp;return&nbsp;value&nbsp;is&nbsp;(Cxy,&nbsp;f),&nbsp;where&nbsp;f&nbsp;are&nbsp;the&nbsp;frequencies&nbsp;of&nbsp;the<br>
+coherence&nbsp;vector.<br>
+&nbsp;<br>
+See&nbsp;the&nbsp;PSD&nbsp;help&nbsp;for&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;optional&nbsp;parameters.<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Cxy,&nbsp;freqs<br>
+&nbsp;<br>
+Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
+&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-connect"><strong>connect</strong></a>(self, s, func)</dt></dl>
+
+<dl><dt><a name="PolarAxes-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
+&nbsp;<br>
+The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
+The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each<br>
+segment&nbsp;is&nbsp;detrended&nbsp;by&nbsp;function&nbsp;detrend&nbsp;and&nbsp;windowed&nbsp;by&nbsp;function<br>
+window.&nbsp;&nbsp;The&nbsp;product&nbsp;of&nbsp;the&nbsp;direct&nbsp;FFTs&nbsp;of&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;averaged&nbsp;over<br>
+each&nbsp;segment&nbsp;to&nbsp;compute&nbsp;Pxy,&nbsp;with&nbsp;a&nbsp;scaling&nbsp;to&nbsp;correct&nbsp;for&nbsp;power&nbsp;loss<br>
+due&nbsp;to&nbsp;windowing.<br>
+&nbsp;<br>
+See&nbsp;the&nbsp;PSD&nbsp;help&nbsp;for&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;optional&nbsp;parameters.<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Pxy,&nbsp;freqs.&nbsp;&nbsp;Pxy&nbsp;is&nbsp;the&nbsp;cross&nbsp;spectrum&nbsp;(complex<br>
+valued),&nbsp;and&nbsp;10*log10(|Pxy|)&nbsp;is&nbsp;plotted<br>
+&nbsp;<br>
+Refs:<br>
+&nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-disconnect"><strong>disconnect</strong></a>(self, cid)</dt><dd><tt>disconnect&nbsp;from&nbsp;the&nbsp;<a href="#Axes">Axes</a>&nbsp;event.</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>, barsabove<font color="#909090">=False</font>, **kwargs)</dt><dd><tt>ERRORBAR(x,&nbsp;y,&nbsp;yerr=None,&nbsp;xerr=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmt='b-',&nbsp;ecolor=None,&nbsp;capsize=3,&nbsp;barsabove=False)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
+Vertical&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;yerr&nbsp;is&nbsp;not&nbsp;None<br>
+Horizontal&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;xerr&nbsp;is&nbsp;not&nbsp;None<br>
+&nbsp;<br>
+xerr&nbsp;and&nbsp;yerr&nbsp;may&nbsp;be&nbsp;any&nbsp;of:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;rank-0,&nbsp;Nx1&nbsp;Numpy&nbsp;array&nbsp;&nbsp;-&nbsp;symmetric&nbsp;errorbars&nbsp;+/-&nbsp;value<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;an&nbsp;N-element&nbsp;list&nbsp;or&nbsp;tuple&nbsp;-&nbsp;symmetric&nbsp;errorbars&nbsp;+/-&nbsp;value<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;rank-1,&nbsp;Nx2&nbsp;Numpy&nbsp;array&nbsp;&nbsp;-&nbsp;asymmetric&nbsp;errorbars&nbsp;-column1/+column2<br>
+&nbsp;<br>
+Alternatively,&nbsp;x,&nbsp;y,&nbsp;xerr,&nbsp;and&nbsp;yerr&nbsp;can&nbsp;all&nbsp;be&nbsp;scalars,&nbsp;which<br>
+plots&nbsp;a&nbsp;single&nbsp;error&nbsp;bar&nbsp;at&nbsp;x,&nbsp;y.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fmt&nbsp;is&nbsp;the&nbsp;plot&nbsp;format&nbsp;symbol&nbsp;for&nbsp;y.&nbsp;&nbsp;if&nbsp;fmt&nbsp;is&nbsp;None,&nbsp;just<br>
+&nbsp;&nbsp;&nbsp;&nbsp;plot&nbsp;the&nbsp;errorbars&nbsp;with&nbsp;no&nbsp;line&nbsp;symbols.&nbsp;&nbsp;This&nbsp;can&nbsp;be&nbsp;useful<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;creating&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;errorbars<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ecolor&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;which&nbsp;gives&nbsp;the&nbsp;color&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;errorbar&nbsp;lines;&nbsp;if&nbsp;None,&nbsp;use&nbsp;the&nbsp;marker&nbsp;color.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps&nbsp;in&nbsp;points<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;barsabove,&nbsp;if&nbsp;True,&nbsp;will&nbsp;plot&nbsp;the&nbsp;errorbars&nbsp;above&nbsp;the&nbsp;plot&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;default&nbsp;is&nbsp;below<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;the&nbsp;plot&nbsp;command&nbsp;for&nbsp;the&nbsp;markers<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&nbsp;first&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
+y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-fill"><strong>fill</strong></a>(self, *args, **kwargs)</dt><dd><tt>FILL(*args,&nbsp;**kwargs)<br>
+&nbsp;<br>
+plot&nbsp;filled&nbsp;polygons.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length&nbsp;argument,&nbsp;allowing<br>
+for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional&nbsp;color&nbsp;format&nbsp;string;&nbsp;see&nbsp;plot<br>
+for&nbsp;details&nbsp;on&nbsp;the&nbsp;argument&nbsp;parsing.&nbsp;&nbsp;For&nbsp;example,&nbsp;all&nbsp;of&nbsp;the<br>
+following&nbsp;are&nbsp;legal,&nbsp;assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;Axis&nbsp;instance:<br>
+&nbsp;<br>
+&nbsp;&nbsp;ax.<a href="#PolarAxes-fill">fill</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;polygon&nbsp;with&nbsp;vertices&nbsp;at&nbsp;x,y<br>
+&nbsp;&nbsp;ax.<a href="#PolarAxes-fill">fill</a>(x,y,&nbsp;'b'&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;polygon&nbsp;with&nbsp;vertices&nbsp;at&nbsp;x,y&nbsp;in&nbsp;blue<br>
+&nbsp;<br>
+An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;color&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;ax.<a href="#PolarAxes-fill">fill</a>(x1,&nbsp;y1,&nbsp;'g',&nbsp;x2,&nbsp;y2,&nbsp;'r')&nbsp;&nbsp;<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;patches&nbsp;that&nbsp;were&nbsp;added<br>
+&nbsp;<br>
+The&nbsp;same&nbsp;color&nbsp;strings&nbsp;that&nbsp;plot&nbsp;supports&nbsp;are&nbsp;supported&nbsp;by&nbsp;the&nbsp;fill<br>
+format&nbsp;string.<br>
+&nbsp;<br>
+The&nbsp;kwargs&nbsp;that&nbsp;are&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;set&nbsp;line&nbsp;properties&nbsp;(any<br>
+property&nbsp;that&nbsp;has&nbsp;a&nbsp;set_*&nbsp;method).&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;to&nbsp;set&nbsp;edge<br>
+color,&nbsp;face&nbsp;color,&nbsp;etc.</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-format_xdata"><strong>format_xdata</strong></a>(self, x)</dt><dd><tt>Return&nbsp;x&nbsp;string&nbsp;formatted.&nbsp;&nbsp;This&nbsp;function&nbsp;will&nbsp;use&nbsp;the&nbsp;attribute<br>
+self.<strong>fmt_xdata</strong>&nbsp;if&nbsp;it&nbsp;is&nbsp;callable,&nbsp;else&nbsp;will&nbsp;fall&nbsp;back&nbsp;on&nbsp;the&nbsp;xaxis<br>
+major&nbsp;formatter</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-format_ydata"><strong>format_ydata</strong></a>(self, y)</dt><dd><tt>Return&nbsp;y&nbsp;string&nbsp;formatted.&nbsp;&nbsp;This&nbsp;function&nbsp;will&nbsp;use&nbsp;the&nbsp;attribute<br>
+self.<strong>fmt_ydata</strong>&nbsp;if&nbsp;it&nbsp;is&nbsp;callable,&nbsp;else&nbsp;will&nbsp;fall&nbsp;back&nbsp;on&nbsp;the&nbsp;yaxis<br>
+major&nbsp;formatter</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_axis_bgcolor"><strong>get_axis_bgcolor</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;background&nbsp;color</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PolarAxes-get_frame"><strong>get_frame</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axes&nbsp;Rectangle&nbsp;frame</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_images"><strong>get_images</strong></a>(self)</dt><dd><tt>return&nbsp;a&nbsp;list&nbsp;of&nbsp;<a href="#Axes">Axes</a>&nbsp;images&nbsp;contained&nbsp;by&nbsp;the&nbsp;<a href="#Axes">Axes</a></tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_legend"><strong>get_legend</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;Legend&nbsp;instance,&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;legend&nbsp;is&nbsp;defined</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_lines"><strong>get_lines</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;contained&nbsp;by&nbsp;the&nbsp;<a href="#Axes">Axes</a></tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_position"><strong>get_position</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axes&nbsp;rectangle&nbsp;left,&nbsp;bottom,&nbsp;width,&nbsp;height</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_xaxis"><strong>get_xaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;XAxis&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_xgridlines"><strong>get_xgridlines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;x&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_xlim"><strong>get_xlim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;x&nbsp;axis&nbsp;range&nbsp;[xmin,&nbsp;xmax]</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_xscale"><strong>get_xscale</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;xaxis&nbsp;scale&nbsp;string:&nbsp;log&nbsp;or&nbsp;linear</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_xticklabels"><strong>get_xticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_xticklines"><strong>get_xticklines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_xticks"><strong>get_xticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;x&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_yaxis"><strong>get_yaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;YAxis&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_ygridlines"><strong>get_ygridlines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;y&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_ylim"><strong>get_ylim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;y&nbsp;axis&nbsp;range&nbsp;[ymin,&nbsp;ymax]</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_yscale"><strong>get_yscale</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;yaxis&nbsp;scale&nbsp;string:&nbsp;log&nbsp;or&nbsp;linear</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_yticklabels"><strong>get_yticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_yticklines"><strong>get_yticklines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_yticks"><strong>get_yticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;y&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-hist"><strong>hist</strong></a>(self, x, bins<font color="#909090">=10</font>, normed<font color="#909090">=0</font>, bottom<font color="#909090">=0</font>)</dt><dd><tt>HIST(x,&nbsp;bins=10,&nbsp;normed=0,&nbsp;bottom=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Compute&nbsp;the&nbsp;histogram&nbsp;of&nbsp;x.&nbsp;&nbsp;bins&nbsp;is&nbsp;either&nbsp;an&nbsp;integer&nbsp;number&nbsp;of<br>
+bins&nbsp;or&nbsp;a&nbsp;sequence&nbsp;giving&nbsp;the&nbsp;bins.&nbsp;&nbsp;x&nbsp;are&nbsp;the&nbsp;data&nbsp;to&nbsp;be&nbsp;binned.<br>
+&nbsp;<br>
+The&nbsp;return&nbsp;values&nbsp;is&nbsp;(n,&nbsp;bins,&nbsp;patches)<br>
+&nbsp;<br>
+If&nbsp;normed&nbsp;is&nbsp;true,&nbsp;the&nbsp;first&nbsp;element&nbsp;of&nbsp;the&nbsp;return&nbsp;tuple&nbsp;will&nbsp;be&nbsp;the<br>
+counts&nbsp;normalized&nbsp;to&nbsp;form&nbsp;a&nbsp;probability&nbsp;distribtion,&nbsp;ie,<br>
+n/(len(x)*dbin)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-hlines"><strong>hlines</strong></a>(self, y, xmin, xmax, fmt<font color="#909090">='k-'</font>)</dt><dd><tt>HLINES(y,&nbsp;xmin,&nbsp;xmax,&nbsp;fmt='k-')<br>
+&nbsp;<br>
+plot&nbsp;horizontal&nbsp;lines&nbsp;at&nbsp;each&nbsp;y&nbsp;from&nbsp;xmin&nbsp;to&nbsp;xmax.&nbsp;&nbsp;xmin&nbsp;or&nbsp;xmax&nbsp;can<br>
+be&nbsp;scalars&nbsp;or&nbsp;len(x)&nbsp;numpy&nbsp;arrays.&nbsp;&nbsp;If&nbsp;they&nbsp;are&nbsp;scalars,&nbsp;then&nbsp;the<br>
+respective&nbsp;values&nbsp;are&nbsp;constant,&nbsp;else&nbsp;the&nbsp;widths&nbsp;of&nbsp;the&nbsp;lines&nbsp;are<br>
+determined&nbsp;by&nbsp;xmin&nbsp;and&nbsp;xmax<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;line&nbsp;instances&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-hold"><strong>hold</strong></a>(self, b<font color="#909090">=None</font>)</dt><dd><tt>HOLD(b=None)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;hold&nbsp;state.&nbsp;&nbsp;If&nbsp;hold&nbsp;is&nbsp;None&nbsp;(default),&nbsp;toggle&nbsp;the<br>
+hold&nbsp;state.&nbsp;&nbsp;Else&nbsp;set&nbsp;the&nbsp;hold&nbsp;state&nbsp;to&nbsp;boolean&nbsp;value&nbsp;b.<br>
+&nbsp;<br>
+Eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-hold">hold</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;toggle&nbsp;hold<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-hold">hold</a>(True)&nbsp;&nbsp;#&nbsp;hold&nbsp;is&nbsp;on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-hold">hold</a>(False)&nbsp;#&nbsp;hold&nbsp;is&nbsp;off</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-imshow"><strong>imshow</strong></a>(self, X, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, aspect<font color="#909090">=None</font>, interpolation<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, origin<font color="#909090">=None</font>, extent<font color="#909090">=None</font>)</dt><dd><tt>IMSHOW(X,&nbsp;cmap=None,&nbsp;norm=None,&nbsp;aspect=None,&nbsp;interpolation=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha=1.0,&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;origin=None,&nbsp;extent=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale&nbsp;to&nbsp;axes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size&nbsp;(X&nbsp;may&nbsp;be&nbsp;numarray/Numeric&nbsp;array&nbsp;or&nbsp;PIL&nbsp;image)<br>
+&nbsp;<br>
+IMSHOW(X,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;image&nbsp;scaling,<br>
+colormapping&nbsp;etc.&nbsp;See&nbsp;below&nbsp;for&nbsp;details<br>
+&nbsp;<br>
+&nbsp;<br>
+Display&nbsp;the&nbsp;image&nbsp;in&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;may&nbsp;be&nbsp;a&nbsp;float&nbsp;array&nbsp;or&nbsp;a<br>
+PIL&nbsp;image.&nbsp;If&nbsp;X&nbsp;is&nbsp;a&nbsp;float&nbsp;array,&nbsp;X&nbsp;can&nbsp;have&nbsp;the&nbsp;following&nbsp;shapes<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MxN&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;luminance&nbsp;(grayscale)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MxNx3&nbsp;&nbsp;:&nbsp;RGB<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MxNx4&nbsp;&nbsp;:&nbsp;RGBA<br>
+&nbsp;<br>
+A&nbsp;matplotlib.image.AxesImage&nbsp;instance&nbsp;is&nbsp;returned<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image.cmap&nbsp;value&nbsp;(Ignored&nbsp;when&nbsp;X&nbsp;has&nbsp;RGB(A)&nbsp;information)<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;aspect&nbsp;is&nbsp;one&nbsp;of:&nbsp;free&nbsp;or&nbsp;preserve.&nbsp;&nbsp;if&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image.aspect&nbsp;value<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;interpolation&nbsp;is&nbsp;one&nbsp;of:&nbsp;bicubic&nbsp;bilinear&nbsp;blackman100&nbsp;blackman256<br>
+&nbsp;&nbsp;&nbsp;&nbsp;blackman64&nbsp;nearest&nbsp;sinc144&nbsp;sinc256&nbsp;sinc64&nbsp;spline16&nbsp;or&nbsp;spline36.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.interpolation<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.normalize&nbsp;instance;&nbsp;default&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1&nbsp;(Ignored&nbsp;when&nbsp;X&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PIL&nbsp;image).<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;to&nbsp;scale&nbsp;a&nbsp;luminance&nbsp;image&nbsp;to&nbsp;0-1.&nbsp;&nbsp;If<br>
+&nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;is&nbsp;None,&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;luminance&nbsp;values&nbsp;will&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm&nbsp;instance,&nbsp;the&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored.<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;alpha&nbsp;=&nbsp;1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;origin&nbsp;is&nbsp;either&nbsp;upper&nbsp;or&nbsp;lower,&nbsp;which&nbsp;indicates&nbsp;where&nbsp;the&nbsp;[0,0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axes.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.origin<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;extent&nbsp;is&nbsp;a&nbsp;data&nbsp;xmin,&nbsp;xmax,&nbsp;ymin,&nbsp;ymax&nbsp;for&nbsp;making&nbsp;image&nbsp;plots<br>
+&nbsp;&nbsp;&nbsp;&nbsp;registered&nbsp;with&nbsp;data&nbsp;plots.&nbsp;&nbsp;Default&nbsp;is&nbsp;the&nbsp;image&nbsp;dimensions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;pixels</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-in_axes"><strong>in_axes</strong></a>(self, xwin, ywin)</dt><dd><tt>return&nbsp;True&nbsp;is&nbsp;the&nbsp;point&nbsp;xwin,&nbsp;ywin&nbsp;(display&nbsp;coords)&nbsp;are&nbsp;in&nbsp;the&nbsp;<a href="#Axes">Axes</a></tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-legend"><strong>legend</strong></a>(self, *args, **kwargs)</dt><dd><tt>LEGEND(*args,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;current&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
+sequence&nbsp;of&nbsp;strings&nbsp;and&nbsp;loc&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;or&nbsp;an&nbsp;integer&nbsp;specifying<br>
+the&nbsp;legend&nbsp;location<br>
+&nbsp;<br>
+USAGE:&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;Make&nbsp;a&nbsp;legend&nbsp;with&nbsp;existing&nbsp;lines<br>
+&nbsp;<br>
+&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#PolarAxes-legend">legend</a>()<br>
+&nbsp;<br>
+&nbsp;&nbsp;legend&nbsp;by&nbsp;itself&nbsp;will&nbsp;try&nbsp;and&nbsp;build&nbsp;a&nbsp;legend&nbsp;using&nbsp;the&nbsp;label<br>
+&nbsp;&nbsp;property&nbsp;of&nbsp;the&nbsp;lines.&nbsp;&nbsp;You&nbsp;can&nbsp;set&nbsp;the&nbsp;label&nbsp;of&nbsp;a&nbsp;line&nbsp;by&nbsp;doing<br>
+&nbsp;&nbsp;<a href="#PolarAxes-plot">plot</a>(x,&nbsp;y,&nbsp;label='my&nbsp;data')&nbsp;or&nbsp;line.set_label('my&nbsp;data')<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;automatically&nbsp;generate&nbsp;the&nbsp;legend&nbsp;from&nbsp;labels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Make&nbsp;a&nbsp;legend&nbsp;for&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;and&nbsp;labels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-legend">legend</a>(&nbsp;(line1,&nbsp;line2,&nbsp;line3),&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Make&nbsp;a&nbsp;legend&nbsp;at&nbsp;a&nbsp;given&nbsp;location,&nbsp;using&nbsp;a&nbsp;location&nbsp;argument<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;<a href="#PolarAxes-legend">legend</a>(&nbsp;LABELS,&nbsp;LOC&nbsp;)&nbsp;&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;<a href="#PolarAxes-legend">legend</a>(&nbsp;LINES,&nbsp;LABELS,&nbsp;LOC&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),&nbsp;loc='upper&nbsp;left')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-legend">legend</a>(&nbsp;(line1,&nbsp;line2,&nbsp;line3),&nbsp;&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),&nbsp;loc=2)<br>
+&nbsp;<br>
+The&nbsp;location&nbsp;codes&nbsp;are<br>
+&nbsp;<br>
+&nbsp;&nbsp;'best'&nbsp;:&nbsp;0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(currently&nbsp;not&nbsp;supported,&nbsp;defaults&nbsp;to&nbsp;upper&nbsp;right)<br>
+&nbsp;&nbsp;'upper&nbsp;right'&nbsp;&nbsp;:&nbsp;1,&nbsp;&nbsp;(default)<br>
+&nbsp;&nbsp;'upper&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;2,<br>
+&nbsp;&nbsp;'lower&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;3,<br>
+&nbsp;&nbsp;'lower&nbsp;right'&nbsp;&nbsp;:&nbsp;4,<br>
+&nbsp;&nbsp;'right'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;5,<br>
+&nbsp;&nbsp;'center&nbsp;left'&nbsp;&nbsp;:&nbsp;6,<br>
+&nbsp;&nbsp;'center&nbsp;right'&nbsp;:&nbsp;7,<br>
+&nbsp;&nbsp;'lower&nbsp;center'&nbsp;:&nbsp;8,<br>
+&nbsp;&nbsp;'upper&nbsp;center'&nbsp;:&nbsp;9,<br>
+&nbsp;&nbsp;'center'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
+&nbsp;<br>
+If&nbsp;none&nbsp;of&nbsp;these&nbsp;are&nbsp;suitable,&nbsp;loc&nbsp;can&nbsp;be&nbsp;a&nbsp;2-tuple&nbsp;giving&nbsp;x,y<br>
+in&nbsp;axes&nbsp;coords,&nbsp;ie,<br>
+&nbsp;<br>
+&nbsp;&nbsp;loc&nbsp;=&nbsp;0,&nbsp;1&nbsp;is&nbsp;left&nbsp;top<br>
+&nbsp;&nbsp;loc&nbsp;=&nbsp;0.5,&nbsp;0.5&nbsp;is&nbsp;center,&nbsp;center<br>
+&nbsp;<br>
+and&nbsp;so&nbsp;on</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>LOGLOG(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
+to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
+more&nbsp;info.<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs<br>
+supported&nbsp;by&nbsp;plot&nbsp;or&nbsp;set_xscale&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for<br>
+log&nbsp;scaling:<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;x&nbsp;logarithm<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;y&nbsp;logarithm<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;yticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basey)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-panx"><strong>panx</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;the&nbsp;x&nbsp;axis&nbsp;numsteps&nbsp;(plus&nbsp;pan&nbsp;right,&nbsp;minus&nbsp;pan&nbsp;left)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-pany"><strong>pany</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;the&nbsp;x&nbsp;axis&nbsp;numsteps&nbsp;(plus&nbsp;pan&nbsp;up,&nbsp;minus&nbsp;pan&nbsp;down)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-pcolor"><strong>pcolor</strong></a>(self, *args, **kwargs)</dt><dd><tt>PCOLOR(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Function&nbsp;signatures<br>
+&nbsp;<br>
+&nbsp;&nbsp;PCOLOR(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
+&nbsp;<br>
+&nbsp;&nbsp;PCOLOR(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y<br>
+&nbsp;<br>
+&nbsp;&nbsp;PCOLOR(C,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keywork&nbsp;args&nbsp;to&nbsp;control&nbsp;colormapping&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scaling;&nbsp;see&nbsp;below<br>
+&nbsp;<br>
+Optional&nbsp;keywork&nbsp;args&nbsp;are&nbsp;shown&nbsp;with&nbsp;their&nbsp;defaults&nbsp;below&nbsp;(you&nbsp;must<br>
+use&nbsp;kwargs&nbsp;for&nbsp;these):<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;cm.jet&nbsp;:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;cm.jet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;=&nbsp;normalize()&nbsp;:&nbsp;matplotlib.colors.normalize&nbsp;is&nbsp;used&nbsp;to&nbsp;scale<br>
+&nbsp;&nbsp;&nbsp;&nbsp;luminance&nbsp;data&nbsp;to&nbsp;0,1.<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;vmin=None&nbsp;and&nbsp;vmax=None&nbsp;:&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;in&nbsp;conjunction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;norm&nbsp;to&nbsp;normalize&nbsp;luminance&nbsp;data.&nbsp;&nbsp;If&nbsp;either&nbsp;are&nbsp;None,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;color&nbsp;array&nbsp;C&nbsp;is&nbsp;used.&nbsp;&nbsp;If&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;will&nbsp;be&nbsp;None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;shading&nbsp;=&nbsp;'flat'&nbsp;:&nbsp;or&nbsp;'faceted'.&nbsp;&nbsp;If&nbsp;'faceted',&nbsp;a&nbsp;black&nbsp;grid&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;drawn&nbsp;around&nbsp;each&nbsp;rectangle;&nbsp;if&nbsp;'flat',&nbsp;edge&nbsp;colors&nbsp;are&nbsp;same&nbsp;as<br>
+&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;colors<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;alpha=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
+&nbsp;&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;matplotlib.collections.PatchCollection<br>
+object<br>
+&nbsp;<br>
+Grid&nbsp;Orientation<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;happy&nbsp;with<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(transpose(Z))<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-pcolor_classic"><strong>pcolor_classic</strong></a>(self, *args, **kwargs)</dt><dd><tt>PCOLOR_CLASSIC(self,&nbsp;*args,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Function&nbsp;signatures<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(C,&nbsp;cmap=cm.jet)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C&nbsp;using<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rectangle&nbsp;patches&nbsp;using&nbsp;a&nbsp;colormap&nbsp;jet.&nbsp;&nbsp;Colormaps&nbsp;are&nbsp;avalible<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;matplotlib.cm.&nbsp;&nbsp;You&nbsp;must&nbsp;pass&nbsp;this&nbsp;as&nbsp;a&nbsp;kwarg.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(C,&nbsp;norm=normalize())&nbsp;-&nbsp;the&nbsp;normalization&nbsp;function&nbsp;used<br>
+`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;scale&nbsp;your&nbsp;color&nbsp;data&nbsp;to&nbsp;0-1.&nbsp;&nbsp;must&nbsp;be&nbsp;passed&nbsp;as&nbsp;a&nbsp;kwarg.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(C,&nbsp;alpha=0.5)&nbsp;-&nbsp;set&nbsp;the&nbsp;alpha&nbsp;of&nbsp;the&nbsp;pseudocolor&nbsp;plot.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Must&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;kwarg<br>
+&nbsp;<br>
+Shading:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;optional&nbsp;keyword&nbsp;arg&nbsp;shading&nbsp;('flat'&nbsp;or&nbsp;'faceted')&nbsp;will<br>
+&nbsp;&nbsp;&nbsp;&nbsp;determine&nbsp;whether&nbsp;a&nbsp;black&nbsp;grid&nbsp;is&nbsp;drawn&nbsp;around&nbsp;each&nbsp;pcolor&nbsp;square.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;'faceteted'&nbsp;e.g.,&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(C,&nbsp;shading='flat')&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(X,&nbsp;Y,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;C,&nbsp;shading='faceted')<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects.<br>
+&nbsp;<br>
+Grid&nbsp;orientation<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;happy&nbsp;with<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-pcolor">pcolor</a>(transpose(Z))<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-plot"><strong>plot</strong></a>(self, *args, **kwargs)</dt><dd><tt>PLOT(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Plot&nbsp;lines&nbsp;and/or&nbsp;markers&nbsp;to&nbsp;the&nbsp;<a href="#Axes">Axes</a>.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
+argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional&nbsp;format<br>
+string.&nbsp;&nbsp;For&nbsp;example,&nbsp;each&nbsp;of&nbsp;the&nbsp;following&nbsp;is&nbsp;legal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;x&nbsp;and&nbsp;y&nbsp;using&nbsp;the&nbsp;default&nbsp;line&nbsp;style&nbsp;and&nbsp;color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;x&nbsp;and&nbsp;y&nbsp;using&nbsp;blue&nbsp;circle&nbsp;markers<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;as&nbsp;index&nbsp;array&nbsp;0..N-1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto,&nbsp;but&nbsp;with&nbsp;red&nbsp;plusses<br>
+&nbsp;<br>
+An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a.<a href="#PolarAxes-plot">plot</a>(x1,&nbsp;y1,&nbsp;'g^',&nbsp;x2,&nbsp;y2,&nbsp;'g-')&nbsp;&nbsp;<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added.<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;line&nbsp;styles&nbsp;are&nbsp;supported:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;solid&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;dashed&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-.&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;dash-dot&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;dotted&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;points<br>
+&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;pixels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;circle&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;up&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;down&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;left&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;right&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;square&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;plus&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;cross&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;diamond&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;thin&nbsp;diamond&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;down&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;up&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;left&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;right&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;hexagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;rotated&nbsp;hexagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;pentagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;vertical&nbsp;line&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;horizontal&nbsp;line&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;steps&nbsp;:&nbsp;use&nbsp;gnuplot&nbsp;style&nbsp;'steps'&nbsp;#&nbsp;kwarg&nbsp;only<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;color&nbsp;strings&nbsp;are&nbsp;supported<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;&nbsp;:&nbsp;blue<br>
+&nbsp;&nbsp;&nbsp;&nbsp;g&nbsp;&nbsp;:&nbsp;green<br>
+&nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;&nbsp;:&nbsp;red<br>
+&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;&nbsp;:&nbsp;cyan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;&nbsp;:&nbsp;magenta<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;&nbsp;:&nbsp;yellow<br>
+&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;&nbsp;:&nbsp;black&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;w&nbsp;&nbsp;:&nbsp;white<br>
+&nbsp;<br>
+Line&nbsp;styles&nbsp;and&nbsp;colors&nbsp;are&nbsp;combined&nbsp;in&nbsp;a&nbsp;single&nbsp;format&nbsp;string,&nbsp;as&nbsp;in<br>
+'bo'&nbsp;for&nbsp;blue&nbsp;circles.<br>
+&nbsp;<br>
+The&nbsp;**kwargs&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;set&nbsp;line&nbsp;properties&nbsp;(any&nbsp;property&nbsp;that&nbsp;has<br>
+a&nbsp;set_*&nbsp;method).&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;to&nbsp;set&nbsp;a&nbsp;line&nbsp;label&nbsp;(for&nbsp;auto<br>
+legends),&nbsp;linewidth,&nbsp;anitialising,&nbsp;marker&nbsp;face&nbsp;color,&nbsp;etc.&nbsp;&nbsp;Here&nbsp;is&nbsp;an<br>
+example:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-plot">plot</a>([1,2,3],&nbsp;[1,2,3],&nbsp;'go-',&nbsp;label='line&nbsp;1',&nbsp;linewidth=2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-plot">plot</a>([1,2,3],&nbsp;[1,4,9],&nbsp;'rs',&nbsp;&nbsp;label='line&nbsp;2')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axis([0,&nbsp;4,&nbsp;0,&nbsp;10])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-legend">legend</a>()<br>
+&nbsp;<br>
+If&nbsp;you&nbsp;make&nbsp;multiple&nbsp;lines&nbsp;with&nbsp;one&nbsp;plot&nbsp;command,&nbsp;the&nbsp;kwargs&nbsp;apply<br>
+to&nbsp;all&nbsp;those&nbsp;lines,&nbsp;eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-plot">plot</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;antialising=False)<br>
+&nbsp;<br>
+Neither&nbsp;line&nbsp;will&nbsp;be&nbsp;antialiased.</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-plot_date"><strong>plot_date</strong></a>(self, d, y, fmt<font color="#909090">='bo'</font>, tz<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>PLOT_DATE(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;tz=None,&nbsp;**kwargs)<br>
+&nbsp;<br>
+d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates&nbsp;represented&nbsp;as&nbsp;float&nbsp;days&nbsp;since<br>
+0001-01-01&nbsp;UTC&nbsp;and&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is<br>
+a&nbsp;plot&nbsp;format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot<br>
+for&nbsp;more&nbsp;information.<br>
+&nbsp;<br>
+See&nbsp;matplotlib.dates&nbsp;for&nbsp;helper&nbsp;functions&nbsp;date2num,&nbsp;num2date<br>
+and&nbsp;drange&nbsp;for&nbsp;help&nbsp;on&nbsp;creating&nbsp;the&nbsp;required&nbsp;floating&nbsp;point&nbsp;dates<br>
+&nbsp;<br>
+tz&nbsp;is&nbsp;the&nbsp;timezone&nbsp;-&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>PSD(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.&nbsp;&nbsp;The<br>
+vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment&nbsp;is<br>
+detrended&nbsp;by&nbsp;function&nbsp;detrend&nbsp;and&nbsp;windowed&nbsp;by&nbsp;function&nbsp;window.<br>
+noperlap&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;overlap&nbsp;between&nbsp;segments.&nbsp;&nbsp;The<br>
+absolute(fft(segment))**2&nbsp;of&nbsp;each&nbsp;segment&nbsp;are&nbsp;averaged&nbsp;to&nbsp;compute&nbsp;Pxx,<br>
+with&nbsp;a&nbsp;scaling&nbsp;to&nbsp;correct&nbsp;for&nbsp;power&nbsp;loss&nbsp;due&nbsp;to&nbsp;windowing.&nbsp;&nbsp;Fs&nbsp;is&nbsp;the<br>
+sampling&nbsp;frequency.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NFFT&nbsp;is&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;fft&nbsp;segment;&nbsp;must&nbsp;be&nbsp;a&nbsp;power&nbsp;of&nbsp;2<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fs&nbsp;is&nbsp;the&nbsp;sampling&nbsp;frequency.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;detrend&nbsp;-&nbsp;the&nbsp;function&nbsp;applied&nbsp;to&nbsp;each&nbsp;segment&nbsp;before&nbsp;fft-ing,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;designed&nbsp;to&nbsp;remove&nbsp;the&nbsp;mean&nbsp;or&nbsp;linear&nbsp;trend.&nbsp;&nbsp;Unlike&nbsp;in&nbsp;matlab,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;the&nbsp;detrend&nbsp;parameter&nbsp;is&nbsp;a&nbsp;vector,&nbsp;in&nbsp;matplotlib&nbsp;is&nbsp;it&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function.&nbsp;&nbsp;The&nbsp;mlab&nbsp;module&nbsp;defines&nbsp;detrend_none,&nbsp;detrend_mean,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detrend_linear,&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;custom&nbsp;function&nbsp;as&nbsp;well.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window&nbsp;-&nbsp;the&nbsp;function&nbsp;used&nbsp;to&nbsp;window&nbsp;the&nbsp;segments.&nbsp;&nbsp;window&nbsp;is&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function,&nbsp;unlike&nbsp;in&nbsp;matlab&nbsp;where&nbsp;it&nbsp;is&nbsp;a&nbsp;vector.&nbsp;&nbsp;mlab&nbsp;defines<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window_none,&nbsp;window_hanning,&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;custom&nbsp;function<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;well.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;noverlap&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;overlap&nbsp;between&nbsp;segments.<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Pxx,&nbsp;freqs<br>
+&nbsp;<br>
+For&nbsp;plotting,&nbsp;the&nbsp;power&nbsp;is&nbsp;plotted&nbsp;as&nbsp;10*log10(pxx))&nbsp;for&nbsp;decibels,<br>
+though&nbsp;pxx&nbsp;itself&nbsp;is&nbsp;returned<br>
+&nbsp;<br>
+Refs:<br>
+&nbsp;<br>
+&nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
+&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=20</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>SCATTER(x,&nbsp;y,&nbsp;s=20,&nbsp;c='b',&nbsp;marker='o',&nbsp;cmap=None,&nbsp;norm=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;alpha=1.0)<br>
+&nbsp;<br>
+Supported&nbsp;function&nbsp;signatures:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s&nbsp;and&nbsp;colors&nbsp;given&nbsp;by&nbsp;c<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c,&nbsp;**kwargs)&nbsp;-&nbsp;control&nbsp;colormapping&nbsp;and&nbsp;scaling<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;keyword&nbsp;args;&nbsp;see&nbsp;below<br>
+&nbsp;<br>
+Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a&nbsp;scalar<br>
+or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a<br>
+single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array&nbsp;of&nbsp;intensities&nbsp;which<br>
+will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;matplotlib.colors.colormap&nbsp;instance&nbsp;cmap<br>
+&nbsp;<br>
+The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'s'&nbsp;:&nbsp;square<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'o'&nbsp;:&nbsp;circle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'^'&nbsp;:&nbsp;triangle&nbsp;up<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&gt;'&nbsp;:&nbsp;triangle&nbsp;right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'v'&nbsp;:&nbsp;triangle&nbsp;down<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&lt;'&nbsp;:&nbsp;triangle&nbsp;left<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'d'&nbsp;:&nbsp;diamond<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'p'&nbsp;:&nbsp;pentagram<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;:&nbsp;hexagon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'8'&nbsp;:&nbsp;octagon<br>
+&nbsp;<br>
+s&nbsp;is&nbsp;a&nbsp;size&nbsp;argument&nbsp;in&nbsp;points&nbsp;squared.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Other&nbsp;keyword&nbsp;args;&nbsp;the&nbsp;color&nbsp;mapping&nbsp;and&nbsp;normalization&nbsp;arguments&nbsp;will<br>
+on&nbsp;be&nbsp;used&nbsp;if&nbsp;c&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;floats<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;cm.jet&nbsp;:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;image.cmap<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;=&nbsp;normalize()&nbsp;:&nbsp;matplotlib.colors.normalize&nbsp;is&nbsp;used&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scale&nbsp;luminance&nbsp;data&nbsp;to&nbsp;0,1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;vmin=None&nbsp;and&nbsp;vmax=None&nbsp;:&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;in&nbsp;conjunction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;norm&nbsp;to&nbsp;normalize&nbsp;luminance&nbsp;data.&nbsp;&nbsp;If&nbsp;either&nbsp;are&nbsp;None,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;color&nbsp;array&nbsp;C&nbsp;is&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;your&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;alpha&nbsp;=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;value&nbsp;for&nbsp;the&nbsp;patches</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-scatter_classic"><strong>scatter_classic</strong></a>(self, x, y, s<font color="#909090">=None</font>, c<font color="#909090">='b'</font>)</dt><dd><tt>SCATTER_CLASSIC(x,&nbsp;y,&nbsp;s=None,&nbsp;c='b')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data&nbsp;coords)&nbsp;and<br>
+can&nbsp;be&nbsp;either&nbsp;a&nbsp;scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is<br>
+a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array<br>
+of&nbsp;intensities&nbsp;which&nbsp;will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;colormap&nbsp;jet.<br>
+&nbsp;<br>
+If&nbsp;size&nbsp;is&nbsp;None&nbsp;a&nbsp;default&nbsp;size&nbsp;will&nbsp;be&nbsp;used</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-semilogx"><strong>semilogx</strong></a>(self, *args, **kwargs)</dt><dd><tt>SEMILOGX(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;x&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
+semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for&nbsp;more<br>
+info.<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs&nbsp;supported&nbsp;by<br>
+plot&nbsp;or&nbsp;set_xscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basex)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-semilogy"><strong>semilogy</strong></a>(self, *args, **kwargs)</dt><dd><tt>SEMILOGY(*args,&nbsp;**kwargs):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
+semilogy&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for&nbsp;more<br>
+info.<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs&nbsp;supported&nbsp;by<br>
+plot&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basey)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_axis_bgcolor"><strong>set_axis_bgcolor</strong></a>(self, color)</dt><dd><tt>set&nbsp;the&nbsp;axes&nbsp;bacground&nbsp;color</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_axis_off"><strong>set_axis_off</strong></a>(self)</dt><dd><tt>turn&nbsp;off&nbsp;the&nbsp;axis</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_axis_on"><strong>set_axis_on</strong></a>(self)</dt><dd><tt>turn&nbsp;on&nbsp;the&nbsp;axis</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_frame_on"><strong>set_frame_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;the&nbsp;axes&nbsp;rectangle&nbsp;patch&nbsp;is&nbsp;drawn&nbsp;with&nbsp;boolean&nbsp;b</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_image_extent"><strong>set_image_extent</strong></a>(self, xmin, xmax, ymin, ymax)</dt><dd><tt>Set&nbsp;the&nbsp;data&nbsp;units&nbsp;of&nbsp;the&nbsp;image.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+plot&nbsp;other&nbsp;things&nbsp;over&nbsp;the&nbsp;image,&nbsp;eg,&nbsp;lines&nbsp;or&nbsp;scatter</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_position"><strong>set_position</strong></a>(self, pos)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;position&nbsp;with&nbsp;pos&nbsp;=&nbsp;[left,&nbsp;bottom,&nbsp;width,&nbsp;height]<br>
+in&nbsp;relative&nbsp;0,1&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_title"><strong>set_title</strong></a>(self, label, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_TITLE(label,&nbsp;fontdict=None,&nbsp;**kwargs):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;title&nbsp;for&nbsp;the&nbsp;xaxis.&nbsp;&nbsp;See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information<br>
+of&nbsp;how&nbsp;override&nbsp;and&nbsp;the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_xlim"><strong>set_xlim</strong></a>(self, v, emit<font color="#909090">=True</font>)</dt><dd><tt>SET_XLIM(v,&nbsp;emit=True)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[xmin,&nbsp;xmax]<br>
+&nbsp;<br>
+If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do&nbsp;not&nbsp;trigger&nbsp;an&nbsp;event</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_xscale"><strong>set_xscale</strong></a>(self, value, basex<font color="#909090">=10</font>, subsx<font color="#909090">=None</font>)</dt><dd><tt>SET_XSCALE(value,&nbsp;basex=10,&nbsp;subsx=None)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;xscaling:&nbsp;'log'&nbsp;or&nbsp;'linear'<br>
+&nbsp;<br>
+If&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have&nbsp;the&nbsp;following&nbsp;meaning<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_xticklabels"><strong>set_xticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_XTICKLABELS(labels,&nbsp;fontdict=None,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;axis<br>
+text&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_xticks"><strong>set_xticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_ylim"><strong>set_ylim</strong></a>(self, v, emit<font color="#909090">=True</font>)</dt><dd><tt>SET_YLIM(v,&nbsp;emit=True)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[ymin,&nbsp;ymax].&nbsp;&nbsp;If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do<br>
+not&nbsp;trigger&nbsp;an&nbsp;event.</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_yscale"><strong>set_yscale</strong></a>(self, value, basey<font color="#909090">=10</font>, subsy<font color="#909090">=None</font>)</dt><dd><tt>SET_YSCALE(value,&nbsp;basey=10,&nbsp;subsy=None)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;yscaling:&nbsp;'log'&nbsp;or&nbsp;'linear'<br>
+&nbsp;<br>
+If&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have&nbsp;the&nbsp;following&nbsp;meaning<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;are&nbsp;the&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basex)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_yticklabels"><strong>set_yticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_YTICKLABELS(labels,&nbsp;fontdict=None,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of<br>
+Text&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-specgram"><strong>specgram</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>, xextent<font color="#909090">=None</font>)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=128,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmap=None,&nbsp;xextent=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Compute&nbsp;a&nbsp;spectrogram&nbsp;of&nbsp;data&nbsp;in&nbsp;x.&nbsp;&nbsp;Data&nbsp;are&nbsp;split&nbsp;into&nbsp;NFFT&nbsp;length<br>
+segements&nbsp;and&nbsp;the&nbsp;PSD&nbsp;of&nbsp;each&nbsp;section&nbsp;is&nbsp;computed.&nbsp;&nbsp;The&nbsp;windowing<br>
+function&nbsp;window&nbsp;is&nbsp;applied&nbsp;to&nbsp;each&nbsp;segment,&nbsp;and&nbsp;the&nbsp;amount&nbsp;of&nbsp;overlap<br>
+of&nbsp;each&nbsp;segment&nbsp;is&nbsp;specified&nbsp;with&nbsp;noverlap.&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;colormap;&nbsp;if&nbsp;None&nbsp;use&nbsp;default&nbsp;determined&nbsp;by&nbsp;rc<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;xextent&nbsp;is&nbsp;the&nbsp;image&nbsp;extent&nbsp;in&nbsp;the&nbsp;xaxes&nbsp;xextent=xmin,&nbsp;xmax&nbsp;-<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;0,&nbsp;max(bins),&nbsp;0,&nbsp;max(freqs)&nbsp;where&nbsp;bins&nbsp;is&nbsp;the&nbsp;return<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;from&nbsp;matplotlib.mlab.specgram<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;See&nbsp;help(psd)&nbsp;for&nbsp;information&nbsp;on&nbsp;the&nbsp;other&nbsp;keyword&nbsp;arguments.<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;(Pxx,&nbsp;freqs,&nbsp;bins,&nbsp;im),&nbsp;where<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bins&nbsp;are&nbsp;the&nbsp;time&nbsp;points&nbsp;the&nbsp;spectrogram&nbsp;is&nbsp;calculated&nbsp;over<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;freqs&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;frequencies<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Pxx&nbsp;is&nbsp;a&nbsp;len(times)&nbsp;x&nbsp;len(freqs)&nbsp;array&nbsp;of&nbsp;power<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;im&nbsp;is&nbsp;a&nbsp;matplotlib.image.AxesImage.</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-stem"><strong>stem</strong></a>(self, x, y, linefmt<font color="#909090">='b-'</font>, markerfmt<font color="#909090">='bo'</font>, basefmt<font color="#909090">='r-'</font>)</dt><dd><tt>STEM(x,&nbsp;y,&nbsp;linefmt='b-',&nbsp;markerfmt='bo',&nbsp;basefmt='r-')<br>
+&nbsp;<br>
+A&nbsp;stem&nbsp;plot&nbsp;plots&nbsp;vertical&nbsp;lines&nbsp;(using&nbsp;linefmt)&nbsp;at&nbsp;each&nbsp;x&nbsp;location<br>
+from&nbsp;the&nbsp;baseline&nbsp;to&nbsp;y,&nbsp;and&nbsp;places&nbsp;a&nbsp;marker&nbsp;there&nbsp;using&nbsp;markerfmt.&nbsp;&nbsp;A<br>
+horizontal&nbsp;line&nbsp;at&nbsp;0&nbsp;is&nbsp;is&nbsp;plotted&nbsp;using&nbsp;basefmt<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;(markerline,&nbsp;stemlines,&nbsp;baseline)&nbsp;.<br>
+&nbsp;<br>
+See<br>
+<a href="http://www.mathworks.com/access/helpdesk/help/techdoc/ref/stem.html">http://www.mathworks.com/access/helpdesk/help/techdoc/ref/stem.html</a><br>
+for&nbsp;details&nbsp;and&nbsp;examples/stem_plot.py&nbsp;for&nbsp;a&nbsp;demo.</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-table"><strong>table</strong></a>(self, cellText<font color="#909090">=None</font>, cellColours<font color="#909090">=None</font>, cellLoc<font color="#909090">='right'</font>, colWidths<font color="#909090">=None</font>, rowLabels<font color="#909090">=None</font>, rowColours<font color="#909090">=None</font>, rowLoc<font color="#909090">='left'</font>, colLabels<font color="#909090">=None</font>, colColours<font color="#909090">=None</font>, colLoc<font color="#909090">='center'</font>, loc<font color="#909090">='bottom'</font>, bbox<font color="#909090">=None</font>)</dt><dd><tt>TABLE(cellText=None,&nbsp;cellColours=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cellLoc='right',&nbsp;colWidths=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rowLabels=None,&nbsp;rowColours=None,&nbsp;rowLoc='left',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colLabels=None,&nbsp;colColours=None,&nbsp;colLoc='center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loc='bottom',&nbsp;bbox=None):<br>
+&nbsp;<br>
+Add&nbsp;a&nbsp;table&nbsp;to&nbsp;the&nbsp;current&nbsp;axes.&nbsp;&nbsp;Returns&nbsp;a&nbsp;table&nbsp;instance.&nbsp;&nbsp;For<br>
+finer&nbsp;grained&nbsp;control&nbsp;over&nbsp;tables,&nbsp;use&nbsp;the&nbsp;Table&nbsp;class&nbsp;and&nbsp;add&nbsp;it<br>
+to&nbsp;the&nbsp;axes&nbsp;with&nbsp;add_table.<br>
+&nbsp;<br>
+Thanks&nbsp;to&nbsp;John&nbsp;Gill&nbsp;for&nbsp;providing&nbsp;the&nbsp;class&nbsp;and&nbsp;table.</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-text"><strong>text</strong></a>(self, x, y, s, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>TEXT(x,&nbsp;y,&nbsp;s,&nbsp;fontdict=None,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Add&nbsp;text&nbsp;in&nbsp;string&nbsp;s&nbsp;to&nbsp;axis&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(data&nbsp;coords)<br>
+&nbsp;<br>
+&nbsp;&nbsp;fontdict&nbsp;is&nbsp;a&nbsp;dictionary&nbsp;to&nbsp;override&nbsp;the&nbsp;default&nbsp;text&nbsp;properties.<br>
+&nbsp;&nbsp;If&nbsp;fontdict&nbsp;is&nbsp;None,&nbsp;the&nbsp;defaults&nbsp;are&nbsp;determined&nbsp;by&nbsp;your&nbsp;rc<br>
+&nbsp;&nbsp;parameters.<br>
+&nbsp;<br>
+Individual&nbsp;keyword&nbsp;arguemnts&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;override&nbsp;any&nbsp;given<br>
+parameter<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-text">text</a>(x,&nbsp;y,&nbsp;s,&nbsp;fontsize=12)<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;transform&nbsp;specifies&nbsp;that&nbsp;text&nbsp;is&nbsp;in&nbsp;data&nbsp;coords,<br>
+alternatively,&nbsp;you&nbsp;can&nbsp;specify&nbsp;text&nbsp;in&nbsp;axis&nbsp;coords&nbsp;(0,0&nbsp;lower&nbsp;left&nbsp;and<br>
+1,1&nbsp;upper&nbsp;right).&nbsp;&nbsp;The&nbsp;example&nbsp;below&nbsp;places&nbsp;text&nbsp;in&nbsp;the&nbsp;center&nbsp;of&nbsp;the<br>
+axes<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarAxes-text">text</a>(0.5,&nbsp;0.5,'matplotlib',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;horizontalalignment='center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verticalalignment='center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform&nbsp;=&nbsp;ax.transAxes,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-update_datalim"><strong>update_datalim</strong></a>(self, xys)</dt><dd><tt>Update&nbsp;the&nbsp;data&nbsp;lim&nbsp;bbox&nbsp;with&nbsp;seq&nbsp;of&nbsp;xy&nbsp;tups</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-vlines"><strong>vlines</strong></a>(self, x, ymin, ymax, color<font color="#909090">='k'</font>)</dt><dd><tt>VLINES(x,&nbsp;ymin,&nbsp;ymax,&nbsp;color='k')<br>
+&nbsp;<br>
+Plot&nbsp;vertical&nbsp;lines&nbsp;at&nbsp;each&nbsp;x&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;ymin&nbsp;or&nbsp;ymax&nbsp;can&nbsp;be<br>
+scalars&nbsp;or&nbsp;len(x)&nbsp;numpy&nbsp;arrays.&nbsp;&nbsp;If&nbsp;they&nbsp;are&nbsp;scalars,&nbsp;then&nbsp;the<br>
+respective&nbsp;values&nbsp;are&nbsp;constant,&nbsp;else&nbsp;the&nbsp;heights&nbsp;of&nbsp;the&nbsp;lines&nbsp;are<br>
+determined&nbsp;by&nbsp;ymin&nbsp;and&nbsp;ymax<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-zoomx"><strong>zoomx</strong></a>(self, numsteps)</dt><dd><tt>Zoom&nbsp;in&nbsp;on&nbsp;the&nbsp;x&nbsp;xaxis&nbsp;numsteps&nbsp;(plus&nbsp;for&nbsp;zoom&nbsp;in,&nbsp;minus&nbsp;for&nbsp;zoom&nbsp;out)</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-zoomy"><strong>zoomy</strong></a>(self, numsteps)</dt><dd><tt>Zoom&nbsp;in&nbsp;on&nbsp;the&nbsp;x&nbsp;xaxis&nbsp;numsteps&nbsp;(plus&nbsp;for&nbsp;zoom&nbsp;in,&nbsp;minus&nbsp;for&nbsp;zoom&nbsp;out)</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="PolarAxes-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PolarAxes-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PolarSubplot">class <strong>PolarSubplot</strong></a>(<a href="matplotlib.axes.html#SubplotBase">SubplotBase</a>, <a href="matplotlib.axes.html#PolarAxes">PolarAxes</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Emulate&nbsp;matlab's&nbsp;subplot&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#Subplot">Subplot</a>(numRows,&nbsp;numCols,&nbsp;plotNum)<br>
+&nbsp;<br>
+where&nbsp;plotNum=1&nbsp;is&nbsp;the&nbsp;first&nbsp;plot&nbsp;number&nbsp;and&nbsp;increasing&nbsp;plotNums<br>
+fill&nbsp;rows&nbsp;first.&nbsp;&nbsp;max(plotNum)==numRows*numCols<br>
+&nbsp;<br>
+You&nbsp;can&nbsp;leave&nbsp;out&nbsp;the&nbsp;commas&nbsp;if&nbsp;numRows&lt;=numCols&lt;=plotNum&lt;10,&nbsp;as<br>
+in<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#Subplot">Subplot</a>(211)&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;2&nbsp;rows,&nbsp;1&nbsp;column,&nbsp;first&nbsp;(upper)&nbsp;plot<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.axes.html#PolarSubplot">PolarSubplot</a></dd>
+<dd><a href="matplotlib.axes.html#SubplotBase">SubplotBase</a></dd>
+<dd><a href="matplotlib.axes.html#PolarAxes">PolarAxes</a></dd>
+<dd><a href="matplotlib.axes.html#Axes">Axes</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PolarSubplot-__init__"><strong>__init__</strong></a>(self, fig, *args, **kwargs)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.axes.html#SubplotBase">SubplotBase</a>:<br>
+<dl><dt><a name="PolarSubplot-is_first_col"><strong>is_first_col</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PolarSubplot-is_first_row"><strong>is_first_row</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PolarSubplot-is_last_col"><strong>is_last_col</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PolarSubplot-is_last_row"><strong>is_last_row</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.axes.html#PolarAxes">PolarAxes</a>:<br>
+<dl><dt><a name="PolarSubplot-autoscale_view"><strong>autoscale_view</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PolarSubplot-cla"><strong>cla</strong></a>(self)</dt><dd><tt>Clear&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
+
+<dl><dt><a name="PolarSubplot-format_coord"><strong>format_coord</strong></a>(self, theta, r)</dt><dd><tt>return&nbsp;a&nbsp;format&nbsp;string&nbsp;formatting&nbsp;the&nbsp;coordinate</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_rmax"><strong>get_rmax</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;maximum&nbsp;radius&nbsp;in&nbsp;the&nbsp;view&nbsp;limits&nbsp;dimension</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-grid"><strong>grid</strong></a>(self, b)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;grids&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-has_data"><strong>has_data</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;any&nbsp;artists&nbsp;have&nbsp;been&nbsp;added&nbsp;to&nbsp;axes</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_rgridlabels"><strong>set_rgridlabels</strong></a>(self, radii, angle<font color="#909090">=22.5</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;radial&nbsp;grid&nbsp;labels&nbsp;at&nbsp;radial&nbsp;distances&nbsp;in&nbsp;radii&nbsp;along<br>
+the&nbsp;radius&nbsp;at&nbsp;angle</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_rgrids"><strong>set_rgrids</strong></a>(self, radii)</dt><dd><tt>set&nbsp;the&nbsp;radial&nbsp;locations&nbsp;of&nbsp;the&nbsp;r&nbsp;grids</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_thetagridlabels"><strong>set_thetagridlabels</strong></a>(self, angles, fmt<font color="#909090">='%d'</font>, frac<font color="#909090">=1.1000000000000001</font>, **kwargs)</dt><dd><tt>set&nbsp;the&nbsp;radial&nbsp;locations&nbsp;of&nbsp;the&nbsp;r&nbsp;grids<br>
+&nbsp;<br>
+angles&nbsp;are&nbsp;in&nbsp;degrees<br>
+&nbsp;<br>
+frac&nbsp;is&nbsp;the&nbsp;fraction&nbsp;of&nbsp;the&nbsp;polar&nbsp;axes&nbsp;radius&nbsp;at&nbsp;which&nbsp;to<br>
+place&nbsp;the&nbsp;label&nbsp;(1&nbsp;is&nbsp;the&nbsp;edge).Eg&nbsp;1.05&nbsp;isd&nbsp;outside&nbsp;the&nbsp;axes<br>
+and&nbsp;0.95&nbsp;is&nbsp;inside&nbsp;the&nbsp;axes</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_thetagrids"><strong>set_thetagrids</strong></a>(self, angles)</dt><dd><tt>set&nbsp;the&nbsp;angles&nbsp;at&nbsp;which&nbsp;to&nbsp;place&nbsp;the&nbsp;theta&nbsp;grids&nbsp;(these<br>
+gridlines&nbsp;are&nbsp;equal&nbsp;along&nbsp;the&nbsp;theta&nbsp;dimension).&nbsp;&nbsp;angles&nbsp;is&nbsp;in&nbsp;degrees</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_xlabel"><strong>set_xlabel</strong></a>(self, xlabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>xlabel&nbsp;not&nbsp;implemented</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_ylabel"><strong>set_ylabel</strong></a>(self, ylabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>ylabel&nbsp;not&nbsp;implemented</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.axes.html#PolarAxes">PolarAxes</a>:<br>
+<dl><dt><strong>RESOLUTION</strong> = 200</dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.axes.html#Axes">Axes</a>:<br>
+<dl><dt><a name="PolarSubplot-add_artist"><strong>add_artist</strong></a>(self, a)</dt><dd><tt>Add&nbsp;any&nbsp;artist&nbsp;to&nbsp;the&nbsp;axes</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-add_collection"><strong>add_collection</strong></a>(self, collection)</dt><dd><tt>add&nbsp;a&nbsp;Collection&nbsp;instance&nbsp;to&nbsp;<a href="#Axes">Axes</a></tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-add_line"><strong>add_line</strong></a>(self, l)</dt><dd><tt>Add&nbsp;a&nbsp;line&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;plot&nbsp;lines</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-add_patch"><strong>add_patch</strong></a>(self, p)</dt><dd><tt>Add&nbsp;a&nbsp;line&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;plot&nbsp;lines</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-add_table"><strong>add_table</strong></a>(self, tab)</dt><dd><tt>Add&nbsp;a&nbsp;table&nbsp;instance&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;axes&nbsp;tables</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-axhline"><strong>axhline</strong></a>(self, y<font color="#909090">=0</font>, xmin<font color="#909090">=0</font>, xmax<font color="#909090">=1</font>, **kwargs)</dt><dd><tt>AXHLINE(y=0,&nbsp;xmin=0,&nbsp;xmax=1,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Axis&nbsp;Horizontal&nbsp;Line<br>
+&nbsp;<br>
+Draw&nbsp;a&nbsp;horizontal&nbsp;line&nbsp;at&nbsp;y&nbsp;from&nbsp;xmin&nbsp;to&nbsp;xmax.&nbsp;&nbsp;With&nbsp;the&nbsp;default<br>
+values&nbsp;of&nbsp;xmin=0&nbsp;and&nbsp;xmax=1,&nbsp;this&nbsp;line&nbsp;will&nbsp;always&nbsp;span&nbsp;the&nbsp;horizontal<br>
+extent&nbsp;of&nbsp;the&nbsp;axes,&nbsp;regardless&nbsp;of&nbsp;the&nbsp;xlim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you<br>
+change&nbsp;them,&nbsp;eg&nbsp;with&nbsp;the&nbsp;xlim&nbsp;command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;horizontal&nbsp;extent<br>
+is&nbsp;in&nbsp;axes&nbsp;coords:&nbsp;0=left,&nbsp;0.5=middle,&nbsp;1.0=right&nbsp;but&nbsp;the&nbsp;y&nbsp;location&nbsp;is<br>
+in&nbsp;data&nbsp;coordinates.<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;the&nbsp;Line2D&nbsp;instance.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;kwargs&nbsp;to<br>
+plot,&nbsp;and&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;control&nbsp;the&nbsp;line&nbsp;properties.&nbsp;&nbsp;Eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;thick&nbsp;red&nbsp;hline&nbsp;at&nbsp;y=0&nbsp;that&nbsp;spans&nbsp;the&nbsp;xrange<br>
+&nbsp;&nbsp;<a href="#PolarSubplot-axhline">axhline</a>(linewidth=4,&nbsp;color='r')<br>
+&nbsp;<br>
+&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;default&nbsp;hline&nbsp;at&nbsp;y=1&nbsp;that&nbsp;spans&nbsp;the&nbsp;xrange<br>
+&nbsp;&nbsp;<a href="#PolarSubplot-axhline">axhline</a>(y=1)<br>
+&nbsp;<br>
+&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;default&nbsp;hline&nbsp;at&nbsp;y=.5&nbsp;that&nbsp;spans&nbsp;the&nbsp;the&nbsp;middle&nbsp;half&nbsp;of<br>
+&nbsp;&nbsp;#&nbsp;the&nbsp;xrange<br>
+&nbsp;&nbsp;<a href="#PolarSubplot-axhline">axhline</a>(y=.5,&nbsp;xmin=0.25,&nbsp;xmax=0.75)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-axhspan"><strong>axhspan</strong></a>(self, ymin, ymax, xmin<font color="#909090">=0</font>, xmax<font color="#909090">=1</font>, **kwargs)</dt><dd><tt>AXHSPAN(ymin,&nbsp;ymax,&nbsp;xmin=0,&nbsp;xmax=1,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Axis&nbsp;Horizontal&nbsp;Span.&nbsp;&nbsp;ycoords&nbsp;are&nbsp;in&nbsp;data&nbsp;units&nbsp;and&nbsp;x<br>
+coords&nbsp;are&nbsp;in&nbsp;axes&nbsp;(relative&nbsp;0-1)&nbsp;units<br>
+&nbsp;<br>
+Draw&nbsp;a&nbsp;horizontal&nbsp;span&nbsp;(regtangle)&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;With&nbsp;the<br>
+default&nbsp;values&nbsp;of&nbsp;xmin=0&nbsp;and&nbsp;xmax=1,&nbsp;this&nbsp;always&nbsp;span&nbsp;the&nbsp;xrange,<br>
+regardless&nbsp;of&nbsp;the&nbsp;xlim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you&nbsp;change&nbsp;them,&nbsp;eg&nbsp;with&nbsp;the<br>
+xlim&nbsp;command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;horizontal&nbsp;extent&nbsp;is&nbsp;in&nbsp;axes&nbsp;coords:<br>
+0=left,&nbsp;0.5=middle,&nbsp;1.0=right&nbsp;but&nbsp;the&nbsp;y&nbsp;location&nbsp;is&nbsp;in&nbsp;data<br>
+coordinates.<br>
+&nbsp;<br>
+kwargs&nbsp;are&nbsp;the&nbsp;kwargs&nbsp;to&nbsp;Patch,&nbsp;eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;antialiased,&nbsp;aa<br>
+&nbsp;&nbsp;linewidth,&nbsp;&nbsp;&nbsp;lw<br>
+&nbsp;&nbsp;edgecolor,&nbsp;&nbsp;&nbsp;ec<br>
+&nbsp;&nbsp;facecolor,&nbsp;&nbsp;&nbsp;fc<br>
+&nbsp;<br>
+the&nbsp;terms&nbsp;on&nbsp;the&nbsp;right&nbsp;are&nbsp;aliases<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;the&nbsp;patches.Polygon&nbsp;instance.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#draws&nbsp;a&nbsp;gray&nbsp;rectangle&nbsp;from&nbsp;y=0.25-0.75&nbsp;that&nbsp;spans&nbsp;the&nbsp;horizontal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#extent&nbsp;of&nbsp;the&nbsp;axes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-axhspan">axhspan</a>(0.25,&nbsp;0.75,&nbsp;facecolor=0.5,&nbsp;alpha=0.5)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-axvline"><strong>axvline</strong></a>(self, x<font color="#909090">=0</font>, ymin<font color="#909090">=0</font>, ymax<font color="#909090">=1</font>, **kwargs)</dt><dd><tt>AXVLINE(x=0,&nbsp;ymin=0,&nbsp;ymax=1,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Axis&nbsp;Vertical&nbsp;Line<br>
+&nbsp;<br>
+Draw&nbsp;a&nbsp;vertical&nbsp;line&nbsp;at&nbsp;x&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;With&nbsp;the&nbsp;default&nbsp;values<br>
+of&nbsp;ymin=0&nbsp;and&nbsp;ymax=1,&nbsp;this&nbsp;line&nbsp;will&nbsp;always&nbsp;span&nbsp;the&nbsp;vertical&nbsp;extent<br>
+of&nbsp;the&nbsp;axes,&nbsp;regardless&nbsp;of&nbsp;the&nbsp;xlim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you&nbsp;change&nbsp;them,<br>
+eg&nbsp;with&nbsp;the&nbsp;xlim&nbsp;command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;vertical&nbsp;extent&nbsp;is&nbsp;in&nbsp;axes<br>
+coords:&nbsp;0=bottom,&nbsp;0.5=middle,&nbsp;1.0=top&nbsp;but&nbsp;the&nbsp;x&nbsp;location&nbsp;is&nbsp;in&nbsp;data<br>
+coordinates.<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;the&nbsp;Line2D&nbsp;instance.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;the&nbsp;same&nbsp;as<br>
+kwargs&nbsp;to&nbsp;plot,&nbsp;and&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;control&nbsp;the&nbsp;line&nbsp;properties.&nbsp;&nbsp;Eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;thick&nbsp;red&nbsp;vline&nbsp;at&nbsp;x=0&nbsp;that&nbsp;spans&nbsp;the&nbsp;yrange<br>
+&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;<a href="#PolarSubplot-axvline">axvline</a>(linewidth=4,&nbsp;color='r')<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;default&nbsp;vline&nbsp;at&nbsp;x=1&nbsp;that&nbsp;spans&nbsp;the&nbsp;yrange<br>
+&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;<a href="#PolarSubplot-axvline">axvline</a>(x=1)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;default&nbsp;vline&nbsp;at&nbsp;x=.5&nbsp;that&nbsp;spans&nbsp;the&nbsp;the&nbsp;middle&nbsp;half&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;yrange<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-axvline">axvline</a>(x=.5,&nbsp;ymin=0.25,&nbsp;ymax=0.75)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-axvspan"><strong>axvspan</strong></a>(self, xmin, xmax, ymin<font color="#909090">=0</font>, ymax<font color="#909090">=1</font>, **kwargs)</dt><dd><tt>AXVSPAN(xmin,&nbsp;xmax,&nbsp;ymin=0,&nbsp;ymax=1,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+axvspan&nbsp;:&nbsp;Axis&nbsp;Vertical&nbsp;Span.&nbsp;&nbsp;xcoords&nbsp;are&nbsp;in&nbsp;data&nbsp;units&nbsp;and&nbsp;y&nbsp;coords<br>
+are&nbsp;in&nbsp;axes&nbsp;(relative&nbsp;0-1)&nbsp;units<br>
+&nbsp;<br>
+Draw&nbsp;a&nbsp;vertical&nbsp;span&nbsp;(regtangle)&nbsp;from&nbsp;xmin&nbsp;to&nbsp;xmax.&nbsp;&nbsp;With&nbsp;the&nbsp;default<br>
+values&nbsp;of&nbsp;ymin=0&nbsp;and&nbsp;ymax=1,&nbsp;this&nbsp;always&nbsp;span&nbsp;the&nbsp;yrange,&nbsp;regardless<br>
+of&nbsp;the&nbsp;ylim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you&nbsp;change&nbsp;them,&nbsp;eg&nbsp;with&nbsp;the&nbsp;ylim<br>
+command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;vertical&nbsp;extent&nbsp;is&nbsp;in&nbsp;axes&nbsp;coords:&nbsp;0=bottom,<br>
+0.5=middle,&nbsp;1.0=top&nbsp;but&nbsp;the&nbsp;y&nbsp;location&nbsp;is&nbsp;in&nbsp;data&nbsp;coordinates.<br>
+&nbsp;<br>
+kwargs&nbsp;are&nbsp;the&nbsp;kwargs&nbsp;to&nbsp;Patch,&nbsp;eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;antialiased,&nbsp;aa<br>
+&nbsp;&nbsp;linewidth,&nbsp;&nbsp;&nbsp;lw<br>
+&nbsp;&nbsp;edgecolor,&nbsp;&nbsp;&nbsp;ec<br>
+&nbsp;&nbsp;facecolor,&nbsp;&nbsp;&nbsp;fc<br>
+&nbsp;<br>
+the&nbsp;terms&nbsp;on&nbsp;the&nbsp;right&nbsp;are&nbsp;aliases<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;the&nbsp;patches.Polygon&nbsp;instance.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;vertical&nbsp;green&nbsp;translucent&nbsp;rectangle&nbsp;from&nbsp;x=1.25&nbsp;to&nbsp;1.55&nbsp;that<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;spans&nbsp;the&nbsp;yrange&nbsp;of&nbsp;the&nbsp;axes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-axvspan">axvspan</a>(1.25,&nbsp;1.55,&nbsp;facecolor='g',&nbsp;alpha=0.5)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-bar"><strong>bar</strong></a>(self, left, height, width<font color="#909090">=0.80000000000000004</font>, bottom<font color="#909090">=0</font>, color<font color="#909090">='b'</font>, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, ecolor<font color="#909090">='k'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>BAR(left,&nbsp;height,&nbsp;width=0.8,&nbsp;bottom=0,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color='b',&nbsp;yerr=None,&nbsp;xerr=None,&nbsp;ecolor='k',&nbsp;capsize=3)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at<br>
+&nbsp;<br>
+&nbsp;&nbsp;left,&nbsp;left+width,&nbsp;0,&nbsp;height<br>
+&nbsp;<br>
+left&nbsp;and&nbsp;height&nbsp;are&nbsp;Numeric&nbsp;arrays.<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>
+&nbsp;<br>
+BAR(left,&nbsp;height,&nbsp;width,&nbsp;bottom,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color,&nbsp;yerr,&nbsp;xerr,&nbsp;capsize,&nbsp;yoff)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;the&nbsp;bar&nbsp;chart<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;bar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ecolor&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;any&nbsp;errorbar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;capsize&nbsp;determines&nbsp;the&nbsp;length&nbsp;in&nbsp;points&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps<br>
+&nbsp;<br>
+&nbsp;<br>
+The&nbsp;optional&nbsp;arguments&nbsp;color,&nbsp;width&nbsp;and&nbsp;bottom&nbsp;can&nbsp;be&nbsp;either<br>
+scalars&nbsp;or&nbsp;len(x)&nbsp;sequences<br>
+&nbsp;<br>
+This&nbsp;enables&nbsp;you&nbsp;to&nbsp;use&nbsp;bar&nbsp;as&nbsp;the&nbsp;basis&nbsp;for&nbsp;stacked&nbsp;bar<br>
+charts,&nbsp;or&nbsp;candlestick&nbsp;plots</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-barh"><strong>barh</strong></a>(self, x, y, height<font color="#909090">=0.80000000000000004</font>, left<font color="#909090">=0</font>, color<font color="#909090">='b'</font>, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, ecolor<font color="#909090">='k'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>BARH(x,&nbsp;y,&nbsp;height=0.8,&nbsp;left=0,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color='b',&nbsp;yerr=None,&nbsp;xerr=None,&nbsp;ecolor='k',&nbsp;capsize=3)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BARH(x,&nbsp;y)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;y&nbsp;values&nbsp;give&nbsp;the&nbsp;heights&nbsp;of&nbsp;the&nbsp;center&nbsp;of&nbsp;the&nbsp;bars.&nbsp;&nbsp;The<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;values&nbsp;give&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;bars.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>
+&nbsp;<br>
+Optional&nbsp;arguments<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;-&nbsp;the&nbsp;height&nbsp;(thickness)&nbsp;&nbsp;of&nbsp;the&nbsp;bar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;left&nbsp;&nbsp;-&nbsp;the&nbsp;x&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;left&nbsp;side&nbsp;of&nbsp;the&nbsp;bar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;bar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;the&nbsp;bar&nbsp;chart<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ecolor&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;any&nbsp;errorbar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;capsize&nbsp;determines&nbsp;the&nbsp;length&nbsp;in&nbsp;points&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps<br>
+&nbsp;<br>
+The&nbsp;optional&nbsp;arguments&nbsp;color,&nbsp;height&nbsp;and&nbsp;left&nbsp;can&nbsp;be&nbsp;either<br>
+scalars&nbsp;or&nbsp;len(x)&nbsp;sequences</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-clear"><strong>clear</strong></a>(self)</dt><dd><tt>clear&nbsp;the&nbsp;axes</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-cohere"><strong>cohere</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>COHERE(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
+&nbsp;<br>
+cohere&nbsp;the&nbsp;coherence&nbsp;between&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;Coherence&nbsp;is&nbsp;the&nbsp;normalized<br>
+cross&nbsp;spectral&nbsp;density<br>
+&nbsp;<br>
+&nbsp;&nbsp;Cxy&nbsp;=&nbsp;|Pxy|^2/(Pxx*Pyy)<br>
+&nbsp;<br>
+The&nbsp;return&nbsp;value&nbsp;is&nbsp;(Cxy,&nbsp;f),&nbsp;where&nbsp;f&nbsp;are&nbsp;the&nbsp;frequencies&nbsp;of&nbsp;the<br>
+coherence&nbsp;vector.<br>
+&nbsp;<br>
+See&nbsp;the&nbsp;PSD&nbsp;help&nbsp;for&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;optional&nbsp;parameters.<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Cxy,&nbsp;freqs<br>
+&nbsp;<br>
+Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
+&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-connect"><strong>connect</strong></a>(self, s, func)</dt></dl>
+
+<dl><dt><a name="PolarSubplot-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
+&nbsp;<br>
+The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
+The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each<br>
+segment&nbsp;is&nbsp;detrended&nbsp;by&nbsp;function&nbsp;detrend&nbsp;and&nbsp;windowed&nbsp;by&nbsp;function<br>
+window.&nbsp;&nbsp;The&nbsp;product&nbsp;of&nbsp;the&nbsp;direct&nbsp;FFTs&nbsp;of&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;averaged&nbsp;over<br>
+each&nbsp;segment&nbsp;to&nbsp;compute&nbsp;Pxy,&nbsp;with&nbsp;a&nbsp;scaling&nbsp;to&nbsp;correct&nbsp;for&nbsp;power&nbsp;loss<br>
+due&nbsp;to&nbsp;windowing.<br>
+&nbsp;<br>
+See&nbsp;the&nbsp;PSD&nbsp;help&nbsp;for&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;optional&nbsp;parameters.<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Pxy,&nbsp;freqs.&nbsp;&nbsp;Pxy&nbsp;is&nbsp;the&nbsp;cross&nbsp;spectrum&nbsp;(complex<br>
+valued),&nbsp;and&nbsp;10*log10(|Pxy|)&nbsp;is&nbsp;plotted<br>
+&nbsp;<br>
+Refs:<br>
+&nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-disconnect"><strong>disconnect</strong></a>(self, cid)</dt><dd><tt>disconnect&nbsp;from&nbsp;the&nbsp;<a href="#Axes">Axes</a>&nbsp;event.</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>, barsabove<font color="#909090">=False</font>, **kwargs)</dt><dd><tt>ERRORBAR(x,&nbsp;y,&nbsp;yerr=None,&nbsp;xerr=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmt='b-',&nbsp;ecolor=None,&nbsp;capsize=3,&nbsp;barsabove=False)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
+Vertical&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;yerr&nbsp;is&nbsp;not&nbsp;None<br>
+Horizontal&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;xerr&nbsp;is&nbsp;not&nbsp;None<br>
+&nbsp;<br>
+xerr&nbsp;and&nbsp;yerr&nbsp;may&nbsp;be&nbsp;any&nbsp;of:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;rank-0,&nbsp;Nx1&nbsp;Numpy&nbsp;array&nbsp;&nbsp;-&nbsp;symmetric&nbsp;errorbars&nbsp;+/-&nbsp;value<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;an&nbsp;N-element&nbsp;list&nbsp;or&nbsp;tuple&nbsp;-&nbsp;symmetric&nbsp;errorbars&nbsp;+/-&nbsp;value<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;rank-1,&nbsp;Nx2&nbsp;Numpy&nbsp;array&nbsp;&nbsp;-&nbsp;asymmetric&nbsp;errorbars&nbsp;-column1/+column2<br>
+&nbsp;<br>
+Alternatively,&nbsp;x,&nbsp;y,&nbsp;xerr,&nbsp;and&nbsp;yerr&nbsp;can&nbsp;all&nbsp;be&nbsp;scalars,&nbsp;which<br>
+plots&nbsp;a&nbsp;single&nbsp;error&nbsp;bar&nbsp;at&nbsp;x,&nbsp;y.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fmt&nbsp;is&nbsp;the&nbsp;plot&nbsp;format&nbsp;symbol&nbsp;for&nbsp;y.&nbsp;&nbsp;if&nbsp;fmt&nbsp;is&nbsp;None,&nbsp;just<br>
+&nbsp;&nbsp;&nbsp;&nbsp;plot&nbsp;the&nbsp;errorbars&nbsp;with&nbsp;no&nbsp;line&nbsp;symbols.&nbsp;&nbsp;This&nbsp;can&nbsp;be&nbsp;useful<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;creating&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;errorbars<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ecolor&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;which&nbsp;gives&nbsp;the&nbsp;color&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;errorbar&nbsp;lines;&nbsp;if&nbsp;None,&nbsp;use&nbsp;the&nbsp;marker&nbsp;color.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps&nbsp;in&nbsp;points<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;barsabove,&nbsp;if&nbsp;True,&nbsp;will&nbsp;plot&nbsp;the&nbsp;errorbars&nbsp;above&nbsp;the&nbsp;plot&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;default&nbsp;is&nbsp;below<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;the&nbsp;plot&nbsp;command&nbsp;for&nbsp;the&nbsp;markers<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&nbsp;first&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
+y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-fill"><strong>fill</strong></a>(self, *args, **kwargs)</dt><dd><tt>FILL(*args,&nbsp;**kwargs)<br>
+&nbsp;<br>
+plot&nbsp;filled&nbsp;polygons.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length&nbsp;argument,&nbsp;allowing<br>
+for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional&nbsp;color&nbsp;format&nbsp;string;&nbsp;see&nbsp;plot<br>
+for&nbsp;details&nbsp;on&nbsp;the&nbsp;argument&nbsp;parsing.&nbsp;&nbsp;For&nbsp;example,&nbsp;all&nbsp;of&nbsp;the<br>
+following&nbsp;are&nbsp;legal,&nbsp;assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;Axis&nbsp;instance:<br>
+&nbsp;<br>
+&nbsp;&nbsp;ax.<a href="#PolarSubplot-fill">fill</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;polygon&nbsp;with&nbsp;vertices&nbsp;at&nbsp;x,y<br>
+&nbsp;&nbsp;ax.<a href="#PolarSubplot-fill">fill</a>(x,y,&nbsp;'b'&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;polygon&nbsp;with&nbsp;vertices&nbsp;at&nbsp;x,y&nbsp;in&nbsp;blue<br>
+&nbsp;<br>
+An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;color&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;ax.<a href="#PolarSubplot-fill">fill</a>(x1,&nbsp;y1,&nbsp;'g',&nbsp;x2,&nbsp;y2,&nbsp;'r')&nbsp;&nbsp;<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;patches&nbsp;that&nbsp;were&nbsp;added<br>
+&nbsp;<br>
+The&nbsp;same&nbsp;color&nbsp;strings&nbsp;that&nbsp;plot&nbsp;supports&nbsp;are&nbsp;supported&nbsp;by&nbsp;the&nbsp;fill<br>
+format&nbsp;string.<br>
+&nbsp;<br>
+The&nbsp;kwargs&nbsp;that&nbsp;are&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;set&nbsp;line&nbsp;properties&nbsp;(any<br>
+property&nbsp;that&nbsp;has&nbsp;a&nbsp;set_*&nbsp;method).&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;to&nbsp;set&nbsp;edge<br>
+color,&nbsp;face&nbsp;color,&nbsp;etc.</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-format_xdata"><strong>format_xdata</strong></a>(self, x)</dt><dd><tt>Return&nbsp;x&nbsp;string&nbsp;formatted.&nbsp;&nbsp;This&nbsp;function&nbsp;will&nbsp;use&nbsp;the&nbsp;attribute<br>
+self.<strong>fmt_xdata</strong>&nbsp;if&nbsp;it&nbsp;is&nbsp;callable,&nbsp;else&nbsp;will&nbsp;fall&nbsp;back&nbsp;on&nbsp;the&nbsp;xaxis<br>
+major&nbsp;formatter</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-format_ydata"><strong>format_ydata</strong></a>(self, y)</dt><dd><tt>Return&nbsp;y&nbsp;string&nbsp;formatted.&nbsp;&nbsp;This&nbsp;function&nbsp;will&nbsp;use&nbsp;the&nbsp;attribute<br>
+self.<strong>fmt_ydata</strong>&nbsp;if&nbsp;it&nbsp;is&nbsp;callable,&nbsp;else&nbsp;will&nbsp;fall&nbsp;back&nbsp;on&nbsp;the&nbsp;yaxis<br>
+major&nbsp;formatter</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_axis_bgcolor"><strong>get_axis_bgcolor</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;background&nbsp;color</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PolarSubplot-get_frame"><strong>get_frame</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axes&nbsp;Rectangle&nbsp;frame</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_images"><strong>get_images</strong></a>(self)</dt><dd><tt>return&nbsp;a&nbsp;list&nbsp;of&nbsp;<a href="#Axes">Axes</a>&nbsp;images&nbsp;contained&nbsp;by&nbsp;the&nbsp;<a href="#Axes">Axes</a></tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_legend"><strong>get_legend</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;Legend&nbsp;instance,&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;legend&nbsp;is&nbsp;defined</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_lines"><strong>get_lines</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;contained&nbsp;by&nbsp;the&nbsp;<a href="#Axes">Axes</a></tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_position"><strong>get_position</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axes&nbsp;rectangle&nbsp;left,&nbsp;bottom,&nbsp;width,&nbsp;height</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_xaxis"><strong>get_xaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;XAxis&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_xgridlines"><strong>get_xgridlines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;x&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_xlim"><strong>get_xlim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;x&nbsp;axis&nbsp;range&nbsp;[xmin,&nbsp;xmax]</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_xscale"><strong>get_xscale</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;xaxis&nbsp;scale&nbsp;string:&nbsp;log&nbsp;or&nbsp;linear</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_xticklabels"><strong>get_xticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_xticklines"><strong>get_xticklines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_xticks"><strong>get_xticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;x&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_yaxis"><strong>get_yaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;YAxis&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_ygridlines"><strong>get_ygridlines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;y&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_ylim"><strong>get_ylim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;y&nbsp;axis&nbsp;range&nbsp;[ymin,&nbsp;ymax]</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_yscale"><strong>get_yscale</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;yaxis&nbsp;scale&nbsp;string:&nbsp;log&nbsp;or&nbsp;linear</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_yticklabels"><strong>get_yticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_yticklines"><strong>get_yticklines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_yticks"><strong>get_yticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;y&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-hist"><strong>hist</strong></a>(self, x, bins<font color="#909090">=10</font>, normed<font color="#909090">=0</font>, bottom<font color="#909090">=0</font>)</dt><dd><tt>HIST(x,&nbsp;bins=10,&nbsp;normed=0,&nbsp;bottom=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Compute&nbsp;the&nbsp;histogram&nbsp;of&nbsp;x.&nbsp;&nbsp;bins&nbsp;is&nbsp;either&nbsp;an&nbsp;integer&nbsp;number&nbsp;of<br>
+bins&nbsp;or&nbsp;a&nbsp;sequence&nbsp;giving&nbsp;the&nbsp;bins.&nbsp;&nbsp;x&nbsp;are&nbsp;the&nbsp;data&nbsp;to&nbsp;be&nbsp;binned.<br>
+&nbsp;<br>
+The&nbsp;return&nbsp;values&nbsp;is&nbsp;(n,&nbsp;bins,&nbsp;patches)<br>
+&nbsp;<br>
+If&nbsp;normed&nbsp;is&nbsp;true,&nbsp;the&nbsp;first&nbsp;element&nbsp;of&nbsp;the&nbsp;return&nbsp;tuple&nbsp;will&nbsp;be&nbsp;the<br>
+counts&nbsp;normalized&nbsp;to&nbsp;form&nbsp;a&nbsp;probability&nbsp;distribtion,&nbsp;ie,<br>
+n/(len(x)*dbin)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-hlines"><strong>hlines</strong></a>(self, y, xmin, xmax, fmt<font color="#909090">='k-'</font>)</dt><dd><tt>HLINES(y,&nbsp;xmin,&nbsp;xmax,&nbsp;fmt='k-')<br>
+&nbsp;<br>
+plot&nbsp;horizontal&nbsp;lines&nbsp;at&nbsp;each&nbsp;y&nbsp;from&nbsp;xmin&nbsp;to&nbsp;xmax.&nbsp;&nbsp;xmin&nbsp;or&nbsp;xmax&nbsp;can<br>
+be&nbsp;scalars&nbsp;or&nbsp;len(x)&nbsp;numpy&nbsp;arrays.&nbsp;&nbsp;If&nbsp;they&nbsp;are&nbsp;scalars,&nbsp;then&nbsp;the<br>
+respective&nbsp;values&nbsp;are&nbsp;constant,&nbsp;else&nbsp;the&nbsp;widths&nbsp;of&nbsp;the&nbsp;lines&nbsp;are<br>
+determined&nbsp;by&nbsp;xmin&nbsp;and&nbsp;xmax<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;line&nbsp;instances&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-hold"><strong>hold</strong></a>(self, b<font color="#909090">=None</font>)</dt><dd><tt>HOLD(b=None)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;hold&nbsp;state.&nbsp;&nbsp;If&nbsp;hold&nbsp;is&nbsp;None&nbsp;(default),&nbsp;toggle&nbsp;the<br>
+hold&nbsp;state.&nbsp;&nbsp;Else&nbsp;set&nbsp;the&nbsp;hold&nbsp;state&nbsp;to&nbsp;boolean&nbsp;value&nbsp;b.<br>
+&nbsp;<br>
+Eg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-hold">hold</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;toggle&nbsp;hold<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-hold">hold</a>(True)&nbsp;&nbsp;#&nbsp;hold&nbsp;is&nbsp;on<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-hold">hold</a>(False)&nbsp;#&nbsp;hold&nbsp;is&nbsp;off</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-imshow"><strong>imshow</strong></a>(self, X, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, aspect<font color="#909090">=None</font>, interpolation<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, origin<font color="#909090">=None</font>, extent<font color="#909090">=None</font>)</dt><dd><tt>IMSHOW(X,&nbsp;cmap=None,&nbsp;norm=None,&nbsp;aspect=None,&nbsp;interpolation=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha=1.0,&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;origin=None,&nbsp;extent=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale&nbsp;to&nbsp;axes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size&nbsp;(X&nbsp;may&nbsp;be&nbsp;numarray/Numeric&nbsp;array&nbsp;or&nbsp;PIL&nbsp;image)<br>
+&nbsp;<br>
+IMSHOW(X,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;image&nbsp;scaling,<br>
+colormapping&nbsp;etc.&nbsp;See&nbsp;below&nbsp;for&nbsp;details<br>
+&nbsp;<br>
+&nbsp;<br>
+Display&nbsp;the&nbsp;image&nbsp;in&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;may&nbsp;be&nbsp;a&nbsp;float&nbsp;array&nbsp;or&nbsp;a<br>
+PIL&nbsp;image.&nbsp;If&nbsp;X&nbsp;is&nbsp;a&nbsp;float&nbsp;array,&nbsp;X&nbsp;can&nbsp;have&nbsp;the&nbsp;following&nbsp;shapes<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MxN&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;luminance&nbsp;(grayscale)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MxNx3&nbsp;&nbsp;:&nbsp;RGB<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MxNx4&nbsp;&nbsp;:&nbsp;RGBA<br>
+&nbsp;<br>
+A&nbsp;matplotlib.image.AxesImage&nbsp;instance&nbsp;is&nbsp;returned<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image.cmap&nbsp;value&nbsp;(Ignored&nbsp;when&nbsp;X&nbsp;has&nbsp;RGB(A)&nbsp;information)<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;aspect&nbsp;is&nbsp;one&nbsp;of:&nbsp;free&nbsp;or&nbsp;preserve.&nbsp;&nbsp;if&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image.aspect&nbsp;value<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;interpolation&nbsp;is&nbsp;one&nbsp;of:&nbsp;bicubic&nbsp;bilinear&nbsp;blackman100&nbsp;blackman256<br>
+&nbsp;&nbsp;&nbsp;&nbsp;blackman64&nbsp;nearest&nbsp;sinc144&nbsp;sinc256&nbsp;sinc64&nbsp;spline16&nbsp;or&nbsp;spline36.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.interpolation<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.normalize&nbsp;instance;&nbsp;default&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1&nbsp;(Ignored&nbsp;when&nbsp;X&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PIL&nbsp;image).<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;to&nbsp;scale&nbsp;a&nbsp;luminance&nbsp;image&nbsp;to&nbsp;0-1.&nbsp;&nbsp;If<br>
+&nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;is&nbsp;None,&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;luminance&nbsp;values&nbsp;will&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm&nbsp;instance,&nbsp;the&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored.<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;alpha&nbsp;=&nbsp;1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;origin&nbsp;is&nbsp;either&nbsp;upper&nbsp;or&nbsp;lower,&nbsp;which&nbsp;indicates&nbsp;where&nbsp;the&nbsp;[0,0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axes.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.origin<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;extent&nbsp;is&nbsp;a&nbsp;data&nbsp;xmin,&nbsp;xmax,&nbsp;ymin,&nbsp;ymax&nbsp;for&nbsp;making&nbsp;image&nbsp;plots<br>
+&nbsp;&nbsp;&nbsp;&nbsp;registered&nbsp;with&nbsp;data&nbsp;plots.&nbsp;&nbsp;Default&nbsp;is&nbsp;the&nbsp;image&nbsp;dimensions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;pixels</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-in_axes"><strong>in_axes</strong></a>(self, xwin, ywin)</dt><dd><tt>return&nbsp;True&nbsp;is&nbsp;the&nbsp;point&nbsp;xwin,&nbsp;ywin&nbsp;(display&nbsp;coords)&nbsp;are&nbsp;in&nbsp;the&nbsp;<a href="#Axes">Axes</a></tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-legend"><strong>legend</strong></a>(self, *args, **kwargs)</dt><dd><tt>LEGEND(*args,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;current&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
+sequence&nbsp;of&nbsp;strings&nbsp;and&nbsp;loc&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;or&nbsp;an&nbsp;integer&nbsp;specifying<br>
+the&nbsp;legend&nbsp;location<br>
+&nbsp;<br>
+USAGE:&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;Make&nbsp;a&nbsp;legend&nbsp;with&nbsp;existing&nbsp;lines<br>
+&nbsp;<br>
+&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#PolarSubplot-legend">legend</a>()<br>
+&nbsp;<br>
+&nbsp;&nbsp;legend&nbsp;by&nbsp;itself&nbsp;will&nbsp;try&nbsp;and&nbsp;build&nbsp;a&nbsp;legend&nbsp;using&nbsp;the&nbsp;label<br>
+&nbsp;&nbsp;property&nbsp;of&nbsp;the&nbsp;lines.&nbsp;&nbsp;You&nbsp;can&nbsp;set&nbsp;the&nbsp;label&nbsp;of&nbsp;a&nbsp;line&nbsp;by&nbsp;doing<br>
+&nbsp;&nbsp;<a href="#PolarSubplot-plot">plot</a>(x,&nbsp;y,&nbsp;label='my&nbsp;data')&nbsp;or&nbsp;line.set_label('my&nbsp;data')<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;automatically&nbsp;generate&nbsp;the&nbsp;legend&nbsp;from&nbsp;labels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Make&nbsp;a&nbsp;legend&nbsp;for&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;and&nbsp;labels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-legend">legend</a>(&nbsp;(line1,&nbsp;line2,&nbsp;line3),&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Make&nbsp;a&nbsp;legend&nbsp;at&nbsp;a&nbsp;given&nbsp;location,&nbsp;using&nbsp;a&nbsp;location&nbsp;argument<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;<a href="#PolarSubplot-legend">legend</a>(&nbsp;LABELS,&nbsp;LOC&nbsp;)&nbsp;&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;<a href="#PolarSubplot-legend">legend</a>(&nbsp;LINES,&nbsp;LABELS,&nbsp;LOC&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),&nbsp;loc='upper&nbsp;left')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-legend">legend</a>(&nbsp;(line1,&nbsp;line2,&nbsp;line3),&nbsp;&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),&nbsp;loc=2)<br>
+&nbsp;<br>
+The&nbsp;location&nbsp;codes&nbsp;are<br>
+&nbsp;<br>
+&nbsp;&nbsp;'best'&nbsp;:&nbsp;0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(currently&nbsp;not&nbsp;supported,&nbsp;defaults&nbsp;to&nbsp;upper&nbsp;right)<br>
+&nbsp;&nbsp;'upper&nbsp;right'&nbsp;&nbsp;:&nbsp;1,&nbsp;&nbsp;(default)<br>
+&nbsp;&nbsp;'upper&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;2,<br>
+&nbsp;&nbsp;'lower&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;3,<br>
+&nbsp;&nbsp;'lower&nbsp;right'&nbsp;&nbsp;:&nbsp;4,<br>
+&nbsp;&nbsp;'right'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;5,<br>
+&nbsp;&nbsp;'center&nbsp;left'&nbsp;&nbsp;:&nbsp;6,<br>
+&nbsp;&nbsp;'center&nbsp;right'&nbsp;:&nbsp;7,<br>
+&nbsp;&nbsp;'lower&nbsp;center'&nbsp;:&nbsp;8,<br>
+&nbsp;&nbsp;'upper&nbsp;center'&nbsp;:&nbsp;9,<br>
+&nbsp;&nbsp;'center'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
+&nbsp;<br>
+If&nbsp;none&nbsp;of&nbsp;these&nbsp;are&nbsp;suitable,&nbsp;loc&nbsp;can&nbsp;be&nbsp;a&nbsp;2-tuple&nbsp;giving&nbsp;x,y<br>
+in&nbsp;axes&nbsp;coords,&nbsp;ie,<br>
+&nbsp;<br>
+&nbsp;&nbsp;loc&nbsp;=&nbsp;0,&nbsp;1&nbsp;is&nbsp;left&nbsp;top<br>
+&nbsp;&nbsp;loc&nbsp;=&nbsp;0.5,&nbsp;0.5&nbsp;is&nbsp;center,&nbsp;center<br>
+&nbsp;<br>
+and&nbsp;so&nbsp;on</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>LOGLOG(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
+to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
+more&nbsp;info.<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs<br>
+supported&nbsp;by&nbsp;plot&nbsp;or&nbsp;set_xscale&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for<br>
+log&nbsp;scaling:<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;x&nbsp;logarithm<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;y&nbsp;logarithm<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;yticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basey)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-panx"><strong>panx</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;the&nbsp;x&nbsp;axis&nbsp;numsteps&nbsp;(plus&nbsp;pan&nbsp;right,&nbsp;minus&nbsp;pan&nbsp;left)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-pany"><strong>pany</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;the&nbsp;x&nbsp;axis&nbsp;numsteps&nbsp;(plus&nbsp;pan&nbsp;up,&nbsp;minus&nbsp;pan&nbsp;down)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-pcolor"><strong>pcolor</strong></a>(self, *args, **kwargs)</dt><dd><tt>PCOLOR(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Function&nbsp;signatures<br>
+&nbsp;<br>
+&nbsp;&nbsp;PCOLOR(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
+&nbsp;<br>
+&nbsp;&nbsp;PCOLOR(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y<br>
+&nbsp;<br>
+&nbsp;&nbsp;PCOLOR(C,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keywork&nbsp;args&nbsp;to&nbsp;control&nbsp;colormapping&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scaling;&nbsp;see&nbsp;below<br>
+&nbsp;<br>
+Optional&nbsp;keywork&nbsp;args&nbsp;are&nbsp;shown&nbsp;with&nbsp;their&nbsp;defaults&nbsp;below&nbsp;(you&nbsp;must<br>
+use&nbsp;kwargs&nbsp;for&nbsp;these):<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;cm.jet&nbsp;:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;cm.jet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;=&nbsp;normalize()&nbsp;:&nbsp;matplotlib.colors.normalize&nbsp;is&nbsp;used&nbsp;to&nbsp;scale<br>
+&nbsp;&nbsp;&nbsp;&nbsp;luminance&nbsp;data&nbsp;to&nbsp;0,1.<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;vmin=None&nbsp;and&nbsp;vmax=None&nbsp;:&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;in&nbsp;conjunction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;norm&nbsp;to&nbsp;normalize&nbsp;luminance&nbsp;data.&nbsp;&nbsp;If&nbsp;either&nbsp;are&nbsp;None,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;color&nbsp;array&nbsp;C&nbsp;is&nbsp;used.&nbsp;&nbsp;If&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;will&nbsp;be&nbsp;None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;shading&nbsp;=&nbsp;'flat'&nbsp;:&nbsp;or&nbsp;'faceted'.&nbsp;&nbsp;If&nbsp;'faceted',&nbsp;a&nbsp;black&nbsp;grid&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;drawn&nbsp;around&nbsp;each&nbsp;rectangle;&nbsp;if&nbsp;'flat',&nbsp;edge&nbsp;colors&nbsp;are&nbsp;same&nbsp;as<br>
+&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;colors<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;alpha=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
+&nbsp;&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;matplotlib.collections.PatchCollection<br>
+object<br>
+&nbsp;<br>
+Grid&nbsp;Orientation<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;happy&nbsp;with<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(transpose(Z))<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-pcolor_classic"><strong>pcolor_classic</strong></a>(self, *args, **kwargs)</dt><dd><tt>PCOLOR_CLASSIC(self,&nbsp;*args,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Function&nbsp;signatures<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(C,&nbsp;cmap=cm.jet)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C&nbsp;using<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rectangle&nbsp;patches&nbsp;using&nbsp;a&nbsp;colormap&nbsp;jet.&nbsp;&nbsp;Colormaps&nbsp;are&nbsp;avalible<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;matplotlib.cm.&nbsp;&nbsp;You&nbsp;must&nbsp;pass&nbsp;this&nbsp;as&nbsp;a&nbsp;kwarg.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(C,&nbsp;norm=normalize())&nbsp;-&nbsp;the&nbsp;normalization&nbsp;function&nbsp;used<br>
+`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;scale&nbsp;your&nbsp;color&nbsp;data&nbsp;to&nbsp;0-1.&nbsp;&nbsp;must&nbsp;be&nbsp;passed&nbsp;as&nbsp;a&nbsp;kwarg.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(C,&nbsp;alpha=0.5)&nbsp;-&nbsp;set&nbsp;the&nbsp;alpha&nbsp;of&nbsp;the&nbsp;pseudocolor&nbsp;plot.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Must&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;kwarg<br>
+&nbsp;<br>
+Shading:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;optional&nbsp;keyword&nbsp;arg&nbsp;shading&nbsp;('flat'&nbsp;or&nbsp;'faceted')&nbsp;will<br>
+&nbsp;&nbsp;&nbsp;&nbsp;determine&nbsp;whether&nbsp;a&nbsp;black&nbsp;grid&nbsp;is&nbsp;drawn&nbsp;around&nbsp;each&nbsp;pcolor&nbsp;square.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;'faceteted'&nbsp;e.g.,&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(C,&nbsp;shading='flat')&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(X,&nbsp;Y,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;C,&nbsp;shading='faceted')<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects.<br>
+&nbsp;<br>
+Grid&nbsp;orientation<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;happy&nbsp;with<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-pcolor">pcolor</a>(transpose(Z))<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-plot"><strong>plot</strong></a>(self, *args, **kwargs)</dt><dd><tt>PLOT(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Plot&nbsp;lines&nbsp;and/or&nbsp;markers&nbsp;to&nbsp;the&nbsp;<a href="#Axes">Axes</a>.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
+argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional&nbsp;format<br>
+string.&nbsp;&nbsp;For&nbsp;example,&nbsp;each&nbsp;of&nbsp;the&nbsp;following&nbsp;is&nbsp;legal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;x&nbsp;and&nbsp;y&nbsp;using&nbsp;the&nbsp;default&nbsp;line&nbsp;style&nbsp;and&nbsp;color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;x&nbsp;and&nbsp;y&nbsp;using&nbsp;blue&nbsp;circle&nbsp;markers<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;as&nbsp;index&nbsp;array&nbsp;0..N-1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto,&nbsp;but&nbsp;with&nbsp;red&nbsp;plusses<br>
+&nbsp;<br>
+An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a.<a href="#PolarSubplot-plot">plot</a>(x1,&nbsp;y1,&nbsp;'g^',&nbsp;x2,&nbsp;y2,&nbsp;'g-')&nbsp;&nbsp;<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added.<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;line&nbsp;styles&nbsp;are&nbsp;supported:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;solid&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;dashed&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-.&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;dash-dot&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;dotted&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;points<br>
+&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;pixels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;circle&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;up&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;down&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;left&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;right&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;square&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;plus&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;cross&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;diamond&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;thin&nbsp;diamond&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;down&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;up&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;left&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;right&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;hexagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;rotated&nbsp;hexagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;pentagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;vertical&nbsp;line&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;horizontal&nbsp;line&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;steps&nbsp;:&nbsp;use&nbsp;gnuplot&nbsp;style&nbsp;'steps'&nbsp;#&nbsp;kwarg&nbsp;only<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;color&nbsp;strings&nbsp;are&nbsp;supported<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;&nbsp;:&nbsp;blue<br>
+&nbsp;&nbsp;&nbsp;&nbsp;g&nbsp;&nbsp;:&nbsp;green<br>
+&nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;&nbsp;:&nbsp;red<br>
+&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;&nbsp;:&nbsp;cyan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;&nbsp;:&nbsp;magenta<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;&nbsp;:&nbsp;yellow<br>
+&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;&nbsp;:&nbsp;black&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;w&nbsp;&nbsp;:&nbsp;white<br>
+&nbsp;<br>
+Line&nbsp;styles&nbsp;and&nbsp;colors&nbsp;are&nbsp;combined&nbsp;in&nbsp;a&nbsp;single&nbsp;format&nbsp;string,&nbsp;as&nbsp;in<br>
+'bo'&nbsp;for&nbsp;blue&nbsp;circles.<br>
+&nbsp;<br>
+The&nbsp;**kwargs&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;set&nbsp;line&nbsp;properties&nbsp;(any&nbsp;property&nbsp;that&nbsp;has<br>
+a&nbsp;set_*&nbsp;method).&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;to&nbsp;set&nbsp;a&nbsp;line&nbsp;label&nbsp;(for&nbsp;auto<br>
+legends),&nbsp;linewidth,&nbsp;anitialising,&nbsp;marker&nbsp;face&nbsp;color,&nbsp;etc.&nbsp;&nbsp;Here&nbsp;is&nbsp;an<br>
+example:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-plot">plot</a>([1,2,3],&nbsp;[1,2,3],&nbsp;'go-',&nbsp;label='line&nbsp;1',&nbsp;linewidth=2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-plot">plot</a>([1,2,3],&nbsp;[1,4,9],&nbsp;'rs',&nbsp;&nbsp;label='line&nbsp;2')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axis([0,&nbsp;4,&nbsp;0,&nbsp;10])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-legend">legend</a>()<br>
+&nbsp;<br>
+If&nbsp;you&nbsp;make&nbsp;multiple&nbsp;lines&nbsp;with&nbsp;one&nbsp;plot&nbsp;command,&nbsp;the&nbsp;kwargs&nbsp;apply<br>
+to&nbsp;all&nbsp;those&nbsp;lines,&nbsp;eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-plot">plot</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;antialising=False)<br>
+&nbsp;<br>
+Neither&nbsp;line&nbsp;will&nbsp;be&nbsp;antialiased.</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-plot_date"><strong>plot_date</strong></a>(self, d, y, fmt<font color="#909090">='bo'</font>, tz<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>PLOT_DATE(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;tz=None,&nbsp;**kwargs)<br>
+&nbsp;<br>
+d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates&nbsp;represented&nbsp;as&nbsp;float&nbsp;days&nbsp;since<br>
+0001-01-01&nbsp;UTC&nbsp;and&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is<br>
+a&nbsp;plot&nbsp;format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot<br>
+for&nbsp;more&nbsp;information.<br>
+&nbsp;<br>
+See&nbsp;matplotlib.dates&nbsp;for&nbsp;helper&nbsp;functions&nbsp;date2num,&nbsp;num2date<br>
+and&nbsp;drange&nbsp;for&nbsp;help&nbsp;on&nbsp;creating&nbsp;the&nbsp;required&nbsp;floating&nbsp;point&nbsp;dates<br>
+&nbsp;<br>
+tz&nbsp;is&nbsp;the&nbsp;timezone&nbsp;-&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>PSD(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.&nbsp;&nbsp;The<br>
+vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment&nbsp;is<br>
+detrended&nbsp;by&nbsp;function&nbsp;detrend&nbsp;and&nbsp;windowed&nbsp;by&nbsp;function&nbsp;window.<br>
+noperlap&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;overlap&nbsp;between&nbsp;segments.&nbsp;&nbsp;The<br>
+absolute(fft(segment))**2&nbsp;of&nbsp;each&nbsp;segment&nbsp;are&nbsp;averaged&nbsp;to&nbsp;compute&nbsp;Pxx,<br>
+with&nbsp;a&nbsp;scaling&nbsp;to&nbsp;correct&nbsp;for&nbsp;power&nbsp;loss&nbsp;due&nbsp;to&nbsp;windowing.&nbsp;&nbsp;Fs&nbsp;is&nbsp;the<br>
+sampling&nbsp;frequency.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NFFT&nbsp;is&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;fft&nbsp;segment;&nbsp;must&nbsp;be&nbsp;a&nbsp;power&nbsp;of&nbsp;2<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fs&nbsp;is&nbsp;the&nbsp;sampling&nbsp;frequency.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;detrend&nbsp;-&nbsp;the&nbsp;function&nbsp;applied&nbsp;to&nbsp;each&nbsp;segment&nbsp;before&nbsp;fft-ing,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;designed&nbsp;to&nbsp;remove&nbsp;the&nbsp;mean&nbsp;or&nbsp;linear&nbsp;trend.&nbsp;&nbsp;Unlike&nbsp;in&nbsp;matlab,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;the&nbsp;detrend&nbsp;parameter&nbsp;is&nbsp;a&nbsp;vector,&nbsp;in&nbsp;matplotlib&nbsp;is&nbsp;it&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function.&nbsp;&nbsp;The&nbsp;mlab&nbsp;module&nbsp;defines&nbsp;detrend_none,&nbsp;detrend_mean,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detrend_linear,&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;custom&nbsp;function&nbsp;as&nbsp;well.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window&nbsp;-&nbsp;the&nbsp;function&nbsp;used&nbsp;to&nbsp;window&nbsp;the&nbsp;segments.&nbsp;&nbsp;window&nbsp;is&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function,&nbsp;unlike&nbsp;in&nbsp;matlab&nbsp;where&nbsp;it&nbsp;is&nbsp;a&nbsp;vector.&nbsp;&nbsp;mlab&nbsp;defines<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window_none,&nbsp;window_hanning,&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;custom&nbsp;function<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;well.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;noverlap&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;overlap&nbsp;between&nbsp;segments.<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Pxx,&nbsp;freqs<br>
+&nbsp;<br>
+For&nbsp;plotting,&nbsp;the&nbsp;power&nbsp;is&nbsp;plotted&nbsp;as&nbsp;10*log10(pxx))&nbsp;for&nbsp;decibels,<br>
+though&nbsp;pxx&nbsp;itself&nbsp;is&nbsp;returned<br>
+&nbsp;<br>
+Refs:<br>
+&nbsp;<br>
+&nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
+&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=20</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>SCATTER(x,&nbsp;y,&nbsp;s=20,&nbsp;c='b',&nbsp;marker='o',&nbsp;cmap=None,&nbsp;norm=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;alpha=1.0)<br>
+&nbsp;<br>
+Supported&nbsp;function&nbsp;signatures:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s&nbsp;and&nbsp;colors&nbsp;given&nbsp;by&nbsp;c<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c,&nbsp;**kwargs)&nbsp;-&nbsp;control&nbsp;colormapping&nbsp;and&nbsp;scaling<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;keyword&nbsp;args;&nbsp;see&nbsp;below<br>
+&nbsp;<br>
+Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a&nbsp;scalar<br>
+or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a<br>
+single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array&nbsp;of&nbsp;intensities&nbsp;which<br>
+will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;matplotlib.colors.colormap&nbsp;instance&nbsp;cmap<br>
+&nbsp;<br>
+The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'s'&nbsp;:&nbsp;square<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'o'&nbsp;:&nbsp;circle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'^'&nbsp;:&nbsp;triangle&nbsp;up<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&gt;'&nbsp;:&nbsp;triangle&nbsp;right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'v'&nbsp;:&nbsp;triangle&nbsp;down<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&lt;'&nbsp;:&nbsp;triangle&nbsp;left<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'d'&nbsp;:&nbsp;diamond<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'p'&nbsp;:&nbsp;pentagram<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;:&nbsp;hexagon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'8'&nbsp;:&nbsp;octagon<br>
+&nbsp;<br>
+s&nbsp;is&nbsp;a&nbsp;size&nbsp;argument&nbsp;in&nbsp;points&nbsp;squared.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Other&nbsp;keyword&nbsp;args;&nbsp;the&nbsp;color&nbsp;mapping&nbsp;and&nbsp;normalization&nbsp;arguments&nbsp;will<br>
+on&nbsp;be&nbsp;used&nbsp;if&nbsp;c&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;floats<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;cm.jet&nbsp;:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;image.cmap<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;=&nbsp;normalize()&nbsp;:&nbsp;matplotlib.colors.normalize&nbsp;is&nbsp;used&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scale&nbsp;luminance&nbsp;data&nbsp;to&nbsp;0,1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;vmin=None&nbsp;and&nbsp;vmax=None&nbsp;:&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;in&nbsp;conjunction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;norm&nbsp;to&nbsp;normalize&nbsp;luminance&nbsp;data.&nbsp;&nbsp;If&nbsp;either&nbsp;are&nbsp;None,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;color&nbsp;array&nbsp;C&nbsp;is&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;your&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;alpha&nbsp;=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;value&nbsp;for&nbsp;the&nbsp;patches</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-scatter_classic"><strong>scatter_classic</strong></a>(self, x, y, s<font color="#909090">=None</font>, c<font color="#909090">='b'</font>)</dt><dd><tt>SCATTER_CLASSIC(x,&nbsp;y,&nbsp;s=None,&nbsp;c='b')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data&nbsp;coords)&nbsp;and<br>
+can&nbsp;be&nbsp;either&nbsp;a&nbsp;scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is<br>
+a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array<br>
+of&nbsp;intensities&nbsp;which&nbsp;will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;colormap&nbsp;jet.<br>
+&nbsp;<br>
+If&nbsp;size&nbsp;is&nbsp;None&nbsp;a&nbsp;default&nbsp;size&nbsp;will&nbsp;be&nbsp;used</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-semilogx"><strong>semilogx</strong></a>(self, *args, **kwargs)</dt><dd><tt>SEMILOGX(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;x&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
+semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for&nbsp;more<br>
+info.<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs&nbsp;supported&nbsp;by<br>
+plot&nbsp;or&nbsp;set_xscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basex)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-semilogy"><strong>semilogy</strong></a>(self, *args, **kwargs)</dt><dd><tt>SEMILOGY(*args,&nbsp;**kwargs):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
+semilogy&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for&nbsp;more<br>
+info.<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs&nbsp;supported&nbsp;by<br>
+plot&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basey)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_axis_bgcolor"><strong>set_axis_bgcolor</strong></a>(self, color)</dt><dd><tt>set&nbsp;the&nbsp;axes&nbsp;bacground&nbsp;color</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_axis_off"><strong>set_axis_off</strong></a>(self)</dt><dd><tt>turn&nbsp;off&nbsp;the&nbsp;axis</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_axis_on"><strong>set_axis_on</strong></a>(self)</dt><dd><tt>turn&nbsp;on&nbsp;the&nbsp;axis</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_frame_on"><strong>set_frame_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;the&nbsp;axes&nbsp;rectangle&nbsp;patch&nbsp;is&nbsp;drawn&nbsp;with&nbsp;boolean&nbsp;b</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_image_extent"><strong>set_image_extent</strong></a>(self, xmin, xmax, ymin, ymax)</dt><dd><tt>Set&nbsp;the&nbsp;data&nbsp;units&nbsp;of&nbsp;the&nbsp;image.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+plot&nbsp;other&nbsp;things&nbsp;over&nbsp;the&nbsp;image,&nbsp;eg,&nbsp;lines&nbsp;or&nbsp;scatter</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_position"><strong>set_position</strong></a>(self, pos)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;position&nbsp;with&nbsp;pos&nbsp;=&nbsp;[left,&nbsp;bottom,&nbsp;width,&nbsp;height]<br>
+in&nbsp;relative&nbsp;0,1&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_title"><strong>set_title</strong></a>(self, label, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_TITLE(label,&nbsp;fontdict=None,&nbsp;**kwargs):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;title&nbsp;for&nbsp;the&nbsp;xaxis.&nbsp;&nbsp;See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information<br>
+of&nbsp;how&nbsp;override&nbsp;and&nbsp;the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_xlim"><strong>set_xlim</strong></a>(self, v, emit<font color="#909090">=True</font>)</dt><dd><tt>SET_XLIM(v,&nbsp;emit=True)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[xmin,&nbsp;xmax]<br>
+&nbsp;<br>
+If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do&nbsp;not&nbsp;trigger&nbsp;an&nbsp;event</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_xscale"><strong>set_xscale</strong></a>(self, value, basex<font color="#909090">=10</font>, subsx<font color="#909090">=None</font>)</dt><dd><tt>SET_XSCALE(value,&nbsp;basex=10,&nbsp;subsx=None)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;xscaling:&nbsp;'log'&nbsp;or&nbsp;'linear'<br>
+&nbsp;<br>
+If&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have&nbsp;the&nbsp;following&nbsp;meaning<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_xticklabels"><strong>set_xticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_XTICKLABELS(labels,&nbsp;fontdict=None,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;axis<br>
+text&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_xticks"><strong>set_xticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_ylim"><strong>set_ylim</strong></a>(self, v, emit<font color="#909090">=True</font>)</dt><dd><tt>SET_YLIM(v,&nbsp;emit=True)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[ymin,&nbsp;ymax].&nbsp;&nbsp;If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do<br>
+not&nbsp;trigger&nbsp;an&nbsp;event.</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_yscale"><strong>set_yscale</strong></a>(self, value, basey<font color="#909090">=10</font>, subsy<font color="#909090">=None</font>)</dt><dd><tt>SET_YSCALE(value,&nbsp;basey=10,&nbsp;subsy=None)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;yscaling:&nbsp;'log'&nbsp;or&nbsp;'linear'<br>
+&nbsp;<br>
+If&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have&nbsp;the&nbsp;following&nbsp;meaning<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;are&nbsp;the&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basex)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_yticklabels"><strong>set_yticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_YTICKLABELS(labels,&nbsp;fontdict=None,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of<br>
+Text&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-specgram"><strong>specgram</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>, xextent<font color="#909090">=None</font>)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=128,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmap=None,&nbsp;xextent=None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Compute&nbsp;a&nbsp;spectrogram&nbsp;of&nbsp;data&nbsp;in&nbsp;x.&nbsp;&nbsp;Data&nbsp;are&nbsp;split&nbsp;into&nbsp;NFFT&nbsp;length<br>
+segements&nbsp;and&nbsp;the&nbsp;PSD&nbsp;of&nbsp;each&nbsp;section&nbsp;is&nbsp;computed.&nbsp;&nbsp;The&nbsp;windowing<br>
+function&nbsp;window&nbsp;is&nbsp;applied&nbsp;to&nbsp;each&nbsp;segment,&nbsp;and&nbsp;the&nbsp;amount&nbsp;of&nbsp;overlap<br>
+of&nbsp;each&nbsp;segment&nbsp;is&nbsp;specified&nbsp;with&nbsp;noverlap.&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;colormap;&nbsp;if&nbsp;None&nbsp;use&nbsp;default&nbsp;determined&nbsp;by&nbsp;rc<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;xextent&nbsp;is&nbsp;the&nbsp;image&nbsp;extent&nbsp;in&nbsp;the&nbsp;xaxes&nbsp;xextent=xmin,&nbsp;xmax&nbsp;-<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;0,&nbsp;max(bins),&nbsp;0,&nbsp;max(freqs)&nbsp;where&nbsp;bins&nbsp;is&nbsp;the&nbsp;return<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;from&nbsp;matplotlib.mlab.specgram<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;See&nbsp;help(psd)&nbsp;for&nbsp;information&nbsp;on&nbsp;the&nbsp;other&nbsp;keyword&nbsp;arguments.<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;(Pxx,&nbsp;freqs,&nbsp;bins,&nbsp;im),&nbsp;where<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bins&nbsp;are&nbsp;the&nbsp;time&nbsp;points&nbsp;the&nbsp;spectrogram&nbsp;is&nbsp;calculated&nbsp;over<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;freqs&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;frequencies<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Pxx&nbsp;is&nbsp;a&nbsp;len(times)&nbsp;x&nbsp;len(freqs)&nbsp;array&nbsp;of&nbsp;power<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;im&nbsp;is&nbsp;a&nbsp;matplotlib.image.AxesImage.</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-stem"><strong>stem</strong></a>(self, x, y, linefmt<font color="#909090">='b-'</font>, markerfmt<font color="#909090">='bo'</font>, basefmt<font color="#909090">='r-'</font>)</dt><dd><tt>STEM(x,&nbsp;y,&nbsp;linefmt='b-',&nbsp;markerfmt='bo',&nbsp;basefmt='r-')<br>
+&nbsp;<br>
+A&nbsp;stem&nbsp;plot&nbsp;plots&nbsp;vertical&nbsp;lines&nbsp;(using&nbsp;linefmt)&nbsp;at&nbsp;each&nbsp;x&nbsp;location<br>
+from&nbsp;the&nbsp;baseline&nbsp;to&nbsp;y,&nbsp;and&nbsp;places&nbsp;a&nbsp;marker&nbsp;there&nbsp;using&nbsp;markerfmt.&nbsp;&nbsp;A<br>
+horizontal&nbsp;line&nbsp;at&nbsp;0&nbsp;is&nbsp;is&nbsp;plotted&nbsp;using&nbsp;basefmt<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;(markerline,&nbsp;stemlines,&nbsp;baseline)&nbsp;.<br>
+&nbsp;<br>
+See<br>
+<a href="http://www.mathworks.com/access/helpdesk/help/techdoc/ref/stem.html">http://www.mathworks.com/access/helpdesk/help/techdoc/ref/stem.html</a><br>
+for&nbsp;details&nbsp;and&nbsp;examples/stem_plot.py&nbsp;for&nbsp;a&nbsp;demo.</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-table"><strong>table</strong></a>(self, cellText<font color="#909090">=None</font>, cellColours<font color="#909090">=None</font>, cellLoc<font color="#909090">='right'</font>, colWidths<font color="#909090">=None</font>, rowLabels<font color="#909090">=None</font>, rowColours<font color="#909090">=None</font>, rowLoc<font color="#909090">='left'</font>, colLabels<font color="#909090">=None</font>, colColours<font color="#909090">=None</font>, colLoc<font color="#909090">='center'</font>, loc<font color="#909090">='bottom'</font>, bbox<font color="#909090">=None</font>)</dt><dd><tt>TABLE(cellText=None,&nbsp;cellColours=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cellLoc='right',&nbsp;colWidths=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rowLabels=None,&nbsp;rowColours=None,&nbsp;rowLoc='left',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colLabels=None,&nbsp;colColours=None,&nbsp;colLoc='center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loc='bottom',&nbsp;bbox=None):<br>
+&nbsp;<br>
+Add&nbsp;a&nbsp;table&nbsp;to&nbsp;the&nbsp;current&nbsp;axes.&nbsp;&nbsp;Returns&nbsp;a&nbsp;table&nbsp;instance.&nbsp;&nbsp;For<br>
+finer&nbsp;grained&nbsp;control&nbsp;over&nbsp;tables,&nbsp;use&nbsp;the&nbsp;Table&nbsp;class&nbsp;and&nbsp;add&nbsp;it<br>
+to&nbsp;the&nbsp;axes&nbsp;with&nbsp;add_table.<br>
+&nbsp;<br>
+Thanks&nbsp;to&nbsp;John&nbsp;Gill&nbsp;for&nbsp;providing&nbsp;the&nbsp;class&nbsp;and&nbsp;table.</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-text"><strong>text</strong></a>(self, x, y, s, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>TEXT(x,&nbsp;y,&nbsp;s,&nbsp;fontdict=None,&nbsp;**kwargs)<br>
+&nbsp;<br>
+Add&nbsp;text&nbsp;in&nbsp;string&nbsp;s&nbsp;to&nbsp;axis&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(data&nbsp;coords)<br>
+&nbsp;<br>
+&nbsp;&nbsp;fontdict&nbsp;is&nbsp;a&nbsp;dictionary&nbsp;to&nbsp;override&nbsp;the&nbsp;default&nbsp;text&nbsp;properties.<br>
+&nbsp;&nbsp;If&nbsp;fontdict&nbsp;is&nbsp;None,&nbsp;the&nbsp;defaults&nbsp;are&nbsp;determined&nbsp;by&nbsp;your&nbsp;rc<br>
+&nbsp;&nbsp;parameters.<br>
+&nbsp;<br>
+Individual&nbsp;keyword&nbsp;arguemnts&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;override&nbsp;any&nbsp;given<br>
+parameter<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-text">text</a>(x,&nbsp;y,&nbsp;s,&nbsp;fontsize=12)<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;transform&nbsp;specifies&nbsp;that&nbsp;text&nbsp;is&nbsp;in&nbsp;data&nbsp;coords,<br>
+alternatively,&nbsp;you&nbsp;can&nbsp;specify&nbsp;text&nbsp;in&nbsp;axis&nbsp;coords&nbsp;(0,0&nbsp;lower&nbsp;left&nbsp;and<br>
+1,1&nbsp;upper&nbsp;right).&nbsp;&nbsp;The&nbsp;example&nbsp;below&nbsp;places&nbsp;text&nbsp;in&nbsp;the&nbsp;center&nbsp;of&nbsp;the<br>
+axes<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PolarSubplot-text">text</a>(0.5,&nbsp;0.5,'matplotlib',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;horizontalalignment='center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verticalalignment='center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform&nbsp;=&nbsp;ax.transAxes,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-update_datalim"><strong>update_datalim</strong></a>(self, xys)</dt><dd><tt>Update&nbsp;the&nbsp;data&nbsp;lim&nbsp;bbox&nbsp;with&nbsp;seq&nbsp;of&nbsp;xy&nbsp;tups</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-vlines"><strong>vlines</strong></a>(self, x, ymin, ymax, color<font color="#909090">='k'</font>)</dt><dd><tt>VLINES(x,&nbsp;ymin,&nbsp;ymax,&nbsp;color='k')<br>
+&nbsp;<br>
+Plot&nbsp;vertical&nbsp;lines&nbsp;at&nbsp;each&nbsp;x&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;ymin&nbsp;or&nbsp;ymax&nbsp;can&nbsp;be<br>
+scalars&nbsp;or&nbsp;len(x)&nbsp;numpy&nbsp;arrays.&nbsp;&nbsp;If&nbsp;they&nbsp;are&nbsp;scalars,&nbsp;then&nbsp;the<br>
+respective&nbsp;values&nbsp;are&nbsp;constant,&nbsp;else&nbsp;the&nbsp;heights&nbsp;of&nbsp;the&nbsp;lines&nbsp;are<br>
+determined&nbsp;by&nbsp;ymin&nbsp;and&nbsp;ymax<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-zoomx"><strong>zoomx</strong></a>(self, numsteps)</dt><dd><tt>Zoom&nbsp;in&nbsp;on&nbsp;the&nbsp;x&nbsp;xaxis&nbsp;numsteps&nbsp;(plus&nbsp;for&nbsp;zoom&nbsp;in,&nbsp;minus&nbsp;for&nbsp;zoom&nbsp;out)</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-zoomy"><strong>zoomy</strong></a>(self, numsteps)</dt><dd><tt>Zoom&nbsp;in&nbsp;on&nbsp;the&nbsp;x&nbsp;xaxis&nbsp;numsteps&nbsp;(plus&nbsp;for&nbsp;zoom&nbsp;in,&nbsp;minus&nbsp;for&nbsp;zoom&nbsp;out)</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="PolarSubplot-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PolarSubplot-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Subplot">class <strong>Subplot</strong></a>(<a href="matplotlib.axes.html#SubplotBase">SubplotBase</a>, <a href="matplotlib.axes.html#Axes">Axes</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>Emulate&nbsp;matlab's&nbsp;subplot&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
@@ -1092,6 +3245,7 @@ in<br>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="matplotlib.axes.html#Subplot">Subplot</a></dd>
+<dd><a href="matplotlib.axes.html#SubplotBase">SubplotBase</a></dd>
 <dd><a href="matplotlib.axes.html#Axes">Axes</a></dd>
 <dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
 </dl>
@@ -1099,6 +3253,8 @@ in<br>
 Methods defined here:<br>
 <dl><dt><a name="Subplot-__init__"><strong>__init__</strong></a>(self, fig, *args, **kwargs)</dt></dl>
 
+<hr>
+Methods inherited from <a href="matplotlib.axes.html#SubplotBase">SubplotBase</a>:<br>
 <dl><dt><a name="Subplot-is_first_col"><strong>is_first_col</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Subplot-is_first_row"><strong>is_first_row</strong></a>(self)</dt></dl>
@@ -1327,8 +3483,8 @@ Refs:<br>
 
 <dl><dt><a name="Subplot-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt><dd><tt>Draw&nbsp;everything&nbsp;(plot&nbsp;lines,&nbsp;axes,&nbsp;labels)</tt></dd></dl>
 
-<dl><dt><a name="Subplot-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>ERRORBAR(x,&nbsp;y,&nbsp;yerr=None,&nbsp;xerr=None,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmt='b-',&nbsp;ecolor=None,&nbsp;capsize=3)<br>
+<dl><dt><a name="Subplot-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>, barsabove<font color="#909090">=False</font>, **kwargs)</dt><dd><tt>ERRORBAR(x,&nbsp;y,&nbsp;yerr=None,&nbsp;xerr=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmt='b-',&nbsp;ecolor=None,&nbsp;capsize=3,&nbsp;barsabove=False)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
 Vertical&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;yerr&nbsp;is&nbsp;not&nbsp;None<br>
@@ -1354,6 +3510,11 @@ plots&nbsp;a&nbsp;single&nbsp;error&nbsp;bar&nbsp;at&nbsp;x,&nbsp;y.<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps&nbsp;in&nbsp;points<br>
 &nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;barsabove,&nbsp;if&nbsp;True,&nbsp;will&nbsp;plot&nbsp;the&nbsp;errorbars&nbsp;above&nbsp;the&nbsp;plot&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;default&nbsp;is&nbsp;below<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;the&nbsp;plot&nbsp;command&nbsp;for&nbsp;the&nbsp;markers<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&nbsp;first&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
 y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.</tt></dd></dl>
 
@@ -1378,6 +3539,8 @@ format&nbsp;string.<br>
 The&nbsp;kwargs&nbsp;that&nbsp;are&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;set&nbsp;line&nbsp;properties&nbsp;(any<br>
 property&nbsp;that&nbsp;has&nbsp;a&nbsp;set_*&nbsp;method).&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;to&nbsp;set&nbsp;edge<br>
 color,&nbsp;face&nbsp;color,&nbsp;etc.</tt></dd></dl>
+
+<dl><dt><a name="Subplot-format_coord"><strong>format_coord</strong></a>(self, x, y)</dt><dd><tt>return&nbsp;a&nbsp;format&nbsp;string&nbsp;formatting&nbsp;the&nbsp;x,&nbsp;y&nbsp;coord</tt></dd></dl>
 
 <dl><dt><a name="Subplot-format_xdata"><strong>format_xdata</strong></a>(self, x)</dt><dd><tt>Return&nbsp;x&nbsp;string&nbsp;formatted.&nbsp;&nbsp;This&nbsp;function&nbsp;will&nbsp;use&nbsp;the&nbsp;attribute<br>
 self.<strong>fmt_xdata</strong>&nbsp;if&nbsp;it&nbsp;is&nbsp;callable,&nbsp;else&nbsp;will&nbsp;fall&nbsp;back&nbsp;on&nbsp;the&nbsp;xaxis<br>
@@ -1466,13 +3629,15 @@ Eg<br>
 <dl><dt><a name="Subplot-imshow"><strong>imshow</strong></a>(self, X, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, aspect<font color="#909090">=None</font>, interpolation<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, origin<font color="#909090">=None</font>, extent<font color="#909090">=None</font>)</dt><dd><tt>IMSHOW(X,&nbsp;cmap=None,&nbsp;norm=None,&nbsp;aspect=None,&nbsp;interpolation=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha=1.0,&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;origin=None,&nbsp;extent=None)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;axes&nbsp;size<br>
+IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale&nbsp;to&nbsp;axes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size&nbsp;(X&nbsp;may&nbsp;be&nbsp;numarray/Numeric&nbsp;array&nbsp;or&nbsp;PIL&nbsp;image)<br>
 &nbsp;<br>
 IMSHOW(X,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;image&nbsp;scaling,<br>
 colormapping&nbsp;etc.&nbsp;See&nbsp;below&nbsp;for&nbsp;details<br>
 &nbsp;<br>
-Display&nbsp;the&nbsp;image&nbsp;in&nbsp;float&nbsp;array&nbsp;X;&nbsp;X&nbsp;can&nbsp;have&nbsp;the&nbsp;following&nbsp;shapes<br>
+&nbsp;<br>
+Display&nbsp;the&nbsp;image&nbsp;in&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;may&nbsp;be&nbsp;a&nbsp;float&nbsp;array&nbsp;or&nbsp;a<br>
+PIL&nbsp;image.&nbsp;If&nbsp;X&nbsp;is&nbsp;a&nbsp;float&nbsp;array,&nbsp;X&nbsp;can&nbsp;have&nbsp;the&nbsp;following&nbsp;shapes<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;MxN&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;luminance&nbsp;(grayscale)<br>
 &nbsp;<br>
@@ -1485,7 +3650,7 @@ A&nbsp;matplotlib.image.AxesImage&nbsp;instance&nbsp;is&nbsp;returned<br>
 The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
-&nbsp;&nbsp;&nbsp;&nbsp;image.cmap&nbsp;value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image.cmap&nbsp;value&nbsp;(Ignored&nbsp;when&nbsp;X&nbsp;has&nbsp;RGB(A)&nbsp;information)<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;aspect&nbsp;is&nbsp;one&nbsp;of:&nbsp;free&nbsp;or&nbsp;preserve.&nbsp;&nbsp;if&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
 &nbsp;&nbsp;&nbsp;&nbsp;image.aspect&nbsp;value<br>
@@ -1495,7 +3660,8 @@ The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.interpolation<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.normalize&nbsp;instance;&nbsp;default&nbsp;is<br>
-&nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1&nbsp;(Ignored&nbsp;when&nbsp;X&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PIL&nbsp;image).<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;to&nbsp;scale&nbsp;a&nbsp;luminance&nbsp;image&nbsp;to&nbsp;0-1.&nbsp;&nbsp;If<br>
 &nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;is&nbsp;None,&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;luminance&nbsp;values&nbsp;will&nbsp;be<br>
@@ -2121,6 +4287,36 @@ their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
 
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SubplotBase">class <strong>SubplotBase</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Emulate&nbsp;matlab's&nbsp;subplot&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#Subplot">Subplot</a>(numRows,&nbsp;numCols,&nbsp;plotNum)<br>
+&nbsp;<br>
+where&nbsp;plotNum=1&nbsp;is&nbsp;the&nbsp;first&nbsp;plot&nbsp;number&nbsp;and&nbsp;increasing&nbsp;plotNums<br>
+fill&nbsp;rows&nbsp;first.&nbsp;&nbsp;max(plotNum)==numRows*numCols<br>
+&nbsp;<br>
+You&nbsp;can&nbsp;leave&nbsp;out&nbsp;the&nbsp;commas&nbsp;if&nbsp;numRows&lt;=numCols&lt;=plotNum&lt;10,&nbsp;as<br>
+in<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#Subplot">Subplot</a>(211)&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;2&nbsp;rows,&nbsp;1&nbsp;column,&nbsp;first&nbsp;(upper)&nbsp;plot<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="SubplotBase-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="SubplotBase-is_first_col"><strong>is_first_col</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SubplotBase-is_first_row"><strong>is_first_row</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SubplotBase-is_last_col"><strong>is_last_col</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SubplotBase-is_last_row"><strong>is_last_row</strong></a>(self)</dt></dl>
+
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -2131,6 +4327,9 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <td width="100%"><dl><dt><a name="-Affine"><strong>Affine</strong></a>(...)</dt><dd><tt><a href="#-Affine">Affine</a>(a,b,c,d,tx,ty)</tt></dd></dl>
  <dl><dt><a name="-Bbox"><strong>Bbox</strong></a>(...)</dt><dd><tt><a href="#-Bbox">Bbox</a>(ll,&nbsp;ur)</tt></dd></dl>
  <dl><dt><a name="-Func"><strong>Func</strong></a>(...)</dt><dd><tt><a href="#-Func">Func</a>(typecode)</tt></dd></dl>
+ <dl><dt><a name="-FuncXY"><strong>FuncXY</strong></a>(...)</dt><dd><tt><a href="#-FuncXY">FuncXY</a>(funcx,&nbsp;funcy)</tt></dd></dl>
+ <dl><dt><a name="-Interval"><strong>Interval</strong></a>(...)</dt><dd><tt><a href="#-Interval">Interval</a>(val1,&nbsp;val2)</tt></dd></dl>
+ <dl><dt><a name="-NonseparableTransformation"><strong>NonseparableTransformation</strong></a>(...)</dt><dd><tt><a href="#-NonseparableTransformation">NonseparableTransformation</a>(box1,&nbsp;box2,&nbsp;funcxy))</tt></dd></dl>
  <dl><dt><a name="-Point"><strong>Point</strong></a>(...)</dt><dd><tt><a href="#-Point">Point</a>(x,&nbsp;y)</tt></dd></dl>
  <dl><dt><a name="-Value"><strong>Value</strong></a>(...)</dt><dd><tt><a href="#-Value">Value</a>(x)</tt></dd></dl>
  <dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
@@ -2149,6 +4348,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>Float</strong> = 'd'<br>
 <strong>IDENTITY</strong> = 0<br>
 <strong>LOG10</strong> = 1<br>
+<strong>POLAR</strong> = 0<br>
 <strong>SEC_PER_DAY</strong> = 86400<br>
 <strong>SEC_PER_HOUR</strong> = 3600<br>
 <strong>SEC_PER_MIN</strong> = 60<br>

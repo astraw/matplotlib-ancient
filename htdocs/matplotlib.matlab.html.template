@@ -48,6 +48,7 @@ _Plotting&nbsp;commands<br>
 &nbsp;&nbsp;imshow&nbsp;&nbsp;&nbsp;-&nbsp;plot&nbsp;image&nbsp;data<br>
 &nbsp;&nbsp;pcolor&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot<br>
 &nbsp;&nbsp;plot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;line&nbsp;plot<br>
+&nbsp;&nbsp;polar&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;polar&nbsp;plot&nbsp;on&nbsp;a&nbsp;PolarAxes<br>
 &nbsp;&nbsp;psd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;power&nbsp;spectral&nbsp;density<br>
 &nbsp;&nbsp;rc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;control&nbsp;the&nbsp;default&nbsp;params<br>
 &nbsp;&nbsp;savefig&nbsp;&nbsp;-&nbsp;save&nbsp;the&nbsp;current&nbsp;figure<br>
@@ -350,7 +351,7 @@ edgecolor&nbsp;-&nbsp;the&nbsp;border&nbsp;color;&nbsp;defaults&nbsp;to&nbsp;rc&
 &nbsp;<br>
 rcParams&nbsp;gives&nbsp;the&nbsp;default&nbsp;values&nbsp;from&nbsp;the&nbsp;.matplotlibrc&nbsp;file</tt></dd></dl>
  <dl><dt><a name="-fromstring"><strong>fromstring</strong></a>(...)</dt><dd><tt><a href="#-fromstring">fromstring</a>(string,&nbsp;typecode='l',&nbsp;count=-1)&nbsp;returns&nbsp;a&nbsp;new&nbsp;1d&nbsp;array&nbsp;initialized&nbsp;from&nbsp;the&nbsp;raw&nbsp;binary&nbsp;data&nbsp;in&nbsp;string.&nbsp;&nbsp;If&nbsp;count&nbsp;is&nbsp;positive,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;have&nbsp;count&nbsp;elements,&nbsp;otherwise&nbsp;it's&nbsp;size&nbsp;is&nbsp;determined&nbsp;by&nbsp;the&nbsp;size&nbsp;of&nbsp;string.</tt></dd></dl>
- <dl><dt><a name="-gca"><strong>gca</strong></a>()</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axis&nbsp;instance.&nbsp;&nbsp;This&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;control<br>
+ <dl><dt><a name="-gca"><strong>gca</strong></a>(**kwargs)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axis&nbsp;instance.&nbsp;&nbsp;This&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;control<br>
 axis&nbsp;properties&nbsp;either&nbsp;using&nbsp;set&nbsp;or&nbsp;the&nbsp;Axes&nbsp;methods.<br>
 &nbsp;<br>
 Example:<br>
@@ -391,13 +392,15 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;MxNx4&nbsp;array&nbsp;of&nbsp;0-1&nbsp;nor
  <dl><dt><a name="-imshow"><strong>imshow</strong></a>(*args, **kwargs)</dt><dd><tt>IMSHOW(X,&nbsp;cmap=None,&nbsp;norm=None,&nbsp;aspect=None,&nbsp;interpolation=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha=1.0,&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;origin=None,&nbsp;extent=None)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;axes&nbsp;size<br>
+IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale&nbsp;to&nbsp;axes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size&nbsp;(X&nbsp;may&nbsp;be&nbsp;numarray/Numeric&nbsp;array&nbsp;or&nbsp;PIL&nbsp;image)<br>
 &nbsp;<br>
 IMSHOW(X,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;image&nbsp;scaling,<br>
 colormapping&nbsp;etc.&nbsp;See&nbsp;below&nbsp;for&nbsp;details<br>
 &nbsp;<br>
-Display&nbsp;the&nbsp;image&nbsp;in&nbsp;float&nbsp;array&nbsp;X;&nbsp;X&nbsp;can&nbsp;have&nbsp;the&nbsp;following&nbsp;shapes<br>
+&nbsp;<br>
+Display&nbsp;the&nbsp;image&nbsp;in&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;may&nbsp;be&nbsp;a&nbsp;float&nbsp;array&nbsp;or&nbsp;a<br>
+PIL&nbsp;image.&nbsp;If&nbsp;X&nbsp;is&nbsp;a&nbsp;float&nbsp;array,&nbsp;X&nbsp;can&nbsp;have&nbsp;the&nbsp;following&nbsp;shapes<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;MxN&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;luminance&nbsp;(grayscale)<br>
 &nbsp;<br>
@@ -410,7 +413,7 @@ A&nbsp;matplotlib.image.AxesImage&nbsp;instance&nbsp;is&nbsp;returned<br>
 The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
-&nbsp;&nbsp;&nbsp;&nbsp;image.cmap&nbsp;value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image.cmap&nbsp;value&nbsp;(Ignored&nbsp;when&nbsp;X&nbsp;has&nbsp;RGB(A)&nbsp;information)<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;aspect&nbsp;is&nbsp;one&nbsp;of:&nbsp;free&nbsp;or&nbsp;preserve.&nbsp;&nbsp;if&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
 &nbsp;&nbsp;&nbsp;&nbsp;image.aspect&nbsp;value<br>
@@ -420,7 +423,8 @@ The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.interpolation<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.normalize&nbsp;instance;&nbsp;default&nbsp;is<br>
-&nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1.&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1&nbsp;(Ignored&nbsp;when&nbsp;X&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PIL&nbsp;image).<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;to&nbsp;scale&nbsp;a&nbsp;luminance&nbsp;image&nbsp;to&nbsp;0-1.&nbsp;&nbsp;If<br>
 &nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;is&nbsp;None,&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;luminance&nbsp;values&nbsp;will&nbsp;be<br>
@@ -577,6 +581,10 @@ text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;some&nbsp;text&nbsp;at&nbsp;lo
 title&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;title&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
 xlabel&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;an&nbsp;xlabel&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
 ylabel&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;ylabel&nbsp;to&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+ <dl><dt><a name="-polar"><strong>polar</strong></a>(*args, **kwargs)</dt><dd><tt>POLAR(theta,&nbsp;r)<br>
+&nbsp;<br>
+Make&nbsp;a&nbsp;polar&nbsp;plot.&nbsp;&nbsp;Multiple&nbsp;theta,&nbsp;r&nbsp;arguments&nbsp;are&nbsp;supported,<br>
+with&nbsp;format&nbsp;strings,&nbsp;as&nbsp;in&nbsp;plot.</tt></dd></dl>
  <dl><dt><a name="-raise_msg_to_str"><strong>raise_msg_to_str</strong></a>(msg)</dt><dd><tt>msg&nbsp;is&nbsp;a&nbsp;return&nbsp;arg&nbsp;from&nbsp;a&nbsp;raise.&nbsp;&nbsp;Join&nbsp;with&nbsp;new&nbsp;lines</tt></dd></dl>
  <dl><dt><a name="-rc"><strong>rc</strong></a>(*args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;rc&nbsp;params.&nbsp;&nbsp;Group&nbsp;is&nbsp;the&nbsp;grouping&nbsp;for&nbsp;the&nbsp;rc,&nbsp;eg<br>
 for&nbsp;lines.linewidth&nbsp;the&nbsp;group&nbsp;is&nbsp;'lines',&nbsp;for&nbsp;axes.facecolor,&nbsp;the<br>
@@ -749,7 +757,10 @@ locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-xticks">xticks</a>()&nbsp;&nbsp;&nbsp;&
 <a href="#-xticks">xticks</a>(&nbsp;<a href="#-arange">arange</a>(6)&nbsp;)<br>
 &nbsp;<br>
 #&nbsp;set&nbsp;the&nbsp;locations&nbsp;and&nbsp;labels&nbsp;of&nbsp;the&nbsp;xticks<br>
-<a href="#-xticks">xticks</a>(&nbsp;<a href="#-arange">arange</a>(5),&nbsp;('Tom',&nbsp;'Dick',&nbsp;'Harry',&nbsp;'Sally',&nbsp;'Sue')&nbsp;)</tt></dd></dl>
+<a href="#-xticks">xticks</a>(&nbsp;<a href="#-arange">arange</a>(5),&nbsp;('Tom',&nbsp;'Dick',&nbsp;'Harry',&nbsp;'Sally',&nbsp;'Sue')&nbsp;)<br>
+&nbsp;<br>
+The&nbsp;keyword&nbsp;args,&nbsp;if&nbsp;any,&nbsp;are&nbsp;text&nbsp;properties;&nbsp;see&nbsp;text&nbsp;for&nbsp;more<br>
+information&nbsp;on&nbsp;text&nbsp;properties.</tt></dd></dl>
  <dl><dt><a name="-ylabel"><strong>ylabel</strong></a>(s, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;axis&nbsp;label&nbsp;of&nbsp;the&nbsp;current&nbsp;axis&nbsp;to&nbsp;s<br>
 &nbsp;<br>
 Defaults&nbsp;override&nbsp;is<br>
@@ -777,7 +788,10 @@ locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-yticks">yticks</a>()&nbsp;&nbsp;&nbsp;&
 <a href="#-yticks">yticks</a>(&nbsp;<a href="#-arange">arange</a>(6)&nbsp;)<br>
 &nbsp;<br>
 #&nbsp;set&nbsp;the&nbsp;locations&nbsp;and&nbsp;labels&nbsp;of&nbsp;the&nbsp;yticks<br>
-<a href="#-yticks">yticks</a>(&nbsp;<a href="#-arange">arange</a>(5),&nbsp;('Tom',&nbsp;'Dick',&nbsp;'Harry',&nbsp;'Sally',&nbsp;'Sue')&nbsp;)</tt></dd></dl>
+<a href="#-yticks">yticks</a>(&nbsp;<a href="#-arange">arange</a>(5),&nbsp;('Tom',&nbsp;'Dick',&nbsp;'Harry',&nbsp;'Sally',&nbsp;'Sue')&nbsp;)<br>
+&nbsp;<br>
+The&nbsp;keyword&nbsp;args,&nbsp;if&nbsp;any,&nbsp;are&nbsp;text&nbsp;properties;&nbsp;see&nbsp;text&nbsp;for&nbsp;more<br>
+information&nbsp;on&nbsp;text&nbsp;properties.</tt></dd></dl>
  <dl><dt><a name="-zeros"><strong>zeros</strong></a>(...)</dt><dd><tt><a href="#-zeros">zeros</a>((d1,...,dn),typecode='l',savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;of&nbsp;shape&nbsp;(d1,...,dn)&nbsp;and&nbsp;type&nbsp;typecode&nbsp;with&nbsp;all&nbsp;it's&nbsp;entries&nbsp;initialized&nbsp;to&nbsp;zero.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero&nbsp;the&nbsp;array&nbsp;will&nbsp;be&nbsp;a&nbsp;spacesaver&nbsp;array.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -848,7 +862,6 @@ locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-yticks">yticks</a>()&nbsp;&nbsp;&nbsp;&
 <strong>WEEKDAYS</strong> = (MO, TU, WE, TH, FR, SA, SU)<br>
 <strong>WEEKLY</strong> = 2<br>
 <strong>YEARLY</strong> = 0<br>
-<strong>a</strong> = 'matplotlib.matlab'<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>add</strong> = &lt;ufunc 'add'&gt;<br>
 <strong>arccos</strong> = &lt;ufunc 'arccos'&gt;<br>
@@ -915,6 +928,6 @@ locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-yticks">yticks</a>()&nbsp;&nbsp;&nbsp;&
 <strong>true_divide</strong> = &lt;ufunc 'true_divide'&gt;<br>
 <strong>typecodes</strong> = {'Character': 'c', 'Complex': 'FD', 'Float': 'fd', 'Integer': '1sil', 'UnsignedInteger': 'bwu'}<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;<br>
-<strong>version</strong> = 'Numeric 23.5'<br>
+<strong>version</strong> = 'Numeric 23.1'<br>
 <strong>which</strong> = ('numeric', 'rc')</td></tr></table>
 @footer@

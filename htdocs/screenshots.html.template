@@ -18,6 +18,8 @@ or probabilities""", 1),
 command takes error bars as an optional argument.  You can also use up
 and down bars, stacked bars, 'candlestick' bars, etc, ... See <a
 href=examples/bar_stacked.py>bar_stacked.py</a> for another example.
+You can make horizontal bar charts with the <a
+href=matplotlib.matlab.html#-barh>barh</a> command.
 """, 1),
 
 ('table_demo', """The <a href=matplotlib.matlab.html#-table>table</a>
@@ -68,7 +70,7 @@ on the xaxis and a base 4 log on the y.  Thanks to Andrew Straw,
 Darren Dale and Gregory Lielens for contributions to the log scaling
 infrastructure.""", 1),
 
-('polar_demo, """The <a href=matplotlib.matlab.html#-polar>polar</a>
+('polar_demo', """The <a href=matplotlib.matlab.html#-polar>polar</a> 
 command generates polar plots.""", 1),
 
 ('legend_demo', """The <a

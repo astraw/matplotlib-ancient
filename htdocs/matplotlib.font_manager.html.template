@@ -189,7 +189,7 @@ Examples:<br>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="FontProperties-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="FontProperties-__init__"><strong>__init__</strong></a>(self, family<font color="#909090">=None</font>, style<font color="#909090">=None</font>, variant<font color="#909090">=None</font>, weight<font color="#909090">=None</font>, stretch<font color="#909090">=None</font>, size<font color="#909090">=None</font>)</dt></dl>
+<dl><dt><a name="FontProperties-__init__"><strong>__init__</strong></a>(self, family<font color="#909090">=None</font>, style<font color="#909090">=None</font>, variant<font color="#909090">=None</font>, weight<font color="#909090">=None</font>, stretch<font color="#909090">=None</font>, size<font color="#909090">=None</font>, fname<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="FontProperties-__str__"><strong>__str__</strong></a>(self)</dt></dl>
 

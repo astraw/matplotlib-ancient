@@ -834,6 +834,10 @@ which&nbsp;gives&nbsp;number&nbsp;of&nbsp;days&nbsp;(fraction&nbsp;part&nbsp;rep
 minutes,&nbsp;seconds)&nbsp;since&nbsp;0001-01-01&nbsp;00:00:00&nbsp;UTC</tt></dd></dl>
  <dl><dt><a name="-drange"><strong>drange</strong></a>(dstart, dend, delta)</dt><dd><tt>Return&nbsp;a&nbsp;date&nbsp;range&nbsp;as&nbsp;float&nbsp;gregorian&nbsp;ordinals.&nbsp;&nbsp;dstart&nbsp;and&nbsp;dend<br>
 are&nbsp;datetime&nbsp;instances.&nbsp;&nbsp;delta&nbsp;is&nbsp;a&nbsp;datetime.timedelta&nbsp;instance</tt></dd></dl>
+ <dl><dt><a name="-epoch2num"><strong>epoch2num</strong></a>(e)</dt><dd><tt>convert&nbsp;an&nbsp;epoch&nbsp;or&nbsp;sequence&nbsp;of&nbsp;epochs&nbsp;to&nbsp;the&nbsp;new&nbsp;date&nbsp;format,<br>
+days&nbsp;since&nbsp;0001</tt></dd></dl>
+ <dl><dt><a name="-mx2num"><strong>mx2num</strong></a>(m)</dt><dd><tt>Convert&nbsp;mx&nbsp;datetime&nbsp;instance&nbsp;(or&nbsp;sequence&nbsp;of&nbsp;mx&nbsp;instances)&nbsp;to&nbsp;the<br>
+new&nbsp;date&nbsp;format,</tt></dd></dl>
  <dl><dt><a name="-num2date"><strong>num2date</strong></a>(x, tz<font color="#909090">=None</font>)</dt><dd><tt>x&nbsp;is&nbsp;a&nbsp;float&nbsp;value&nbsp;which&nbsp;gives&nbsp;number&nbsp;of&nbsp;days&nbsp;(fraction&nbsp;part<br>
 represents&nbsp;hours,&nbsp;minutes,&nbsp;seconds)&nbsp;since&nbsp;0001-01-01&nbsp;00:00:00&nbsp;UTC<br>
 &nbsp;<br>
@@ -841,6 +845,7 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;datetime&nbsp;instance&nbsp;in&nbsp;timezo
 rcparams&nbsp;TZ&nbsp;value)<br>
 &nbsp;<br>
 if&nbsp;x&nbsp;is&nbsp;a&nbsp;sequence,&nbsp;a&nbsp;sequence&nbsp;of&nbsp;datetimes&nbsp;will&nbsp;be&nbsp;returned</tt></dd></dl>
+ <dl><dt><a name="-num2epoch"><strong>num2epoch</strong></a>(d)</dt><dd><tt>convert&nbsp;days&nbsp;since&nbsp;0001&nbsp;to&nbsp;epoch.&nbsp;&nbsp;d&nbsp;can&nbsp;be&nbsp;a&nbsp;number&nbsp;or&nbsp;sequence</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">

@@ -187,7 +187,7 @@ script&nbsp;that&nbsp;shows&nbsp;that&nbsp;this&nbsp;cohere_pairs&nbsp;and&nbsp;
 results&nbsp;for&nbsp;a&nbsp;given&nbsp;pair.</tt></dd></dl>
  <dl><dt><a name="-conv"><strong>conv</strong></a>(x, y, mode<font color="#909090">=2</font>)</dt><dd><tt>convolve&nbsp;x&nbsp;with&nbsp;y</tt></dd></dl>
  <dl><dt><a name="-corrcoef"><strong>corrcoef</strong></a>(*args)</dt><dd><tt><a href="#-corrcoef">corrcoef</a>(X)&nbsp;where&nbsp;X&nbsp;is&nbsp;a&nbsp;matrix&nbsp;returns&nbsp;a&nbsp;matrix&nbsp;of&nbsp;correlation<br>
-coefficients&nbsp;for&nbsp;each&nbsp;row&nbsp;of&nbsp;X.<br>
+coefficients&nbsp;for&nbsp;each&nbsp;numrows&nbsp;observations&nbsp;and&nbsp;numcols&nbsp;variables.<br>
 &nbsp;<br>
 <a href="#-corrcoef">corrcoef</a>(x,y)&nbsp;where&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;vectors&nbsp;returns&nbsp;the&nbsp;matrix&nbsp;or<br>
 correlation&nbsp;coefficients&nbsp;for&nbsp;x&nbsp;and&nbsp;y.<br>
@@ -196,7 +196,7 @@ Numeric&nbsp;arrays&nbsp;can&nbsp;be&nbsp;real&nbsp;or&nbsp;complex<br>
 &nbsp;<br>
 The&nbsp;correlation&nbsp;matrix&nbsp;is&nbsp;defined&nbsp;from&nbsp;the&nbsp;covariance&nbsp;matrix&nbsp;C&nbsp;as<br>
 &nbsp;<br>
-r(i,j)&nbsp;=&nbsp;C[i,j]&nbsp;/&nbsp;(C[i,i]*C[j,j])</tt></dd></dl>
+r(i,j)&nbsp;=&nbsp;C[i,j]&nbsp;/&nbsp;sqrt(C[i,i]*C[j,j])</tt></dd></dl>
  <dl><dt><a name="-cross_correlate"><strong>cross_correlate</strong></a>(...)</dt><dd><tt><a href="#-cross_correlate">cross_correlate</a>(a,v,&nbsp;mode=0)</tt></dd></dl>
  <dl><dt><a name="-csd"><strong>csd</strong></a>(x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram<br>
 method.&nbsp;&nbsp;The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length<br>
@@ -546,7 +546,6 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
 <strong>UnsignedInt32</strong> = 'u'<br>
 <strong>UnsignedInt8</strong> = 'b'<br>
 <strong>UnsignedInteger</strong> = 'u'<br>
-<strong>a</strong> = 'matplotlib.mlab'<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>add</strong> = &lt;ufunc 'add'&gt;<br>
 <strong>arccos</strong> = &lt;ufunc 'arccos'&gt;<br>
@@ -611,6 +610,6 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
 <strong>true_divide</strong> = &lt;ufunc 'true_divide'&gt;<br>
 <strong>typecodes</strong> = {'Character': 'c', 'Complex': 'FD', 'Float': 'fd', 'Integer': '1sil', 'UnsignedInteger': 'bwu'}<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;<br>
-<strong>version</strong> = 'Numeric 23.5'<br>
+<strong>version</strong> = 'Numeric 23.1'<br>
 <strong>which</strong> = ('numeric', 'rc')</td></tr></table>
 @footer@

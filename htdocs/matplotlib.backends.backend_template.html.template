@@ -113,10 +113,12 @@ Public&nbsp;attribute<br>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="FigureCanvasTemplate-draw"><strong>draw</strong></a>(self)</dt><dd><tt>Draw&nbsp;the&nbsp;figure&nbsp;using&nbsp;the&nbsp;renderer</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasTemplate-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy.&nbsp;&nbsp;Set&nbsp;the&nbsp;figure&nbsp;patch&nbsp;face&nbsp;and<br>
-edge&nbsp;colors.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;because&nbsp;some&nbsp;of&nbsp;the&nbsp;GUIs&nbsp;have&nbsp;a<br>
-gray&nbsp;figure&nbsp;face&nbsp;color&nbsp;background&nbsp;and&nbsp;you'll&nbsp;probably&nbsp;want&nbsp;to<br>
-override&nbsp;this&nbsp;on&nbsp;hardcopy</tt></dd></dl>
+<dl><dt><a name="FigureCanvasTemplate-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy.&nbsp;Set&nbsp;the&nbsp;figure&nbsp;patch&nbsp;face&nbsp;and&nbsp;edge<br>
+colors.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;because&nbsp;some&nbsp;of&nbsp;the&nbsp;GUIs&nbsp;have&nbsp;a&nbsp;gray&nbsp;figure<br>
+face&nbsp;color&nbsp;background&nbsp;and&nbsp;you'll&nbsp;probably&nbsp;want&nbsp;to&nbsp;override&nbsp;this&nbsp;on<br>
+hardcopy.<br>
+&nbsp;<br>
+orientation&nbsp;-&nbsp;only&nbsp;currently&nbsp;applies&nbsp;to&nbsp;PostScript&nbsp;printing.</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasTemplate-realize"><strong>realize</strong></a>(self, *args)</dt><dd><tt>This&nbsp;method&nbsp;will&nbsp;be&nbsp;called&nbsp;when&nbsp;the&nbsp;system&nbsp;is&nbsp;ready&nbsp;to&nbsp;draw,<br>
 eg&nbsp;when&nbsp;a&nbsp;GUI&nbsp;window&nbsp;is&nbsp;realized</tt></dd></dl>
@@ -180,7 +182,7 @@ For&nbsp;non&nbsp;interactive&nbsp;backends,&nbsp;the&nbsp;base&nbsp;class&nbsp;
 
 <dl><dt><a name="FigureManagerTemplate-destroy"><strong>destroy</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="FigureManagerTemplate-get_current_axis"><strong>get_current_axis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+<dl><dt><a name="FigureManagerTemplate-get_current_axis"><strong>get_current_axis</strong></a>(self, **kwargs)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
 
 <dl><dt><a name="FigureManagerTemplate-set_current_axes"><strong>set_current_axes</strong></a>(self, a)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;axes&nbsp;to&nbsp;be&nbsp;a</tt></dd></dl>
 
@@ -206,7 +208,7 @@ For&nbsp;non&nbsp;interactive&nbsp;backends,&nbsp;the&nbsp;base&nbsp;class&nbsp;
 
 <dl><dt><a name="FigureManagerTemplate-destroy"><strong>destroy</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="FigureManagerTemplate-get_current_axis"><strong>get_current_axis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+<dl><dt><a name="FigureManagerTemplate-get_current_axis"><strong>get_current_axis</strong></a>(self, **kwargs)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
 
 <dl><dt><a name="FigureManagerTemplate-set_current_axes"><strong>set_current_axes</strong></a>(self, a)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;axes&nbsp;to&nbsp;be&nbsp;a</tt></dd></dl>
 
@@ -217,24 +219,23 @@ For&nbsp;non&nbsp;interactive&nbsp;backends,&nbsp;the&nbsp;base&nbsp;class&nbsp;
 <font color="#000000" face="helvetica, arial"><a name="GraphicsContextTemplate">class <strong>GraphicsContextTemplate</strong></a>(<a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>The&nbsp;graphics&nbsp;context&nbsp;provides&nbsp;the&nbsp;color,&nbsp;line&nbsp;styles,&nbsp;etc...&nbsp;&nbsp;See<br>
-the&nbsp;gtk&nbsp;and&nbsp;postscript&nbsp;backends&nbsp;for&nbsp;examples&nbsp;of&nbsp;mapping&nbsp;the<br>
-graphics&nbsp;context&nbsp;attributes&nbsp;(cap&nbsp;styles,&nbsp;join&nbsp;styles,&nbsp;line&nbsp;widths,<br>
-colors)&nbsp;to&nbsp;a&nbsp;particular&nbsp;backend.&nbsp;&nbsp;In&nbsp;GTK&nbsp;this&nbsp;is&nbsp;done&nbsp;by&nbsp;wrapping<br>
-a&nbsp;gtk.gdk.GC&nbsp;object&nbsp;and&nbsp;forwarding&nbsp;the&nbsp;appropriate&nbsp;calls&nbsp;to&nbsp;it<br>
-using&nbsp;a&nbsp;dictionary&nbsp;mapping&nbsp;styles&nbsp;to&nbsp;gdk&nbsp;constants.&nbsp;&nbsp;In<br>
-Postscript,&nbsp;all&nbsp;the&nbsp;work&nbsp;is&nbsp;done&nbsp;by&nbsp;the&nbsp;renderer,&nbsp;mapping&nbsp;line<br>
-styles&nbsp;to&nbsp;postscript&nbsp;calls.<br>
+<td colspan=2><tt>The&nbsp;graphics&nbsp;context&nbsp;provides&nbsp;the&nbsp;color,&nbsp;line&nbsp;styles,&nbsp;etc...&nbsp;&nbsp;See&nbsp;the&nbsp;gtk<br>
+and&nbsp;postscript&nbsp;backends&nbsp;for&nbsp;examples&nbsp;of&nbsp;mapping&nbsp;the&nbsp;graphics&nbsp;context<br>
+attributes&nbsp;(cap&nbsp;styles,&nbsp;join&nbsp;styles,&nbsp;line&nbsp;widths,&nbsp;colors)&nbsp;to&nbsp;a&nbsp;particular<br>
+backend.&nbsp;&nbsp;In&nbsp;GTK&nbsp;this&nbsp;is&nbsp;done&nbsp;by&nbsp;wrapping&nbsp;a&nbsp;gtk.gdk.GC&nbsp;object&nbsp;and<br>
+forwarding&nbsp;the&nbsp;appropriate&nbsp;calls&nbsp;to&nbsp;it&nbsp;using&nbsp;a&nbsp;dictionary&nbsp;mapping&nbsp;styles<br>
+to&nbsp;gdk&nbsp;constants.&nbsp;&nbsp;In&nbsp;Postscript,&nbsp;all&nbsp;the&nbsp;work&nbsp;is&nbsp;done&nbsp;by&nbsp;the&nbsp;renderer,<br>
+mapping&nbsp;line&nbsp;styles&nbsp;to&nbsp;postscript&nbsp;calls.<br>
+&nbsp;<br>
+If&nbsp;it's&nbsp;more&nbsp;appropriate&nbsp;to&nbsp;do&nbsp;the&nbsp;mapping&nbsp;at&nbsp;the&nbsp;renderer&nbsp;level&nbsp;(as&nbsp;in<br>
+the&nbsp;postscript&nbsp;backend),&nbsp;you&nbsp;don't&nbsp;need&nbsp;to&nbsp;override&nbsp;any&nbsp;of&nbsp;the&nbsp;GC&nbsp;methods.<br>
+If&nbsp;it's&nbsp;more&nbsp;appropriate&nbsp;to&nbsp;wrap&nbsp;an&nbsp;instance&nbsp;(as&nbsp;in&nbsp;the&nbsp;GTK&nbsp;backend)&nbsp;and<br>
+do&nbsp;the&nbsp;mapping&nbsp;here,&nbsp;you'll&nbsp;need&nbsp;to&nbsp;override&nbsp;several&nbsp;of&nbsp;the&nbsp;setter<br>
+methods.<br>
 &nbsp;<br>
 The&nbsp;base&nbsp;GraphicsContext&nbsp;stores&nbsp;colors&nbsp;as&nbsp;a&nbsp;RGB&nbsp;tuple&nbsp;on&nbsp;the&nbsp;unit<br>
-interval,&nbsp;eg,&nbsp;(0.5,&nbsp;0.0,&nbsp;1.0).&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;need&nbsp;to&nbsp;map&nbsp;this<br>
-to&nbsp;colors&nbsp;appropriate&nbsp;for&nbsp;your&nbsp;backend.&nbsp;&nbsp;Eg,&nbsp;see&nbsp;the&nbsp;ColorManager<br>
-class&nbsp;for&nbsp;the&nbsp;GTK&nbsp;backend.&nbsp;&nbsp;If&nbsp;it's&nbsp;more&nbsp;appropriate&nbsp;to&nbsp;do&nbsp;the<br>
-mapping&nbsp;at&nbsp;the&nbsp;renderer&nbsp;level&nbsp;(as&nbsp;in&nbsp;the&nbsp;postscript&nbsp;backend),&nbsp;you<br>
-don't&nbsp;need&nbsp;to&nbsp;override&nbsp;any&nbsp;of&nbsp;the&nbsp;GC&nbsp;methods.&nbsp;&nbsp;If&nbsp;it's&nbsp;more<br>
-approritate&nbsp;to&nbsp;wrap&nbsp;an&nbsp;instance&nbsp;(as&nbsp;in&nbsp;the&nbsp;GTK&nbsp;backend)&nbsp;and&nbsp;do&nbsp;the<br>
-mapping&nbsp;here,&nbsp;you'll&nbsp;need&nbsp;to&nbsp;override&nbsp;several&nbsp;of&nbsp;the&nbsp;setter<br>
-methods.<br>&nbsp;</tt></td></tr>
+interval,&nbsp;eg,&nbsp;(0.5,&nbsp;0.0,&nbsp;1.0).&nbsp;You&nbsp;may&nbsp;need&nbsp;to&nbsp;map&nbsp;this&nbsp;to&nbsp;colors<br>
+appropriate&nbsp;for&nbsp;your&nbsp;backend.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods inherited from <a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>:<br>
 <dl><dt><a name="GraphicsContextTemplate-__init__"><strong>__init__</strong></a>(self)</dt></dl>
@@ -244,7 +245,7 @@ methods.<br>&nbsp;</tt></td></tr>
 <dl><dt><a name="GraphicsContextTemplate-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="GraphicsContextTemplate-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;the&nbsp;object&nbsp;shuold&nbsp;try&nbsp;to&nbsp;do&nbsp;antialiased&nbsp;rendering</tt></dd></dl>
+<dl><dt><a name="GraphicsContextTemplate-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;the&nbsp;object&nbsp;should&nbsp;try&nbsp;to&nbsp;do&nbsp;antialiased&nbsp;rendering</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextTemplate-get_capstyle"><strong>get_capstyle</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;capstyle&nbsp;as&nbsp;a&nbsp;string&nbsp;in&nbsp;('butt',&nbsp;'round',&nbsp;'projecting')</tt></dd></dl>
 
@@ -279,7 +280,7 @@ all&nbsp;backends</tt></dd></dl>
 (usually&nbsp;0).&nbsp;&nbsp;Dash&nbsp;list&nbsp;specifies&nbsp;the&nbsp;on-off&nbsp;sequence&nbsp;as<br>
 points</tt></dd></dl>
 
-<dl><dt><a name="GraphicsContextTemplate-set_foreground"><strong>set_foreground</strong></a>(self, fg, isRGB<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color.&nbsp;&nbsp;fg&nbsp;can&nbsp;be&nbsp;a&nbsp;matlab&nbsp;format&nbsp;string,&nbsp;a<br>
+<dl><dt><a name="GraphicsContextTemplate-set_foreground"><strong>set_foreground</strong></a>(self, fg, isRGB<font color="#909090">=False</font>)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color.&nbsp;&nbsp;fg&nbsp;can&nbsp;be&nbsp;a&nbsp;matlab&nbsp;format&nbsp;string,&nbsp;a<br>
 html&nbsp;hex&nbsp;color&nbsp;string,&nbsp;an&nbsp;rgb&nbsp;unit&nbsp;tuple,&nbsp;or&nbsp;a&nbsp;float&nbsp;between&nbsp;0<br>
 and&nbsp;1.&nbsp;&nbsp;In&nbsp;the&nbsp;latter&nbsp;case,&nbsp;grayscale&nbsp;is&nbsp;used.<br>
 &nbsp;<br>
@@ -310,7 +311,7 @@ context&nbsp;instance&nbsp;that&nbsp;controls&nbsp;the&nbsp;colors/styles<br>&nb
 <dl><dt><a name="RendererTemplate-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, rgbFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
 from&nbsp;0.0&nbsp;to&nbsp;360.0.<br>
 &nbsp;<br>
-If&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
+If&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;src&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="RendererTemplate-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin, bbox)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes;&nbsp;x&nbsp;is&nbsp;the<br>
@@ -337,26 +338,37 @@ giving&nbsp;the&nbsp;x,y&nbsp;coords&nbsp;a&nbsp;vertex.<br>
 If&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="RendererTemplate-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gcEdge, rgbFace, x, y, width, height)</dt><dd><tt>Draw&nbsp;a&nbsp;rectangle&nbsp;at&nbsp;lower&nbsp;left&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height.<br>
-&nbsp;<br>
-If&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
-is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="RendererTemplate-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gcEdge, rgbFace, x, y, width, height)</dt><dd><tt>Draw&nbsp;a&nbsp;non-filled&nbsp;rectangle&nbsp;at&nbsp;x,y&nbsp;(lower&nbsp;left)&nbsp;with&nbsp;width&nbsp;and&nbsp;height,<br>
+using&nbsp;the&nbsp;GraphicsContext&nbsp;gcEdge.<br>
+Draw&nbsp;a&nbsp;filled&nbsp;rectangle&nbsp;within&nbsp;it&nbsp;of&nbsp;color&nbsp;rgbFace,&nbsp;if&nbsp;rgbFace&nbsp;is&nbsp;not<br>
+None.</tt></dd></dl>
 
 <dl><dt><a name="RendererTemplate-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, s, prop, angle, ismath<font color="#909090">=False</font>)</dt><dd><tt>Render&nbsp;the&nbsp;matplotlib.text.Text&nbsp;instance&nbsp;at&nbsp;x,&nbsp;y&nbsp;in&nbsp;window<br>
-coords&nbsp;using&nbsp;GraphicsContext&nbsp;gc</tt></dd></dl>
+coords&nbsp;using&nbsp;GraphicsContext&nbsp;gc<br>
+&nbsp;<br>
+**backend&nbsp;implementers&nbsp;note**&nbsp;When&nbsp;you&nbsp;are&nbsp;trying&nbsp;to&nbsp;determine<br>
+&nbsp;&nbsp;if&nbsp;you&nbsp;have&nbsp;gotten&nbsp;your&nbsp;bounding&nbsp;box&nbsp;right&nbsp;(which&nbsp;is&nbsp;what<br>
+&nbsp;&nbsp;enables&nbsp;the&nbsp;text&nbsp;layout/alignment&nbsp;to&nbsp;work&nbsp;properly),&nbsp;it&nbsp;helps&nbsp;to&nbsp;change&nbsp;the&nbsp;line&nbsp;in&nbsp;text.py<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;0:&nbsp;bbox_artist(self,&nbsp;renderer)<br>
+&nbsp;<br>
+&nbsp;&nbsp;to&nbsp;if&nbsp;1,&nbsp;and&nbsp;then&nbsp;the&nbsp;actual&nbsp;bounding&nbsp;box&nbsp;will&nbsp;be&nbsp;blotted<br>
+&nbsp;&nbsp;along&nbsp;with&nbsp;your&nbsp;text.</tt></dd></dl>
 
 <dl><dt><a name="RendererTemplate-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer</tt></dd></dl>
 
 <dl><dt><a name="RendererTemplate-get_canvas_width_height"><strong>get_canvas_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;canvas&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords</tt></dd></dl>
 
-<dl><dt><a name="RendererTemplate-get_text_width_height"><strong>get_text_width_height</strong></a>(self, s, fontsize, ismath<font color="#909090">=False</font>)</dt><dd><tt>get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;string&nbsp;s<br>
-with&nbsp;fontsize&nbsp;in&nbsp;points</tt></dd></dl>
+<dl><dt><a name="RendererTemplate-get_text_width_height"><strong>get_text_width_height</strong></a>(self, s, prop, ismath)</dt><dd><tt>get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;string&nbsp;s<br>
+with&nbsp;FontPropertry&nbsp;prop</tt></dd></dl>
 
 <dl><dt><a name="RendererTemplate-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;<a href="#GraphicsContextTemplate">GraphicsContextTemplate</a></tt></dd></dl>
 
-<dl><dt><a name="RendererTemplate-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;points&nbsp;to&nbsp;display&nbsp;units.&nbsp;&nbsp;Many&nbsp;imaging&nbsp;systems&nbsp;assume<br>
-some&nbsp;value&nbsp;for&nbsp;pixels&nbsp;per&nbsp;inch.&nbsp;&nbsp;Eg,&nbsp;suppose&nbsp;yours&nbsp;is&nbsp;96&nbsp;and<br>
-dpi&nbsp;=&nbsp;300.&nbsp;&nbsp;Then&nbsp;points&nbsp;to&nbsp;pixels&nbsp;is</tt></dd></dl>
+<dl><dt><a name="RendererTemplate-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>Convert&nbsp;points&nbsp;to&nbsp;display&nbsp;units&nbsp;(as&nbsp;a&nbsp;float).<br>
+You&nbsp;need&nbsp;to&nbsp;override&nbsp;this&nbsp;function&nbsp;(unless&nbsp;your&nbsp;backend&nbsp;doesn't&nbsp;have<br>
+dpi,&nbsp;eg,&nbsp;postscript&nbsp;or&nbsp;svg).<br>
+Many&nbsp;imaging&nbsp;systems&nbsp;assume&nbsp;some&nbsp;value&nbsp;for&nbsp;pixels&nbsp;per&nbsp;inch.<br>
+points&nbsp;to&nbsp;pixels&nbsp;=&nbsp;points&nbsp;*&nbsp;pixels_per_inch/72.0&nbsp;*&nbsp;dpi/72.0</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
@@ -433,8 +445,14 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
 <td width="100%"><dl><dt><a name="-Bbox"><strong>Bbox</strong></a>(...)</dt><dd><tt><a href="#-Bbox">Bbox</a>(ll,&nbsp;ur)</tt></dd></dl>
  <dl><dt><a name="-draw_if_interactive"><strong>draw_if_interactive</strong></a>()</dt><dd><tt>This&nbsp;should&nbsp;be&nbsp;overriden&nbsp;in&nbsp;a&nbsp;windowing&nbsp;environment&nbsp;if&nbsp;drawing<br>
 should&nbsp;be&nbsp;done&nbsp;in&nbsp;interactive&nbsp;python&nbsp;mode</tt></dd></dl>
- <dl><dt><a name="-error_msg"><strong>error_msg</strong></a> = error_msg_template(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
- <dl><dt><a name="-error_msg_template"><strong>error_msg_template</strong></a>(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
+ <dl><dt><a name="-error_msg"><strong>error_msg</strong></a> = error_msg_template(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition.<br>
+-&nbsp;in&nbsp;a&nbsp;GUI&nbsp;backend,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog.<br>
+-&nbsp;in&nbsp;a&nbsp;non-GUI&nbsp;backend&nbsp;delete&nbsp;this&nbsp;function&nbsp;and&nbsp;use<br>
+'from&nbsp;matplotlib.backend_bases&nbsp;import&nbsp;error_msg'</tt></dd></dl>
+ <dl><dt><a name="-error_msg_template"><strong>error_msg_template</strong></a>(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition.<br>
+-&nbsp;in&nbsp;a&nbsp;GUI&nbsp;backend,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog.<br>
+-&nbsp;in&nbsp;a&nbsp;non-GUI&nbsp;backend&nbsp;delete&nbsp;this&nbsp;function&nbsp;and&nbsp;use<br>
+'from&nbsp;matplotlib.backend_bases&nbsp;import&nbsp;error_msg'</tt></dd></dl>
  <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args, **kwargs)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
  <dl><dt><a name="-show"><strong>show</strong></a>()</dt><dd><tt>This&nbsp;is&nbsp;usually&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;a&nbsp;matlab&nbsp;script&nbsp;and&nbsp;tells&nbsp;the<br>
 backend&nbsp;that&nbsp;it&nbsp;is&nbsp;time&nbsp;to&nbsp;draw.&nbsp;&nbsp;In&nbsp;interactive&nbsp;mode,&nbsp;this&nbsp;may&nbsp;be<br>
@@ -449,5 +467,6 @@ handle&nbsp;interactive&nbsp;versus&nbsp;batch&nbsp;mode</tt></dd></dl>
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
 <strong>True</strong> = True<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

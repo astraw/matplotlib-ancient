@@ -3,6 +3,78 @@
 # tuple of (name, description) tuples
 
 versioninfo = {}
+
+
+versioninfo['0.64'] = (
+  ('polar plots', """\
+
+polar plots with the polar command.  These create a axes.PolarAxes
+instance, which defines the default axes, gridlines, etc.  Other plot
+types can be used on polar axes, eg scatter.  See <a
+href=examples/polar_demo.py>polar_demo.py</a>, <a
+href=examples/polar_scatter.py>polar_scatter.py</a> and <a
+href=screenshots.html#polar_demo>polar_demo<a/>."""),
+
+  
+  ('cairo backend', """\
+Steve Chaplin has contributed a cairo and a gtkcairo backend - <a
+href=http://cairographics.org>cairographics</a>.  Cairo is a vector
+graphics library designed to provide high-quality display and print
+output. Currently supported output targets include the X Window
+System, OpenGL, in-memory image buffers, and image files (PNG and
+PostScript).  See <a href=backends.html#Cairo>Cairo backend</a> for
+details and install instructions"""),
+
+
+  ('ipython integration', """\
+Fernando has continued his excellent work integrating matplotlib with
+<a href=http://ipython.scipy.org>ipython<a/> and a number of pylab
+bugs have been ironed out.  matplotlib has incoroprated ipython's
+numutils in the matplotlib.mlab module - Thanks Fernando.  See
+IPython-0.6.4 - all similarities betwen matplotlib and ipython version
+numbers are purely coincidental."""),
+
+  ('postscript improvements', """
+Jochen Voss has made a number of bugfixes and improvements to the
+postscript backend, including text layout problems.  PS backend should
+now be DSC compliant."""),
+
+  ('Customizing ticks', """\
+xticks and yticks now take kwargs so you can do, for example
+<pre>
+   >>> xticks( arange(3), ('Tom', 'Dick', 'Harry'), fontsize=14 )
+</pre>
+"""),
+
+  ('PIL support', """\
+
+<a href=matplotlib.matlab.html#-imshow>imshow</a> now supports PIL
+images - see <a href=examples/image_demo3.py>image_demo3.py</a>.
+Thanks Andrew Straw."""),
+
+  ('barh', '<a href=matplotlib.matlab.html#-barh>barh</a> for horizontal bar charts; see <a href=examples/barh_demo.py>barh_demo.py</a>'),
+
+  ('Verbose', """\
+
+Added a verbose class to allow different levels of verbosity - see <a
+href=.matplotlibrc>.matplotlibrc</a> for details.  Eg, you can now do
+<pre>
+     > python myscript.py --verbose-helpful
+</pre>
+
+to get a lot of information about what matplotlib is doing behind the
+scenes, what resource files are being used etc.  The default verbose
+settings and file handles for reporting are customizable in rc."""),
+
+  ('numerous small bugfixes and improvements', """
+
+fixes for gcc-3.4, allow -dsomeflag where someflag is not a backend,
+errorbar now accepts barsabove to determine the plot order of the
+errorbar markers and lines, fixed a corrcoef bug where args is a
+matrix, Andrew Dalke contributed code to extend the strftime range to
+the new matplotlib date range, fixes to keep support for python2.2"""),
+  )
+
 versioninfo['0.63'] = (
 	('image interpolation', """\
 image interpolation works properly.  I think I have finally and for

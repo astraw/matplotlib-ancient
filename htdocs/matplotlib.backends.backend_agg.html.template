@@ -333,6 +333,8 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
+<strong>IMAGE_FORMAT</strong> = ['eps', 'bmp', 'png', 'ps', 'raw', 'rgb', 'svg', 'jpg']<br>
+<strong>IMAGE_FORMAT_DEFAULT</strong> = 'png'<br>
 <strong>True</strong> = True<br>
 <strong>backend_version</strong> = 'v2.2'<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>

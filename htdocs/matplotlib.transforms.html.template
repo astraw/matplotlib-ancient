@@ -62,7 +62,7 @@ The&nbsp;bbox&nbsp;methods&nbsp;are<br>
 &nbsp;&nbsp;intervalx()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;x&nbsp;Interval&nbsp;instance<br>
 &nbsp;&nbsp;intervaly()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;y&nbsp;interval&nbsp;instance<br>
 &nbsp;&nbsp;get_bounds()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;get&nbsp;the&nbsp;left,&nbsp;bottom,&nbsp;width,&nbsp;height&nbsp;bounding&nbsp;tuple<br>
-&nbsp;&nbsp;update(xys,&nbsp;ignore)&nbsp;-&nbsp;update&nbsp;the&nbsp;boox&nbsp;to&nbsp;bound&nbsp;all&nbsp;the&nbsp;xy&nbsp;tuples&nbsp;in<br>
+&nbsp;&nbsp;update(xys,&nbsp;ignore)&nbsp;-&nbsp;update&nbsp;the&nbsp;bbox&nbsp;to&nbsp;bound&nbsp;all&nbsp;the&nbsp;xy&nbsp;tuples&nbsp;in<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xys;&nbsp;if&nbsp;ignore&nbsp;is&nbsp;true&nbsp;ignore&nbsp;the&nbsp;current&nbsp;contents&nbsp;of&nbsp;bbox&nbsp;and<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;just&nbsp;bound&nbsp;the&nbsp;tuples.&nbsp;&nbsp;If&nbsp;ignore&nbsp;is&nbsp;false,&nbsp;bound&nbsp;self&nbsp;+&nbsp;tuples<br>
 &nbsp;&nbsp;width()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;width&nbsp;of&nbsp;the&nbsp;bbox<br>
@@ -90,7 +90,7 @@ The&nbsp;signature&nbsp;of&nbsp;a&nbsp;separable&nbsp;transformation&nbsp;instan
 &nbsp;<br>
 &nbsp;&nbsp;trans&nbsp;=&nbsp;<a href="#-SeparableTransformation">SeparableTransformation</a>(bbox1,&nbsp;bbox2,&nbsp;funcx,&nbsp;funcy)<br>
 &nbsp;<br>
-where&nbsp;funcx&nbsp;and&nbsp;funcy&nbsp;operatate&nbsp;on&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;The&nbsp;typical&nbsp;linear<br>
+where&nbsp;funcx&nbsp;and&nbsp;funcy&nbsp;operate&nbsp;on&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;The&nbsp;typical&nbsp;linear<br>
 coordinate&nbsp;transformation&nbsp;maps&nbsp;one&nbsp;bounding&nbsp;box&nbsp;to&nbsp;another,&nbsp;with&nbsp;funcx<br>
 and&nbsp;funcy&nbsp;both&nbsp;identity.&nbsp;&nbsp;Eg,<br>
 &nbsp;<br>
@@ -108,19 +108,26 @@ a,&nbsp;b,&nbsp;c,&nbsp;d,&nbsp;tx,&nbsp;ty.&nbsp;&nbsp;These&nbsp;give&nbsp;the
 &nbsp;&nbsp;[xo&nbsp;&nbsp;=&nbsp;&nbsp;|a&nbsp;&nbsp;c|&nbsp;[xi&nbsp;&nbsp;+&nbsp;[tx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;&nbsp;&nbsp;yo]&nbsp;&nbsp;&nbsp;&nbsp;|b&nbsp;&nbsp;d|&nbsp;&nbsp;yi]&nbsp;&nbsp;&nbsp;&nbsp;ty]<br>
 &nbsp;<br>
+where&nbsp;if&nbsp;sx,&nbsp;sy&nbsp;are&nbsp;the&nbsp;scaling&nbsp;components,&nbsp;tx,&nbsp;y&nbsp;are&nbsp;the&nbsp;translation<br>
+components,&nbsp;and&nbsp;alpha&nbsp;is&nbsp;the&nbsp;rotation<br>
 &nbsp;<br>
-From&nbsp;a&nbsp;user&nbsp;persepective,&nbsp;the&nbsp;most&nbsp;important&nbsp;Tranformation&nbsp;methods&nbsp;are<br>
+&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;sx*cos(alpha);<br>
+&nbsp;&nbsp;&nbsp;b&nbsp;=&nbsp;-sx*sin(alpha);<br>
+&nbsp;&nbsp;&nbsp;c&nbsp;=&nbsp;sy*sin(alpha);<br>
+&nbsp;&nbsp;&nbsp;d&nbsp;=&nbsp;sy*cos(alpha);<br>
+&nbsp;<br>
+From&nbsp;a&nbsp;user&nbsp;perspective,&nbsp;the&nbsp;most&nbsp;important&nbsp;Tranformation&nbsp;methods&nbsp;are<br>
 &nbsp;<br>
 All&nbsp;transformations<br>
 -------------------<br>
 &nbsp;&nbsp;freeze()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;eval&nbsp;and&nbsp;freeze&nbsp;the&nbsp;lazy&nbsp;objects<br>
-&nbsp;&nbsp;thaw()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;release&nbsp;the&nbsp;laszy&nbsp;objects<br>
+&nbsp;&nbsp;thaw()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;release&nbsp;the&nbsp;lazy&nbsp;objects<br>
 &nbsp;<br>
 &nbsp;&nbsp;xy_tup(xy)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;transform&nbsp;the&nbsp;tuple&nbsp;(x,y)<br>
 &nbsp;&nbsp;seq_x_y(x,&nbsp;y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;transform&nbsp;the&nbsp;python&nbsp;sequences&nbsp;x&nbsp;and&nbsp;y<br>
 &nbsp;&nbsp;numerix_x_y(x,&nbsp;y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;numerix&nbsp;1D&nbsp;arrays<br>
 &nbsp;&nbsp;seq_xy_tups(seq)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;seq&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;xy&nbsp;tuples<br>
-&nbsp;&nbsp;inverse_xy_tup(xy)&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;apply&nbsp;the&nbsp;incerse&nbsp;transformation&nbsp;to&nbsp;tuple&nbsp;xy&nbsp;<br>
+&nbsp;&nbsp;inverse_xy_tup(xy)&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;apply&nbsp;the&nbsp;inverse&nbsp;transformation&nbsp;to&nbsp;tuple&nbsp;xy&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;set_offset(xy,&nbsp;trans)&nbsp;-&nbsp;xy&nbsp;is&nbsp;an&nbsp;x,y&nbsp;tuple&nbsp;and&nbsp;trans&nbsp;is&nbsp;a<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Transformation&nbsp;instance.&nbsp;&nbsp;This&nbsp;will&nbsp;apply&nbsp;a&nbsp;post&nbsp;transformational<br>
@@ -153,8 +160,8 @@ but&nbsp;should&nbsp;use&nbsp;the&nbsp;helper&nbsp;functions&nbsp;defined&nbsp;i
 &nbsp;&nbsp;one&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;<a href="#-Value">Value</a>(1)<br>
 &nbsp;&nbsp;origin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;<a href="#-Point">Point</a>(<a href="#-zero">zero</a>(),&nbsp;<a href="#-zero">zero</a>())<br>
 &nbsp;&nbsp;unit_bbox&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;0,0&nbsp;to&nbsp;1,1&nbsp;bounding&nbsp;box<br>
-&nbsp;&nbsp;identity_affine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;An&nbsp;affine&nbsp;idenitity&nbsp;transformation<br>
-&nbsp;&nbsp;identity_transform&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;An&nbsp;indentity&nbsp;separable&nbsp;transformation<br>
+&nbsp;&nbsp;identity_affine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;An&nbsp;affine&nbsp;identity&nbsp;transformation<br>
+&nbsp;&nbsp;identity_transform&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;An&nbsp;identity&nbsp;separable&nbsp;transformation<br>
 &nbsp;&nbsp;translation_transform&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;pure&nbsp;translational&nbsp;affine<br>
 &nbsp;&nbsp;scale_transform&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;pure&nbsp;scale&nbsp;affine<br>
 &nbsp;&nbsp;scale_sep_transform&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;pure&nbsp;scale&nbsp;separable&nbsp;transformation<br>
@@ -193,8 +200,9 @@ The&nbsp;units/transform_unit.py&nbsp;code&nbsp;has&nbsp;many&nbsp;examples.</tt
  <dl><dt><a name="-Bbox"><strong>Bbox</strong></a>(...)</dt><dd><tt><a href="#-Bbox">Bbox</a>(ll,&nbsp;ur)</tt></dd></dl>
  <dl><dt><a name="-Func"><strong>Func</strong></a>(...)</dt><dd><tt><a href="#-Func">Func</a>(typecode)</tt></dd></dl>
  <dl><dt><a name="-FuncXY"><strong>FuncXY</strong></a>(...)</dt><dd><tt><a href="#-FuncXY">FuncXY</a>(funcx,&nbsp;funcy)</tt></dd></dl>
+ <dl><dt><a name="-Interval"><strong>Interval</strong></a>(...)</dt><dd><tt><a href="#-Interval">Interval</a>(val1,&nbsp;val2)</tt></dd></dl>
+ <dl><dt><a name="-NonseparableTransformation"><strong>NonseparableTransformation</strong></a>(...)</dt><dd><tt><a href="#-NonseparableTransformation">NonseparableTransformation</a>(box1,&nbsp;box2,&nbsp;funcxy))</tt></dd></dl>
  <dl><dt><a name="-Point"><strong>Point</strong></a>(...)</dt><dd><tt><a href="#-Point">Point</a>(x,&nbsp;y)</tt></dd></dl>
- <dl><dt><a name="-PolarXY"><strong>PolarXY</strong></a>(...)</dt><dd><tt>PolarXY</tt></dd></dl>
  <dl><dt><a name="-SeparableTransformation"><strong>SeparableTransformation</strong></a>(...)</dt><dd><tt><a href="#-SeparableTransformation">SeparableTransformation</a>(box1,&nbsp;box2,&nbsp;funcx,&nbsp;funcy))</tt></dd></dl>
  <dl><dt><a name="-Value"><strong>Value</strong></a>(...)</dt><dd><tt><a href="#-Value">Value</a>(x)</tt></dd></dl>
  <dl><dt><a name="-bbox_all"><strong>bbox_all</strong></a>(bboxes)</dt><dd><tt>Return&nbsp;the&nbsp;Bbox&nbsp;that&nbsp;bounds&nbsp;all&nbsp;bboxes</tt></dd></dl>
@@ -211,7 +219,6 @@ and&nbsp;y&nbsp;in&nbsp;axes&nbsp;coordinates.</tt></dd></dl>
  <dl><dt><a name="-get_bbox_transform"><strong>get_bbox_transform</strong></a>(boxin, boxout)</dt><dd><tt>return&nbsp;the&nbsp;transform&nbsp;that&nbsp;maps&nbsp;transform&nbsp;one&nbsp;bounding&nbsp;box&nbsp;to<br>
 another</tt></dd></dl>
  <dl><dt><a name="-identity_affine"><strong>identity_affine</strong></a>()</dt><dd><tt>Get&nbsp;an&nbsp;affine&nbsp;transformation&nbsp;that&nbsp;maps&nbsp;x,y&nbsp;-&gt;&nbsp;x,y</tt></dd></dl>
- <dl><dt><a name="-identity_funcxy"><strong>identity_funcxy</strong></a>()</dt><dd><tt>Get&nbsp;&nbsp;funcxy&nbsp;instance&nbsp;that&nbsp;maps&nbsp;x,y&nbsp;-&gt;&nbsp;x,y</tt></dd></dl>
  <dl><dt><a name="-identity_transform"><strong>identity_transform</strong></a>()</dt><dd><tt>Get&nbsp;an&nbsp;affine&nbsp;transformation&nbsp;that&nbsp;maps&nbsp;x,y&nbsp;-&gt;&nbsp;x,y</tt></dd></dl>
  <dl><dt><a name="-inverse_transform_bbox"><strong>inverse_transform_bbox</strong></a>(trans, bbox)</dt><dd><tt>inverse&nbsp;transform&nbsp;the&nbsp;bbox</tt></dd></dl>
  <dl><dt><a name="-lbwh_to_bbox"><strong>lbwh_to_bbox</strong></a>(l, b, w, h)</dt></dl>
@@ -222,9 +229,6 @@ another</tt></dd></dl>
 sx&nbsp;and&nbsp;sy&nbsp;are&nbsp;LazyValue&nbsp;instances&nbsp;(Values&nbsp;or&nbsp;binary&nbsp;opertations&nbsp;on<br>
 values)</tt></dd></dl>
  <dl><dt><a name="-scale_transform"><strong>scale_transform</strong></a>(sx, sy)</dt><dd><tt>Return&nbsp;a&nbsp;pure&nbsp;scale&nbsp;transformation&nbsp;as&nbsp;an&nbsp;Affine&nbsp;instance;&nbsp;sx&nbsp;and<br>
-sy&nbsp;are&nbsp;LazyValue&nbsp;instances&nbsp;(Values&nbsp;or&nbsp;binary&nbsp;opertations&nbsp;on<br>
-values)</tt></dd></dl>
- <dl><dt><a name="-scale_translation_transform"><strong>scale_translation_transform</strong></a>(tx, ty, sx, sy)</dt><dd><tt>Return&nbsp;a&nbsp;pure&nbsp;scale&nbsp;and&nbsp;translation&nbsp;transformation;&nbsp;tx,&nbsp;ty,&nbsp;sx&nbsp;and<br>
 sy&nbsp;are&nbsp;LazyValue&nbsp;instances&nbsp;(Values&nbsp;or&nbsp;binary&nbsp;opertations&nbsp;on<br>
 values)</tt></dd></dl>
  <dl><dt><a name="-transform_bbox"><strong>transform_bbox</strong></a>(trans, bbox)</dt><dd><tt>transform&nbsp;the&nbsp;bbox&nbsp;to&nbsp;a&nbsp;new&nbsp;bbox</tt></dd></dl>
@@ -240,5 +244,6 @@ instances&nbsp;(Values&nbsp;or&nbsp;binary&nbsp;opertations&nbsp;on&nbsp;values)
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>IDENTITY</strong> = 0<br>
-<strong>LOG10</strong> = 1</td></tr></table>
+<strong>LOG10</strong> = 1<br>
+<strong>POLAR</strong> = 0</td></tr></table>
 @footer@
