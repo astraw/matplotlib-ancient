@@ -1,0 +1,1306 @@
+\documentclass[]{book} 
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{graphics}
+\usepackage{listings}
+\usepackage{natbib}
+\usepackage{fullpage}
+\usepackage{amssymb}
+\usepackage{verbatimfiles}
+\usepackage{hyperref}
+\title{The Matplotlib User's Guide}
+\author{John Hunter}
+\begin{document}
+\lstset{
+  language=Python,
+  basicstyle=\small,
+  commentstyle=\color{blue},
+  stringstyle=\ttfamily,
+  showstringspaces=false,
+%  frame=single, 
+  emph = {axes, axis, bar, cla, clf, clim, close, cohere, colorbar,
+    colors, csd, draw, errorbar, figimage, figlegend, figtext, figure,
+    fill, gca, gcf, gci, get, get_current_fig_manager,
+    get_plot_commands, gray, grid, hist, hlines, hold, imshow, jet,
+    legend, load, loglog, pcolor, pcolor_classic, plot, plot_date,
+    plotting, psd, raise_msg_to_str, rc, rcdefaults, save, savefig,
+    scatter, scatter_classic, semilogx, semilogy, set, specgram, stem,
+    subplot, table, text, title, vlines, xlabel, ylabel},
+  emphstyle = \color{black},  % color for matplotlib funcs
+  breaklines=true,
+  breakatwhitespace = true,
+  postbreak = \space\dots
+}
+
+
+\newcommand{\fig}[4]
+{\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=#1]{#2}
+\caption{\label{#4} #3}
+\end{center}
+\end{figure}}
+
+\newcommand{\matlab}[0]{matlab{\texttrademark}}
+\newcommand{\fname}[1]{{\tt #1}}
+\newcommand{\func}[1]{{\tt #1}}
+\newcommand{\code}[1]{{\tt #1}}
+\newcommand{\prompt}[1]{\code{>>> #1}}
+\newcommand{\carg}[1]{\textit{#1}} % command argument
+\newcommand{\val}[1]{\textit{#1}}
+\newcommand{\rc}[1]{{\tt #1}}
+
+% a pointer to matplotlib documentation
+\newcommand{\mpldoc}[1]{#1}
+
+
+\maketitle
+
+\chapter{Introduction}
+\label{sec:introduction}
+matplotlib is a library for making 2D plots of arrays in python.
+Although it has its origins in emulating the \matlab\ graphics
+commands, it does not require matlab, and can be used in a pythonic,
+object oriented way.  Although matplotlib is written primarily in pure
+python, it makes heavy use of Numeric/numarray and other extension
+code to provide good performance even for large arrays.
+
+
+\section{Installing}
+\label{sec:installing}
+
+\section{Numerix}
+\label{sec:numerix}
+
+\section{Backends}
+\label{sec:backends}
+
+\section{Customization using \fname{.matplotlibrc}}
+\label{sec:matplotlibrc}
+
+\section{Integrated development environments}
+\label{sec:ides}
+
+\chapter{The \matlab\ interface}
+\label{sec:matlab_interface}
+
+Although matplotlib has a full object oriented API, the primary way
+people create plots is via the matlab interface, which can be imported
+with
+
+\begin{lstlisting}
+from matplotlib.matlab import *
+\end{lstlisting}
+
+\noindent This import command brings in all of the matplotlib code
+needed to produce plots, the extra matlab compatible, non-plotting
+functions found in \mpldoc{matplotlib.mlab} and all of the
+matplotlib.numerix code needed to create and manipulate arrays.  The
+latter import depends on your \rc{numerix} setting in
+\fname{.matplotlibrc}, as described in Sections~\ref{sec:numerix} and
+\ref{sec:matplotlibrc}; ie, when you import
+\mpldoc{matplotlib.matlab}, you will either get all of Numeric or all
+of numarray depending on your \rc{numerix} setting.
+
+matplotlib is organized around figures and axes.  The figure contains
+an arbitrary number of axes, which can be placed anywhere in the
+figure you want, including over other axes.  You can directly create
+and manage your own figures and axes, but if you don't, matplotlib
+will try and do the right thing by automatically creating default
+figures and axes for you if you issue a plot command before creating a
+figure or axes. 
+
+There are two ways of working in the matlab interface: interactively
+or in script mode.  When working interactively, you want every
+plotting command to update the figure.  Under the hood, this means
+that the canvas is redrawn after every command that affects the
+figure.  When working in script mode, this is inefficient.  In this
+case, you only want the figure to be drawn once, either to the GUI
+window or saved to a file.  To handle these two cases, matplotlib has
+an \rc{interactive} setting in \fname{.matplotlibrc}.  When
+\rc{interactive : True}, the figure will be redrawn with each command.
+When \rc{interactive : False}, the figure will be drawn only when
+there is a call to \func{show} or \func{savefig}.  In the examples
+that follow, I'll assume you have set \rc{interactive : True} in your
+\fname{.matplotlibrc} file and are working from an interactive python
+shell using a compatible backend.  Please make sure you have read and
+understood Sections~\ref{sec:matplotlibrc}, \ref{sec:backends} and
+\ref{sec:ides} before trying these examples.
+
+\section{Simple plots}
+\label{sec:simple_plot}
+
+Just about the simplest plot you can create is
+
+\begin{lstlisting}
+>>> from matplotlib.matlab import *
+>>> plot([1,2,3])
+\end{lstlisting}
+
+\noindent I have set my backend to \rc{backend : TkAgg}, which causes
+the plot in Figure~\ref{fig:simple_plot_tkagg} to appear, with
+navigation controls for interactive panning and zooming.
+
+\fig{3in}{figures/simple_plot_tkagg}{A simple plot shown in the TkAgg
+  graphical user interface.  Navigation controls shown below the
+  figure provide an easy way to pan and zoom around your figures, and
+  a save dialog allows you to save your figure after you have set the
+  pan and zoom.}{fig:simple_plot_tkagg}
+
+I can continue to decorate the plot with labels and titles
+
+\begin{lstlisting}
+>>> xlabel('time (s)')
+>>> ylabel('volts')
+>>> title('A really simple plot')
+>>> grid(True)
+\end{lstlisting}
+
+\noindent and the updated figure is shown in Figure~\ref{fig:simple_plot_tkagg_labeled}.
+
+\fig{3in}{figures/simple_plot_tkagg_labeled}{A simple plot decorated
+  with some text labels and an axes grid}{fig:simple_plot_tkagg_labeled}
+
+At this point we're getting a little bored plotting \code{[1,2,3]}.
+matplotlib is designed around plotting numerix arrays, and can handle
+large arrays efficiently.  To create a regularly sampled 1\,Hz sine
+wave use the arange and sin methods methods provided by numerix which
+produces the plot shown in Figure~\ref{fig:simple_plot_tkagg_sine}.
+
+\begin{lstlisting}
+>>> t = arange(0.0, 3.0, 0.05)  # in matlab t = [0.0: 0.05: 3.0];
+>>> s = sin(2*pi*t)
+>>> plot(t,s)
+\end{lstlisting}
+
+\fig{3in}{figures/simple_plot_tkagg_sine}{A sine wave added to the
+  simple plot.  This may not be what we wanted.  Because the
+  \func{hold} state was on, the two plots were
+  superimposed.}{fig:simple_plot_tkagg_sine}
+
+\noindent Note that the two plots are superimposed.  matplotlib (and
+\matlab) have a \func{hold} state.  When hold is on, subsequent
+plotting commands are superimposed over previous commands.  When hold
+is off, the plot is cleared with every plotting command.  This is
+controlled by the \func{hold} command, which can be called like
+\code{hold(True)} or \code{hold(False)}.  The default setting is in
+\fname{.matplotlibrc} as \rc{axes.hold : True}, which you can change
+according to your preferences.  To clear the previous plot and reissue
+the plot command for just the sine wave, you can use \func{cla} to
+clear the current axes and \func{clf} to clear the current figure, or
+simply turn the hold state off.
+
+\begin{lstlisting}
+>>> hold(False)
+>>> plot(t, s)
+\end{lstlisting}
+
+\section{More on plot}
+\label{sec:plot}
+
+\subsection{Multiple lines}
+\label{sec:plot_multiple_lines}
+
+\func{plot} is a versatile command, and will create an arbitrary
+number of lines with different line styles and markers.  This example
+plots a sine wave and a damped exponential using the default line styles
+
+\begin{lstlisting}
+>>> clf()   # clear the figure
+>>> t = arange(0.0, 5.0, 0.05)
+>>> s1 = sin(2*pi*t)
+>>> s2 = s1 * exp(-t)
+>>> plot(t, s1, t, s2)
+\end{lstlisting}
+
+\noindent If you plot multiple lines in a single plot command, the
+line color will cycle through a list of predefined colors.  The
+default line color and line style are determined by the rc parameters
+\rc{lines.style} and \rc{lines.color}.  You can include an optional
+third string argument to each line in the plot command, which
+specifies any of the line style, marker style and line color.  To plot
+the above using a green dashed line with circle markers, and a red
+dotted line with circle markers, as shown in
+Figure~\ref{fig:plot_styles}, 
+
+\begin{lstlisting}
+>>> clf()   
+>>> plot(t, s1, 'g--o', t, s2, 'r:s')
+>>> legend(('sine wave', 'damped exponential'))
+\end{lstlisting}
+
+\fig{3in}{figures/plot_styles}{All line plots take an optional third
+  string argument, which is composed of (optionally) a line color (eg,
+  'r', 'g', 'k'), a line style (eg, '-', '--', ':') and a line marker
+  ('o', 's', 'd').  The sine wave line (green dashed line with circle
+  markers) is created with 'g--o'.  The \func{legend} command will
+  automatically create a legend for all the lines in the plot.
+}{fig:plot_styles}
+
+\subsection{Controlling line properties}
+\label{sec:plot_line_props}
+
+In the last section, we showed how to choose the default line
+properties using plot format strings.  For finer grained control, you
+can set any of the attributes of a \mpldoc{matplotlib.lines.Line2D}
+instance.  There are three ways to do this: using keyword arguments,
+calling the line methods directly, or using the \func{set} command.
+
+The following properties can be set
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}[t]{|l|l|}\hline
+    \carg{Property}  & \val{Value}\\\hline\hline
+    \carg{alpha}           & The alpha transparency on 0-1 scale\\\hline
+    \carg{antialiased}     & \val{True} or \val{False} -  use antialised rendering\\\hline
+    \carg{color}           & A matplotlib color arg\\\hline
+    \carg{data\_clipping}  & Whether to use numeric to clip data\\\hline
+    \carg{label}           & A string optionally used for legend\\\hline
+    \carg{linestyle}       & One of \code{-- :  -.  -} \\\hline
+    \carg{linewidth}       & A float, the line width in points\\\hline
+    \carg{marker}          & One of \code{$+$ ,  o . s v x $>$ $<$, etc }\\\hline
+    \carg{markeredgewidth} & The line width around the marker symbol\\\hline
+    \carg{markeredgecolor} & The edge color if a marker is used\\\hline
+    \carg{markerfacecolor} & The face color if a marker is used\\\hline
+    \carg{markersize}      & The size of the marker in points\\\hline
+  \end{tabular}
+  \caption{\label{tab:line_props}Line properties; see
+    \mpldoc{matplotlib.matlab.plot} for more marker
+    styles}
+\end{table}
+
+
+\subsubsection*{Using keyword arguments to control line properties}
+\label{sec:plot_kwargs}
+
+You can set any of the line properties listed in
+Table~\ref{tab:line_props} using keyword arguments to the plot
+command.  The following command plots large green diamonds with a red
+border
+
+\begin{lstlisting}
+>>> plot(t, s1, markersize=15, marker='d', \
+...      markerfacecolor='g', markeredgecolor='r')
+\end{lstlisting}
+
+\subsubsection*{Using \func{set} to control line properties}
+\label{sec:plot_set_line_props}
+
+You can set any of the line properties listed in
+Table~\ref{tab:line_props} using the \func{set} command.  Set operates
+on the return value of the plot command (a list of lines), so you need
+to save the lines.  You can use an arbitrary number of key/value pairs
+
+\begin{lstlisting}
+>>> lines = plot(t, s1)
+>>> set(lines, markersize=15, marker='d', \
+...     markerfacecolor='g', markeredgecolor='r')
+\end{lstlisting}
+\noindent \func{set} can either operate on a single instance or a
+sequence of instances (in the example code above, \code{lines} is a
+length one sequence of lines).  Under the hood, if you pass a keyword
+arg named \carg{something}, \func{set} looks for a method of the
+object called \func{set\_something} and will call it with the value you
+pass.  If \func{set\_something} does not exist, then an exception will
+be raised.  
+
+\subsubsection*{Using \mpldoc{matplotlib.lines.Line2D} methods}
+\label{sec:plot_set_line_methods}
+
+You can also call Line2D methods directly.  The return value of plot
+is a sequence of \mpldoc{matplotlib.lines.Line2D} instances.  Note in
+the example below, I use tuple unpacking with the ``,'' to extract the first element
+of the sequence as \carg{line}: \code{line, = plot(t, s1)}
+
+\begin{lstlisting}
+>>> line, = plot(t, s1)
+>>> line.set_markersize(15)
+>>> line.set_marker('d')
+>>> line.set_markerfacecolor('g')
+>>> line.set_markeredgecolor('r')
+\end{lstlisting}
+
+\noindent Note, however, that we haven't issued any
+\mpldoc{matplotlib.matlab} commands after the initial \func{plot}
+command so the figure will not be redrawn even though interactive mode
+is set.  To trigger a redraw, you can simply resize the figure window
+a little or call the \func{draw} method.  The fruits of your labors
+are shown in Figure~\ref{fig:big_diamonds}.
+
+\begin{lstlisting}
+>>> draw()
+\end{lstlisting}
+
+\fig{3in}{figures/big_diamonds}{Large green diamonds with red borders,
+  created with three different recipes.}{fig:big_diamonds}
+
+
+
+\section{Loading and saving data}
+\label{sec:loading_data}
+
+\mpldoc{matplotlib.matlab} provides support for loading and saving
+ASCII arrays or vectors with the \func{load} and \func{save} command.
+\mpldoc{matplotlib.numerix} provides support for loading and saving
+binary arrays with the \func{fromstring} and \func{tostring} methods.
+
+\subsection{Loading and saving ASCII data}
+\label{sec:ascii_data}
+Suppose you have an ASCII file of measured times and voltages like so
+
+\begin{verbatim}
+0.0000 0.4911
+0.0500 0.5012
+0.1000 0.7236
+0.1500 1.1756
+... and so on
+\end{verbatim}
+
+\noindent You can load that data into an array \code{X} with the \func{load}
+command.  The shape of X is numSamples rows by 2 columns, with the
+first column containing the time points and the second column
+containing the measured voltages.  You can use numerix array indexing
+to extract the two columns into the 1D arrays \code{t} and \code{s}
+
+\begin{lstlisting}
+X = load('../data/ascii_data.dat')
+t = X[:,0]  # the first column
+s = X[:,1]  # the second row
+plot(t, s, 'o')
+\end{lstlisting}
+
+Likewise, you can save array or vector data in an ASCII file
+with the \func{save} command.  The following script was used to create
+the sample data above
+
+\lstinputlisting{code/gen_ascii_data.py}
+
+\subsection{Loading and saving binary data}
+\label{sec:binary_data}
+
+ASCII is bloated and slow for working with large arrays, and so binary
+data should be used if performance is a consideration.  To save the
+array \code{X} in binary form, use the numerix \func{tostring} method
+
+\begin{lstlisting}
+# open the file for writing binary and write the binary string
+file('../data/binary_data.dat', 'wb').write(X.tostring())
+\end{lstlisting}
+
+\noindent This data can later be loaded into a numerix array using
+\func{fromstring}.  This method takes two arguments, a string and a
+data type (note that numarray users can use \func{fromfile} which is
+more efficient for importing data directly from a file).  
+
+\lstinputlisting{code/load_binary_data.py}
+
+\noindent Note that although Numerix and numarray use different
+typecode arguments (Numeric uses strings whereas numarray uses type
+objects), the matplotlib.numerix compatibility layer provides symbols
+which will work with either \rc{numerix} rc setting.
+
+\subsection{Processing several data files}
+\label{sec:multiple_files}
+
+Since python is a programming language \textit{par excellence}, it is
+easy to process data in batch.  When I started the gradual transition
+from a full time matlab user to a full time python user, I began
+processing my data in python and saving the results to data files for
+plotting in matlab.  When that became too cumbersome, I decided to
+write matplotlib so I could have all the functionality I needed in one
+environment.  Here is a brief example showing how to iterate over
+several data files, named \fname{basename001.dat, basename002.dat,
+  basename003.dat, ... basename100.dat} and plot all of the traces to
+the same axes.  I'll assume for this example that each file is a 1D
+ASCII array, which I can load with the \func{load} command.
+
+\begin{lstlisting}
+hold(True)  # set the hold state to be on
+for i in range(1,101):  #start at 1, end at 100
+    fname = 'basename%03d.dat'%i  # %03d pads the integers with zeros
+    x = load(fname)
+    plot(x)
+\end{lstlisting}
+
+
+\section{axes and figures}
+\label{sec:axes_and_figures}
+All the examples thus far used \textit{implicit} figure and axes
+creation.  You can use the functions \func{figure}, \func{subplot},
+and \func{axes} to explicitly control this process.  Let's take a look
+at what happens under the hood when you issue the commands
+
+\begin{lstlisting}
+>>> from matplotlib.matlab import *
+>>> plot([1,2,3])
+\end{lstlisting}
+
+When plot is called, the matlab interface makes a call to \func{gca()}
+(``get current axes'') to get a reference to the current axes.
+\func{gca} in turn, makes a call to \func{gcf} to get a reference to
+the current figure.  \func{gcf}, finding that no figure has been
+created, creates the default figure \code{figure()} and returns it.
+\func{gca} will then return the current axes of that figure if it
+exists, or create the default axes \code{subplot(111)} if it does
+not.  Thus the code above is equivalent to 
+
+\begin{lstlisting}
+>>> from matplotlib.matlab import *
+>>> figure()
+>>> subplot(111)
+>>> plot([1,2,3])
+\end{lstlisting}
+
+\subsection{\func{figure}}
+\label{sec:figure}
+
+You can create and manage an arbitrary number of figures using the
+\func{figure} command.  The standard way to create a figure is to
+number them from $1 \dots N$.  A call to \code{figure(1)} creates
+figure 1 if it does not exist, makes figure 1 active (\func{gcf} will
+return a reference to it), and returns the
+\mpldoc{matplotlib.figure.Figure} instance.  The syntax of the
+\func{figure} command is
+
+\begin{lstlisting}
+def figure(num=1,
+           figsize   = None, # defaults to rc figure.figsize
+           dpi       = None, # defaults to rc figure.dpi
+           facecolor = None, # defaults to rc figure.facecolor
+           edgecolor = None, # defaults to rc figure.edgecolor
+           frameon = True,   # whether to draw the figure frame
+           ):
+\end{lstlisting}
+\carg{figsize} gives the figure size in inches and is width by
+height.  Eg, to create a figure 12 inches wide and 2 inches high, you
+can call \code{figure(figsize=(12,2))}.  \carg{dpi} gives the dots per
+inch of your display device.  Increasing this number effectively
+creates a higher resolution figure.  \carg{facecolor} and
+\carg{edgecolor} determine the face and edge color of the figure
+rectangular background.  This is what gives the figure a gray
+background in the GUI figures such as
+Figure~\ref{fig:simple_plot_tkagg}.  You can turn this background
+completely off by setting \code{frameon=False}.  The default for
+saving figures is to have a white face and edge color, and all of
+these properties can be customized using the rc parameters
+\rc{figure.*} and \rc{savefig.*}.
+
+In typical usage, you will only provide the figure number, and let
+your rc parameters govern the other figure attributes
+
+\begin{lstlisting}
+>>> figure(1)
+>>> plot([1,2,3])
+>>> figure(2)
+>>> plot([4,5,6])
+>>> title('big numbers')    # figure 2 title
+>>> figure(1)
+>>> title('small numbers')  # figure 1 title
+\end{lstlisting}
+
+You can close a figure simply by clicking on the close ``x'' in the
+GUI window, or by issuing the \func{close} command.  \func{close} can
+be used to close the current figure, a figure referenced by number, a
+given figure instance, or all figures
+
+\begin{itemize}
+
+  \item \code{close()} by itself closes the current figure
+
+  \item \code{close(num)} closes figure number \val{num}
+
+  \item \code{close(num)} closes figure number \val{num}
+    
+  \item \code{close(fig)} where \val{fig} is a figure instance closes
+    that figure
+
+  \item \code{close('all')} closes all the figure windows
+
+\end{itemize}
+    
+\noindent If you close a figure directly, eg \code{close(2)} the
+previous current figure is restored to the current figure. \func{clf}
+is used to clear the current figure without closing it.
+
+If you save the return value of the figure command, you can call any
+of the methods provided by \mpldoc{matplotlib.figure.Figure}, for
+example, you can set the figure facecolor
+
+\begin{lstlisting}
+>>> fig = figure(1)
+>>> fig.set_facecolor('g')
+\end{lstlisting}
+
+or use \func{set} for the same purpose
+
+\begin{lstlisting}
+>>> set(fig, facecolor='g')
+\end{lstlisting}
+
+\subsection{\func{subplot}}
+\label{sec:subplot}
+
+\func{axes} and \func{subplot} are both used to create axes in a
+figure.  \func{subplot} is used more commonly, and creates axes
+assuming a  regular grid of axes \carg{numRows} by \carg{numCols}.
+For example, to create two rows and one column of axes, you would use
+\code{subplot(211)} to create the upper axes and \code{subplot(212)}
+to create the lower axes.  The last digit counts across the rows.
+
+\lstinputlisting{code/subplot_demo.py}
+
+\fig{4in}{figures/subplot_demo}{Multiple rows of axes created with the
+  subplot command}{fig:subplot_demo}
+
+\noindent Likewise, to create two columns and one row of axes, you would use
+\code{subplot(121)} to create the left axes and \code{subplot(122)} to
+create the right axes.  If the total number of axes exceeds single
+digits, use comma separated arguments to subplot.  For example, the
+lower right panel of a 3 x 4 grid of axes is created with
+\code{subplot(3,4,12)}.  matplotlib uses matlab style indexing in
+creating figures and axes, so \code{subplot(3,4,1)} is the first
+subplot, not \code{subplot(3,4,0)}.
+
+
+The subplot command returns a \mpldoc{matplotlib.axes.Subplot}
+instance, which is derived from \mpldoc{matplotlib.axes.Axes}.  Thus
+you can call and Axes or Subplot method on it.  When creating multiple
+subplots with the same axes, for example the same time axes, sometimes
+it helps to turn off the x tick labeling for all but the lowest plot.
+Here is some example code
+
+\begin{lstlisting}
+subplot(211)
+plot([1,2,3], [1,2,3])
+set(gca(), 'xticklabels', [])
+
+subplot(212)
+plot([1,2,3], [1,4,9])
+\end{lstlisting}
+
+
+Likewise, with multiple columns and shared y axes, you may want turn
+off the ytick labels for all but the first row.  The subplot command
+returns a \mpldoc{matplotlib.axes.Subplot} instance, which is derived
+from \mpldoc{matplotlib.axes.Axes}.  Thus you can call and Axes or
+Subplot method on it.  Subplot defines some helper methods
+(\func{is\_first\_row}, \func{is\_first\_col}, \func{is\_last\_row},
+\func{is\_last\_col}, to help you conditionally set subplot properties,
+eg
+
+\begin{lstlisting}
+cnt = 0
+for i in range(numRows):
+    for j in range(numCols):
+       cnt += 1
+       ax = subplot(numRows, numCols, cnt)
+       plot(blah, blah)
+       if ax.is_last_row()  : xlabel('time (s)')
+       if ax.is_first_col() : ylabel('volts')
+\end{lstlisting}
+
+
+Here is some example code to create multiple figures and axes, using
+the \func{figure} and \func{subplot} command to control the current
+figure and axes.
+
+\lstinputlisting{code/multiple_figures.py}
+
+\subsection{\func{axes}}
+\label{sec:axes}
+
+When you need a finer grained control over axes placement than
+afforded by \func{subplot}, use the func{axes} command.  The
+\func{axes} command in initialized with a rectangle code{[left,
+  bottom, width, height]} in relative figure coordinates.  \code{left,
+  bottom = (0, 0)} is the bottom left of the of the figure canvas, and
+a width/height of 1 spans the figure width/height.  This to create an
+axes that entirely fills the figure canvas, you would do \code{axes([0,
+  1, 0, 1])}.  This may not be a good idea, because it leaves no room
+for text labels.  \code{axes([0.25, 0.25, 0.5, 0.5])} creates an axes
+offset by one quarter of the figure width and height on all sides.
+
+
+There are several ways to use the \func{axes} command; in all cases, a
+\mpldoc{matplotlib.axes.Axes} instance is returned
+
+\begin{itemize}
+\item \code{axes()} by itself creates a default full
+  \code{subplot(111)} window axis
+  \item \code{axes(rect, axisbg='w')} where \code{rect=[left, bottom,
+      width, height]} in normalized (0,1) units.  \carg{axisbg} is the
+    background color for the axis, default white.
+  \item \code{axes(ax)} where \carg{ax} is an axes instance makes
+  \carg{ax} current.
+\end{itemize}
+
+\noindent \func{gca} returns the current axes instance and \func{cla}
+clears the current axes.  You can use the \func{axes} command lay the
+axes exactly where you want them, including to overlaying one axes on
+top of another, as in this example
+
+\lstinputlisting{code/axes_demo.py}
+
+\fig{4in}{figures/axes_demo}{Using the \func{axes} command to create
+  inset axes over another axes.}{fig:axes_demo}
+
+      
+\section{Text}
+\label{sec:text}
+
+matplotlib has excellent text support, including newline separated
+text with arbitrary rotations and mathematical expressions.  freetype2
+support produces very nice, antialiased fonts, that look good even at
+small raster sizes.  It includes its own font\_manager, thanks to Paul
+Barrett, which implements a cross platform, W3C compliant font finding
+algorithm.  You have total control over every text property (font
+size, font weight, text location and color, etc) with sensible
+defaults set in the rc file.  And significantly for those interested
+in mathematical or scientific figures, matplotlib implements a large
+number of \TeX\ math symbols and commands, to support mathematical
+expressions anywhere in your figure.  To get the most out of text in
+matplotlib, you should use a backend that supports freetype2 and
+mathtext, notably all the *Agg backends (see Section~{ref:backends}).
+
+\subsection{Basic text commands}
+\label{sec:basic_text}
+
+The following commands are used to create text in the maplotlib.matlab
+interface
+
+\begin{itemize}
+  \item \func{xlabel(s)} - add a label \carg{s} to the x axis
+  \item \func{ylabel(s)} - add a label \carg{s} to the y axis
+  \item \func{title(s)} - add a title \carg{s} to the axes
+  \item \func{text(x, y, s)} - add text \carg{s} to the axes at
+    \carg{x}, \carg{y} in data coords
+  \item \func{figtext(x, y, s)} - add text to the figure at \carg{x},
+    \carg{y} in relative 0-1 figure coords
+\end{itemize}
+
+
+
+\subsection{Text properties}
+\label{sec:text_props}
+
+There are many text properties that can be set.  See
+Chapter~\ref{sec:font_finding} for more discussion of the font finder
+algorithm and the meaning of these properties.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}[t]{|l|l|}\hline
+    \carg{Property}           & Value\\ \hline \hline 
+    \carg{alpha}           & The alpha transparency on 0-1 scale\\ \hline 
+
+    \carg{color}           & A matplotlib color arg\\ \hline 
+    
+    \carg{family}           & set the font family, eg 'sans-serif', 'cursive', 'fantasy'\\ \hline 
+    
+    \carg{fontangle} & the font slant, one of 'normal', 'italic', 'oblique'\\ \hline 
+
+    \carg{horizontalalignment}  & 'left', 'right' or 'center'\\ \hline 
+
+    \carg{multialignment}  & 'left', 'right' or 'center'
+    only for multiline strings\\ \hline 
+
+    \carg{name} & the font name, eg, 'Sans', 'Courier', 'Helvetica'\\ \hline 
+
+    \carg{position} & the x,y location\\ \hline 
+
+    \carg{variant} & the font variant, eg 'normal', 'small-caps'\\ \hline 
+
+    \carg{rotation} & the angle in degrees for rotated text\\ \hline 
+
+    \carg{size} & the fontsize in points, eg, 8, 10, 12\\ \hline 
+
+    \carg{style} & the font style, one of 'normal', 'italic',
+    'oblique'\\ \hline 
+
+    \carg{text} & set the text string itself\\ \hline 
+
+    \carg{verticalalignment}  & 'top', 'bottom' or 'center'\\ \hline
+
+    \carg{weight} & the font weight, eg 'normal', 'bold', 'heavy',
+    'light'\\\hline
+
+  \end{tabular}
+  \caption{\label{tab:text_props}Properties of
+    \mpldoc{matplotlib.text.Text}}
+\end{table}
+
+\noindent As with lines, there are three ways to set text properties:
+using keyword arguments to a text command, calling \func{set} on a
+text instance or a sequence of text instances, or calling an instance
+method on a text instance.  These three are illustrated below
+
+\begin{lstlisting}
+# keyword args
+>>> xlabel('time (s)', color='r', size=16)
+>>> title('Fun with text', horizontalalignment='left')  
+
+# use set
+>>> labels = get(gca(), 'xticklabels')
+>>> set(labels, 'color', 'g', rotation=45) 
+
+# instance methods
+>>> l = ylabel('volts')
+>>> l.set_weight('bold')
+\end{lstlisting}
+
+\noindent See the example
+\url{http://matplotlib.sourceforge.net/examples/fonts_demo_kw.py}
+which makes extensive use of font properties for more information.
+
+\subsection{Text layout}
+\label{sec:text_layout}
+
+You can layout text with the alignment arguments
+\carg{horizontalalignment}, \carg{verticalalignment}, and
+\carg{multialignment}.  \carg{horizontalalignment} controls whether
+the x positional argument for the text indicates the left, center or
+right side of the text bounding box. \carg{verticalalignment} controls
+whether the y positional argument for the text indicates the bottom,
+center or top side of the text bounding box.  \carg{multialignment},
+for newline separated strings only, controls whether the different
+lines are left, center or right justified.  Here is an example which
+uses the \func{text} command to show the various alignment
+possibilities.  The use of \code{transform=ax.transAxes} throughout
+the code indicates that the coordinates are given relative to the axes
+bounding box, with 0,0 being the lower left of the axes and 1,1 the
+upper right.
+
+\lstinputlisting{code/alignment_demo.py}
+
+\fig{6in}{figures/alignment_demo}{Aligning text with
+  \carg{horizontalalignment}, \carg{verticalalignment}, and
+  \carg{multialignment} options to the \func{text} command.}{fig:align_text}
+
+
+
+\subsection{mathtext}
+\label{sec:mathtext}
+
+matplotlib supports \TeX\ mathematical expressions anywhere a text
+string can be used, as long as the string is delimited by ``\$'' on
+both sides, as in $\mathtt{r'\$5\backslash lambda\$'}$. A large set of
+the \TeX\ symbols from the computer modern fonts are provided.
+Subscripting and superscripting are supported, as well as the
+over/under style of subscripting with $\mathtt{\backslash sum}$,
+$\mathtt{\backslash int}$ etc.
+
+
+The module uses \fname{pyparsing} to parse the \TeX\ expression, an so
+can handle fairly complex \TeX\ expressions.  Eg, the following
+renders correctly
+
+\begin{verbatim}
+  s = r'$\cal{R}\prod_{i=\alpha\cal{B}}^\infty a_i\rm{sin}(2 \pi f x_i)$'
+\end{verbatim}
+
+as
+
+\begin{equation}
+    \mathcal{R}\prod_{i=\alpha\mathcal{B}}^\infty a_i\mathrm{sin}(2 \pi f x_i)
+\end{equation}
+
+\noindent The spacing elements $\backslash/$ and $\mathtt{\backslash
+  hspace\{num\}}$ are provided.  $\backslash /$ inserts a small space,
+and $\mathtt{\backslash hspace\{num\}}$ inserts a fraction of the
+current fontsize.  Eg, if \code{num=0.5} and the fontsize is 12.0,
+$\mathtt{\backslash hspace\{0.5\}}$ inserts 6 points of space.
+
+\subsubsection{Licensing}
+\label{sec:mathtext_license}
+
+The computer modern fonts this package uses are part of the BaKoMa
+fonts, which are (in my understanding) free for noncommercial use.
+For commercial use, please consult the licenses in fonts/ttf and the
+author Basil K. Malyshev - see also
+\url{http://www.mozilla.org/projects/mathml/fonts/encoding/license-bakoma.txt}
+and the file BaKoMa-CM.Fonts in the matplotlib fonts dir.
+
+Note that all the code in this module is distributed under the
+matplotlib license, and a truly free implementation of mathtext for
+either freetype or ps would simply require deriving another concrete
+implementation from the Fonts class defined in this module which used
+free fonts.
+
+\subsubsection{Using mathtext}
+
+
+Any text element can use math text.  You need to use raw strings
+(preceed the quotes with an \code{r}), and surround the string text
+with dollar signs, as in \TeX.
+
+\begin{lstlisting}
+# plain text
+title('alpha > beta')
+
+# math text
+title(r'$\alpha > \beta$')
+\end{lstlisting}
+
+\noindent To make subscripts and superscripts use the underscore and caret
+symbols, as in
+
+\begin{lstlisting}
+title(r'$\alpha_i > \beta^i$')
+\end{lstlisting}
+
+
+You can also use a large number of the \TeX\ symbols, as in
+$\mathtt{\backslash infty}$, $\mathtt{\backslash leftarrow}$,
+$\mathtt{\backslash sum}$, $\mathtt{\backslash int}$; see
+Appendix~\ref{sec:math_symbols} for a complete list.  The over/under
+subscript/superscript style is also supported.  To write the sum of
+$x_i$ from 0 to $\infty$ ($\sum_{i=0}^\infty x_i$), you could do 
+
+\begin{lstlisting}
+  text(1, -0.6, r'$\sum_{i=0}^\infty x_i$')
+\end{lstlisting}
+
+The default font is \textit{italics} for mathematical symbols.  To
+change fonts, eg, to write 'sin' in a \textrm{roman font}, enclose the
+text in a font command, as in
+
+\begin{lstlisting}
+text(1,2, r's(t) = $\cal{A}\rm{sin}(2 \omega t)$')
+\end{lstlisting}
+
+\noindent Here '$s$' and '$t$' are variable in italics font (default),
+'$\mathrm{sin}$' is in roman font, and the amplitude '$\mathcal{A}$'
+is in caligraphy font.  The fonts $\mathtt{\backslash cal}$,
+$\mathtt{\backslash rm}$, $\mathtt{\backslash \it}$ and
+$\mathtt{\backslash tt}$ are allowed.
+
+
+\section{Images}
+\label{sec:images}
+
+matplotlib provides support for working with raw image data in numerix
+arrays.  Currently, there is no support for loading image data from
+image files such as PNG, TIFF or JPEG, though this is on the TODO
+list.  If you need to load data from existing image files, one good
+solution is to use The Python Imaging Library to load the data and
+convert this to a numerix array - see Recipe~\ref{cbook:image_files}.  The
+following examples will assume you have your image data loaded into a
+numerix array, either luminance (MxN), RGB (MxNx3) or RGBA (MxNx4).
+
+\subsection{Axes images}
+\label{sec:image_axes}
+An axes image is created with \code{im = imshow(X)} where
+\carg{X} is a numerix array an \carg{im} is a
+\mpldoc{matplotlib.image.AxesImage} instance.  The image is rescaled to fit
+into the current axes box.  Here is some example code to display an
+image
+
+\lstinputlisting{code/simple_imshow.py}
+
+\noindent \func{imshow} a command in the \mpldoc{matplotlib.matlab}
+interface.  This is a thin wrapper of the
+\mpldoc{matplotlib.Axes.imshow} method, which can be called from any
+Axes instance, eg \code{ax.imshow(X)}.
+
+There are two parameters that determine how the image is resampled
+into the axes bounding box: \carg{interpolation} and \carg{aspect}.
+The following \carg{interpolation} schemes are available:
+\val{bicubic, bilinear, blackman100, blackman256, blackman64, nearest,
+  sinc144, sinc256, sinc64, spline16, and spline36}.  The default
+interpolation method is given by the value of \rc{image.interpolation}
+in your \fname{.matplotlibrc} file.  \carg{aspect} can be either
+\val{preserve} or \val{free} which will constrain the aspect ratio of
+the image or not, respectively.  The default aspect setting is given
+by the value of the rc parameter \rc{image.aspect}.
+
+The full syntax of the \func{imshow} command is
+
+\begin{lstlisting}
+imshow(X,                   # the numerix array
+       cmap = None,         # the matplotlib.colors.Colormap instance
+       norm = None,         # the normalization instance
+       aspect=None,         # the aspect setting
+       interpolation=None,  # the interpolation method
+       alpha=1.0,           # the alpha transparency value
+       vmin = None,         # the min for image scaling 
+       vmax = None,         # the max for image scaling
+       origin=None):        # the image origin
+
+\end{lstlisting}
+
+When \val{None}, these parameters will assume a default value, in
+many cases determined by the rc setting.  The meaning of \carg{cmap,
+norm, vmin, vmax, and origin} will be explained in sections below.
+
+The following shows a simple command which creates an image using
+bilinear interpolation, shown in Figure~\ref{fig:image_demo}.
+
+\lstinputlisting{code/image_demo.py}
+
+\fig{4in}{figures/image_demo}{Simple axes image}{fig:image_demo}
+
+You can create an arbitrary number of axes images inside a single
+axes, and these will be composed via alpha blending.  However, if you
+want to blend several images, you must make sure that the
+\func{hold} state is \val{True} and that the alpha of the
+layered images is less than 1.0; if alpha=1.0 then the image on top
+will totally obscure the images below.  Because the image blending is
+done using antigrain (regardless of your backend choice), you can
+blend images even on backends which don't support alpha (eg,
+postscript).  This is because the alpha blending is done in the
+frontend and the blended image is transferred directly to the backend
+as an RGB pixel array.  See Recipe~\ref{cbook:layer_images} for an example of
+how to layer images.
+
+
+\subsection{Figure images}
+\label{sec:image_figure}
+Often times you want to be able to look at your raw image data
+directly, without interpolation.  This is the function of figure
+images, which do a pixel-by-pixel transfer of your image data to the
+figure canvas \footnote{If you want a resampled image to occupy the
+  full space of the figure canvas, you can achieve this by specifying
+  a custom axes that fills the figure canvas \code{axes([0, 1, 0,
+    1])} and using \func{imshow}.}.  Figure images are drawn first,
+and thus can become the background of other matplotlib drawing
+commands.
+
+In the matlab interface, figure images are created with the
+\func{figimage} command, which unlike \func{imshow}, does not
+accept an \carg{interpolation} or \carg{aspect} keyword argument
+because no image resampling is used.  If the pixel extent of the
+figure image extends beyond the figure canvas, the image will simply
+be truncated.  The basic syntax is \code{figimage(X, xo=0, yo=0)}
+where X is luminance (MxN), RGB (MxNx3) or RGBA (MxNx4) numerix array
+and \carg{xo}, \carg{yo} are pixel offsets from the origin (see
+Section~\ref{sec:image_origin}).  You can use \func{figimage} to create a
+figure image that fills the entire canvas with no x or y offsets, or
+you can make multiple calls to \func{figimage} with different x and
+y offsets to create a mosaic of images, as shown in
+Recipe~\ref{cbook:figure_mosaic}.
+
+The full syntax of the \func{figimage} command is
+
+\begin{lstlisting}
+figimage(X,           # the numerix array
+         xo=0,        # the x offset
+         yo=0,        # the y offset
+         alpha=1.0,   # the alpha transparency
+         norm=None,   # the matplotlib.colors.normalization instance
+         cmap=None,   # the matplotlib.colors.Colormap instance
+         vmin=None,   # the min for image scaling 
+         vmax=None,   # the max for image scaling 
+         origin=None) # the image origin
+\end{lstlisting}
+
+The \carg{cmap, norm, vmin, vmax} and \carg{origin} arguments are
+explained in the sections below.
+
+\mpldoc{matplotlib.matlab.figimage} is a thin wrapper of
+\mpldoc{matplotlib.figure.figimage} and you can generate figure images
+directly with the pythonic API using \code{fig.figimage(X)} where
+fig is a Figure instance.
+
+\subsection{Scaling and color mapping}
+\label{sec:image_to_rgba}
+
+In addition to supporting raw image RGB and RGBA formats, matplotlib
+will scale and map luminance data for MxN float (luminance) arrays.
+The conversion from luminance data to RGBA occurs in two steps:
+scaling and color mapping.
+
+\textit{Scaling} is the process of normalizing an MxN floating point
+array to the 0,1 interval, by mapping \carg{vmin} to 0.0 and
+\carg{vmax} to 1.0, where \carg{vmin} and \carg{vmax} are user defined
+parameters.  If either are \val{None}, the min and max of the image
+data will be used, respectively.  Scaling is handled by a
+\mpldoc{matplotlib.colors.normalization} instance, which defaults to
+\code{normalization(vmin=None, vmax=None)} - ie, the default is to
+scale the image so that the minimum of the luminance array is zero and
+the maximum of the luminance array is one. 
+
+Typically, you will not create a normalization instance yourself, but
+may set \carg{vmin} or \carg{vmax} in the keyword arguments of the
+image creation function.  In this case, a normalization instance is
+created for you, and your vmin, vmax settings are applied.  If you do
+supply a normalization instance for the \carg{norm} argument,
+\carg{vmin} and \carg{vmax} will be ignored.  See
+Table~\ref{tab:image_norms} for some examples of image normalization
+commands and their interpretation.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}[t]{ll}
+    command& interpretation\\
+
+    \prompt{imshow(X)} & 
+    $X \leq \mathrm{min}(X) \rightarrow 0 $ and $X \geq \mathrm{max}(X) \rightarrow 1$\\
+
+    \prompt{imshow(X, vmax=10)} & 
+    $X \leq \mathrm{min}(X) \rightarrow 0 $ and $X \geq 10 \rightarrow 1$\\
+
+    \prompt{imshow(X, vmin=0, vmax=10)} & 
+    $X \leq 0 \rightarrow 0 $ and $X \geq 10 \rightarrow 1$\\
+
+    \prompt{anorm=normalize(2,8)} & \\
+    \prompt{imshow(X, norm=anorm)} & 
+    $X \leq 2 \rightarrow 0 $ and $X \geq 8 \rightarrow 1$\\
+
+  \end{tabular}
+  \caption{\label{tab:image_norms}Example image normalization commands
+    and their interpretation}
+\end{table}
+
+Once the luminance data are normalized, they color mapper transforms
+the normalized data to RGBA using a
+\mpldoc{matplotlib.colors.Colormap} instance. Common colormaps are
+defined in \mpldoc{matplotlib.cm}, including \code{cm.jet} and
+\code{cm.gray}.  If the cmap argument to an image command is
+\val{None}, the default is given by he rc parameter \rc{image.cmap}.
+
+The keyword arguments \carg{cmap, norm, vmin, vmax} control color
+mapping and scaling in the image construction commands.  Once the
+images have been created, several commands exist to interactively
+control the color map of the current image.  Like the current figure
+(\func{gcf}) and the current axes (\func{gca}), matplotlib keeps
+track of the current image (\func{gci}) to determine which image to
+apply the commands which affect image properties.  To interactively
+set the image normalization limits, use \code{clim(vmin=None,
+  vmax=None)}, where \carg{vmin} and \carg{vmax} have the same meaning
+as above.  To interactively change the colormap, use \func{jet} or
+\func{gray} (More colormaps and colormap commands are planned)..
+These latter commands not only change the colormap of the current
+image, they also set the default for future images.
+
+For quantitative plotting of pseduocolor images, use the
+\func{colorbar} function to provide a colorbar associated with the
+iamge, Here is an example interactive session controlling image
+scaling and color mapping with a colorbar
+
+\begin{lstlisting}
+>>> imshow(X)   # plot the luminance image X
+>>> clim(-1,2)  # scale the image
+>>> jet()       # use colormap jet
+>>> colorbar()  # add a colorbar to the current axes
+>>> gray()      # use grayscale; image and colorbar are updated
+\end{lstlisting}
+
+The image scaling and color mapping are handled by the mixin base
+class \mpldoc{matplotlib.colors.ScalarMappable}.
+
+\subsection{Image origin}
+\label{sec:image_origin}
+
+Depending on your data, it may be more natural to plot your data with
+the image origin up (\code{X[0,0]} is upper left) or down
+(\code{X[0,0]} is lower left).  matplotlib supports these two modes
+with the \carg{origin} parameter, which can be supplied as an optional
+keyword argument to the image commands \func{imshow} and
+\func{figimage} with the default set by the rc parameter
+\rc{image.origin}.  To plot an image with the origin in the upper
+left, pass \code{origin='upper'} and with the image in the lower left,
+pass \code{origin='lower'}, as shown in Figure~\ref{fig:image_origin}.
+
+\lstinputlisting{code/image_origin.py}
+
+\fig{4in}{figures/image_origin}{Controlling the image origin with the
+  \carg{origin} keyword argument to \func{imshow} and
+  \func{figimage}.}{fig:image_origin}
+
+
+
+\section{Bar charts, histograms and errorbar plots}
+\label{sec:barcharts}
+
+\section{Pseudocolor and scatter plots}
+\label{sec:pcolor_scatter}
+
+\section{Spectral analysis}
+\label{sec:spectral}
+
+\section{Axis properties}
+\label{sec:axis_props}
+
+\section{Legends and tables}
+\label{sec:legends_and_tables}
+
+\chapter{Font finding and properties}
+\label{sec:font_finding}
+
+\mpldoc{matplotlib.fonts.font\_manager} is module for finding,
+managing, and using fonts across-platforms.  This module provides a
+single FontManager that can be shared across backends and platforms.
+The findfont() method returns the best TrueType (TTF) font file in the
+local or system font path that matches the specified FontProperties.
+The FontManager also handles Adobe Font Metrics (AFM) font files for
+use by the PostScript backend.
+
+The design is based on the W3C Cascading Style Sheet, Level 1 (CSS1)
+font specification (\url{http://www.w3.org/TR/1998/REC-CSS2-19980512}).
+Future versions may implement the Level 2 or 2.1 specifications.
+      
+The \rc{font.family} property has five values: 'serif' (e.g. Times),
+'sans-serif' (e.g. Helvetica), 'cursive' (e.g. Zapf-Chancery),
+'fantasy' (e.g. Western), and 'monospace' (e.g. Courier).  Each of
+these font families has a default list of font names in decreasing
+order of priority associated with them.  You describe which family you
+want by choosing, eg, \code{family='serif'}, and the font manager will
+search the font.serif list looking for one of the named fonts on your
+system.  The lists are user configurable, and reside in your
+\fname{.matplotlibrc}.
+
+This allows you to choose your family in your matplotlib script and
+the font manager will try and find the best font no matter which
+platform you run on.
+
+\begin{itemize}
+\item The \rc{font.style} property has three values: normal (or
+  roman), italic or oblique.  The oblique style will be used for
+  italic, if it is not present.
+  
+\item The \rc{font.variant} property has two values: normal or
+  small-caps.  For TrueType fonts, which are scalable fonts,
+  small-caps is equivalent to
+  using a font size of 'smaller', or about 83% of the current font size.
+  
+\item The \rc{font.weight} property has effectively 13 values: normal,
+  bold, bolder, lighter, 100, 200, 300, ..., 900.  Normal is the same
+  as 400, and bold is 700.  bolder and lighter are relative values
+  with respect to the current weight.
+
+  
+\item The \rc{font.stretch} property has 11 values: ultra-condensed,
+  extra-condensed, condensed, semi-condensed, normal, semi-expanded,
+  expanded, extra-expanded, ultra-expanded, wider, and narrower.  This
+  property is not currently implemented.
+  
+\item The \rc{font.size} property has 11 values: xx-small, x-small,
+  small, medium, large, x-large, xx-large, larger, smaller, length
+  (such as 12pt), and percentage.  larger and smaller are relative
+  values.  percentage is not yet implemented.
+
+\end{itemize}
+
+Here is an example using the font properties to illustrate the
+different fonts
+
+\lstinputlisting{code/fonts_demo_kw.py}
+
+% TODO: fix me for PS
+%\fig{6in}{figures/fonts_demo_kw}{The various fonts rendered by the
+%  script above}{fig:fonts_demo}
+
+
+
+
+
+\chapter{Collections}
+
+
+
+
+
+
+\chapter{Cookbook}
+
+\section{Working with images}
+
+\subsection{Loading existing images into matplotlib}
+\label{cbook:image_files}
+Currently matplotlib only supports plotting images from numerix
+arrays, either luminance, RGB or RGBA.  If you have some existing data
+in an image file format such as PNG, JPEG or TIFF, you can load this
+into matplotlib by first loading the file into PIL -
+\url{http://www.pythonware.com/products/pil} and then converting this
+to a numerix array using fromstring / tostring methods
+
+\lstinputlisting{code/from_pil.py}
+
+\subsection{Blending several axes images using alpha}
+\label{cbook:layer_images}
+
+You can compose several axes images on top of one another using alpha
+blending, as described in Section~\ref{sec:image_axes}.  If your
+\func{hold} state is \val{True}, multiple calls to
+\func{imshow} will cause the image arrays to be resampled to the
+axes bounding box and blended.  Of course, the uppermost images must
+have alpha less than one, or else they will be fully opaque and hence
+the lower images will be invisible.  Note that you can blend images
+from arrays of different shapes as well as blending images with
+different colormaps and interpolation schemes.  The example below
+creates a black and white checkboard using a grayscale colormap and
+then blends a color image over it, as shown in
+Figure~\ref{fig:layer_images}.
+
+\lstinputlisting{code/layer_images.py}
+
+\fig{4in}{figures/layer_images}{Layering axes images using alpha blending.}
+{fig:layer_images}
+
+\subsection{Creating a mosaic of images}
+\label{cbook:figure_mosaic}
+
+
+You can compose several figure images into a mosaic using the
+\func{figimage} command, as discussed Section~\ref{sec:image_figure}.  If
+your \func{hold} state is \val{True}, multiple calls to
+\code{figimage(X, xo, yo)}.  xo and yo are the pixel offsets from
+the origin (the origin can be either upper left or lower left, as
+discussed in Section~\ref{sec:image_origin}).  The code below using color
+mapping to place two images on the diagonal.  Note that you can use
+different kinds of arrays (luminance, RGB, RGBA) and different
+colormaps when creating figure mosaics.  See
+Figure~\ref{fig:figure_mosaic}.
+
+\lstinputlisting{code/figure_mosaic.py}
+
+\fig{4in}{figures/figure_mosaic}{Creating a mosaic using \func{figimage}}
+{fig:figure_mosaic}
+
+\subsection{Defining your own colormap}
+
+Perry Greenfield has provided a nice framework with
+\mpldoc{matplotlib.colors.LinearSegmentedColormap} to define new
+colormaps.  You can create new colormaps fairly easy by following the
+example of jet in \mpldoc{matplotlib.cm}.  Here are the steps
+
+\begin{itemize}
+\item define your rgb linear segments in \mpldoc{matplotlib.cm},
+  following the lead of the \val{\_jet\_data} dictionary in that module
+  
+\item add an entry to the datad dictionary in that module which maps
+  rc string names for your color map to the dictionary you just
+  defined.
+  
+\item instantiate a single instance of your colormap in cm, following
+  the example 
+
+\begin{lstlisting}
+jet = colors.LinearSegmentedColormap('jet', _jet_data, LUTSIZE)
+\end{lstlisting}
+
+\item{add a matplotlib.matlab function which has the same name as your
+    colormap, following the example of \mpldoc{matplotlib.matlab.jet}.}
+\end{itemize}
+
+\noindent Now anyone can use the colormap interactively from the shell, by
+setting it as the default image.cmap in rc, etc.  Please submit your
+changes to the matplotlib-devel mailing list.
+
+\appendix
+
+\chapter{A sample \fname{.matplotlibrc}}
+\lstinputlisting{../.matplotlibrc}
+
+\chapter{mathtext symbols}
+\label{sec:math_symbols}
+
+
+\end{document}
+
+
+
+
+
+
