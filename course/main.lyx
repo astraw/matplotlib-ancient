@@ -211,52 +211,6 @@ See a
 
 \layout Standard
 
-
-\begin_inset ERT
-status Collapsed
-
-\layout Standard
-
-\backslash 
-lstinputlisting{examples/weave_examples.py}
-\end_inset 
-
-
-\layout Standard
-
-And we can also have a figure of a person's head, as shown in Fig.\SpecialChar ~
-
-\begin_inset LatexCommand \ref{fig:mayavi-head}
-
-\end_inset 
-
-.
-\begin_inset Float figure
-wide false
-collapsed true
-
-\layout Standard
-\align center 
-
-\begin_inset Graphics
-	filename fig/skin.gif
-	lyxscale 50
-	width 80text%
-
-\end_inset 
-
-
-\layout Caption
-
-
-\begin_inset LatexCommand \label{fig:mayavi-head}
-
-\end_inset 
-
-Somebody's head
-\end_inset 
-
-
 \layout Standard
 
 

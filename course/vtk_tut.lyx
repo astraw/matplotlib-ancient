@@ -73,11 +73,6 @@ nals spent 10 months designing the library before touching a keyboard! These
 \layout Standard
 
 
-\begin_inset LatexCommand \ref{fig:vtkpbrain}
-
-\end_inset 
-
-
 \begin_inset Float figure
 wide false
 collapsed false
@@ -116,6 +111,15 @@ We'll start with a minimal example that creates and displays a cube.
  The src for this example is 
 \family typewriter 
 examples/vtk_hello.py
+\family default 
+ and the output is shon in Figure 
+\family typewriter 
+
+\begin_inset LatexCommand \ref{fig:vtkcube}
+
+\end_inset 
+
+.
 \layout Standard
 
 
@@ -132,14 +136,9 @@ lstinputlisting[caption={A minimal VTK example to display a cube}]{examples/vtk_
 \layout Standard
 
 
-\begin_inset LatexCommand \ref{fig:vtkcube}
-
-\end_inset 
-
-
 \begin_inset Float figure
 wide false
-collapsed true
+collapsed false
 
 \layout Standard
 \align center 
@@ -265,7 +264,12 @@ vtkVolumeReader
 \family default 
 , to work with raw binary images.
  Once the image is loaded, you can pass it to various filters or viewers.
- In the example below, we create an MRI viewer
+ In the example below, we create an MRI viewer shown in Figure 
+\begin_inset LatexCommand \ref{fig:vtkslicer}
+
+\end_inset 
+
+.
 \layout Standard
 
 
@@ -282,14 +286,9 @@ lstinputlisting[caption={A simple 3D image viewer in VTK }]{examples/vtk_slice_v
 \layout Standard
 
 
-\begin_inset LatexCommand \ref{fig:vtkslicer}
-
-\end_inset 
-
-
 \begin_inset Float figure
 wide false
-collapsed true
+collapsed false
 
 \layout Standard
 \align center 
@@ -340,7 +339,13 @@ n and Registration Toolkit, referenced above.
  the slice viewer application above, and feed this data to the marching
  cubes algorithm.
  The output will be stored in a VTK data file, in this case a plain text
- file which stores vertex, edge and polygon information.
+ file which stores vertex, edge and polygon information, and shown in Figure
+ 
+\begin_inset LatexCommand \ref{fig:vtkmarching}
+
+\end_inset 
+
+.
  These files can be read and the data in them manipulated, analyzed and
  visualized by external tools, eg MayaVi.
  
@@ -353,16 +358,11 @@ status Open
 \layout Standard
 
 \backslash 
-lstinputlisting[caption={COnstructing surfaces from MRI data}]{examples/vtk_marching_cubes.py}
+lstinputlisting[caption={Constructing surfaces from MRI data}]{examples/vtk_marching_cubes.py}
 \end_inset 
 
 
 \layout Standard
-
-
-\begin_inset LatexCommand \ref{fig:vtkmarching}
-
-\end_inset 
 
 
 \begin_inset Float figure
