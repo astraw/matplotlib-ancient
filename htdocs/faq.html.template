@@ -221,15 +221,12 @@ information.<p>
 
 Some of the matplotlib extension code operates on Numeric/numarray
 arrays, eg the image and transforms modules.  To get optimum
-performance, you should compile matplotlib with the proper flag for
-the library you will be using most.  Set the <i>NUMERIX</i> variable
-in setup.py before building.  Note that this is different from the
-<i>numerix</i> variable in <a href=.matplotlibrc>.matplotlibrc</a>.
-The former affects the matplotlib at compile time, the latter at run
-time.  All of your matplotlib scripts should run without error
-regardless of these two settings, but to get optimum performance, they
-should agree.  numarray builds for win32 are available on the download
-page."""),
+performance, you need to compile matplotlib with the package you want
+to use.  matplotlib setup.py will automatically detect whether you
+have Numeric or numarray or both at compile time, and will compile the
+appropriate extensions to work with one or both, if present.  The
+actual extension chosen at runtime will be determined by your
+'numerix' <a href=.matplotlibrc>matplotlibrc</a> setting."""),
 
     ('SLOW', 'matplotlib seems painfully slow, am I doing something wrong?',
 
@@ -238,8 +235,11 @@ matplotlib reasonably fast plotting largish arrays and image data.  If
 things seem exceptionally pokey, it may indicate a problem in your
 setup.  The most common cause is getting your numerix settings out of
 kilter.  As indicated in <a href=faq.html#NUMARRAY>the numarray
-faq</a>, it is important that you compile matplotlib with the same
-numerix setting you use in your rc file.  Failure to do so can cause
+faq</a>, it is important that the Numeric/numarray extension you want
+to use is available at the time you compile matplotlib, since the
+appropriate extensions are determined automatically when matplotlib is
+compiled.  Both Numeric and numarray extensions are available in the
+windows installer .  Failure to do so can cause
 up to a 30-fold performance hit in some cases.<p>
 
 Another possibility to speed things up is to use <a

@@ -1,6 +1,14 @@
 New entries should be added at the top
 
 ==============================================================
+2004-09-28 Added save to file object for agg - see
+           examples/print_stdout.py
+
+2004-09-24 Reorganized all py code to lib subdir
+
+2004-09-24 Fixed axes resize image edge effects on interpolation -
+           required upgrade to agg22 which fixed an agg bug related to
+           this problem
 
 2004-09-20 Added toolbar2 message display for backend_tkagg.  JTM
 
@@ -46,6 +54,7 @@ New entries should be added at the top
 2004-09-15 Moved definitions of infinity from mlab to numerix to avoid
 	   divide by zero warnings for numarray - JTM
 
+2004-09-09 Added axhline, axvline, axhspan and axvspan
 
 ==============================================================
 2004-08-30 matplotlib 0.62.4 released

@@ -755,8 +755,150 @@ show()
 
 </pre>
 
+<a name="dates">
+<h3>Plotting dates</h3>
+</a>
+
+matplotlib handles date plotting by providing converter functions to
+convert python datetime objects to and from floating point numbers.
+These numbers represent days in the Proleptic Greogrian Calendar UTC
+time.  The advantage of using UTC is that there is no daylight savings
+time or timezone offset, which facilitates time calculation.  However,
+this is just the internal format matplotlib uses, and timezone support
+is provided.  The supported date range is the same as the python
+datetime module: years 0001-9999<p>
+
+<b>Note that before matplotlib 0.63, dates were represented as seconds
+since the epoch (1972) and did not have timezone support.  The code
+was rewritten to use datetime objects both to extend the time range
+over which date plots work and to support time zones.  Thus
+dateplotting requires python2.3.  Please read this section
+carefully and consult <a href=API_CHANGES>API_CHANGES<a/> to see what
+changes are required to migrate old code.  Also note that many of the
+date locator functions which have the same name now have a different
+(and more general) constructor syntax.</b><p>
+
+There are three datetime conversion functions: <a
+href=matplotlib.dates.html#-date2num>date2num</a>, <a
+href=matplotlib.dates.html#-num2date>num2date</a> and <a
+href=matplotlib.dates.html#-drange>drange</a>.  date2num takes a
+python datetime (or sequence of datetimes) and returns a float or
+sequence of floats.  num2date does the inverse.  drange takes a start
+date, end date and datetime timedelta object and returns a sequence of
+floats.<p>
+
+<pre>
+date1 = datetime.date( 1952, 1, 1 )
+date2 = datetime.date( 2004, 4, 12 )
+delta = datetime.timedelta(days=100)
+dates = drange(date1, date2, delta)
+</pre>
+
+The function <a href=matplotlib.matlab.html#-plot_date>plot_date</a>
+is used to plot a series of y-values against floating point dates.
+Since the x axis is just a sequence of floats, you could just as
+easily use <a href=matplotlib.matlab.html#-plot>plot</a>.  In fact,
+this is just what plot_date does under the hood.  The only difference
+is that plot_date picks a date tick locator and a date tick formatter,
+and tries to make an intelligent default choice based on the range of
+dates presented.  If you want to use custom date tickers and
+formatters, you can just as easily use the plot command for date
+plots.<p>
+
+<pre>
+s = rand(len(dates)) # make up some random y values
+plot_date(dates, s)
+</pre>
+
+<h4>date ticking with dateutils</h4> Another new change in date
+plotting with matplotlib-0.63 is that the powerful <a
+href=https://moin.conectiva.com.br/DateUtil>dateutil</a> package is
+included to support date tick locating.  dateutil is included with the
+matplotlib distribution and will be installed automatically if you
+don't already have it.  The dateutil package provides an rrule module
+for generating recurrance rules.  Thus you can place ticks every
+Monday at 5PM, every 5th easter, on specified hours, weekdays etc.
+All of matplotlib's date tick locators utilize rrules under the hood
+(see <a href=matplotlib.ticker.html>matplotlib.ticker</a> and <a
+href=matplotlib.dates.html>matplotlib.dates</a> for more
+information on date ticking).<p>
+
+Here is an example setting up a ticker to make major ticks every year,
+minor ticks every month
+
+<pre>
+years    = YearLocator()   # every year
+months   = MonthLocator()  # every month
+yearsFmt = DateFormatter('%Y')
+ax.xaxis.set_major_locator(years)
+ax.xaxis.set_major_formatter(yearsFmt)
+ax.xaxis.set_minor_locator(months)
+</pre>
+
+The <a href=matplotlib.dates.html#DateFormatter>DateFormatter</a>
+class takes an <a
+href=http://www.python.org/doc/current/lib/module-time.html>strftime</a>
+format string.  The example above used the default constructors for <a
+href=matplotlib.dates.html#YearLocator>YearLocator</a> and  <a
+href=matplotlib.dates.html#MonthLocator>MonthLocator</a>.  But you can
+customize this behavior.  For example, to make major ticks every 5
+years, and minor ticks on March, June, September and December, you
+would do instead
+
+<pre>
+years    = YearLocator(5)                # every 5 years
+months   = MonthLocator(range(3,13,3))   # every quarter
+</pre>
+
+The date tick locators MinuteLocator, HourLocator, DayLocator,
+WeekdayLocator, MonthLocator, and YearLocator are provided, and are
+simple interfaces to the rrule generator.  See <a
+href=examples/date_demo1.py>date_demo1.py</a> and <a
+href=examples/date_demo2.py>date_demo2.py</a>.  For full control of
+date ticking, you can use your own rrule with the <a
+href=matplotlib.dates.html#RRuleLocator>RRuleLocator</a> class.  See
+<a href=examples/date_demo_rrule.py>date_demo_rrule.py</a>.  <p>
 
 
+<table @plot_table_border@><tr><td>
+<table>
+    <caption><h4>A simple plot</h4></caption>
+    <tr><td valign=top><img src=tut/date_demo2.png></td></tr>
+    <tr><td valign=top halign=left>
+
+Example code in <a
+href=examples/date_demo2.py>date_demo2.py</a>.
+
+    </td></tr>
+</table>
+</td></tr>
+</table><br>
+
+<h4>timezones with pytz</h4> 
+
+Timezone support is provided via the <a
+href=http://pytz.sourceforge.net/>pytz</a> module.  This module
+provides python datetime tzinfo implementations of 546 of the Olsen
+database timezones.  pytz is included in the matplotlib distribution
+and will be installed if you don't already have it.  Thus you can
+reside in Zimbabwe and use matplotlib to plot financial quotes in
+London or New York, with correct handling of idiosyncrasies like
+daylight savings time.  The default timezone is set by the timezone
+parameter in your <a href=.matplotlibrc>matplotlibrc</a> file.  The
+timezone is specified as a string acceptable to the pytz.timezone
+constructor, eg 'US/Eastern' or 'Europe/London'.  The default timezone
+in the rc file that ships with matplotlib is 'UTC'.  Note, matplotlib
+supports per directory rc files, so if you have a project in a
+timezone other than your own, you can place an rc file in a working
+directory for that project to use that as the default timezone.<p>
+
+ All of the matplotlib date ticking classes and functions, except for
+drange and date2num, accept an optional argument <tt>tz</tt> which is
+a tzinfo instance; the reason drange and date2num do not use it is
+because they can infer it from the tzinfo of the supplied datetime
+instances.  If tz is None (the default) the rc value will be used.
+See <a href=examples/date_demo_convert.py>date_demo_convert.py</a> for
+an example date plot using timezone information.
 
 @footer@
 

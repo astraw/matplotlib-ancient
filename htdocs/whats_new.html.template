@@ -3,6 +3,12 @@
 # tuple of (name, description) tuples
 
 versioninfo = {}
+versioninfo['0.63'] = (
+
+    ('ipython support', """\
+
+"""),
+)
 
 versioninfo['0.62'] = (
 

@@ -127,7 +127,10 @@ override&nbsp;this&nbsp;on&nbsp;hardcopy<br>
 &nbsp;<br>
 If&nbsp;the&nbsp;extension&nbsp;matches&nbsp;PNG,&nbsp;write&nbsp;a&nbsp;PNG&nbsp;file<br>
 &nbsp;<br>
-If&nbsp;the&nbsp;extension&nbsp;matches&nbsp;BMP&nbsp;or&nbsp;RAW,&nbsp;write&nbsp;an&nbsp;RGBA&nbsp;bitmap&nbsp;file</tt></dd></dl>
+If&nbsp;the&nbsp;extension&nbsp;matches&nbsp;BMP&nbsp;or&nbsp;RAW,&nbsp;write&nbsp;an&nbsp;RGBA&nbsp;bitmap&nbsp;file<br>
+&nbsp;<br>
+If&nbsp;filename&nbsp;is&nbsp;a&nbsp;fileobject,&nbsp;write&nbsp;png&nbsp;to&nbsp;file&nbsp;object&nbsp;(thus<br>
+you&nbsp;can,&nbsp;for&nbsp;example,&nbsp;write&nbsp;the&nbsp;png&nbsp;to&nbsp;stdout</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasAgg-tostring_rgb"><strong>tostring_rgb</strong></a>(self)</dt></dl>
 
@@ -319,7 +322,6 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-FT2Font"><strong>FT2Font</strong></a>(...)</dt><dd><tt>FT2Font</tt></dd></dl>
- <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
  <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args, **kwargs)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -330,7 +332,7 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>DEBUG</strong> = 0<br>
 <strong>False</strong> = False<br>
-<strong>Float</strong> = 'd'<br>
+<strong>Float</strong> = Float64<br>
 <strong>True</strong> = True<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;</td></tr></table>
