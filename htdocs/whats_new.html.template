@@ -3,7 +3,32 @@
 # tuple of (name, description) tuples
 
 versioninfo = {}
+versioninfo['0.54'] = (
 
+    ('New scatter plots', """ The scatter command is new, and is
+implemented in the backend with a new polygon collection class.  For
+large scatter plots, the performance is 5 times faster across all
+backends and 10 times faster for the *Agg backends.  Also, scatter
+works with many symbols: diamonds, sqaures, oriented triangles,
+circles and more.  The scatter command returns a collection instance
+rather than a list of patches as before, so if you are setting
+properties on the return values of scatter plots, you <i>may</i> need
+to change some code to use methods appropriate for collections, though
+the user API is largely compatible.  See <a
+href=matplotlib.collections.html>collections</a>. <p>
+
+Also the size argument is now in points^2 (the area of the symbol in
+points) and is not in data coords as before.  This fixes a few
+problems: symbols are not skewed by unequally shaped axes, scatter
+works with log coords w/o distoring the symbol, and it is matlab
+compatible.<p>
+
+The function scatter_classic is the old scatter function and will work
+identically.
+
+"""),
+
+)
 versioninfo['0.53'] = (
     ('Improved font manager and support', """
 Paul Barrett has thoroughly overhauled font support.  FontTools and

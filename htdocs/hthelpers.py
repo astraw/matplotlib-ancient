@@ -15,6 +15,7 @@ modules = (
     'matplotlib.backends.backend_wx',
     'matplotlib.backends.backend_wxagg',
     'matplotlib.cbook',
+    'matplotlib.collections',
     'matplotlib.colors',
     'matplotlib.dates',
     'matplotlib.figure',
