@@ -61,7 +61,7 @@ command""", 1),
 
 ('mathtext_demo', """The mathtext module provides TeX style
 mathematical expressions using freetype2 and the BaKoMa computer
-modern fonts.  The the <a href=matplotlib.mathtext.html>mathtext</a>
+modern fonts.  See the <a href=matplotlib.mathtext.html>mathtext</a>
 module for usage, licensing and backend information.  Requires
 matplotlib-0.51 or later.""", 1),
 

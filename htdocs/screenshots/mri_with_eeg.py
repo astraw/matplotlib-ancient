@@ -1,14 +1,15 @@
-# note, this is currentl *very slow*.  I'm working on improving the
-# efficiency of pcolor.  If you want to run this example and your
-# computer is not very fast, I suggest you grab a cup of coffee while
-# it runs.  Look for major improvments in pcolor in future releases of
-# matplotlib when we add image handling capability in extension module
-# code
-
+#!/usr/bin/env python
+"""
+This now uses the imshow command instead of pcolor which *is much
+faster*
+"""
 from __future__ import division
 from matplotlib.matlab import *
 from matplotlib.lines import Line2D
-from matplotlib.transforms import Transform, Bound1D
+from matplotlib.transforms import get_bbox_transform, Point, Value, Bbox,\
+     unit_bbox
+
+
 # I use if 1 to break up the different regions of code visually
 
 if 1:   # load the data
@@ -42,30 +43,57 @@ if 1:   # plot the EEG
     ticklocs = []
     ax = subplot(212)
 
-    height = 72  # height of one EEG in pixels
-    # transform data to axes coord (0,1)
-    transy = Transform(Bound1D(-.05,.05), Bound1D(-.2,.2))
-    for i in range(numRows):
-        thisLine = Line2D(
-            ax.dpi, ax.bbox, t, data[:,i]-data[0,i],
-            transx=ax.xaxis.transData,
-            transy=transy)
-        offset = (i+1)/(numRows+1)
-        thisLine.set_vertical_offset(offset, ax.yaxis.transAxis)
+    boxin = Bbox(
+        Point(ax.viewLim.ll().x(), Value(-20)),
+        Point(ax.viewLim.ur().x(), Value(20)))
 
+
+    height = ax.bbox.ur().y() - ax.bbox.ll().y()
+    boxout = Bbox(
+        Point(ax.bbox.ll().x(), Value(-1)*height),
+        Point(ax.bbox.ur().x(), Value(1) * height))
+
+
+    transOffset = get_bbox_transform(
+        unit_bbox(),
+        Bbox( Point( Value(0), ax.bbox.ll().y()),
+              Point( Value(1), ax.bbox.ur().y())
+              ))
+
+
+    for i in range(numRows):
+        # effectively a copy of transData
+        trans = get_bbox_transform(boxin, boxout) 
+        offset = (i+1)/(numRows+1)
+
+        trans.set_offset( (0, offset), transOffset)
+        
+        thisLine = Line2D(
+            t, data[:,i]-data[0,i],
+            )
+        
+        thisLine.set_transform(trans)
+        
         ax.add_line(thisLine)
         ticklocs.append(offset)
 
     set(gca(), 'xlim', [0,10])
     set(gca(), 'xticks', arange(10))
-    yticks = set(gca(), 'yticks', ticklocs)
+
     set(gca(), 'yticklabels', ['PG3', 'PG5', 'PG7', 'PG9']) 
 
     # set the yticks to use axes coords on the y axis
-    set(yticks, 'transform', ax.yaxis.transAxis)
+    ax.set_yticks(ticklocs)
+    for tick in ax.yaxis.get_major_ticks():
+        tick.label1.set_transform(ax.transAxes)
+        tick.label2.set_transform(ax.transAxes)        
+        tick.tick1line.set_transform(ax.transAxes)
+        tick.tick2line.set_transform(ax.transAxes)        
+        tick.gridline.set_transform(ax.transAxes)                
+
+
     xlabel('time (s)')
 
-savefig('mri_with_eeg_small.png', dpi=60)
-savefig('mri_with_eeg_large.png', dpi=120)
 
+#savefig('mri_with_eeg')
 show()
