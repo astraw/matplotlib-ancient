@@ -524,6 +524,8 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#Eleme
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Handler-clear"><strong>clear</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="Handler-composite"><strong>composite</strong></a>(self, s, loc, toks)</dt></dl>
+
 <dl><dt><a name="Handler-expression"><strong>expression</strong></a>(self, s, loc, toks)</dt></dl>
 
 <dl><dt><a name="Handler-font"><strong>font</strong></a>(self, s, loc, toks)</dt></dl>
@@ -708,6 +710,7 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 <strong>charOverChars</strong> = {r'\angstrom': (('rm', 'A', 1.0), (None, r'\circ', 0.5), 0.0)}<br>
 <strong>colon</strong> = ":"<br>
 <strong>comma</strong> = ","<br>
+<strong>composite</strong> = composite<br>
 <strong>div</strong> = "/"<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>equals</strong> = "="<br>
@@ -727,6 +730,7 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 <strong>misc</strong> = {{{"!" | "@"} | "%"} | "&amp;"}<br>
 <strong>number</strong> = Combine:({{W:(0123...) ["."]} [W:(0123...)]})<br>
 <strong>nums</strong> = '0123456789'<br>
+<strong>over</strong> = "over"<br>
 <strong>overunder</strong> = {r'\coprod': 1, r'\int': 1, r'\prod': 1, r'\sum': 1}<br>
 <strong>percent</strong> = "%"<br>
 <strong>period</strong> = "."<br>
@@ -747,7 +751,8 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 <strong>symgroup</strong> = {{{{{{{Combine:({{"\" W:(abcd...)} ~{Suppress:("...} | "&amp;"}} ^ {{{"[" | "]"} | "("} | ")"}} ^ group}<br>
 <strong>texsym</strong> = Combine:({{"\" W:(abcd...)} ~{Suppress:("{")}})<br>
 <strong>times</strong> = "*"<br>
-<strong>typewriter</strong> = "tt"</td></tr></table>
+<strong>typewriter</strong> = "tt"<br>
+<strong>under</strong> = "under"</td></tr></table>
     </td>
     </tr>
 </table>

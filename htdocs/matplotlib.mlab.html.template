@@ -92,6 +92,9 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 &nbsp;<br>
 &nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
 specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
+ <dl><dt><a name="-bivariate_normal"><strong>bivariate_normal</strong></a>(X, Y, sigmax<font color="#909090">=1.0</font>, sigmay<font color="#909090">=1.0</font>, mux<font color="#909090">=0.0</font>, muy<font color="#909090">=0.0</font>, sigmaxy<font color="#909090">=0.0</font>)</dt><dd><tt>Bivariate&nbsp;gaussan&nbsp;distribution&nbsp;for&nbsp;equal&nbsp;shape&nbsp;X,&nbsp;Y<br>
+&nbsp;<br>
+<a href="http://mathworld.wolfram.com/BivariateNormalDistribution.html">http://mathworld.wolfram.com/BivariateNormalDistribution.html</a></tt></dd></dl>
  <dl><dt><a name="-center_matrix"><strong>center_matrix</strong></a>(M, dim<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;matrix&nbsp;M&nbsp;with&nbsp;each&nbsp;row&nbsp;having&nbsp;zero&nbsp;mean&nbsp;and&nbsp;unit&nbsp;std<br>
 &nbsp;<br>
 if&nbsp;dim=1,&nbsp;center&nbsp;columns&nbsp;rather&nbsp;than&nbsp;rows</tt></dd></dl>

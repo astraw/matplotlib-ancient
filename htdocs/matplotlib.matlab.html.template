@@ -20,9 +20,11 @@ Plotting&nbsp;commands<br>
 &nbsp;&nbsp;colorbar&nbsp;-&nbsp;add&nbsp;a&nbsp;colorbar&nbsp;to&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;cohere&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;coherence<br>
 &nbsp;&nbsp;csd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;cross&nbsp;spectral&nbsp;density<br>
+&nbsp;&nbsp;draw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Force&nbsp;a&nbsp;redraw&nbsp;of&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;errorbar&nbsp;-&nbsp;make&nbsp;an&nbsp;errorbar&nbsp;graph<br>
 &nbsp;&nbsp;figlegend&nbsp;-&nbsp;make&nbsp;legend&nbsp;on&nbsp;the&nbsp;figure&nbsp;rather&nbsp;than&nbsp;the&nbsp;axes<br>
 &nbsp;&nbsp;figimage&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;figure&nbsp;image<br>
+&nbsp;&nbsp;figtext&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;text&nbsp;in&nbsp;figure&nbsp;coords<br>
 &nbsp;&nbsp;figure&nbsp;&nbsp;&nbsp;-&nbsp;create&nbsp;or&nbsp;change&nbsp;active&nbsp;figure<br>
 &nbsp;&nbsp;fill&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;filled&nbsp;polygons<br>
 &nbsp;&nbsp;gca&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;current&nbsp;axes<br>
@@ -143,17 +145,18 @@ the&nbsp;exception&nbsp;of&nbsp;those&nbsp;in&nbsp;mlab.py&nbsp;provided&nbsp;by
 <a href="MLab.html">MLab</a><br>
 <a href="RandomArray.html">RandomArray</a><br>
 <a href="matplotlib._matlab_helpers.html">matplotlib._matlab_helpers</a><br>
-</td><td width="25%" valign=top><a href="matplotlib.cm.html">matplotlib.cm</a><br>
-<a href="copy.html">copy</a><br>
+<a href="matplotlib.cm.html">matplotlib.cm</a><br>
+</td><td width="25%" valign=top><a href="copy.html">copy</a><br>
 <a href="copy_reg.html">copy_reg</a><br>
+<a href="matplotlib.image.html">matplotlib.image</a><br>
 <a href="math.html">math</a><br>
-</td><td width="25%" valign=top><a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
-<a href="multiarray.html">multiarray</a><br>
+<a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
+</td><td width="25%" valign=top><a href="multiarray.html">multiarray</a><br>
 <a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
 <a href="os.html">os</a><br>
-</td><td width="25%" valign=top><a href="pickle.html">pickle</a><br>
+<a href="pickle.html">pickle</a><br>
 <a href="string.html">string</a><br>
-<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
 <a href="types.html">types</a><br>
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -175,8 +178,8 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 &nbsp;<br>
 &nbsp;&nbsp;<a href="#-axes">axes</a>()&nbsp;by&nbsp;itself&nbsp;creates&nbsp;a&nbsp;default&nbsp;full&nbsp;<a href="#-subplot">subplot</a>(111)&nbsp;window&nbsp;axis<br>
 &nbsp;<br>
-&nbsp;&nbsp;<a href="#-axes">axes</a>(rect,&nbsp;axisbg='w')&nbsp;where&nbsp;rect=[left,&nbsp;bottom,&nbsp;width,&nbsp;height]&nbsp;in<br>
-&nbsp;&nbsp;&nbsp;&nbsp;normalized&nbsp;(0,1)&nbsp;units&nbsp;background&nbsp;is&nbsp;the&nbsp;background&nbsp;color&nbsp;for<br>
+&nbsp;&nbsp;<a href="#-axes">axes</a>(rect,&nbsp;axisbg='w')&nbsp;where&nbsp;rect=[left,&nbsp;bottom,&nbsp;width,&nbsp;height]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;normalized&nbsp;(0,1)&nbsp;units.&nbsp;&nbsp;axisbg&nbsp;is&nbsp;the&nbsp;background&nbsp;color&nbsp;for<br>
 &nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axis,&nbsp;default&nbsp;white<br>
 &nbsp;<br>
 &nbsp;&nbsp;<a href="#-axes">axes</a>(h)&nbsp;where&nbsp;h&nbsp;is&nbsp;an&nbsp;axes&nbsp;instance&nbsp;makes&nbsp;h&nbsp;the<br>
@@ -230,8 +233,12 @@ To&nbsp;apply&nbsp;clim&nbsp;to&nbsp;all&nbsp;axes&nbsp;images&nbsp;do<br>
 &nbsp;<br>
 <a href="#-clim">clim</a>(0,&nbsp;0.5)<br>
 &nbsp;<br>
-If&nbsp;you&nbsp;want&nbsp;to&nbsp;set&nbsp;the&nbsp;clim&nbsp;of&nbsp;multiple&nbsp;images,&nbsp;use,&nbsp;for&nbsp;example<br>
-for&nbsp;im&nbsp;in&nbsp;<a href="#-gca">gca</a>().get_images():&nbsp;im.set_clim(0,&nbsp;0.05)</tt></dd></dl>
+If&nbsp;either&nbsp;vmin&nbsp;or&nbsp;vmax&nbsp;is&nbsp;None,&nbsp;the&nbsp;image&nbsp;min/max&nbsp;respectively<br>
+will&nbsp;be&nbsp;used&nbsp;for&nbsp;color&nbsp;scaling.<br>
+&nbsp;<br>
+If&nbsp;you&nbsp;want&nbsp;to&nbsp;set&nbsp;the&nbsp;clim&nbsp;of&nbsp;multiple&nbsp;images,<br>
+use,&nbsp;for&nbsp;example&nbsp;for&nbsp;im&nbsp;in&nbsp;<a href="#-gca">gca</a>().get_images():&nbsp;im.set_clim(0,<br>
+0.05)</tt></dd></dl>
  <dl><dt><a name="-close"><strong>close</strong></a>(*args)</dt><dd><tt>Close&nbsp;a&nbsp;figure&nbsp;window<br>
 &nbsp;<br>
 <a href="#-close">close</a>()&nbsp;by&nbsp;itself&nbsp;closes&nbsp;the&nbsp;current&nbsp;figure<br>
@@ -256,7 +263,7 @@ Returns&nbsp;the&nbsp;tuple&nbsp;Cxy,&nbsp;freqs<br>
 Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
- <dl><dt><a name="-colorbar"><strong>colorbar</strong></a>(ax<font color="#909090">=None</font>, tickfmt<font color="#909090">='%1.1f'</font>)</dt><dd><tt>Create&nbsp;a&nbsp;colorbar&nbsp;for&nbsp;axes&nbsp;ax&nbsp;(default&nbsp;<a href="#-gca">gca</a>())<br>
+ <dl><dt><a name="-colorbar"><strong>colorbar</strong></a>(tickfmt<font color="#909090">='%1.1f'</font>)</dt><dd><tt>Create&nbsp;a&nbsp;colorbar&nbsp;for&nbsp;current&nbsp;mappable&nbsp;image&nbsp;(see&nbsp;gci)<br>
 &nbsp;<br>
 tickfmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;to&nbsp;format&nbsp;the&nbsp;colorbar&nbsp;ticks<br>
 &nbsp;<br>
@@ -315,6 +322,7 @@ valued),&nbsp;and&nbsp;10*log10(|Pxy|)&nbsp;is&nbsp;plotted<br>
 Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+ <dl><dt><a name="-draw"><strong>draw</strong></a>()</dt></dl>
  <dl><dt><a name="-errorbar"><strong>errorbar</strong></a>(x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">='k'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
 Vertical&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;yerr&nbsp;is&nbsp;not&nbsp;None<br>
 Horizontal&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;xerr&nbsp;is&nbsp;not&nbsp;None<br>
@@ -331,28 +339,43 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&n
 y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.<br>
 &nbsp;<br>
 capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps&nbsp;in&nbsp;points</tt></dd></dl>
- <dl><dt><a name="-figimage"><strong>figimage</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-figimage">figimage</a>(A,&nbsp;xo=0,&nbsp;yo=0,&nbsp;norm=None,&nbsp;cmap=None,&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha=1.0,&nbsp;vmin=None,&nbsp;vmax=None)<br>
+ <dl><dt><a name="-figimage"><strong>figimage</strong></a>(*args, **kwargs)</dt><dd><tt>FIGIMAGE(X)&nbsp;#&nbsp;add&nbsp;non-resampled&nbsp;array&nbsp;to&nbsp;figure<br>
 &nbsp;<br>
-xo&nbsp;and&nbsp;yo&nbsp;are&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;offsets<br>
+FIGIMAGE(X,&nbsp;xo,&nbsp;yo)&nbsp;#&nbsp;with&nbsp;pixel&nbsp;offsets<br>
 &nbsp;<br>
-norm&nbsp;is&nbsp;the&nbsp;colors.Norm&nbsp;instance&nbsp;used&nbsp;to&nbsp;scale&nbsp;luminance&nbsp;images&nbsp;to<br>
-0-1<br>
+FIGIMAGE(X,&nbsp;**kwargs)&nbsp;#&nbsp;control&nbsp;interpolation&nbsp;,scaling,&nbsp;etc<br>
 &nbsp;<br>
-cmap&nbsp;is&nbsp;the&nbsp;matplotlib.cm&nbsp;colormap&nbsp;instance&nbsp;used&nbsp;for&nbsp;pseudocolor<br>
-luminance&nbsp;images.&nbsp;&nbsp;Defaults&nbsp;to&nbsp;rc&nbsp;params<br>
+Add&nbsp;a&nbsp;nonresampled&nbsp;figure&nbsp;to&nbsp;the&nbsp;figure&nbsp;from&nbsp;array&nbsp;X.&nbsp;&nbsp;xo&nbsp;and&nbsp;yo&nbsp;are<br>
+offsets&nbsp;in&nbsp;pixels<br>
 &nbsp;<br>
-alpha&nbsp;is&nbsp;used&nbsp;for&nbsp;blending&nbsp;if&nbsp;multiple&nbsp;images&nbsp;are&nbsp;provided<br>
+X&nbsp;must&nbsp;be&nbsp;a&nbsp;float&nbsp;array<br>
 &nbsp;<br>
-vmin,&nbsp;vmax,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;provide&nbsp;color&nbsp;ranging&nbsp;for&nbsp;a<br>
-lumininace&nbsp;image.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;X&nbsp;is&nbsp;MxN,&nbsp;assume&nbsp;luminance&nbsp;(grayscale)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;X&nbsp;is&nbsp;MxNx3,&nbsp;assume&nbsp;RGB<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;X&nbsp;is&nbsp;MxNx4,&nbsp;assume&nbsp;RGBA<br>
 &nbsp;<br>
-norm,&nbsp;cmap,&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;ignored&nbsp;for&nbsp;RGB&nbsp;or&nbsp;RGBA&nbsp;arrays<br>
+The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 &nbsp;<br>
-Make&nbsp;a&nbsp;figure&nbsp;image.&nbsp;&nbsp;Figure&nbsp;images&nbsp;are&nbsp;not&nbsp;resampled.&nbsp;&nbsp;They&nbsp;are<br>
-simply&nbsp;pixel&nbsp;by&nbsp;pixel&nbsp;copies&nbsp;of&nbsp;the&nbsp;normalized,&nbsp;colormapped&nbsp;array<br>
-into&nbsp;the&nbsp;figure.&nbsp;&nbsp;If&nbsp;multiple&nbsp;figimages&nbsp;commands&nbsp;are&nbsp;made&nbsp;with<br>
-<a href="#-hold">hold</a>(True)&nbsp;the&nbsp;figures&nbsp;are&nbsp;composited&nbsp;with&nbsp;alpha&nbsp;blending<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;rc&nbsp;image.cmap&nbsp;valuex<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.normalize&nbsp;instance;&nbsp;default&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;to&nbsp;scale&nbsp;a&nbsp;luminance&nbsp;image&nbsp;to&nbsp;0-1.&nbsp;&nbsp;If<br>
+&nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;is&nbsp;None,&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;luminance&nbsp;values&nbsp;will&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm&nbsp;instance,&nbsp;the&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored.<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;alpha&nbsp;=&nbsp;1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;origin&nbsp;is&nbsp;either&nbsp;'upper'&nbsp;or&nbsp;'lower',&nbsp;which&nbsp;indicates&nbsp;where&nbsp;the&nbsp;[0,0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axes.&nbsp;&nbsp;Defaults&nbsp;to&nbsp;the&nbsp;rc&nbsp;image.origin&nbsp;value<br>
+&nbsp;<br>
+This&nbsp;complements&nbsp;the&nbsp;axes&nbsp;image&nbsp;which&nbsp;will&nbsp;be&nbsp;resampled&nbsp;to&nbsp;fit&nbsp;the<br>
+current&nbsp;axes.&nbsp;&nbsp;If&nbsp;you&nbsp;want&nbsp;a&nbsp;resampled&nbsp;image&nbsp;to&nbsp;fill&nbsp;the&nbsp;entire<br>
+figure,&nbsp;you&nbsp;can&nbsp;define&nbsp;an&nbsp;Axes&nbsp;with&nbsp;size&nbsp;[0,1,0,1].<br>
 &nbsp;<br>
 A&nbsp;image.FigureImage&nbsp;instance&nbsp;is&nbsp;returned.</tt></dd></dl>
  <dl><dt><a name="-figlegend"><strong>figlegend</strong></a>(handles, labels, loc)</dt><dd><tt>Place&nbsp;a&nbsp;legend&nbsp;in&nbsp;the&nbsp;figure.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of<br>
@@ -365,7 +388,11 @@ USAGE:&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'upper&nbsp;right')<br>
 &nbsp;<br>
-See&nbsp;help(legend)&nbsp;for&nbsp;information&nbsp;about&nbsp;the&nbsp;location&nbsp;codes</tt></dd></dl>
+See&nbsp;help(legend)&nbsp;for&nbsp;information&nbsp;about&nbsp;the&nbsp;location&nbsp;codes<br>
+&nbsp;<br>
+A&nbsp;matplotlib.legend.Legend&nbsp;instance&nbsp;is&nbsp;returned</tt></dd></dl>
+ <dl><dt><a name="-figtext"><strong>figtext</strong></a>(*args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
+the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
  <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=1</font>, figsize<font color="#909090">=None</font>, dpi<font color="#909090">=None</font>, facecolor<font color="#909090">=None</font>, edgecolor<font color="#909090">=None</font>, frameon<font color="#909090">=True</font>)</dt><dd><tt><a href="#-figure">figure</a>(num&nbsp;=&nbsp;1,&nbsp;figsize=(8,&nbsp;6),&nbsp;dpi=80,&nbsp;facecolor='w',&nbsp;edgecolor='k')<br>
 &nbsp;<br>
 &nbsp;<br>
@@ -434,7 +461,11 @@ or<br>
 &nbsp;&nbsp;a&nbsp;=&nbsp;<a href="#-gca">gca</a>()<br>
 &nbsp;&nbsp;a.set_xlim([0,10])&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;does&nbsp;the&nbsp;same</tt></dd></dl>
  <dl><dt><a name="-gcf"><strong>gcf</strong></a>()</dt><dd><tt>Return&nbsp;a&nbsp;handle&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
- <dl><dt><a name="-gci"><strong>gci</strong></a>()</dt><dd><tt>get&nbsp;the&nbsp;current&nbsp;image,&nbsp;or&nbsp;if&nbsp;no&nbsp;images&nbsp;have&nbsp;been&nbsp;defined</tt></dd></dl>
+ <dl><dt><a name="-gci"><strong>gci</strong></a>()</dt><dd><tt>get&nbsp;the&nbsp;current&nbsp;ScalarMappable&nbsp;instance&nbsp;(image&nbsp;or&nbsp;patch<br>
+collection),&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;images&nbsp;or&nbsp;patch&nbsp;collecitons&nbsp;have&nbsp;been<br>
+defined.&nbsp;&nbsp;The&nbsp;commands&nbsp;imshow&nbsp;and&nbsp;figimage&nbsp;create&nbsp;images<br>
+instances,&nbsp;and&nbsp;the&nbsp;commands&nbsp;pcolor&nbsp;and&nbsp;scatter&nbsp;create&nbsp;patch<br>
+collection&nbsp;instances</tt></dd></dl>
  <dl><dt><a name="-get"><strong>get</strong></a>(o, s)</dt><dd><tt>Return&nbsp;the&nbsp;value&nbsp;of&nbsp;handle&nbsp;property&nbsp;s<br>
 &nbsp;<br>
 h&nbsp;is&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;class,&nbsp;eg&nbsp;a&nbsp;Line2D&nbsp;or&nbsp;an&nbsp;Axes&nbsp;or&nbsp;Text.<br>
@@ -481,7 +512,14 @@ Eg<br>
 <a href="#-hold">hold</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;toggle&nbsp;hold<br>
 <a href="#-hold">hold</a>(True)&nbsp;&nbsp;#&nbsp;hold&nbsp;is&nbsp;on<br>
 <a href="#-hold">hold</a>(False)&nbsp;#&nbsp;hold&nbsp;is&nbsp;off</tt></dd></dl>
- <dl><dt><a name="-imshow"><strong>imshow</strong></a>(*args, **kwargs)</dt><dd><tt>Display&nbsp;the&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;must&nbsp;be&nbsp;a<br>
+ <dl><dt><a name="-imshow"><strong>imshow</strong></a>(*args, **kwargs)</dt><dd><tt>IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;axes&nbsp;size<br>
+&nbsp;<br>
+IMSHOW(X,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;image&nbsp;scaling,<br>
+colormapping&nbsp;etc.&nbsp;See&nbsp;below&nbsp;for&nbsp;details<br>
+&nbsp;<br>
+&nbsp;<br>
+Display&nbsp;the&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;must&nbsp;be&nbsp;a<br>
 float&nbsp;array<br>
 &nbsp;<br>
 If&nbsp;X&nbsp;is&nbsp;MxN,&nbsp;assume&nbsp;luminance&nbsp;(grayscale)<br>
@@ -491,23 +529,31 @@ If&nbsp;X&nbsp;is&nbsp;MxNx4,&nbsp;assume&nbsp;RGBA<br>
 A&nbsp;matplotlib.image.AxesImage&nbsp;instance&nbsp;is&nbsp;returned<br>
 &nbsp;<br>
 &nbsp;<br>
-The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;if&nbsp;any&nbsp;of&nbsp;them&nbsp;are&nbsp;None,&nbsp;the<br>
-corresponding&nbsp;image.*&nbsp;rc&nbsp;param&nbsp;value&nbsp;is&nbsp;used<br>
+The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 &nbsp;<br>
-*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image.cmap&nbsp;value<br>
 &nbsp;<br>
-*&nbsp;aspect&nbsp;is&nbsp;one&nbsp;of:&nbsp;free&nbsp;or&nbsp;preserve<br>
+&nbsp;&nbsp;*&nbsp;aspect&nbsp;is&nbsp;one&nbsp;of:&nbsp;free&nbsp;or&nbsp;preserve.&nbsp;&nbsp;if&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image.aspect&nbsp;value<br>
 &nbsp;<br>
-*&nbsp;interpolation&nbsp;is&nbsp;one&nbsp;of:&nbsp;bicubic&nbsp;bilinear&nbsp;blackman100<br>
-&nbsp;&nbsp;blackman256&nbsp;blackman64&nbsp;nearest&nbsp;sinc144&nbsp;sinc256&nbsp;sinc64&nbsp;spline16<br>
-&nbsp;&nbsp;or&nbsp;spline36<br>
+&nbsp;&nbsp;*&nbsp;interpolation&nbsp;is&nbsp;one&nbsp;of:&nbsp;bicubic&nbsp;bilinear&nbsp;blackman100&nbsp;blackman256<br>
+&nbsp;&nbsp;&nbsp;&nbsp;blackman64&nbsp;nearest&nbsp;sinc144&nbsp;sinc256&nbsp;sinc64&nbsp;spline16&nbsp;or&nbsp;spline36.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.interpolation<br>
 &nbsp;<br>
-*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.Norm&nbsp;instance;&nbsp;default&nbsp;is<br>
-&nbsp;&nbsp;normalization.&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.normalize&nbsp;instance;&nbsp;default&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1.&nbsp;<br>
 &nbsp;<br>
-*&nbsp;origin&nbsp;is&nbsp;either&nbsp;upper&nbsp;or&nbsp;lower,&nbsp;which&nbsp;indicates&nbsp;where&nbsp;the&nbsp;[0,0]<br>
-&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
-&nbsp;&nbsp;the&nbsp;axes.</tt></dd></dl>
+&nbsp;&nbsp;*&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;to&nbsp;scale&nbsp;a&nbsp;luminance&nbsp;image&nbsp;to&nbsp;0-1.&nbsp;&nbsp;If<br>
+&nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;is&nbsp;None,&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;luminance&nbsp;values&nbsp;will&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm&nbsp;instance,&nbsp;the&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored.<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;alpha&nbsp;=&nbsp;1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;origin&nbsp;is&nbsp;either&nbsp;upper&nbsp;or&nbsp;lower,&nbsp;which&nbsp;indicates&nbsp;where&nbsp;the&nbsp;[0,0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axes.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.origin</tt></dd></dl>
  <dl><dt><a name="-jet"><strong>jet</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;jet&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any</tt></dd></dl>
  <dl><dt><a name="-legend"><strong>legend</strong></a>(*args, **kwargs)</dt><dd><tt>Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;current&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
 sequence&nbsp;of&nbsp;strings&nbsp;and&nbsp;loc&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;or&nbsp;an&nbsp;integer<br>
@@ -576,51 +622,54 @@ x&nbsp;=&nbsp;<a href="#-load">load</a>('test.dat')&nbsp;&nbsp;&nbsp;&nbsp;#&nbs
  <dl><dt><a name="-loglog"><strong>loglog</strong></a>(*args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
 to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
 more&nbsp;info</tt></dd></dl>
- <dl><dt><a name="-pcolor"><strong>pcolor</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-pcolor">pcolor</a>(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
+ <dl><dt><a name="-pcolor"><strong>pcolor</strong></a>(*args, **kwargs)</dt><dd><tt>PCOLOR(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
 &nbsp;<br>
-<a href="#-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y&nbsp;&nbsp;<br>
+PCOLOR(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y<br>
 &nbsp;<br>
-<a href="#-pcolor">pcolor</a>(C,&nbsp;cmap=cm.jet)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C&nbsp;using<br>
-rectangle&nbsp;patches&nbsp;using&nbsp;a&nbsp;colormap&nbsp;jet.&nbsp;&nbsp;Colormaps&nbsp;are&nbsp;avalible&nbsp;in<br>
-matplotlib.cm.&nbsp;&nbsp;You&nbsp;must&nbsp;pass&nbsp;this&nbsp;as&nbsp;a&nbsp;kwarg.<br>
+PCOLOR(C,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keywork&nbsp;args&nbsp;to&nbsp;control&nbsp;colormapping&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scaling;&nbsp;see&nbsp;below<br>
 &nbsp;<br>
-<a href="#-pcolor">pcolor</a>(C,&nbsp;norm=normalize())&nbsp;-&nbsp;the&nbsp;normalization&nbsp;function&nbsp;used&nbsp;to<br>
-scale&nbsp;your&nbsp;color&nbsp;data&nbsp;to&nbsp;0-1.&nbsp;&nbsp;must&nbsp;be&nbsp;passed&nbsp;as&nbsp;a&nbsp;kwarg.<br>
-normalization&nbsp;functions&nbsp;are&nbsp;derived&nbsp;from&nbsp;matplotlib.colors.Norm<br>
+Optional&nbsp;keywork&nbsp;args&nbsp;are&nbsp;shown&nbsp;with&nbsp;their&nbsp;defaults&nbsp;below&nbsp;(you&nbsp;must<br>
+use&nbsp;kwargs&nbsp;for&nbsp;these):<br>
 &nbsp;<br>
-<a href="#-pcolor">pcolor</a>(C,&nbsp;alpha=0.5)&nbsp;-&nbsp;set&nbsp;the&nbsp;alpha&nbsp;of&nbsp;the&nbsp;pseudocolor&nbsp;plot.<br>
-Must&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;kwarg<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;cm.jet&nbsp;:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;cm.jet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;=&nbsp;normalize()&nbsp;:&nbsp;matplotlib.colors.normalize&nbsp;is&nbsp;used&nbsp;to&nbsp;scale<br>
+&nbsp;&nbsp;&nbsp;&nbsp;luminance&nbsp;data&nbsp;to&nbsp;0,1.<br>
 &nbsp;<br>
-Shading:<br>
+&nbsp;&nbsp;*&nbsp;vmin=None&nbsp;and&nbsp;vmax=None&nbsp;:&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;in&nbsp;conjunction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;norm&nbsp;to&nbsp;normalize&nbsp;luminance&nbsp;data.&nbsp;&nbsp;If&nbsp;either&nbsp;are&nbsp;None,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;color&nbsp;array&nbsp;C&nbsp;is&nbsp;used.&nbsp;&nbsp;If&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;will&nbsp;be&nbsp;None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;shading&nbsp;=&nbsp;'flat'&nbsp;:&nbsp;or&nbsp;'faceted'.&nbsp;&nbsp;If&nbsp;'faceted',&nbsp;a&nbsp;black&nbsp;grid&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;drawn&nbsp;around&nbsp;each&nbsp;rectangle;&nbsp;if&nbsp;'flat',&nbsp;edge&nbsp;colors&nbsp;are&nbsp;same&nbsp;as<br>
+&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;colors<br>
 &nbsp;<br>
-&nbsp;&nbsp;The&nbsp;optional&nbsp;keyword&nbsp;arg&nbsp;shading&nbsp;('flat'&nbsp;or&nbsp;'faceted')&nbsp;will<br>
-&nbsp;&nbsp;determine&nbsp;whether&nbsp;a&nbsp;black&nbsp;grid&nbsp;is&nbsp;drawn&nbsp;around&nbsp;each&nbsp;pcolor<br>
-&nbsp;&nbsp;square.&nbsp;&nbsp;Default&nbsp;'faceteted'<br>
+&nbsp;&nbsp;*&nbsp;alpha=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
+&nbsp;&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;matplotlib.collections.PatchCollection<br>
+object<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.,&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(C,&nbsp;shading='flat')&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C,&nbsp;shading='faceted')<br>
+Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
+x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
-returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
 &nbsp;<br>
-Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit<br>
-counterintuitive&nbsp;for&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
 &nbsp;<br>
-&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
-&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
-&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
+will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
+happy&nbsp;with<br>
 &nbsp;<br>
-&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
-&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
-&nbsp;<br>
-will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be&nbsp;happy<br>
-with<br>
-&nbsp;<br>
-&nbsp;<a href="#-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
 &nbsp;<br>
 Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
 &nbsp;<br>
-&nbsp;<a href="#-pcolor">pcolor</a>(transpose(Z))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(transpose(Z))<br>
 &nbsp;<br>
 will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows&nbsp;and<br>
 numcols&nbsp;of&nbsp;Z</tt></dd></dl>
@@ -763,9 +812,11 @@ close&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;close&nbsp;a&nbsp;figure&nbsp;window<br>
 colorbar&nbsp;-&nbsp;add&nbsp;a&nbsp;colorbar&nbsp;to&nbsp;the&nbsp;current&nbsp;figure<br>
 cohere&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;coherence<br>
 csd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;cross&nbsp;spectral&nbsp;density<br>
+draw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;force&nbsp;a&nbsp;redraw&nbsp;of&nbsp;the&nbsp;current&nbsp;figure<br>
 errorbar&nbsp;-&nbsp;make&nbsp;an&nbsp;errorbar&nbsp;graph<br>
 figlegend&nbsp;-&nbsp;add&nbsp;a&nbsp;legend&nbsp;to&nbsp;the&nbsp;figure<br>
 figimage&nbsp;-&nbsp;add&nbsp;an&nbsp;image&nbsp;to&nbsp;the&nbsp;figure,&nbsp;w/o&nbsp;resampling<br>
+figtext&nbsp;&nbsp;-&nbsp;add&nbsp;text&nbsp;in&nbsp;figure&nbsp;coords<br>
 figure&nbsp;&nbsp;&nbsp;-&nbsp;create&nbsp;or&nbsp;change&nbsp;active&nbsp;figure<br>
 fill&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;filled&nbsp;polygons<br>
 gca&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;current&nbsp;axes<br>
@@ -898,15 +949,53 @@ facecolor&nbsp;and&nbsp;edgecolor&nbsp;are&nbsp;the&nbsp;colors&nbsp;os&nbsp;the
 &nbsp;<br>
 orientation&nbsp;is&nbsp;either&nbsp;'landscape'&nbsp;or&nbsp;'portrait'&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends;&nbsp;currently&nbsp;only&nbsp;on&nbsp;postscript&nbsp;output.</tt></dd></dl>
- <dl><dt><a name="-scatter"><strong>scatter</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-scatter">scatter</a>(self,&nbsp;x,&nbsp;y,&nbsp;s=None,&nbsp;c='b'):<br>
+ <dl><dt><a name="-scatter"><strong>scatter</strong></a>(*args, **kwargs)</dt><dd><tt>SCATTER(x,&nbsp;y)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y<br>
 &nbsp;<br>
-Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data<br>
-coords)&nbsp;and&nbsp;can&nbsp;be&nbsp;either&nbsp;a&nbsp;scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same<br>
-length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;color<br>
-format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array&nbsp;of&nbsp;intensities&nbsp;which&nbsp;will<br>
-be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;colormap&nbsp;jet.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+SCATTER(x,&nbsp;y,&nbsp;s)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s<br>
 &nbsp;<br>
-If&nbsp;size&nbsp;is&nbsp;None&nbsp;a&nbsp;default&nbsp;size&nbsp;will&nbsp;be&nbsp;used</tt></dd></dl>
+SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s&nbsp;and&nbsp;colors&nbsp;given&nbsp;by&nbsp;c<br>
+&nbsp;<br>
+SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c,&nbsp;**kwargs)&nbsp;-&nbsp;control&nbsp;colormapping&nbsp;and&nbsp;scaling&nbsp;with<br>
+keyword&nbsp;args;&nbsp;see&nbsp;below<br>
+&nbsp;<br>
+Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a&nbsp;scalar<br>
+or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a<br>
+single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array&nbsp;of&nbsp;intensities&nbsp;which<br>
+will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;matplotlib.colors.colormap&nbsp;instance&nbsp;cmap<br>
+&nbsp;<br>
+The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'s'&nbsp;:&nbsp;square<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'o'&nbsp;:&nbsp;circle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'^'&nbsp;:&nbsp;triangle&nbsp;up<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&gt;'&nbsp;:&nbsp;triangle&nbsp;right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'v'&nbsp;:&nbsp;triangle&nbsp;down<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&lt;'&nbsp;:&nbsp;triangle&nbsp;left<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'d'&nbsp;:&nbsp;diamond<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'p'&nbsp;:&nbsp;pentagram<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;:&nbsp;hexagon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'8'&nbsp;:&nbsp;octogon<br>
+&nbsp;<br>
+s&nbsp;is&nbsp;a&nbsp;size&nbsp;argument&nbsp;in&nbsp;points&nbsp;squared.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Other&nbsp;keyword&nbsp;args;&nbsp;the&nbsp;color&nbsp;mapping&nbsp;and&nbsp;normalization&nbsp;arguments&nbsp;will<br>
+on&nbsp;be&nbsp;used&nbsp;if&nbsp;c&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;floats<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;cm.jet&nbsp;:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;image.cmap<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;=&nbsp;normalize()&nbsp;:&nbsp;matplotlib.colors.normalize&nbsp;is&nbsp;used&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scale&nbsp;luminance&nbsp;data&nbsp;to&nbsp;0,1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;vmin=None&nbsp;and&nbsp;vmax=None&nbsp;:&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;in&nbsp;conjunction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;norm&nbsp;to&nbsp;normalize&nbsp;luminance&nbsp;data.&nbsp;&nbsp;If&nbsp;either&nbsp;are&nbsp;None,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;color&nbsp;array&nbsp;C&nbsp;is&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;your&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;alpha&nbsp;=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;value&nbsp;for&nbsp;the&nbsp;patches</tt></dd></dl>
  <dl><dt><a name="-scatter_classic"><strong>scatter_classic</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-scatter_classic">scatter_classic</a>(self,&nbsp;x,&nbsp;y,&nbsp;s=None,&nbsp;c='b'):<br>
 &nbsp;<br>
 Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data<br>

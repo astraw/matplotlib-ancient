@@ -137,7 +137,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137132448)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137142552)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -811,7 +811,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137095424)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137105496)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -1366,7 +1366,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137098160)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137108232)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -1782,8 +1782,11 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 
 <dl><dt><a name="RendererGTK-draw_arc"><strong>draw_arc</strong></a>(self, gc, rgbFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height</tt></dd></dl>
 
-<dl><dt><a name="RendererGTK-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes;&nbsp;x,&nbsp;y&nbsp;is&nbsp;the<br>
-upper&nbsp;left&nbsp;hand&nbsp;corner&nbsp;of&nbsp;the&nbsp;image</tt></dd></dl>
+<dl><dt><a name="RendererGTK-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes;&nbsp;x&nbsp;is&nbsp;the<br>
+distance&nbsp;in&nbsp;pixels&nbsp;from&nbsp;the&nbsp;left&nbsp;hand&nbsp;side&nbsp;of&nbsp;the&nbsp;canvas.&nbsp;y&nbsp;is<br>
+the&nbsp;distance&nbsp;from&nbsp;the&nbsp;origin.&nbsp;&nbsp;That&nbsp;is,&nbsp;if&nbsp;origin&nbsp;is&nbsp;upper,&nbsp;y<br>
+is&nbsp;the&nbsp;distance&nbsp;from&nbsp;top.&nbsp;&nbsp;If&nbsp;oriing&nbsp;is&nbsp;lower,&nbsp;y&nbsp;is&nbsp;the<br>
+distance&nbsp;from&nbsp;bottom</tt></dd></dl>
 
 <dl><dt><a name="RendererGTK-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;line&nbsp;from&nbsp;x1,y1&nbsp;to&nbsp;x2,y2</tt></dd></dl>
 

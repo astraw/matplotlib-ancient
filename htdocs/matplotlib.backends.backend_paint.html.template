@@ -134,7 +134,11 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
 <dl><dt><a name="RendererPaint-close_group"><strong>close_group</strong></a>(self, s)</dt><dd><tt>close&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s</tt></dd></dl>
 
-<dl><dt><a name="RendererPaint-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes.<br>
+<dl><dt><a name="RendererPaint-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes;&nbsp;x&nbsp;is&nbsp;the<br>
+distance&nbsp;in&nbsp;pixels&nbsp;from&nbsp;the&nbsp;left&nbsp;hand&nbsp;side&nbsp;of&nbsp;the&nbsp;canvas.&nbsp;y&nbsp;is<br>
+the&nbsp;distance&nbsp;from&nbsp;the&nbsp;origin.&nbsp;&nbsp;That&nbsp;is,&nbsp;if&nbsp;origin&nbsp;is&nbsp;upper,&nbsp;y<br>
+is&nbsp;the&nbsp;distance&nbsp;from&nbsp;top.&nbsp;&nbsp;If&nbsp;oriing&nbsp;is&nbsp;lower,&nbsp;y&nbsp;is&nbsp;the<br>
+distance&nbsp;from&nbsp;bottom<br>
 &nbsp;<br>
 origin&nbsp;is&nbsp;'upper'&nbsp;or&nbsp;'lower'</tt></dd></dl>
 

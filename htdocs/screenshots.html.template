@@ -78,6 +78,10 @@ matplotlib-0.51 or later.""", 1),
 href=matplotlib.matlab.html#-pcolor>pcolor</a> command generates
 pseudo color plots.""", 1),
 
+('layer_images', """You can layer multiple images of different shapes and colormaps with
+alpha blending using the <a
+href=matplotlib.matlab.html#-imshow>imshow</a> command.""", 1),
+
 ('mri_with_eeg', """A magnetic resonace image (MRI) displayed using <a
 href=matplotlib.matlab.html#-pcolor>pcolor</a>, image intensity in the
 MRI plotted with <a href=matplotlib.matlab.html#-hist>hist</a>, and

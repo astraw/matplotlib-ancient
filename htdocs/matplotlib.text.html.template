@@ -87,7 +87,7 @@ need&nbsp;to&nbsp;know&nbsp;if&nbsp;the&nbsp;text&nbsp;has&nbsp;changed</tt></dd
 
 <dl><dt><a name="Text-set_color"><strong>set_color</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color&nbsp;of&nbsp;the&nbsp;text</tt></dd></dl>
 
-<dl><dt><a name="Text-set_family"><strong>set_family</strong></a>(self, fontname)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;name,&nbsp;eg,&nbsp;'Sans',&nbsp;'Courier',&nbsp;'Helvetica'</tt></dd></dl>
+<dl><dt><a name="Text-set_family"><strong>set_family</strong></a>(self, fontname)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;family,&nbsp;eg,&nbsp;'sans-serif',&nbsp;'cursive',&nbsp;'fantasy'</tt></dd></dl>
 
 <dl><dt><a name="Text-set_fontangle"><strong>set_fontangle</strong></a>(self, style)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;angle,&nbsp;one&nbsp;of&nbsp;'normal',&nbsp;'italic',&nbsp;'oblique'</tt></dd></dl>
 
@@ -110,18 +110,31 @@ the&nbsp;bounding&nbsp;box&nbsp;of&nbsp;all&nbsp;the&nbsp;lines&nbsp;is&nbsp;det
 horizontalalignment&nbsp;and&nbsp;verticalalignment&nbsp;properties,&nbsp;but&nbsp;the<br>
 multiline&nbsp;text&nbsp;within&nbsp;that&nbsp;box&nbsp;can&nbsp;be&nbsp;left,&nbsp;right&nbsp;or&nbsp;center</tt></dd></dl>
 
+<dl><dt><a name="Text-set_name"><strong>set_name</strong></a>(self, fontname)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;name,&nbsp;eg,&nbsp;'Sans',&nbsp;'Courier',&nbsp;'Helvetica'</tt></dd></dl>
+
 <dl><dt><a name="Text-set_position"><strong>set_position</strong></a>(self, xy)</dt></dl>
 
 <dl><dt><a name="Text-set_rotation"><strong>set_rotation</strong></a>(self, s)</dt><dd><tt>Currently&nbsp;only&nbsp;s='vertical',&nbsp;or&nbsp;s='horizontal'&nbsp;are&nbsp;supported</tt></dd></dl>
 
+<dl><dt><a name="Text-set_size"><strong>set_size</strong></a>(self, fontsize)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;size,&nbsp;eg,&nbsp;8,&nbsp;10,&nbsp;12,&nbsp;14...</tt></dd></dl>
+
+<dl><dt><a name="Text-set_style"><strong>set_style</strong></a>(self, fontstyle)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;style,&nbsp;one&nbsp;of&nbsp;'normal',&nbsp;'italic',&nbsp;'oblique'</tt></dd></dl>
+
 <dl><dt><a name="Text-set_text"><strong>set_text</strong></a>(self, text)</dt><dd><tt>Set&nbsp;the&nbsp;text</tt></dd></dl>
+
+<dl><dt><a name="Text-set_variant"><strong>set_variant</strong></a>(self, variant)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;variant,&nbsp;eg,&nbsp;'normal',&nbsp;'small-caps'</tt></dd></dl>
 
 <dl><dt><a name="Text-set_verticalalignment"><strong>set_verticalalignment</strong></a>(self, align)</dt><dd><tt>Set&nbsp;the&nbsp;vertical&nbsp;alignment&nbsp;to&nbsp;one&nbsp;of<br>
 'center',&nbsp;'top',&nbsp;or&nbsp;'bottom'</tt></dd></dl>
 
+<dl><dt><a name="Text-set_weight"><strong>set_weight</strong></a>(self, weight)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;weight,&nbsp;one&nbsp;of:<br>
+'normal',&nbsp;'bold',&nbsp;'heavy',&nbsp;'light',&nbsp;'ultrabold',&nbsp;&nbsp;'ultralight'</tt></dd></dl>
+
 <dl><dt><a name="Text-set_x"><strong>set_x</strong></a>(self, x)</dt></dl>
 
 <dl><dt><a name="Text-set_y"><strong>set_y</strong></a>(self, y)</dt></dl>
+
+<dl><dt><a name="Text-size"><strong>size</strong></a>(self, size)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;size,&nbsp;eg,&nbsp;8,&nbsp;10,&nbsp;12,&nbsp;14...</tt></dd></dl>
 
 <dl><dt><a name="Text-update_properties"><strong>update_properties</strong></a>(self, d)</dt><dd><tt>Update&nbsp;the&nbsp;font&nbsp;attributes&nbsp;with&nbsp;the&nbsp;dictionary&nbsp;in&nbsp;d</tt></dd></dl>
 

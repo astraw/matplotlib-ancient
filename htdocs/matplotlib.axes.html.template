@@ -245,7 +245,14 @@ Eg<br>
 <a href="#Axes-hold">hold</a>(True)&nbsp;&nbsp;#&nbsp;hold&nbsp;is&nbsp;on<br>
 <a href="#Axes-hold">hold</a>(False)&nbsp;#&nbsp;hold&nbsp;is&nbsp;off</tt></dd></dl>
 
-<dl><dt><a name="Axes-imshow"><strong>imshow</strong></a>(self, X, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, aspect<font color="#909090">=None</font>, interpolation<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>Display&nbsp;the&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;must&nbsp;be&nbsp;a<br>
+<dl><dt><a name="Axes-imshow"><strong>imshow</strong></a>(self, X, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, aspect<font color="#909090">=None</font>, interpolation<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;axes&nbsp;size<br>
+&nbsp;<br>
+IMSHOW(X,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;image&nbsp;scaling,<br>
+colormapping&nbsp;etc.&nbsp;See&nbsp;below&nbsp;for&nbsp;details<br>
+&nbsp;<br>
+&nbsp;<br>
+Display&nbsp;the&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;must&nbsp;be&nbsp;a<br>
 float&nbsp;array<br>
 &nbsp;<br>
 If&nbsp;X&nbsp;is&nbsp;MxN,&nbsp;assume&nbsp;luminance&nbsp;(grayscale)<br>
@@ -255,23 +262,31 @@ If&nbsp;X&nbsp;is&nbsp;MxNx4,&nbsp;assume&nbsp;RGBA<br>
 A&nbsp;matplotlib.image.AxesImage&nbsp;instance&nbsp;is&nbsp;returned<br>
 &nbsp;<br>
 &nbsp;<br>
-The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;if&nbsp;any&nbsp;of&nbsp;them&nbsp;are&nbsp;None,&nbsp;the<br>
-corresponding&nbsp;image.*&nbsp;rc&nbsp;param&nbsp;value&nbsp;is&nbsp;used<br>
+The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 &nbsp;<br>
-*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image.cmap&nbsp;value<br>
 &nbsp;<br>
-*&nbsp;aspect&nbsp;is&nbsp;one&nbsp;of:&nbsp;free&nbsp;or&nbsp;preserve<br>
+&nbsp;&nbsp;*&nbsp;aspect&nbsp;is&nbsp;one&nbsp;of:&nbsp;free&nbsp;or&nbsp;preserve.&nbsp;&nbsp;if&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image.aspect&nbsp;value<br>
 &nbsp;<br>
-*&nbsp;interpolation&nbsp;is&nbsp;one&nbsp;of:&nbsp;bicubic&nbsp;bilinear&nbsp;blackman100<br>
-&nbsp;&nbsp;blackman256&nbsp;blackman64&nbsp;nearest&nbsp;sinc144&nbsp;sinc256&nbsp;sinc64&nbsp;spline16<br>
-&nbsp;&nbsp;or&nbsp;spline36<br>
+&nbsp;&nbsp;*&nbsp;interpolation&nbsp;is&nbsp;one&nbsp;of:&nbsp;bicubic&nbsp;bilinear&nbsp;blackman100&nbsp;blackman256<br>
+&nbsp;&nbsp;&nbsp;&nbsp;blackman64&nbsp;nearest&nbsp;sinc144&nbsp;sinc256&nbsp;sinc64&nbsp;spline16&nbsp;or&nbsp;spline36.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.interpolation<br>
 &nbsp;<br>
-*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.Norm&nbsp;instance;&nbsp;default&nbsp;is<br>
-&nbsp;&nbsp;normalization.&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.normalize&nbsp;instance;&nbsp;default&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1.&nbsp;<br>
 &nbsp;<br>
-*&nbsp;origin&nbsp;is&nbsp;either&nbsp;upper&nbsp;or&nbsp;lower,&nbsp;which&nbsp;indicates&nbsp;where&nbsp;the&nbsp;[0,0]<br>
-&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
-&nbsp;&nbsp;the&nbsp;axes.</tt></dd></dl>
+&nbsp;&nbsp;*&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;to&nbsp;scale&nbsp;a&nbsp;luminance&nbsp;image&nbsp;to&nbsp;0-1.&nbsp;&nbsp;If<br>
+&nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;is&nbsp;None,&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;luminance&nbsp;values&nbsp;will&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm&nbsp;instance,&nbsp;the&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored.<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;alpha&nbsp;=&nbsp;1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;origin&nbsp;is&nbsp;either&nbsp;upper&nbsp;or&nbsp;lower,&nbsp;which&nbsp;indicates&nbsp;where&nbsp;the&nbsp;[0,0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axes.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.origin</tt></dd></dl>
 
 <dl><dt><a name="Axes-in_axes"><strong>in_axes</strong></a>(self, xwin, ywin)</dt></dl>
 
@@ -337,54 +352,57 @@ more&nbsp;info</tt></dd></dl>
 
 <dl><dt><a name="Axes-pany"><strong>pany</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;the&nbsp;x&nbsp;axis&nbsp;numsteps&nbsp;(plus&nbsp;pan&nbsp;up,&nbsp;minus&nbsp;pan&nbsp;down)</tt></dd></dl>
 
-<dl><dt><a name="Axes-pcolor"><strong>pcolor</strong></a>(self, *args, **kwargs)</dt><dd><tt><a href="#Axes-pcolor">pcolor</a>(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
+<dl><dt><a name="Axes-pcolor"><strong>pcolor</strong></a>(self, *args, **kwargs)</dt><dd><tt>PCOLOR(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
 &nbsp;<br>
-<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y&nbsp;&nbsp;<br>
+PCOLOR(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y<br>
 &nbsp;<br>
-<a href="#Axes-pcolor">pcolor</a>(C,&nbsp;cmap=cm.jet)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
-using&nbsp;rectangle&nbsp;patches&nbsp;using&nbsp;a&nbsp;colormap&nbsp;jet.&nbsp;&nbsp;Colormaps&nbsp;are<br>
-avalible&nbsp;in&nbsp;matplotlib.cm.&nbsp;&nbsp;You&nbsp;must&nbsp;pass&nbsp;this&nbsp;as&nbsp;a&nbsp;kwarg.<br>
+PCOLOR(C,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keywork&nbsp;args&nbsp;to&nbsp;control&nbsp;colormapping&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scaling;&nbsp;see&nbsp;below<br>
 &nbsp;<br>
-<a href="#Axes-pcolor">pcolor</a>(C,&nbsp;norm=normalize())&nbsp;-&nbsp;the&nbsp;normalization&nbsp;function&nbsp;used<br>
-to&nbsp;scale&nbsp;your&nbsp;color&nbsp;data&nbsp;to&nbsp;0-1.&nbsp;&nbsp;must&nbsp;be&nbsp;passed&nbsp;as&nbsp;a&nbsp;kwarg.<br>
-normalization&nbsp;functions&nbsp;are&nbsp;derived&nbsp;from<br>
-matplotlib.colors.Norm<br>
+Optional&nbsp;keywork&nbsp;args&nbsp;are&nbsp;shown&nbsp;with&nbsp;their&nbsp;defaults&nbsp;below&nbsp;(you&nbsp;must<br>
+use&nbsp;kwargs&nbsp;for&nbsp;these):<br>
 &nbsp;<br>
-<a href="#Axes-pcolor">pcolor</a>(C,&nbsp;alpha=0.5)&nbsp;-&nbsp;set&nbsp;the&nbsp;alpha&nbsp;of&nbsp;the&nbsp;pseudocolor&nbsp;plot.<br>
-Must&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;kwarg<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;cm.jet&nbsp;:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;cm.jet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;=&nbsp;normalize()&nbsp;:&nbsp;matplotlib.colors.normalize&nbsp;is&nbsp;used&nbsp;to&nbsp;scale<br>
+&nbsp;&nbsp;&nbsp;&nbsp;luminance&nbsp;data&nbsp;to&nbsp;0,1.<br>
 &nbsp;<br>
-Shading:<br>
+&nbsp;&nbsp;*&nbsp;vmin=None&nbsp;and&nbsp;vmax=None&nbsp;:&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;in&nbsp;conjunction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;norm&nbsp;to&nbsp;normalize&nbsp;luminance&nbsp;data.&nbsp;&nbsp;If&nbsp;either&nbsp;are&nbsp;None,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;color&nbsp;array&nbsp;C&nbsp;is&nbsp;used.&nbsp;&nbsp;If&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;will&nbsp;be&nbsp;None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;shading&nbsp;=&nbsp;'flat'&nbsp;:&nbsp;or&nbsp;'faceted'.&nbsp;&nbsp;If&nbsp;'faceted',&nbsp;a&nbsp;black&nbsp;grid&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;drawn&nbsp;around&nbsp;each&nbsp;rectangle;&nbsp;if&nbsp;'flat',&nbsp;edge&nbsp;colors&nbsp;are&nbsp;same&nbsp;as<br>
+&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;colors<br>
 &nbsp;<br>
-&nbsp;&nbsp;The&nbsp;optional&nbsp;keyword&nbsp;arg&nbsp;shading&nbsp;('flat'&nbsp;or&nbsp;'faceted')&nbsp;will<br>
-&nbsp;&nbsp;determine&nbsp;whether&nbsp;a&nbsp;black&nbsp;grid&nbsp;is&nbsp;drawn&nbsp;around&nbsp;each&nbsp;pcolor<br>
-&nbsp;&nbsp;square.&nbsp;&nbsp;Default&nbsp;'faceteted'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.,&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(C,&nbsp;shading='flat')&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C,&nbsp;shading='faceted')<br>
+&nbsp;&nbsp;*&nbsp;alpha=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
+&nbsp;&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;matplotlib.collections.PatchCollection<br>
+object<br>
 &nbsp;<br>
-returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects<br>
+Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
+x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
-Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit<br>
-counterintuitive&nbsp;for&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
 &nbsp;<br>
-&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
-&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
-&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
-&nbsp;<br>
-&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
-&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
 &nbsp;<br>
 will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
 happy&nbsp;with<br>
 &nbsp;<br>
-&nbsp;<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
 &nbsp;<br>
 Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
 &nbsp;<br>
-&nbsp;<a href="#Axes-pcolor">pcolor</a>(transpose(Z))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(transpose(Z))<br>
 &nbsp;<br>
-will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
-and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
+will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows&nbsp;and<br>
+numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 
 <dl><dt><a name="Axes-pcolor_classic"><strong>pcolor_classic</strong></a>(self, *args, **kwargs)</dt><dd><tt><a href="#Axes-pcolor">pcolor</a>(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
 &nbsp;<br>
@@ -396,8 +414,6 @@ avalible&nbsp;in&nbsp;matplotlib.cm.&nbsp;&nbsp;You&nbsp;must&nbsp;pass&nbsp;thi
 &nbsp;<br>
 <a href="#Axes-pcolor">pcolor</a>(C,&nbsp;norm=normalize())&nbsp;-&nbsp;the&nbsp;normalization&nbsp;function&nbsp;used<br>
 to&nbsp;scale&nbsp;your&nbsp;color&nbsp;data&nbsp;to&nbsp;0-1.&nbsp;&nbsp;must&nbsp;be&nbsp;passed&nbsp;as&nbsp;a&nbsp;kwarg.<br>
-normalization&nbsp;functions&nbsp;are&nbsp;derived&nbsp;from<br>
-matplotlib.colors.Norm<br>
 &nbsp;<br>
 <a href="#Axes-pcolor">pcolor</a>(C,&nbsp;alpha=0.5)&nbsp;-&nbsp;set&nbsp;the&nbsp;alpha&nbsp;of&nbsp;the&nbsp;pseudocolor&nbsp;plot.<br>
 Must&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;kwarg<br>
@@ -488,14 +504,24 @@ Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
 
-<dl><dt><a name="Axes-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=3</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a<br>
-scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color<br>
-and&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array<br>
-of&nbsp;intensities&nbsp;which&nbsp;will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the<br>
-matplotlib.colors.colormap&nbsp;instance&nbsp;cmap<br>
+<dl><dt><a name="Axes-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=20</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>SCATTER(x,&nbsp;y)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y<br>
+&nbsp;<br>
+SCATTER(x,&nbsp;y,&nbsp;s)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s<br>
+&nbsp;<br>
+SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s&nbsp;and&nbsp;colors&nbsp;given&nbsp;by&nbsp;c<br>
+&nbsp;<br>
+SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c,&nbsp;**kwargs)&nbsp;-&nbsp;control&nbsp;colormapping&nbsp;and&nbsp;scaling&nbsp;with<br>
+keyword&nbsp;args;&nbsp;see&nbsp;below<br>
+&nbsp;<br>
+Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a&nbsp;scalar<br>
+or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a<br>
+single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array&nbsp;of&nbsp;intensities&nbsp;which<br>
+will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;matplotlib.colors.colormap&nbsp;instance&nbsp;cmap<br>
 &nbsp;<br>
 The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'s'&nbsp;:&nbsp;square<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'o'&nbsp;:&nbsp;circle<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'^'&nbsp;:&nbsp;triangle&nbsp;up<br>
@@ -509,7 +535,22 @@ The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
 &nbsp;<br>
 s&nbsp;is&nbsp;a&nbsp;size&nbsp;argument&nbsp;in&nbsp;points&nbsp;squared.<br>
 &nbsp;<br>
-if&nbsp;cmap&nbsp;is&nbsp;None,&nbsp;default&nbsp;to&nbsp;the&nbsp;current&nbsp;rc&nbsp;params&nbsp;cmap</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Other&nbsp;keyword&nbsp;args;&nbsp;the&nbsp;color&nbsp;mapping&nbsp;and&nbsp;normalization&nbsp;arguments&nbsp;will<br>
+on&nbsp;be&nbsp;used&nbsp;if&nbsp;c&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;floats<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;cm.jet&nbsp;:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;image.cmap<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;=&nbsp;normalize()&nbsp;:&nbsp;matplotlib.colors.normalize&nbsp;is&nbsp;used&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scale&nbsp;luminance&nbsp;data&nbsp;to&nbsp;0,1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;vmin=None&nbsp;and&nbsp;vmax=None&nbsp;:&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;in&nbsp;conjunction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;norm&nbsp;to&nbsp;normalize&nbsp;luminance&nbsp;data.&nbsp;&nbsp;If&nbsp;either&nbsp;are&nbsp;None,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;color&nbsp;array&nbsp;C&nbsp;is&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;your&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;alpha&nbsp;=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;value&nbsp;for&nbsp;the&nbsp;patches</tt></dd></dl>
 
 <dl><dt><a name="Axes-scatter_classic"><strong>scatter_classic</strong></a>(self, x, y, s<font color="#909090">=None</font>, c<font color="#909090">='b'</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data<br>
 coords)&nbsp;and&nbsp;can&nbsp;be&nbsp;either&nbsp;a&nbsp;scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same<br>
@@ -928,7 +969,14 @@ Eg<br>
 <a href="#Subplot-hold">hold</a>(True)&nbsp;&nbsp;#&nbsp;hold&nbsp;is&nbsp;on<br>
 <a href="#Subplot-hold">hold</a>(False)&nbsp;#&nbsp;hold&nbsp;is&nbsp;off</tt></dd></dl>
 
-<dl><dt><a name="Subplot-imshow"><strong>imshow</strong></a>(self, X, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, aspect<font color="#909090">=None</font>, interpolation<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>Display&nbsp;the&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;must&nbsp;be&nbsp;a<br>
+<dl><dt><a name="Subplot-imshow"><strong>imshow</strong></a>(self, X, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, aspect<font color="#909090">=None</font>, interpolation<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;axes&nbsp;size<br>
+&nbsp;<br>
+IMSHOW(X,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;image&nbsp;scaling,<br>
+colormapping&nbsp;etc.&nbsp;See&nbsp;below&nbsp;for&nbsp;details<br>
+&nbsp;<br>
+&nbsp;<br>
+Display&nbsp;the&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;must&nbsp;be&nbsp;a<br>
 float&nbsp;array<br>
 &nbsp;<br>
 If&nbsp;X&nbsp;is&nbsp;MxN,&nbsp;assume&nbsp;luminance&nbsp;(grayscale)<br>
@@ -938,23 +986,31 @@ If&nbsp;X&nbsp;is&nbsp;MxNx4,&nbsp;assume&nbsp;RGBA<br>
 A&nbsp;matplotlib.image.AxesImage&nbsp;instance&nbsp;is&nbsp;returned<br>
 &nbsp;<br>
 &nbsp;<br>
-The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;if&nbsp;any&nbsp;of&nbsp;them&nbsp;are&nbsp;None,&nbsp;the<br>
-corresponding&nbsp;image.*&nbsp;rc&nbsp;param&nbsp;value&nbsp;is&nbsp;used<br>
+The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 &nbsp;<br>
-*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image.cmap&nbsp;value<br>
 &nbsp;<br>
-*&nbsp;aspect&nbsp;is&nbsp;one&nbsp;of:&nbsp;free&nbsp;or&nbsp;preserve<br>
+&nbsp;&nbsp;*&nbsp;aspect&nbsp;is&nbsp;one&nbsp;of:&nbsp;free&nbsp;or&nbsp;preserve.&nbsp;&nbsp;if&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
+&nbsp;&nbsp;&nbsp;&nbsp;image.aspect&nbsp;value<br>
 &nbsp;<br>
-*&nbsp;interpolation&nbsp;is&nbsp;one&nbsp;of:&nbsp;bicubic&nbsp;bilinear&nbsp;blackman100<br>
-&nbsp;&nbsp;blackman256&nbsp;blackman64&nbsp;nearest&nbsp;sinc144&nbsp;sinc256&nbsp;sinc64&nbsp;spline16<br>
-&nbsp;&nbsp;or&nbsp;spline36<br>
+&nbsp;&nbsp;*&nbsp;interpolation&nbsp;is&nbsp;one&nbsp;of:&nbsp;bicubic&nbsp;bilinear&nbsp;blackman100&nbsp;blackman256<br>
+&nbsp;&nbsp;&nbsp;&nbsp;blackman64&nbsp;nearest&nbsp;sinc144&nbsp;sinc256&nbsp;sinc64&nbsp;spline16&nbsp;or&nbsp;spline36.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.interpolation<br>
 &nbsp;<br>
-*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.Norm&nbsp;instance;&nbsp;default&nbsp;is<br>
-&nbsp;&nbsp;normalization.&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.normalize&nbsp;instance;&nbsp;default&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1.&nbsp;<br>
 &nbsp;<br>
-*&nbsp;origin&nbsp;is&nbsp;either&nbsp;upper&nbsp;or&nbsp;lower,&nbsp;which&nbsp;indicates&nbsp;where&nbsp;the&nbsp;[0,0]<br>
-&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
-&nbsp;&nbsp;the&nbsp;axes.</tt></dd></dl>
+&nbsp;&nbsp;*&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;to&nbsp;scale&nbsp;a&nbsp;luminance&nbsp;image&nbsp;to&nbsp;0-1.&nbsp;&nbsp;If<br>
+&nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;is&nbsp;None,&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;luminance&nbsp;values&nbsp;will&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm&nbsp;instance,&nbsp;the&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored.<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;alpha&nbsp;=&nbsp;1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;origin&nbsp;is&nbsp;either&nbsp;upper&nbsp;or&nbsp;lower,&nbsp;which&nbsp;indicates&nbsp;where&nbsp;the&nbsp;[0,0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axes.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.origin</tt></dd></dl>
 
 <dl><dt><a name="Subplot-in_axes"><strong>in_axes</strong></a>(self, xwin, ywin)</dt></dl>
 
@@ -1020,54 +1076,57 @@ more&nbsp;info</tt></dd></dl>
 
 <dl><dt><a name="Subplot-pany"><strong>pany</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;the&nbsp;x&nbsp;axis&nbsp;numsteps&nbsp;(plus&nbsp;pan&nbsp;up,&nbsp;minus&nbsp;pan&nbsp;down)</tt></dd></dl>
 
-<dl><dt><a name="Subplot-pcolor"><strong>pcolor</strong></a>(self, *args, **kwargs)</dt><dd><tt><a href="#Subplot-pcolor">pcolor</a>(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
+<dl><dt><a name="Subplot-pcolor"><strong>pcolor</strong></a>(self, *args, **kwargs)</dt><dd><tt>PCOLOR(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
 &nbsp;<br>
-<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y&nbsp;&nbsp;<br>
+PCOLOR(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y<br>
 &nbsp;<br>
-<a href="#Subplot-pcolor">pcolor</a>(C,&nbsp;cmap=cm.jet)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
-using&nbsp;rectangle&nbsp;patches&nbsp;using&nbsp;a&nbsp;colormap&nbsp;jet.&nbsp;&nbsp;Colormaps&nbsp;are<br>
-avalible&nbsp;in&nbsp;matplotlib.cm.&nbsp;&nbsp;You&nbsp;must&nbsp;pass&nbsp;this&nbsp;as&nbsp;a&nbsp;kwarg.<br>
+PCOLOR(C,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keywork&nbsp;args&nbsp;to&nbsp;control&nbsp;colormapping&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scaling;&nbsp;see&nbsp;below<br>
 &nbsp;<br>
-<a href="#Subplot-pcolor">pcolor</a>(C,&nbsp;norm=normalize())&nbsp;-&nbsp;the&nbsp;normalization&nbsp;function&nbsp;used<br>
-to&nbsp;scale&nbsp;your&nbsp;color&nbsp;data&nbsp;to&nbsp;0-1.&nbsp;&nbsp;must&nbsp;be&nbsp;passed&nbsp;as&nbsp;a&nbsp;kwarg.<br>
-normalization&nbsp;functions&nbsp;are&nbsp;derived&nbsp;from<br>
-matplotlib.colors.Norm<br>
+Optional&nbsp;keywork&nbsp;args&nbsp;are&nbsp;shown&nbsp;with&nbsp;their&nbsp;defaults&nbsp;below&nbsp;(you&nbsp;must<br>
+use&nbsp;kwargs&nbsp;for&nbsp;these):<br>
 &nbsp;<br>
-<a href="#Subplot-pcolor">pcolor</a>(C,&nbsp;alpha=0.5)&nbsp;-&nbsp;set&nbsp;the&nbsp;alpha&nbsp;of&nbsp;the&nbsp;pseudocolor&nbsp;plot.<br>
-Must&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;kwarg<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;cm.jet&nbsp;:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;cm.jet<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;=&nbsp;normalize()&nbsp;:&nbsp;matplotlib.colors.normalize&nbsp;is&nbsp;used&nbsp;to&nbsp;scale<br>
+&nbsp;&nbsp;&nbsp;&nbsp;luminance&nbsp;data&nbsp;to&nbsp;0,1.<br>
 &nbsp;<br>
-Shading:<br>
+&nbsp;&nbsp;*&nbsp;vmin=None&nbsp;and&nbsp;vmax=None&nbsp;:&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;in&nbsp;conjunction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;norm&nbsp;to&nbsp;normalize&nbsp;luminance&nbsp;data.&nbsp;&nbsp;If&nbsp;either&nbsp;are&nbsp;None,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;color&nbsp;array&nbsp;C&nbsp;is&nbsp;used.&nbsp;&nbsp;If&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;will&nbsp;be&nbsp;None<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;shading&nbsp;=&nbsp;'flat'&nbsp;:&nbsp;or&nbsp;'faceted'.&nbsp;&nbsp;If&nbsp;'faceted',&nbsp;a&nbsp;black&nbsp;grid&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;drawn&nbsp;around&nbsp;each&nbsp;rectangle;&nbsp;if&nbsp;'flat',&nbsp;edge&nbsp;colors&nbsp;are&nbsp;same&nbsp;as<br>
+&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;colors<br>
 &nbsp;<br>
-&nbsp;&nbsp;The&nbsp;optional&nbsp;keyword&nbsp;arg&nbsp;shading&nbsp;('flat'&nbsp;or&nbsp;'faceted')&nbsp;will<br>
-&nbsp;&nbsp;determine&nbsp;whether&nbsp;a&nbsp;black&nbsp;grid&nbsp;is&nbsp;drawn&nbsp;around&nbsp;each&nbsp;pcolor<br>
-&nbsp;&nbsp;square.&nbsp;&nbsp;Default&nbsp;'faceteted'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.,&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(C,&nbsp;shading='flat')&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C,&nbsp;shading='faceted')<br>
+&nbsp;&nbsp;*&nbsp;alpha=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
+&nbsp;&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;matplotlib.collections.PatchCollection<br>
+object<br>
 &nbsp;<br>
-returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects<br>
+Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
+x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
-Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit<br>
-counterintuitive&nbsp;for&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
 &nbsp;<br>
-&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
-&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
-&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
-&nbsp;<br>
-&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
-&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
 &nbsp;<br>
 will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
 happy&nbsp;with<br>
 &nbsp;<br>
-&nbsp;<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
 &nbsp;<br>
 Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
 &nbsp;<br>
-&nbsp;<a href="#Subplot-pcolor">pcolor</a>(transpose(Z))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(transpose(Z))<br>
 &nbsp;<br>
-will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
-and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
+will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows&nbsp;and<br>
+numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 
 <dl><dt><a name="Subplot-pcolor_classic"><strong>pcolor_classic</strong></a>(self, *args, **kwargs)</dt><dd><tt><a href="#Subplot-pcolor">pcolor</a>(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
 &nbsp;<br>
@@ -1079,8 +1138,6 @@ avalible&nbsp;in&nbsp;matplotlib.cm.&nbsp;&nbsp;You&nbsp;must&nbsp;pass&nbsp;thi
 &nbsp;<br>
 <a href="#Subplot-pcolor">pcolor</a>(C,&nbsp;norm=normalize())&nbsp;-&nbsp;the&nbsp;normalization&nbsp;function&nbsp;used<br>
 to&nbsp;scale&nbsp;your&nbsp;color&nbsp;data&nbsp;to&nbsp;0-1.&nbsp;&nbsp;must&nbsp;be&nbsp;passed&nbsp;as&nbsp;a&nbsp;kwarg.<br>
-normalization&nbsp;functions&nbsp;are&nbsp;derived&nbsp;from<br>
-matplotlib.colors.Norm<br>
 &nbsp;<br>
 <a href="#Subplot-pcolor">pcolor</a>(C,&nbsp;alpha=0.5)&nbsp;-&nbsp;set&nbsp;the&nbsp;alpha&nbsp;of&nbsp;the&nbsp;pseudocolor&nbsp;plot.<br>
 Must&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;kwarg<br>
@@ -1171,14 +1228,24 @@ Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
 
-<dl><dt><a name="Subplot-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=3</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a<br>
-scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color<br>
-and&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array<br>
-of&nbsp;intensities&nbsp;which&nbsp;will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the<br>
-matplotlib.colors.colormap&nbsp;instance&nbsp;cmap<br>
+<dl><dt><a name="Subplot-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=20</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>SCATTER(x,&nbsp;y)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y<br>
+&nbsp;<br>
+SCATTER(x,&nbsp;y,&nbsp;s)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s<br>
+&nbsp;<br>
+SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s&nbsp;and&nbsp;colors&nbsp;given&nbsp;by&nbsp;c<br>
+&nbsp;<br>
+SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c,&nbsp;**kwargs)&nbsp;-&nbsp;control&nbsp;colormapping&nbsp;and&nbsp;scaling&nbsp;with<br>
+keyword&nbsp;args;&nbsp;see&nbsp;below<br>
+&nbsp;<br>
+Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a&nbsp;scalar<br>
+or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a<br>
+single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array&nbsp;of&nbsp;intensities&nbsp;which<br>
+will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;matplotlib.colors.colormap&nbsp;instance&nbsp;cmap<br>
 &nbsp;<br>
 The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'s'&nbsp;:&nbsp;square<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'o'&nbsp;:&nbsp;circle<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'^'&nbsp;:&nbsp;triangle&nbsp;up<br>
@@ -1192,7 +1259,22 @@ The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
 &nbsp;<br>
 s&nbsp;is&nbsp;a&nbsp;size&nbsp;argument&nbsp;in&nbsp;points&nbsp;squared.<br>
 &nbsp;<br>
-if&nbsp;cmap&nbsp;is&nbsp;None,&nbsp;default&nbsp;to&nbsp;the&nbsp;current&nbsp;rc&nbsp;params&nbsp;cmap</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Other&nbsp;keyword&nbsp;args;&nbsp;the&nbsp;color&nbsp;mapping&nbsp;and&nbsp;normalization&nbsp;arguments&nbsp;will<br>
+on&nbsp;be&nbsp;used&nbsp;if&nbsp;c&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;floats<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;cm.jet&nbsp;:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;image.cmap<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;=&nbsp;normalize()&nbsp;:&nbsp;matplotlib.colors.normalize&nbsp;is&nbsp;used&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scale&nbsp;luminance&nbsp;data&nbsp;to&nbsp;0,1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;vmin=None&nbsp;and&nbsp;vmax=None&nbsp;:&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;in&nbsp;conjunction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;norm&nbsp;to&nbsp;normalize&nbsp;luminance&nbsp;data.&nbsp;&nbsp;If&nbsp;either&nbsp;are&nbsp;None,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;color&nbsp;array&nbsp;C&nbsp;is&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;your&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;alpha&nbsp;=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;value&nbsp;for&nbsp;the&nbsp;patches</tt></dd></dl>
 
 <dl><dt><a name="Subplot-scatter_classic"><strong>scatter_classic</strong></a>(self, x, y, s<font color="#909090">=None</font>, c<font color="#909090">='b'</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data<br>
 coords)&nbsp;and&nbsp;can&nbsp;be&nbsp;either&nbsp;a&nbsp;scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same<br>

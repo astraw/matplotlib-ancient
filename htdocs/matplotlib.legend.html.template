@@ -77,7 +77,7 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;text,&nbsp;line&nbsp
 up&nbsp;the&nbsp;legend<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Legend-__init__"><strong>__init__</strong></a>(self, parent, handles, labels, loc)</dt></dl>
+<dl><dt><a name="Legend-__init__"><strong>__init__</strong></a>(self, parent, handles, labels, loc, isaxes<font color="#909090">=True</font>)</dt></dl>
 
 <dl><dt><a name="Legend-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 

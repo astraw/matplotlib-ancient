@@ -1,8 +1,8 @@
 #### MATPLOTLIBRC FORMAT 
 #
-# This is a sample matplotlib configuration file It should be placed
+# This is a sample matplotlib configuration file.   It should be placed
 # in your home dir (Linux and friends) or in the matplotlib data path,
-# is, where matplotlib installs it's data files (fonts, etc).  On
+# ie, where matplotlib installs its data files (fonts, etc).  On
 # windows, this would be, for example, C:\Python23\share\matplotlib
 #
 # By default, the installer will overwrite the existing file in the
@@ -51,7 +51,7 @@ lines.data_clipping : False  # Use data clipping in addition to viewport
 # circles.  See
 # http://matplotlib.sourceforge.net/matplotlib.patches.html for more
 # information on patch properties
-patch.linewidth   	: 0.5     # edge width in points
+patch.linewidth   	: 1.0     # edge width in points
 patch.facecolor  	: b       
 patch.edgecolor  	: k
 patch.antialiased 	: True    # render patches in antialised (no jaggies)

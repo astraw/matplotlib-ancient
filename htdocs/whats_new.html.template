@@ -3,6 +3,56 @@
 # tuple of (name, description) tuples
 
 versioninfo = {}
+
+versioninfo['0.60'] = (
+
+    ('figure images', """\
+pixel-by-pixel, not resampled, images with the <a
+href=matplotlib.matlab.html#-figimage>figimage</a> command.  Multiple
+figure images (ie mosaics) with alpha blending are supported.  See <a
+href=examples/figimage_demo.py>figimage_demo.py</a>
+"""),
+
+    ('multiple axes images with imshow', """\
+You can compose multiple axes images with alpha blending.  See
+screenshot <a
+href=screenshots.html#layer_images>layer_images</a>
+"""),
+
+    ('unified color limit and color mapping arguments', """\
+pcolor, scatter, imshow and figimage now have the same color map and
+scaling arguments.  Interactive control of colormap and color scaling
+with new matplotlib.matlab commands jet, gray and clim.  New
+matplotlib rc parameters for default image params
+"""),
+
+    ('image origin can be upper or lower', """\
+see <a
+href=examples/image_origin.py>image_origin.py</a>
+"""),
+
+    ('support for py2exe', 'see <py2exe_examples.zip>py2exe_examples.zip</a>'),
+
+    ('new matplotlib.matlab command rc', """\
+Use <a href=matplotlib.matlab.html#-rc>rc</a> for dynamic control of rc
+parameters.  See matplotlib.matlab.html#-rc
+and example <a href=examples/customize_rc.py>customize_rc.py</a>"""),
+
+    ('draw command', """\
+new <a href=matplotlib.matlab.html#-draw>draw</a> command to redraw
+the figure - use this in place of multiple calls to show.  This is
+equivalent to doing get_current_fig_manager().canvas.draw(), but takes
+less typing :-)
+"""),
+    
+    ('Elaborate finance demo', """\
+New finance demo shows off may of the features of matplotlib - see
+screenshot at <a href=screenshots.html#finance_work2>finance_work2</a>"""),
+
+    ('Bug fixes', 'dynamic_demo_wx, figure legends, memory leaks, axis scaling bug related to singleton plots'),
+
+    )
+
 versioninfo['0.54'] = (
 
     ('More general transformation architecture', """Earlier versions

@@ -54,13 +54,8 @@ or&nbsp;you&nbsp;can&nbsp;pass&nbsp;an&nbsp;R,G,B&nbsp;tuple,&nbsp;where&nbsp;ea
 <dt><font face="helvetica, arial"><a href="matplotlib.colors.html#LinearSegmentedColormap">LinearSegmentedColormap</a>
 </font></dt></dl>
 </dd>
-<dt><font face="helvetica, arial"><a href="matplotlib.colors.html#Norm">Norm</a>
-</font></dt><dd>
-<dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.colors.html#normalize">normalize</a>
 </font></dt></dl>
-</dd>
-</dl>
  <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
@@ -132,19 +127,7 @@ See&nbsp;makeMappingArray&nbsp;for&nbsp;details</tt></dd></dl>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Norm">class <strong>Norm</strong></a></font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Normalize&nbsp;a&nbsp;given&nbsp;value&nbsp;to&nbsp;the&nbsp;0-1&nbsp;range<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="Norm-__call__"><strong>__call__</strong></a>(self, value)</dt></dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="normalize">class <strong>normalize</strong></a>(<a href="matplotlib.colors.html#Norm">Norm</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="normalize">class <strong>normalize</strong></a></font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
@@ -159,6 +142,8 @@ whichever&nbsp;is&nbsp;closest.&nbsp;Returns&nbsp;0&nbsp;if&nbsp;vmin==vmax.&nbs
 scalars&nbsp;or&nbsp;arrays.</tt></dd></dl>
 
 <dl><dt><a name="normalize-autoscale"><strong>autoscale</strong></a>(self, A)</dt></dl>
+
+<dl><dt><a name="normalize-is_mappable"><strong>is_mappable</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="normalize-scaled"><strong>scaled</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;set</tt></dd></dl>
 

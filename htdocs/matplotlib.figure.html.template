@@ -60,7 +60,45 @@ The&nbsp;Axes&nbsp;instance&nbsp;will&nbsp;be&nbsp;returned</tt></dd></dl>
 
 <dl><dt><a name="Figure-draw"><strong>draw</strong></a>(self, renderer)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;using&nbsp;RendererGD&nbsp;instance&nbsp;renderer</tt></dd></dl>
 
-<dl><dt><a name="Figure-figimage"><strong>figimage</strong></a>(self, A, xo<font color="#909090">=0</font>, yo<font color="#909090">=0</font>, norm<font color="#909090">=None</font>, cmap<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;nonresampled&nbsp;figure&nbsp;to&nbsp;the&nbsp;figure</tt></dd></dl>
+<dl><dt><a name="Figure-figimage"><strong>figimage</strong></a>(self, X, xo<font color="#909090">=0</font>, yo<font color="#909090">=0</font>, alpha<font color="#909090">=1.0</font>, norm<font color="#909090">=None</font>, cmap<font color="#909090">=None</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>FIGIMAGE(X)&nbsp;#&nbsp;add&nbsp;non-resampled&nbsp;array&nbsp;to&nbsp;figure<br>
+&nbsp;<br>
+FIGIMAGE(X,&nbsp;xo,&nbsp;yo)&nbsp;#&nbsp;with&nbsp;pixel&nbsp;offsets<br>
+&nbsp;<br>
+FIGIMAGE(X,&nbsp;**kwargs)&nbsp;#&nbsp;control&nbsp;interpolation&nbsp;,scaling,&nbsp;etc<br>
+&nbsp;<br>
+Add&nbsp;a&nbsp;nonresampled&nbsp;figure&nbsp;to&nbsp;the&nbsp;figure&nbsp;from&nbsp;array&nbsp;X.&nbsp;&nbsp;xo&nbsp;and&nbsp;yo&nbsp;are<br>
+offsets&nbsp;in&nbsp;pixels<br>
+&nbsp;<br>
+X&nbsp;must&nbsp;be&nbsp;a&nbsp;float&nbsp;array<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;X&nbsp;is&nbsp;MxN,&nbsp;assume&nbsp;luminance&nbsp;(grayscale)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;X&nbsp;is&nbsp;MxNx3,&nbsp;assume&nbsp;RGB<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;X&nbsp;is&nbsp;MxNx4,&nbsp;assume&nbsp;RGBA<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;rc&nbsp;image.cmap&nbsp;valuex<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.normalize&nbsp;instance;&nbsp;default&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;to&nbsp;scale&nbsp;a&nbsp;luminance&nbsp;image&nbsp;to&nbsp;0-1.&nbsp;&nbsp;If<br>
+&nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;is&nbsp;None,&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;luminance&nbsp;values&nbsp;will&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm&nbsp;instance,&nbsp;the&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored.<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;alpha&nbsp;=&nbsp;1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;origin&nbsp;is&nbsp;either&nbsp;'upper'&nbsp;or&nbsp;'lower',&nbsp;which&nbsp;indicates&nbsp;where&nbsp;the&nbsp;[0,0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axes.&nbsp;&nbsp;Defaults&nbsp;to&nbsp;the&nbsp;rc&nbsp;image.origin&nbsp;value<br>
+&nbsp;<br>
+This&nbsp;complements&nbsp;the&nbsp;axes&nbsp;image&nbsp;which&nbsp;will&nbsp;be&nbsp;resampled&nbsp;to&nbsp;fit&nbsp;the<br>
+current&nbsp;axes.&nbsp;&nbsp;If&nbsp;you&nbsp;want&nbsp;a&nbsp;resampled&nbsp;image&nbsp;to&nbsp;fill&nbsp;the&nbsp;entire<br>
+figure,&nbsp;you&nbsp;can&nbsp;define&nbsp;an&nbsp;Axes&nbsp;with&nbsp;size&nbsp;[0,1,0,1].<br>
+&nbsp;<br>
+A&nbsp;image.FigureImage&nbsp;instance&nbsp;is&nbsp;returned.</tt></dd></dl>
 
 <dl><dt><a name="Figure-get_axes"><strong>get_axes</strong></a>(self)</dt></dl>
 

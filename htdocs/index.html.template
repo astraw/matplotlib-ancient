@@ -10,8 +10,9 @@ commands = (
     ('csd', 'make a plot of cross spectral density'),
     ('date_plot', 'plot date data'),
     ('errorbar', 'make an errorbar graph'),
-    ('figlegend', 'add a legend to the figure'),\
-    ('figimage', 'add an image to the figure'),    
+    ('figlegend', 'add a legend to the figure'),
+    ('figimage', 'add an image to the figure'),
+    ('figtext', 'add text in figure coords'),        
     ('figure', 'create or change active figure'),
     ('fill', 'draw filled polygons'),
     ('gca', 'return the current axes'),

@@ -27,35 +27,36 @@ operations.</tt></p>
 <dt><font face="helvetica, arial"><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.image.html#ImageBase">ImageBase</a>
+<dt><font face="helvetica, arial"><a href="matplotlib.image.html#AxesImage">AxesImage</a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>, <a href="matplotlib.cm.html#ScalarMappable">matplotlib.cm.ScalarMappable</a>)
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.image.html#FigureImage">FigureImage</a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>, <a href="matplotlib.cm.html#ScalarMappable">matplotlib.cm.ScalarMappable</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.cm.html#ScalarMappable">matplotlib.cm.ScalarMappable</a>
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.image.html#AxesImage">AxesImage</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.image.html#FigureImage">FigureImage</a>
+<dt><font face="helvetica, arial"><a href="matplotlib.image.html#AxesImage">AxesImage</a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>, <a href="matplotlib.cm.html#ScalarMappable">matplotlib.cm.ScalarMappable</a>)
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.image.html#FigureImage">FigureImage</a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>, <a href="matplotlib.cm.html#ScalarMappable">matplotlib.cm.ScalarMappable</a>)
 </font></dt></dl>
 </dd>
 </dl>
-</dd>
-<dt><font face="helvetica, arial"><a href="matplotlib.image.html#ITransform">ITransform</a>
-</font></dt></dl>
  <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="AxesImage">class <strong>AxesImage</strong></a>(<a href="matplotlib.image.html#ImageBase">ImageBase</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="AxesImage">class <strong>AxesImage</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>, <a href="matplotlib.cm.html#ScalarMappable">matplotlib.cm.ScalarMappable</a>)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="matplotlib.image.html#AxesImage">AxesImage</a></dd>
-<dd><a href="matplotlib.image.html#ImageBase">ImageBase</a></dd>
 <dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+<dd><a href="matplotlib.cm.html#ScalarMappable">matplotlib.cm.ScalarMappable</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
 <dl><dt><a name="AxesImage-__init__"><strong>__init__</strong></a>(self, ax, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, aspect<font color="#909090">=None</font>, interpolation<font color="#909090">=None</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>aspect,&nbsp;interpolation&nbsp;and&nbsp;cmap&nbsp;default&nbsp;to&nbsp;their&nbsp;rc&nbsp;setting<br>
 &nbsp;<br>
 cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance<br>
-norm&nbsp;is&nbsp;a&nbsp;colors.Norm&nbsp;instance&nbsp;to&nbsp;map&nbsp;luminance&nbsp;to&nbsp;0-1</tt></dd></dl>
+norm&nbsp;is&nbsp;a&nbsp;colors.normalize&nbsp;instance&nbsp;to&nbsp;map&nbsp;luminance&nbsp;to&nbsp;0-1</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt></dl>
 
@@ -71,6 +72,8 @@ One&nbsp;of<br>
 &nbsp;<br>
 'bicubic',&nbsp;'bilinear',&nbsp;'blackman100',&nbsp;'blackman256',&nbsp;'blackman64',<br>
 'nearest',&nbsp;'sinc144',&nbsp;'sinc256',&nbsp;'sinc64',&nbsp;'spline16',&nbsp;'spline36'</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-get_size"><strong>get_size</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;numrows,&nbsp;numcols&nbsp;of&nbsp;the&nbsp;input&nbsp;image</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-make_image"><strong>make_image</strong></a>(self, renderer)</dt></dl>
 
@@ -94,14 +97,6 @@ One&nbsp;of<br>
 &nbsp;<br>
 'bicubic',&nbsp;'bilinear',&nbsp;'blackman100',&nbsp;'blackman256',&nbsp;'blackman64',<br>
 'nearest',&nbsp;'sinc144',&nbsp;'sinc256',&nbsp;'sinc64',&nbsp;'spline16',&nbsp;'spline36'</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.image.html#ImageBase">ImageBase</a>:<br>
-<dl><dt><a name="AxesImage-get_size"><strong>get_size</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;numrows,&nbsp;numcols&nbsp;of&nbsp;the&nbsp;input&nbsp;image</tt></dd></dl>
-
-<dl><dt><a name="AxesImage-set_clim"><strong>set_clim</strong></a>(self, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>)</dt><dd><tt>set&nbsp;the&nbsp;norm&nbsp;limits&nbsp;for&nbsp;image&nbsp;scaling</tt></dd></dl>
-
-<dl><dt><a name="AxesImage-set_cmap"><strong>set_cmap</strong></a>(self, cmap)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
@@ -139,36 +134,53 @@ their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
 
+<hr>
+Methods inherited from <a href="matplotlib.cm.html#ScalarMappable">matplotlib.cm.ScalarMappable</a>:<br>
+<dl><dt><a name="AxesImage-add_observer"><strong>add_observer</strong></a>(self, mappable)</dt><dd><tt>whenever&nbsp;the&nbsp;norm,&nbsp;clim&nbsp;or&nbsp;cmap&nbsp;is&nbsp;set,&nbsp;call&nbsp;the&nbsp;notify<br>
+instance&nbsp;of&nbsp;the&nbsp;mappable&nbsp;observer&nbsp;with&nbsp;self.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;designed&nbsp;to&nbsp;allow&nbsp;one&nbsp;image&nbsp;to&nbsp;follow&nbsp;changes&nbsp;in&nbsp;the<br>
+cmap&nbsp;of&nbsp;another&nbsp;image</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-autoscale"><strong>autoscale</strong></a>(self)</dt><dd><tt>Autoscale&nbsp;the&nbsp;scalar&nbsp;limits&nbsp;on&nbsp;the&nbsp;norm&nbsp;instance&nbsp;using&nbsp;the<br>
+current&nbsp;array</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-changed"><strong>changed</strong></a>(self)</dt><dd><tt>Call&nbsp;this&nbsp;whenever&nbsp;the&nbsp;mappable&nbsp;is&nbsp;changed&nbsp;so&nbsp;observers&nbsp;can<br>
+update&nbsp;state</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-notify"><strong>notify</strong></a>(self, mappable)</dt><dd><tt>If&nbsp;this&nbsp;is&nbsp;called&nbsp;then&nbsp;we&nbsp;are&nbsp;pegged&nbsp;to&nbsp;another&nbsp;mappable.<br>
+Update&nbsp;the&nbsp;cmap,&nbsp;norm&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-set_clim"><strong>set_clim</strong></a>(self, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>)</dt><dd><tt>set&nbsp;the&nbsp;norm&nbsp;limits&nbsp;for&nbsp;image&nbsp;scaling</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-set_cmap"><strong>set_cmap</strong></a>(self, cmap)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-set_norm"><strong>set_norm</strong></a>(self, norm)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-to_rgba"><strong>to_rgba</strong></a>(self, x, alpha<font color="#909090">=1.0</font>)</dt></dl>
+
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="FigureImage">class <strong>FigureImage</strong></a>(<a href="matplotlib.image.html#ImageBase">ImageBase</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="FigureImage">class <strong>FigureImage</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>, <a href="matplotlib.cm.html#ScalarMappable">matplotlib.cm.ScalarMappable</a>)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="matplotlib.image.html#FigureImage">FigureImage</a></dd>
-<dd><a href="matplotlib.image.html#ImageBase">ImageBase</a></dd>
 <dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+<dd><a href="matplotlib.cm.html#ScalarMappable">matplotlib.cm.ScalarMappable</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
 <dl><dt><a name="FigureImage-__init__"><strong>__init__</strong></a>(self, fig, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, offsetx<font color="#909090">=0</font>, offsety<font color="#909090">=0</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance<br>
-norm&nbsp;is&nbsp;a&nbsp;colors.Norm&nbsp;instance&nbsp;to&nbsp;map&nbsp;luminance&nbsp;to&nbsp;0-1</tt></dd></dl>
+norm&nbsp;is&nbsp;a&nbsp;colors.normalize&nbsp;instance&nbsp;to&nbsp;map&nbsp;luminance&nbsp;to&nbsp;0-1</tt></dd></dl>
 
 <dl><dt><a name="FigureImage-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt></dl>
 
-<dl><dt><a name="FigureImage-make_image"><strong>make_image</strong></a>(self, renderer)</dt></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.image.html#ImageBase">ImageBase</a>:<br>
 <dl><dt><a name="FigureImage-get_size"><strong>get_size</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;numrows,&nbsp;numcols&nbsp;of&nbsp;the&nbsp;input&nbsp;image</tt></dd></dl>
 
-<dl><dt><a name="FigureImage-set_array"><strong>set_array</strong></a>(self, A)</dt><dd><tt>Set&nbsp;the&nbsp;image&nbsp;array&nbsp;from&nbsp;numeric/numarray&nbsp;A</tt></dd></dl>
-
-<dl><dt><a name="FigureImage-set_clim"><strong>set_clim</strong></a>(self, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>)</dt><dd><tt>set&nbsp;the&nbsp;norm&nbsp;limits&nbsp;for&nbsp;image&nbsp;scaling</tt></dd></dl>
-
-<dl><dt><a name="FigureImage-set_cmap"><strong>set_cmap</strong></a>(self, cmap)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
+<dl><dt><a name="FigureImage-make_image"><strong>make_image</strong></a>(self, renderer)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
@@ -206,80 +218,32 @@ their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
 
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="ITransform">class <strong>ITransform</strong></a></font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Map&nbsp;an&nbsp;MxN&nbsp;luminance&nbsp;array&nbsp;-&gt;&nbsp;unit&nbsp;normalized&nbsp;RGBA<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="ITransform-__call__"><strong>__call__</strong></a>(self, x, alpha<font color="#909090">=1.0</font>)</dt></dl>
-
-<dl><dt><a name="ITransform-__init__"><strong>__init__</strong></a>(self, norm, cmap)</dt></dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="ImageBase">class <strong>ImageBase</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
-    
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="ImageBase-__init__"><strong>__init__</strong></a>(self, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>aspect,&nbsp;interpolation&nbsp;and&nbsp;cmap&nbsp;default&nbsp;to&nbsp;their&nbsp;rc&nbsp;setting<br>
+<hr>
+Methods inherited from <a href="matplotlib.cm.html#ScalarMappable">matplotlib.cm.ScalarMappable</a>:<br>
+<dl><dt><a name="FigureImage-add_observer"><strong>add_observer</strong></a>(self, mappable)</dt><dd><tt>whenever&nbsp;the&nbsp;norm,&nbsp;clim&nbsp;or&nbsp;cmap&nbsp;is&nbsp;set,&nbsp;call&nbsp;the&nbsp;notify<br>
+instance&nbsp;of&nbsp;the&nbsp;mappable&nbsp;observer&nbsp;with&nbsp;self.<br>
 &nbsp;<br>
-norm&nbsp;is&nbsp;a&nbsp;colors.Norm&nbsp;instance&nbsp;to&nbsp;map&nbsp;luminance&nbsp;to&nbsp;0-1<br>
-cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance</tt></dd></dl>
+This&nbsp;is&nbsp;designed&nbsp;to&nbsp;allow&nbsp;one&nbsp;image&nbsp;to&nbsp;follow&nbsp;changes&nbsp;in&nbsp;the<br>
+cmap&nbsp;of&nbsp;another&nbsp;image</tt></dd></dl>
 
-<dl><dt><a name="ImageBase-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt></dl>
+<dl><dt><a name="FigureImage-autoscale"><strong>autoscale</strong></a>(self)</dt><dd><tt>Autoscale&nbsp;the&nbsp;scalar&nbsp;limits&nbsp;on&nbsp;the&nbsp;norm&nbsp;instance&nbsp;using&nbsp;the<br>
+current&nbsp;array</tt></dd></dl>
 
-<dl><dt><a name="ImageBase-get_size"><strong>get_size</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;numrows,&nbsp;numcols&nbsp;of&nbsp;the&nbsp;input&nbsp;image</tt></dd></dl>
+<dl><dt><a name="FigureImage-changed"><strong>changed</strong></a>(self)</dt><dd><tt>Call&nbsp;this&nbsp;whenever&nbsp;the&nbsp;mappable&nbsp;is&nbsp;changed&nbsp;so&nbsp;observers&nbsp;can<br>
+update&nbsp;state</tt></dd></dl>
 
-<dl><dt><a name="ImageBase-make_image"><strong>make_image</strong></a>(self, renderer)</dt></dl>
+<dl><dt><a name="FigureImage-notify"><strong>notify</strong></a>(self, mappable)</dt><dd><tt>If&nbsp;this&nbsp;is&nbsp;called&nbsp;then&nbsp;we&nbsp;are&nbsp;pegged&nbsp;to&nbsp;another&nbsp;mappable.<br>
+Update&nbsp;the&nbsp;cmap,&nbsp;norm&nbsp;accordingly</tt></dd></dl>
 
-<dl><dt><a name="ImageBase-set_array"><strong>set_array</strong></a>(self, A)</dt><dd><tt>Set&nbsp;the&nbsp;image&nbsp;array&nbsp;from&nbsp;numeric/numarray&nbsp;A</tt></dd></dl>
+<dl><dt><a name="FigureImage-set_array"><strong>set_array</strong></a>(self, A)</dt><dd><tt>Set&nbsp;the&nbsp;image&nbsp;array&nbsp;from&nbsp;numeric/numarray&nbsp;A</tt></dd></dl>
 
-<dl><dt><a name="ImageBase-set_clim"><strong>set_clim</strong></a>(self, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>)</dt><dd><tt>set&nbsp;the&nbsp;norm&nbsp;limits&nbsp;for&nbsp;image&nbsp;scaling</tt></dd></dl>
+<dl><dt><a name="FigureImage-set_clim"><strong>set_clim</strong></a>(self, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>)</dt><dd><tt>set&nbsp;the&nbsp;norm&nbsp;limits&nbsp;for&nbsp;image&nbsp;scaling</tt></dd></dl>
 
-<dl><dt><a name="ImageBase-set_cmap"><strong>set_cmap</strong></a>(self, cmap)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
+<dl><dt><a name="FigureImage-set_cmap"><strong>set_cmap</strong></a>(self, cmap)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
 
-<hr>
-Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="ImageBase-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
+<dl><dt><a name="FigureImage-set_norm"><strong>set_norm</strong></a>(self, norm)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
 
-<dl><dt><a name="ImageBase-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
-
-<dl><dt><a name="ImageBase-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
-
-<dl><dt><a name="ImageBase-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
-
-<dl><dt><a name="ImageBase-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="ImageBase-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
-
-<dl><dt><a name="ImageBase-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
-
-<dl><dt><a name="ImageBase-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
-
-<dl><dt><a name="ImageBase-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
-
-<dl><dt><a name="ImageBase-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
-
-<dl><dt><a name="ImageBase-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
-things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="ImageBase-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
-
-<dl><dt><a name="ImageBase-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><strong>aname</strong> = 'Artist'</dl>
+<dl><dt><a name="FigureImage-to_rgba"><strong>to_rgba</strong></a>(self, x, alpha<font color="#909090">=1.0</font>)</dt></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

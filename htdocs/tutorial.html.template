@@ -21,10 +21,10 @@ line_props = (
     ('linestyle', "One of -- :  -.  -"),
     ('linewidth', 'a float, the line width in points'),
     ('marker', "One of + ,  o . s v x > < ^"),
+    ('markeredgewidth', 'The line width around the marker symbol'),
     ('markeredgecolor', 'The edge color if a marker is used'),
     ('markerfacecolor', 'The face color if a marker is used'),
     ('markersize', 'The size of the marker in points'),
-    ('vertical_offset', 'An offset used to move line up or down'),       
 )
 
 

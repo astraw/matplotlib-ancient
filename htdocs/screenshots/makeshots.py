@@ -7,6 +7,7 @@ import sys, os
 default = 'Agg'
 # do not remove the pngs - some are screenshots!
 files = {
+    'layer_images.py'  : default,        
     'finance_work2.py'  : default,    
     'simple_plot.py'    : default, 
     'axes_demo.py'      : default,  # color allocation bug   

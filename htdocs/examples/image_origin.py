@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 You can specify whether images should be plotted with the array origin
 x[0,0] in the upper left or upper right by using the origin parameter.
@@ -17,5 +18,5 @@ subplot(212)
 title('blue should be down')
 imshow(x, origin='lower', interpolation='nearest')
 
-savefig('image_origin')
+#savefig('image_origin')
 show()

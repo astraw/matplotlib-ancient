@@ -1,6 +1,24 @@
 New entries should be added at the top
 =======
 
+2004-07-07 Fixed a bug in dynamic_demo_wx
+
+2004-07-05 Added new mathtext commands \over{sym1}{sym2} and
+           \under{sym1}{sym2}
+
+2004-07-05 Unified image and patch collections colormapping and
+           scaling args.  Updated docstrings for all - JDH
+
+2004-07-05 Fixed a figure legend bug and added
+           examples/figlegend_demo.py - JDH
+
+2004-07-01 Fixed a memory leak in image and agg to string methods
+
+2004-06-25 Fixed fonts_demo spacing problems and added a kwargs
+           version of the fonts_demo fonts_demo_kw.py - JDH
+
+2004-06-25 finance.py: handle case when urlopen() fails - SC
+
 2004-06-24 Support for multiple images on axes and figure, with
            blending.  Support for upper and lower image origins.
            clim, jet and gray functions in matlab interface operate on
@@ -8,7 +26,7 @@ New entries should be added at the top
 
 2004-06-23 ported code to Perry's new colormap and norm scheme.  Added
            new rc attributes image.aspect, image.interpolation,
-           image.cmap, image.lut
+           image.cmap, image.lut, image.origin
 
 2004-06-20 backend_gtk.py: replace gtk.TRUE/FALSE with True/False.
 	   simplified _make_axis_menu(). - SC
@@ -32,7 +50,8 @@ New entries should be added at the top
 
 2004-06-15 removed set_default_font from font_manager to unify font
            customization using the new function rc.  See API_CHANGES
-           fpr more info -  JDH
+           for more info.  The examples fonts_demo.py and
+           fonts_demo_kw.py are ported to the new API - JDH
 
 2004-06-15 Improved (yet again!) axis scaling to properly handle
            singleton plots - JDH
