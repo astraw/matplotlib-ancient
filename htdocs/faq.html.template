@@ -98,8 +98,9 @@ regardless of these two settings, but to get optimum performance, they
 should agree.  numarray builds for win32 are available on the download
 page."""),
 
-    ('SLOW', 'matplotlib seems painfully slow, am I doing something
-wrong?', """ Hopefully, yes.  A lot of work has gone into making
+    ('SLOW', 'matplotlib seems painfully slow, am I doing something wrong?',
+
+     """Hopefully, yes.  A lot of work has gone into making
 matplotlib reasonably fast plotting largish arrays and image data.  If
 things seem exceptionally pokey, it may indicate a problem in your
 setup.  The most common cause is getting your numerix settings out of

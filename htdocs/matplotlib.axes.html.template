@@ -245,7 +245,7 @@ Eg<br>
 <a href="#Axes-hold">hold</a>(True)&nbsp;&nbsp;#&nbsp;hold&nbsp;is&nbsp;on<br>
 <a href="#Axes-hold">hold</a>(False)&nbsp;#&nbsp;hold&nbsp;is&nbsp;off</tt></dd></dl>
 
-<dl><dt><a name="Axes-imshow"><strong>imshow</strong></a>(self, X, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, aspect<font color="#909090">=None</font>, interpolation<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale<br>
+<dl><dt><a name="Axes-imshow"><strong>imshow</strong></a>(self, X, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, aspect<font color="#909090">=None</font>, interpolation<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, origin<font color="#909090">=None</font>, extent<font color="#909090">=None</font>)</dt><dd><tt>IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;axes&nbsp;size<br>
 &nbsp;<br>
 IMSHOW(X,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;image&nbsp;scaling,<br>
@@ -286,7 +286,11 @@ The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;origin&nbsp;is&nbsp;either&nbsp;upper&nbsp;or&nbsp;lower,&nbsp;which&nbsp;indicates&nbsp;where&nbsp;the&nbsp;[0,0]<br>
 &nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
-&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axes.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.origin</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axes.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.origin<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;extent&nbsp;is&nbsp;a&nbsp;data&nbsp;xmin,&nbsp;xmax,&nbsp;ymin,&nbsp;ymax&nbsp;for&nbsp;making&nbsp;image&nbsp;plots<br>
+&nbsp;&nbsp;&nbsp;&nbsp;registered&nbsp;with&nbsp;data&nbsp;plots.&nbsp;&nbsp;Default&nbsp;is&nbsp;the&nbsp;image&nbsp;dimensions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;pixels</tt></dd></dl>
 
 <dl><dt><a name="Axes-in_axes"><strong>in_axes</strong></a>(self, xwin, ywin)</dt></dl>
 
@@ -969,7 +973,7 @@ Eg<br>
 <a href="#Subplot-hold">hold</a>(True)&nbsp;&nbsp;#&nbsp;hold&nbsp;is&nbsp;on<br>
 <a href="#Subplot-hold">hold</a>(False)&nbsp;#&nbsp;hold&nbsp;is&nbsp;off</tt></dd></dl>
 
-<dl><dt><a name="Subplot-imshow"><strong>imshow</strong></a>(self, X, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, aspect<font color="#909090">=None</font>, interpolation<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale<br>
+<dl><dt><a name="Subplot-imshow"><strong>imshow</strong></a>(self, X, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, aspect<font color="#909090">=None</font>, interpolation<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, origin<font color="#909090">=None</font>, extent<font color="#909090">=None</font>)</dt><dd><tt>IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;axes&nbsp;size<br>
 &nbsp;<br>
 IMSHOW(X,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;image&nbsp;scaling,<br>
@@ -1010,7 +1014,11 @@ The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;origin&nbsp;is&nbsp;either&nbsp;upper&nbsp;or&nbsp;lower,&nbsp;which&nbsp;indicates&nbsp;where&nbsp;the&nbsp;[0,0]<br>
 &nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
-&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axes.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.origin</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axes.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.origin<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;extent&nbsp;is&nbsp;a&nbsp;data&nbsp;xmin,&nbsp;xmax,&nbsp;ymin,&nbsp;ymax&nbsp;for&nbsp;making&nbsp;image&nbsp;plots<br>
+&nbsp;&nbsp;&nbsp;&nbsp;registered&nbsp;with&nbsp;data&nbsp;plots.&nbsp;&nbsp;Default&nbsp;is&nbsp;the&nbsp;image&nbsp;dimensions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;pixels</tt></dd></dl>
 
 <dl><dt><a name="Subplot-in_axes"><strong>in_axes</strong></a>(self, xwin, ywin)</dt></dl>
 

@@ -63,8 +63,33 @@
 <dl><dt><a name="FigureCanvasPS-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=72</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt><dd><tt>dpi&nbsp;is&nbsp;ignored&nbsp;for&nbsp;PS&nbsp;output,&nbsp;it&nbsp;depends&nbsp;on&nbsp;the&nbsp;output&nbsp;device</tt></dd></dl>
 
 <hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>basepath</strong> = '/usr/local/share/matplotlib'</dl>
+
+<hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
 <dl><dt><a name="FigureCanvasPS-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
+
+<dl><dt><a name="FigureCanvasPS-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
+&nbsp;<br>
+&nbsp;&nbsp;def&nbsp;func(event)<br>
+&nbsp;<br>
+where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;Events&nbsp;you&nbsp;should&nbsp;handle<br>
+&nbsp;<br>
+&nbsp;button_press_event&nbsp;-&nbsp;event.x,&nbsp;event.y&nbsp;and&nbsp;event.button&nbsp;must<br>
+&nbsp;&nbsp;&nbsp;be&nbsp;defined<br>
+&nbsp;<br>
+&nbsp;button_release_event&nbsp;-&nbsp;event.x,&nbsp;event.y&nbsp;and&nbsp;event.button&nbsp;must<br>
+&nbsp;&nbsp;&nbsp;be&nbsp;defined<br>
+&nbsp;<br>
+&nbsp;motion_notify_event&nbsp;-&nbsp;event.x&nbsp;and&nbsp;event.y&nbsp;must&nbsp;be&nbsp;defined&nbsp;x,y&nbsp;=&nbsp;0,0<br>
+&nbsp;&nbsp;&nbsp;is&nbsp;lower,&nbsp;left&nbsp;of&nbsp;canvas&nbsp;in&nbsp;pixel&nbsp;coords.&nbsp;&nbsp;Event.button&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;optionally&nbsp;defined<br>
+&nbsp;<br>
+&nbsp;<br>
+return&nbsp;a&nbsp;connection&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasPS-mpl_disconnect"><strong>mpl_disconnect</strong></a>(self, cid)</dt><dd><tt>Connect&nbsp;s&nbsp;to&nbsp;func.&nbsp;return&nbsp;an&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasPS-switch_backends"><strong>switch_backends</strong></a>(self, FigureCanvasClass)</dt><dd><tt>instantiate&nbsp;an&nbsp;instance&nbsp;of&nbsp;FigureCanvasClass<br>
 &nbsp;<br>
@@ -72,6 +97,10 @@ This&nbsp;is&nbsp;used&nbsp;for&nbsp;backend&nbsp;switching,&nbsp;eg,&nbsp;to&nb
 <a href="#FigureCanvasPS">FigureCanvasPS</a>&nbsp;from&nbsp;a&nbsp;FigureCanvasGTK.&nbsp;&nbsp;Note,&nbsp;deep&nbsp;copying&nbsp;is<br>
 not&nbsp;done,&nbsp;so&nbsp;any&nbsp;changes&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;instances&nbsp;(eg,&nbsp;setting<br>
 figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected&nbsp;in&nbsp;the&nbsp;other</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><strong>events</strong> = ('button_press_event', 'button_release_event', 'motion_notify_event')</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -197,11 +226,13 @@ avoid&nbsp;the&nbsp;performace&nbsp;hit&nbsp;of&nbsp;the&nbsp;conversion</tt></d
 
 <dl><dt><a name="RendererPS-draw_arc"><strong>draw_arc</strong></a>(self, gc, rgbFace, x, y, width, height, angle1, angle2)</dt></dl>
 
-<dl><dt><a name="RendererPS-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin)</dt></dl>
+<dl><dt><a name="RendererPS-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin, bbox)</dt></dl>
 
 <dl><dt><a name="RendererPS-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;line&nbsp;from&nbsp;x1,y1&nbsp;to&nbsp;x2,y2</tt></dd></dl>
 
 <dl><dt><a name="RendererPS-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt></dl>
+
+<dl><dt><a name="RendererPS-draw_mathtext"><strong>draw_mathtext</strong></a>(self, gc, x, y, s, prop, angle)</dt><dd><tt>Draw&nbsp;the&nbsp;math&nbsp;text&nbsp;using&nbsp;matplotlib.mathtext</tt></dd></dl>
 
 <dl><dt><a name="RendererPS-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt></dl>
 
@@ -238,10 +269,9 @@ efficiency.&nbsp;&nbsp;Hence&nbsp;we&nbsp;don't&nbsp;use&nbsp;a&nbsp;GC&nbsp;and
 props&nbsp;it&nbsp;supports.&nbsp;&nbsp;See&nbsp;matplotlib.collections&nbsp;for&nbsp;more<br>
 details<br>
 &nbsp;<br>
-sements&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;(x00,&nbsp;y00,&nbsp;x01,&nbsp;y01),&nbsp;(x10,&nbsp;y10,<br>
-y11,&nbsp;y11),&nbsp;)&nbsp;tuples.&nbsp;Unlike&nbsp;other&nbsp;backend&nbsp;commands,&nbsp;these&nbsp;are<br>
-in&nbsp;non-transfomed&nbsp;coords.&nbsp;&nbsp;Here&nbsp;we&nbsp;let&nbsp;the&nbsp;backend&nbsp;do&nbsp;the<br>
-transformation&nbsp;for&nbsp;efficiency<br>
+sements&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;line0,&nbsp;line1,&nbsp;line2),&nbsp;where&nbsp;linen&nbsp;=<br>
+(x0,&nbsp;y0),&nbsp;(x1,&nbsp;y1),&nbsp;...&nbsp;(xm,&nbsp;ym).&nbsp;&nbsp;Each&nbsp;line&nbsp;can&nbsp;be&nbsp;a<br>
+different&nbsp;length<br>
 &nbsp;<br>
 transform&nbsp;is&nbsp;used&nbsp;to&nbsp;Transform&nbsp;the&nbsp;lines<br>
 &nbsp;<br>
@@ -317,13 +347,14 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>False</strong> = False<br>
+<td width="100%"><strong>DEBUG</strong> = 0<br>
+<strong>False</strong> = False<br>
 <strong>Float32</strong> = 'f'<br>
 <strong>True</strong> = True<br>
 <strong>UInt8</strong> = 'b'<br>
+<strong>bakoma_fonts</strong> = []<br>
 <strong>defaultPaperSize</strong> = (8.5, 11)<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
-<strong>fontd</strong> = {}<br>
 <strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
 @footer@

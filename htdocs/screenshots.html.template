@@ -53,6 +53,10 @@ financial plot.  Some of the data in the plot, are real financial
 data, some are random traces that I used since the goal was to
 illustrate plotting techniques, not market analysis!""", 1),
 
+('plotmap', """Jeff Whitaker provided this nice example showing how to
+efficiently plot a collection of lines over a colormap image.
+""", 1),
+
 
 
 ('log_shot', """The <a

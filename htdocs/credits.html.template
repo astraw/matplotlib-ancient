@@ -11,7 +11,7 @@ matplotlib was written by John Hunter<p>
   <li>Jeremy O'Donoghue wrote the wx backend</li>
 
   <li>Andrew Straw provided much of the log scaling architecture and
-  the fill command</li>
+  the fill command, and provided many examples</li>
 
   <li>Charles Twardy provided the impetus code for the legend class
   and has made countless bug reports and suggestions for
@@ -27,17 +27,21 @@ matplotlib was written by John Hunter<p>
 
   <li>Todd Miller contributed the TkAgg backend and the numerix
   module, which allows matplotlib to work with either numeric or
-  numarray.  He also ported image support to the postscript
-  backend.</li>
+  numarray.  He also ported image support to the postscript backend,
+  with much pain and suffering.</li>
 
   <li>Paul Barrett overhauled font management to provide an improved,
   free-standing, platform independent font manager with a WC3 compliant
-  font finder and cache mechanism.</li>
+  font finder and cache mechanism and ported mathtext to PS</li>
 
   <li>Perry Greenfield overhauled and modernized the goals and
-  priorities page, and has provided many suggestions and a lot of
-  insight to the overall design and organization of matplotlib.</li>
+  priorities page, implemented an imporved colormap framework, and has
+  provided many suggestions and a lot of insight to the overall design
+  and organization of matplotlib.</li>
 
+  <li>Jared Wahlstrand wrote the SVG backend</li>
+
+  <li>Steve Chaplin is the GTK maintainer</li>
 </ul>
 
 @footer@

@@ -106,12 +106,37 @@ Methods inherited from <a href="matplotlib.backends.backend_agg.html#FigureCanva
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><a name="FigureCanvasTkAgg-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
+&nbsp;<br>
+&nbsp;&nbsp;def&nbsp;func(event)<br>
+&nbsp;<br>
+where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;Events&nbsp;you&nbsp;should&nbsp;handle<br>
+&nbsp;<br>
+&nbsp;button_press_event&nbsp;-&nbsp;event.x,&nbsp;event.y&nbsp;and&nbsp;event.button&nbsp;must<br>
+&nbsp;&nbsp;&nbsp;be&nbsp;defined<br>
+&nbsp;<br>
+&nbsp;button_release_event&nbsp;-&nbsp;event.x,&nbsp;event.y&nbsp;and&nbsp;event.button&nbsp;must<br>
+&nbsp;&nbsp;&nbsp;be&nbsp;defined<br>
+&nbsp;<br>
+&nbsp;motion_notify_event&nbsp;-&nbsp;event.x&nbsp;and&nbsp;event.y&nbsp;must&nbsp;be&nbsp;defined&nbsp;x,y&nbsp;=&nbsp;0,0<br>
+&nbsp;&nbsp;&nbsp;is&nbsp;lower,&nbsp;left&nbsp;of&nbsp;canvas&nbsp;in&nbsp;pixel&nbsp;coords.&nbsp;&nbsp;Event.button&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;optionally&nbsp;defined<br>
+&nbsp;<br>
+&nbsp;<br>
+return&nbsp;a&nbsp;connection&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasTkAgg-mpl_disconnect"><strong>mpl_disconnect</strong></a>(self, cid)</dt><dd><tt>Connect&nbsp;s&nbsp;to&nbsp;func.&nbsp;return&nbsp;an&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect</tt></dd></dl>
+
 <dl><dt><a name="FigureCanvasTkAgg-switch_backends"><strong>switch_backends</strong></a>(self, FigureCanvasClass)</dt><dd><tt>instantiate&nbsp;an&nbsp;instance&nbsp;of&nbsp;FigureCanvasClass<br>
 &nbsp;<br>
 This&nbsp;is&nbsp;used&nbsp;for&nbsp;backend&nbsp;switching,&nbsp;eg,&nbsp;to&nbsp;instantiate&nbsp;a<br>
 FigureCanvasPS&nbsp;from&nbsp;a&nbsp;FigureCanvasGTK.&nbsp;&nbsp;Note,&nbsp;deep&nbsp;copying&nbsp;is<br>
 not&nbsp;done,&nbsp;so&nbsp;any&nbsp;changes&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;instances&nbsp;(eg,&nbsp;setting<br>
 figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected&nbsp;in&nbsp;the&nbsp;other</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><strong>events</strong> = ('button_press_event', 'button_release_event', 'motion_notify_event')</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

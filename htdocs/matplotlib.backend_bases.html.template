@@ -23,12 +23,31 @@ graphics&nbsp;contexts&nbsp;must&nbsp;implement&nbsp;to&nbsp;serve&nbsp;as&nbsp;
     
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#FigureCanvasBase">FigureCanvasBase</a>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#Cursors">Cursors</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#FigureCanvasBase">FigureCanvasBase</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#FigureManagerBase">FigureManagerBase</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#GraphicsContextBase">GraphicsContextBase</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#MplEvent">MplEvent</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#NavigationToolbar2">NavigationToolbar2</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#RendererBase">RendererBase</a>
 </font></dt></dl>
  <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Cursors">class <strong>Cursors</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>#&nbsp;cursors<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Data and other attributes defined here:<br>
+<dl><dt><strong>HAND</strong> = 0</dl>
+
+<dl><dt><strong>POINTER</strong> = 1</dl>
+
+<dl><dt><strong>SELECT_REGION</strong> = 2</dl>
+
+</td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -46,6 +65,27 @@ Public&nbsp;attribute<br>
 
 <dl><dt><a name="FigureCanvasBase-draw"><strong>draw</strong></a>(self)</dt><dd><tt>Render&nbsp;the&nbsp;figure</tt></dd></dl>
 
+<dl><dt><a name="FigureCanvasBase-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
+&nbsp;<br>
+&nbsp;&nbsp;def&nbsp;func(event)<br>
+&nbsp;<br>
+where&nbsp;event&nbsp;is&nbsp;a&nbsp;<a href="#MplEvent">MplEvent</a>.&nbsp;&nbsp;Events&nbsp;you&nbsp;should&nbsp;handle<br>
+&nbsp;<br>
+&nbsp;button_press_event&nbsp;-&nbsp;event.x,&nbsp;event.y&nbsp;and&nbsp;event.button&nbsp;must<br>
+&nbsp;&nbsp;&nbsp;be&nbsp;defined<br>
+&nbsp;<br>
+&nbsp;button_release_event&nbsp;-&nbsp;event.x,&nbsp;event.y&nbsp;and&nbsp;event.button&nbsp;must<br>
+&nbsp;&nbsp;&nbsp;be&nbsp;defined<br>
+&nbsp;<br>
+&nbsp;motion_notify_event&nbsp;-&nbsp;event.x&nbsp;and&nbsp;event.y&nbsp;must&nbsp;be&nbsp;defined&nbsp;x,y&nbsp;=&nbsp;0,0<br>
+&nbsp;&nbsp;&nbsp;is&nbsp;lower,&nbsp;left&nbsp;of&nbsp;canvas&nbsp;in&nbsp;pixel&nbsp;coords.&nbsp;&nbsp;Event.button&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;optionally&nbsp;defined<br>
+&nbsp;<br>
+&nbsp;<br>
+return&nbsp;a&nbsp;connection&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasBase-mpl_disconnect"><strong>mpl_disconnect</strong></a>(self, cid)</dt><dd><tt>Connect&nbsp;s&nbsp;to&nbsp;func.&nbsp;return&nbsp;an&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect</tt></dd></dl>
+
 <dl><dt><a name="FigureCanvasBase-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=300</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy.&nbsp;&nbsp;Set&nbsp;the&nbsp;figure&nbsp;patch&nbsp;face&nbsp;and<br>
 edge&nbsp;colors.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;because&nbsp;some&nbsp;of&nbsp;the&nbsp;GUIs&nbsp;have&nbsp;a<br>
 gray&nbsp;figure&nbsp;face&nbsp;color&nbsp;background&nbsp;and&nbsp;you'll&nbsp;probably&nbsp;want&nbsp;to<br>
@@ -57,6 +97,10 @@ This&nbsp;is&nbsp;used&nbsp;for&nbsp;backend&nbsp;switching,&nbsp;eg,&nbsp;to&nb
 FigureCanvasPS&nbsp;from&nbsp;a&nbsp;FigureCanvasGTK.&nbsp;&nbsp;Note,&nbsp;deep&nbsp;copying&nbsp;is<br>
 not&nbsp;done,&nbsp;so&nbsp;any&nbsp;changes&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;instances&nbsp;(eg,&nbsp;setting<br>
 figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected&nbsp;in&nbsp;the&nbsp;other</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>events</strong> = ('button_press_event', 'button_release_event', 'motion_notify_event')</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -157,6 +201,76 @@ avoid&nbsp;the&nbsp;performace&nbsp;hit&nbsp;of&nbsp;the&nbsp;conversion</tt></d
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MplEvent">class <strong>MplEvent</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;matplotlib&nbsp;event.&nbsp;&nbsp;Attach&nbsp;additional&nbsp;attributes&nbsp;as&nbsp;defined&nbsp;in<br>
+FigureCanvas.connect<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="MplEvent-__init__"><strong>__init__</strong></a>(self, name)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>button</strong> = None</dl>
+
+<dl><dt><strong>x</strong> = None</dl>
+
+<dl><dt><strong>y</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="NavigationToolbar2">class <strong>NavigationToolbar2</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Base&nbsp;class&nbsp;for&nbsp;the&nbsp;navigation&nbsp;cursor,&nbsp;version&nbsp;2<br>
+&nbsp;<br>
+backends&nbsp;must&nbsp;implement&nbsp;a&nbsp;canvas&nbsp;that&nbsp;handles&nbsp;connections&nbsp;for<br>
+'button_press_event'&nbsp;and&nbsp;'button_release_event'.&nbsp;&nbsp;See<br>
+FigureCanvas.connect&nbsp;for&nbsp;more&nbsp;information<br>
+&nbsp;<br>
+&nbsp;<br>
+They&nbsp;must&nbsp;also&nbsp;define<br>
+&nbsp;<br>
+&nbsp;*&nbsp;save_figure&nbsp;-&nbsp;save&nbsp;the&nbsp;current&nbsp;figure<br>
+&nbsp;<br>
+&nbsp;*&nbsp;set_cursor&nbsp;-&nbsp;if&nbsp;you&nbsp;want&nbsp;the&nbsp;pointer&nbsp;icon&nbsp;to&nbsp;change<br>
+&nbsp;<br>
+&nbsp;*&nbsp;_init_toolbar&nbsp;-&nbsp;create&nbsp;your&nbsp;toolbar&nbsp;widget<br>
+&nbsp;<br>
+That's&nbsp;it,&nbsp;we'll&nbsp;do&nbsp;the&nbsp;rest!<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="NavigationToolbar2-__init__"><strong>__init__</strong></a>(self, canvas)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2-back"><strong>back</strong></a>(self, button, *args)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2-forward"><strong>forward</strong></a>(self, button, *args)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2-pan"><strong>pan</strong></a>(self, button, *args)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2-press_pan"><strong>press_pan</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2-press_zoom"><strong>press_zoom</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2-release_pan"><strong>release_pan</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2-release_zoom"><strong>release_zoom</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2-save_figure"><strong>save_figure</strong></a>(self, button)</dt><dd><tt>save&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2-set_cursor"><strong>set_cursor</strong></a>(self, cursor)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;cursor&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;cursors&nbsp;values</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2-update"><strong>update</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2-zoom"><strong>zoom</strong></a>(self, button, *args)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="RendererBase">class <strong>RendererBase</strong></a></font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
@@ -169,13 +283,16 @@ from&nbsp;0.0&nbsp;to&nbsp;360.0<br>
 If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes;&nbsp;x&nbsp;is&nbsp;the<br>
+<dl><dt><a name="RendererBase-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin, bbox)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes;&nbsp;x&nbsp;is&nbsp;the<br>
 distance&nbsp;in&nbsp;pixels&nbsp;from&nbsp;the&nbsp;left&nbsp;hand&nbsp;side&nbsp;of&nbsp;the&nbsp;canvas.&nbsp;y&nbsp;is<br>
 the&nbsp;distance&nbsp;from&nbsp;the&nbsp;origin.&nbsp;&nbsp;That&nbsp;is,&nbsp;if&nbsp;origin&nbsp;is&nbsp;upper,&nbsp;y<br>
-is&nbsp;the&nbsp;distance&nbsp;from&nbsp;top.&nbsp;&nbsp;If&nbsp;oriing&nbsp;is&nbsp;lower,&nbsp;y&nbsp;is&nbsp;the<br>
+is&nbsp;the&nbsp;distance&nbsp;from&nbsp;top.&nbsp;&nbsp;If&nbsp;origin&nbsp;is&nbsp;lower,&nbsp;y&nbsp;is&nbsp;the<br>
 distance&nbsp;from&nbsp;bottom<br>
 &nbsp;<br>
-origin&nbsp;is&nbsp;'upper'&nbsp;or&nbsp;'lower'</tt></dd></dl>
+origin&nbsp;is&nbsp;'upper'&nbsp;or&nbsp;'lower'<br>
+&nbsp;<br>
+bbox&nbsp;is&nbsp;a&nbsp;matplotlib.transforms.BBox&nbsp;instance&nbsp;for&nbsp;clipping,&nbsp;or<br>
+None</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;line&nbsp;from&nbsp;x1,y1&nbsp;to&nbsp;x2,y2</tt></dd></dl>
 
@@ -187,10 +304,9 @@ efficiency.&nbsp;&nbsp;Hence&nbsp;we&nbsp;don't&nbsp;use&nbsp;a&nbsp;GC&nbsp;and
 props&nbsp;it&nbsp;supports.&nbsp;&nbsp;See&nbsp;matplotlib.collections&nbsp;for&nbsp;more<br>
 details<br>
 &nbsp;<br>
-sements&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;(x00,&nbsp;y00,&nbsp;x01,&nbsp;y01),&nbsp;(x10,&nbsp;y10,<br>
-y11,&nbsp;y11),&nbsp;)&nbsp;tuples.&nbsp;Unlike&nbsp;other&nbsp;backend&nbsp;commands,&nbsp;these&nbsp;are<br>
-in&nbsp;non-transfomed&nbsp;coords.&nbsp;&nbsp;Here&nbsp;we&nbsp;let&nbsp;the&nbsp;backend&nbsp;do&nbsp;the<br>
-transformation&nbsp;for&nbsp;efficiency<br>
+sements&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;line0,&nbsp;line1,&nbsp;line2),&nbsp;where&nbsp;linen&nbsp;=<br>
+(x0,&nbsp;y0),&nbsp;(x1,&nbsp;y1),&nbsp;...&nbsp;(xm,&nbsp;ym).&nbsp;&nbsp;Each&nbsp;line&nbsp;can&nbsp;be&nbsp;a<br>
+different&nbsp;length<br>
 &nbsp;<br>
 transform&nbsp;is&nbsp;used&nbsp;to&nbsp;Transform&nbsp;the&nbsp;lines<br>
 &nbsp;<br>
@@ -290,6 +406,7 @@ have&nbsp;dpi,&nbsp;eg,&nbsp;postscript,&nbsp;you&nbsp;need&nbsp;to&nbsp;overrri
 <strong>Float</strong> = 'd'<br>
 <strong>True</strong> = True<br>
 <strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
+<strong>cursors</strong> = &lt;matplotlib.backend_bases.Cursors instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;</td></tr></table>

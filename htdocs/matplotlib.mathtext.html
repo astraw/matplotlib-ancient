@@ -190,8 +190,9 @@ BACKENDS<br>
 &nbsp;&nbsp;Paint.&nbsp;&nbsp;WX&nbsp;can&nbsp;follow&nbsp;the&nbsp;lead&nbsp;of&nbsp;GTK&nbsp;and&nbsp;use&nbsp;pixels&nbsp;API&nbsp;calls&nbsp;to<br>
 &nbsp;&nbsp;use&nbsp;mathtext.<br>
 &nbsp;<br>
-&nbsp;&nbsp;PS&nbsp;will&nbsp;require&nbsp;more&nbsp;substantial&nbsp;work,&nbsp;doing&nbsp;the&nbsp;metrics&nbsp;and<br>
-&nbsp;&nbsp;layouts&nbsp;with&nbsp;the&nbsp;AFM&nbsp;versions&nbsp;of&nbsp;the&nbsp;computer&nbsp;modern&nbsp;fonts.<br>
+&nbsp;&nbsp;mathtext&nbsp;now&nbsp;embeds&nbsp;the&nbsp;TrueType&nbsp;computer&nbsp;modern&nbsp;fonts&nbsp;into&nbsp;the&nbsp;PS<br>
+&nbsp;&nbsp;file,&nbsp;so&nbsp;what&nbsp;you&nbsp;see&nbsp;on&nbsp;the&nbsp;screen&nbsp;should&nbsp;be&nbsp;what&nbsp;you&nbsp;get&nbsp;on&nbsp;paper.<br>
+&nbsp;<br>
 &nbsp;&nbsp;Backends&nbsp;which&nbsp;don't&nbsp;support&nbsp;mathtext&nbsp;will&nbsp;just&nbsp;render&nbsp;the&nbsp;TeX<br>
 &nbsp;&nbsp;string&nbsp;as&nbsp;a&nbsp;literal.&nbsp;&nbsp;Stay&nbsp;tuned.<br>
 &nbsp;<br>
@@ -261,7 +262,7 @@ License&nbsp;&nbsp;&nbsp;:&nbsp;matplotlib&nbsp;license&nbsp;(PSF&nbsp;compatibl
 
 <dl><dt><a name="BakomaPSFonts-render"><strong>render</strong></a>(self, ox, oy, font, sym, fontsize, dpi)</dt></dl>
 
-<dl><dt><a name="BakomaPSFonts-set_canvas_size"><strong>set_canvas_size</strong></a>(self, w, h)</dt><dd><tt>Dimension&nbsp;the&nbsp;drawing&nbsp;canvas;&nbsp;may&nbsp;be&nbsp;a&nbsp;noop</tt></dd></dl>
+<dl><dt><a name="BakomaPSFonts-set_canvas_size"><strong>set_canvas_size</strong></a>(self, w, h, pswriter)</dt><dd><tt>Dimension&nbsp;the&nbsp;drawing&nbsp;canvas;&nbsp;may&nbsp;be&nbsp;a&nbsp;noop</tt></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -436,8 +437,8 @@ return&nbsp;the&nbsp;character&nbsp;metrics&nbsp;as&nbsp;well&nbsp;as&nbsp;do&nb
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Fonts-get_metrics"><strong>get_metrics</strong></a>(self, font, sym, fontsize, dpi)</dt><dd><tt>font&nbsp;is&nbsp;one&nbsp;of&nbsp;tt,&nbsp;it,&nbsp;rm,&nbsp;cal&nbsp;or&nbsp;None<br>
 &nbsp;<br>
-sym&nbsp;is&nbsp;an&nbsp;single&nbsp;symbol(alphanum,&nbsp;punct)&nbsp;or&nbsp;a&nbsp;special&nbsp;symbol<br>
-&nbsp;&nbsp;like&nbsp;\sigma.<br>
+sym&nbsp;is&nbsp;a&nbsp;single&nbsp;symbol(alphanum,&nbsp;punct)&nbsp;or&nbsp;a&nbsp;special&nbsp;symbol<br>
+like&nbsp;\sigma.<br>
 &nbsp;<br>
 fontsize&nbsp;is&nbsp;in&nbsp;points<br>
 &nbsp;<br>
@@ -700,9 +701,8 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 <strong>alphanums</strong> = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'<br>
 <strong>alphas</strong> = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'<br>
 <strong>ampersand</strong> = "&amp;"<br>
-<strong>ams_type1</strong> = {'(': ('cmex10', '28'), ')': ('cmex10', '29'), '*': ('cmsy10', '03'), '+': ('cmex10', '2B'), ',': ('cmmi10', '3B'), '-': ('cmsy10', '00'), '.': ('cmmi10', '3A'), '/': ('cmmi10', '3D'), '0': ('cmex10', '30'), '1': ('cmex10', '31'), ...}<br>
 <strong>at</strong> = "@"<br>
-<strong>bakoma_truetype</strong> = {'(': ('cmr10', '28'), ')': ('cmr10', '29'), '*': ('cmsy10', 'A4'), '+': ('cmr10', '2B'), ',': ('cmmi10', '3B'), '-': ('cmsy10', 'A1'), '.': ('cmmi10', '3A'), '/': ('cmmi10', '3D'), '0': ('cmr10', '30'), '1': ('cmr10', '31'), ...}<br>
+<strong>bakoma_fonts</strong> = []<br>
 <strong>binop</strong> = {{{"+" | "-"} | "*"} | "/"}<br>
 <strong>bslash</strong> = "\"<br>
 <strong>cal</strong> = "cal"<br>
@@ -723,6 +723,7 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 <strong>handler</strong> = &lt;matplotlib.mathtext.Handler instance&gt;<br>
 <strong>italics</strong> = "it"<br>
 <strong>langle</strong> = "&lt;"<br>
+<strong>latex_to_bakoma</strong> = {'(': ('cmr10', 119), ')': ('cmr10', 68), '*': ('cmsy10', 9), '+': ('cmr10', 76), ',': ('cmmi10', 44), '-': ('cmsy10', 17), '.': ('cmmi10', 51), '/': ('cmmi10', 98), '0': ('cmr10', 40), '1': ('cmr10', 100), ...}<br>
 <strong>lbrace</strong> = Suppress:("{")<br>
 <strong>lbrack</strong> = "["<br>
 <strong>lparen</strong> = "("<br>

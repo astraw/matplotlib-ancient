@@ -62,6 +62,12 @@
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#GraphicsContextGTK">GraphicsContextGTK</a>
 </font></dt></dl>
 </dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#NavigationToolbar2GTK">NavigationToolbar2GTK</a>(<a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>, <a href="gtk.html#Toolbar">gtk.Toolbar</a>)
+</font></dt></dl>
+</dd>
 <dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>
 </font></dt><dd>
 <dl>
@@ -72,6 +78,7 @@
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#NavigationToolbar">NavigationToolbar</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#NavigationToolbar2GTK">NavigationToolbar2GTK</a>(<a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>, <a href="gtk.html#Toolbar">gtk.Toolbar</a>)
 </font></dt></dl>
 </dd>
 </dl>
@@ -137,7 +144,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137143336)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137150472)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -799,6 +806,10 @@ Methods defined here:<br>
 
 <dl><dt><a name="FigureCanvasGTK-motion_notify_event"><strong>motion_notify_event</strong></a>(self, widget, event)</dt></dl>
 
+<dl><dt><a name="FigureCanvasGTK-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTK-mpl_disconnect"><strong>mpl_disconnect</strong></a>(self, cid)</dt></dl>
+
 <dl><dt><a name="FigureCanvasGTK-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-realize"><strong>realize</strong></a>(self, widget)</dt></dl>
@@ -811,7 +822,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137106296)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137113392)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -1152,6 +1163,10 @@ FigureCanvasPS&nbsp;from&nbsp;a&nbsp;<a href="#FigureCanvasGTK">FigureCanvasGTK<
 not&nbsp;done,&nbsp;so&nbsp;any&nbsp;changes&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;instances&nbsp;(eg,&nbsp;setting<br>
 figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected&nbsp;in&nbsp;the&nbsp;other</tt></dd></dl>
 
+<hr>
+Data and other attributes inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><strong>events</strong> = ('button_press_event', 'button_release_event', 'motion_notify_event')</dl>
+
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
@@ -1366,7 +1381,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137109032)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137116128)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -1774,6 +1789,507 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="NavigationToolbar2GTK">class <strong>NavigationToolbar2GTK</strong></a>(<a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>, <a href="gtk.html#Toolbar">gtk.Toolbar</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.backends.backend_gtk.html#NavigationToolbar2GTK">NavigationToolbar2GTK</a></dd>
+<dd><a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a></dd>
+<dd><a href="gtk.html#Toolbar">gtk.Toolbar</a></dd>
+<dd><a href="gtk.html#Container">gtk.Container</a></dd>
+<dd><a href="gtk.html#Widget">gtk.Widget</a></dd>
+<dd><a href="gtk.html#Object">gtk.Object</a></dd>
+<dd><a href="gobject.html#GObject">gobject.GObject</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="NavigationToolbar2GTK-__init__"><strong>__init__</strong></a>(self, canvas)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-save_figure"><strong>save_figure</strong></a>(self, button)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_cursor"><strong>set_cursor</strong></a>(self, cursor)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>:<br>
+<dl><dt><a name="NavigationToolbar2GTK-back"><strong>back</strong></a>(self, button, *args)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-forward"><strong>forward</strong></a>(self, button, *args)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-pan"><strong>pan</strong></a>(self, button, *args)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-press_pan"><strong>press_pan</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-press_zoom"><strong>press_zoom</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-release_pan"><strong>release_pan</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-release_zoom"><strong>release_zoom</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-update"><strong>update</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-zoom"><strong>zoom</strong></a>(self, button, *args)</dt></dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
+<dl><dt><a name="NavigationToolbar2GTK-append_element"><strong>append_element</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-append_item"><strong>append_item</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-append_space"><strong>append_space</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-append_widget"><strong>append_widget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_icon_size"><strong>get_icon_size</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_orientation"><strong>get_orientation</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_style"><strong>get_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_tooltips"><strong>get_tooltips</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-insert_element"><strong>insert_element</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-insert_item"><strong>insert_item</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-insert_space"><strong>insert_space</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-insert_stock"><strong>insert_stock</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-insert_widget"><strong>insert_widget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-prepend_element"><strong>prepend_element</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-prepend_item"><strong>prepend_item</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-prepend_space"><strong>prepend_space</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-prepend_widget"><strong>prepend_widget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-remove_space"><strong>remove_space</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_icon_size"><strong>set_icon_size</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_orientation"><strong>set_orientation</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_style"><strong>set_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_tooltips"><strong>set_tooltips</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-unset_icon_size"><strong>unset_icon_size</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-unset_style"><strong>unset_style</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137116128)&gt;</dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
+<dl><dt><a name="NavigationToolbar2GTK-add"><strong>add</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-add_with_properties"><strong>add_with_properties</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-check_resize"><strong>check_resize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-child_get"><strong>child_get</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-child_get_property"><strong>child_get_property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-child_set"><strong>child_set</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-child_set_property"><strong>child_set_property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-child_type"><strong>child_type</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-children"><strong>children</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-forall"><strong>forall</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-foreach"><strong>foreach</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_border_width"><strong>get_border_width</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_children"><strong>get_children</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_focus_chain"><strong>get_focus_chain</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_focus_hadjustment"><strong>get_focus_hadjustment</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_focus_vadjustment"><strong>get_focus_vadjustment</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_resize_mode"><strong>get_resize_mode</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-propagate_expose"><strong>propagate_expose</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-remove"><strong>remove</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-resize_children"><strong>resize_children</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_border_width"><strong>set_border_width</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_focus_chain"><strong>set_focus_chain</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_focus_child"><strong>set_focus_child</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_focus_hadjustment"><strong>set_focus_hadjustment</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_focus_vadjustment"><strong>set_focus_vadjustment</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_reallocate_redraws"><strong>set_reallocate_redraws</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_resize_mode"><strong>set_resize_mode</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-unset_focus_chain"><strong>unset_focus_chain</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
+<dl><dt><strong>border_width</strong> = &lt;attribute 'border_width' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>focus_child</strong> = &lt;attribute 'focus_child' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>has_focus_chain</strong> = &lt;attribute 'has_focus_chain' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>need_resize</strong> = &lt;attribute 'need_resize' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>reallocate_redraws</strong> = &lt;attribute 'reallocate_redraws' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>resize_mode</strong> = &lt;attribute 'resize_mode' of 'gtk.Container' objects&gt;</dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
+<dl><dt><a name="NavigationToolbar2GTK-activate"><strong>activate</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-add_accelerator"><strong>add_accelerator</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-add_events"><strong>add_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-child_focus"><strong>child_focus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-child_notify"><strong>child_notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-class_path"><strong>class_path</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-create_pango_context"><strong>create_pango_context</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-create_pango_layout"><strong>create_pango_layout</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-destroy"><strong>destroy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_begin"><strong>drag_begin</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_check_threshold"><strong>drag_check_threshold</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_dest_find_target"><strong>drag_dest_find_target</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_dest_get_target_list"><strong>drag_dest_get_target_list</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_dest_set"><strong>drag_dest_set</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_dest_set_proxy"><strong>drag_dest_set_proxy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_dest_set_target_list"><strong>drag_dest_set_target_list</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_dest_unset"><strong>drag_dest_unset</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_get_data"><strong>drag_get_data</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_highlight"><strong>drag_highlight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_source_set"><strong>drag_source_set</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_source_set_icon"><strong>drag_source_set_icon</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_source_set_icon_pixbuf"><strong>drag_source_set_icon_pixbuf</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_source_set_icon_stock"><strong>drag_source_set_icon_stock</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_source_unset"><strong>drag_source_unset</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_unhighlight"><strong>drag_unhighlight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-draw"><strong>draw</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-ensure_style"><strong>ensure_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-event"><strong>event</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-freeze_child_notify"><strong>freeze_child_notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_accessible"><strong>get_accessible</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_allocation"><strong>get_allocation</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_ancestor"><strong>get_ancestor</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_child_requisition"><strong>get_child_requisition</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_child_visible"><strong>get_child_visible</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_clipboard"><strong>get_clipboard</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_colormap"><strong>get_colormap</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_composite_name"><strong>get_composite_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_direction"><strong>get_direction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_display"><strong>get_display</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_events"><strong>get_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_extension_events"><strong>get_extension_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_modifier_style"><strong>get_modifier_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_name"><strong>get_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_pango_context"><strong>get_pango_context</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_parent"><strong>get_parent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_parent_window"><strong>get_parent_window</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_pointer"><strong>get_pointer</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_root_window"><strong>get_root_window</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_screen"><strong>get_screen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_settings"><strong>get_settings</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_size_request"><strong>get_size_request</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_toplevel"><strong>get_toplevel</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_visual"><strong>get_visual</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-grab_add"><strong>grab_add</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-grab_default"><strong>grab_default</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-grab_focus"><strong>grab_focus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-grab_remove"><strong>grab_remove</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-has_screen"><strong>has_screen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-hide"><strong>hide</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-hide_all"><strong>hide_all</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-hide_on_delete"><strong>hide_on_delete</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-intersect"><strong>intersect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-is_ancestor"><strong>is_ancestor</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-is_focus"><strong>is_focus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-map"><strong>map</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-mnemonic_activate"><strong>mnemonic_activate</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-modify_base"><strong>modify_base</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-modify_bg"><strong>modify_bg</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-modify_fg"><strong>modify_fg</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-modify_font"><strong>modify_font</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-modify_style"><strong>modify_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-modify_text"><strong>modify_text</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-path"><strong>path</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-queue_clear"><strong>queue_clear</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-queue_clear_area"><strong>queue_clear_area</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-queue_draw"><strong>queue_draw</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-queue_draw_area"><strong>queue_draw_area</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-queue_resize"><strong>queue_resize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-rc_get_style"><strong>rc_get_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-realize"><strong>realize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-remove_accelerator"><strong>remove_accelerator</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-render_icon"><strong>render_icon</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-reparent"><strong>reparent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-reset_rc_styles"><strong>reset_rc_styles</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-reset_shapes"><strong>reset_shapes</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-selection_add_target"><strong>selection_add_target</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-selection_add_targets"><strong>selection_add_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-selection_clear_targets"><strong>selection_clear_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-selection_convert"><strong>selection_convert</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-selection_owner_set"><strong>selection_owner_set</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-selection_remove_all"><strong>selection_remove_all</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-send_expose"><strong>send_expose</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_accel_path"><strong>set_accel_path</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_app_paintable"><strong>set_app_paintable</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_child_visible"><strong>set_child_visible</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_colormap"><strong>set_colormap</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_composite_name"><strong>set_composite_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_direction"><strong>set_direction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_double_buffered"><strong>set_double_buffered</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_events"><strong>set_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_extension_events"><strong>set_extension_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_name"><strong>set_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_parent"><strong>set_parent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_parent_window"><strong>set_parent_window</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_redraw_on_allocate"><strong>set_redraw_on_allocate</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_scroll_adjustments"><strong>set_scroll_adjustments</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_sensitive"><strong>set_sensitive</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_size_request"><strong>set_size_request</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_state"><strong>set_state</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_uposition"><strong>set_uposition</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_usize"><strong>set_usize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-shape_combine_mask"><strong>shape_combine_mask</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-show"><strong>show</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-show_all"><strong>show_all</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-show_now"><strong>show_now</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-size_allocate"><strong>size_allocate</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-size_request"><strong>size_request</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-thaw_child_notify"><strong>thaw_child_notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-translate_coordinates"><strong>translate_coordinates</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-unmap"><strong>unmap</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-unparent"><strong>unparent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-unrealize"><strong>unrealize</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
+<dl><dt><strong>allocation</strong> = &lt;attribute 'allocation' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>name</strong> = &lt;attribute 'name' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>parent</strong> = &lt;attribute 'parent' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>saved_state</strong> = &lt;attribute 'saved_state' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>state</strong> = &lt;attribute 'state' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>style</strong> = &lt;attribute 'style' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>window</strong> = &lt;attribute 'window' of 'gtk.Widget' objects&gt;</dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#Object">gtk.Object</a>:<br>
+<dl><dt><a name="NavigationToolbar2GTK-flags"><strong>flags</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_flags"><strong>set_flags</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-unset_flags"><strong>unset_flags</strong></a>(...)</dt></dl>
+
+<hr>
+Methods inherited from <a href="gobject.html#GObject">gobject.GObject</a>:<br>
+<dl><dt><a name="NavigationToolbar2GTK-__cmp__"><strong>__cmp__</strong></a>(...)</dt><dd><tt>x.<a href="#NavigationToolbar2GTK-__cmp__">__cmp__</a>(y)&nbsp;&lt;==&gt;&nbsp;cmp(x,y)</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-__gobject_init__"><strong>__gobject_init__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-__hash__"><strong>__hash__</strong></a>(...)</dt><dd><tt>x.<a href="#NavigationToolbar2GTK-__hash__">__hash__</a>()&nbsp;&lt;==&gt;&nbsp;hash(x)</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#NavigationToolbar2GTK-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-chain"><strong>chain</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-connect"><strong>connect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-connect_after"><strong>connect_after</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-connect_object"><strong>connect_object</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-connect_object_after"><strong>connect_object_after</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-disconnect"><strong>disconnect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-emit"><strong>emit</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-emit_stop_by_name"><strong>emit_stop_by_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-freeze_notify"><strong>freeze_notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_data"><strong>get_data</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_property"><strong>get_property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-handler_block"><strong>handler_block</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-handler_disconnect"><strong>handler_disconnect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-handler_is_connected"><strong>handler_is_connected</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-handler_unblock"><strong>handler_unblock</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-notify"><strong>notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_data"><strong>set_data</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-set_property"><strong>set_property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-stop_emission"><strong>stop_emission</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-thaw_notify"><strong>thaw_notify</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gobject.html#GObject">gobject.GObject</a>:<br>
+<dl><dt><strong>__dict__</strong> = &lt;dictproxy object&gt;</dl>
+
+<dl><dt><strong>__gdoc__</strong> = 'Object GtkToolbar<font color="#c040c0">\n\n</font>Signals from GObject:<font color="#c040c0">\n</font>  notif...tyle: Toolbar Style<font color="#c040c0">\n</font>    How to draw the toolbar<font color="#c040c0">\n\n</font>'</dl>
+
+<dl><dt><strong>__grefcount__</strong> = &lt;attribute '__grefcount__' of 'gobject.GObject' objects&gt;</dl>
+
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#NavigationToolbar2GTK-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="RendererGTK">class <strong>RendererGTK</strong></a>(<a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
@@ -1782,7 +2298,7 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 
 <dl><dt><a name="RendererGTK-draw_arc"><strong>draw_arc</strong></a>(self, gc, rgbFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height</tt></dd></dl>
 
-<dl><dt><a name="RendererGTK-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes;&nbsp;x&nbsp;is&nbsp;the<br>
+<dl><dt><a name="RendererGTK-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin, bbox)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes;&nbsp;x&nbsp;is&nbsp;the<br>
 distance&nbsp;in&nbsp;pixels&nbsp;from&nbsp;the&nbsp;left&nbsp;hand&nbsp;side&nbsp;of&nbsp;the&nbsp;canvas.&nbsp;y&nbsp;is<br>
 the&nbsp;distance&nbsp;from&nbsp;the&nbsp;origin.&nbsp;&nbsp;That&nbsp;is,&nbsp;if&nbsp;origin&nbsp;is&nbsp;upper,&nbsp;y<br>
 is&nbsp;the&nbsp;distance&nbsp;from&nbsp;top.&nbsp;&nbsp;If&nbsp;oriing&nbsp;is&nbsp;lower,&nbsp;y&nbsp;is&nbsp;the<br>
@@ -1825,7 +2341,7 @@ with&nbsp;FontPropertry&nbsp;prop</tt></dd></dl>
 
 <dl><dt><a name="RendererGTK-offset_text_height"><strong>offset_text_height</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="RendererGTK-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;point&nbsp;measures&nbsp;to&nbsp;pixes&nbsp;using&nbsp;dpi&nbsp;and&nbsp;the&nbsp;pixels&nbsp;per<br>
+<dl><dt><a name="RendererGTK-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;point&nbsp;measures&nbsp;to&nbsp;pixels&nbsp;using&nbsp;dpi&nbsp;and&nbsp;the&nbsp;pixels&nbsp;per<br>
 inch&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
 <hr>
@@ -1854,10 +2370,9 @@ efficiency.&nbsp;&nbsp;Hence&nbsp;we&nbsp;don't&nbsp;use&nbsp;a&nbsp;GC&nbsp;and
 props&nbsp;it&nbsp;supports.&nbsp;&nbsp;See&nbsp;matplotlib.collections&nbsp;for&nbsp;more<br>
 details<br>
 &nbsp;<br>
-sements&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;(x00,&nbsp;y00,&nbsp;x01,&nbsp;y01),&nbsp;(x10,&nbsp;y10,<br>
-y11,&nbsp;y11),&nbsp;)&nbsp;tuples.&nbsp;Unlike&nbsp;other&nbsp;backend&nbsp;commands,&nbsp;these&nbsp;are<br>
-in&nbsp;non-transfomed&nbsp;coords.&nbsp;&nbsp;Here&nbsp;we&nbsp;let&nbsp;the&nbsp;backend&nbsp;do&nbsp;the<br>
-transformation&nbsp;for&nbsp;efficiency<br>
+sements&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;line0,&nbsp;line1,&nbsp;line2),&nbsp;where&nbsp;linen&nbsp;=<br>
+(x0,&nbsp;y0),&nbsp;(x1,&nbsp;y1),&nbsp;...&nbsp;(xm,&nbsp;ym).&nbsp;&nbsp;Each&nbsp;line&nbsp;can&nbsp;be&nbsp;a<br>
+different&nbsp;length<br>
 &nbsp;<br>
 transform&nbsp;is&nbsp;used&nbsp;to&nbsp;Transform&nbsp;the&nbsp;lines<br>
 &nbsp;<br>
@@ -1919,7 +2434,6 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
  <dl><dt><a name="-fromstring"><strong>fromstring</strong></a>(...)</dt><dd><tt><a href="#-fromstring">fromstring</a>(string,&nbsp;typecode='l',&nbsp;count=-1)&nbsp;returns&nbsp;a&nbsp;new&nbsp;1d&nbsp;array&nbsp;initialized&nbsp;from&nbsp;the&nbsp;raw&nbsp;binary&nbsp;data&nbsp;in&nbsp;string.&nbsp;&nbsp;If&nbsp;count&nbsp;is&nbsp;positive,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;have&nbsp;count&nbsp;elements,&nbsp;otherwise&nbsp;it's&nbsp;size&nbsp;is&nbsp;determined&nbsp;by&nbsp;the&nbsp;size&nbsp;of&nbsp;string.</tt></dd></dl>
  <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args, **kwargs)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
  <dl><dt><a name="-raise_msg_to_str"><strong>raise_msg_to_str</strong></a>(msg)</dt><dd><tt>msg&nbsp;is&nbsp;a&nbsp;return&nbsp;arg&nbsp;from&nbsp;a&nbsp;raise.&nbsp;&nbsp;Join&nbsp;with&nbsp;new&nbsp;lines</tt></dd></dl>
- <dl><dt><a name="-round"><strong>round</strong></a>(x)</dt></dl>
  <dl><dt><a name="-show"><strong>show</strong></a>(mainloop<font color="#909090">=True</font>)</dt><dd><tt>Show&nbsp;all&nbsp;the&nbsp;figures&nbsp;and&nbsp;enter&nbsp;the&nbsp;gtk&nbsp;mainloop<br>
 &nbsp;<br>
 This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;script</tt></dd></dl>
@@ -1937,6 +2451,8 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
 <strong>True</strong> = True<br>
 <strong>UInt8</strong> = 'b'<br>
 <strong>colorManager</strong> = &lt;matplotlib.backends.backend_gtk.ColorManagerGTK instance&gt;<br>
+<strong>cursord</strong> = {0: 60, 1: 2, 2: 130}<br>
+<strong>cursors</strong> = &lt;matplotlib.backend_bases.Cursors instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
 <strong>nx</strong> = &lt;matplotlib.nc_imports._TypeNamespace instance&gt;<br>

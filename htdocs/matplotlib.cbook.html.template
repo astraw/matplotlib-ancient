@@ -256,6 +256,7 @@ v&nbsp;defaults&nbsp;to&nbsp;None.</tt></dl>
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-allequal"><strong>allequal</strong></a>(seq)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;all&nbsp;elements&nbsp;of&nbsp;seq&nbsp;compare&nbsp;equal.&nbsp;&nbsp;If&nbsp;seq&nbsp;is&nbsp;0&nbsp;or<br>
 1&nbsp;length,&nbsp;return&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-alltrue"><strong>alltrue</strong></a>(seq)</dt></dl>
  <dl><dt><a name="-enumerate"><strong>enumerate</strong></a>(seq)</dt><dd><tt>#&nbsp;until&nbsp;2.3</tt></dd></dl>
  <dl><dt><a name="-exception_to_str"><strong>exception_to_str</strong></a>(s<font color="#909090">=None</font>)</dt></dl>
  <dl><dt><a name="-flatten"><strong>flatten</strong></a>(seq, scalarp<font color="#909090">=&lt;function is_scalar&gt;</font>)</dt><dd><tt>this&nbsp;generator&nbsp;flattens&nbsp;nested&nbsp;containers&nbsp;such&nbsp;as<br>
@@ -280,6 +281,7 @@ len('&nbsp;'.join(seq[:ind])&lt;=N</tt></dd></dl>
  <dl><dt><a name="-listFiles"><strong>listFiles</strong></a>(root, patterns<font color="#909090">='*'</font>, recurse<font color="#909090">=1</font>, return_folders<font color="#909090">=0</font>)</dt><dd><tt>Recursively&nbsp;list&nbsp;files<br>
 from&nbsp;Parmar&nbsp;and&nbsp;Martelli&nbsp;in&nbsp;the&nbsp;Python&nbsp;Cookbook</tt></dd></dl>
  <dl><dt><a name="-mkdirs"><strong>mkdirs</strong></a>(newdir, mode<font color="#909090">=511</font>)</dt></dl>
+ <dl><dt><a name="-onetrue"><strong>onetrue</strong></a>(seq)</dt></dl>
  <dl><dt><a name="-pieces"><strong>pieces</strong></a>(seq, num<font color="#909090">=2</font>)</dt><dd><tt>Break&nbsp;up&nbsp;the&nbsp;seq&nbsp;into&nbsp;num&nbsp;tuples</tt></dd></dl>
  <dl><dt><a name="-soundex"><strong>soundex</strong></a>(name, len<font color="#909090">=4</font>)</dt><dd><tt>soundex&nbsp;module&nbsp;conforming&nbsp;to&nbsp;Odell-Russell&nbsp;algorithm</tt></dd></dl>
  <dl><dt><a name="-warn"><strong>warn</strong></a>(s)</dt><dd><tt>issue&nbsp;a&nbsp;warning</tt></dd></dl>

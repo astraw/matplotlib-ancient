@@ -75,6 +75,10 @@ Methods inherited from <a href="matplotlib.backends.backend_gtk.html#FigureCanva
 
 <dl><dt><a name="FigureCanvasGTKAgg-motion_notify_event"><strong>motion_notify_event</strong></a>(self, widget, event)</dt></dl>
 
+<dl><dt><a name="FigureCanvasGTKAgg-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTKAgg-mpl_disconnect"><strong>mpl_disconnect</strong></a>(self, cid)</dt></dl>
+
 <dl><dt><a name="FigureCanvasGTKAgg-realize"><strong>realize</strong></a>(self, widget)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTKAgg-set_do_plot"><strong>set_do_plot</strong></a>(self, b)</dt><dd><tt>True&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;render&nbsp;to&nbsp;screen,&nbsp;False&nbsp;is&nbsp;hardcopy&nbsp;only</tt></dd></dl>
@@ -85,7 +89,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137106296)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137113392)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -425,6 +429,10 @@ This&nbsp;is&nbsp;used&nbsp;for&nbsp;backend&nbsp;switching,&nbsp;eg,&nbsp;to&nb
 FigureCanvasPS&nbsp;from&nbsp;a&nbsp;<a href="matplotlib.backends.backend_gtk.html#FigureCanvasGTK">FigureCanvasGTK</a>.&nbsp;&nbsp;Note,&nbsp;deep&nbsp;copying&nbsp;is<br>
 not&nbsp;done,&nbsp;so&nbsp;any&nbsp;changes&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;instances&nbsp;(eg,&nbsp;setting<br>
 figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected&nbsp;in&nbsp;the&nbsp;other</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><strong>events</strong> = ('button_press_event', 'button_release_event', 'motion_notify_event')</dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
