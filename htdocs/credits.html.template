@@ -5,7 +5,7 @@
 matplotlib was written by John D. Hunter<p>
 
 Special thanks to those who have made valuable contributions to
-matplotlib 
+matplotlib
 
 <ul> 
 
@@ -30,6 +30,8 @@ matplotlib
   module, which allows matplotlib to work with either numeric or
   numarray</li>
 
-
+  <li>Paul Barret overhauled font management to provide an improved,
+  free-standing, platform independent font manager with a WC3 compliant
+  font finder</li>
 </ul>
 @footer@
