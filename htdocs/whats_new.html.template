@@ -10,21 +10,21 @@ of matplotlib handled transformation of x and y separately (ie we
 assumed all transformations were separable) but this makes is
 difficult to do rotations or polar transformations, for example.  The
 new transformation lays the framework for doing general
-transformations; see the <http
-href=matplotlib.transforms.html>transforms</a> module.
-"""),
+transformations; see the <a
+href=matplotlib.transforms.html>transforms</a> module."""),
 
-    ('More efficient pcolor', """ pcolor is now implemented with
-matplotlib.collections.polygon collections which should provide
-significantly faster performance across backends.  The return value
-from pcolor is now a PolyColleciton object rather than a list of
-patches, but the API is largely compatible.  See <a
-href=API_CHANGES>API_CHANGES</a>.  The old function pcolor_classic is
-retained for full backward compatibility.  """),
+    ('More efficient pcolor', """ pcolor is now implemented with <a
+href=matplotlib.collections.html#PolyCollection>polygon
+collections</a> which provides significantly faster performance across
+backends.  The return value from pcolor is now a PolyCollection object
+rather than a list of patches, but the API is largely compatible.  See
+<a href=API_CHANGES>API_CHANGES</a>.  The old function pcolor_classic
+is retained for full backward compatibility.  """),
 
-    ('New scatter plots', """ The scatter command is new, and is
-implemented in the backend with a new polygon collection class.  For
-large scatter plots, the performance is 5 times faster across all
+    ('New scatter plots', """ The <a
+href=matplotlib.matlab.html#-scatter>scatter</a> command is rewritten, and
+is implemented in the backend with a new polygon collection class.
+For large scatter plots, the performance is 5 times faster across all
 backends and 10 times faster for the *Agg backends.  Also, scatter
 works with many symbols: diamonds, sqaures, oriented triangles,
 circles and more.  As with pcolor, the scatter command returns a

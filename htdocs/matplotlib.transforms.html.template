@@ -80,7 +80,7 @@ nonlinear&nbsp;transformation&nbsp;of&nbsp;one&nbsp;of&nbsp;coordinates&nbsp;(eg
 The&nbsp;base&nbsp;class&nbsp;for&nbsp;transformations&nbsp;is&nbsp;Transformation,&nbsp;and&nbsp;the&nbsp;concrete<br>
 derived&nbsp;classes&nbsp;are&nbsp;SeparableTransformation&nbsp;and&nbsp;Affine.&nbsp;&nbsp;Earlier<br>
 versions&nbsp;of&nbsp;matplotlib&nbsp;handled&nbsp;transformation&nbsp;of&nbsp;x&nbsp;and&nbsp;y&nbsp;separately<br>
-(ie&nbsp;we&nbsp;assumed&nbsp;all&nbsp;transformations&nbsp;were&nbsp;separable)&nbsp;but&nbsp;this&nbsp;makes&nbsp;is<br>
+(ie&nbsp;we&nbsp;assumed&nbsp;all&nbsp;transformations&nbsp;were&nbsp;separable)&nbsp;but&nbsp;this&nbsp;makes&nbsp;it<br>
 difficult&nbsp;to&nbsp;do&nbsp;rotations&nbsp;or&nbsp;polar&nbsp;transformations,&nbsp;for&nbsp;example.&nbsp;&nbsp;All<br>
 artists&nbsp;contain&nbsp;their&nbsp;own&nbsp;transformation,&nbsp;defaulting&nbsp;to&nbsp;the&nbsp;identity<br>
 transform.<br>
