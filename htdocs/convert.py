@@ -89,6 +89,7 @@ docs = (
     'matplotlib.backends.backend_gd.html.template',
     'matplotlib.backends.backend_gtk.html.template',
     'matplotlib.backends.backend_gtkgd.html.template',
+    'matplotlib.backends.backend_paint.html.template',
     'matplotlib.backends.backend_ps.html.template',
     'matplotlib.backends.backend_template.html.template',
     'matplotlib.backends.backend_wx.html.template',

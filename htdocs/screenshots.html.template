@@ -20,6 +20,12 @@ and down bars, stacked bars, 'candlestick' bars, etc, ... See <a
 href=examples/bar_stacked.py>bar_stacked.py</a> for another example.
 """, 1),
 
+('table_demo', """The <a href=matplotlib.matlab.html#-bar>bar</a>
+command takes error bars as an optional argument.  You can also use up
+and down bars, stacked bars, 'candlestick' bars, etc, ... See <a
+href=examples/bar_stacked.py>bar_stacked.py</a> for another example.
+""", 1),
+
 ('scatter_demo2', 
 """The <a href=matplotlib.matlab.html#-scatter>scatter</a> command
 makes a scatter plot with (optional) size and color arguments.  This

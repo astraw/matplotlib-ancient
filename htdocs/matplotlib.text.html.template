@@ -94,6 +94,10 @@ Bound2D&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Text-set_text"><strong>set_text</strong></a>(self, text)</dt><dd><tt>Set&nbsp;the&nbsp;text</tt></dd></dl>
 
+<dl><dt><a name="Text-set_transx"><strong>set_transx</strong></a>(self, trans)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;transform</tt></dd></dl>
+
+<dl><dt><a name="Text-set_transy"><strong>set_transy</strong></a>(self, trans)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;transform</tt></dd></dl>
+
 <dl><dt><a name="Text-set_verticalalignment"><strong>set_verticalalignment</strong></a>(self, align)</dt><dd><tt>Set&nbsp;the&nbsp;vertical&nbsp;alignment&nbsp;to&nbsp;one&nbsp;of<br>
 'center',&nbsp;'top',&nbsp;or&nbsp;'bottom'</tt></dd></dl>
 
@@ -126,8 +130,6 @@ all&nbsp;backends</tt></dd></dl>
 <dl><dt><a name="Text-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="Text-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>

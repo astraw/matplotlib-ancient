@@ -10,6 +10,7 @@ files = (
     'matplotlib.backends.backend_gd.html',
     'matplotlib.backends.backend_gtk.html',
     'matplotlib.backends.backend_gtkgd.html',    
+    'matplotlib.backends.backend_paint.html',
     'matplotlib.backends.backend_ps.html',
     'matplotlib.backends.backend_template.html',
     'matplotlib.backends.backend_wx.html',

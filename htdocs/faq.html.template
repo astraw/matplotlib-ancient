@@ -1,6 +1,6 @@
 
 FAQs = (
-    (
+    ('NUMARRAY',
     'Does matplotlib work with numarray?',
     """\
 matplotlib can work with numarray.  Currently, there is no conditional
@@ -10,7 +10,7 @@ of 'typecode' with 'type', matplotlib will work.  In the not too
 distant future, I hope to automatically detect numarray or Numeric.
 """),
 	
-    (
+    ('GTKPATH',
     'I cannot import gtk / gdk / gobject',
     """\
 95 times out of 100 this is a PATH issue.  Follow the instructions on
@@ -25,7 +25,8 @@ href=http://www.mail-archive.com/pygtk@daa.com.au/msg07324.html>this
 thread</a>, which is filled with good advice.  """
     ),
     
-    ('Can I just generate images without having a window popup?',
+    ('BATCHMODE',
+     'Can I just generate images without having a window popup?',
      """\
 The easiest way to do this is use an image backend, either <a
 href=backends.html#GD>GD</a> or <a href=backends.html#Paint>Paint</a>
@@ -37,15 +38,14 @@ works nicely and is not too hard to setup.  Contact
 jdhunter@ace.bsd.uchicago.edu for more information if you are
 interested setting this up."""),
 
-    ("What's up with 'show'?  Do I have to use it?",
+    ('SHOW',
+     "What's up with 'show'?  Do I have to use it?",
      """\
-
 The use of show is probably the biggest source of confusion and
-vexastion among new users of matplotlib.  First of all, you do not
+vexation among new users of matplotlib.  First of all, you do not
 need this function with the image backends (Paint, GD, PS) but you do
 need it with the GUI (GTK, WX) backends (unless you are running
-matplotlib in <a href=interactive.html>interactive mode</a>).  Clear
-now?  No, I didn't think so.<p>
+matplotlib in <a href=interactive.html>interactive mode</a>).  <p>
 
 The GUIs have 'mainloops' which need to be entered to do event
 handling.  Unless you have threading enabled ala gui_thread (on the
@@ -68,7 +68,8 @@ executed.  This is especially important for complex figures that take
 some time to draw.  'show' is designed to tell matplotlib that you're
 all done issuing commands and you want to draw the figure now.  """),
  
-    ('Can I save PS/EPS from a GUI backend?',
+    ('PSGUI',
+     'Can I save PS/EPS from a GUI backend?',
      """\
 Yep.  Just choose a filename that contains ps in the extension, eg
 <tt>somefile.ps</tt> or <tt>somefile.eps</tt> and matplotlib will try
@@ -77,11 +78,12 @@ a bounding box, if it's a ps file it will output plain postscript.  It
 is recommended you use matplotlib-0.50 or later for this feature to
 work properly."""),
 
-  ('My title or ticklabel or whatever is overlapping some other figure element, what should I do?',
+  ('TEXTOVERLAP',
+   'My title or ticklabel or whatever is overlapping some other figure element, what should I do?',
    """
 The default subplots take up a lot of room.  If you need extra space
 for particularly large labels and titles, consider using custom <a
-href=matplotlib.matlab#-axes>axes</a>, eg, <tt>axes([0.3, 0.3, 0.6,
+href=matplotlib.matlab.html#-axes>axes</a>, eg, <tt>axes([0.3, 0.3, 0.6,
 0.6])</tt> gives you more room to the left and at the bottom than the
 standard axes.</p>
 
@@ -97,12 +99,14 @@ set(t, 'fontsize', 8)
 </pre>
  """),
 
-    ('Can matplotlib do dynamic plots, like digital oscilloscopes or animations?', 
+    ('DYNAMIC',
+     'Can matplotlib do dynamic plots, like digital oscilloscopes or animations?', 
     """\
 Absolutely.  See for example, <a href=examples/anim.py>anim.py</a> and <a
 href=examples/system_monitor.py>system_monitor.py</a>"""),
 
-    ('Is matplotlib fast enough for very large data sets?',
+    ('PERFORMANCE',
+     'Is matplotlib fast enough for very large data sets?',
      """\
 The answer, of course, is "it depends".  I've worked hard to make
 matplotlib work well with very large data sets (100s of MB), because
@@ -118,20 +122,42 @@ bandwidth requirements have reported being happy with matplotlib's
 performance.  If you find areas that need improvement, let me know.
 """),
 
-    ('Can matplotlib handle image data?',
+    ('IMAGES',
+    'Can matplotlib handle image data?',
      """\
-Not currently, except as pcolor data.  This is something I'd like to
-add, but it's not clear to me how to do this efficiently across
-backends.  Stay tuned."""),
+Not currently, except as pcolor data.  It's in the works; stay tuned."""),
 
+    ('ROTATETICKS',
+     'How do I make vertical xticklabels',
+     """\
+You can set the rotation of any text instance to vertical
 
+<pre>
+    from matplotlib.matlab import *
+    plot([1,2,3,4], [1,4,9,16])
+    set(gca(), 'xticks', [1,2,3,4])
+    labels = set(gca(), 'xticklabels', ['Frogs', 'Hogs', 'Bogs', 'Slogs'])
+    set(labels, 'rotation', 'vertical')
+    show()
+</pre>
+"""),
 
-)
+     ('WINFONTS',
+      "On windows with GTK, I'm getting lots of messages about not finding the  Times font",
+    """\
+Apparently GTK changed the default pango font file, because this is a new problem.  You can set font aliases in C:\GTK\etc\pango\pango.aliases.  Add a line like<pre>
+times = "times new roman,angsana new,mingliu,simsun,gulimche,ms gothic,latha,mangal,code2000"
+</pre>
+""" ),
+     
+     
+    
+     )
 @header@
 <h2> matplotlib FAQ </h2>
 
- + for q,a, in FAQs:
-   <h4>@q@</h4>
+ + for name,q,a, in FAQs:
+   <h4><a name=@name@>@q@</h4>
      @a@
    <p>
  -

@@ -22,5 +22,6 @@ matplotlib
   errorbar plots.
   </li>
 
+  <li>John Gill wrote the table class and examples</li>
 </ul>
 @footer@

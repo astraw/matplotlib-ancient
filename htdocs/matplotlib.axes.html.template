@@ -476,8 +476,6 @@ all&nbsp;backends</tt></dd></dl>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
@@ -939,8 +937,6 @@ all&nbsp;backends</tt></dd></dl>
 <dl><dt><a name="Subplot-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="Subplot-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>

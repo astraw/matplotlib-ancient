@@ -144,8 +144,6 @@ all&nbsp;backends</tt></dd></dl>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
 
-<dl><dt><a name="Axis-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
@@ -185,6 +183,10 @@ size&nbsp;is&nbsp;the&nbsp;tick&nbsp;size&nbsp;in&nbsp;relative,&nbsp;axes&nbsp;
 
 <dl><dt><a name="Tick-set_loc"><strong>set_loc</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc</tt></dd></dl>
 
+<dl><dt><a name="Tick-set_transform"><strong>set_transform</strong></a>(self, trans)</dt><dd><tt>Set&nbsp;the&nbsp;transform&nbsp;for&nbsp;the&nbsp;dimension&nbsp;the&nbsp;ticks&nbsp;vary&nbsp;along.&nbsp;&nbsp;Eg,<br>
+for&nbsp;xticks,&nbsp;this&nbsp;is&nbsp;the&nbsp;x&nbsp;dimension&nbsp;and&nbsp;for&nbsp;y&nbsp;ticks&nbsp;this&nbsp;is<br>
+the&nbsp;y&nbsp;dimension.&nbsp;&nbsp;All&nbsp;the&nbsp;child&nbsp;artists&nbsp;transforms&nbsp;will&nbsp;be&nbsp;ste</tt></dd></dl>
+
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><a name="Tick-draw"><strong>draw</strong></a>(self, renderer<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
@@ -208,8 +210,6 @@ all&nbsp;backends</tt></dd></dl>
 <dl><dt><a name="Tick-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="Tick-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
@@ -321,8 +321,6 @@ all&nbsp;backends</tt></dd></dl>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
 
-<dl><dt><a name="XAxis-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
@@ -345,6 +343,8 @@ the&nbsp;label&nbsp;text&nbsp;and&nbsp;the&nbsp;grid&nbsp;line<br>&nbsp;</tt></t
 <hr>
 Methods defined here:<br>
 <dl><dt><a name="XTick-set_loc"><strong>set_loc</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc</tt></dd></dl>
+
+<dl><dt><a name="XTick-set_transform"><strong>set_transform</strong></a>(self, trans)</dt><dd><tt>Set&nbsp;the&nbsp;transform&nbsp;for&nbsp;the&nbsp;x&nbsp;dimension&nbsp;the&nbsp;ticks&nbsp;vary&nbsp;along.&nbsp;&nbsp;e</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.axis.html#Tick">Tick</a>:<br>
@@ -381,8 +381,6 @@ all&nbsp;backends</tt></dd></dl>
 <dl><dt><a name="XTick-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="XTick-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
@@ -494,8 +492,6 @@ all&nbsp;backends</tt></dd></dl>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
 
-<dl><dt><a name="YAxis-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
@@ -518,6 +514,8 @@ the&nbsp;label&nbsp;text&nbsp;and&nbsp;the&nbsp;grid&nbsp;line<br>&nbsp;</tt></t
 <hr>
 Methods defined here:<br>
 <dl><dt><a name="YTick-set_loc"><strong>set_loc</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc</tt></dd></dl>
+
+<dl><dt><a name="YTick-set_transform"><strong>set_transform</strong></a>(self, trans)</dt><dd><tt>Set&nbsp;the&nbsp;transform&nbsp;for&nbsp;the&nbsp;y&nbsp;dimension&nbsp;the&nbsp;ticks&nbsp;vary&nbsp;along.&nbsp;&nbsp;e</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.axis.html#Tick">Tick</a>:<br>
@@ -554,8 +552,6 @@ all&nbsp;backends</tt></dd></dl>
 <dl><dt><a name="YTick-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="YTick-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>

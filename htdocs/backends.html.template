@@ -25,7 +25,7 @@ line with the <tt>-d</tt> flag, as in
 </pre>
 
 For backends that do not have a GUI, no output will be produced unless
-a call to <a href=matplotlib.matlab.html#savefig>savefig</a> is made.
+a call to <a href=matplotlib.matlab.html#-savefig>savefig</a> is made.
 The recommended way to use the savefig function is to not give an
 extension.  The backends will choose the proper extension.  This
 allows you to write a single script and select the output format from
@@ -34,7 +34,7 @@ will create <tt>somefile.ps</tt> if called with <tt>-dPS</tt> and
 <tt>somefile.png</tt> if called with <tt>-dGD</tt>, and so on.<p>
 
 Alternatively, you can select the backend renderer in your script by
-calling the matplotlib <a href=matplotlib.matlab.html#use>use</a>
+calling the matplotlib <a href=matplotlib.matlab.html#-use>use</a>
 function.  At the top of your script (before you <tt>import
 matplotlib.matlab</tt>, just do, for example
 
@@ -43,13 +43,15 @@ import matplotlib
 matplotlib.use('PS')
 </pre>
 
-The current backend strings that are supported are <a
-href=backends.backend_gd.html>GD</a>, <a
-href=backends.backend_gtk.html>GTK</a>, <a
-href=backends.backend_ps.html>PS</a> <a
-href=backends.backend_ps.html>WX</a> <a
-href=backends.backend_template.html>Template</a> and <a
-href=backends.backend_paint.html>Paint</a>.
+The current backend strings that are supported are 
+<a
+href=matplotlib.backends.backend_gd.html>GD</a>, <a
+href=matplotlib.backends.backend_gtk.html>GTK</a>, <a
+href=matplotlib.backends.backend_ps.html>PS</a> <a
+href=matplotlib.backends.backend_ps.html>WX</a> <a
+href=matplotlib.backends.backend_paint.html>Paint</a> and <a
+href=matplotlib.backends.backend_template.html>Template</a>.
+
 
 The default is GTK.  Template is a do nothing backend that serves as a
 template for backend writers (volunteers welcome!).<p>
@@ -62,7 +64,22 @@ href="fonts.html">fonts</a> for more information.<p>
 
 Each of the backends have a different set of requirements, listed
 below.  All require the <a
-href=http://sourceforge.net/projects/numpy>Numeric</a> module.<p>
+href=http://sourceforge.net/projects/numpy>Numeric</a> module.  Note,
+matplotlib can also be made to work with numarray with minor changes;
+see the <a href=faq.html#NUMARRAY>FAQ</a>.
+<p>
+
+
+Specific information for installing the other backends can be found on
+this page below or by clicking
+<ul>
+<li><a href=backends.html#GTK>GTK</a></li>
+<li><a href=backends.html#WX>WX</a></li>
+<li><a href=backends.html#PS>PS</a></li>
+<li><a href=backends.html#Paint>Paint</a></li>
+<li><a href=backends.html#GD>GD</a></li>
+</ul>
+
 
 <a name=GTK><h3>GTK</h3></a>
 
@@ -109,7 +126,9 @@ GTK runtime</a></li>
    matplotlib.<p>
 
   See the <a href=fonts.html>fonts</a> for more information about
-  getting the GTK backend setup for proper font rendering.<p>
+  getting the GTK backend setup for proper font rendering.  If you are
+  experiencing warnings about Times font not being found, see this <a
+  href=faq.html#WINFONTS>FAQ</a> entry <p>
 
 <a name=WX><h3>WX</h3></a>
 
@@ -117,7 +136,9 @@ GTK runtime</a></li>
 Requires <a href=http://www.wxpython.org>wxpython</a>.  Windows users
 may want to consider the <a
 href=http://www.enthought.com/python>enthought edition</a> of python,
-which comes with wxpython and Numeric built in
+which comes with wxpython and Numeric built in, so matplotlib will
+work right out of the box.  matplotlib under WX has been tested on
+linux, win32 and OSX.
 
 
 
@@ -136,38 +157,34 @@ are easy to install.
   <li><a href=http://www.boutell.com/gd>GD lib</a> -- The GD library.
   Note if you are using linux and have this installed in /usr/lib, you
   will need to install the latest version over the existing install
-  unless you have gd-2.0.15 or later</li>
+  unless you have gd-2.0.22 or later</li>
 
   <li><a
-  href=http://newcenturycomputers.net/projects/gdmodule.html>gdmodule</a>
+  href=http://newcenturycomputers.net/projects/gdmodule.html>gdmodule-0.52</a>
   -- The python interface to the gd module.</li>
 
-  <li><a href="http://fonttools.sourceforge.net/">font tools</a>Base
+  <li><a href="http://fonttools.sourceforge.net/">font tools</a> -- Base
   library for handling TTF fonts -- required by TTF query.</li>  
 
-  <li><a href=https://sourceforge.net/projects/ttfquery/>TTF Query</a>-- A
+  <li><a href=http://sourceforge.net/projects/ttfquery/>TTF Query</a> -- A
   python package for finding the best True Type font match for your
   desired font.  You must use version 0.2.6 or later</li>
 
-   <h4>Quick install guide for GD output</h4>
+   <h4>Quick install guide for GD output: linux and friends</h4>
  
    The latest snapshot of matplotlib requires a patch to
-   gdmodule-0.51.  I contacted the maintainer and this will be folded
-   into the 0.52 release.  Replace <a
-   href=gd/_gdmodule.c>_gdmodule.c</a> and install as below.
-
+   gdmodule-0.52.  
 
    <pre>
     cd /var/tmp
-    tar xvfz ~/src/gd-2.0.15.tar.gz
-    cd gd-2.0.15/
+    tar xvfz ~/src/gd-2.0.22.tar.gz
+    cd gd-2.0.22/
     ./configure --prefix=/usr
     sudo make install
 
     cd /var/tmp
-    tar xvfz ~/python/src/gdmodule-0.51.tar.gz
-    cd gdmodule-0.51
-    # apply new _gdmodule.c linked above
+    tar xvfz ~/python/src/gdmodule-0.52.tar.gz
+    cd gdmodule-0.52
     sudo python2.3 Setup.py install
 
     cd /var/tmp
@@ -176,16 +193,36 @@ are easy to install.
     sudo python2.3 setup.py install
 
     cd /var/tmp
-    tar xvfz ~/python/src/TTFQuery-0.2.6.tar.gz
-    cd TTFQuery-0.2.6/
+    tar xvfz ~/python/src/TTFQuery-1.0.0a1.tar.gz
+    cd TTFQuery-1.0.0a1
     sudo python2.3 setup.py install
    </pre>
 </ul>
 
-See the <a href=fonts.html>fonts</a> for more information about
-getting the GD backend setup for proper font rendering.<p>
 
-<a name=Postscript><h3>Postscript</h3></a>
+<h4>Quick install guide for GD output: linux and friends</h4>
+
+<ul> 
+
+<li> You'll need to <a href=gd/bgd.dll>bgd.dll</a> somewhere in your
+PATH</li>
+
+<li> gdmodule for win32 and python2.3 <a href=gd/gdmodule-0.52a.win32-py2.3.exe >gdmodule-0.52a</a>.</li>
+
+<li> fonttools for win32 and python2.3 <a href=
+gd/FontTools-1.0.win32-py2.3.exe>FontTools-1.0</a>.</li>
+
+<li>There are windows packages for all the required modules TTFQuery
+provides a windows installer on the <a
+href=http://sourceforge.net/projects/ttfquery/>download site<a>.</li>
+
+</ul>
+
+See the <a href=fonts.html>fonts</a> for more information about
+getting the GD backend setup for proper font rendering.  Note the
+formerly named <tt>GDFONTPATH</tt> is now called <tt>TTFPATH</tt>.<p>
+
+<a name=PS><h3>Postscript</h3></a>
 
 The only requirement is <a
 href=http://sourceforge.net/projects/numpy>Numeric</a>

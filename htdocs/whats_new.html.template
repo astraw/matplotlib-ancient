@@ -8,43 +8,57 @@ high quality, cross platform image renderer that supports antialiased
 lines, freetype fonts, and other capabilities to soon be exploited.
 Thanks David!""" ),
 
-        ('The Matplotlib <a href=faq.html>FAQ</a>', ''),
+        ('The Matplotlib <a href=faq.html>FAQ</a>', 'Matplotlib now has a FAQ.'),
 
-        #TODO: backend specific info
-        ('Alpha channel attribute', """\
-All the figure elements now have an alpha attribute to allow blending
-and translucency.  Not all backends are currenly capable of supporting
-alpha"""),
+#        #TODO: backend specific info
+#        ('Alpha channel attribute', """\
+#All the figure elements now have an alpha attribute to allow blending
+#and translucency.  Not all backends are currenly capable of supporting
+#alpha"""),
 
         #TODO: update links
         ('Table class added', """\
 John Gill has developed a very nice <a
 href=matplotlib.table.html>table</a> class that plays well with bar
-charts ad stacked bar charts.  See <a href=examples/table_demo.py</a>
-and screenshot <a href=screenshots.html#table_demo>table_demo</a>.
+charts ad stacked bar charts.  See example code and and screenshot <a
+href=screenshots.html#table_demo>table_demo</a>.
 """),
 
 	('Added x linesyle', """Matt MacMahon submitted a patch for an
 'x' linestyle.  Thanks Matt! """ ),
 
-    #TODO: update docs
-	('gd module on win32', """With much weeping and gnashing of teeth and help from half the people
-on this globe, built a gdmodule win32 installer.  Special thanks to
-Stefan Kuzminski for putting up with my endless windows confusions.""" ),
 
-	('GD supports clipping and antialiased line drawing', """See
-instructions about upgrading gd and gdmodule at <a
+	('gd module on win32', """\
+With much weeping and gnashing of teeth and help from half the people
+on this globe, built a gdmodule win32 installer.  Special thanks to
+Stefan Kuzminski for putting up with my endless windows confusions.
+The the win32 quickstart at <a href=backends.html#GD>installing</a>
+the GD backend."""
+),	
+
+	('GD supports clipping and antialiased line drawing', """\
+See instructions about upgrading gd and gdmodule at <a
 href=backends.html#GD>Installing the GD backend</a>.  The line object
 has a new 'antialiased' property, that if true, the backend will
 render the line antialiased if supported.  """),
 
-	('wild and wonderful bar charts', """You can provide an
-optional argument bottom to the <a
+	('wild and wonderful bar charts', """\
+You can provide an optional argument bottom to the <a
 href=matplotlib.matlab.html#-bar>bar</a> command to determine where
 the bottom of each bar is, default 0 for all.  This enables stacked
 bar plots and candelstick plots -- <a
 href=examples/bar_stacked.py>examples/bar_stacked.py</a>.  Thanks to
 David Moore and John Gill for suggestions and code.  """),
+
+	('Figure backend refactored', """\
+The figure functionality was split into a backend independent
+component <a href=matplotlib.figure.html>Figure</a> and a backend
+dependent component <a
+href=matplotlib.backend_bases.html#FigureCanvasBase>FigureCanvasBase</a>.
+This completes the transition to a totally abstract figure interface
+and improves the ability the switch backends and a figure to multiple
+backends.  See <a href=API_CHANGES>API_CHANGES</a> for information on
+migrating applications to the new API."""),
 
 	('Bugfixes and optimizations', """\
 
@@ -81,20 +95,13 @@ David Moore and John Gill for suggestions and code.  """),
   and patched a memory leak in pygtk -
   http://bugzilla.gnome.org/show_bug.cgi?id=133681 which was causing
   repeat calls to draw() to leak memory.</li>
-  
+
+  <li>GTK on win32.  Fixed a problem where pygtk couldn't find Times.
+  See FAQ entry <a href=faq.html#WINFONT>.  
 </ul>
 
 """),
 
-	('Figure backend refactored', """The figure functionality was
-split into a backend independent component <a
-href=matplotlib.figure.html>Figure</a> and a backend dependent
-component <a
-href=matplotlib.backend_bases.html#FigureCanvasBase>FigureCanvasBase</a>.
-This completes the transition to a totally abstract figure interface
-and improves the ability the switch backends and a figure to multiple
-backends.  See <a href=API_CHANGES>API_CHANGES</a> for information on
-migrating applications to the new API."""),
 
 
 )

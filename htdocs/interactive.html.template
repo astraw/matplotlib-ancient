@@ -1,23 +1,46 @@
 @header@
 <h2>Using matplotlib interactively</h2>
 
-matplotlib can be used interactively from the python shell to create
-figures and modify their properties, as you can do in matlab, maple or
-mathematica.  Unfortunately, due to the 'mainloop' cycle of GUI
-toolkits, it is not yet possible to use matplotlib from an arbitrary
-python shell.  Instead, there are custom solutions depending on the
-GUI environment in which you use matplotlib.  If you know of solutions
-bettern than the ones presented here, please contact me -
- @myemail@.<p>
+
+Matplotlib defers drawing until the end of the script by default
+because drawing can be an expensive opertation, and in often you don't
+want to update the plot every time a single property is changed, only
+once after all the properties have changed.  But in interactive mode,
+you usually do want to update the plot with every command, eg, after
+changing the x label or the marker style of a line.  To do that, you
+need to put matplotlib in interactive mode.  If you are in a GUI
+shell, such as WX's PyCrust, all you need to do is
+
+<pre>
+  >>> import matplotlib
+  >>> matplotlib.interactive(True)
+  >>> matplotlib.use('WX') 
+  >>> from matplotlib.matlab import *
+  >>> plot([1,2,3])
+  >>> xlabel('time (s)')
+</pre>
+
+Unfortunately, due to the 'mainloop' cycle of GUI toolkits, it is not
+yet possible to use matplotlib from an arbitrary python shell.
+Instead, there are custom solutions depending on the GUI environment
+in which you use matplotlib.<p>
+
 
 <h3>WX</h3>
 
-<h3>GTK</h3>
-There are two interactive shells provided with matplotlib for GTK,
-which are in the examples dir of the src distribution (<a
-href=examples/interactive.py>interactive.py</a> and <a
+With a WX shell, such as pycrust, the example above should work out of
+the box.
+
+<h3>GTK</h3> In the examples dir of the src distribution, there is an
+interactive shell for pygtk.  It sets the interactive property for
+you, and imports all the commands from matplotlib.matlab, so you can
+just start plotting away <a
 href=examples/interactive2.py>interactive2.py</a>).<p>
 
+<pre>
+examples> ./interactive2.py
+>>> plot([1,2,3])
+</pre>
 
 <tt>interactive2.py</tt> will work with any pygtk 1.99.16 or
 later, regardless of whether threading was built in or not.
@@ -28,16 +51,6 @@ interactive2.py is easier to set up since it doesn't require
 threading, and looks nicer, but interactive.py better handles cutting
 and pasting of code blocks from an editor into the interpreter.<p>
 
-
-Note, if you use the matplotlib interactive interpreter, you do not
-need to import any of the matplotlib.matlab, Numeric or MLab symbols,
-as this is done automatically by the interpreter.  Thus you can issue
-plot commands immediately
-
-<pre>
-examples> ./interactive2.py
->>> plot([1,2,3])
-</pre>
 
 <h2>pygtk with threading</h2>
 
