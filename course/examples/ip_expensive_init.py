@@ -11,7 +11,9 @@ Meant to be used via ipython's %run -i, though it can run standalone."""
 
 try:
     bigobject
+    print "We found bigobject! No need to initialize it."
 except NameError:
+    print "bigobject not found, performing expensive initialization..."
     bigobject = range(1000)
 
 # And now you can move on with working on bigobject:

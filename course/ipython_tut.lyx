@@ -488,7 +488,6 @@ An example (with automagic on) should clarify all this:
 \layout LyX-Code
 
 In [1]: cd ipython 
-\emph on 
 \color blue
 # %cd is called by automagic
 \layout LyX-Code
@@ -497,14 +496,12 @@ In [1]: cd ipython
 \layout LyX-Code
 
 In [2]: cd = 1 
-\emph on 
 \color blue
 # now cd is just a variable
 \layout LyX-Code
 
 In [3]: cd ..
  
-\emph on 
 \color blue
 # and doesn't work as a function anymore
 \layout LyX-Code
@@ -528,7 +525,6 @@ SyntaxError: invalid syntax
 
 In [4]: %cd ..
  
-\emph on 
 \color blue
 # but %cd always works
 \layout LyX-Code
@@ -537,13 +533,11 @@ In [4]: %cd ..
 \layout LyX-Code
 
 In [5]: del cd 
-\emph on 
 \color blue
 # if you remove the cd variable
 \layout LyX-Code
 
 In [6]: cd ipython 
-\emph on 
 \color blue
 # automagic can work again
 \layout LyX-Code
@@ -1004,7 +998,6 @@ y is: 5 and z is: 4
 \layout LyX-Code
 
 
-\emph on 
 \color blue
 # make a macro with lines 2,3,4 (note Python list slice syntax):
 \layout LyX-Code
@@ -1029,7 +1022,6 @@ print 'y is:',y,'and z is:',z
 \layout LyX-Code
 
 
-\emph on 
 \color blue
 # now, run the macro directly:
 \layout LyX-Code
@@ -1044,7 +1036,6 @@ y is: 5 and z is: 4
 \layout LyX-Code
 
 
-\emph on 
 \color blue
 # we change the value of x
 \layout LyX-Code
@@ -1053,7 +1044,6 @@ In [7]: x=9
 \layout LyX-Code
 
 
-\emph on 
 \color blue
 # and now if we rerun the macro, we get the new values:
 \layout LyX-Code
@@ -1177,7 +1167,6 @@ you can run it in IPython as follows:
 \layout LyX-Code
 
 
-\emph on 
 \color blue
 # First, let's check that x is undefined
 \layout LyX-Code
@@ -1201,7 +1190,6 @@ NameError: name 'x' is not defined
 \layout LyX-Code
 
 
-\emph on 
 \color blue
 # Now we run the script (the .py extension is optional):
 \layout LyX-Code
@@ -1218,7 +1206,6 @@ __name__ is: __main__
 \layout LyX-Code
 
 
-\emph on 
 \color blue
 # If we print x, now it has the value from the script
 \layout LyX-Code
@@ -1232,7 +1219,6 @@ Out[3]: 1
 \layout LyX-Code
 
 
-\emph on 
 \color blue
 # Again, but now running with some arguments:
 \layout LyX-Code
@@ -1322,7 +1308,6 @@ x is:
 \layout LyX-Code
 
 
-\emph on 
 \color blue
 # However, if you do have a variable x defined:
 \layout LyX-Code
@@ -1331,7 +1316,6 @@ In [2]: x='hello'
 \layout LyX-Code
 
 
-\emph on 
 \color blue
 # you can use the -i option and the code will see x:
 \layout LyX-Code
@@ -1356,9 +1340,79 @@ tion phase.
 try/except
 \family default 
  block.
+ This simple script illustrates the technique:
 \layout Standard
 
-XXX
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+lstinputlisting{examples/ip_expensive_init.py}
+\end_inset 
+
+In IPython, here is how you can use it:
+\layout LyX-Code
+
+
+\color blue
+# The first time it runs, it will have to initialize
+\layout LyX-Code
+
+In [1]: run -i ip_expensive_init.py
+\layout LyX-Code
+
+bigobject not found, performing expensive initialization...
+\layout LyX-Code
+
+total is: 499500
+\layout LyX-Code
+
+
+\color blue
+# but successive runs don't require initialization
+\layout LyX-Code
+
+In [2]: run -i ip_expensive_init.py
+\layout LyX-Code
+
+We found bigobject! No need to initialize it.
+\layout LyX-Code
+
+total is: 499500
+\layout LyX-Code
+
+
+\color blue
+# you can still run without -i, to achieve a full reload 
+\layout LyX-Code
+
+
+\color blue
+# if you need it for any reason
+\layout LyX-Code
+
+In [3]: run ip_expensive_init.py
+\layout LyX-Code
+
+bigobject not found, performing expensive initialization...
+\layout LyX-Code
+
+total is: 499500
+\layout Standard
+
+In the third run, by not using 
+\family typewriter 
+-i
+\family default 
+, your script runs in an empty namespace and this forces a full initialization
+ (the 
+\family typewriter 
+NameError
+\family default 
+ exception is triggered).
 \layout Standard
 
 
@@ -1382,29 +1436,191 @@ debugger (
 -p
 \family default 
 ).
- With all of these, 
+ You can get all of its docstring with the usual 
+\family typewriter 
+run?
+\family default 
+ mechanism.
+\layout Standard
+
+Thanks to all of its various control options, 
 \family typewriter 
 %run
 \family default 
  can be used as the main tool for efficient interactive development of code
  which you write in your editor of choice.
-\layout Subsection
+ My personal operation mode, which has served me well for several years
+ of scientific work in Python, is to have a good editor (XEmacs in my case)
+ open with all my Python code, and IPython open in a terminal where I run,
+ debug, explore, plot, etc.
+\layout Section
 
 Access to the underlying Operating System
+\layout Subsection
+
+Basic usage
 \layout Standard
 
-Lines starting with 
+IPython allows you to always access the underlying OS very easily.
+ Any lines starting with 
 \family typewriter 
 !
 \family default 
- are passed directly to the system shell, and using 
+ are passed directly to the system shell:
+\layout LyX-Code
+
+In [6]: !ls ip*.py
+\layout LyX-Code
+
+ip_expensive_init.py  ip_simple2.py  ip_simple.py
+\layout Standard
+
+and using 
 \family typewriter 
 !!
 \family default 
- captures shell output into python variables for further use.
+ captures shell output into python variables for further use:
+\layout LyX-Code
+
+In [7]: !!ls ip*.py
+\layout LyX-Code
+
+Out[7]: ['ip_expensive_init.py', 'ip_simple2.py', 'ip_simple.py']
 \layout Standard
 
-Define your own system aliases.
+There is a difference between the two cases: in the first, the 
+\family typewriter 
+ls
+\family default 
+ command simply prints its results to the terminal as text, but no value
+ is returned.
+ In the second, IPython actually captures the output of the command, splits
+ it as a list (one line per entry), and returns its value.
+ This allows you to then operate on the results with Python routines.
+\layout Standard
+
+Additionally, IPython plays a few interesting syntactic tricks for your
+ convenience.
+ Whenever you make a system call, IPython will expand any call of the type
+ 
+\family typewriter 
+$var
+\family default 
+ into the actual value of the python variable 
+\family typewriter 
+var
+\family default 
+, so that you can call shell commands on Python values.
+ Continuing the session above, and remembering that 
+\family typewriter 
+_
+\family default 
+ holds the previously returned value, we can call the `
+\family typewriter 
+wc -l
+\family default 
+' Unix command (which does a line count on a file) on the files we just
+ obtained:
+\layout LyX-Code
+
+In [8]: for f in _:
+\layout LyX-Code
+
+   ...:      if 'simple' in f:
+\layout LyX-Code
+
+   ...:          !wc -l $f
+\layout LyX-Code
+
+   ...:
+\layout LyX-Code
+
+3 ip_simple2.py
+\layout LyX-Code
+
+4 ip_simple.py
+\layout Standard
+
+While this is completely unorthodox (actually, invalid) Python, it is the
+ kind of functionality which can make for extremely efficient uses when
+ working at an interactive command line.
+ Obviously all of this can be done (and it 
+\emph on 
+is
+\emph default 
+ done that way by IPython internally) with regular Python code, but that
+ approach requires a fair amount more typing, the use of 
+\family typewriter 
+%
+\family default 
+-based string interpolation, and making system calls via the 
+\family typewriter 
+os.system()
+\family default 
+ function.
+\layout Standard
+
+If you actually need to pass a 
+\family typewriter 
+$
+\family default 
+ character to a shell command, you simply use 
+\family typewriter 
+$$
+\family default 
+ in the IPython command line:
+\layout LyX-Code
+
+In [11]: !echo $$SHELL
+\layout LyX-Code
+
+/bin/tcsh
+\layout Standard
+
+If you want to capture the output of a system command directly to a named
+ Python variable, you can use the 
+\family typewriter 
+%sc
+\family default 
+ magic function:
+\layout LyX-Code
+
+
+\color blue
+# by default, %sc captures to a plain string:
+\layout LyX-Code
+
+In [16]: %sc astr=ls ip*.py
+\layout LyX-Code
+
+In [17]: astr
+\layout LyX-Code
+
+Out[17]: 'ip_expensive_init.py
+\backslash 
+nip_simple2.py
+\backslash 
+nip_simple.py'
+\layout LyX-Code
+
+
+\color blue
+# but with the -l option, it splits to a list (like !! does)
+\layout LyX-Code
+
+In [18]: %sc -l alist=ls ip*.py
+\layout LyX-Code
+
+In [19]: alist
+\layout LyX-Code
+
+Out[19]: ['ip_expensive_init.py', 'ip_simple2.py', 'ip_simple.py']
+\layout Subsection
+
+System aliases
+\layout Standard
+
+In IPython, you can also define your own system aliases.
  Even though IPython gives you access to your system shell via the 
 \family typewriter 
 !
@@ -1412,7 +1628,136 @@ Define your own system aliases.
  prefix, it is convenient to have aliases to the system commands you use
  most often.
  This allows you to work seamlessly from inside IPython with the same commands
- you are used to in your system shell.
+ you are used to in your system shell:
+\layout Standard
+
+
+\family typewriter 
+`%alias alias_name cmd'
+\family default 
+ defines 
+\family typewriter 
+`alias_name'
+\family default 
+ as an alias for 
+\family typewriter 
+`cmd'
+\layout Standard
+
+Then, typing 
+\family typewriter 
+`alias_name params'
+\family default 
+ will execute the system command 
+\family typewriter 
+`cmd params'
+\family default 
+ (from your underlying operating system).
+ Aliases have lower precedence than magic functions and Python normal variables,
+ so if 
+\family typewriter 
+`foo'
+\family default 
+ is both a Python variable and an alias, the alias can not be executed until
+ 
+\family typewriter 
+`del foo'
+\family default 
+ removes the Python variable.
+ If you need to access an alias directly, you can use the builtin function
+ 
+\family typewriter 
+ipalias 
+\family default 
+as
+\family typewriter 
+ ipalias('foo')
+\family default 
+.
+\layout Standard
+
+You can use the 
+\family typewriter 
+%l
+\family default 
+ specifier in an alias definition to represent the whole line when the alias
+ is called.
+ For example:
+\layout LyX-Code
+
+In [2]: alias all echo "Input in brackets: <%l>"
+\layout LyX-Code
+
+In [3]: all hello world
+\layout LyX-Code
+
+Input in brackets: <hello world>
+\layout Standard
+
+You can also define aliases with positional parameters using 
+\family typewriter 
+%s
+\family default 
+ specifiers (one per parameter):
+\layout LyX-Code
+
+In [1]: alias parts echo first %s second %s
+\layout LyX-Code
+
+In [2]: %parts A B
+\layout LyX-Code
+
+first A second B
+\layout LyX-Code
+
+In [3]: %parts A
+\layout LyX-Code
+
+Incorrect number of arguments: 2 expected.
+\layout LyX-Code
+
+parts is an alias to: 'echo first %s second %s'
+\layout Standard
+
+Aliases expand Python variables just like system calls using 
+\family typewriter 
+!
+\family default 
+ or 
+\family typewriter 
+!!
+\family default 
+ do: all expressions prefixed with '
+\family typewriter 
+$
+\family default 
+' get expanded.
+ For details of the semantic rules, see PEP-215: 
+\begin_inset LatexCommand \htmlurl{ not found, performing expensive initialization..."}
+
+\end_inset 
+
+.
+ This is the library used by IPython for variable expansion.
+\layout Standard
+
+Simply typing 
+\family typewriter 
+alias
+\family default 
+ will print a list of the current aliases, and 
+\family typewriter 
+unalias
+\family default 
+ can be used to remove an alias.
+ For further details, use 
+\family typewriter 
+alias?
+\family default 
+.
+\layout Subsection
+
+Directory management
 \layout Standard
 
 IPython comes with some pre-defined aliases and a complete system for changing
@@ -1435,39 +1780,311 @@ IPython comes with some pre-defined aliases and a complete system for changing
 .
  The latter keeps a history of visited directories and allows you to go
  to any previously visited one.
+ You can see this history with the 
+\family typewriter 
+%dhist
+\family default 
+ magic:
+\layout LyX-Code
+
+In [1]: cd ~/code/python
+\layout LyX-Code
+
+/home/fperez/code/python
+\layout LyX-Code
+
+In [2]: cd ~/teach/
+\layout LyX-Code
+
+/home/fperez/teach
+\layout LyX-Code
+
+In [3]: cd ~/research
+\layout LyX-Code
+
+/home/fperez/research
+\layout LyX-Code
+
+In [4]: dhist
+\layout LyX-Code
+
+Directory history (kept in _dh)
+\layout LyX-Code
+
+0: /home/fperez/teach/course/examples
+\layout LyX-Code
+
+1: /home/fperez/code/python
+\layout LyX-Code
+
+2: /home/fperez/teach
+\layout LyX-Code
+
+3: /home/fperez/research
+\layout LyX-Code
+
+In [5]: cd -1
+\layout LyX-Code
+
+/home/fperez/code/python
 \layout Standard
 
-Use Python to manipulate the results of system commands.
- The `
+The 
 \family typewriter 
-!!
+%bookmark
 \family default 
-' special syntax, and the 
+ magic allows you to create named bookmarks in your filesystem, which 
 \family typewriter 
-%sc
+cd
+\family default 
+ can be directed to go to (with the 
+\family typewriter 
+-b
+\family default 
+ flag), and to which it will try to default automatically if no such named
+ directory exists.
+ The system is very easy to use and quite natural in practice:
+\layout LyX-Code
+
+In [8]: bookmark course
+\layout LyX-Code
+
+In [9]: cd
+\layout LyX-Code
+
+/home/fperez
+\layout LyX-Code
+
+In [10]: ls course
+\layout LyX-Code
+
+ls: course: No such file or directory
+\layout LyX-Code
+
+In [11]: cd course
+\layout LyX-Code
+
+(bookmark:course) -> /home/fperez/teach/course
+\layout LyX-Code
+
+/home/fperez/teach/course
+\layout Subsection
+
+IPython as a system shell
+\layout Standard
+
+While IPython is 
+\emph on 
+not
+\emph default 
+ a system shell, it ships with a special profile called 
+\family typewriter 
+pysh
+\family default 
+, which you can activate at the command line as 
+\family typewriter 
+`ipython -p pysh'
+\family default 
+.
+ This modifies IPython's behavior and adds some additional facilities and
+ a prompt customized for filesystem navigation.
+\layout Standard
+
+Note that this does 
+\emph on 
+not
+\emph default 
+ make IPython a full-fledged system shell.
+ In particular, it has no job control, so if you type Ctrl-Z (under Unix),
+ you'll suspend pysh itself, not the process you just started.
+ 
+\layout Standard
+
+What the shell profile allows you to do is to use the convenient and powerful
+ syntax of Python to do quick scripting at the command line.
+ Below we describe some of its features.
+\layout Subsubsection
+
+Aliases
+\layout Standard
+
+All of your 
+\family typewriter 
+$PATH
+\family default 
+ has been loaded as IPython aliases, so you should be able to type any normal
+ system command and have it executed.
+ See 
+\family typewriter 
+%alias?
 \family default 
  and 
 \family typewriter 
-%sx
+%unalias?
 \family default 
- magic commands allow you to capture system output into Python variables.
-\layout Standard
-
-Expand python variables when calling the shell (either via 
+ for details on the alias facilities.
+ See also 
 \family typewriter 
-`!'
+%rehash?
 \family default 
  and 
 \family typewriter 
-`!!'
+%rehashx? 
 \family default 
- or via aliases) by prepending a 
+for details on the mechanism used to load 
+\family typewriter 
+$PATH
+\family default 
+.
+\layout Subsubsection
+
+Special syntax
+\layout Standard
+
+Any lines which begin with 
+\family typewriter 
+`~'
+\family default 
+, 
+\family typewriter 
+`/'
+\family default 
+ and 
+\family typewriter 
+`.'
+\family default 
+ will be executed as shell commands instead of as Python code.
+ The special escapes below are also recognized.
+ 
+\family typewriter 
+!cmd
+\family default 
+ is valid in single or multi-line input, all others are only valid in single-lin
+e input:
+\layout Description
+
+
+\family typewriter 
+!cmd
+\family default 
+ pass `cmd' directly to the shell 
+\layout Description
+
+
+\family typewriter 
+!!cmd
+\family default 
+ execute `cmd' and return output as a list (split on `
+\backslash 
+n') 
+\layout Description
+
+
+\family typewriter 
+$var=cmd
+\family default 
+ capture output of cmd into var, as a string (shorthand for 
+\family typewriter 
+%sc var=cmd
+\family default 
+)
+\layout Description
+
+
+\family typewriter 
+$$var=cmd
+\family default 
+ capture output of cmd into var, as a list (split on `
+\backslash 
+n', shorthand for 
+\family typewriter 
+%sc -l var=cmd
+\family default 
+)
+\layout Subsubsection
+
+Useful functions and modules
+\layout Standard
+
+The os, sys and shutil modules from the Python standard library are automaticall
+y loaded.
+ Some additional functions, useful for shell usage, are listed below.
+ You can request more help about them with `
+\family typewriter 
+?
+\family default 
+'.
+\layout Description
+
+
+\family typewriter 
+shell
+\family default 
+ - execute a command in the underlying system shell 
+\layout Description
+
+
+\family typewriter 
+system
+\family default 
+ - like 
+\family typewriter 
+shell()
+\family default 
+, but return the exit status of the command
+\layout Description
+
+
+\family typewriter 
+sout
+\family default 
+ - capture the output of a command as a string
+\layout Description
+
+
+\family typewriter 
+lout
+\family default 
+ - capture the output of a command as a list (split on `
+\backslash 
+n')
+\layout Description
+
+
+\family typewriter 
+getoutputerror
+\family default 
+ - capture (output,error) of a shell commandss
+\layout Standard
+
+
+\family typewriter 
+sout
+\family default 
+/
+\family typewriter 
+lout
+\family default 
+ are the functional equivalents of 
 \family typewriter 
 $
 \family default 
- in front of them.
- You can also expand complete python expressions.
-\layout Subsection
+/
+\family typewriter 
+$$
+\family default 
+.
+ They are provided to allow you to capture system output in the middle of
+ true python code, function definitions, etc (where 
+\family typewriter 
+$
+\family default 
+ and 
+\family typewriter 
+$$
+\family default 
+ are invalid)
+\layout Section
 
 Access to an editor
 \layout Standard
@@ -1528,21 +2145,164 @@ Customizing IPython
 Basics
 \layout Standard
 
-Flexible configuration system.
+IPython has a very flexible configuration system.
  It uses a configuration file which allows permanent setting of all command-line
  options, module loading, code and file execution.
  The system allows recursive file inclusion, so you can have a base file
  with defaults and layers which load other customizations for particular
  projects.
+\layout Standard
+
+IPython reads a configuration file which can be specified at the command
+ line (
+\family typewriter 
+-rcfile
+\family default 
+) or which by default is assumed to be called 
+\family typewriter 
+ipythonrc
+\family default 
+.
+ Such a file is looked for in the current directory where IPython is started
+ and then in your 
+\family typewriter 
+IPYTHONDIR
+\family default 
+, which allows you to have local configuration files for specific projects.
+ The default value for this directory is 
+\family typewriter 
+$HOME/.ipython
+\family default 
+ (
+\family typewriter 
+_ipython
+\family default 
+ under Windows).
+ Under Unix operating systems 
+\family typewriter 
+$HOME
+\family default 
+ always exists; for Windows, IPython will try to find such an environment
+ variable; if it doesn't exist, it uses 
+\family typewriter 
+HOMEDRIVE
+\backslash 
+HOMEPATH 
+\family default 
+(these are always defined by Windows).
+ This typically gives something like 
+\family typewriter 
+C:
+\backslash 
+Documents and Settings
+\backslash 
+YourUserName
+\family default 
+, but your local details may vary.
+ Finally, you can make this directory live anywhere you want by creating
+ an environment variable called 
+\family typewriter 
+$IPYTHONDIR
+\family default 
+.
+\layout Standard
+
+In this directory you will find all the files that configure IPython's defaults,
+ and you can put there your profiles and extensions.
+ This directory is automatically added by IPython to 
+\family typewriter 
+sys.path
+\family default 
+, so anything you place there can be found by 
+\family typewriter 
+import
+\family default 
+ statements.
+\layout Standard
+
+The syntax of an rcfile is one of key-value pairs separated by whitespace,
+ one per line.
+ Lines beginning with a 
+\family typewriter 
+#
+\family default 
+ are ignored as comments, but comments can 
+\series bold 
+not
+\series default 
+ be put on lines with data (the parser is fairly primitive).
+ You can study the default rcfile created by IPython at startup for customizatio
+n details, it is extremely commented.
 \layout Subsection
 
 Profiles
 \layout Standard
 
-Use profiles to maintain different configurations (modules to load, function
- definitions, option settings) for particular tasks.
- You can then have customized versions of IPython for specific purposes.
+IPython can load any configuration file you want if you give its name at
+ startup with the 
+\family typewriter 
+-rcfile
+\family default 
+ flag.
+ However, for convenience it provides a shorthand based on a naming convention
+ for loading such profiles.
+ This system allows you to easily maintain customized versions of IPython
+ for specific purposes.
+\layout Standard
+
+With the 
+\family typewriter 
+-profile <name>
+\family default 
+ flag (you can abbreviate it to 
+\family typewriter 
+-p
+\family default 
+), IPython will assume that your config file is called 
+\family typewriter 
+ipythonrc-<name>
+\family default 
+ (it looks in current dir first, then in 
+\family typewriter 
+IPYTHONDIR
+\family default 
+).
+ This is a quick way to keep and load multiple config files for different
+ tasks, especially if you use the include option of config files.
+ You can keep a basic 
+\family typewriter 
+IPYTHONDIR/ipythonrc
+\family default 
+ file and then have other profiles which include this one and load extra
+ things for particular tasks.
+ For example:
+\layout Enumerate
+
+
+\family typewriter 
+$HOME/.ipython/ipythonrc
+\family default 
+: load basic things you always want.
  
+\layout Enumerate
+
+
+\family typewriter 
+$HOME/.ipython/ipythonrc-math
+\family default 
+: load (1) and basic math-related modules.
+ 
+\layout Enumerate
+
+
+\family typewriter 
+$HOME/.ipython/ipythonrc-numeric
+\family default 
+: load (1) and Numeric and plotting modules.
+\layout Standard
+
+Since it is possible to create an endless loop by having circular file inclusion
+s, IPython will stop if it reaches 15 recursive inclusions.
 \layout Section
 
 Debugging and profiling with IPython 
