@@ -32,7 +32,7 @@ class Basemap:
  Example Usage:
  (this example plus others can be run by running test.py in the examples dir)
 
->>> from basemap import *
+>>> from matplotlib.toolkits.basemap import Basemap
 >>> import cPickle
 >>> from pylab import *
 >>> # read in topo data from pickle (on a regular lat/lon grid)
@@ -58,7 +58,7 @@ class Basemap:
 >>> title('Cylindrical Equidistant')
 >>> show()
 
- Version: 20050130
+ Version: 0.1 (20050203)
  Contact: Jeff Whitaker <jeffrey.s.whitaker@noaa.gov>
     """
 
@@ -345,7 +345,10 @@ class Basemap:
  antialiased - antialiasing switch for coastlines (default True).
         """
         coastlines = LineCollection(self.coastsegs,antialiaseds=(antialiased,))
-        coastlines.color(color)
+        try:
+            coastlines.set_color(color)
+        except: # this was a typo that existed in matplotlib-0.71 and earlier
+            coastlines.color(color)
         coastlines.set_linewidth(linewidth)
         ax.add_collection(coastlines)
 
@@ -359,7 +362,10 @@ class Basemap:
  antialiased - antialiasing switch for country boundaries (default True).
         """
         coastlines = LineCollection(self.cntrysegs,antialiaseds=(antialiased,))
-        coastlines.color(color)
+        try:
+            coastlines.set_color(color)
+        except: # this was a typo that existed in matplotlib-0.71 and earlier
+            coastlines.color(color)
         coastlines.set_linewidth(linewidth)
         ax.add_collection(coastlines)
 
@@ -373,7 +379,10 @@ class Basemap:
  antialiased - antialiasing switch for state boundaries (default True).
         """
         coastlines = LineCollection(self.statesegs,antialiaseds=(antialiased,))
-        coastlines.color(color)
+        try:
+            coastlines.set_color(color)
+        except: # this was a typo that existed in matplotlib-0.71 and earlier
+            coastlines.color(color)
         coastlines.set_linewidth(linewidth)
         ax.add_collection(coastlines)
 
