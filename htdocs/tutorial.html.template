@@ -39,13 +39,30 @@ tutorial</a> and <a
 href=http://lists.sourceforge.net/mailman/listinfo/matplotlib-users>numeric
 python manual</a> as possible before working with matplotlib.
 Otherwise you may get frustrated.  When you feel comfortable with
-both, you'll find matplotlib easy.
+both, you'll find matplotlib easy.<p>
+
+matplotlib is designed to work in a variety of settings: some people
+use it in "batch mode" on a web server to create images they never look
+at.  Others use graphical user interfaces (GUIs) to interact with
+their plots.  Thus you must customize matplotlib to work like you want
+it too.  In particular, you need to take a look at the customization
+file <a href=.matplotlibrc>.matplotlibrc<a/>, in which you can set
+whether you want to just create images or use a GUI (the
+<tt>backend</tt> setting), and whether you want to work interactively
+from the shell (the <tt>interactive</tt>) setting.  Also, please read
+<a href=interactive.html>interactive use</a>, <a
+href=faq.html#SHOW>What's up with show?</a>, and <a
+href=faq.html#FREEZE>My matplotlib window is freezing</a> before
+trying type in the examples below, to avoid confusion that bites many
+new matplotlib users.  Or at least make a mental note to come back and
+read them if you encounter any problems.<p>
 
 Using matplotlib should come naturally if you have ever plotted with
 matlab, and should be fairly straightforward if you haven't.  The
 basic entity is a figure, which contains axes, which contain plots.
 The axes are decorated with xlabels, ylabels, titles, ticklabels, and
 text.<p>
+
 
 Here is about the simplest script you can use to create a figure with
 matplotlib<p>
@@ -150,6 +167,7 @@ plot(x, y, linewidth=2.0)
 # of lines (eg line1, line2 = plot(x1,y1,x2,x2)).  Below I have only
 # one line so it is a list of length 1.  I use tuple unpacking in the
 # line, = plot(x, y, 'o') to get the first element of the list
+
 line, = plot(x, y, 'o')
 line.set_antialiased(False) # turn off antialising
 
@@ -242,12 +260,12 @@ axes and subplots as your heart desires.<p>
 <pre>
 from matplotlib.matlab import *
 
-figure(1)                # the first figure window
+figure(1)                # the first figure
 plot([1,2,3]) 
-figure(2)                # a second figure window
+figure(2)                # a second figure 
 plot([4,5,6])
 
-figure(1)                # figure 1 is again the current figure
+figure(1)                # figure 1 current
 title('Easy as 1,2,3')   # figure 1 title
 show()
 </pre>
@@ -442,7 +460,8 @@ s = sin(2*pi*t)
 plot(t,s)
 title(r'$\alpha_i > \beta_i$', fontsize=20)
 text(1, -0.6, r'$\sum_{i=0}^\infty x_i$', fontsize=20)
-text(0.6, 0.6, r'$\cal{A}\rm{sin}(2 \omega t)$', fontsize=20)
+text(0.6, 0.6, r'$\cal{A}\rm{sin}(2 \omega t)$', 
+     fontsize=20)
 xlabel('time (s)')
 ylabel('volts (mV)')
 savefig('mathtext_tut', dpi=50)
@@ -618,11 +637,14 @@ properties.<p>
 subplot(111)
 plot([1,2,3])
 glines = get(gca(), 'gridlines')
-set(glines, 'color', 'b', 'linewidth', 2)  # make the gridlines blue
-                                           # and thicker
-frame = gca(gca(), 'frame')  # get the patches.Rectangle instance
-set(frame, 'linewidth', 2)   # increase the linewidth of the rectangular
-                             # axis frame
+# make the gridlines blue and thicker
+set(glines, 'color', 'b', 'linewidth', 2)  
+
+# get the patches.Rectangle instance increase 
+# the linewidth of the rectangular axis frame
+frame = gca(gca(), 'frame')  
+set(frame, 'linewidth', 2) 
+                             
 </pre>
 
 
@@ -806,7 +828,8 @@ formatters, you can just as easily use the plot command for date
 plots.<p>
 
 <pre>
-s = rand(len(dates)) # make up some random y values
+# make up some random y values
+s = rand(len(dates)) 
 plot_date(dates, s)
 </pre>
 
@@ -846,8 +869,11 @@ years, and minor ticks on March, June, September and December, you
 would do instead
 
 <pre>
-years    = YearLocator(5)                # every 5 years
-months   = MonthLocator(range(3,13,3))   # every quarter
+# every 5 years
+years    = YearLocator(5)                
+
+# every quarter
+months   = MonthLocator(range(3,13,3))   
 </pre>
 
 The date tick locators MinuteLocator, HourLocator, DayLocator,

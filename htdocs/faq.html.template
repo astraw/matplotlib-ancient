@@ -66,7 +66,8 @@ for this
 
 <pre>
 #fps (frames per second) controls the play speed
-mencoder 'mf://*.png' -mf type=png:fps=10 -ovc lavc -lavcopts vcodec=wmv2 -oac copy -o animation.avi
+mencoder 'mf://*.png' -mf type=png:fps=10 -ovc \\
+   lavc -lavcopts vcodec=wmv2 -oac copy -o animation.avi
 </pre>
 
 The swiss army knife of image tools, ImageMagick's <a
@@ -92,7 +93,8 @@ for i in range(50):  # 50 frames
     files.append(fname)
 
 print 'Making movie animation.mpg - this make take a while'
-os.system("mencoder 'mf://_tmp*.png' -mf type=png:fps=10 -ovc lavc -lavcopts vcodec=wmv2 -oac copy -o animation.mpg")
+os.system("mencoder 'mf://_tmp*.png' -mf type=png:fps=10 \\
+  -ovc lavc -lavcopts vcodec=wmv2 -oac copy -o animation.mpg")
 
 # cleanup
 for fname in files: os.remove(fname)
@@ -294,7 +296,7 @@ There is no official documentation yet, but there are a few resources
       on.</li>
 
   <li>You can always post questions to <a
-      href=http://sourceforge.net/mailarchive/forum.php?forum_id=33405>matplotlib-users</li>
+      href=http://sourceforge.net/mailarchive/forum.php?forum_id=33405>matplotlib-users</a></li>
 
 </ul>
 
@@ -461,14 +463,8 @@ your best best.  Tk widgets are not visually stunning. </li>
     ('DATES',
      'Can I plot dates?',
      r"""
-As of matplotlib-0.53, you can plot dates using a variety of datetime
-instances (eg python2.3 datetime module, mx.DateTime, raw epoch data).
-There are a number of converters, major and minor tick locators, and
-date formatters specialized for plotting dates.  See see <a
-href=matplotlib.ticker.html>ticker</a> and <a
-href=matplotlib.dates.html>dates</a> for details and usage and the
-examples <a href=examples/date_demo1.py>date_demo1.py</a> and <a
-href=examples/date_demo2.py>date_demo2.py</a>.
+See the <a href=tutorial.html#dates>dates tutorial</a>.
+
 """),
 
     ('TWOSCALES',
@@ -558,8 +554,9 @@ interactively, it also sets interactive mode.  So you can launch your
 script with <tt>python -i myscript.py -dTkAgg</tt> and then change it
 interactively from the shell.
 
-<b>IMPORTANT: show should called at most once per script.  If you want
-to force a figure draw, use <a
+<b>IMPORTANT: show should called at most once per script and it should
+be the last line of your script.  At that point, the GUI takes control
+of the interpreter.  If you want to force a figure draw, use <a
 href=matplotlib.matlab.html#-draw>draw</a> instead.</b> """),
  
     ('PSGUI',
@@ -633,7 +630,8 @@ You can set the rotation of any text instance to vertical
     from matplotlib.matlab import *
     plot([1,2,3,4], [1,4,9,16])
     set(gca(), 'xticks', [1,2,3,4])
-    labels = set(gca(), 'xticklabels', ['Frogs', 'Hogs', 'Bogs', 'Slogs'])
+    labels = set(gca(), 'xticklabels', 
+          ['Frogs', 'Hogs', 'Bogs', 'Slogs'])
     set(labels, 'rotation', 'vertical')
     show()
 </pre>
@@ -648,7 +646,8 @@ new problem.  You can set font aliases in
 C:\GTK\etc\pango\pango.aliases.  Add a line like
 
 <pre>
-times = "times new roman,angsana new,mingliu,simsun,gulimche,ms gothic,latha,mangal,code2000"
+times = "times new roman,angsana new,mingliu,simsun,\\ 
+         gulimche,ms gothic,latha,mangal,code2000"
 </pre>
 
 Another alternative is suggested by Gary Ruben <gazzar@email.com>
@@ -699,13 +698,15 @@ docs</a> for details.
       ('LEAKS',
        'matplotlib appears to be leaking memory, what should I do?',
 """\
+
 A number of severe memory leaks were fixed in the 0.54 and 0.60
 matplotlib releases.  These have been fixed, and here are no known
-severe leaks in matplotlib as of 0.61.  There is a leak in freetype
-2.1.7 and earlier that was fixed in freetype 2.1.9.  The memory leak
-situation has improved significantly as I've migrated almost all of
-the extension code to pycxx, and I use a number of unit tests to test
-leaks of various extension code components. <p>
+leaks in matplotlib 0.63 or later with Numeric-23.5 or numarray >1.1.
+There is a leak in freetype 2.1.7 and earlier that was fixed in
+freetype 2.1.9.  The memory leak situation has improved significantly
+as I've migrated almost all of the extension code to pycxx, and I use
+a number of unit tests to test leaks of various extension code
+components. <p>
 
 Below is a prototypical script that I use to diagnose and report
 memory leaks.  Please use something like it when reporting leaks so I
@@ -715,14 +716,22 @@ much information about the versions of the libraries you are using:
 freetype, png and zlib.  It would also help if you posted code so I
 could look for any obvious coding errors vis-a-vis matplotlib.<p>
 
-Running the code below, I'm getting about anywhere between -5 to 5
-bytes / per figure (matplotlib-0.60.2 / agg backend on linux with
-freetype 2.1.9, libpng1.2 and libz 1.1.4).  If your numbers are much
-worse, it may be that you are doing something wrong, ie, not properly
-closing, reusing figure, etc, so please post some code to the list.<p>
+Running the code below with 0.0000k bytes / per figure
+(matplotlib-0.63.0 / agg backend on linux with freetype 2.1.9,
+libpng1.2 and libz 1.1.4).  If your numbers are much worse, it may be
+that you are doing something wrong, ie, not properly closing, reusing
+figure, etc, so please post some code to the list.<p>
+
+
+<B>There is a fairly large leak in <tt>dot</tt> and a smaller leak in
+<tt>sometrue</tt> in numarray version 1.1, which matplotlib makes
+heavy use of.  If you are using matplotlib with numarray, and are
+concerned about leaks, please use numarray CVS.  Also, there appear to
+be small leaks in earlier versions of Numeric.  My tests with
+Numeric-23.5 and numarray CVS (2004-09-29) revealed no detectable
+leaks.  </B>
 
 <pre>
-# Script to diagnose and report leaks
 import os, sys, time
 import matplotlib
 matplotlib.use('Agg')
@@ -738,29 +747,35 @@ def report_memory(i):
 
 
 # take a memory snapshot on indStart and compare it with indEnd
-indStart, indEnd = 10, 200
+indStart, indEnd = 30, 150
 for i in range(indEnd):
     ind = arange(100)
     xx = rand(len(ind))
+
     figure(1)
     subplot(221)
     plot(ind, xx)
+
     subplot(222)
     X = rand(50,50)
+    
     imshow(X)
-
     subplot(223)
     scatter(rand(50), rand(50))
     subplot(224)
     pcolor(10*rand(50,50))
+
     savefig('tmp%d' % i, dpi = 75)
     close(1)
 
+
     val = report_memory(i)
-    if i==indStart: start = val # wait a few cycles for memory usage to stabilize
+   # wait a few cycles for memory usage to stabilize
+    if i==indStart: start = val 
 
 end = val
-print 'Average memory consumed per loop: %1.4fk bytes\n' % ((end-start)/float(indEnd-indStart))
+print 'Average memory consumed per loop: %1.4fk bytes\n' % \\
+      ((end-start)/float(indEnd-indStart))
 
 </pre>
 """),

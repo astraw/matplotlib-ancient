@@ -12,10 +12,10 @@ commands = all_commands[0][1]
   matplotlib is a python 2D plotting library which produces
   publication quality figures using in a variety of hardcopy formats
   (PNG, JPG, PS, SVG) and interactive GUI environments (WX, GTK,
-  Tkinter) across platforms.  matplotlib can be used in python
+  Tkinter, FLTK) across platforms.  matplotlib can be used in python
   scripts, interactively from the python shell (ala matlab or
   mathematica), in web application servers generating dynamic charts,
-  or embedded in GTK, Tk or WX applications; see <a
+  or embedded in GUI applications; see <a
   href=backends.html>backends</a>.  All of the matplotlib backends can
   be used on linux, windows or Mac OS X.<p>
 
@@ -34,7 +34,7 @@ commands = all_commands[0][1]
   summary of the goals of matplotlib and the progress so far can be
   found <a href=goals.html>here</a>.<p>
 
-  The plotting functions in the <a href=matlab.html>matlab
+  The plotting functions in the <a href=matplotlib.matlab.html>matlab
   interface</a> have a high degree of Matlab&reg compatibility.<p>
 
   <br>

@@ -13,11 +13,11 @@
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numarray.linear_algebra.mlab.html">numarray.linear_algebra.mlab</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="MLab.html">MLab</a><br>
 <a href="matplotlib._image.html">matplotlib._image</a><br>
 </td><td width="25%" valign=top><a href="matplotlib.cm.html">matplotlib.cm</a><br>
-<a href="matplotlib.dates.html">matplotlib.dates</a><br>
-</td><td width="25%" valign=top><a href="math.html">math</a><br>
+<a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.html">matplotlib</a><br>
 <a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
 </td><td width="25%" valign=top><a href="sys.html">sys</a><br>
 </td></tr></table></td></tr></table><p>
@@ -418,8 +418,8 @@ object<br>
 Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
 x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;arange(7)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;arange(5)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
@@ -465,8 +465,8 @@ returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects<br>
 Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit<br>
 counterintuitive&nbsp;for&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
-&nbsp;&nbsp;x&nbsp;=&nbsp;arange(7)<br>
-&nbsp;&nbsp;y&nbsp;=&nbsp;arange(5)<br>
+&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
 &nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
 &nbsp;<br>
 &nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
@@ -502,31 +502,32 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;wer
 &nbsp;<br>
 The&nbsp;following&nbsp;line&nbsp;styles&nbsp;are&nbsp;supported:<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;:&nbsp;solid&nbsp;line<br>
-&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;:&nbsp;dashed&nbsp;line<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-.&nbsp;:&nbsp;dash-dot&nbsp;line<br>
-&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;:&nbsp;dotted&nbsp;line<br>
-&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;:&nbsp;points<br>
-&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;:&nbsp;pixels<br>
-&nbsp;&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;:&nbsp;circle&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;^&nbsp;&nbsp;:&nbsp;triangle&nbsp;up&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;v&nbsp;&nbsp;:&nbsp;triangle&nbsp;down&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;&nbsp;&nbsp;:&nbsp;triangle&nbsp;left&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;:&nbsp;triangle&nbsp;right&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;&nbsp;:&nbsp;square&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;:&nbsp;plus&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;&nbsp;:&nbsp;cross&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;D&nbsp;&nbsp;:&nbsp;diamond&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;&nbsp;:&nbsp;thin&nbsp;diamond&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;:&nbsp;tripod&nbsp;down&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;:&nbsp;tripod&nbsp;up&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;:&nbsp;tripod&nbsp;left&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;:&nbsp;tripod&nbsp;right&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;h&nbsp;&nbsp;:&nbsp;hexagon&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;H&nbsp;&nbsp;:&nbsp;rotated&nbsp;hexagon&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;p&nbsp;&nbsp;:&nbsp;pentagon&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;:&nbsp;vertical&nbsp;line&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;:&nbsp;horizontal&nbsp;line&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;solid&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;dashed&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-.&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;dash-dot&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;dotted&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;points<br>
+&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;pixels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;circle&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;up&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;down&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;left&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;right&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;square&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;plus&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;cross&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;diamond&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;thin&nbsp;diamond&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;down&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;up&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;left&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;right&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;hexagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;rotated&nbsp;hexagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;pentagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;vertical&nbsp;line&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;horizontal&nbsp;line&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;steps&nbsp;:&nbsp;use&nbsp;gnuplot&nbsp;style&nbsp;'steps'&nbsp;#&nbsp;kwarg&nbsp;only<br>
 &nbsp;<br>
 The&nbsp;following&nbsp;color&nbsp;strings&nbsp;are&nbsp;supported<br>
 &nbsp;<br>
@@ -1264,8 +1265,8 @@ object<br>
 Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
 x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;arange(7)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;arange(5)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
@@ -1311,8 +1312,8 @@ returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects<br>
 Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit<br>
 counterintuitive&nbsp;for&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
 &nbsp;<br>
-&nbsp;&nbsp;x&nbsp;=&nbsp;arange(7)<br>
-&nbsp;&nbsp;y&nbsp;=&nbsp;arange(5)<br>
+&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
 &nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
 &nbsp;<br>
 &nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
@@ -1348,31 +1349,32 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;wer
 &nbsp;<br>
 The&nbsp;following&nbsp;line&nbsp;styles&nbsp;are&nbsp;supported:<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;:&nbsp;solid&nbsp;line<br>
-&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;:&nbsp;dashed&nbsp;line<br>
-&nbsp;&nbsp;&nbsp;&nbsp;-.&nbsp;:&nbsp;dash-dot&nbsp;line<br>
-&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;:&nbsp;dotted&nbsp;line<br>
-&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;:&nbsp;points<br>
-&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;:&nbsp;pixels<br>
-&nbsp;&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;:&nbsp;circle&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;^&nbsp;&nbsp;:&nbsp;triangle&nbsp;up&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;v&nbsp;&nbsp;:&nbsp;triangle&nbsp;down&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;&nbsp;&nbsp;:&nbsp;triangle&nbsp;left&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;:&nbsp;triangle&nbsp;right&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;&nbsp;:&nbsp;square&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;:&nbsp;plus&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;&nbsp;:&nbsp;cross&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;D&nbsp;&nbsp;:&nbsp;diamond&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;&nbsp;:&nbsp;thin&nbsp;diamond&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;:&nbsp;tripod&nbsp;down&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;:&nbsp;tripod&nbsp;up&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;:&nbsp;tripod&nbsp;left&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;:&nbsp;tripod&nbsp;right&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;h&nbsp;&nbsp;:&nbsp;hexagon&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;H&nbsp;&nbsp;:&nbsp;rotated&nbsp;hexagon&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;p&nbsp;&nbsp;:&nbsp;pentagon&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;:&nbsp;vertical&nbsp;line&nbsp;symbols<br>
-&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;:&nbsp;horizontal&nbsp;line&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;solid&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;dashed&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-.&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;dash-dot&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;dotted&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;points<br>
+&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;pixels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;circle&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;up&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;down&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;left&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;triangle&nbsp;right&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;square&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;plus&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;cross&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;diamond&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;thin&nbsp;diamond&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;down&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;up&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;left&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;tripod&nbsp;right&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;hexagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;rotated&nbsp;hexagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;pentagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;vertical&nbsp;line&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;horizontal&nbsp;line&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;steps&nbsp;:&nbsp;use&nbsp;gnuplot&nbsp;style&nbsp;'steps'&nbsp;#&nbsp;kwarg&nbsp;only<br>
 &nbsp;<br>
 The&nbsp;following&nbsp;color&nbsp;strings&nbsp;are&nbsp;supported<br>
 &nbsp;<br>
@@ -1725,6 +1727,11 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
  <dl><dt><a name="-Func"><strong>Func</strong></a>(...)</dt><dd><tt><a href="#-Func">Func</a>(typecode)</tt></dd></dl>
  <dl><dt><a name="-Point"><strong>Point</strong></a>(...)</dt><dd><tt><a href="#-Point">Point</a>(x,&nbsp;y)</tt></dd></dl>
  <dl><dt><a name="-Value"><strong>Value</strong></a>(...)</dt><dd><tt><a href="#-Value">Value</a>(x)</tt></dd></dl>
+ <dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
+&nbsp;<br>
+&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
+specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
+ <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -1733,7 +1740,7 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
-<strong>Float</strong> = Float64<br>
+<strong>Float</strong> = 'd'<br>
 <strong>IDENTITY</strong> = 0<br>
 <strong>LOG10</strong> = 1<br>
 <strong>SEC_PER_DAY</strong> = 86400<br>
@@ -1741,13 +1748,13 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <strong>SEC_PER_MIN</strong> = 60<br>
 <strong>SEC_PER_WEEK</strong> = 604800<br>
 <strong>True</strong> = True<br>
-<strong>absolute</strong> = &lt;UFunc: 'abs'&gt;<br>
+<strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>generators</strong> = _Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 4096)<br>
 <strong>lineMarkers</strong> = {0: 1, 1: 1, 2: 1, 3: 1, '+': 1, ',': 1, '.': 1, '1': 1, '2': 1, '3': 1, ...}<br>
-<strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1, 'None': 1}<br>
-<strong>log</strong> = &lt;UFunc: 'log'&gt;<br>
-<strong>log10</strong> = &lt;UFunc: 'log10'&gt;<br>
+<strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1, 'None': 1, 'steps': 1}<br>
+<strong>log</strong> = &lt;ufunc 'log'&gt;<br>
+<strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
 <strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
 @footer@

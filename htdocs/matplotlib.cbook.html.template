@@ -256,6 +256,10 @@ v&nbsp;defaults&nbsp;to&nbsp;None.</tt></dl>
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-allequal"><strong>allequal</strong></a>(seq)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;all&nbsp;elements&nbsp;of&nbsp;seq&nbsp;compare&nbsp;equal.&nbsp;&nbsp;If&nbsp;seq&nbsp;is&nbsp;0&nbsp;or<br>
 1&nbsp;length,&nbsp;return&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-allpairs"><strong>allpairs</strong></a>(x)</dt><dd><tt>return&nbsp;all&nbsp;possible&nbsp;pairs&nbsp;in&nbsp;sequence&nbsp;x<br>
+&nbsp;<br>
+Condensed&nbsp;by&nbsp;Alex&nbsp;Martelli&nbsp;from&nbsp;this&nbsp;thread&nbsp;on&nbsp;c.l.python<br>
+<a href="http://groups.google.com/groups?q=all+pairs+group:*python*&amp;hl=en&amp;lr=&amp;ie=UTF-8&amp;selm=mailman.4028.1096403649.5135.python-list%40python.org&amp;rnum=1">http://groups.google.com/groups?q=all+pairs+group:*python*&amp;hl=en&amp;lr=&amp;ie=UTF-8&amp;selm=mailman.4028.1096403649.5135.python-list%40python.org&amp;rnum=1</a></tt></dd></dl>
  <dl><dt><a name="-alltrue"><strong>alltrue</strong></a>(seq)</dt></dl>
  <dl><dt><a name="-enumerate"><strong>enumerate</strong></a>(seq)</dt><dd><tt>#&nbsp;until&nbsp;2.3</tt></dd></dl>
  <dl><dt><a name="-exception_to_str"><strong>exception_to_str</strong></a>(s<font color="#909090">=None</font>)</dt></dl>

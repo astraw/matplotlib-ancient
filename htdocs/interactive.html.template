@@ -33,11 +33,19 @@ yet possible to use matplotlib from an arbitrary python shell with the
 other GUI backends.  Instead, there are custom solutions depending on
 the GUI environment in which you use matplotlib.<p>
 
+The recommended way to use matplotlib interactively from a shell is
+with <a href=http://ipython.scipy.org>ipython</a>, which has an pylab
+mode that detects your matplotlib <a
+href=.matplotlibrc>matplotlibrc</a> file and makes the right settings
+to run matplotlib with your GUI of choice in interactive mode using
+threading.  gtk users will need to make sure that they have compiled
+gtk with threading for this to work.<p>
 
-<h3>WX</h3> 
 
-With a WX shell, such as pycrust, you need to put matplotlib in
-interactive mode.  
+<h3>WX and pycrust</h3>
+It is possible to use matplotlib with custom GUI shells, eg pycrust
+for wxpython.  With a WX shell, such as pycrust, you need to put
+matplotlib in interactive mode.
 
 <pre>
   >>> import matplotlib
@@ -56,103 +64,6 @@ backend      : Wx
 interactive  : True     
 </pre>
 
-<h3>GTK</h3> 
-
-In the examples dir of the src distribution, there is an interactive
-shell for pygtk.  It sets the interactive property for you, and
-imports all the commands from matplotlib.matlab, so you can just start
-plotting away <a
-href=examples/interactive2.py>interactive2.py</a>).<p>
-
-<pre>
-examples> ./interactive2.py
->>> plot([1,2,3])
-</pre>
-
-<tt>interactive2.py</tt> will work with any pygtk 1.99.16 or
-later, regardless of whether threading was built in or not.
-<tt>interactive.py</tt> requires an interpreter with threading an
-so requires a bit more work.  There are relative strengths of both
-these interpreters and neither is perfect.  For example,
-interactive2.py is easier to set up since it doesn't require
-threading, and looks nicer, but interactive.py better handles cutting
-and pasting of code blocks from an editor into the interpreter.<p>
-
-
-<h2>pygtk with threading</h2>
-
-The rest of this page details how to get pygtk setup with threading if
-you want to use interactive.py (interactive2.py doesn't require it).
-The core functionality of this interpreter was provided by <a
-href=http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/65109>Brian
-McErlean and John Finlay</a>.<p>
-
-
-<h3>WIN32 Users</h3>
-
-  You will need pygtk compiled for threading.  The lastest version for
-  windows at Cedirc's website, pygtk-2.0.0 has threading built in
-  automatically.  If for some reason, you need an older version, a
-  windows installer for pygtk-1.99.16 with threading is available at
-  <a
-  href=http://nitace.bsd.uchicago.edu:8080/Wikis/Leo/Python/win32/pygtk-1.99.16.threading.win32-py2.2.exe>pygtk-1.99.16
-  with threading</a>.<p>
-
-
-  I have seen reports of threading difficulties with pygtk on win32,
-  but haven't experienced them myself.  If you experience freezes or
-  other strangeness, check the <a
-  href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.003.htp>pygtk
-  FAQ entry</a>.<p>
-
-
-<h3>Linux/UNIX Users</h3>
-
-  To compile pygtk with threading, you need to build with<p>
-
-  <pre>
-  > python setup.py build --enable-threading
-  > python setup.py install
-  </pre>
-
-  If after this install, threading still is not working for you, you
-  may want to try a clean install using configure.  See below.<p>
-  
-<h3>Testing threading</h3>
-
-  To test whether this install worked, try running this script<p>
-
-  <pre>
-    import pygtk
-    pygtk.require('2.0')
-    import gtk
-
-    import threading, time
-
-    def func():
-      n = 0
-      while 1:
-        print n
-        n += 1
-        time.sleep(0.1)
-
-    gtk.threads_init()
-    threading.Thread(target=func).start()
-    gtk.mainloop()
-  </pre>
-
-
-  If it spits numbers back at you, you're golden.<p>
-
-<h3>Testing with matplotlib</h3>
-
-  You should be able to make a simple plot with<p>
-
-  <pre>
-  > cd examples
-  > ./interactive.py
-  >>> plot([1,2,3])
-  </pre>
 
 
 @footer@

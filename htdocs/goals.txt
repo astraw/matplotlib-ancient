@@ -136,7 +136,7 @@ axis, this work would make it easier to create such plots.
 *******************
 Contour plots
 
-not started
+work in progress
 
 *******************
 Log histogram
@@ -160,10 +160,14 @@ href=whats_new.html#0.54-Full_dash_control>matplotlib-0.54</a>.  See
 *******************
 Generalize date plots
 
-not started
+done
 
-Fix the date code to not use epoch since the time window is too
-narrow.
+Rewrote the date code to require datetime and thus support a wider
+range of date intervals.  Version of matplotlib < 0.63 did not require
+datetime and only supported epoch dates (seconds since 1972).  <a
+href=whats_new.html#0.63-new_dates_handling>matplotlib-0.63</a>, dates
+in the range of 0001-9999 are supported.  See the <a
+href=tutorial.html#dates>dates tutorial</a>.
 
 *******************
 Bezier curves, paths
@@ -316,7 +320,7 @@ SVG backend
 
 almost done 
 
-Jared Wahlstrand wrote the SVG backend, which is in alpha.  As of <a
+Jared Wahlstrand wrote the SVG backend.  As of <a
 href="whats_new.html#0.61-svg_fixes">matplotlib-0.61</a> svg has fast
 rendering, good layout, image support and font support.  Remaining is
 mathtext for svg.

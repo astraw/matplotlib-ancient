@@ -810,7 +810,11 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-date2num"><strong>date2num</strong></a>(d)</dt><dd><tt>d&nbsp;is&nbsp;either&nbsp;a&nbsp;datetime&nbsp;instance&nbsp;or&nbsp;a&nbsp;sequence&nbsp;of&nbsp;datetimes<br>
+<td width="100%"><dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
+&nbsp;<br>
+&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
+specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
+ <dl><dt><a name="-date2num"><strong>date2num</strong></a>(d)</dt><dd><tt>d&nbsp;is&nbsp;either&nbsp;a&nbsp;datetime&nbsp;instance&nbsp;or&nbsp;a&nbsp;sequence&nbsp;of&nbsp;datetimes<br>
 &nbsp;<br>
 return&nbsp;value&nbsp;is&nbsp;a&nbsp;floating&nbsp;point&nbsp;number&nbsp;(or&nbsp;sequence&nbsp;of&nbsp;floats)<br>
 which&nbsp;gives&nbsp;number&nbsp;of&nbsp;days&nbsp;(fraction&nbsp;part&nbsp;represents&nbsp;hours,<br>
