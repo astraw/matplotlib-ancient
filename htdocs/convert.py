@@ -85,6 +85,7 @@ docs = (
     'matplotlib.axes.html.template',
     'matplotlib.axis.html.template',        
     'matplotlib.backend_bases.html.template',
+    'matplotlib.backends.backend_agg.html.template',
     'matplotlib.backends.backend_gd.html.template',
     'matplotlib.backends.backend_gtk.html.template',
     'matplotlib.backends.backend_gtkgd.html.template',
@@ -98,6 +99,7 @@ docs = (
     'matplotlib.matlab.html.template',
     'matplotlib.mlab.html.template',
     'matplotlib.patches.html.template',
+    'matplotlib.table.html.template',    
     'matplotlib.text.html.template',    
     'matplotlib.transforms.html.template',
          )

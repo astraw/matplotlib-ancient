@@ -60,6 +60,8 @@ axisbg&nbsp;is&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;axis&nbsp;background<br
 
 <dl><dt><a name="Axes-add_patch"><strong>add_patch</strong></a>(self, patch)</dt><dd><tt>Add&nbsp;a&nbsp;line&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;plot&nbsp;lines</tt></dd></dl>
 
+<dl><dt><a name="Axes-add_table"><strong>add_table</strong></a>(self, tab)</dt><dd><tt>Add&nbsp;a&nbsp;table&nbsp;instance&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;axes&nbsp;tables</tt></dd></dl>
+
 <dl><dt><a name="Axes-bar"><strong>bar</strong></a>(self, left, height, width<font color="#909090">=0.80000000000000004</font>, bottom<font color="#909090">=0</font>, color<font color="#909090">='b'</font>, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>BAR(left,&nbsp;height)<br>
 &nbsp;<br>
 Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at<br>
@@ -102,9 +104,6 @@ Returns&nbsp;the&nbsp;tuple&nbsp;Cxy,&nbsp;freqs<br>
 Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
-
-<dl><dt><a name="Axes-convert_text"><strong>convert_text</strong></a>(self, func)</dt><dd><tt>Convert&nbsp;all&nbsp;text&nbsp;instances&nbsp;using&nbsp;func.&nbsp;&nbsp;Used&nbsp;for&nbsp;converting<br>
-between&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Axes-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram<br>
 method.&nbsp;&nbsp;The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length<br>
@@ -457,11 +456,17 @@ Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt><
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><a name="Axes-draw"><strong>draw</strong></a>(self, renderer<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
 
+<dl><dt><a name="Axes-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
 <dl><dt><a name="Axes-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
 
@@ -519,6 +524,8 @@ Methods inherited from <a href="matplotlib.axes.html#Axes">Axes</a>:<br>
 
 <dl><dt><a name="Subplot-add_patch"><strong>add_patch</strong></a>(self, patch)</dt><dd><tt>Add&nbsp;a&nbsp;line&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;plot&nbsp;lines</tt></dd></dl>
 
+<dl><dt><a name="Subplot-add_table"><strong>add_table</strong></a>(self, tab)</dt><dd><tt>Add&nbsp;a&nbsp;table&nbsp;instance&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;axes&nbsp;tables</tt></dd></dl>
+
 <dl><dt><a name="Subplot-bar"><strong>bar</strong></a>(self, left, height, width<font color="#909090">=0.80000000000000004</font>, bottom<font color="#909090">=0</font>, color<font color="#909090">='b'</font>, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>BAR(left,&nbsp;height)<br>
 &nbsp;<br>
 Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at<br>
@@ -561,9 +568,6 @@ Returns&nbsp;the&nbsp;tuple&nbsp;Cxy,&nbsp;freqs<br>
 Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
-
-<dl><dt><a name="Subplot-convert_text"><strong>convert_text</strong></a>(self, func)</dt><dd><tt>Convert&nbsp;all&nbsp;text&nbsp;instances&nbsp;using&nbsp;func.&nbsp;&nbsp;Used&nbsp;for&nbsp;converting<br>
-between&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Subplot-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram<br>
 method.&nbsp;&nbsp;The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length<br>
@@ -916,11 +920,17 @@ Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt><
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><a name="Subplot-draw"><strong>draw</strong></a>(self, renderer<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
 
+<dl><dt><a name="Subplot-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
 <dl><dt><a name="Subplot-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
 

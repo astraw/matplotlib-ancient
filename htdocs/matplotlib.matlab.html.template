@@ -173,7 +173,9 @@ If&nbsp;it&nbsp;is&nbsp;a&nbsp;len(3)&nbsp;tuple,&nbsp;assume&nbsp;it's&nbsp;an&
  <dl><dt><a name="-axis"><strong>axis</strong></a>(*v)</dt><dd><tt><a href="#-axis">axis</a>()&nbsp;returns&nbsp;the&nbsp;current&nbsp;axis&nbsp;as&nbsp;a&nbsp;length&nbsp;a&nbsp;length&nbsp;4&nbsp;vector<br>
 &nbsp;<br>
 <a href="#-axis">axis</a>(v)&nbsp;where&nbsp;v=&nbsp;[xmin&nbsp;xmax&nbsp;ymin&nbsp;ymax]&nbsp;sets&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the<br>
-x&nbsp;and&nbsp;y&nbsp;axis&nbsp;limits</tt></dd></dl>
+x&nbsp;and&nbsp;y&nbsp;axis&nbsp;limits<br>
+&nbsp;<br>
+<a href="#-axis">axis</a>('off')&nbsp;turns&nbsp;off&nbsp;the&nbsp;axis&nbsp;lines&nbsp;and&nbsp;labels</tt></dd></dl>
  <dl><dt><a name="-bar"><strong>bar</strong></a>(*args, **kwargs)</dt><dd><tt>BAR(left,&nbsp;height)<br>
 &nbsp;<br>
 Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at<br>
@@ -292,7 +294,7 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&n
 y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.<br>
 &nbsp;<br>
 capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps&nbsp;in&nbsp;points</tt></dd></dl>
- <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=1</font>, figsize<font color="#909090">=(8, 6)</font>, dpi<font color="#909090">=72</font>)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;and&nbsp;return&nbsp;a&nbsp;handle&nbsp;to&nbsp;it<br>
+ <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=1</font>, figsize<font color="#909090">=(8, 6)</font>, dpi<font color="#909090">=72</font>, facecolor<font color="#909090">=0.75</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;and&nbsp;return&nbsp;a&nbsp;handle&nbsp;to&nbsp;it<br>
 &nbsp;<br>
 If&nbsp;<a href="#-figure">figure</a>(num)&nbsp;already&nbsp;exists,&nbsp;make&nbsp;it&nbsp;active&nbsp;and&nbsp;return&nbsp;the<br>
 handle&nbsp;to&nbsp;it.<br>

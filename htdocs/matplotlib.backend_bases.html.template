@@ -96,6 +96,9 @@ num&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;figure&nbsp;number<br>&nbsp;</tt></td
 
 <dl><dt><a name="GraphicsContextBase-copy_properties"><strong>copy_properties</strong></a>(self, gc)</dt><dd><tt>Copy&nbsp;properties&nbsp;from&nbsp;gc&nbsp;to&nbsp;self</tt></dd></dl>
 
+<dl><dt><a name="GraphicsContextBase-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
 <dl><dt><a name="GraphicsContextBase-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;the&nbsp;object&nbsp;shuold&nbsp;try&nbsp;to&nbsp;do&nbsp;antialiased&nbsp;rendering</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextBase-get_capstyle"><strong>get_capstyle</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;capstyle&nbsp;as&nbsp;a&nbsp;string&nbsp;in&nbsp;('butt',&nbsp;'round',&nbsp;'projecting')</tt></dd></dl>
@@ -117,6 +120,9 @@ Default&nbsp;value&nbsp;is&nbsp;None</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextBase-get_rgb"><strong>get_rgb</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;tuple&nbsp;of&nbsp;three&nbsp;floats&nbsp;from&nbsp;0-1.&nbsp;&nbsp;color&nbsp;can&nbsp;be&nbsp;a<br>
 matlab&nbsp;format&nbsp;string,&nbsp;a&nbsp;html&nbsp;hex&nbsp;color&nbsp;string,&nbsp;or&nbsp;a&nbsp;rgb&nbsp;tuple</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextBase-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextBase-set_antialiased"><strong>set_antialiased</strong></a>(self, b)</dt><dd><tt>True&nbsp;if&nbsp;object&nbsp;should&nbsp;be&nbsp;drawn&nbsp;with&nbsp;antialiased&nbsp;rendering</tt></dd></dl>
 
@@ -153,10 +159,10 @@ avoid&nbsp;the&nbsp;performace&nbsp;hit&nbsp;of&nbsp;the&nbsp;conversion</tt></d
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="RendererBase-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, faceColor, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
+<dl><dt><a name="RendererBase-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, gcFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
 from&nbsp;0.0&nbsp;to&nbsp;360.0<br>
 &nbsp;<br>
-If&nbsp;faceColor&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
+If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;line&nbsp;from&nbsp;x1,y1&nbsp;to&nbsp;x2,y2</tt></dd></dl>
@@ -166,18 +172,18 @@ point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;point&nbsp;at&nbsp;x,y</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-draw_polygon"><strong>draw_polygon</strong></a>(self, gcEdge, faceColor, points)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon.&nbsp;&nbsp;points&nbsp;is&nbsp;a&nbsp;len&nbsp;vertices&nbsp;tuple,&nbsp;each&nbsp;element<br>
+<dl><dt><a name="RendererBase-draw_polygon"><strong>draw_polygon</strong></a>(self, gcEdge, gcFace, points)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon.&nbsp;&nbsp;points&nbsp;is&nbsp;a&nbsp;len&nbsp;vertices&nbsp;tuple,&nbsp;each&nbsp;element<br>
 giving&nbsp;the&nbsp;x,y&nbsp;coords&nbsp;a&nbsp;vertex<br>
 &nbsp;<br>
-If&nbsp;faceColor&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
+If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gcEdge, faceColor, x, y, width, height)</dt><dd><tt>Draw&nbsp;a&nbsp;rectangle&nbsp;with&nbsp;lower&nbsp;left&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height.<br>
+<dl><dt><a name="RendererBase-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gcEdge, gcFace, x, y, width, height)</dt><dd><tt>Draw&nbsp;a&nbsp;rectangle&nbsp;with&nbsp;lower&nbsp;left&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height.<br>
 &nbsp;<br>
-If&nbsp;faceColor&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
+If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-draw_text"><strong>draw_text</strong></a>(self, text)</dt><dd><tt>Draw&nbsp;a&nbsp;text&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="RendererBase-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, t)</dt><dd><tt>Draw&nbsp;a&nbsp;text&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
 

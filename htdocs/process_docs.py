@@ -6,6 +6,7 @@ files = (
     'matplotlib.axes.html',
     'matplotlib.axis.html',    
     'matplotlib.backend_bases.html',
+    'matplotlib.backends.backend_agg.html',
     'matplotlib.backends.backend_gd.html',
     'matplotlib.backends.backend_gtk.html',
     'matplotlib.backends.backend_gtkgd.html',    
@@ -19,6 +20,7 @@ files = (
     'matplotlib.matlab.html',
     'matplotlib.mlab.html',
     'matplotlib.patches.html',
+    'matplotlib.table.html',
     'matplotlib.text.html',
     'matplotlib.transforms.html',
           )

@@ -77,10 +77,8 @@ a bounding box, if it's a ps file it will output plain postscript.  It
 is recommended you use matplotlib-0.50 or later for this feature to
 work properly."""),
 
-  ('My title or ticklabel or whatever is overlapping some other figure
-  element, what should I do?',
-   """\
-
+  ('My title or ticklabel or whatever is overlapping some other figure element, what should I do?',
+   """
 The default subplots take up a lot of room.  If you need extra space
 for particularly large labels and titles, consider using custom <a
 href=matplotlib.matlab#-axes>axes</a>, eg, <tt>axes([0.3, 0.3, 0.6,
