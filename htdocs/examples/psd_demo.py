@@ -16,6 +16,7 @@ plot(t,s)
 
 figure(2)
 psd(s, 512, 1/dt)
+savefig('psd_demo')
 show()
 
 """
@@ -33,5 +34,5 @@ plot(t,s)
 
 figure(2)
 psd(s, 512, 1/dt)
-
+savefig('psd_demo')
 """
