@@ -80,24 +80,47 @@ bug-vetting</li>
 </ul>
 """),
 
-    ('NUMARRAY',
-    'Does matplotlib work with numarray?',
-    """
+    ('NUMARRAY', 'Does matplotlib work with numarray?', """ 
 Yes.  Todd Miller has added a numerix module which allows you to
-choose between Numeric or numarray at the promptw, in a config file,
-or using an environment variable.  For the most part, this works
-seamlessly.  See <a href=matplotlib.numerix.html>numerix module</a>
-for more information.<p>
+choose between Numeric or numarray at the prompt or in a config file.
+See <a href=matplotlib.numerix.html>numerix module</a> for more
+information.<p>
 
 Some of the matplotlib extension code operates on Numeric/numarray
 arrays, eg the image and transforms modules.  To get optimum
 performance, you should compile matplotlib with the proper flag for
 the library you will be using most.  Set the <i>NUMERIX</i> variable
-in setup.py.  Note that this is different from the <i>numerix</i>
-variable in <a href=.matplotlibrc>.matplotlibrc</a>.  The former
-affects the matplotlib at compile time, the latter at run time.  All
-of your matplotlib scripts should run without error regardless of
-these two settings, but to get optimum performance, they should agree.
+in setup.py before building.  Note that this is different from the
+<i>numerix</i> variable in <a href=.matplotlibrc>.matplotlibrc</a>.
+The former affects the matplotlib at compile time, the latter at run
+time.  All of your matplotlib scripts should run without error
+regardless of these two settings, but to get optimum performance, they
+should agree.  numarray builds for win32 are available on the download
+page."""),
+
+    ('SLOW', 'matplotlib seems painfully slow, am I doing something
+wrong?', """ Hopefully, yes.  A lot of work has gone into making
+matplotlib reasonably fast plotting largish arrays and image data.  If
+things seem exceptionally pokey, it may indicate a problem in your
+setup.  The most common cause is getting your numerix settings out of
+kilter.  As indicated in <a href=faq.html#NUMARRAY>the numarray
+faq</a>, it is important that you compile matplotlib with the same
+numerix setting you use in your rc file.  Failure to do so can cause
+up to a 30-fold performance hit in some cases.<p>
+
+Another possibility to speed things up is to use <a
+href=matplotlib.collections.html>collections</a>, which were designed
+to efficiently plot large numbers of objects with some shared
+properties.  If you find youself issuing many spearate plot commands,
+or instantiating many Line2D or Patch objects, you may benefit from
+recoding with collections.  See the matplotlib.axes.Axes
+implementatation of scatter and pcolor, and the matplotlib.finance
+module, for examples.<p>
+
+If you are experiencing problems with performance, please post an
+example to the mailing list.
+
+
 """),
 
     ('MATPLOTLIBRC', 
