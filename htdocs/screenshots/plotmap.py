@@ -8,7 +8,7 @@ import cPickle
 
 # read in topo data from pickle (on a regular lat/lon grid)
 # longitudes go from 20 to 380.
-topodict = cPickle.load(open('etopo20.pickle','rb'))
+topodict = cPickle.load(open('data/etopo20.pickle','rb'))
 topoin = topodict['data']; lons = topodict['lons']; lats = topodict['lats']
 
 # setup of basemap ('lcc' = lambert conformal conic).
