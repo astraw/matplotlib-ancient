@@ -30,7 +30,7 @@ matplotlib
   module, which allows matplotlib to work with either numeric or
   numarray</li>
 
-  <li>Paul Barret overhauled font management to provide an improved,
+  <li>Paul Barrett overhauled font management to provide an improved,
   free-standing, platform independent font manager with a WC3 compliant
   font finder</li>
 </ul>
