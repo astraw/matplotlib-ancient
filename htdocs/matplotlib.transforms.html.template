@@ -206,6 +206,7 @@ trans2&nbsp;and&nbsp;returns&nbsp;the&nbsp;new&nbsp;Transformation&nbsp;instance
 useful,&nbsp;for&nbsp;example,&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;specify&nbsp;x&nbsp;in&nbsp;data&nbsp;coordinates<br>
 and&nbsp;y&nbsp;in&nbsp;axes&nbsp;coordinates.</tt></dd></dl>
  <dl><dt><a name="-bound_vertices"><strong>bound_vertices</strong></a>(verts)</dt><dd><tt>Return&nbsp;the&nbsp;Bbox&nbsp;of&nbsp;the&nbsp;sequence&nbsp;of&nbsp;x,y&nbsp;tuples&nbsp;in&nbsp;verts</tt></dd></dl>
+ <dl><dt><a name="-copy_bbox_transform"><strong>copy_bbox_transform</strong></a>(trans)</dt><dd><tt>return&nbsp;a&nbsp;deep&nbsp;copy&nbsp;of&nbsp;the&nbsp;bbox&nbsp;transform</tt></dd></dl>
  <dl><dt><a name="-get_bbox_transform"><strong>get_bbox_transform</strong></a>(boxin, boxout)</dt><dd><tt>return&nbsp;the&nbsp;transform&nbsp;that&nbsp;maps&nbsp;transform&nbsp;one&nbsp;bounding&nbsp;box&nbsp;to<br>
 another</tt></dd></dl>
  <dl><dt><a name="-identity_affine"><strong>identity_affine</strong></a>()</dt><dd><tt>Get&nbsp;an&nbsp;affine&nbsp;transformation&nbsp;that&nbsp;maps&nbsp;x,y&nbsp;-&gt;&nbsp;x,y</tt></dd></dl>

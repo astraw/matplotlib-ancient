@@ -37,6 +37,7 @@ Plotting&nbsp;commands<br>
 &nbsp;&nbsp;hold&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;axes&nbsp;hold&nbsp;state<br>
 &nbsp;&nbsp;legend&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;an&nbsp;axes&nbsp;legend<br>
 &nbsp;&nbsp;loglog&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;log&nbsp;log&nbsp;plot<br>
+&nbsp;&nbsp;imread&nbsp;&nbsp;&nbsp;-&nbsp;load&nbsp;image&nbsp;file&nbsp;into&nbsp;array<br>
 &nbsp;&nbsp;imshow&nbsp;&nbsp;&nbsp;-&nbsp;plot&nbsp;image&nbsp;data<br>
 &nbsp;&nbsp;pcolor&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot<br>
 &nbsp;&nbsp;plot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;line&nbsp;plot<br>
@@ -838,6 +839,7 @@ hist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;histogram<br>
 hold&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;hold&nbsp;state&nbsp;on&nbsp;current&nbsp;axes<br>
 legend&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;legend&nbsp;to&nbsp;the&nbsp;axes<br>
 loglog&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;log&nbsp;log&nbsp;plot<br>
+imread&nbsp;&nbsp;&nbsp;-&nbsp;load&nbsp;image&nbsp;file&nbsp;into&nbsp;array<br>
 imshow&nbsp;&nbsp;&nbsp;-&nbsp;plot&nbsp;image&nbsp;data<br>
 pcolor&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot<br>
 plot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;line&nbsp;plot<br>
@@ -1034,22 +1036,25 @@ is&nbsp;'somename',&nbsp;set&nbsp;function&nbsp;calls<br>
 &nbsp;&nbsp;o.set_somename(value)<br>
 &nbsp;<br>
 for&nbsp;every&nbsp;instance&nbsp;in&nbsp;h.</tt></dd></dl>
- <dl><dt><a name="-specgram"><strong>specgram</strong></a>(x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>)</dt><dd><tt>Compute&nbsp;a&nbsp;spectrogram&nbsp;of&nbsp;data&nbsp;in&nbsp;x.&nbsp;&nbsp;Data&nbsp;are&nbsp;split&nbsp;into&nbsp;NFFT<br>
+ <dl><dt><a name="-specgram"><strong>specgram</strong></a>(*args, **kwargs)</dt><dd><tt>Compute&nbsp;a&nbsp;spectrogram&nbsp;of&nbsp;data&nbsp;in&nbsp;x.&nbsp;&nbsp;Data&nbsp;are&nbsp;split&nbsp;into&nbsp;NFFT<br>
 length&nbsp;segements&nbsp;and&nbsp;the&nbsp;PSD&nbsp;of&nbsp;each&nbsp;section&nbsp;is&nbsp;computed.&nbsp;&nbsp;The<br>
 windowing&nbsp;function&nbsp;window&nbsp;is&nbsp;applied&nbsp;to&nbsp;each&nbsp;segment,&nbsp;and&nbsp;the<br>
 amount&nbsp;of&nbsp;overlap&nbsp;of&nbsp;each&nbsp;segment&nbsp;is&nbsp;specified&nbsp;with&nbsp;noverlap<br>
 &nbsp;<br>
-cmap&nbsp;is&nbsp;a&nbsp;a&nbsp;matplotlib.cm&nbsp;colormap&nbsp;instance;&nbsp;if&nbsp;None&nbsp;use&nbsp;default<br>
-determined&nbsp;by&nbsp;rc<br>
-&nbsp;<br>
 See&nbsp;help(psd)&nbsp;for&nbsp;information&nbsp;on&nbsp;the&nbsp;other&nbsp;arguments<br>
+&nbsp;<br>
+cmap&nbsp;is&nbsp;a&nbsp;colormap;&nbsp;if&nbsp;None&nbsp;use&nbsp;default&nbsp;determined&nbsp;by&nbsp;rc<br>
 &nbsp;<br>
 return&nbsp;value&nbsp;is&nbsp;Pxx,&nbsp;freqs,&nbsp;bins,&nbsp;im<br>
 &nbsp;<br>
 bins&nbsp;are&nbsp;the&nbsp;time&nbsp;points&nbsp;the&nbsp;spectrogram&nbsp;is&nbsp;calculated&nbsp;over<br>
 freqs&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;frequencies<br>
 Pxx&nbsp;is&nbsp;a&nbsp;len(times)&nbsp;x&nbsp;len(freqs)&nbsp;array&nbsp;of&nbsp;power<br>
-im&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;image</tt></dd></dl>
+im&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;image<br>
+&nbsp;<br>
+xextent&nbsp;is&nbsp;the&nbsp;image&nbsp;extent&nbsp;in&nbsp;the&nbsp;xaxes&nbsp;xextent=xmin,&nbsp;xmax&nbsp;-<br>
+default&nbsp;0,&nbsp;max(bins),&nbsp;0,&nbsp;max(freqs)&nbsp;where&nbsp;bins&nbsp;is&nbsp;the<br>
+return&nbsp;value&nbsp;from&nbsp;matplotlib.mlab.specgram</tt></dd></dl>
  <dl><dt><a name="-stem"><strong>stem</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-stem">stem</a>(x,&nbsp;y,&nbsp;linefmt='b-',&nbsp;markerfmt='bo',&nbsp;basefmt='r-')<br>
 &nbsp;<br>
 A&nbsp;stem&nbsp;plot&nbsp;plots&nbsp;vertical&nbsp;lines&nbsp;(using&nbsp;linefmt)&nbsp;at&nbsp;each&nbsp;x<br>

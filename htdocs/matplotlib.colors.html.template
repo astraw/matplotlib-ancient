@@ -176,6 +176,7 @@ the&nbsp;given&nbsp;mapping&nbsp;points&nbsp;are&nbsp;determined&nbsp;by&nbsp;si
 &nbsp;<br>
 The&nbsp;function&nbsp;returns&nbsp;an&nbsp;array&nbsp;"result"&nbsp;where&nbsp;result[x*(N-1)]<br>
 gives&nbsp;the&nbsp;closest&nbsp;value&nbsp;for&nbsp;values&nbsp;of&nbsp;x&nbsp;between&nbsp;0&nbsp;and&nbsp;1.</tt></dd></dl>
+ <dl><dt><a name="-rgb2hex"><strong>rgb2hex</strong></a>(rgb)</dt><dd><tt>Given&nbsp;a&nbsp;len&nbsp;3&nbsp;rgb&nbsp;tuple&nbsp;of&nbsp;0-1&nbsp;floats,&nbsp;return&nbsp;the&nbsp;hex&nbsp;string</tt></dd></dl>
  <dl><dt><a name="-searchsorted"><strong>searchsorted</strong></a> = binarysearch(...)</dt><dd><tt>binarysearch(a,v)</tt></dd></dl>
  <dl><dt><a name="-take"><strong>take</strong></a>(...)</dt><dd><tt><a href="#-take">take</a>(a,&nbsp;indices,&nbsp;axis=0).&nbsp;&nbsp;Selects&nbsp;the&nbsp;elements&nbsp;in&nbsp;indices&nbsp;from&nbsp;array&nbsp;a&nbsp;along&nbsp;the&nbsp;given&nbsp;axis.</tt></dd></dl>
  <dl><dt><a name="-zeros"><strong>zeros</strong></a>(...)</dt><dd><tt><a href="#-zeros">zeros</a>((d1,...,dn),typecode='l',savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;of&nbsp;shape&nbsp;(d1,...,dn)&nbsp;and&nbsp;type&nbsp;typecode&nbsp;with&nbsp;all&nbsp;it's&nbsp;entries&nbsp;initialized&nbsp;to&nbsp;zero.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero&nbsp;the&nbsp;array&nbsp;will&nbsp;be&nbsp;a&nbsp;spacesaver&nbsp;array.</tt></dd></dl>

@@ -16,8 +16,9 @@ operations.</tt></p>
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="matplotlib._image.html">matplotlib._image</a><br>
 </td><td width="25%" valign=top><a href="matplotlib.cm.html">matplotlib.cm</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
 </td><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -69,7 +70,7 @@ in&nbsp;pixels</tt></dd></dl>
 One&nbsp;of<br>
 &nbsp;<br>
 'free'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;aspect&nbsp;ratio&nbsp;not&nbsp;constrained<br>
-'preserve'&nbsp;:&nbsp;preserve&nbsp;aspect&nbsp;ration&nbsp;when&nbsp;resizing</tt></dd></dl>
+'preserve'&nbsp;:&nbsp;preserve&nbsp;aspect&nbsp;ratio&nbsp;when&nbsp;resizing</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-get_extent"><strong>get_extent</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;image&nbsp;extent:&nbsp;xmin,&nbsp;xmax,&nbsp;ymin,&nbsp;ymax</tt></dd></dl>
 
@@ -92,7 +93,7 @@ image&nbsp;ehen&nbsp;resizing,<br>
 One&nbsp;of<br>
 &nbsp;<br>
 'free'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;aspect&nbsp;ratio&nbsp;not&nbsp;constrained<br>
-'preserve'&nbsp;:&nbsp;preserve&nbsp;aspect&nbsp;ration&nbsp;when&nbsp;resizing</tt></dd></dl>
+'preserve'&nbsp;:&nbsp;preserve&nbsp;aspect&nbsp;ratio&nbsp;when&nbsp;resizing</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-set_data_extent"><strong>set_data_extent</strong></a>(self, xmin, xmax, ymin, ymax)</dt><dd><tt>Set&nbsp;the&nbsp;data&nbsp;extent&nbsp;that&nbsp;the&nbsp;image&nbsp;pixels&nbsp;represent.&nbsp;&nbsp;If&nbsp;you<br>
 are&nbsp;using&nbsp;the&nbsp;matlab&nbsp;interface,&nbsp;use&nbsp;Axes.set_image_extent<br>
@@ -267,6 +268,9 @@ Update&nbsp;the&nbsp;cmap,&nbsp;norm&nbsp;accordingly</tt></dd></dl>
 &nbsp;<br>
 &nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
 specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
+ <dl><dt><a name="-imread"><strong>imread</strong></a>(fname)</dt><dd><tt>return&nbsp;image&nbsp;file&nbsp;in&nbsp;fname&nbsp;as&nbsp;numerix&nbsp;array<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;MxNx4&nbsp;array&nbsp;of&nbsp;0-1&nbsp;normalized&nbsp;floats</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">

@@ -215,6 +215,8 @@ Methods defined here:<br>
 
 <dl><dt><a name="AutoLocator-get_locator"><strong>get_locator</strong></a>(self, d)</dt><dd><tt>pick&nbsp;the&nbsp;best&nbsp;locator&nbsp;based&nbsp;on&nbsp;a&nbsp;distance</tt></dd></dl>
 
+<dl><dt><a name="AutoLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
+
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
 <dl><dt><a name="AutoLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
@@ -326,6 +328,8 @@ Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
 
 <dl><dt><a name="DayLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
+<dl><dt><a name="DayLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
+
 <dl><dt><a name="DayLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
 <hr>
@@ -373,6 +377,8 @@ Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
 <dl><dt><a name="DayMultiLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
 
 <dl><dt><a name="DayMultiLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
+
+<dl><dt><a name="DayMultiLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
 
 <dl><dt><a name="DayMultiLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
@@ -452,6 +458,8 @@ Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
 <dl><dt><a name="FixedLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
 
 <dl><dt><a name="FixedLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
+
+<dl><dt><a name="FixedLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
 
 <dl><dt><a name="FixedLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
@@ -595,6 +603,8 @@ Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
 
 <dl><dt><a name="HourLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
+<dl><dt><a name="HourLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
+
 <dl><dt><a name="HourLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
 <hr>
@@ -679,6 +689,8 @@ Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
 
 <dl><dt><a name="IndexLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
+<dl><dt><a name="IndexLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
+
 <dl><dt><a name="IndexLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
 <hr>
@@ -728,6 +740,8 @@ Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
 
 <dl><dt><a name="LinearLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
+<dl><dt><a name="LinearLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
+
 <dl><dt><a name="LinearLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
 <hr>
@@ -761,6 +775,8 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 <dl><dt><a name="Locator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
 
 <dl><dt><a name="Locator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
+
+<dl><dt><a name="Locator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
 
 <dl><dt><a name="Locator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
@@ -841,6 +857,8 @@ Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
 
 <dl><dt><a name="LogLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
+<dl><dt><a name="LogLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
+
 <dl><dt><a name="LogLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
 <hr>
@@ -888,6 +906,8 @@ Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
 <dl><dt><a name="MinuteLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
 
 <dl><dt><a name="MinuteLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
+
+<dl><dt><a name="MinuteLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
 
 <dl><dt><a name="MinuteLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
@@ -938,6 +958,8 @@ Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
 
 <dl><dt><a name="MonthLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
+<dl><dt><a name="MonthLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
+
 <dl><dt><a name="MonthLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
 <hr>
@@ -983,6 +1005,8 @@ Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
 <dl><dt><a name="MultipleLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
 
 <dl><dt><a name="MultipleLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
+
+<dl><dt><a name="MultipleLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
 
 <dl><dt><a name="MultipleLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
@@ -1057,6 +1081,8 @@ Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
 <dl><dt><a name="NullLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
 
 <dl><dt><a name="NullLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
+
+<dl><dt><a name="NullLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
 
 <dl><dt><a name="NullLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
@@ -1160,6 +1186,8 @@ Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
 
 <dl><dt><a name="WeekdayLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
+<dl><dt><a name="WeekdayLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
+
 <dl><dt><a name="WeekdayLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
 <hr>
@@ -1208,6 +1236,8 @@ Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
 <dl><dt><a name="YearLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
 
 <dl><dt><a name="YearLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
+
+<dl><dt><a name="YearLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
 
 <dl><dt><a name="YearLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 

@@ -18,11 +18,12 @@
 <a href="gtk.html">gtk</a><br>
 </td><td width="25%" valign=top><a href="math.html">math</a><br>
 <a href="matplotlib.html">matplotlib</a><br>
-<a href="os.html">os</a><br>
-</td><td width="25%" valign=top><a href="pango.html">pango</a><br>
+<a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="pango.html">pango</a><br>
 <a href="pygtk.html">pygtk</a><br>
-<a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -54,6 +55,12 @@
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#FigureManagerGTK">FigureManagerGTK</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#FigureManagerGTK">FigureManagerGTK</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="gtk.html#FileSelection">gtk.FileSelection</a>(<a href="gtk.html#Dialog">gtk.Dialog</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#FileSelection">FileSelection</a>
 </font></dt></dl>
 </dd>
 <dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>
@@ -144,7 +151,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137154136)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137164304)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -792,13 +799,11 @@ Methods defined here:<br>
 
 <dl><dt><a name="FigureCanvasGTK-button_release_event"><strong>button_release_event</strong></a>(self, widget, event)</dt></dl>
 
-<dl><dt><a name="FigureCanvasGTK-configure_event"><strong>configure_event</strong></a>(self, widget, event<font color="#909090">=None</font>)</dt></dl>
+<dl><dt><a name="FigureCanvasGTK-configure_event"><strong>configure_event</strong></a>(self, widget, event)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-draw"><strong>draw</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-expose_event"><strong>expose_event</strong></a>(self, widget, event)</dt></dl>
-
-<dl><dt><a name="FigureCanvasGTK-is_realized"><strong>is_realized</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-key_press_event"><strong>key_press_event</strong></a>(self, widget, event)</dt></dl>
 
@@ -817,12 +822,16 @@ Methods defined here:<br>
 <dl><dt><a name="FigureCanvasGTK-set_do_plot"><strong>set_do_plot</strong></a>(self, b)</dt><dd><tt>True&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;render&nbsp;to&nbsp;screen,&nbsp;False&nbsp;is&nbsp;hardcopy&nbsp;only</tt></dd></dl>
 
 <hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>keyvald</strong> = {65505: 'shift', 65507: 'control', 65513: 'alt'}</dl>
+
+<hr>
 Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 <dl><dt><a name="FigureCanvasGTK-size"><strong>size</strong></a>(...)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137117104)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137127264)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -1233,6 +1242,734 @@ Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase"
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FileSelection">class <strong>FileSelection</strong></a>(<a href="gtk.html#FileSelection">gtk.FileSelection</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>GTK+&nbsp;2.2&nbsp;and&nbsp;lower&nbsp;file&nbsp;selector&nbsp;which&nbsp;remembers&nbsp;the&nbsp;last<br>
+file/directory&nbsp;selected<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.backends.backend_gtk.html#FileSelection">FileSelection</a></dd>
+<dd><a href="gtk.html#FileSelection">gtk.FileSelection</a></dd>
+<dd><a href="gtk.html#Dialog">gtk.Dialog</a></dd>
+<dd><a href="gtk.html#Window">gtk.Window</a></dd>
+<dd><a href="gtk.html#Bin">gtk.Bin</a></dd>
+<dd><a href="gtk.html#Container">gtk.Container</a></dd>
+<dd><a href="gtk.html#Widget">gtk.Widget</a></dd>
+<dd><a href="gtk.html#Object">gtk.Object</a></dd>
+<dd><a href="gobject.html#GObject">gobject.GObject</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FileSelection-__init__"><strong>__init__</strong></a>(self, path<font color="#909090">=None</font>, title<font color="#909090">='Select a file'</font>, parent<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_filename_from_user"><strong>get_filename_from_user</strong></a>(self, path<font color="#909090">=None</font>, title<font color="#909090">=None</font>)</dt></dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#FileSelection">gtk.FileSelection</a>:<br>
+<dl><dt><a name="FileSelection-complete"><strong>complete</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_filename"><strong>get_filename</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_select_multiple"><strong>get_select_multiple</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_selections"><strong>get_selections</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-hide_fileop_buttons"><strong>hide_fileop_buttons</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_filename"><strong>set_filename</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_select_multiple"><strong>set_select_multiple</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-show_fileop_buttons"><strong>show_fileop_buttons</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#FileSelection">gtk.FileSelection</a>:<br>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileSelection (137173096)&gt;</dl>
+
+<dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>button_area</strong> = &lt;attribute 'button_area' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>cancel_button</strong> = &lt;attribute 'cancel_button' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>dir_list</strong> = &lt;attribute 'dir_list' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>file_list</strong> = &lt;attribute 'file_list' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>fileop_c_dir</strong> = &lt;attribute 'fileop_c_dir' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>fileop_del_file</strong> = &lt;attribute 'fileop_del_file' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>fileop_dialog</strong> = &lt;attribute 'fileop_dialog' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>fileop_entry</strong> = &lt;attribute 'fileop_entry' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>fileop_file</strong> = &lt;attribute 'fileop_file' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>fileop_ren_file</strong> = &lt;attribute 'fileop_ren_file' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>help_button</strong> = &lt;attribute 'help_button' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>history_menu</strong> = &lt;attribute 'history_menu' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>history_pulldown</strong> = &lt;attribute 'history_pulldown' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>main_vbox</strong> = &lt;attribute 'main_vbox' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>ok_button</strong> = &lt;attribute 'ok_button' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>selection_entry</strong> = &lt;attribute 'selection_entry' of 'gtk.FileSelection' objects&gt;</dl>
+
+<dl><dt><strong>selection_text</strong> = &lt;attribute 'selection_text' of 'gtk.FileSelection' objects&gt;</dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
+<dl><dt><a name="FileSelection-add_action_widget"><strong>add_action_widget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-add_button"><strong>add_button</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-add_buttons"><strong>add_buttons</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_has_separator"><strong>get_has_separator</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-response"><strong>response</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-run"><strong>run</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_default_response"><strong>set_default_response</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_has_separator"><strong>set_has_separator</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_response_sensitive"><strong>set_response_sensitive</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
+<dl><dt><strong>vbox</strong> = &lt;attribute 'vbox' of 'gtk.Dialog' objects&gt;</dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
+<dl><dt><a name="FileSelection-activate_default"><strong>activate_default</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-activate_focus"><strong>activate_focus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-add_accel_group"><strong>add_accel_group</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-add_mnemonic"><strong>add_mnemonic</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-begin_move_drag"><strong>begin_move_drag</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-begin_resize_drag"><strong>begin_resize_drag</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-deiconify"><strong>deiconify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-fullscreen"><strong>fullscreen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_decorated"><strong>get_decorated</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_default_size"><strong>get_default_size</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_destroy_with_parent"><strong>get_destroy_with_parent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_focus"><strong>get_focus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_frame_dimensions"><strong>get_frame_dimensions</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_gravity"><strong>get_gravity</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_has_frame"><strong>get_has_frame</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_icon"><strong>get_icon</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_icon_list"><strong>get_icon_list</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_mnemonic_modifier"><strong>get_mnemonic_modifier</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_modal"><strong>get_modal</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_position"><strong>get_position</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_resizable"><strong>get_resizable</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_role"><strong>get_role</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_screen"><strong>get_screen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_size"><strong>get_size</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_skip_pager_hint"><strong>get_skip_pager_hint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_skip_taskbar_hint"><strong>get_skip_taskbar_hint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_title"><strong>get_title</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_transient_for"><strong>get_transient_for</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_type_hint"><strong>get_type_hint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-iconify"><strong>iconify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-maximize"><strong>maximize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-mnemonic_activate"><strong>mnemonic_activate</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-move"><strong>move</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-parse_geometry"><strong>parse_geometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-present"><strong>present</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-remove_accel_group"><strong>remove_accel_group</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-remove_mnemonic"><strong>remove_mnemonic</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-reshow_with_initial_size"><strong>reshow_with_initial_size</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-resize"><strong>resize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_decorated"><strong>set_decorated</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_default"><strong>set_default</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_default_size"><strong>set_default_size</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_destroy_with_parent"><strong>set_destroy_with_parent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_focus"><strong>set_focus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_frame_dimensions"><strong>set_frame_dimensions</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_geometry_hints"><strong>set_geometry_hints</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_gravity"><strong>set_gravity</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_has_frame"><strong>set_has_frame</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_icon"><strong>set_icon</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_icon_from_file"><strong>set_icon_from_file</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_icon_list"><strong>set_icon_list</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_mnemonic_modifier"><strong>set_mnemonic_modifier</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_modal"><strong>set_modal</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_policy"><strong>set_policy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_position"><strong>set_position</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_resizable"><strong>set_resizable</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_role"><strong>set_role</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_screen"><strong>set_screen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_skip_pager_hint"><strong>set_skip_pager_hint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_skip_taskbar_hint"><strong>set_skip_taskbar_hint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_title"><strong>set_title</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_transient_for"><strong>set_transient_for</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_type_hint"><strong>set_type_hint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_wmclass"><strong>set_wmclass</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-stick"><strong>stick</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-unfullscreen"><strong>unfullscreen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-unmaximize"><strong>unmaximize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-unstick"><strong>unstick</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
+<dl><dt><strong>allow_grow</strong> = &lt;attribute 'allow_grow' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>allow_shrink</strong> = &lt;attribute 'allow_shrink' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>configure_notify_received</strong> = &lt;attribute 'configure_notify_received' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>configure_request_count</strong> = &lt;attribute 'configure_request_count' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>decorated</strong> = &lt;attribute 'decorated' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>default_widget</strong> = &lt;attribute 'default_widget' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>destroy_with_parent</strong> = &lt;attribute 'destroy_with_parent' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>focus_widget</strong> = &lt;attribute 'focus_widget' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>frame</strong> = &lt;attribute 'frame' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>frame_bottom</strong> = &lt;attribute 'frame_bottom' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>frame_left</strong> = &lt;attribute 'frame_left' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>frame_right</strong> = &lt;attribute 'frame_right' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>frame_top</strong> = &lt;attribute 'frame_top' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>gravity</strong> = &lt;attribute 'gravity' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>group</strong> = &lt;attribute 'group' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>has_focus</strong> = &lt;attribute 'has_focus' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>has_frame</strong> = &lt;attribute 'has_frame' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>has_user_ref_count</strong> = &lt;attribute 'has_user_ref_count' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>iconify_initially</strong> = &lt;attribute 'iconify_initially' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>keys_changed_handler</strong> = &lt;attribute 'keys_changed_handler' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>maximize_initially</strong> = &lt;attribute 'maximize_initially' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>mnemonic_modifier</strong> = &lt;attribute 'mnemonic_modifier' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>modal</strong> = &lt;attribute 'modal' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>need_default_position</strong> = &lt;attribute 'need_default_position' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>need_default_size</strong> = &lt;attribute 'need_default_size' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>position</strong> = &lt;attribute 'position' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>stick_initially</strong> = &lt;attribute 'stick_initially' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>title</strong> = &lt;attribute 'title' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>transient_parent</strong> = &lt;attribute 'transient_parent' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>type</strong> = &lt;attribute 'type' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>type_hint</strong> = &lt;attribute 'type_hint' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>wm_role</strong> = &lt;attribute 'wm_role' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>wmclass_class</strong> = &lt;attribute 'wmclass_class' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>wmclass_name</strong> = &lt;attribute 'wmclass_name' of 'gtk.Window' objects&gt;</dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#Bin">gtk.Bin</a>:<br>
+<dl><dt><a name="FileSelection-get_child"><strong>get_child</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Bin">gtk.Bin</a>:<br>
+<dl><dt><strong>child</strong> = &lt;attribute 'child' of 'gtk.Bin' objects&gt;</dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
+<dl><dt><a name="FileSelection-add"><strong>add</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-add_with_properties"><strong>add_with_properties</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-check_resize"><strong>check_resize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-child_get"><strong>child_get</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-child_get_property"><strong>child_get_property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-child_set"><strong>child_set</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-child_set_property"><strong>child_set_property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-child_type"><strong>child_type</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-children"><strong>children</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-forall"><strong>forall</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-foreach"><strong>foreach</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_border_width"><strong>get_border_width</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_children"><strong>get_children</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_focus_chain"><strong>get_focus_chain</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_focus_hadjustment"><strong>get_focus_hadjustment</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_focus_vadjustment"><strong>get_focus_vadjustment</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_resize_mode"><strong>get_resize_mode</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-propagate_expose"><strong>propagate_expose</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-remove"><strong>remove</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-resize_children"><strong>resize_children</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_border_width"><strong>set_border_width</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_focus_chain"><strong>set_focus_chain</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_focus_child"><strong>set_focus_child</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_focus_hadjustment"><strong>set_focus_hadjustment</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_focus_vadjustment"><strong>set_focus_vadjustment</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_reallocate_redraws"><strong>set_reallocate_redraws</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_resize_mode"><strong>set_resize_mode</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-unset_focus_chain"><strong>unset_focus_chain</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
+<dl><dt><strong>border_width</strong> = &lt;attribute 'border_width' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>focus_child</strong> = &lt;attribute 'focus_child' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>has_focus_chain</strong> = &lt;attribute 'has_focus_chain' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>need_resize</strong> = &lt;attribute 'need_resize' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>reallocate_redraws</strong> = &lt;attribute 'reallocate_redraws' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>resize_mode</strong> = &lt;attribute 'resize_mode' of 'gtk.Container' objects&gt;</dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
+<dl><dt><a name="FileSelection-activate"><strong>activate</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-add_accelerator"><strong>add_accelerator</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-add_events"><strong>add_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-child_focus"><strong>child_focus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-child_notify"><strong>child_notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-class_path"><strong>class_path</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-create_pango_context"><strong>create_pango_context</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-create_pango_layout"><strong>create_pango_layout</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-destroy"><strong>destroy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_begin"><strong>drag_begin</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_check_threshold"><strong>drag_check_threshold</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_dest_find_target"><strong>drag_dest_find_target</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_dest_get_target_list"><strong>drag_dest_get_target_list</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_dest_set"><strong>drag_dest_set</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_dest_set_proxy"><strong>drag_dest_set_proxy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_dest_set_target_list"><strong>drag_dest_set_target_list</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_dest_unset"><strong>drag_dest_unset</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_get_data"><strong>drag_get_data</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_highlight"><strong>drag_highlight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_source_set"><strong>drag_source_set</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_source_set_icon"><strong>drag_source_set_icon</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_source_set_icon_pixbuf"><strong>drag_source_set_icon_pixbuf</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_source_set_icon_stock"><strong>drag_source_set_icon_stock</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_source_unset"><strong>drag_source_unset</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_unhighlight"><strong>drag_unhighlight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-draw"><strong>draw</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-ensure_style"><strong>ensure_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-event"><strong>event</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-freeze_child_notify"><strong>freeze_child_notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_accessible"><strong>get_accessible</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_allocation"><strong>get_allocation</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_ancestor"><strong>get_ancestor</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_child_requisition"><strong>get_child_requisition</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_child_visible"><strong>get_child_visible</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_clipboard"><strong>get_clipboard</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_colormap"><strong>get_colormap</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_composite_name"><strong>get_composite_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_direction"><strong>get_direction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_display"><strong>get_display</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_events"><strong>get_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_extension_events"><strong>get_extension_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_modifier_style"><strong>get_modifier_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_name"><strong>get_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_pango_context"><strong>get_pango_context</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_parent"><strong>get_parent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_parent_window"><strong>get_parent_window</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_pointer"><strong>get_pointer</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_root_window"><strong>get_root_window</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_settings"><strong>get_settings</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_size_request"><strong>get_size_request</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_style"><strong>get_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_toplevel"><strong>get_toplevel</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_visual"><strong>get_visual</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-grab_add"><strong>grab_add</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-grab_default"><strong>grab_default</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-grab_focus"><strong>grab_focus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-grab_remove"><strong>grab_remove</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-has_screen"><strong>has_screen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-hide"><strong>hide</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-hide_all"><strong>hide_all</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-hide_on_delete"><strong>hide_on_delete</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-intersect"><strong>intersect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-is_ancestor"><strong>is_ancestor</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-is_focus"><strong>is_focus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-map"><strong>map</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-modify_base"><strong>modify_base</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-modify_bg"><strong>modify_bg</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-modify_fg"><strong>modify_fg</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-modify_font"><strong>modify_font</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-modify_style"><strong>modify_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-modify_text"><strong>modify_text</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-path"><strong>path</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-queue_clear"><strong>queue_clear</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-queue_clear_area"><strong>queue_clear_area</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-queue_draw"><strong>queue_draw</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-queue_draw_area"><strong>queue_draw_area</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-queue_resize"><strong>queue_resize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-rc_get_style"><strong>rc_get_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-realize"><strong>realize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-remove_accelerator"><strong>remove_accelerator</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-render_icon"><strong>render_icon</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-reparent"><strong>reparent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-reset_rc_styles"><strong>reset_rc_styles</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-reset_shapes"><strong>reset_shapes</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-selection_add_target"><strong>selection_add_target</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-selection_add_targets"><strong>selection_add_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-selection_clear_targets"><strong>selection_clear_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-selection_convert"><strong>selection_convert</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-selection_owner_set"><strong>selection_owner_set</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-selection_remove_all"><strong>selection_remove_all</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-send_expose"><strong>send_expose</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_accel_path"><strong>set_accel_path</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_app_paintable"><strong>set_app_paintable</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_child_visible"><strong>set_child_visible</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_colormap"><strong>set_colormap</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_composite_name"><strong>set_composite_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_direction"><strong>set_direction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_double_buffered"><strong>set_double_buffered</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_events"><strong>set_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_extension_events"><strong>set_extension_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_name"><strong>set_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_parent"><strong>set_parent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_parent_window"><strong>set_parent_window</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_redraw_on_allocate"><strong>set_redraw_on_allocate</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_scroll_adjustments"><strong>set_scroll_adjustments</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_sensitive"><strong>set_sensitive</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_size_request"><strong>set_size_request</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_state"><strong>set_state</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_style"><strong>set_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_uposition"><strong>set_uposition</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_usize"><strong>set_usize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-shape_combine_mask"><strong>shape_combine_mask</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-show"><strong>show</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-show_all"><strong>show_all</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-show_now"><strong>show_now</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-size_allocate"><strong>size_allocate</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-size_request"><strong>size_request</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-thaw_child_notify"><strong>thaw_child_notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-translate_coordinates"><strong>translate_coordinates</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-unmap"><strong>unmap</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-unparent"><strong>unparent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-unrealize"><strong>unrealize</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
+<dl><dt><strong>allocation</strong> = &lt;attribute 'allocation' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>name</strong> = &lt;attribute 'name' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>parent</strong> = &lt;attribute 'parent' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>saved_state</strong> = &lt;attribute 'saved_state' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>state</strong> = &lt;attribute 'state' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>style</strong> = &lt;attribute 'style' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>window</strong> = &lt;attribute 'window' of 'gtk.Widget' objects&gt;</dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#Object">gtk.Object</a>:<br>
+<dl><dt><a name="FileSelection-flags"><strong>flags</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_flags"><strong>set_flags</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-unset_flags"><strong>unset_flags</strong></a>(...)</dt></dl>
+
+<hr>
+Methods inherited from <a href="gobject.html#GObject">gobject.GObject</a>:<br>
+<dl><dt><a name="FileSelection-__cmp__"><strong>__cmp__</strong></a>(...)</dt><dd><tt>x.<a href="#FileSelection-__cmp__">__cmp__</a>(y)&nbsp;&lt;==&gt;&nbsp;cmp(x,y)</tt></dd></dl>
+
+<dl><dt><a name="FileSelection-__gobject_init__"><strong>__gobject_init__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-__hash__"><strong>__hash__</strong></a>(...)</dt><dd><tt>x.<a href="#FileSelection-__hash__">__hash__</a>()&nbsp;&lt;==&gt;&nbsp;hash(x)</tt></dd></dl>
+
+<dl><dt><a name="FileSelection-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#FileSelection-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="FileSelection-chain"><strong>chain</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-connect"><strong>connect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-connect_after"><strong>connect_after</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-connect_object"><strong>connect_object</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-connect_object_after"><strong>connect_object_after</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-disconnect"><strong>disconnect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-emit"><strong>emit</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-emit_stop_by_name"><strong>emit_stop_by_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-freeze_notify"><strong>freeze_notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_data"><strong>get_data</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_property"><strong>get_property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-handler_block"><strong>handler_block</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-handler_disconnect"><strong>handler_disconnect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-handler_is_connected"><strong>handler_is_connected</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-handler_unblock"><strong>handler_unblock</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-notify"><strong>notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_data"><strong>set_data</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_property"><strong>set_property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-stop_emission"><strong>stop_emission</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-thaw_notify"><strong>thaw_notify</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gobject.html#GObject">gobject.GObject</a>:<br>
+<dl><dt><strong>__dict__</strong> = &lt;dictproxy object&gt;</dl>
+
+<dl><dt><strong>__gdoc__</strong> = 'Object GtkFileSelection<font color="#c040c0">\n\n</font>Signals from GObject:<font color="#c040c0">\n</font> ... Whether to allow multiple files to be selected<font color="#c040c0">\n\n</font>'</dl>
+
+<dl><dt><strong>__grefcount__</strong> = &lt;attribute '__grefcount__' of 'gobject.GObject' objects&gt;</dl>
+
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#FileSelection-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="GraphicsContextGTK">class <strong>GraphicsContextGTK</strong></a>(<a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
@@ -1317,7 +2054,7 @@ Methods defined here:<br>
 <dl><dt><a name="NavigationToolbar-__init__"><strong>__init__</strong></a>(self, canvas, window<font color="#909090">=None</font>)</dt><dd><tt>figManager&nbsp;is&nbsp;the&nbsp;<a href="#FigureManagerGTK">FigureManagerGTK</a>&nbsp;instance&nbsp;that&nbsp;contains&nbsp;the<br>
 toolbar,&nbsp;with&nbsp;attributes&nbsp;figure,&nbsp;window&nbsp;and&nbsp;drawingArea</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbar-panx"><strong>panx</strong></a>(self, button, arg)</dt></dl>
+<dl><dt><a name="NavigationToolbar-panx"><strong>panx</strong></a>(self, button, arg)</dt><dd><tt>arg&nbsp;is&nbsp;either&nbsp;user&nbsp;callback&nbsp;data&nbsp;or&nbsp;a&nbsp;scroll&nbsp;event</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbar-pany"><strong>pany</strong></a>(self, button, arg)</dt></dl>
 
@@ -1328,6 +2065,10 @@ toolbar,&nbsp;with&nbsp;attributes&nbsp;figure,&nbsp;window&nbsp;and&nbsp;drawin
 <dl><dt><a name="NavigationToolbar-zoomx"><strong>zoomx</strong></a>(self, button, arg)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-zoomy"><strong>zoomy</strong></a>(self, button, arg)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>toolitems</strong> = (('Left', 'Pan left with click or wheel mouse (bidirectional)', 'gtk-go-back', 'panx', -1, True), ('Right', 'Pan right with click or wheel mouse (bidirectional)', 'gtk-go-forward', 'panx', 1, True), ('Zoom In X', 'Zoom In X (shrink the x axis limits) with click or wheel mouse (bidirectional)', 'gtk-zoom-in', 'zoomx', 1, True), ('Zoom Out X', 'Zoom Out X (expand the x axis limits) with click or wheel mouse (bidirectional)', 'gtk-zoom-out', 'zoomx', -1, True), (None, None, None, None, None, None), ('Up', 'Pan up with click or wheel mouse (bidirectional)', 'gtk-go-up', 'pany', 1, True), ('Down', 'Pan down with click or wheel mouse (bidirectional)', 'gtk-go-down', 'pany', -1, True), ('Zoom In Y', 'Zoom in Y (shrink the y axis limits) with click or wheel mouse (bidirectional)', 'gtk-zoom-in', 'zoomy', 1, True), ('Zoom Out Y', 'Zoom Out Y (expand the y axis limits) with click or wheel mouse (bidirectional)', 'gtk-zoom-out', 'zoomy', -1, True), (None, None, None, None, None, None), ('Save', 'Save the figure', 'gtk-save', 'save_figure', None, False))</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
@@ -1381,7 +2122,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137119840)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137130016)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -1806,31 +2547,51 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 Methods defined here:<br>
 <dl><dt><a name="NavigationToolbar2GTK-__init__"><strong>__init__</strong></a>(self, canvas, *args)</dt></dl>
 
+<dl><dt><a name="NavigationToolbar2GTK-draw_rubberband"><strong>draw_rubberband</strong></a>(self, event, x0, y0, x1, y1)</dt><dd><tt>adapted&nbsp;from&nbsp;<a href="http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/189744">http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/189744</a></tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-dynamic_update"><strong>dynamic_update</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-release"><strong>release</strong></a>(self, event)</dt></dl>
+
 <dl><dt><a name="NavigationToolbar2GTK-save_figure"><strong>save_figure</strong></a>(self, button)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-set_cursor"><strong>set_cursor</strong></a>(self, cursor)</dt></dl>
 
 <hr>
-Methods inherited from <a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>:<br>
-<dl><dt><a name="NavigationToolbar2GTK-back"><strong>back</strong></a>(self, button, *args)</dt></dl>
+Data and other attributes defined here:<br>
+<dl><dt><strong>toolitems</strong> = (('Home', 'Reset original view', 'home.png', 'home'), ('Back', 'Back to  previous view', 'back.png', 'back'), ('Forward', 'Forward to next view', 'forward.png', 'forward'), ('Pan', 'Pan axes with left mouse, zoom with right', 'move.png', 'pan'), ('Zoom', 'Zoom to rectangle', 'zoom_to_rect.png', 'zoom'), (None, None, None, None), ('Save', 'Save the figure', 'filesave.png', 'save_figure'))</dl>
 
-<dl><dt><a name="NavigationToolbar2GTK-forward"><strong>forward</strong></a>(self, button, *args)</dt></dl>
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>:<br>
+<dl><dt><a name="NavigationToolbar2GTK-back"><strong>back</strong></a>(self, *args)</dt><dd><tt>move&nbsp;back&nbsp;up&nbsp;the&nbsp;view&nbsp;lim&nbsp;stack</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_pan"><strong>drag_pan</strong></a>(self, event)</dt><dd><tt>the&nbsp;drag&nbsp;callback&nbsp;in&nbsp;pan/zoom&nbsp;mode</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-draw"><strong>draw</strong></a>(self)</dt><dd><tt>redraw&nbsp;the&nbsp;canvases,&nbsp;update&nbsp;the&nbsp;locators</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-forward"><strong>forward</strong></a>(self, *args)</dt><dd><tt>move&nbsp;forward&nbsp;in&nbsp;the&nbsp;view&nbsp;lim&nbsp;stack</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-home"><strong>home</strong></a>(self, *args)</dt><dd><tt>restore&nbsp;the&nbsp;original&nbsp;view</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbar2GTK-pan"><strong>pan</strong></a>(self, button, *args)</dt></dl>
+<dl><dt><a name="NavigationToolbar2GTK-mouse_move"><strong>mouse_move</strong></a>(self, event)</dt></dl>
 
-<dl><dt><a name="NavigationToolbar2GTK-press_pan"><strong>press_pan</strong></a>(self, event)</dt></dl>
+<dl><dt><a name="NavigationToolbar2GTK-pan"><strong>pan</strong></a>(self, *args)</dt><dd><tt>Activate&nbsp;the&nbsp;pan/zoom&nbsp;tool.&nbsp;pan&nbsp;with&nbsp;left&nbsp;button,&nbsp;zoom&nbsp;with&nbsp;right</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbar2GTK-press_zoom"><strong>press_zoom</strong></a>(self, event)</dt></dl>
+<dl><dt><a name="NavigationToolbar2GTK-press"><strong>press</strong></a>(self, event)</dt><dd><tt>this&nbsp;will&nbsp;be&nbsp;called&nbsp;whenver&nbsp;a&nbsp;mouse&nbsp;button&nbsp;is&nbsp;pressed</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbar2GTK-release_pan"><strong>release_pan</strong></a>(self, event)</dt></dl>
+<dl><dt><a name="NavigationToolbar2GTK-press_pan"><strong>press_pan</strong></a>(self, event)</dt><dd><tt>the&nbsp;press&nbsp;mouse&nbsp;button&nbsp;in&nbsp;pan/zoom&nbsp;mode&nbsp;callback</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbar2GTK-release_zoom"><strong>release_zoom</strong></a>(self, event)</dt></dl>
+<dl><dt><a name="NavigationToolbar2GTK-press_zoom"><strong>press_zoom</strong></a>(self, event)</dt><dd><tt>the&nbsp;press&nbsp;mouse&nbsp;button&nbsp;in&nbsp;zoom&nbsp;to&nbsp;rect&nbsp;mode&nbsp;callback</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbar2GTK-update"><strong>update</strong></a>(self)</dt></dl>
+<dl><dt><a name="NavigationToolbar2GTK-push_current"><strong>push_current</strong></a>(self)</dt><dd><tt>push&nbsp;the&nbsp;current&nbsp;view&nbsp;limits&nbsp;onto&nbsp;the&nbsp;stack</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbar2GTK-zoom"><strong>zoom</strong></a>(self, button, *args)</dt></dl>
+<dl><dt><a name="NavigationToolbar2GTK-release_pan"><strong>release_pan</strong></a>(self, event)</dt><dd><tt>the&nbsp;release&nbsp;mouse&nbsp;button&nbsp;callback&nbsp;in&nbsp;pan/zoom&nbsp;mode</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-release_zoom"><strong>release_zoom</strong></a>(self, event)</dt><dd><tt>the&nbsp;release&nbsp;mouse&nbsp;button&nbsp;callback&nbsp;in&nbsp;zoom&nbsp;to&nbsp;rect&nbsp;mode</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-update"><strong>update</strong></a>(self)</dt><dd><tt>reset&nbsp;the&nbsp;axes&nbsp;stack</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-zoom"><strong>zoom</strong></a>(self, *args)</dt><dd><tt>activate&nbsp;zoom&nbsp;to&nbsp;rect&nbsp;mode</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
@@ -1884,7 +2645,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137119840)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137130016)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -2009,8 +2770,6 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="NavigationToolbar2GTK-drag_source_unset"><strong>drag_source_unset</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-drag_unhighlight"><strong>drag_unhighlight</strong></a>(...)</dt></dl>
-
-<dl><dt><a name="NavigationToolbar2GTK-draw"><strong>draw</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-ensure_style"><strong>ensure_style</strong></a>(...)</dt></dl>
 
@@ -2452,10 +3211,12 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
 <strong>PIXELS_PER_INCH</strong> = 96<br>
 <strong>True</strong> = True<br>
 <strong>UInt8</strong> = 'b'<br>
+<strong>basedir</strong> = '/usr/local/share/matplotlib'<br>
 <strong>colorManager</strong> = &lt;matplotlib.backends.backend_gtk.ColorManagerGTK instance&gt;<br>
-<strong>cursord</strong> = {0: 60, 1: 2, 2: 130}<br>
+<strong>cursord</strong> = {0: 60, 1: 2, 2: 130, 3: 52}<br>
 <strong>cursors</strong> = &lt;matplotlib.backend_bases.Cursors instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>fname</strong> = '/usr/local/share/matplotlib/matplotlib.svg'<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
 <strong>nx</strong> = &lt;matplotlib.nc_imports._TypeNamespace instance&gt;<br>
 <strong>useMathText</strong> = True</td></tr></table>

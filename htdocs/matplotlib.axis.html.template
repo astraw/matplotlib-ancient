@@ -13,10 +13,11 @@
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="copy.html">copy</a><br>
+</td><td width="25%" valign=top><a href="math.html">math</a><br>
 </td><td width="25%" valign=top><a href="re.html">re</a><br>
 </td><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -69,6 +70,8 @@
 <dl><dt><a name="Axis-get_major_locator"><strong>get_major_locator</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker</tt></dd></dl>
 
 <dl><dt><a name="Axis-get_major_ticks"><strong>get_major_ticks</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;tick&nbsp;instances;&nbsp;grow&nbsp;as&nbsp;necessary</tt></dd></dl>
+
+<dl><dt><a name="Axis-get_minor_locator"><strong>get_minor_locator</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker</tt></dd></dl>
 
 <dl><dt><a name="Axis-get_minor_ticks"><strong>get_minor_ticks</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;minor&nbsp;tick&nbsp;instances;&nbsp;grow&nbsp;as&nbsp;necessary</tt></dd></dl>
 
@@ -259,6 +262,8 @@ Methods inherited from <a href="matplotlib.axis.html#Axis">Axis</a>:<br>
 
 <dl><dt><a name="XAxis-get_major_ticks"><strong>get_major_ticks</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;tick&nbsp;instances;&nbsp;grow&nbsp;as&nbsp;necessary</tt></dd></dl>
 
+<dl><dt><a name="XAxis-get_minor_locator"><strong>get_minor_locator</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker</tt></dd></dl>
+
 <dl><dt><a name="XAxis-get_minor_ticks"><strong>get_minor_ticks</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;minor&nbsp;tick&nbsp;instances;&nbsp;grow&nbsp;as&nbsp;necessary</tt></dd></dl>
 
 <dl><dt><a name="XAxis-get_ticklabels"><strong>get_ticklabels</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances&nbsp;for&nbsp;ticklabels</tt></dd></dl>
@@ -443,6 +448,8 @@ Methods inherited from <a href="matplotlib.axis.html#Axis">Axis</a>:<br>
 <dl><dt><a name="YAxis-get_major_locator"><strong>get_major_locator</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker</tt></dd></dl>
 
 <dl><dt><a name="YAxis-get_major_ticks"><strong>get_major_ticks</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;tick&nbsp;instances;&nbsp;grow&nbsp;as&nbsp;necessary</tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_minor_locator"><strong>get_minor_locator</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker</tt></dd></dl>
 
 <dl><dt><a name="YAxis-get_minor_ticks"><strong>get_minor_ticks</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;minor&nbsp;tick&nbsp;instances;&nbsp;grow&nbsp;as&nbsp;necessary</tt></dd></dl>
 

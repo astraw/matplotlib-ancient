@@ -1,9 +1,49 @@
 New entries should be added at the top
 
-2004-07-21 Applied backend_agg memory leak patch from hayden
-           - jocallo@online.no.  Found and fixed a leak in binary
-	   operations on transforms.  Moral of the story:  never incref
-	   where you meant to decref!- JDH
+2004-08-05 Updated installing.html and INSTALL
+
+2004-08-01 backend_gtk.py: move all drawing code into the expose_event()
+
+2004-07-28 Added Greg's toolbar2 and backend_*agg patches - JDH
+
+2004-07-28 Added image.imread with support for loading png into
+           numerix arrays
+
+2004-07-28 Added key modifiers to events - implemented dynamic updates
+           and rubber banding for interactive pan/zoom - JDH
+
+2004-07-27 did a readthrough of SVG, replacing all the string
+           additions with string interps for efficiency, fixed some
+           layout problems, added font and image support (through
+           external pngs) - JDH
+
+2004-07-25 backend_gtk.py: modify toolbar2 to make it easier to support GTK+ 
+           2.4. Add GTK+ 2.4 toolbar support. - SC
+
+2004-07-24 backend_gtk.py: Simplified classic toolbar creation - SC
+
+2004-07-24 Added images/matplotlib.svg to be used when GTK+ windows are 
+           minimised - SC
+
+2004-07-22 Added right mouse click zoom for NavigationToolbar2 panning
+	   mode. - JTM
+		
+2004-07-22 Added NavigationToolbar2 support to backend_tkagg.
+	   Minor tweak to backend_bases.  - JTM
+
+2004-07-22 Incorporated Gergory's renderer cache and buffer object
+           cache - JDH
+
+2004-07-22 Backend_gtk.py: Added support for GtkFileChooser, changed
+           FileSelection/FileChooser so that only one instance pops up,
+           and made them both modal. - SC
+
+2004-07-21 Applied backend_agg memory leak patch from hayden -
+           jocallo@online.no.  Found and fixed a leak in binary
+           operations on transforms.  Moral of the story: never incref
+           where you meant to decref!  Fixed several leaks in ft2font:
+           moral of story: almost always return Py::asObject over
+           Py::Object - JDH
 
 2004-07-21 Fixed a to string memory allocation bug in agg and image
            modules - JDH
