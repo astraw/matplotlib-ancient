@@ -14,9 +14,10 @@ subplots together or separately""", 0),
 automatically generates histograms and will return the bin counts
 or probabilities""", 1),
 
-('barchart_demo', 
-"""The <a href=matplotlib.matlab.html#-bar>bar</a> command
-takes error bars as an optional argument.
+('barchart_demo', """The <a href=matplotlib.matlab.html#-bar>bar</a>
+command takes error bars as an optional argument.  You can also use up
+and down bars, stacked bars, 'candlestick' bars, etc, ... See <a
+href=examples/bar_stacked.py>bar_stacked.py</a> for another example.
 """, 1),
 
 ('scatter_demo2', 
@@ -54,9 +55,9 @@ href=matplotlib.lines.html#Line2D>lines</a> """, 1),
 making a font dictionary.  Here the default font is <tt>courier</tt>
 and the default color is red, but you can override the defaults, as in
 the function label in the axes.  See <a
-href=matplotlib.matlab.html#-text>text</a> for more information.  This example
-uses a python dictionary to control text themes, but you can also use
-matlab handle graphics calls.  See the examples file <a
+href=matplotlib.matlab.html#-text>text</a> for more information.  This
+example uses a python dictionary to control text themes, but you can
+also use matlab handle graphics calls.  See the examples file <a
 href=examples/text_handles.py>text_handles.py</a> in the src
 distribution for a handle graphics demo.""", 1),
 

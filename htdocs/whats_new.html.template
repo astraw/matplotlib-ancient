@@ -6,8 +6,8 @@ href=backends.html#GD>Installing the GD backend</a>.  The line object
 has a new 'antialiased' property, that if true, the backend will
 render the line antialiased if supported.  """),
 
-	('bar charts support positive and negative bars', """You can
-provide an optional argument bottom to the <a
+	('wild and wonderful bar charts', """You can provide an
+optional argument bottom to the <a
 href=matplotlib.matlab.html#bar>bar</a> command to determine where the
 bottom of each bar is, default 0 for all.  This enables stacked bar
 plots and candelstick plots -- <a
