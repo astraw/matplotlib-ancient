@@ -149,6 +149,44 @@ to set everything from the default font, to the figure size, to the
 default line width.  See <a href=.matplotlibrc>.matplotlibrc</a> for a
 sample config file and information on how to use it.  """),
 
+    ('OO', 
+     'Is there any guide to using matplotlib with pythonic / OO /API rather than the matlab interface?', 
+
+"""
+
+There is no official documentation yet, but there are a few resources
+
+<ul>
+
+  <li>The class documentation at <a href=classdocs.html>classdocs</a>.
+      </li>
+
+  <li>the examples embedding_in*.py in the <a
+      href=examples>examples</a> directory in the matplotlib src
+      distribution.</li>
+
+  <li><a
+      href=examples/pythonic_matplotlib.py>pythonic_matplotlib.py</a>
+      describes the translation from the matlab style interface to the
+      pythonic, OO interface.</li>
+
+  <li> matplotlib/matlab.py in site-packages or the matplotlib src
+      directory is a useful resource.  The matlab interface is just a
+      thin wrapper around the API, so you can look and see how it is
+      done there, translating all the gcf() calls to your figure
+      instance, all the gca() calls to your axes instance, and so
+      on.</li>
+
+  <li>You can always post questions to <a
+      href=http://sourceforge.net/mailarchive/forum.php?forum_id=33405>matplotlib-users</li>
+
+</ul>
+
+
+I'm working on some additional documentation but it is not ready yet.
+
+"""),
+
     ('PY2EXE', 
      'Can I freeze matplotlib with py2exe', 
 """
