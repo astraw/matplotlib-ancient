@@ -134,7 +134,10 @@ GTK runtime</a></li>
 
 These install instructions will provide the <a
 href=backends.html#GTK>GTK<a/> and <a
-href=backends.html#GTKAgg>GTK<a/>GTKAgg</a> backends on windows.  <ul>
+href=backends.html#GTKAgg>GTK<a/>GTKAgg</a> backends on windows.  If
+you encounter troubles, please see <a
+href=http://matplotlib.sourceforge.net/faq.html#GTKPATH>the
+FAQ</a><ul>
 
 <li>Install <a
 href=http://sourceforge.net/project/showfiles.php?group_id=1369&release_id=176455>
@@ -214,6 +217,37 @@ linux, you must install a separate tkinter package, apparently
 tkinter-2.2.2-26.i386.rpm on Red Hat 9 linux.  Alternately, Python
 built from source code (Python.org tarball, not the redhat SRPM)
 includes Tkinter support by default on Red Hat Linux.
+
+
+In general, TkAgg is known to work with
+<ul>
+<li>python</li>
+<li>idle -n</li>
+<li>IPython</li>
+</ul>
+
+TkAgg is known not work with:
+
+<ul>
+<li>SciTE</li>
+<li>pythonw</li>
+<li>Pythonwin</li>
+<li>idle</li>
+</ul>
+
+Both of the latter shells fail with a RuntimeError "abnormal program
+termination".
+
+I checked on www.python.org about Tkinter and Pythonwin and they're
+known not to work together so that explains TkAgg on Pythonwin.  <a
+href=http://www.python.org/topics/tkinter/trouble.html>tkinter
+trouble</a>.<p>
+
+I also looked into SciTE a little and discovered that it is related to
+Scintilla which in turn was derived from Pythonwin.  <
+href=http://www.scintilla.org>scintilla</a> This indicates to me that
+the same problem with Tkinter may be affecting both (SciTE and
+Pythonwin)... but I am out on a limb.<p>
 
 <h3><a name=GD>GD output</a></h3>
 

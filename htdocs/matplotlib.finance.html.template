@@ -24,7 +24,7 @@ financial&nbsp;data.&nbsp;&nbsp;&nbsp;User&nbsp;contributions&nbsp;welcome!</tt>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-candlestick"><strong>candlestick</strong></a>(ax, quotes, width<font color="#909090">=0.20000000000000001</font>, colorup<font color="#909090">='k'</font>, colordown<font color="#909090">='r'</font>, converter<font color="#909090">=&lt;matplotlib.dates.EpochConverter instance&gt;</font>)</dt><dd><tt>quotes&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;(time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low,&nbsp;...)&nbsp;&nbsp;tuples.<br>
+<td width="100%"><dl><dt><a name="-candlestick"><strong>candlestick</strong></a>(ax, quotes, width<font color="#909090">=0.20000000000000001</font>, colorup<font color="#909090">='k'</font>, colordown<font color="#909090">='r'</font>, converter<font color="#909090">=&lt;matplotlib.dates.EpochConverter instance&gt;</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>quotes&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;(time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low,&nbsp;...)&nbsp;&nbsp;tuples.<br>
 As&nbsp;long&nbsp;as&nbsp;the&nbsp;first&nbsp;5&nbsp;elements&nbsp;of&nbsp;the&nbsp;tuples&nbsp;are&nbsp;these&nbsp;values,<br>
 the&nbsp;tuple&nbsp;can&nbsp;be&nbsp;as&nbsp;long&nbsp;as&nbsp;you&nbsp;want&nbsp;(eg&nbsp;it&nbsp;may&nbsp;store&nbsp;volume).<br>
 &nbsp;<br>
@@ -39,6 +39,7 @@ colorup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp
 colordown&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;rectangle&nbsp;where&nbsp;close&nbsp;&lt;&nbsp;&nbsp;open&nbsp;&nbsp;&nbsp;&nbsp;<br>
 converter&nbsp;&nbsp;&nbsp;:&nbsp;dates.DateConverter&nbsp;instance&nbsp;used&nbsp;to&nbsp;convert&nbsp;your&nbsp;times.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;your&nbsp;data&nbsp;is&nbsp;already&nbsp;epoch,&nbsp;you&nbsp;can&nbsp;use&nbsp;converter=None<br>
+alpha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;rectangle&nbsp;alpha&nbsp;level<br>
 &nbsp;<br>
 return&nbsp;value&nbsp;is&nbsp;lines,&nbsp;patches&nbsp;where&nbsp;lines&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines<br>
 added&nbsp;and&nbsp;patches&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;rectangle&nbsp;patches&nbsp;added</tt></dd></dl>
@@ -60,7 +61,8 @@ is&nbsp;a&nbsp;DateConverter&nbsp;class&nbsp;appropriate&nbsp;for&nbsp;convertin
 &nbsp;<br>
 results&nbsp;are&nbsp;a&nbsp;list&nbsp;of<br>
 &nbsp;<br>
-d,&nbsp;open,&nbsp;high,&nbsp;low,&nbsp;close,&nbsp;volume<br>
+d,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low,&nbsp;volume<br>
+&nbsp;<br>
 &nbsp;<br>
 where&nbsp;d&nbsp;is&nbsp;an&nbsp;instnace&nbsp;of&nbsp;your&nbsp;datetime&nbsp;supplied&nbsp;by&nbsp;the&nbsp;converter</tt></dd></dl>
 </td></tr></table><p>

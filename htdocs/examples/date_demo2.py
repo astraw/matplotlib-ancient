@@ -43,7 +43,5 @@ ax.xaxis.autoscale_view()
 #ax.xaxis.grid(False, 'major')
 #ax.xaxis.grid(True, 'minor')
 
-labels = ax.get_xticklabels()
-set(labels, 'rotation', 'vertical')
 grid(True)
 show()

@@ -52,7 +52,7 @@ Public&nbsp;attributes:<br>
 transx&nbsp;:&nbsp;a&nbsp;Transorm&nbsp;instance<br>
 transy&nbsp;:&nbsp;a&nbsp;Transorm&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Line2D-copy_properties"><strong>copy_properties</strong></a>(self, line)</dt></dl>
+<dl><dt><a name="Line2D-copy_properties"><strong>copy_properties</strong></a>(self, line)</dt><dd><tt>copy&nbsp;properties&nbsp;from&nbsp;line&nbsp;to&nbsp;self</tt></dd></dl>
 
 <dl><dt><a name="Line2D-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt></dl>
 

@@ -79,7 +79,7 @@ architecture<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ty&nbsp;=&nbsp;<a href="#Transform">Transform</a>(&nbsp;<a href="#Bound1D">Bound1D</a>(0,1),&nbsp;axes.yaxis.displaylim&nbsp;)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;=&nbsp;AxisText(dpi,&nbsp;bbox,&nbsp;0.5,&nbsp;0.5,&nbsp;transx=tx,&nbsp;transy=ty)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;*&nbsp;Map&nbsp;x&nbsp;view&nbsp;limits&nbsp;to&nbsp;display&nbsp;limits&nbsp;via&nbsp;a&nbsp;log&nbsp;tranformation&nbsp;and&nbsp;y<br>
+&nbsp;*&nbsp;Map&nbsp;x&nbsp;view&nbsp;limits&nbsp;to&nbsp;display&nbsp;limits&nbsp;via&nbsp;a&nbsp;log&nbsp;transformation&nbsp;and&nbsp;y<br>
 &nbsp;&nbsp;&nbsp;view&nbsp;limits&nbsp;via&nbsp;linear&nbsp;transform.&nbsp;&nbsp;The&nbsp;funcs&nbsp;pair&nbsp;is&nbsp;the<br>
 &nbsp;&nbsp;&nbsp;transform/inverse&nbsp;pair<br>
 &nbsp;<br>
@@ -110,7 +110,7 @@ architecture<br>
 &nbsp;*&nbsp;Combining&nbsp;the&nbsp;above,&nbsp;we&nbsp;can&nbsp;specify&nbsp;that&nbsp;a&nbsp;text&nbsp;instance&nbsp;is&nbsp;at&nbsp;an&nbsp;x<br>
 &nbsp;&nbsp;&nbsp;location&nbsp;in&nbsp;data&nbsp;coords&nbsp;and&nbsp;a&nbsp;y&nbsp;location&nbsp;in&nbsp;points&nbsp;relative&nbsp;to&nbsp;an<br>
 &nbsp;&nbsp;&nbsp;axis.&nbsp;&nbsp;Eg.&nbsp;the&nbsp;transformation&nbsp;below&nbsp;indicates&nbsp;that&nbsp;the&nbsp;x&nbsp;value&nbsp;of<br>
-&nbsp;&nbsp;&nbsp;an&nbsp;xticklabel&nbsp;position&nbsp;is&nbsp;in&nbsp;data&nbsp;corrdinates&nbsp;and&nbsp;the&nbsp;y&nbsp;value&nbsp;is&nbsp;3<br>
+&nbsp;&nbsp;&nbsp;an&nbsp;xticklabel&nbsp;position&nbsp;is&nbsp;in&nbsp;data&nbsp;coordinates&nbsp;and&nbsp;the&nbsp;y&nbsp;value&nbsp;is&nbsp;3<br>
 &nbsp;&nbsp;&nbsp;points&nbsp;below&nbsp;the&nbsp;x&nbsp;axis,&nbsp;top&nbsp;justified<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;top&nbsp;of&nbsp;the&nbsp;x&nbsp;ticklabel&nbsp;text&nbsp;is&nbsp;the&nbsp;bottom&nbsp;of&nbsp;the&nbsp;y&nbsp;axis<br>

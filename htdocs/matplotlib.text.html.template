@@ -39,7 +39,7 @@ Publicly&nbsp;accessible&nbsp;attributes<br>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Text-__init__"><strong>__init__</strong></a>(self, dpi, bbox, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, text<font color="#909090">=''</font>, color<font color="#909090">='k'</font>, verticalalignment<font color="#909090">='bottom'</font>, horizontalalignment<font color="#909090">='left'</font>, fontproperties<font color="#909090">=&lt;matplotlib.font_manager.FontProperties instance&gt;</font>, rotation<font color="#909090">=None</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt></dl>
 
-<dl><dt><a name="Text-copy_properties"><strong>copy_properties</strong></a>(self, text)</dt></dl>
+<dl><dt><a name="Text-copy_properties"><strong>copy_properties</strong></a>(self, t)</dt><dd><tt>Copy&nbsp;properties&nbsp;from&nbsp;t&nbsp;to&nbsp;self</tt></dd></dl>
 
 <dl><dt><a name="Text-get_color"><strong>get_color</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;text</tt></dd></dl>
 

@@ -110,7 +110,13 @@ following&nbsp;methods::<br>
 &nbsp;<br>
 See&nbsp;examples/major_minor_demo1.py&nbsp;for&nbsp;an&nbsp;example&nbsp;of&nbsp;setting&nbsp;major&nbsp;an<br>
 minor&nbsp;ticks.&nbsp;&nbsp;See&nbsp;the&nbsp;matplotlib.dates&nbsp;module&nbsp;for&nbsp;more&nbsp;information&nbsp;and<br>
-examples&nbsp;of&nbsp;using&nbsp;date&nbsp;locators&nbsp;and&nbsp;formatters.</tt></p>
+examples&nbsp;of&nbsp;using&nbsp;date&nbsp;locators&nbsp;and&nbsp;formatters.<br>
+&nbsp;<br>
+DEVELOPERS&nbsp;NOTE<br>
+&nbsp;<br>
+If&nbsp;you&nbsp;are&nbsp;implementing&nbsp;your&nbsp;own&nbsp;class&nbsp;or&nbsp;modifying&nbsp;one&nbsp;of&nbsp;these,&nbsp;it<br>
+is&nbsp;critical&nbsp;that&nbsp;you&nbsp;use&nbsp;viewlim,&nbsp;datalim&nbsp;and&nbsp;displaylim&nbsp;in&nbsp;READ&nbsp;ONLY<br>
+MODE&nbsp;so&nbsp;multiple&nbsp;axes&nbsp;can&nbsp;share&nbsp;the&nbsp;same&nbsp;locator&nbsp;w/o&nbsp;side&nbsp;effects!</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -1033,6 +1039,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <td width="100%"><strong>Float</strong> = 'd'<br>
 <strong>SEC_PER_DAY</strong> = 86400<br>
 <strong>SEC_PER_HOUR</strong> = 3600<br>
+<strong>SEC_PER_MIN</strong> = 60<br>
 <strong>SEC_PER_WEEK</strong> = 604800<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
