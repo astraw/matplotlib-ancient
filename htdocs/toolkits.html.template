@@ -1,0 +1,29 @@
+modfiles = (
+    ('basemap', 'Plots data on map projections (with continental and political boundaries)'), 
+    )
+
+@header@
+
+<h2>The matplotlib toolkits</h2>
+
+Toolkits are collections of application-specific functions that extend matplotlib.<br>
+
+        <br>
+<table @default_table@>
+    <caption>
+        <h4>The following toolkits are available for matplotlib </h4>
+    </caption>
+    <tr><th>toolkit</th><th>Description</th></tr>
+    + for toolkit,desc in modfiles:
+        <tr>
+            <th align=left>
+            <a href=matplotlib.toolkits.@toolkit@.@toolkit@.html>@toolkit@</a>
+            </th>
+            <td>
+            @desc@
+            </td>
+        </tr>
+    -
+</table>
+
+@footer@
