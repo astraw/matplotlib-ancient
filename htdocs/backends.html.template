@@ -33,7 +33,7 @@ command, the backend can be chosen from the command line with the
 
 # The image backends, no window pops up; you must call savefig
 > python subplot_demo.py -dAgg     # antigrain geometry backend image
-> python subplot_demo.py -dCairo   # antigrain geometry backend image
+> python subplot_demo.py -dCairo   # Cairo backend
 > python subplot_demo.py -dPS      # postscript backend
 > python subplot_demo.py -dSVG     # SVG backend
 > python subplot_demo.py -dGD      # GD backend
@@ -99,6 +99,7 @@ this page below or by clicking
 <li><a href=backends.html#TkAgg>TkAgg</a></li>
 <li><a href=backends.html#GTK>GTK</a></li>
 <li><a href=backends.html#GTKAgg>GTKAgg</a></li>
+<li><a href=backends.html#GTKCairo>GTKCairo</a></li>
 <li><a href=backends.html#WX>WX</a></li>
 <li><a href=backends.html#WXAgg>WXAgg</a></li>
 <li><a href=backends.html#PS>PS</a></li>
@@ -125,7 +126,7 @@ to compile Agg from src, set the <tt>BUILD_AGG</tt> flag in
 
 <a href=http://cairographics.org>Cairo</a> is a vector graphics 
 library designed to provide high-quality display and print output. 
-Like Agg, it doesn't depend on a GUI framework and is suitable for use in web
+It doesn't depend on a GUI framework and is suitable for use in web
 application servers generating images for html inclusion or for generating
 images in batch scripts.  Cairo can also be embedded in GUI applications, as in
 the GTKCairo backend<p>
@@ -226,7 +227,7 @@ href=backends.html#GTK>gtk</a>.
 
 <a name=GTKAgg><h3>GTKCairo</h3></a>
 
-GTKCairo combines the GTK GUI with Cairo rendering.
+GTKCairo uses Cairo rendering from within the GTK GUI.
 You need the <a href=backends.html#Cairo>Cairo</a> and <a href=backends.html#GTK>gtk</a>
 prerequisites.
 
