@@ -5,7 +5,7 @@
 The matplotlib core graphics routines interact with an abstract
 renderer and graphics context to allow device independent ouput.
 Currently, output to pygtk, wxPython, Tkinter, postscript, gdmodule,
-libart/paint, svg and agg (antigrain geometry) are supported.  With
+libart/paint, svg, agg (antigrain geometry) and Cairo are supported.  With
 not too much effort, you can port matplotlib to your favorite display;
 high on my list of priorities are PDF and PIL.  If you are interested
 in porting to one of these platforms, please contact me!<p>
@@ -24,18 +24,20 @@ command, the backend can be chosen from the command line with the
 
 <pre>
 # the GUI backends
-> python subplot_demo.py -dGTK     # GTK GUI with gdk drawing
-> python subplot_demo.py -dGTKAgg  # GTK GUI with antigrain rendering
-> python subplot_demo.py -dTkAgg   # Tkinter GUI with antigrain rendering
-> python subplot_demo.py -dWX      # WX backend
-> python subplot_demo.py -dWXAgg   # WX GUI with antigrain rendering
+> python subplot_demo.py -dGTK      # GTK GUI with gdk drawing
+> python subplot_demo.py -dGTKAgg   # GTK GUI with antigrain rendering
+> python subplot_demo.py -dGTKCairo # GTK GUI with Cairo rendering
+> python subplot_demo.py -dTkAgg    # Tkinter GUI with antigrain rendering
+> python subplot_demo.py -dWX       # WX backend
+> python subplot_demo.py -dWXAgg    # WX GUI with antigrain rendering
 
 # The image backends, no window pops up; you must call savefig
 > python subplot_demo.py -dAgg     # antigrain geometry backend image
+> python subplot_demo.py -dCairo   # antigrain geometry backend image
+> python subplot_demo.py -dPS      # postscript backend
+> python subplot_demo.py -dSVG     # SVG backend
 > python subplot_demo.py -dGD      # GD backend
 > python subplot_demo.py -dPaint   # Paint backend
-> python subplot_demo.py -dPS      # postscript backend
-> python subplot_demo.py -dSVG      # SVG backend
 </pre>
 
 
@@ -60,18 +62,20 @@ matplotlib.use('PS')
 
 The current backend strings that are supported are 
 <a
-href=matplotlib.backends.backend_gd.html>GD</a>, <a
 href=matplotlib.backends.backend_agg.html>Agg</a>, <a
+href=matplotlib.backends.backend_cairo.html>Cairo</a>, <a
 href=matplotlib.backends.backend_gtk.html>GTK</a>, <a
 href=matplotlib.backends.backend_gtkagg.html>GTKAgg</a>, <a
+href=matplotlib.backends.backend_gtkcairo.html>GTKCairo</a>, <a
 href=matplotlib.backends.backend_ps.html>PS</a> <a
 href=matplotlib.backends.backend_tkagg.html>TkAgg</a> <a
 href=matplotlib.backends.backend_wx.html>WX</a> <a
 href=matplotlib.backends.backend_wxagg.html>WXAgg</a> <a
 href=matplotlib.backends.backend_paint.html>Paint</a> and <a
+href=matplotlib.backends.backend_gd.html>GD</a>, <a
 href=matplotlib.backends.backend_template.html>Template</a>.
 
-The default is GTK.  Template is a do nothing backend that serves as a
+The default is GTKAgg.  Template is a do nothing backend that serves as a
 template for backend writers (volunteers welcome!).<p>
 
 To get the most of your backend of choice, you may need to set an
@@ -90,9 +94,10 @@ minor changes; see the <a href=faq.html#NUMARRAY>FAQ</a>.<p>
 Specific information for installing the other backends can be found on
 this page below or by clicking
 <ul>
-<li><a href=backends.html#GTK>GTK</a></li>
 <li><a href=backends.html#Agg>Agg</a></li>
+<li><a href=backends.html#Cairo>Cairo</a></li>
 <li><a href=backends.html#TkAgg>TkAgg</a></li>
+<li><a href=backends.html#GTK>GTK</a></li>
 <li><a href=backends.html#GTKAgg>GTKAgg</a></li>
 <li><a href=backends.html#WX>WX</a></li>
 <li><a href=backends.html#WXAgg>WXAgg</a></li>
@@ -102,10 +107,36 @@ this page below or by clicking
 </ul>
 
 
+<a name=Agg><h3>Agg</h3></a>
+
+The <a href=http://antigrain.com>antigrain geometry</a> library is a
+platform independent library that provides efficient antialiased
+rendering with a vector model.  Because it doesn't depend on a GUI
+framework, it is suitable for use in web application servers
+generating images for html inclusion or for generating images in batch
+scripts.  Agg can also be embedded in GUI applications, as in the
+GTKAgg and TkAgg backends -- see <tt>setup.py</tt><p>
+
+The windows installer comes with Agg prebuilt.  For other platforms,
+to compile Agg from src, set the <tt>BUILD_AGG</tt> flag in
+<tt>setup.py</tt>.  
+
+<a name=Cairo><h3>Cairo</h3></a>
+
+<a href=http://cairographics.org>Cairo</a> is a vector graphics 
+library designed to provide high-quality display and print output. 
+Like Agg, it doesn't depend on a GUI framework and is suitable for use in web
+application servers generating images for html inclusion or for generating
+images in batch scripts.  Cairo can also be embedded in GUI applications, as in
+the GTKCairo backend<p>
+
+It requires the cvs versions of libpixman, cairo and pycairo from 
+<a href=http://www.freedesktop.org/Cairo/download>Cairo downloads</a>
+
+
 <a name=GTK><h3>GTK</h3></a>
 
-This is the default backend and the first one supported by matplotlib;
-it requires
+This was the first backend supported by matplotlib; it requires
 
 <ul> 
 
@@ -181,20 +212,6 @@ which comes with wxpython and Numeric built in, so matplotlib will
 work right out of the box.  matplotlib under WXAgg has been tested on
 linux, win32 and OSX.<p>
 
-<a name=Agg><h3>Agg output</h3></a>
-
-The <a href=http://antigrain.com>antigrain geometry</a> library is a
-platform independent library that provides efficient antialiased
-rendering with a vector model.  Because it doesn't depend on a GUI
-framework, it is suitable for use in web application servers
-generating images for html inclusion or for generating images in batch
-scripts.  Agg can also be embedded in GUI applications, as in the
-GTKAgg and TkAgg backends -- see <tt>setup.py</tt><p>
-
-The windows installer comes with Agg prebuilt.  For other platforms,
-to compile Agg from src, set the <tt>BUILD_AGG</tt> flag in
-<tt>setup.py</tt>.  
-
 <a name=GTKAgg><h3>GTKAgg: GTK GUI with antigrain rendering</h3></a>
 
 GTK has a very nice and portable widget set.  The gdk drawing
@@ -205,6 +222,13 @@ href=backends.html#Agg>agg</a> and <a href=backends.html#GTK>gtk</a>
 prerequisites.  On windows, GTKAgg is builtin, so you only need to
 install pygtk and the GTK runtime, as described in <a
 href=backends.html#GTK>gtk</a>.
+
+
+<a name=GTKAgg><h3>GTKCairo</h3></a>
+
+GTKCairo combines the GTK GUI with Cairo rendering.
+You need the <a href=backends.html#Cairo>Cairo</a> and <a href=backends.html#GTK>gtk</a>
+prerequisites.
 
 
 <a name=TkAgg><h3>Tkinter GUI backend</h3></a>
