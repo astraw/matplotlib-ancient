@@ -2,10 +2,9 @@
 
 <h2>Credits</h2>
 
-matplotlib was written by John D. Hunter<p>
+matplotlib was written by John Hunter<p>
 
-Special thanks to those who have made valuable contributions to
-matplotlib
+<h4>Special thanks to those who have made valuable contributions</h4>
 
 <ul> 
 
@@ -19,7 +18,7 @@ matplotlib
   improvement.</li>
 
   <li>Gary Ruben made many enhancements to errorbar to support x and y
-  errorbar plots.
+  errorbar plots, and added a number of new marker types to plot.
   </li>
 
   <li>John Gill wrote the table class and examples</li>
@@ -28,10 +27,17 @@ matplotlib
 
   <li>Todd Miller contributed the TkAgg backend and the numerix
   module, which allows matplotlib to work with either numeric or
-  numarray</li>
+  numarray.  He also ported image support to the postscript
+  backend.</li>
 
   <li>Paul Barrett overhauled font management to provide an improved,
   free-standing, platform independent font manager with a WC3 compliant
-  font finder</li>
+  font finder and cache mechanism.</li>
+
+  <li>Perry Greenfield overhauled and modernized the goals and
+  priorities page, and has provided many suggestions and a lot of
+  insight to the overall design and organization of matplotlib.</li>
+
 </ul>
+
 @footer@

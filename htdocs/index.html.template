@@ -31,6 +31,7 @@ commands = (
     ('semilogy', 'log y axis'),
     ('set', 'set a handle graphics property'),
     ('show', 'show the figures'),
+    ('stem', 'a stem plot'),
     ('specgram', 'a spectrogram'),
     ('subplot', 'make a subplot (numrows, numcols, axesnum)'),
     ('table', 'add a table to the axes'),
