@@ -2,7 +2,7 @@
 FAQs = (
     ('NUMARRAY',
     'Does matplotlib work with numarray?',
-    """\
+    """
 Yes.  Todd Miller has added a numeric module which allows you to
 choose between Numeric or numarray at the promptw, in a config file, or
 using an environment variable.  For the most part, this works
@@ -11,18 +11,17 @@ seamlessly.  See <a href=NUMARRAY_ISSUES>NUMARRAY_ISSUES</a> and the
 </a> </a>
 """),
 
-    ('MATPLOTLIBRC',
-    'How do I customize the default behavior of matplotib?',
-    """\
+    ('MATPLOTLIBRC', 
+     'How do I customize the default behavior of matplotib?', 
+"""
 Recent versions of matplotlib (0.51 or later) use a configuration file
 to set everything from the default font, to the figure size, to the
 default line width.  See <a href=.matplotlibrc>.matplotlibrc</a> for a
-sample config file and information on how to use it.
-"""),
+sample config file and information on how to use it.  """),
 
     ('CUSTOM',
     'How do I customize the default behavior of a single figure?',
-    """\
+    r"""
 If you want to customize a single figure, eg, the default font,
 linewidth, fontsize, etc, you can import and customize the rcParams
 determined by the matplotlibrc file (see above).  For example, if you
@@ -46,7 +45,7 @@ show()
 	
     ('GTKPATH',
     'I cannot import gtk / gdk / gobject',
-    """\
+    """
 95 times out of 100 this is a PATH issue.  Follow the instructions on
 this <a
 href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.012.htp>pygtk
@@ -62,7 +61,7 @@ thread</a>, which is filled with good advice.  """
 
     ('WHICHBACKEND',
      'Which backend should I use?',
-     """\
+     """
 Each of the backends offers different strengths.  I'll summarize some
 of them. 
 
@@ -112,16 +111,14 @@ your best best.  Tk widgets are not visually stunning. </li>
 
 </ul>
 
-My default backend is GTKAgg.
 
 """),
 
     ('MATHTEXT',
      'Can I include math expressions in my figures?',
-     """\
-As of matplotlib-0.51, you can use TeX markup in any text element.
+     r"""As of matplotlib-0.51, you can use TeX markup in any text element.
 Just use raw strings and enclose the strings with dollar signs, as in
-<tt>title(r'\\alpha > \\beta_i$)</tt>.  See <a
+<tt>title(r'$\\alpha > \\beta_i$')</tt>.  See <a
 href=screenshots.html#mathtext_demo>screenshot</a> and the <a
 href=matplotlib.mathtext.html>mathtext</a> documentation for usage,
 requirements and backend information.
@@ -130,8 +127,9 @@ requirements and backend information.
     
     ('BATCHMODE',
      'Can I just generate images without having a window popup?',
-     """\
+     """
 The easiest way to do this is use an image backend, either <a
+href=backends.html#Agg>Agg</a>, <a
 href=backends.html#GD>GD</a> or <a href=backends.html#Paint>Paint</a>
 if you want to generate PNG images, eg, for use in a web page, or PS
 if you want publication quality, scalable images.  All of these
@@ -142,14 +140,14 @@ jdhunter@ace.bsd.uchicago.edu for more information if you are
 interested setting this up."""),
 
     ('APPSERVER',
-     'Can I just matplotlib in a web application server?',
-     """\
+     'Can I use matplotlib in a web application server?',
+     """
 Yes.  matplotlb can be used with any web application server that can
 call python.  It has been used with mod_python, xml_rpc, and other
 frameworks.  You'll want to use one of the image backends; <a
-href=faq.html#BATCHMODE>see batch mode</a>.  Also to make small images
+href=faq.html#BATCHMODE>see image backends</a>.  Also to make small images
 appropriate for use on a web page, you may want to consider the Agg or GD
-backends, since they renders small font rasters using freetype2 better
+backends, since they render small font rasters using freetype2 better
 than Paint, which currently use freetype1.  You can work around
 the problem of small raster sizes by making your fonts appear larger
 for a given by decreasing the figure size and increasing the dpi.  Eg,
@@ -167,16 +165,13 @@ See <a href=fonts.html#TTFFONTS>ttf fonts</a> for more information.
 
     ('SHOW',
      "What's up with 'show'?  Do I have to use it?",
-     """\
+     """
 The use of show is probably the biggest source of confusion and
 vexation among new users of matplotlib.  First of all, you do not
-need this function with the image backends (Paint, GD, PS) but you do
-need it with the GUI (GTK, WX) backends (unless you are running
-matplotlib in <a href=interactive.html>interactive mode</a>).  <p>
+need this function with the image backends (Agg, Paint, GD, PS) but you do
+need it with the GUI (GTK, WX, TkAgg, GTKAgg) backends, unless you are running
+matplotlib in <a href=interactive.html>interactive mode</a>.  <p>
 
-The GUIs have 'mainloops' which need to be entered to do event
-handling.  Unless you have threading enabled ala gui_thread (on the
-TODO list), entering the mainloop is the last command you execute.
 Because it is expensive to draw, I want to avoid redrawing the figure
 many times in a batch script such as the following<p>
 
@@ -184,7 +179,7 @@ many times in a batch script such as the following<p>
   plot([1,2,3])            # draw here ?
   xlabel('time')           # and here ?
   ylabel('volts')          # and here ?
-  title(''a simple plot')  # and here ?
+  title('a simple plot')   # and here ?
   show()            
 </pre>
 
@@ -193,12 +188,16 @@ is what you want in <a href=interactive.html>interactive mode</a>, but
 in a script you want to defer all drawing until the script has
 executed.  This is especially important for complex figures that take
 some time to draw.  'show' is designed to tell matplotlib that you're
-all done issuing commands and you want to draw the figure now.  """),
+all done issuing commands and you want to draw the figure now.  In the
+TkAgg backend, which can be used from an arbitrary python shell
+interactively, it also sets interactive mode.  So you can launch your
+script with <tt>python -i myscript.py -dTkAgg</tt> and then change it
+interactively from the shell."""),
  
     ('PSGUI',
      'Can I save PS/EPS from a GUI backend?',
-     """\
-Yep.  Just choose a filename that contains ps in the extension, eg
+     """
+Yep.  Just choose a filename that contains <tt>ps</tt> in the extension, eg
 <tt>somefile.ps</tt> or <tt>somefile.eps</tt> and matplotlib will try
 and do the right thing.  That is, if it's an eps file, it will include
 a bounding box, if it's a ps file it will output plain postscript.  It
@@ -224,17 +223,21 @@ fontsize=8)</tt> or, for the tick labels
 t = gca().get_xticklabels()
 set(t, 'fontsize', 8)
 </pre>
- """),
+
+You can also set the default ticklabel size in your <a
+href=faq.html#MATPLOTLIBRC>matplotlibrc</a> file or override it for a
+single plot using <a
+href=faq.html#CUSTOM>rcParams</a>."""),
 
     ('DYNAMIC',
      'Can matplotlib do dynamic plots, like digital oscilloscopes or animations?', 
-    """\
+    """
 Absolutely.  See for example, <a href=examples/anim.py>anim.py</a> and <a
 href=examples/system_monitor.py>system_monitor.py</a>"""),
 
     ('PERFORMANCE',
      'Is matplotlib fast enough for very large data sets?',
-     """\
+     """
 The answer, of course, is "it depends".  I've worked hard to make
 matplotlib work well with very large data sets (100s of MB), because
 these are the kinds of data I need to handle at work.  It is very good
@@ -243,20 +246,21 @@ only a small portion of data in displayed in the viewport; see for
 example <a href=examples/stock_demo.py>stock_demo.py<a/> where you can
 scroll through 2 months of minute-by-minute stock quote data.  The
 performance with higher dimensional data, eg, pseudocolor plots with
-x, y, and intensity parameters, leaves sometime to be desired.  I'm
-looking into ways to improve these cases.  Several people with high
-bandwidth requirements have reported being happy with matplotlib's
-performance.  If you find areas that need improvement, let me know.
-"""),
+x, y, and intensity parameters, leaves sometime to be desired.
+Improving the performance in these cases is fairly high up on the TODO list.
+
+Several people with high bandwidth requirements have reported being
+happy with matplotlib's performance.  If you find areas that need
+improvement, let me know.  """),
 
     ('IMAGES',
     'Can matplotlib handle image data?',
-     """\
+     """
 Not currently, except as pcolor data.  It's in the works; stay tuned."""),
 
     ('ROTATETICKS',
      'How do I make vertical xticklabels?',
-     """\
+     """
 You can set the rotation of any text instance to vertical
 
 <pre>
@@ -271,7 +275,7 @@ You can set the rotation of any text instance to vertical
 
      ('WINFONTS',
       "On windows with GTK, I'm getting lots of messages about not finding the  Times font",
-    """\
+    r"""
 Apparently GTK changed the default pango font file, because this is a new problem.  You can set font aliases in C:\GTK\etc\pango\pango.aliases.  Add a line like<pre>
 times = "times new roman,angsana new,mingliu,simsun,gulimche,ms gothic,latha,mangal,code2000"
 </pre>
@@ -279,7 +283,7 @@ times = "times new roman,angsana new,mingliu,simsun,gulimche,ms gothic,latha,man
 
      ('FONTCACHE',
       "On windows with GD/Agg/Paint, the first time I ran my script I got a bunch or error messages but don't anymore",
-    """\
+    """
 These modules use FontTools and TTFQuery to find freetype fonts.  The
 first time you import one of these backends, a font registry created
 in site-packages/ttfquery/font.cache.  As you system is scanned for

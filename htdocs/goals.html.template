@@ -46,7 +46,7 @@ mailing list</a>.<p>
         under full control
     </td>
 
-    <td @td_done@> You can specify the linewidth and color of the tick
+    <td @td_done@> DONE You can specify the linewidth and color of the tick
 	lines, axis lines and grid lines.  You now have full control
 	of the line attributes for the axes lines.  These can be
 	customized in the <a href=.matplotlibrc>matplotlibrc</a> file.

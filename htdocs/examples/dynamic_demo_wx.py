@@ -19,8 +19,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.19  2004/03/03 23:05:57  jdh2358
-synching to 0.51
+Revision 1.20  2004/03/08 14:56:51  jdh2358
+fixed subplot bug
 
 Revision 1.2  2004/02/26 20:22:58  jaytmiller
 Added the "numerix" Numeric/numarray selector module enabling matplotlib

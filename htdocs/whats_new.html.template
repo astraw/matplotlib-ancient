@@ -13,6 +13,9 @@ href=backends.html#TkAgg>TkAgg backend</a>.  To use the TkAgg backend,
 you must launch your scripts in interactive mode <tt>python -i
 myscript.py -dTkAgg</tt>; otherwise they'll just pop up and
 disappear.""" ),
+
+    ('GTKAgg', """GTK widgets with antigrain rendering.  See the <a
+href=backends.html#GTKAgg>GTKAgg backend</a>.""" ),
     
     ('freetype2 support added for agg backend', """With freetype2,
 agg now renders fonts nicely even at very small raster sizes.""" ),

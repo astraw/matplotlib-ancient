@@ -2,11 +2,11 @@ plot_table_border = 'border=1 cellspacing=1 cellpadding=1'
 
 font_props = (
     ('alpha', 'The alpha transparency on 0-1 scale'),
-    ('color', 'a matplotlib color argument'),
+    ('color', 'a matplotlib <a href=matplotlib.matlab#-colors>color</a> argument'),
     ('fontangle', 'italic | normal | oblique'),
     ('fontname', 'Sans | Helvetica | Courier | Times | Others'),
     ('fontsize', 'an scalar, eg, 10'),
-    ('fontweight', 'normal | bold | light t'),
+    ('fontweight', 'normal | bold | light 4'),
     ('horizontalalignment', 'left | center | right'),
     ('rotation', 'horizontal | vertical'),
     ('verticalalignment', 'bottom | center | top'),
@@ -14,8 +14,8 @@ font_props = (
 
 line_props = (
     ('alpha', 'The alpha transparency on 0-1 scale'),
-    ('antialiased', 'True|False use antialised rendering'),
-    ('color', 'a matplotlib color arg'),
+    ('antialiased', 'True | False -  use antialised rendering'),
+    ('color', 'a matplotlib <a href=matplotlib.matlab#-colors>color</a> arg'),
     ('data_clipping', 'Whether to use numeric to clip data'),
     ('label', 'a string optionally used for legend'),
     ('linestyle', "One of -- :  -.  -"),
@@ -236,6 +236,10 @@ title('Easy as 1,2,3')   # figure 1 title
 show()
 </pre>
 
+You can clear the current figure with <a
+href=matplotlib.matlab.html#-clf>clf</a> and the current axes with 
+<a
+href=matplotlib.matlab.html#-cla>cla</a>
 
 <a name="text">
 <h3>Working with text</h3>
@@ -263,6 +267,9 @@ are compatible with matlab handle graphics for text<p>
     -
 </table><br>
 
+See <a href=screenshots.html#align_text>align_text</a> for
+examples of how to control the alignment and orientation of text.<p>
+
 Here is an example adding text to a simple plot<p>
 
 <table @plot_table_border@><tr><td>
@@ -282,6 +289,7 @@ show()
 </table>
 </td></tr>
 </table><br>
+
 
 
 <h4><a name=handle>Controlling text properties with handle graphics</a></h4>
@@ -308,9 +316,10 @@ set(labels, 'color', 'r', 'fontweight', 'bold')
 <h4><a name=oo>Controlling text using object methods</a></h4>
 
 The <a href=matplotlib.matlab.html#-set>set</a> command is just a
-wrapper around the Text set methods.  If you prefer using instance
-methods, you just prepend <tt>set_</tt> to the text property and make
-a normal python instance method call, as in<p>
+wrapper around the <a href=matplotlib.text.html>Text</a> set methods.
+If you prefer using instance methods, you just prepend <tt>set_</tt>
+to the text property and make a normal python instance method call, as
+in<p>
 
 <pre>
 t = xlabel('time')
@@ -360,7 +369,7 @@ with the color string 'k'.<p>
 <h4><a name=mathtext>Writing mathematical expressions</aa></h4>
 
 As of matplotlib-0.51, you can use TeX markup in your expressions.
-You need to compile matplotlib with <tt>BUILD_FT2FONT</tt> This is
+You need to compile matplotlib with <tt>BUILD_FT2FONT</tt>. This is
 already compiled for you in the windows installer; if you are building
 yourself, set <tt>BUILD_FT2FONT = True</tt> in <tt>setup.py</tt>.  Not
 all backends currently support mathtext (but most do) - see the <a

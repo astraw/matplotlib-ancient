@@ -9,8 +9,10 @@ modfiles = (
     ('figure', 'The Figure classes'),  
     ('legend', 'The Legend class'), 
     ('lines', 'The Line2D classes'), 
-    ('matlab', 'The matlab functional interface'), 
+    ('matlab', 'The matlab functional interface'),
+    ('mathtext', 'Use TeX expressions in text'),     
     ('mlab', 'Non-graphical matlab funcs to compliment MLab'), 
+    ('numerix', 'Choose Numeric or numarray'),
     ('patches', 'Rectangles, polygons, circles, etc...'),
     ('table', 'Table class'), 
     ('text', 'Text class'), 
@@ -18,9 +20,11 @@ modfiles = (
     ('backends.backend_agg', 'The Agg backend'), 
     ('backends.backend_gd', 'The GD module backend'),
     ('backends.backend_gtk', 'The pygtk backend'),
+    ('backends.backend_gtkagg', 'GTK GUI with agg renderering'),    
     ('backends.backend_paint', 'The Paint backend'), 
     ('backends.backend_ps', 'The Postscript backend'),
     ('backends.backend_template', 'A template for backend writers'),
+    ('backends.backend_tkagg', 'Tk GUI with agg renderering'),    
     ('backends.backend_wx', 'Development version of wx backend'),
     )
 
