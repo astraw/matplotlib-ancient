@@ -5,100 +5,7 @@
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.axes</strong></big></big></font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/axes.py">/matplotlib/axes.py</a></font></td></tr></table>
-    <p><tt>API&nbsp;changes<br>
-&nbsp;<br>
-&nbsp;<br>
--&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;__init__&nbsp;takes&nbsp;a&nbsp;DPI&nbsp;instance&nbsp;and&nbsp;a&nbsp;Bound2D&nbsp;instance&nbsp;which&nbsp;is<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;bounding&nbsp;box&nbsp;of&nbsp;the&nbsp;artist&nbsp;in&nbsp;display&nbsp;coords<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;get_window_extent&nbsp;returns&nbsp;a&nbsp;Bound2D&nbsp;instance<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;set_size&nbsp;is&nbsp;removed;&nbsp;replaced&nbsp;by&nbsp;bbox&nbsp;and&nbsp;dpi<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;the&nbsp;clip_gc&nbsp;method&nbsp;is&nbsp;removed.&nbsp;&nbsp;Artists&nbsp;now&nbsp;clip&nbsp;themselves&nbsp;with<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;their&nbsp;box<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;added&nbsp;_clipOn&nbsp;boolean&nbsp;attribute.&nbsp;&nbsp;If&nbsp;True,&nbsp;gc&nbsp;clip&nbsp;to&nbsp;bbox.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
--&nbsp;AxisTextBase<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Initialized&nbsp;with&nbsp;a&nbsp;transx,&nbsp;transy&nbsp;which&nbsp;are&nbsp;Transform&nbsp;instances<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;set_drawing_area&nbsp;removed<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;get_left_right&nbsp;and&nbsp;get_top_bottom&nbsp;are&nbsp;replaced&nbsp;by&nbsp;get_window_extent<br>
-&nbsp;<br>
--&nbsp;Line2D&nbsp;Patches&nbsp;now&nbsp;take&nbsp;transx,&nbsp;transy<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Initialized&nbsp;with&nbsp;a&nbsp;transx,&nbsp;transy&nbsp;which&nbsp;are&nbsp;Transform&nbsp;instances<br>
-&nbsp;<br>
--&nbsp;Patches<br>
-&nbsp;&nbsp;&nbsp;*&nbsp;Initialized&nbsp;with&nbsp;a&nbsp;transx,&nbsp;transy&nbsp;which&nbsp;are&nbsp;Transform&nbsp;instances<br>
-&nbsp;<br>
--&nbsp;FigureBase&nbsp;attributes&nbsp;dpi&nbsp;is&nbsp;a&nbsp;DPI&nbsp;intance&nbsp;rather&nbsp;than&nbsp;scalar&nbsp;and<br>
-&nbsp;&nbsp;new&nbsp;attribute&nbsp;bbox&nbsp;is&nbsp;a&nbsp;Bound2D&nbsp;in&nbsp;display&nbsp;coords,&nbsp;and&nbsp;I&nbsp;got&nbsp;rid&nbsp;of<br>
-&nbsp;&nbsp;the&nbsp;left,&nbsp;width,&nbsp;height,&nbsp;etc...&nbsp;attributes.&nbsp;&nbsp;These&nbsp;are&nbsp;now<br>
-&nbsp;&nbsp;accessible&nbsp;as,&nbsp;for&nbsp;example,&nbsp;bbox.x.min&nbsp;is&nbsp;left,&nbsp;bbox.x.interval()&nbsp;is<br>
-&nbsp;&nbsp;width,&nbsp;bbox.y.max&nbsp;is&nbsp;top,&nbsp;etc...<br>
-&nbsp;<br>
--&nbsp;GcfBase&nbsp;attribute&nbsp;pagesize&nbsp;renamed&nbsp;to&nbsp;figsize<br>
-&nbsp;<br>
--&nbsp;<a href="#Axes">Axes</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;removed&nbsp;figbg&nbsp;attribute<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;added&nbsp;fig&nbsp;instance&nbsp;to&nbsp;__init__<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;resizing&nbsp;is&nbsp;handled&nbsp;by&nbsp;figure&nbsp;call&nbsp;to&nbsp;resize.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
--&nbsp;<a href="#Subplot">Subplot</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;added&nbsp;fig&nbsp;instance&nbsp;to&nbsp;__init__<br>
-&nbsp;<br>
--&nbsp;Renderer&nbsp;methods&nbsp;for&nbsp;patches&nbsp;now&nbsp;take&nbsp;gcEdge&nbsp;and&nbsp;gcFace&nbsp;instances.<br>
-&nbsp;&nbsp;gcFace=None&nbsp;takes&nbsp;the&nbsp;place&nbsp;of&nbsp;filled=False<br>
-&nbsp;<br>
--&nbsp;True&nbsp;and&nbsp;False&nbsp;symbols&nbsp;provided&nbsp;by&nbsp;cbook&nbsp;in&nbsp;a&nbsp;python2.3&nbsp;compatible<br>
-&nbsp;&nbsp;way<br>
-&nbsp;<br>
--&nbsp;new&nbsp;module&nbsp;transforms&nbsp;supplies&nbsp;Bound1D,&nbsp;Bound2D&nbsp;and&nbsp;Transform<br>
-&nbsp;&nbsp;instances&nbsp;and&nbsp;more<br>
-&nbsp;<br>
--&nbsp;Changes&nbsp;to&nbsp;the&nbsp;matlab&nbsp;helpers&nbsp;API<br>
-&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;_matlab_helpers.GcfBase&nbsp;is&nbsp;renamed&nbsp;by&nbsp;Gcf.&nbsp;&nbsp;Backends&nbsp;no&nbsp;longer<br>
-&nbsp;&nbsp;&nbsp;&nbsp;need&nbsp;to&nbsp;derive&nbsp;from&nbsp;this&nbsp;class.&nbsp;&nbsp;Instead,&nbsp;they&nbsp;provide&nbsp;a&nbsp;factory<br>
-&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;new_figure_manager(num,&nbsp;figsize,&nbsp;dpi).&nbsp;&nbsp;The&nbsp;destroy<br>
-&nbsp;&nbsp;&nbsp;&nbsp;method&nbsp;of&nbsp;the&nbsp;GcfDerived&nbsp;from&nbsp;the&nbsp;backends&nbsp;is&nbsp;moved&nbsp;to&nbsp;the&nbsp;derived<br>
-&nbsp;&nbsp;&nbsp;&nbsp;FigureManager.<br>
-&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;FigureManagerBase&nbsp;moved&nbsp;to&nbsp;backend_bases<br>
-&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;Gcf.get_all_figwins&nbsp;renamed&nbsp;to&nbsp;Gcf.get_all_fig_managers<br>
-&nbsp;<br>
-Jeremy:<br>
-&nbsp;<br>
-&nbsp;&nbsp;Make&nbsp;sure&nbsp;to&nbsp;self.<strong>_reset</strong>&nbsp;=&nbsp;False&nbsp;in&nbsp;AxisTextWX._set_font.&nbsp;&nbsp;This&nbsp;was<br>
-&nbsp;&nbsp;something&nbsp;missing&nbsp;in&nbsp;my&nbsp;backend&nbsp;code.<br>
-&nbsp;&nbsp;<br>
-KNOWN&nbsp;BUGS<br>
-&nbsp;<br>
-&nbsp;&nbsp;-&nbsp;DONE&nbsp;-&nbsp;Circle&nbsp;needs&nbsp;to&nbsp;provide&nbsp;window&nbsp;extent&nbsp;--&nbsp;see&nbsp;scatter&nbsp;demo<br>
-&nbsp;<br>
-&nbsp;&nbsp;-&nbsp;DONE&nbsp;-&nbsp;axes&nbsp;patch&nbsp;edge&nbsp;on&nbsp;gtk&nbsp;backend&nbsp;not&nbsp;complete<br>
-&nbsp;<br>
-&nbsp;&nbsp;-&nbsp;DONE&nbsp;-&nbsp;autoscale&nbsp;on&nbsp;y&nbsp;not&nbsp;satisfactory&nbsp;--&nbsp;see&nbsp;histogram&nbsp;demo<br>
-&nbsp;<br>
-&nbsp;&nbsp;-&nbsp;with&nbsp;multiple&nbsp;subplots&nbsp;there&nbsp;is&nbsp;a&nbsp;small&nbsp;gap&nbsp;between&nbsp;the&nbsp;bottom&nbsp;of<br>
-&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;xtick1&nbsp;line&nbsp;and&nbsp;the&nbsp;axes&nbsp;patch&nbsp;edge.&nbsp;see&nbsp;subplot_demo<br>
-&nbsp;<br>
-&nbsp;&nbsp;-&nbsp;DONE&nbsp;2003-11-14&nbsp;-&nbsp;&nbsp;lowest&nbsp;line&nbsp;position&nbsp;is&nbsp;off&nbsp;in&nbsp;legend_demo<br>
-&nbsp;<br>
-&nbsp;&nbsp;-&nbsp;the&nbsp;markers&nbsp;for&nbsp;circ&nbsp;and&nbsp;square&nbsp;in&nbsp;the&nbsp;gtk&nbsp;backend&nbsp;do&nbsp;not&nbsp;have&nbsp;the<br>
-&nbsp;&nbsp;&nbsp;&nbsp;same&nbsp;center.&nbsp;&nbsp;See&nbsp;the&nbsp;stock_demo&nbsp;for&nbsp;example.<br>
-&nbsp;<br>
-&nbsp;&nbsp;-&nbsp;DONE&nbsp;2003-11-16&nbsp;-&nbsp;GD&nbsp;port&nbsp;of&nbsp;new&nbsp;API&nbsp;not&nbsp;done<br>
-&nbsp;<br>
-&nbsp;&nbsp;-&nbsp;DONE&nbsp;2003-11-16&nbsp;-&nbsp;xticklabels&nbsp;in&nbsp;PS&nbsp;backend&nbsp;need&nbsp;clip<br>
-&nbsp;<br>
-&nbsp;&nbsp;-&nbsp;x&nbsp;and&nbsp;y&nbsp;ticklabels&nbsp;overlap&nbsp;at&nbsp;origin<br>
-&nbsp;<br>
-&nbsp;&nbsp;-&nbsp;parse&nbsp;error&nbsp;on&nbsp;lines&nbsp;like&nbsp;plot(bins,&nbsp;mu,&nbsp;bins,&nbsp;mu+sigma,&nbsp;'--')<br>
-OUTSTANDING&nbsp;ISSUES<br>
-&nbsp;<br>
-&nbsp;&nbsp;-&nbsp;rationalize&nbsp;DPI&nbsp;between&nbsp;backends&nbsp;-&nbsp;config&nbsp;file?<br>
-&nbsp;<br>
-&nbsp;&nbsp;-&nbsp;let&nbsp;the&nbsp;user&nbsp;pass&nbsp;the&nbsp;default&nbsp;font&nbsp;to&nbsp;the&nbsp;axes&nbsp;so&nbsp;that&nbsp;the&nbsp;text<br>
-&nbsp;&nbsp;&nbsp;&nbsp;labels,&nbsp;tick&nbsp;labels,&nbsp;etc,&nbsp;can&nbsp;all&nbsp;be&nbsp;updated</tt></p>
+    <p></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -107,12 +14,10 @@ OUTSTANDING&nbsp;ISSUES<br>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="MLab.html">MLab</a><br>
-<a href="matplotlib.backends.html">matplotlib.backends</a><br>
 </td><td width="25%" valign=top><a href="math.html">math</a><br>
-<a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
-</td><td width="25%" valign=top><a href="re.html">re</a><br>
-<a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top><a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -129,21 +34,6 @@ OUTSTANDING&nbsp;ISSUES<br>
 <dt><font face="helvetica, arial"><a href="matplotlib.axes.html#Subplot">Subplot</a>
 </font></dt></dl>
 </dd>
-<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#Axis">Axis</a>
-</font></dt><dd>
-<dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#XAxis">XAxis</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.axes.html#YAxis">YAxis</a>
-</font></dt></dl>
-</dd>
-<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#Legend">Legend</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.axes.html#Tick">Tick</a>
-</font></dt><dd>
-<dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#XTick">XTick</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.axes.html#YTick">YTick</a>
-</font></dt></dl>
-</dd>
 </dl>
 </dd>
 </dl>
@@ -156,7 +46,7 @@ OUTSTANDING&nbsp;ISSUES<br>
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>Emulate&nbsp;matlab's&nbsp;axes&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
 &nbsp;<br>
-&nbsp;&nbsp;<a href="#Axes">Axes</a>(position=[left,&nbsp;bottom,&nbsp;width,&nbsp;height])<br>
+&nbsp;&nbsp;&nbsp;<a href="#Axes">Axes</a>(position=[left,&nbsp;bottom,&nbsp;width,&nbsp;height])<br>
 &nbsp;<br>
 where&nbsp;all&nbsp;the&nbsp;arguments&nbsp;are&nbsp;fractions&nbsp;in&nbsp;[0,1]&nbsp;which&nbsp;specify&nbsp;the<br>
 fraction&nbsp;of&nbsp;the&nbsp;total&nbsp;figure&nbsp;window.&nbsp;&nbsp;<br>
@@ -247,25 +137,25 @@ capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;cap
 
 <dl><dt><a name="Axes-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Axes-get_xaxis"><strong>get_xaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;<a href="#XAxis">XAxis</a>&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="Axes-get_xaxis"><strong>get_xaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;XAxis&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_xgridlines"><strong>get_xgridlines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;x&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_xlim"><strong>get_xlim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;x&nbsp;axis&nbsp;range&nbsp;[xmin,&nbsp;xmax]</tt></dd></dl>
 
-<dl><dt><a name="Axes-get_xticklabels"><strong>get_xticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+<dl><dt><a name="Axes-get_xticklabels"><strong>get_xticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_xticklines"><strong>get_xticklines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_xticks"><strong>get_xticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;x&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
 
-<dl><dt><a name="Axes-get_yaxis"><strong>get_yaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;<a href="#YAxis">YAxis</a>&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="Axes-get_yaxis"><strong>get_yaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;YAxis&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_ygridlines"><strong>get_ygridlines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;y&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_ylim"><strong>get_ylim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;y&nbsp;axis&nbsp;range&nbsp;[ymin,&nbsp;ymax]</tt></dd></dl>
 
-<dl><dt><a name="Axes-get_yticklabels"><strong>get_yticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+<dl><dt><a name="Axes-get_yticklabels"><strong>get_yticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_yticklines"><strong>get_yticklines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
 
@@ -384,7 +274,7 @@ and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 <dl><dt><a name="Axes-plot"><strong>plot</strong></a>(self, *args)</dt><dd><tt>Emulate&nbsp;matlab's&nbsp;plot&nbsp;command.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
 argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional<br>
 format&nbsp;string.&nbsp;&nbsp;For&nbsp;example,&nbsp;all&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;legal,<br>
-assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;<a href="#Axis">Axis</a>&nbsp;instance:<br>
+assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;Axis&nbsp;instance:<br>
 &nbsp;<br>
 &nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x<br>
 &nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x&nbsp;with&nbsp;blue&nbsp;circles<br>
@@ -485,7 +375,7 @@ the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
 <dl><dt><a name="Axes-set_yscale"><strong>set_yscale</strong></a>(self, value)</dt></dl>
 
 <dl><dt><a name="Axes-set_yticklabels"><strong>set_yticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels.<br>
-Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
 
@@ -509,7 +399,7 @@ will&nbsp;have&nbsp;verticalalignment=bottom&nbsp;and<br>
 horizontalalignment=left&nbsp;but&nbsp;will&nbsp;have&nbsp;a&nbsp;fontsize&nbsp;of&nbsp;12<br>
 &nbsp;<br>
 &nbsp;<br>
-The&nbsp;AxisText&nbsp;defaults&nbsp;are<br>
+The&nbsp;Text&nbsp;defaults&nbsp;are<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'color'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'k',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'fontname'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'Sans',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'fontsize'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
@@ -551,9 +441,11 @@ Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt><
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><a name="Axes-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
 
+<dl><dt><a name="Axes-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
 <dl><dt><a name="Axes-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
-<dl><dt><a name="Axes-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="Axes-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
 
@@ -563,190 +455,7 @@ Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
-
 <dl><dt><a name="Axes-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
-<dl><dt><a name="Axes-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><strong>aname</strong> = 'Artist'</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Axis">class <strong>Axis</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
-    
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="Axis-__init__"><strong>__init__</strong></a>(self, axes)</dt><dd><tt>Init&nbsp;the&nbsp;axis&nbsp;with&nbsp;the&nbsp;parent&nbsp;<a href="#Axes">Axes</a>&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="Axis-autoscale_view"><strong>autoscale_view</strong></a>(self)</dt><dd><tt>Try&nbsp;to&nbsp;choose&nbsp;the&nbsp;view&nbsp;limits&nbsp;intelligently</tt></dd></dl>
-
-<dl><dt><a name="Axis-build_artists"><strong>build_artists</strong></a>(self)</dt><dd><tt>Call&nbsp;only&nbsp;after&nbsp;xaxis&nbsp;and&nbsp;yaxis&nbsp;have&nbsp;been&nbsp;initialized&nbsp;in&nbsp;axes<br>
-since&nbsp;the&nbsp;trasnforms&nbsp;require&nbsp;both</tt></dd></dl>
-
-<dl><dt><a name="Axis-format_tickval"><strong>format_tickval</strong></a>(self, x)</dt><dd><tt>Format&nbsp;the&nbsp;number&nbsp;x&nbsp;as&nbsp;a&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="Axis-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;instances&nbsp;contained&nbsp;by&nbsp;<a href="#Axis">Axis</a></tt></dd></dl>
-
-<dl><dt><a name="Axis-get_cm_transform"><strong>get_cm_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;cm&nbsp;to&nbsp;dots<br>
-&nbsp;<br>
-offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
-displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
-offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="Axis-get_gridlines"><strong>get_gridlines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="Axis-get_inches_transform"><strong>get_inches_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;inches&nbsp;to&nbsp;dots<br>
-&nbsp;<br>
-offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
-displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
-offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="Axis-get_label"><strong>get_label</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;label&nbsp;as&nbsp;an&nbsp;AxisText&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="Axis-get_mm_transform"><strong>get_mm_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;mm&nbsp;to&nbsp;dots<br>
-&nbsp;<br>
-offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
-displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
-offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="Axis-get_numticks"><strong>get_numticks</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="Axis-get_pts_transform"><strong>get_pts_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;points&nbsp;to&nbsp;dots<br>
-&nbsp;<br>
-offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
-displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
-offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="Axis-get_ticklabels"><strong>get_ticklabels</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances&nbsp;for&nbsp;ticklabels</tt></dd></dl>
-
-<dl><dt><a name="Axis-get_ticklines"><strong>get_ticklines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;ticklines&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="Axis-get_ticklocs"><strong>get_ticklocs</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;tick&nbsp;locations&nbsp;in&nbsp;data&nbsp;coordinates&nbsp;as&nbsp;a&nbsp;Numeric&nbsp;array</tt></dd></dl>
-
-<dl><dt><a name="Axis-get_ticks"><strong>get_ticks</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="Axis-grid"><strong>grid</strong></a>(self, b)</dt><dd><tt>Set&nbsp;the&nbsp;axis&nbsp;grid&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean</tt></dd></dl>
-
-<dl><dt><a name="Axis-is_log"><strong>is_log</strong></a>(self)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;log&nbsp;scaling&nbsp;is&nbsp;on</tt></dd></dl>
-
-<dl><dt><a name="Axis-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
-
-<dl><dt><a name="Axis-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
-
-<dl><dt><a name="Axis-set_scale"><strong>set_scale</strong></a>(self, value)</dt><dd><tt>Set&nbsp;the&nbsp;axis&nbsp;scale;&nbsp;either&nbsp;'linear'&nbsp;or&nbsp;'log'</tt></dd></dl>
-
-<dl><dt><a name="Axis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;&nbsp;ticklabels&nbsp;is&nbsp;a<br>
-sequence&nbsp;of&nbsp;strings.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
-
-<dl><dt><a name="Axis-set_ticks"><strong>set_ticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;tick&nbsp;marks&nbsp;from&nbsp;sequence&nbsp;ticks</tt></dd></dl>
-
-<dl><dt><a name="Axis-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
-
-<hr>
-Data and other attributes defined here:<br>
-<dl><dt><strong>LABELPAD</strong> = -0.01</dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="Axis-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
-<dl><dt><a name="Axis-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
-
-<dl><dt><a name="Axis-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="Axis-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
-
-<dl><dt><a name="Axis-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
-things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="Axis-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
-
-<dl><dt><a name="Axis-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
-<dl><dt><a name="Axis-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><strong>aname</strong> = 'Artist'</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Legend">class <strong>Legend</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
-sequence&nbsp;of&nbsp;strings&nbsp;and&nbsp;loc&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;or&nbsp;an&nbsp;integer<br>
-specifying&nbsp;the&nbsp;legend&nbsp;location<br>
-&nbsp;<br>
-The&nbsp;location&nbsp;codes&nbsp;are<br>
-&nbsp;<br>
-&nbsp;&nbsp;'best'&nbsp;:&nbsp;0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(currently&nbsp;not&nbsp;supported,&nbsp;defaults&nbsp;to&nbsp;upper&nbsp;right)<br>
-&nbsp;&nbsp;'upper&nbsp;right'&nbsp;&nbsp;:&nbsp;1,&nbsp;&nbsp;(default)<br>
-&nbsp;&nbsp;'upper&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;2,<br>
-&nbsp;&nbsp;'lower&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;3,<br>
-&nbsp;&nbsp;'lower&nbsp;right'&nbsp;&nbsp;:&nbsp;4,<br>
-&nbsp;&nbsp;'right'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;5,<br>
-&nbsp;&nbsp;'center&nbsp;left'&nbsp;&nbsp;:&nbsp;6,<br>
-&nbsp;&nbsp;'center&nbsp;right'&nbsp;:&nbsp;7,<br>
-&nbsp;&nbsp;'lower&nbsp;center'&nbsp;:&nbsp;8,<br>
-&nbsp;&nbsp;'upper&nbsp;center'&nbsp;:&nbsp;9,<br>
-&nbsp;&nbsp;'center'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
-&nbsp;<br>
-Return&nbsp;value&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;text,&nbsp;line&nbsp;instances&nbsp;that&nbsp;make<br>
-up&nbsp;the&nbsp;legend<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="Legend-__init__"><strong>__init__</strong></a>(self, axis, handles, labels, loc)</dt></dl>
-
-<dl><dt><a name="Legend-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="Legend-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt></dl>
-
-<hr>
-Data and other attributes defined here:<br>
-<dl><dt><strong>AXESPAD</strong> = 0.02</dl>
-
-<dl><dt><strong>FONTSIZE</strong> = 10</dl>
-
-<dl><dt><strong>HANDLELEN</strong> = 0.050000000000000003</dl>
-
-<dl><dt><strong>HANDLETEXTSEP</strong> = 0.02</dl>
-
-<dl><dt><strong>LABELSEP</strong> = 0.0050000000000000001</dl>
-
-<dl><dt><strong>NUMPOINTS</strong> = 4</dl>
-
-<dl><dt><strong>PAD</strong> = 0.20000000000000001</dl>
-
-<dl><dt><strong>codes</strong> = {'best': 0, 'center': 10, 'center left': 6, 'center right': 7, 'lower center': 8, 'lower left': 3, 'lower right': 4, 'right': 5, 'upper center': 9, 'upper left': 2, ...}</dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="Legend-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
-<dl><dt><a name="Legend-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
-
-<dl><dt><a name="Legend-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
-
-<dl><dt><a name="Legend-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
-
-<dl><dt><a name="Legend-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
-things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="Legend-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
-
-<dl><dt><a name="Legend-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
-<dl><dt><a name="Legend-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
@@ -871,25 +580,25 @@ capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;cap
 
 <dl><dt><a name="Subplot-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Subplot-get_xaxis"><strong>get_xaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;<a href="#XAxis">XAxis</a>&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="Subplot-get_xaxis"><strong>get_xaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;XAxis&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_xgridlines"><strong>get_xgridlines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;x&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_xlim"><strong>get_xlim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;x&nbsp;axis&nbsp;range&nbsp;[xmin,&nbsp;xmax]</tt></dd></dl>
 
-<dl><dt><a name="Subplot-get_xticklabels"><strong>get_xticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+<dl><dt><a name="Subplot-get_xticklabels"><strong>get_xticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_xticklines"><strong>get_xticklines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_xticks"><strong>get_xticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;x&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
 
-<dl><dt><a name="Subplot-get_yaxis"><strong>get_yaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;<a href="#YAxis">YAxis</a>&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="Subplot-get_yaxis"><strong>get_yaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;YAxis&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_ygridlines"><strong>get_ygridlines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;y&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_ylim"><strong>get_ylim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;y&nbsp;axis&nbsp;range&nbsp;[ymin,&nbsp;ymax]</tt></dd></dl>
 
-<dl><dt><a name="Subplot-get_yticklabels"><strong>get_yticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+<dl><dt><a name="Subplot-get_yticklabels"><strong>get_yticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_yticklines"><strong>get_yticklines</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instances</tt></dd></dl>
 
@@ -1008,7 +717,7 @@ and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 <dl><dt><a name="Subplot-plot"><strong>plot</strong></a>(self, *args)</dt><dd><tt>Emulate&nbsp;matlab's&nbsp;plot&nbsp;command.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
 argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional<br>
 format&nbsp;string.&nbsp;&nbsp;For&nbsp;example,&nbsp;all&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;legal,<br>
-assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;<a href="#Axis">Axis</a>&nbsp;instance:<br>
+assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;Axis&nbsp;instance:<br>
 &nbsp;<br>
 &nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x<br>
 &nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x&nbsp;with&nbsp;blue&nbsp;circles<br>
@@ -1109,7 +818,7 @@ the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
 <dl><dt><a name="Subplot-set_yscale"><strong>set_yscale</strong></a>(self, value)</dt></dl>
 
 <dl><dt><a name="Subplot-set_yticklabels"><strong>set_yticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels.<br>
-Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
 
@@ -1133,7 +842,7 @@ will&nbsp;have&nbsp;verticalalignment=bottom&nbsp;and<br>
 horizontalalignment=left&nbsp;but&nbsp;will&nbsp;have&nbsp;a&nbsp;fontsize&nbsp;of&nbsp;12<br>
 &nbsp;<br>
 &nbsp;<br>
-The&nbsp;AxisText&nbsp;defaults&nbsp;are<br>
+The&nbsp;Text&nbsp;defaults&nbsp;are<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'color'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'k',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'fontname'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'Sans',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'fontsize'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
@@ -1175,9 +884,11 @@ Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt><
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><a name="Subplot-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
 
+<dl><dt><a name="Subplot-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
 <dl><dt><a name="Subplot-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
-<dl><dt><a name="Subplot-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="Subplot-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
 
@@ -1187,402 +898,7 @@ Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
-
 <dl><dt><a name="Subplot-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
-<dl><dt><a name="Subplot-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><strong>aname</strong> = 'Artist'</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Tick">class <strong>Tick</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Abstract&nbsp;base&nbsp;class&nbsp;for&nbsp;the&nbsp;axis&nbsp;ticks,&nbsp;grid&nbsp;lines&nbsp;and&nbsp;labels<br>
-&nbsp;<br>
-Publicly&nbsp;accessible&nbsp;attributes<br>
-&nbsp;<br>
-&nbsp;&nbsp;tick1line&nbsp;&nbsp;:&nbsp;a&nbsp;Line2D&nbsp;instance<br>
-&nbsp;&nbsp;tick2line&nbsp;&nbsp;:&nbsp;a&nbsp;Line2D&nbsp;instance<br>
-&nbsp;&nbsp;gridline&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;Line2D&nbsp;instance<br>
-&nbsp;&nbsp;label&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;an&nbsp;AxisText&nbsp;instance<br>
-&nbsp;&nbsp;gridOn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;tickline<br>
-&nbsp;&nbsp;tick1On&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;1st&nbsp;tickline<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(left&nbsp;for&nbsp;xtick&nbsp;and&nbsp;bottom&nbsp;for&nbsp;yticks)<br>
-&nbsp;&nbsp;tick2On&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;2nd&nbsp;tickline<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(left&nbsp;for&nbsp;xtick&nbsp;and&nbsp;bottom&nbsp;for&nbsp;yticks)<br>
-&nbsp;&nbsp;labelOn&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;tick&nbsp;label<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="Tick-__init__"><strong>__init__</strong></a>(self, axes, loc, label, size<font color="#909090">=4</font>, gridOn<font color="#909090">=False</font>, tick1On<font color="#909090">=True</font>, tick2On<font color="#909090">=True</font>, labelOn<font color="#909090">=True</font>)</dt><dd><tt>bbox&nbsp;is&nbsp;the&nbsp;Bound2D&nbsp;bounding&nbsp;box&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;<a href="#Axes">Axes</a><br>
-loc&nbsp;is&nbsp;the&nbsp;tick&nbsp;location&nbsp;in&nbsp;data&nbsp;coords<br>
-size&nbsp;is&nbsp;the&nbsp;tick&nbsp;size&nbsp;in&nbsp;relative,&nbsp;axes&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="Tick-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="Tick-get_loc"><strong>get_loc</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;tick&nbsp;location&nbsp;(data&nbsp;coords)&nbsp;as&nbsp;a&nbsp;scalar</tt></dd></dl>
-
-<dl><dt><a name="Tick-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
-
-<dl><dt><a name="Tick-set_loc"><strong>set_loc</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="Tick-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
-<dl><dt><a name="Tick-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
-
-<dl><dt><a name="Tick-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="Tick-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
-
-<dl><dt><a name="Tick-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
-
-<dl><dt><a name="Tick-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
-things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="Tick-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
-
-<dl><dt><a name="Tick-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
-<dl><dt><a name="Tick-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><strong>aname</strong> = 'Artist'</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="XAxis">class <strong>XAxis</strong></a>(<a href="matplotlib.axes.html#Axis">Axis</a>)</font></td></tr>
-    
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.axes.html#XAxis">XAxis</a></dd>
-<dd><a href="matplotlib.axes.html#Axis">Axis</a></dd>
-<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
-</dl>
-<hr>
-Methods inherited from <a href="matplotlib.axes.html#Axis">Axis</a>:<br>
-<dl><dt><a name="XAxis-__init__"><strong>__init__</strong></a>(self, axes)</dt><dd><tt>Init&nbsp;the&nbsp;axis&nbsp;with&nbsp;the&nbsp;parent&nbsp;<a href="#Axes">Axes</a>&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="XAxis-autoscale_view"><strong>autoscale_view</strong></a>(self)</dt><dd><tt>Try&nbsp;to&nbsp;choose&nbsp;the&nbsp;view&nbsp;limits&nbsp;intelligently</tt></dd></dl>
-
-<dl><dt><a name="XAxis-build_artists"><strong>build_artists</strong></a>(self)</dt><dd><tt>Call&nbsp;only&nbsp;after&nbsp;xaxis&nbsp;and&nbsp;yaxis&nbsp;have&nbsp;been&nbsp;initialized&nbsp;in&nbsp;axes<br>
-since&nbsp;the&nbsp;trasnforms&nbsp;require&nbsp;both</tt></dd></dl>
-
-<dl><dt><a name="XAxis-format_tickval"><strong>format_tickval</strong></a>(self, x)</dt><dd><tt>Format&nbsp;the&nbsp;number&nbsp;x&nbsp;as&nbsp;a&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="XAxis-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;instances&nbsp;contained&nbsp;by&nbsp;<a href="#Axis">Axis</a></tt></dd></dl>
-
-<dl><dt><a name="XAxis-get_cm_transform"><strong>get_cm_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;cm&nbsp;to&nbsp;dots<br>
-&nbsp;<br>
-offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
-displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
-offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="XAxis-get_gridlines"><strong>get_gridlines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="XAxis-get_inches_transform"><strong>get_inches_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;inches&nbsp;to&nbsp;dots<br>
-&nbsp;<br>
-offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
-displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
-offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="XAxis-get_label"><strong>get_label</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;label&nbsp;as&nbsp;an&nbsp;AxisText&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="XAxis-get_mm_transform"><strong>get_mm_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;mm&nbsp;to&nbsp;dots<br>
-&nbsp;<br>
-offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
-displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
-offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="XAxis-get_numticks"><strong>get_numticks</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="XAxis-get_pts_transform"><strong>get_pts_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;points&nbsp;to&nbsp;dots<br>
-&nbsp;<br>
-offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
-displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
-offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="XAxis-get_ticklabels"><strong>get_ticklabels</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances&nbsp;for&nbsp;ticklabels</tt></dd></dl>
-
-<dl><dt><a name="XAxis-get_ticklines"><strong>get_ticklines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;ticklines&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="XAxis-get_ticklocs"><strong>get_ticklocs</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;tick&nbsp;locations&nbsp;in&nbsp;data&nbsp;coordinates&nbsp;as&nbsp;a&nbsp;Numeric&nbsp;array</tt></dd></dl>
-
-<dl><dt><a name="XAxis-get_ticks"><strong>get_ticks</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="XAxis-grid"><strong>grid</strong></a>(self, b)</dt><dd><tt>Set&nbsp;the&nbsp;axis&nbsp;grid&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean</tt></dd></dl>
-
-<dl><dt><a name="XAxis-is_log"><strong>is_log</strong></a>(self)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;log&nbsp;scaling&nbsp;is&nbsp;on</tt></dd></dl>
-
-<dl><dt><a name="XAxis-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
-
-<dl><dt><a name="XAxis-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
-
-<dl><dt><a name="XAxis-set_scale"><strong>set_scale</strong></a>(self, value)</dt><dd><tt>Set&nbsp;the&nbsp;axis&nbsp;scale;&nbsp;either&nbsp;'linear'&nbsp;or&nbsp;'log'</tt></dd></dl>
-
-<dl><dt><a name="XAxis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;&nbsp;ticklabels&nbsp;is&nbsp;a<br>
-sequence&nbsp;of&nbsp;strings.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
-
-<dl><dt><a name="XAxis-set_ticks"><strong>set_ticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;tick&nbsp;marks&nbsp;from&nbsp;sequence&nbsp;ticks</tt></dd></dl>
-
-<dl><dt><a name="XAxis-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.axes.html#Axis">Axis</a>:<br>
-<dl><dt><strong>LABELPAD</strong> = -0.01</dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="XAxis-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
-<dl><dt><a name="XAxis-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
-
-<dl><dt><a name="XAxis-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="XAxis-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
-
-<dl><dt><a name="XAxis-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
-things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="XAxis-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
-
-<dl><dt><a name="XAxis-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
-<dl><dt><a name="XAxis-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><strong>aname</strong> = 'Artist'</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="XTick">class <strong>XTick</strong></a>(<a href="matplotlib.axes.html#Tick">Tick</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Contains&nbsp;all&nbsp;the&nbsp;Artists&nbsp;needed&nbsp;to&nbsp;make&nbsp;an&nbsp;x&nbsp;tick&nbsp;-&nbsp;the&nbsp;tick&nbsp;line,<br>
-the&nbsp;label&nbsp;text&nbsp;and&nbsp;the&nbsp;grid&nbsp;line<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.axes.html#XTick">XTick</a></dd>
-<dd><a href="matplotlib.axes.html#Tick">Tick</a></dd>
-<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
-</dl>
-<hr>
-Methods defined here:<br>
-<dl><dt><a name="XTick-set_loc"><strong>set_loc</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.axes.html#Tick">Tick</a>:<br>
-<dl><dt><a name="XTick-__init__"><strong>__init__</strong></a>(self, axes, loc, label, size<font color="#909090">=4</font>, gridOn<font color="#909090">=False</font>, tick1On<font color="#909090">=True</font>, tick2On<font color="#909090">=True</font>, labelOn<font color="#909090">=True</font>)</dt><dd><tt>bbox&nbsp;is&nbsp;the&nbsp;Bound2D&nbsp;bounding&nbsp;box&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;<a href="#Axes">Axes</a><br>
-loc&nbsp;is&nbsp;the&nbsp;tick&nbsp;location&nbsp;in&nbsp;data&nbsp;coords<br>
-size&nbsp;is&nbsp;the&nbsp;tick&nbsp;size&nbsp;in&nbsp;relative,&nbsp;axes&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="XTick-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="XTick-get_loc"><strong>get_loc</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;tick&nbsp;location&nbsp;(data&nbsp;coords)&nbsp;as&nbsp;a&nbsp;scalar</tt></dd></dl>
-
-<dl><dt><a name="XTick-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="XTick-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
-<dl><dt><a name="XTick-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
-
-<dl><dt><a name="XTick-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="XTick-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
-
-<dl><dt><a name="XTick-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
-
-<dl><dt><a name="XTick-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
-things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="XTick-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
-
-<dl><dt><a name="XTick-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
-<dl><dt><a name="XTick-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><strong>aname</strong> = 'Artist'</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="YAxis">class <strong>YAxis</strong></a>(<a href="matplotlib.axes.html#Axis">Axis</a>)</font></td></tr>
-    
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.axes.html#YAxis">YAxis</a></dd>
-<dd><a href="matplotlib.axes.html#Axis">Axis</a></dd>
-<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
-</dl>
-<hr>
-Methods inherited from <a href="matplotlib.axes.html#Axis">Axis</a>:<br>
-<dl><dt><a name="YAxis-__init__"><strong>__init__</strong></a>(self, axes)</dt><dd><tt>Init&nbsp;the&nbsp;axis&nbsp;with&nbsp;the&nbsp;parent&nbsp;<a href="#Axes">Axes</a>&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="YAxis-autoscale_view"><strong>autoscale_view</strong></a>(self)</dt><dd><tt>Try&nbsp;to&nbsp;choose&nbsp;the&nbsp;view&nbsp;limits&nbsp;intelligently</tt></dd></dl>
-
-<dl><dt><a name="YAxis-build_artists"><strong>build_artists</strong></a>(self)</dt><dd><tt>Call&nbsp;only&nbsp;after&nbsp;xaxis&nbsp;and&nbsp;yaxis&nbsp;have&nbsp;been&nbsp;initialized&nbsp;in&nbsp;axes<br>
-since&nbsp;the&nbsp;trasnforms&nbsp;require&nbsp;both</tt></dd></dl>
-
-<dl><dt><a name="YAxis-format_tickval"><strong>format_tickval</strong></a>(self, x)</dt><dd><tt>Format&nbsp;the&nbsp;number&nbsp;x&nbsp;as&nbsp;a&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="YAxis-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;instances&nbsp;contained&nbsp;by&nbsp;<a href="#Axis">Axis</a></tt></dd></dl>
-
-<dl><dt><a name="YAxis-get_cm_transform"><strong>get_cm_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;cm&nbsp;to&nbsp;dots<br>
-&nbsp;<br>
-offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
-displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
-offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="YAxis-get_gridlines"><strong>get_gridlines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="YAxis-get_inches_transform"><strong>get_inches_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;inches&nbsp;to&nbsp;dots<br>
-&nbsp;<br>
-offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
-displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
-offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="YAxis-get_label"><strong>get_label</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;label&nbsp;as&nbsp;an&nbsp;AxisText&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="YAxis-get_mm_transform"><strong>get_mm_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;mm&nbsp;to&nbsp;dots<br>
-&nbsp;<br>
-offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
-displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
-offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="YAxis-get_numticks"><strong>get_numticks</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="YAxis-get_pts_transform"><strong>get_pts_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;points&nbsp;to&nbsp;dots<br>
-&nbsp;<br>
-offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
-displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
-offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="YAxis-get_ticklabels"><strong>get_ticklabels</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances&nbsp;for&nbsp;ticklabels</tt></dd></dl>
-
-<dl><dt><a name="YAxis-get_ticklines"><strong>get_ticklines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;ticklines&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="YAxis-get_ticklocs"><strong>get_ticklocs</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;tick&nbsp;locations&nbsp;in&nbsp;data&nbsp;coordinates&nbsp;as&nbsp;a&nbsp;Numeric&nbsp;array</tt></dd></dl>
-
-<dl><dt><a name="YAxis-get_ticks"><strong>get_ticks</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="YAxis-grid"><strong>grid</strong></a>(self, b)</dt><dd><tt>Set&nbsp;the&nbsp;axis&nbsp;grid&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean</tt></dd></dl>
-
-<dl><dt><a name="YAxis-is_log"><strong>is_log</strong></a>(self)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;log&nbsp;scaling&nbsp;is&nbsp;on</tt></dd></dl>
-
-<dl><dt><a name="YAxis-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
-
-<dl><dt><a name="YAxis-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
-
-<dl><dt><a name="YAxis-set_scale"><strong>set_scale</strong></a>(self, value)</dt><dd><tt>Set&nbsp;the&nbsp;axis&nbsp;scale;&nbsp;either&nbsp;'linear'&nbsp;or&nbsp;'log'</tt></dd></dl>
-
-<dl><dt><a name="YAxis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;&nbsp;ticklabels&nbsp;is&nbsp;a<br>
-sequence&nbsp;of&nbsp;strings.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
-
-<dl><dt><a name="YAxis-set_ticks"><strong>set_ticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;tick&nbsp;marks&nbsp;from&nbsp;sequence&nbsp;ticks</tt></dd></dl>
-
-<dl><dt><a name="YAxis-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.axes.html#Axis">Axis</a>:<br>
-<dl><dt><strong>LABELPAD</strong> = -0.01</dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="YAxis-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
-<dl><dt><a name="YAxis-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
-
-<dl><dt><a name="YAxis-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="YAxis-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
-
-<dl><dt><a name="YAxis-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
-things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="YAxis-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
-
-<dl><dt><a name="YAxis-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
-<dl><dt><a name="YAxis-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><strong>aname</strong> = 'Artist'</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="YTick">class <strong>YTick</strong></a>(<a href="matplotlib.axes.html#Tick">Tick</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Contains&nbsp;all&nbsp;the&nbsp;Artists&nbsp;needed&nbsp;to&nbsp;make&nbsp;a&nbsp;Y&nbsp;tick&nbsp;-&nbsp;the&nbsp;tick&nbsp;line,<br>
-the&nbsp;label&nbsp;text&nbsp;and&nbsp;the&nbsp;grid&nbsp;line<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.axes.html#YTick">YTick</a></dd>
-<dd><a href="matplotlib.axes.html#Tick">Tick</a></dd>
-<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
-</dl>
-<hr>
-Methods defined here:<br>
-<dl><dt><a name="YTick-set_loc"><strong>set_loc</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.axes.html#Tick">Tick</a>:<br>
-<dl><dt><a name="YTick-__init__"><strong>__init__</strong></a>(self, axes, loc, label, size<font color="#909090">=4</font>, gridOn<font color="#909090">=False</font>, tick1On<font color="#909090">=True</font>, tick2On<font color="#909090">=True</font>, labelOn<font color="#909090">=True</font>)</dt><dd><tt>bbox&nbsp;is&nbsp;the&nbsp;Bound2D&nbsp;bounding&nbsp;box&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;<a href="#Axes">Axes</a><br>
-loc&nbsp;is&nbsp;the&nbsp;tick&nbsp;location&nbsp;in&nbsp;data&nbsp;coords<br>
-size&nbsp;is&nbsp;the&nbsp;tick&nbsp;size&nbsp;in&nbsp;relative,&nbsp;axes&nbsp;coords</tt></dd></dl>
-
-<dl><dt><a name="YTick-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="YTick-get_loc"><strong>get_loc</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;tick&nbsp;location&nbsp;(data&nbsp;coords)&nbsp;as&nbsp;a&nbsp;scalar</tt></dd></dl>
-
-<dl><dt><a name="YTick-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="YTick-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
-<dl><dt><a name="YTick-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
-
-<dl><dt><a name="YTick-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="YTick-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
-
-<dl><dt><a name="YTick-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
-
-<dl><dt><a name="YTick-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
-things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="YTick-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
-
-<dl><dt><a name="YTick-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
-<dl><dt><a name="YTick-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>

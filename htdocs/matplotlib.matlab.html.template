@@ -153,32 +153,44 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
  <dl><dt><a name="-axes"><strong>axes</strong></a>(*args, **kwargs)</dt><dd><tt>Add&nbsp;an&nbsp;axis&nbsp;at&nbsp;positon&nbsp;rect&nbsp;specified&nbsp;by<br>
 &nbsp;<br>
-&nbsp;&nbsp;<a href="#-axes">axes</a>()&nbsp;by&nbsp;itself&nbsp;creates&nbsp;a&nbsp;default&nbsp;full&nbsp;window&nbsp;axis<br>
+&nbsp;&nbsp;<a href="#-axes">axes</a>()&nbsp;by&nbsp;itself&nbsp;creates&nbsp;a&nbsp;default&nbsp;full&nbsp;<a href="#-subplot">subplot</a>(111)&nbsp;window&nbsp;axis<br>
 &nbsp;<br>
 &nbsp;&nbsp;<a href="#-axes">axes</a>(rect,&nbsp;axisbg='w')&nbsp;where&nbsp;rect=[left,&nbsp;bottom,&nbsp;width,&nbsp;height]&nbsp;in<br>
 &nbsp;&nbsp;&nbsp;&nbsp;normalized&nbsp;(0,1)&nbsp;units&nbsp;background&nbsp;is&nbsp;the&nbsp;background&nbsp;color&nbsp;for<br>
 &nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axis,&nbsp;default&nbsp;white<br>
 &nbsp;<br>
-&nbsp;&nbsp;<a href="#-axes">axes</a>(h,&nbsp;axisbg='w')&nbsp;where&nbsp;h&nbsp;is&nbsp;an&nbsp;axes&nbsp;instance&nbsp;makes&nbsp;h&nbsp;the<br>
+&nbsp;&nbsp;<a href="#-axes">axes</a>(h)&nbsp;where&nbsp;h&nbsp;is&nbsp;an&nbsp;axes&nbsp;instance&nbsp;makes&nbsp;h&nbsp;the<br>
 &nbsp;&nbsp;&nbsp;&nbsp;current&nbsp;axis&nbsp;An&nbsp;Axes&nbsp;instance&nbsp;is&nbsp;returned<br>
 &nbsp;<br>
 axisbg&nbsp;is&nbsp;a&nbsp;color&nbsp;format&nbsp;string&nbsp;which&nbsp;sets&nbsp;the&nbsp;background&nbsp;color&nbsp;of<br>
-the&nbsp;axes&nbsp;(default&nbsp;white).<br>
+the&nbsp;axes<br>
 &nbsp;<br>
 If&nbsp;axisbg&nbsp;is&nbsp;a&nbsp;length&nbsp;1&nbsp;string,&nbsp;assume&nbsp;it's&nbsp;a&nbsp;color&nbsp;format&nbsp;string<br>
 (see&nbsp;plot&nbsp;for&nbsp;legal&nbsp;color&nbsp;strings).&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a&nbsp;length&nbsp;7&nbsp;string,<br>
 assume&nbsp;it's&nbsp;a&nbsp;hex&nbsp;color&nbsp;string,&nbsp;as&nbsp;used&nbsp;in&nbsp;html,&nbsp;eg,&nbsp;'#eeefff'.<br>
 If&nbsp;it&nbsp;is&nbsp;a&nbsp;len(3)&nbsp;tuple,&nbsp;assume&nbsp;it's&nbsp;an&nbsp;rgb&nbsp;value&nbsp;where&nbsp;r,g,b&nbsp;in<br>
-(0,255).</tt></dd></dl>
+[0,1].</tt></dd></dl>
  <dl><dt><a name="-axis"><strong>axis</strong></a>(*v)</dt><dd><tt><a href="#-axis">axis</a>()&nbsp;returns&nbsp;the&nbsp;current&nbsp;axis&nbsp;as&nbsp;a&nbsp;length&nbsp;a&nbsp;length&nbsp;4&nbsp;vector<br>
 &nbsp;<br>
 <a href="#-axis">axis</a>(v)&nbsp;where&nbsp;v=&nbsp;[xmin&nbsp;xmax&nbsp;ymin&nbsp;ymax]&nbsp;sets&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the<br>
 x&nbsp;and&nbsp;y&nbsp;axis&nbsp;limits</tt></dd></dl>
  <dl><dt><a name="-bar"><strong>bar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-bar">bar</a>(self,&nbsp;x,&nbsp;y,&nbsp;width=0.8)<br>
 &nbsp;<br>
-Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at&nbsp;x,&nbsp;x+width,&nbsp;0,&nbsp;y<br>
-x&nbsp;and&nbsp;y&nbsp;are&nbsp;Numeric&nbsp;arrays<br>
+&nbsp;&nbsp;Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at&nbsp;x,&nbsp;x+width,&nbsp;0,&nbsp;y&nbsp;x&nbsp;and&nbsp;y&nbsp;are<br>
+&nbsp;&nbsp;Numeric&nbsp;arrays<br>
 &nbsp;<br>
+<a href="#-bar">bar</a>(x,&nbsp;y,&nbsp;width=0.8,&nbsp;color='b',&nbsp;yerr=None,&nbsp;xerr=None,&nbsp;capsize=3)<br>
+&nbsp;<br>
+&nbsp;&nbsp;xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
+&nbsp;&nbsp;on&nbsp;the&nbsp;bar&nbsp;chart&nbsp;for&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes,&nbsp;respectively.&nbsp;&nbsp;See<br>
+&nbsp;&nbsp;errorbar&nbsp;for&nbsp;more&nbsp;info&nbsp;on&nbsp;the&nbsp;xerr&nbsp;and&nbsp;yerr&nbsp;optional&nbsp;arguments.<br>
+&nbsp;<br>
+&nbsp;&nbsp;color&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;string&nbsp;or&nbsp;tuple,&nbsp;or&nbsp;it&nbsp;can&nbsp;be<br>
+&nbsp;&nbsp;a&nbsp;len(x)&nbsp;list&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;strings&nbsp;or&nbsp;tuples<br>
+&nbsp;<br>
+&nbsp;&nbsp;capsize&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;errorbar;&nbsp;see&nbsp;errorbar&nbsp;for&nbsp;more<br>
+&nbsp;&nbsp;info.<br>
+&nbsp;&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances</tt></dd></dl>
  <dl><dt><a name="-choose"><strong>choose</strong></a>(...)</dt><dd><tt><a href="#-choose">choose</a>(a,&nbsp;(b1,b2,...))</tt></dd></dl>
  <dl><dt><a name="-close"><strong>close</strong></a>(*args)</dt><dd><tt>Close&nbsp;a&nbsp;figure&nbsp;window<br>
@@ -297,7 +309,7 @@ or<br>
  <dl><dt><a name="-gcf"><strong>gcf</strong></a>()</dt><dd><tt>Return&nbsp;a&nbsp;handle&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
  <dl><dt><a name="-get"><strong>get</strong></a>(o, s)</dt><dd><tt>Return&nbsp;the&nbsp;value&nbsp;of&nbsp;handle&nbsp;property&nbsp;s<br>
 &nbsp;<br>
-h&nbsp;is&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;class,&nbsp;eg&nbsp;a&nbsp;Line2D&nbsp;or&nbsp;an&nbsp;Axes&nbsp;or&nbsp;AxisText.<br>
+h&nbsp;is&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;class,&nbsp;eg&nbsp;a&nbsp;Line2D&nbsp;or&nbsp;an&nbsp;Axes&nbsp;or&nbsp;Text.<br>
 if&nbsp;s&nbsp;is&nbsp;'somename',&nbsp;this&nbsp;function&nbsp;returns<br>
 &nbsp;<br>
 &nbsp;&nbsp;o.get_somename()</tt></dd></dl>
@@ -530,7 +542,7 @@ more&nbsp;info</tt></dd></dl>
 h&nbsp;can&nbsp;be&nbsp;a&nbsp;handle&nbsp;or&nbsp;vector&nbsp;of&nbsp;handles.<br>
 &nbsp;<br>
 h&nbsp;is&nbsp;an&nbsp;instance&nbsp;(or&nbsp;vector&nbsp;of&nbsp;instances)&nbsp;of&nbsp;a&nbsp;class,&nbsp;eg&nbsp;a&nbsp;Line2D<br>
-or&nbsp;an&nbsp;Axes&nbsp;or&nbsp;AxisText.<br>
+or&nbsp;an&nbsp;Axes&nbsp;or&nbsp;Text.<br>
 &nbsp;<br>
 args&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;string,&nbsp;value&nbsp;pairs.&nbsp;&nbsp;if&nbsp;the&nbsp;string<br>
 is&nbsp;'somename',&nbsp;set&nbsp;function&nbsp;calls<br>
@@ -590,7 +602,7 @@ the&nbsp;varous&nbsp;text&nbsp;creation&nbsp;commands,&nbsp;as&nbsp;in<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-ylabel">ylabel</a>('My&nbsp;ylabel',&nbsp;fonts,&nbsp;fontsize=10)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-text">text</a>(12,&nbsp;20,&nbsp;'some&nbsp;text',&nbsp;fonts,&nbsp;fontsize=8)<br>
 &nbsp;<br>
-The&nbsp;AxisText&nbsp;defaults&nbsp;are<br>
+The&nbsp;Text&nbsp;defaults&nbsp;are<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'color'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'k',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'fontname'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'Sans',<br>

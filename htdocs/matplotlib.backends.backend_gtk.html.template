@@ -30,13 +30,6 @@
     
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)
-</font></dt><dd>
-<dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#AxisTextGTK">AxisTextGTK</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#AxisTextGTK">AxisTextGTK</a>
-</font></dt></dl>
-</dd>
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#ColorManagerGTK">ColorManagerGTK</a>
 </font></dt><dt><font face="helvetica, arial"><a href="gtk.html#Dialog">gtk.Dialog</a>(<a href="gtk.html#Window">gtk.Window</a>)
 </font></dt><dd>
@@ -87,229 +80,13 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><strong>AxisText</strong> = <a name="AxisText">class AxisTextGTK</a>(<a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Handle&nbsp;storing&nbsp;and&nbsp;drawing&nbsp;of&nbsp;text&nbsp;in&nbsp;window&nbsp;or&nbsp;data&nbsp;coordinates<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.backends.backend_gtk.html#AxisTextGTK">AxisTextGTK</a></dd>
-<dd><a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a></dd>
-<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
-</dl>
-<hr>
-Methods defined here:<br>
-<dl><dt><a name="AxisTextGTK-__init__"><strong>__init__</strong></a>(self, dpi, bbox, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, text<font color="#909090">=''</font>, color<font color="#909090">='k'</font>, verticalalignment<font color="#909090">='bottom'</font>, horizontalalignment<font color="#909090">='left'</font>, fontname<font color="#909090">='Sans'</font>, fontsize<font color="#909090">=10</font>, fontweight<font color="#909090">='normal'</font>, fontangle<font color="#909090">='normal'</font>, rotation<font color="#909090">=None</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt></dl>
-
-<dl><dt><a name="AxisTextGTK-draw_rotated"><strong>draw_rotated</strong></a>(self, drawable, gc)</dt><dd><tt>Draw&nbsp;the&nbsp;text&nbsp;rotated&nbsp;90&nbsp;degrees</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt></dl>
-
-<hr>
-Data and other attributes defined here:<br>
-<dl><dt><strong>fontangles</strong> = {'italic': 2, 'normal': 0, 'oblique': 1}</dl>
-
-<dl><dt><strong>fontweights</strong> = {'bold': 700, 'heavy': 900, 'light': 300, 'normal': 400, 'ultrabold': 800, 'ultralight': 200}</dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>:<br>
-<dl><dt><a name="AxisTextGTK-__del__"><strong>__del__</strong></a>(self)</dt><dd><tt>Bye&nbsp;bye</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-copy_properties"><strong>copy_properties</strong></a>(self, text)</dt></dl>
-
-<dl><dt><a name="AxisTextGTK-erase"><strong>erase</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="AxisTextGTK-get_fontangle"><strong>get_fontangle</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;font&nbsp;angle&nbsp;as&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_fontname"><strong>get_fontname</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;name&nbsp;as&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_fontsize"><strong>get_fontsize</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;size&nbsp;as&nbsp;integer</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_fontweight"><strong>get_fontweight</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;font&nbsp;weight&nbsp;as&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_horizontalalignment"><strong>get_horizontalalignment</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;horizontal&nbsp;alignment&nbsp;as&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_position"><strong>get_position</strong></a>(self)</dt><dd><tt>Return&nbsp;x,&nbsp;y&nbsp;as&nbsp;tuple</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_text"><strong>get_text</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;as&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_verticalalignment"><strong>get_verticalalignment</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;vertical&nbsp;alignment&nbsp;as&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_backgroundcolor"><strong>set_backgroundcolor</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;background&nbsp;color&nbsp;of&nbsp;the&nbsp;text</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_color"><strong>set_color</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color&nbsp;of&nbsp;the&nbsp;text</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_fontangle"><strong>set_fontangle</strong></a>(self, angle)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;angle,&nbsp;one&nbsp;of&nbsp;'normal',&nbsp;'italic',&nbsp;'oblique'</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_fontname"><strong>set_fontname</strong></a>(self, fontname)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;name,&nbsp;eg,&nbsp;'Sans',&nbsp;'Courier',&nbsp;'Helvetica'</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_fontsize"><strong>set_fontsize</strong></a>(self, fontsize)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;size,&nbsp;eg,&nbsp;8,&nbsp;10,&nbsp;12,&nbsp;14...</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_fontweight"><strong>set_fontweight</strong></a>(self, weight)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;weight,&nbsp;one&nbsp;of:<br>
-'normal',&nbsp;'bold',&nbsp;'heavy',&nbsp;'light',&nbsp;'ultrabold',&nbsp;&nbsp;'ultralight'</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_horizontalalignment"><strong>set_horizontalalignment</strong></a>(self, align)</dt><dd><tt>Set&nbsp;the&nbsp;horizontal&nbsp;alignment&nbsp;to&nbsp;one&nbsp;of<br>
-'center',&nbsp;'right',&nbsp;or&nbsp;'left'</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_position"><strong>set_position</strong></a>(self, xy)</dt></dl>
-
-<dl><dt><a name="AxisTextGTK-set_rotation"><strong>set_rotation</strong></a>(self, s)</dt><dd><tt>Currently&nbsp;only&nbsp;s='vertical',&nbsp;or&nbsp;s='horizontal'&nbsp;are&nbsp;supported</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_text"><strong>set_text</strong></a>(self, text)</dt><dd><tt>Set&nbsp;the&nbsp;text</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_verticalalignment"><strong>set_verticalalignment</strong></a>(self, align)</dt><dd><tt>Set&nbsp;the&nbsp;vertical&nbsp;alignment&nbsp;to&nbsp;one&nbsp;of<br>
-'center',&nbsp;'top',&nbsp;or&nbsp;'bottom'</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_x"><strong>set_x</strong></a>(self, x)</dt></dl>
-
-<dl><dt><a name="AxisTextGTK-set_y"><strong>set_y</strong></a>(self, y)</dt></dl>
-
-<dl><dt><a name="AxisTextGTK-update_properties"><strong>update_properties</strong></a>(self, d)</dt><dd><tt>Update&nbsp;the&nbsp;font&nbsp;attributes&nbsp;with&nbsp;the&nbsp;dictionary&nbsp;in&nbsp;d</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Flush&nbsp;all&nbsp;state&nbsp;vars&nbsp;and&nbsp;prepare&nbsp;for&nbsp;a&nbsp;clean&nbsp;redraw</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="AxisTextGTK-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;all&nbsp;artists&nbsp;contained&nbsp;in&nbsp;self</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
-things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><strong>aname</strong> = 'Artist'</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="AxisTextGTK">class <strong>AxisTextGTK</strong></a>(<a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>)</font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Handle&nbsp;storing&nbsp;and&nbsp;drawing&nbsp;of&nbsp;text&nbsp;in&nbsp;window&nbsp;or&nbsp;data&nbsp;coordinates<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="matplotlib.backends.backend_gtk.html#AxisTextGTK">AxisTextGTK</a></dd>
-<dd><a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a></dd>
-<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
-</dl>
-<hr>
-Methods defined here:<br>
-<dl><dt><a name="AxisTextGTK-__init__"><strong>__init__</strong></a>(self, dpi, bbox, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, text<font color="#909090">=''</font>, color<font color="#909090">='k'</font>, verticalalignment<font color="#909090">='bottom'</font>, horizontalalignment<font color="#909090">='left'</font>, fontname<font color="#909090">='Sans'</font>, fontsize<font color="#909090">=10</font>, fontweight<font color="#909090">='normal'</font>, fontangle<font color="#909090">='normal'</font>, rotation<font color="#909090">=None</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt></dl>
-
-<dl><dt><a name="AxisTextGTK-draw_rotated"><strong>draw_rotated</strong></a>(self, drawable, gc)</dt><dd><tt>Draw&nbsp;the&nbsp;text&nbsp;rotated&nbsp;90&nbsp;degrees</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt></dl>
-
-<hr>
-Data and other attributes defined here:<br>
-<dl><dt><strong>fontangles</strong> = {'italic': 2, 'normal': 0, 'oblique': 1}</dl>
-
-<dl><dt><strong>fontweights</strong> = {'bold': 700, 'heavy': 900, 'light': 300, 'normal': 400, 'ultrabold': 800, 'ultralight': 200}</dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>:<br>
-<dl><dt><a name="AxisTextGTK-__del__"><strong>__del__</strong></a>(self)</dt><dd><tt>Bye&nbsp;bye</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-copy_properties"><strong>copy_properties</strong></a>(self, text)</dt></dl>
-
-<dl><dt><a name="AxisTextGTK-erase"><strong>erase</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="AxisTextGTK-get_fontangle"><strong>get_fontangle</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;font&nbsp;angle&nbsp;as&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_fontname"><strong>get_fontname</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;name&nbsp;as&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_fontsize"><strong>get_fontsize</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;size&nbsp;as&nbsp;integer</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_fontweight"><strong>get_fontweight</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;font&nbsp;weight&nbsp;as&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_horizontalalignment"><strong>get_horizontalalignment</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;horizontal&nbsp;alignment&nbsp;as&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_position"><strong>get_position</strong></a>(self)</dt><dd><tt>Return&nbsp;x,&nbsp;y&nbsp;as&nbsp;tuple</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_text"><strong>get_text</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;as&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_verticalalignment"><strong>get_verticalalignment</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;vertical&nbsp;alignment&nbsp;as&nbsp;string</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_backgroundcolor"><strong>set_backgroundcolor</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;background&nbsp;color&nbsp;of&nbsp;the&nbsp;text</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_color"><strong>set_color</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color&nbsp;of&nbsp;the&nbsp;text</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_fontangle"><strong>set_fontangle</strong></a>(self, angle)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;angle,&nbsp;one&nbsp;of&nbsp;'normal',&nbsp;'italic',&nbsp;'oblique'</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_fontname"><strong>set_fontname</strong></a>(self, fontname)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;name,&nbsp;eg,&nbsp;'Sans',&nbsp;'Courier',&nbsp;'Helvetica'</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_fontsize"><strong>set_fontsize</strong></a>(self, fontsize)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;size,&nbsp;eg,&nbsp;8,&nbsp;10,&nbsp;12,&nbsp;14...</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_fontweight"><strong>set_fontweight</strong></a>(self, weight)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;weight,&nbsp;one&nbsp;of:<br>
-'normal',&nbsp;'bold',&nbsp;'heavy',&nbsp;'light',&nbsp;'ultrabold',&nbsp;&nbsp;'ultralight'</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_horizontalalignment"><strong>set_horizontalalignment</strong></a>(self, align)</dt><dd><tt>Set&nbsp;the&nbsp;horizontal&nbsp;alignment&nbsp;to&nbsp;one&nbsp;of<br>
-'center',&nbsp;'right',&nbsp;or&nbsp;'left'</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_position"><strong>set_position</strong></a>(self, xy)</dt></dl>
-
-<dl><dt><a name="AxisTextGTK-set_rotation"><strong>set_rotation</strong></a>(self, s)</dt><dd><tt>Currently&nbsp;only&nbsp;s='vertical',&nbsp;or&nbsp;s='horizontal'&nbsp;are&nbsp;supported</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_text"><strong>set_text</strong></a>(self, text)</dt><dd><tt>Set&nbsp;the&nbsp;text</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_verticalalignment"><strong>set_verticalalignment</strong></a>(self, align)</dt><dd><tt>Set&nbsp;the&nbsp;vertical&nbsp;alignment&nbsp;to&nbsp;one&nbsp;of<br>
-'center',&nbsp;'top',&nbsp;or&nbsp;'bottom'</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_x"><strong>set_x</strong></a>(self, x)</dt></dl>
-
-<dl><dt><a name="AxisTextGTK-set_y"><strong>set_y</strong></a>(self, y)</dt></dl>
-
-<dl><dt><a name="AxisTextGTK-update_properties"><strong>update_properties</strong></a>(self, d)</dt><dd><tt>Update&nbsp;the&nbsp;font&nbsp;attributes&nbsp;with&nbsp;the&nbsp;dictionary&nbsp;in&nbsp;d</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Flush&nbsp;all&nbsp;state&nbsp;vars&nbsp;and&nbsp;prepare&nbsp;for&nbsp;a&nbsp;clean&nbsp;redraw</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="AxisTextGTK-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;all&nbsp;artists&nbsp;contained&nbsp;in&nbsp;self</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
-things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
-their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
-
-<dl><dt><a name="AxisTextGTK-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><strong>aname</strong> = 'Artist'</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="ColorManagerGTK">class <strong>ColorManagerGTK</strong></a></font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="ColorManagerGTK-get_color"><strong>get_color</strong></a>(self, rgb)</dt><dd><tt>RGB&nbsp;is&nbsp;a&nbsp;unit&nbsp;RGB&nbsp;tuple,&nbsp;return&nbsp;a&nbsp;gtk.gdk.Color</tt></dd></dl>
+
+<dl><dt><a name="ColorManagerGTK-get_rgb"><strong>get_rgb</strong></a>(self, color)</dt><dd><tt>RGB&nbsp;is&nbsp;a&nbsp;unit&nbsp;RGB&nbsp;tuple,&nbsp;return&nbsp;a&nbsp;gtk.gdk.Color</tt></dd></dl>
 
 <dl><dt><a name="ColorManagerGTK-set_drawing_area"><strong>set_drawing_area</strong></a>(self, da)</dt></dl>
 
@@ -361,7 +138,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (136610200)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (136680744)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -979,8 +756,6 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 Methods defined here:<br>
 <dl><dt><a name="FigureGTK-__init__"><strong>__init__</strong></a>(self, figsize, dpi)</dt></dl>
 
-<dl><dt><a name="FigureGTK-add_axis"><strong>add_axis</strong></a>(self, a)</dt></dl>
-
 <dl><dt><a name="FigureGTK-button_press_event"><strong>button_press_event</strong></a>(self, widget, event)</dt></dl>
 
 <dl><dt><a name="FigureGTK-button_release_event"><strong>button_release_event</strong></a>(self, widget, event)</dt></dl>
@@ -1007,14 +782,16 @@ Methods defined here:<br>
 
 <dl><dt><a name="FigureGTK-set_do_plot"><strong>set_do_plot</strong></a>(self, b)</dt></dl>
 
-<dl><dt><a name="FigureGTK-text"><strong>text</strong></a>(self, x, y, s, *args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
-the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
-
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureBase">matplotlib.backend_bases.FigureBase</a>:<br>
+<dl><dt><a name="FigureGTK-add_axis"><strong>add_axis</strong></a>(self, a)</dt></dl>
+
 <dl><dt><a name="FigureGTK-clear"><strong>clear</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="FigureGTK-get_axes"><strong>get_axes</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureGTK-text"><strong>text</strong></a>(self, x, y, s, *args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
+the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
@@ -1022,7 +799,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135924224)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135920680)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -1364,8 +1141,6 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 Methods defined here:<br>
 <dl><dt><a name="FigureGTK-__init__"><strong>__init__</strong></a>(self, figsize, dpi)</dt></dl>
 
-<dl><dt><a name="FigureGTK-add_axis"><strong>add_axis</strong></a>(self, a)</dt></dl>
-
 <dl><dt><a name="FigureGTK-button_press_event"><strong>button_press_event</strong></a>(self, widget, event)</dt></dl>
 
 <dl><dt><a name="FigureGTK-button_release_event"><strong>button_release_event</strong></a>(self, widget, event)</dt></dl>
@@ -1392,14 +1167,16 @@ Methods defined here:<br>
 
 <dl><dt><a name="FigureGTK-set_do_plot"><strong>set_do_plot</strong></a>(self, b)</dt></dl>
 
-<dl><dt><a name="FigureGTK-text"><strong>text</strong></a>(self, x, y, s, *args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
-the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
-
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureBase">matplotlib.backend_bases.FigureBase</a>:<br>
+<dl><dt><a name="FigureGTK-add_axis"><strong>add_axis</strong></a>(self, a)</dt></dl>
+
 <dl><dt><a name="FigureGTK-clear"><strong>clear</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="FigureGTK-get_axes"><strong>get_axes</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureGTK-text"><strong>text</strong></a>(self, x, y, s, *args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
+the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
@@ -1407,7 +1184,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135924224)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (135920680)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -1895,7 +1672,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (135930208)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (135926664)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -2297,7 +2074,10 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="RendererGTK-__init__"><strong>__init__</strong></a>(self, gdkDrawable, dpi)</dt></dl>
+<dl><dt><a name="RendererGTK-__init__"><strong>__init__</strong></a>(self, gtkDA, gdkDrawable, dpi)</dt></dl>
+
+<dl><dt><a name="RendererGTK-compute_text_offsets"><strong>compute_text_offsets</strong></a>(self, t)</dt><dd><tt>Return&nbsp;the&nbsp;(x,y)&nbsp;offsets&nbsp;to&nbsp;adjust&nbsp;for&nbsp;the&nbsp;alignment<br>
+specifications</tt></dd></dl>
 
 <dl><dt><a name="RendererGTK-draw_arc"><strong>draw_arc</strong></a>(self, gc, faceColor, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height</tt></dd></dl>
 
@@ -2317,7 +2097,20 @@ is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 If&nbsp;filled=True,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;the&nbsp;gc&nbsp;foreground<br>
 gc&nbsp;is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
+<dl><dt><a name="RendererGTK-draw_text"><strong>draw_text</strong></a>(self, x, y, t)</dt></dl>
+
+<dl><dt><a name="RendererGTK-get_pango_layout"><strong>get_pango_layout</strong></a>(self, t)</dt><dd><tt>Return&nbsp;a&nbsp;pango&nbsp;layout&nbsp;instance&nbsp;for&nbsp;Text&nbsp;instance&nbsp;t.&nbsp;&nbsp;cache&nbsp;to<br>
+layoutd</tt></dd></dl>
+
+<dl><dt><a name="RendererGTK-get_text_extent"><strong>get_text_extent</strong></a>(self, t)</dt><dd><tt>Return&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;display&nbsp;coords&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+
 <dl><dt><a name="RendererGTK-new_gc"><strong>new_gc</strong></a>(self)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>fontangles</strong> = {'italic': 2, 'normal': 0, 'oblique': 1}</dl>
+
+<dl><dt><strong>fontweights</strong> = {'bold': 700, 'heavy': 900, 'light': 300, 'normal': 400, 'ultrabold': 800, 'ultralight': 200}</dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

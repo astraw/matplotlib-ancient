@@ -78,21 +78,25 @@ lines = file('footer.html.template').readlines()
 cop.copy(lines)
 params['footer'] = footerBuffer.getvalue()
 
-docs = ( 'matplotlib.afm.html.template',
-         'matplotlib.artist.html.template',
-         'matplotlib.axes.html.template',
-         'matplotlib.backend_bases.html.template',
-         'matplotlib.cbook.html.template',
-         'matplotlib.lines.html.template',
-         'matplotlib.matlab.html.template',
-         'matplotlib.mlab.html.template',
-         'matplotlib.patches.html.template',
-         'matplotlib.transforms.html.template',
-         'matplotlib.backends.backend_gd.html.template',
-         'matplotlib.backends.backend_gtk.html.template',
-         'matplotlib.backends.backend_ps.html.template',
-         'matplotlib.backends.backend_template.html.template',
-         'matplotlib.backends.backend_wx.html.template',
+docs = (
+    'matplotlib.afm.html.template',
+    'matplotlib.artist.html.template',
+    'matplotlib.axes.html.template',
+    'matplotlib.axis.html.template',        
+    'matplotlib.backend_bases.html.template',
+    'matplotlib.backends.backend_gd.html.template',
+    'matplotlib.backends.backend_gtk.html.template',
+    'matplotlib.backends.backend_ps.html.template',
+    'matplotlib.backends.backend_template.html.template',
+    'matplotlib.backends.backend_wx.html.template',
+    'matplotlib.cbook.html.template',
+    'matplotlib.legend.html.template',        
+    'matplotlib.lines.html.template',
+    'matplotlib.matlab.html.template',
+    'matplotlib.mlab.html.template',
+    'matplotlib.patches.html.template',
+    'matplotlib.text.html.template',    
+    'matplotlib.transforms.html.template',
          )
          
 

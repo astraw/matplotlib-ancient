@@ -186,6 +186,8 @@ Methods inherited from <a href="matplotlib.transforms.html#RRef">RRef</a>:<br>
 
 <dl><dt><a name="BinOp-__mul__"><strong>__mul__</strong></a>(self, other)</dt></dl>
 
+<dl><dt><a name="BinOp-__rmul__"><strong>__rmul__</strong></a>(self, other)</dt></dl>
+
 <dl><dt><a name="BinOp-__sub__"><strong>__sub__</strong></a>(self, other)</dt></dl>
 
 </td></tr></table> <p>
@@ -406,6 +408,8 @@ Methods inherited from <a href="matplotlib.transforms.html#Size">Size</a>:<br>
 
 <dl><dt><a name="RRef-__mul__"><strong>__mul__</strong></a>(self, other)</dt></dl>
 
+<dl><dt><a name="RRef-__rmul__"><strong>__rmul__</strong></a>(self, other)</dt></dl>
+
 <dl><dt><a name="RRef-__sub__"><strong>__sub__</strong></a>(self, other)</dt></dl>
 
 <dl><dt><a name="RRef-get"><strong>get</strong></a>(self)</dt></dl>
@@ -429,6 +433,8 @@ Methods inherited from <a href="matplotlib.transforms.html#RRef">RRef</a>:<br>
 <dl><dt><a name="RWRef-__init__"><strong>__init__</strong></a>(self, val)</dt></dl>
 
 <dl><dt><a name="RWRef-__mul__"><strong>__mul__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="RWRef-__rmul__"><strong>__rmul__</strong></a>(self, other)</dt></dl>
 
 <dl><dt><a name="RWRef-__sub__"><strong>__sub__</strong></a>(self, other)</dt></dl>
 
