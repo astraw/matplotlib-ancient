@@ -25,7 +25,4 @@ a = axes([0.2, 0.6, .2, .2], axisbg='y')
 plot(t[:len(r)], r)
 title('Impulse response')
 set(a, xlim=(0,.2), xticks=[], yticks=[])
-
-savefig('axes_demo_small', dpi=60)
-savefig('axes_demo_large', dpi=120)
 show()

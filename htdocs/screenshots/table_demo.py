@@ -40,7 +40,4 @@ yticks(vals*1000, ['%d' % val for val in vals])
 xticks([])
 title('Loss by Disaster')
 
-savefig('table_demo_small.png', dpi=60)
-savefig('table_demo_large.png', dpi=120)
-
 show()

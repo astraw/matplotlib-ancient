@@ -79,7 +79,7 @@ if 1:   # plot the EEG
     xlim(0,10)
     xticks(arange(10))
 
-    set(gca(), 'yticklabels', ['PG3', 'PG5', 'PG7', 'PG9']) 
+    yticks(ticklocs, ['PG3', 'PG5', 'PG7', 'PG9'])
 
     # set the yticks to use axes coords on the y axis
     ax.set_yticks(ticklocs)
@@ -93,6 +93,4 @@ if 1:   # plot the EEG
 
     xlabel('time (s)')
 
-
-savefig('mri_with_eeg')
 show()

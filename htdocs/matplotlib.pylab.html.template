@@ -530,6 +530,7 @@ Here&nbsp;is&nbsp;an&nbsp;example&nbsp;that&nbsp;creates&nbsp;a&nbsp;pale&nbsp;t
 &nbsp;<br>
 where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbsp;events&nbsp;are&nbsp;recognized<br>
 &nbsp;<br>
+&nbsp;'key_press_event'&nbsp;<br>
 &nbsp;'button_press_event'&nbsp;<br>
 &nbsp;'button_release_event'&nbsp;<br>
 &nbsp;'motion_notify_event'&nbsp;<br>

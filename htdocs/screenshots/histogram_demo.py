@@ -11,8 +11,7 @@ n, bins, patches = hist(x, 100, normed=1)
 
 # add a 'best fit' line
 y = normpdf( bins, mu, sigma)
-l = plot(bins, y, 'r--')
-set(l, 'linewidth', 2)
+l = plot(bins, y, 'r--', linewidth=2)
 xlim(40, 160)
 
 xlabel('Smarts')

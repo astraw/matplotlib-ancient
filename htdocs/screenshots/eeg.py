@@ -24,7 +24,7 @@ t = numpy.arange(0.0,3.0,0.01)
 s = numpy.sin(2*numpy.pi*t)
 
 a.plot(t,s)
-f.add_axis(a)
+f.add_axes(a)
 f.show()
 vbox.pack_start(f)
 

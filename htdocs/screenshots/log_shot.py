@@ -6,6 +6,7 @@ t = arange(dt, 20.0, dt)
 subplot(211)
 semilogx(t, sin(2*pi*t))
 ylabel('semilog')
+xticks([])
 set(gca(), 'xticklabels', [])
 grid(True)
 

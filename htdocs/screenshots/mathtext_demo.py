@@ -25,9 +25,9 @@ text(0.5 * (a + b), 30,
 
 axis([0,10, 0, 180])
 figtext(0.9, 0.05, 'x')
-figtext(0.1, 0.9, 'y')
-ax.set_xticks((a,b))
-ax.set_xticklabels(('a','b'))
-ax.set_yticks([])
-savefig('integral_demo')
+figtext(0.1, 0.90, 'y')
+
+xticks((a,b), ('a','b'))
+yticks([])
+
 show()

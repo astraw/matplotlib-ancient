@@ -82,6 +82,49 @@ and axes and click/drag.  Then the navigation tools take effect - see
 the <a href=tutorial.html#toolbar2>toolbar2 tutorial</a>.
 """),
 
+    ('LOG',
+     "I'm getting a log of zero error even though I know all of my data are positive",
+     """\
+This is definitely a gotcha that matplotlib needs to be smarter about.
+The log zero error is occurring when the transformation is made on the
+<i>axes limits</i> and not on the data.  The autoscaler picks the best
+min/max for the data coordinates, and will round down or up to
+facilitate nice integer ticking.  When you plot with linear coords,
+the autoscaler makes its pick according to linear scaling, and if when
+you change scales the old scaling is in effect and the log transform
+fails when converting the viewport.
+
+Solution: rescale the axes after changing coords, 
+either manually
+
+<pre>
+  ax.set_yscale("log")
+  ax.set_xscale("log")
+  axis([minx, maxx, miny, maxy])
+</pre>
+
+or use the autoscaler
+
+<pre>
+  ax.set_yscale("log")
+  ax.set_xscale("log")
+  ax.autoscale_view()
+</pre>
+
+or set your log coords *before* calling a plot command
+
+<pre>
+  ax = gca()
+  ax.set_yscale("log")
+  ax.set_xscale("log")
+  errorbar(x,y,err,fmt='o')
+</pre>
+
+and then the errorbar command will pick a "locator" to handle ticking
+and viewport scaling appropriately from the outset.  This is the
+approach taken in <a href=examples/log_bar.py>log_bar.py</a>.
+"""),
+    
     ('FREEZE',
     'My matplotlib window is freezing',
 

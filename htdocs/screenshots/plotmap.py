@@ -82,10 +82,8 @@ ax.add_collection(collection)
 corners = (min(xs), min(ys)), (max(xs), max(ys))                                
 ax.update_datalim( corners )                                                    
 axis([0, xmax, 0, ymax])                                                        
-ax.set_xticks([]) # no ticks                                                    
-ax.set_yticks([])                                                               
+xticks([]) # no ticks                                                    
+yticks([])                                                               
 title('20-minute Topography: Lambert Conformal Conic Projection') 
 
-savefig('plotmap_small', dpi=60)
-savefig('plotmap_large', dpi=123)
 show()                  

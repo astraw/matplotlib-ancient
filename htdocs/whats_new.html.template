@@ -5,6 +5,45 @@
 versioninfo = {}
 
 
+versioninfo['0.70'] = (
+  ('pie charts', """\
+See <a href=screenshots.html#pie_demo>pie screenshot</a>.
+"""),	
+
+  ('wx/wxagg coords notification', """\
+The wx toolbar now reports the x,y coords of the mouse
+"""),	
+
+  ('key events', """\
+Key press and release event supported across backends -- see
+<a href=examples/keypress_demo.py>examples/keypress_demo.py</a>.
+"""),
+
+  ('shadow effect', """\
+<a href=matplotlib.patches.html#Shadow>Shadow</a> patch class provides
+a shadow effect for polygons, legends, pie charts - eg, 
+<a href=screenshots.html#legend_demo>legend screenshot</a>.
+"""),
+
+  ('text rotation example', """\
+New <a href=examples/text_rotation.py>examples/text_rotation.py</a>
+demonstrates how text rotations and
+alignment work in matplotlib.  """),
+
+  ('Bug fix roundup', """\
+  <ul>
+  <li>Fixed PS mathtext bug where color was not set.</li>
+  <li>Fixed an agg text rotation alignment bug, fixed some text kwarg
+    processing bugs.</li>
+  <li>Refactored event handling - multiple connects and disconnects now
+    work across backends.  See examples/coords_demo.py, especially
+    with test_disconnect.</li>
+  </ul>
+
+  """),
+
+  )
+
 versioninfo['0.65'] = (
   ('matlab(TM) now pylab', """\
 matlab namespace renamed pylab - see <a
@@ -54,6 +93,10 @@ Thanks Perry!
   ('zordering', """\
 zorder to artists to control drawing order of lines, patches and text
 in axes.  See <a href=examples/zorder_demo.py>zorder_demo.py</a>.
+  """),
+
+  ('delaxes', """\
+You can now delete a specified axes or the current axes with <a href=matplotlib.pylab.html#-delaxes>delaxes</a>
   """),
 
   ('more cairo features', """\

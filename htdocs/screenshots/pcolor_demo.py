@@ -16,7 +16,4 @@ im = imshow(Z, cmap=cm.hot, extent=(-3, 3, -3, 3))  # fast
 axis('off')
 colorbar()
 
-savefig('pcolor_demo_small', dpi=60)
-savefig('pcolor_demo_large', dpi=120)
-
 show()

@@ -24,10 +24,16 @@ graphics&nbsp;contexts&nbsp;must&nbsp;implement&nbsp;to&nbsp;serve&nbsp;as&nbsp;
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#Cursors">Cursors</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#FigureCanvasBase">FigureCanvasBase</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#Event">Event</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#KeyEvent">KeyEvent</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#MouseEvent">MouseEvent</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#FigureCanvasBase">FigureCanvasBase</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#FigureManagerBase">FigureManagerBase</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#GraphicsContextBase">GraphicsContextBase</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#MplEvent">MplEvent</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#NavigationToolbar2">NavigationToolbar2</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#RendererBase">RendererBase</a>
 </font></dt></dl>
@@ -53,6 +59,22 @@ graphics&nbsp;contexts&nbsp;must&nbsp;implement&nbsp;to&nbsp;serve&nbsp;as&nbsp;
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Event">class <strong>Event</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;matplotlib&nbsp;event.&nbsp;&nbsp;Attach&nbsp;additional&nbsp;attributes&nbsp;as&nbsp;defined&nbsp;in<br>
+FigureCanvas.connect.&nbsp;&nbsp;The&nbsp;following&nbsp;attributes&nbsp;are&nbsp;defined&nbsp;and<br>
+shown&nbsp;with&nbsp;their&nbsp;default&nbsp;values<br>
+name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;event&nbsp;name<br>
+canvas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;FigureCanvas&nbsp;instance&nbsp;generating&nbsp;the&nbsp;event<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Event-__init__"><strong>__init__</strong></a>(self, name, canvas)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="FigureCanvasBase">class <strong>FigureCanvasBase</strong></a></font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
@@ -65,14 +87,31 @@ Public&nbsp;attribute<br>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="FigureCanvasBase-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
 
+<dl><dt><a name="FigureCanvasBase-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+button&nbsp;press.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
+button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;<a href="#MouseEvent">MouseEvent</a></tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasBase-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
+button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;<a href="#MouseEvent">MouseEvent</a></tt></dd></dl>
+
 <dl><dt><a name="FigureCanvasBase-draw"><strong>draw</strong></a>(self)</dt><dd><tt>Render&nbsp;the&nbsp;figure</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasBase-key_press_event"><strong>key_press_event</strong></a>(self, key)</dt></dl>
+
+<dl><dt><a name="FigureCanvasBase-key_release_event"><strong>key_release_event</strong></a>(self, key)</dt></dl>
+
+<dl><dt><a name="FigureCanvasBase-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
+button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;<a href="#MouseEvent">MouseEvent</a></tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasBase-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
 &nbsp;<br>
 &nbsp;&nbsp;def&nbsp;func(event)<br>
 &nbsp;<br>
-where&nbsp;event&nbsp;is&nbsp;a&nbsp;<a href="#MplEvent">MplEvent</a>.&nbsp;&nbsp;The&nbsp;following&nbsp;events&nbsp;are&nbsp;recognized<br>
+where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbsp;events&nbsp;are&nbsp;recognized<br>
 &nbsp;<br>
+&nbsp;'key_press_event'&nbsp;<br>
 &nbsp;'button_press_event'&nbsp;<br>
 &nbsp;'button_release_event'&nbsp;<br>
 &nbsp;'motion_notify_event'&nbsp;<br>
@@ -81,7 +120,7 @@ where&nbsp;event&nbsp;is&nbsp;a&nbsp;<a href="#MplEvent">MplEvent</a>.&nbsp;&nbs
 &nbsp;the&nbsp;variable&nbsp;event.inaxes&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;the&nbsp;axes&nbsp;it&nbsp;is&nbsp;over,<br>
 &nbsp;and&nbsp;additionally,&nbsp;the&nbsp;variables&nbsp;event.xdata&nbsp;and&nbsp;event.ydata<br>
 &nbsp;will&nbsp;be&nbsp;defined.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;mouse&nbsp;location&nbsp;in&nbsp;data&nbsp;coords.<br>
-&nbsp;See&nbsp;backend_bases.<a href="#MplEvent">MplEvent</a>.<br>
+&nbsp;See&nbsp;backend_bases.MplEvent.<br>
 &nbsp;<br>
 return&nbsp;value&nbsp;is&nbsp;a&nbsp;connection&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with<br>
 mpl_disconnect</tt></dd></dl>
@@ -106,7 +145,7 @@ figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected
 
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>events</strong> = ('button_press_event', 'button_release_event', 'motion_notify_event')</dl>
+<dl><dt><strong>events</strong> = ('key_press_event', 'key_release_event', 'button_press_event', 'button_release_event', 'motion_notify_event')</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -205,14 +244,38 @@ Data and other attributes defined here:<br>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="MplEvent">class <strong>MplEvent</strong></a></font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="KeyEvent">class <strong>KeyEvent</strong></a>(<a href="matplotlib.backend_bases.html#Event">Event</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>A&nbsp;matplotlib&nbsp;event.&nbsp;&nbsp;Attach&nbsp;additional&nbsp;attributes&nbsp;as&nbsp;defined&nbsp;in<br>
-FigureCanvas.connect.&nbsp;&nbsp;The&nbsp;following&nbsp;attributes&nbsp;are&nbsp;defined&nbsp;and<br>
-shown&nbsp;with&nbsp;their&nbsp;default&nbsp;values<br>
-name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;event&nbsp;name<br>
-canvas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;FigureCanvas&nbsp;instance&nbsp;generating&nbsp;the&nbsp;event<br>
+<td colspan=2><tt>A&nbsp;key&nbsp;event&nbsp;(key&nbsp;press,&nbsp;key&nbsp;release).<br>
+&nbsp;<br>
+Attach&nbsp;additional&nbsp;attributes&nbsp;as&nbsp;defined&nbsp;in<br>
+FigureCanvas.connect.<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;attributes&nbsp;are&nbsp;defined&nbsp;and&nbsp;shown&nbsp;with&nbsp;their&nbsp;default<br>
+values<br>
+&nbsp;<br>
+key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;key&nbsp;pressed:&nbsp;chr(range(255),&nbsp;shift,&nbsp;win,&nbsp;or&nbsp;control<br>
+&nbsp;<br>
+This&nbsp;interface&nbsp;may&nbsp;change&nbsp;slightly&nbsp;when&nbsp;better&nbsp;support&nbsp;for<br>
+modifier&nbsp;keys&nbsp;is&nbsp;included<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="KeyEvent-__init__"><strong>__init__</strong></a>(self, name, canvas, key)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MouseEvent">class <strong>MouseEvent</strong></a>(<a href="matplotlib.backend_bases.html#Event">Event</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;mouse&nbsp;event&nbsp;(button_press_event,&nbsp;button_release_event,<br>
+motion_notify_event).<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;attributes&nbsp;are&nbsp;defined&nbsp;and&nbsp;shown&nbsp;with&nbsp;their&nbsp;default<br>
+values<br>
+&nbsp;<br>
 x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;x&nbsp;position&nbsp;-&nbsp;pixels&nbsp;from&nbsp;left&nbsp;of&nbsp;canvas<br>
 y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;y&nbsp;position&nbsp;-&nbsp;pixels&nbsp;from&nbsp;bottom&nbsp;of&nbsp;canvas<br>
 button&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;button&nbsp;pressed&nbsp;None,&nbsp;1,&nbsp;2,&nbsp;3<br>
@@ -222,7 +285,8 @@ xdata&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;x&n
 ydata&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;y&nbsp;coord&nbsp;of&nbsp;mouse&nbsp;in&nbsp;data&nbsp;coords<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="MplEvent-__init__"><strong>__init__</strong></a>(self, name, canvas)</dt></dl>
+<dl><dt><a name="MouseEvent-__init__"><strong>__init__</strong></a>(self, name, canvas, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>x,&nbsp;y&nbsp;in&nbsp;figure&nbsp;coords,&nbsp;0,0&nbsp;=&nbsp;bottom,&nbsp;left<br>
+button&nbsp;pressed&nbsp;None,&nbsp;1,&nbsp;2,&nbsp;3</tt></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>

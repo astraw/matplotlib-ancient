@@ -102,7 +102,6 @@ Newline separated text and arbitrary rotations
 
 done
 
-
 Properly aligned newline separated text works across backends.  The
 support for arbitrary rotations depends on whether the backend
 supports arbitrary rotations (*Agg, PS, GD, Paint do; GTK and WX
@@ -125,7 +124,7 @@ imshow</a>
 *******************
 Polar plots
 
-alpha
+done
 
 In <a href="whats_new.html#0.64-polar_plots">matplotlib-0.64</a>, a <a
 href=matplotlib.axes.html#PolarAxes>PolarAxes</a> class was added to
@@ -147,10 +146,26 @@ Contour plots
 
 work in progress
 
-*******************
+A <a href=matplotlib.pylab.html#-contour>contour</a> routine was
+provided in href="whats_new.html#0.65-contour">matplotlib-0.65</a> .
+Work on automatic labeling of contours and contour linestyles is
+underway.  
+
+******************* 
 Log histogram
 
 not started
+*******************
+General polygon clipping
+
+not started
+
+This will be based on agg's <a
+href=http://www.antigrain.com/demo/index.html#PAGE_DEMO_scanline_boolean>scanline
+boolean algebra</a>, which does not have the licensing restrictions of
+the <a href=http://www.cs.man.ac.uk/aig/staff/alan/software>gpc</a>
+algorithms.
+
 *******************
 2-D vector plots
 
@@ -189,14 +204,17 @@ not started
 some proof-of-concept work completed
 
 Most likely based on embedding VTK functionality.  Randy Heiland has
-done <a href=http://poincare.uits.iupui.edu/matplot>some basic
+done <a href=http://sda.iu.edu/matplot.html>some basic
 work</a> to show how to use VTK with offline rendering in combination
 with matplotlib imshow to incorporate 3D but much more work is needed.
 
 *******************
 Pie Charts
 
-not started
+Matlab&reg compatible <a href=matplotlib.pylab.html#-pie>pie</a> command
+implemented in in <a
+href="whats_new.html#0.70-pie_charts">matplotlib-0.70</a> .
+
 *******************
 Map Projections
 
@@ -232,6 +250,18 @@ href=matplotlib.matlab.html#-mpl_disconnect>mpl_disconnect</a>
 methods.  See, for example, <a
 href=examples/coords_demo.py>coords_demo.py</a>.
 
+*******************
+Key press event handling
+
+mostly done
+
+<a
+href="whats_new.html#0.70-key_events">matplotlib-0.70</a> added
+support for connecting to <tt>key_press_event</tt> and
+<tt>key_release_event</tt> across backends, illustrated in <a
+href=examples/keypress_demo.py>examples/keypress_demo.py</a>.  What
+remains to be done is a more sopisticated interface to handle modifier
+keys as well, eg <tt>CTRL-X</tt>.
 
 *******************
 Cursor read function
@@ -276,7 +306,9 @@ href=matplotlib.collections.html>collections</a> module have
 dramatically improved pcolor and scatter plots.  scatter also supports
 a variety of different markers - currently regular polygons but this
 will soon be expanded.  For large scatter plots (eg 50,000 markers),
-performance is 10x faster in <a href="whats_new.html#0.54-New_scatter_plots">matplotlib-0.54</a>.
+performance is 10x faster in <a
+href="whats_new.html#0.54-New_scatter_plots">matplotlib-0.54</a>.
+Line2D needs to use collections from drawing markers.
 
 ********************
 Faster math text
@@ -293,7 +325,7 @@ Documentation
 *******************
 Fixed and non-fixed interfaces
 
-not started
+work in progress on User's Guide in CVS
 
 Provide a guide to users as to what parts of matplotlib should
 not change and what parts may still change.
@@ -302,7 +334,7 @@ User Interface
 *******************
 Use of Traits package
 
-uncertain
+Under investigation
 
 Allows validation of user-supplied plotting parameters
 ============================================================================

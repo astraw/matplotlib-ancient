@@ -82,12 +82,29 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
 <dl><dt><a name="FigureCanvasPS-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
 
+<dl><dt><a name="FigureCanvasPS-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+button&nbsp;press.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
+button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasPS-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
+button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasPS-key_press_event"><strong>key_press_event</strong></a>(self, key)</dt></dl>
+
+<dl><dt><a name="FigureCanvasPS-key_release_event"><strong>key_release_event</strong></a>(self, key)</dt></dl>
+
+<dl><dt><a name="FigureCanvasPS-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
+button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
+
 <dl><dt><a name="FigureCanvasPS-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
 &nbsp;<br>
 &nbsp;&nbsp;def&nbsp;func(event)<br>
 &nbsp;<br>
 where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbsp;events&nbsp;are&nbsp;recognized<br>
 &nbsp;<br>
+&nbsp;'key_press_event'&nbsp;<br>
 &nbsp;'button_press_event'&nbsp;<br>
 &nbsp;'button_release_event'&nbsp;<br>
 &nbsp;'motion_notify_event'&nbsp;<br>
@@ -113,7 +130,7 @@ figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
-<dl><dt><strong>events</strong> = ('button_press_event', 'button_release_event', 'motion_notify_event')</dl>
+<dl><dt><strong>events</strong> = ('key_press_event', 'key_release_event', 'button_press_event', 'button_release_event', 'motion_notify_event')</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

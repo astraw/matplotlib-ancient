@@ -82,10 +82,6 @@ Methods inherited from <a href="matplotlib.backends.backend_gtk.html#FigureCanva
 
 <dl><dt><a name="FigureCanvasGTKAgg-motion_notify_event"><strong>motion_notify_event</strong></a>(self, widget, event)</dt></dl>
 
-<dl><dt><a name="FigureCanvasGTKAgg-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt></dl>
-
-<dl><dt><a name="FigureCanvasGTKAgg-mpl_disconnect"><strong>mpl_disconnect</strong></a>(self, cid)</dt></dl>
-
 <hr>
 Data and other attributes inherited from <a href="matplotlib.backends.backend_gtk.html#FigureCanvasGTK">matplotlib.backends.backend_gtk.FigureCanvasGTK</a>:<br>
 <dl><dt><strong>keyvald</strong> = {65505: 'shift', 65506: 'shift', 65507: 'control', 65508: 'control', 65513: 'alt', 65514: 'alt'}</dl>
@@ -96,7 +92,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137298168)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137299264)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -438,6 +434,29 @@ Methods inherited from <a href="matplotlib.backends.backend_agg.html#FigureCanva
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><a name="FigureCanvasGTKAgg-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
+&nbsp;<br>
+&nbsp;&nbsp;def&nbsp;func(event)<br>
+&nbsp;<br>
+where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbsp;events&nbsp;are&nbsp;recognized<br>
+&nbsp;<br>
+&nbsp;'key_press_event'&nbsp;<br>
+&nbsp;'button_press_event'&nbsp;<br>
+&nbsp;'button_release_event'&nbsp;<br>
+&nbsp;'motion_notify_event'&nbsp;<br>
+&nbsp;<br>
+&nbsp;For&nbsp;the&nbsp;three&nbsp;events&nbsp;above,&nbsp;if&nbsp;the&nbsp;mouse&nbsp;is&nbsp;over&nbsp;the&nbsp;axes,<br>
+&nbsp;the&nbsp;variable&nbsp;event.inaxes&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;the&nbsp;axes&nbsp;it&nbsp;is&nbsp;over,<br>
+&nbsp;and&nbsp;additionally,&nbsp;the&nbsp;variables&nbsp;event.xdata&nbsp;and&nbsp;event.ydata<br>
+&nbsp;will&nbsp;be&nbsp;defined.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;mouse&nbsp;location&nbsp;in&nbsp;data&nbsp;coords.<br>
+&nbsp;See&nbsp;backend_bases.MplEvent.<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;a&nbsp;connection&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with<br>
+mpl_disconnect</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasGTKAgg-mpl_disconnect"><strong>mpl_disconnect</strong></a>(self, cid)</dt><dd><tt>Connect&nbsp;s&nbsp;to&nbsp;func.&nbsp;return&nbsp;an&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect<br>
+Method&nbsp;should&nbsp;return&nbsp;None</tt></dd></dl>
+
 <dl><dt><a name="FigureCanvasGTKAgg-switch_backends"><strong>switch_backends</strong></a>(self, FigureCanvasClass)</dt><dd><tt>instantiate&nbsp;an&nbsp;instance&nbsp;of&nbsp;FigureCanvasClass<br>
 &nbsp;<br>
 This&nbsp;is&nbsp;used&nbsp;for&nbsp;backend&nbsp;switching,&nbsp;eg,&nbsp;to&nbsp;instantiate&nbsp;a<br>
@@ -447,7 +466,7 @@ figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
-<dl><dt><strong>events</strong> = ('button_press_event', 'button_release_event', 'motion_notify_event')</dl>
+<dl><dt><strong>events</strong> = ('key_press_event', 'key_release_event', 'button_press_event', 'button_release_event', 'motion_notify_event')</dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
