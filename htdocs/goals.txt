@@ -37,6 +37,11 @@ figures so text appears the same in agg and ps backends.
 
 
 *******************
+SVG support
+
+not started
+
+*******************
 Parser fixes
 
 mostly done
@@ -218,7 +223,7 @@ href=examples/coords_demo.py>coords_demo.py</a>.
 *******************
 Cursor read function
 
-done
+95% done
 
 Provide a standard function for reading cursor position from a program
 either immeditately or based on a specified event (e.g., keypress or
@@ -231,11 +236,13 @@ function, like x, y = mouse_press(*args)
 ********************
 Solve mainloop issues
 
-not started
+some progress
 
-Develop standard way to show windows without entering 
-mainloop (e.g., for use with IDEs that
-already have mainloop running such as PyCrust).
+The ultimate goal is to have matplotlib work across IDEs and standard
+python shells.  Fernando Perez helped with an important first step, in
+releasing a version of <a href=http://ipython.scipy.org>ipython</a>
+that works in interactive mode with all of the matplotlib GUIs.
+
 ============================================================================
 Performance
 *******************
@@ -261,7 +268,13 @@ performance is 10x faster in <a href="whats_new.html#0.54-New_scatter_plots">mat
 ********************
 Faster math text
 
-not started
+partially done
+
+A recent upgrade in the pyparsing module that matplotlib uses to parse
+mathtext has more than doubled mathtext performance.  Almost all of
+the time matplotlib uses for mathtext is used by the pyparsing module,
+so futher improvements will likely come as that module is optimized
+for performance.
 ============================================================================
 Documentation
 *******************
