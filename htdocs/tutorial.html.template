@@ -41,9 +41,16 @@ python manual</a> as possible before working with matplotlib.
 Otherwise you may get frustrated.  When you feel comfortable with
 both, you'll find matplotlib easy.<p>
 
+The tutorial, by design, covers basic matplotlib code.  Until
+matplotlib has a full-featured users-guide, the best way to learn is
+to read through and run the examples (120 at last count).  After
+reading the tutorial, check out the <tt>examples</tt> subdirectory in
+the matplotlib src distribution (*.tar.gz or *,zip), or online at <a
+href=http://matplotlib.sf.net/examples>matplotlib examples</a>.<p>
+
 matplotlib is designed to work in a variety of settings: some people
-use it in "batch mode" on a web server to create images they never look
-at.  Others use graphical user interfaces (GUIs) to interact with
+use it in "batch mode" on a web server to create images they never
+look at.  Others use graphical user interfaces (GUIs) to interact with
 their plots.  Thus you must customize matplotlib to work like you want
 it too.  In particular, you need to take a look at the customization
 file <a href=.matplotlibrc>.matplotlibrc<a/>, in which you can set
@@ -53,9 +60,9 @@ from the shell (the <tt>interactive</tt> setting).  Also, please read
 <a href=interactive.html>interactive use</a>, <a
 href=faq.html#SHOW>What's up with show?</a>, and <a
 href=faq.html#FREEZE>My matplotlib window is freezing</a> before
-trying type in the examples below, to avoid confusion that bites many
-new matplotlib users.  Or at least make a mental note to come back and
-read them if you encounter any problems.<p>
+trying type in the examples below, to avoid the confusions that bite
+many new matplotlib users.  Or at least make a mental note to come
+back and read them if you encounter any problems.<p>
 
 Using matplotlib should come naturally if you have ever plotted with
 matlab, and should be fairly straightforward if you haven't.  The
@@ -123,14 +130,20 @@ of the axes.<p>
 
 If matplotlib were limited to working with lists, it would be fairly
 useless for numeric processing.  Generally, you will use <a
-href=http://www.pfdubois.com/numpy>Numeric</a> arrays.  In fact, all
-sequences are converted to Numeric arrays internally.  The example
-below illustrates a plotting several lines with different format
-styles in one command using Numeric arrays.  Note if you are not
-familiar with Numeric, now would be a good time to check out their
-documentation at <a href=http://www.pfdubois.com/numpy>numpy</a> since
-a lot of the matplotlib examples assume you know Numeric, and the
-matplotlib.matlab imports all the Numeric (and MLab) functions.<p>
+href=http://www.pfdubois.com/numpy>Numeric</a> arrays.  Note that
+matplotlib works equally well with the Numeric successor <a
+href=www.stsci.edu/resources/software_hardware/numarray>numarray</a>,
+thanks to the <a href=matplotlib.numerix.html>matplotlib.numerix</a>
+interface, which enables you to use either array package
+transparently.  In fact, all sequences are converted to numerix arrays
+internally.  The example below illustrates a plotting several lines
+with different format styles in one command using numerix arrays.
+Note if you are not familiar with Numeric or numarray, now would be a
+good time to check out the documentation at <a
+href=http://www.pfdubois.com/numpy>Numerical python</a> since a lot of
+the matplotlib examples assume you know Numeric, and the
+matplotlib.matlab imports all the numerical python and associated
+(MLab/FFT/etc) functionality.<p>
 
 <table @plot_table_border@><tr><td>
 <table>
@@ -153,21 +166,18 @@ show()
 <h3><a name=lineprops>Controlling line properties</a></h3>
 
 Lines have many attributes that you can set: linewidth, dash style,
-antialiased, etc.  See <a
-href=matplotlib.lines.html>lines</a> for the current line
-documentation.<p>
+antialiased, etc; see <a
+href=matplotlib.lines.html>lines</a>.<p>
 
 There are several ways to set line properties
 <pre>
-# Use keyword args - requires matplotlib-0.51 or later.
-# Multiple keyword args are allowed 
+# Use keyword args
 plot(x, y, linewidth=2.0)  
 
 # Use the setter methods of the Line2D instance.  plot returns a list
 # of lines (eg line1, line2 = plot(x1,y1,x2,x2)).  Below I have only
 # one line so it is a list of length 1.  I use tuple unpacking in the
 # line, = plot(x, y, 'o') to get the first element of the list
-
 line, = plot(x, y, 'o')
 line.set_antialiased(False) # turn off antialising
 
@@ -177,8 +187,8 @@ lines = plot(x1, y1, x2, y2)
 set(lines, color='r', linewidth=2.0)
 
 
-# In the last example, the matlab style where the keywords are strings
-# is also allowed, but not as nice, in my opinion.
+# set also accepts matlab style pairs of arguments with property names
+# as strings, though I prefer the pythonic keyword arguments above
 set(lines, 'color', 'r', 'linewidth', 2.0)
 </pre>
 
@@ -200,7 +210,7 @@ current axes.  The function <a
 href=matplotlib.matlab.html#-gca>gca</a> returns the current axes as
 an <a href=matplotlib.axes.html#Axes>Axes</a> instance, and <a
 href=matplotlib.matlab.html#-gcf>gcf</a> returns the current figure as
-a <a href=matplotlib.backend_bases.html#FigureBase>Figure</a>
+a <a href=matplotlib.figure.html#Figure>Figure</a>
 instance.<p>
 
 Normally, you don't have to worry about this, because it is all taken
@@ -336,14 +346,14 @@ properties listed in the table above.  For example, to make a red bold
 
 <pre>
 t = xlabel('time')
-set(t, 'color', 'r', 'fontweight', 'bold')
+set(t, color='r', fontweight='bold')
 </pre>
 
 Set also works with a list of text instances.  The following changes
 the properties of all the tick labels.
 <pre>
 labels = get(gca(), 'xticklabels')
-set(labels, 'color', 'r', 'fontweight', 'bold')
+set(labels, color='r', fontweight='bold')
 </pre>
 
 
@@ -402,9 +412,9 @@ with the color string 'k'.<p>
 
 <h4><a name=mathtext>Writing mathematical expressions</aa></h4>
 
-As of matplotlib-0.51, you can use TeX markup in your expressions; see
-the <a href=matplotlib.mathtext.html>mathtext</a> documentation for
-usage, requirements and backend information.<p>
+You can use TeX markup in your expressions; see the <a
+href=matplotlib.mathtext.html>mathtext</a> documentation for usage,
+requirements and backend information.<p>
 
 Any text element can use math text.  You need to use raw strings
 (preceed the quotes with an <tt>'r'</tt>), and surround the string
@@ -527,40 +537,39 @@ details.<p>
 
 <table>
 
-The Forward and Back buttons are akin to the web browser forward and
-back buttons.  They are used to navigate back and forth between
-previously defined views.  They have no meaning unless you have
-already navigated somewhere else using the pan and zoom buttons.  This
-is analogous to trying to click 'back' on your web browser before
-visiting a new page.  Nothing happens.  'Home' always takes you to the
-first view.  For Home, Forward and Back, think web browser where data
-views are web pages.  Use the pan and zoom to rectangle to define new
-views.<p>
+<b>The <tt>Forward</tt> and <tt>Back</tt></b> buttons are akin to the web
+browser forward and back buttons.  They are used to navigate back and
+forth between previously defined views.  They have no meaning unless
+you have already navigated somewhere else using the pan and zoom
+buttons.  This is analogous to trying to click <tt>Back</tt> on your
+web browser before visiting a new page --nothing happens.
+<tt>Home</tt> always takes you to the first, default view of your
+data.  For <tt>Home</tt>, <tt>>Forward</tt> and <tt>Back</TT>, think
+web browser where data views are web pages.  Use the pan and zoom to
+rectangle to define new views.<p>
 
-The "Pan/Zoom" button has two modes: pan and zoom.  Click this toolbar
+<b>The Pan/Zoom</b> button has two modes: pan and zoom.  Click this toolbar
 button to activate this mode.  Then put your mouse somewhere over an
 axes.  
 
 <ul>
-<li>Mode 1: Press the left mouse button and hold it, dragging it to
+<li>Pan Mode: Press the left mouse button and hold it, dragging it to
   a new position.  When you release it, the data under the point where
   you pressed will be moved to the point where you released.  If you
   press 'x' or 'y' while panning, the motion will be contrained to the
   x or y axis, respectively</li>
   
-<li> Mode 2: Press the right mouse button, dragging it to a new
+<li>Zoom Mode: Press the right mouse button, dragging it to a new
   position.  The x axis will be zoomed in proportionate to the
   rightward movement and zoomed out proportionate to the leftward
   movement.  Ditto for the yaxis and up/down motions.  The point under
-  your mouse when you begin the zoom should remain in place, allowing
-  you to zoom to an arbitrary point in the figure.  You can use the
+  your mouse when you begin the zoom remains stationary, allowing you
+  to zoom to an arbitrary point in the figure.  You can use the
   modifier keys 'x', 'y' or 'CONTROL' to constrain the zoom to the x
   axes, the y axes, or aspect ratio preserve, respectively.  </li>
-</ul>
+  </ul>
 
-\end{itemize}
-
-The Zoom to rectangle button: Click this toolbar button to activate
+<b>The Zoom to rectangle button</b>: Click this toolbar button to activate
 this mode.  Put your mouse somewhere over and axes and press the left
 mouse button.  Drag the mouse while holding the button to a new
 location and release.  The axes view limits will be zoomed to the
@@ -568,7 +577,7 @@ rectangle you have defined.  There is also an experimental 'zoom out
 to rectangle' in this mode with the right button, which will place
 your entire axes in the region defined by the zoom out rectangle.<p>
 
-Save: click this button to launch a file save dialog.  All the *Agg
+<b>Save</b>: click this button to launch a file save dialog.  All the *Agg
 backends know how to save the following image types: PNG, PS, EPS,
 SVG.  There is no support currently in Agg for writing to JPEG, TIFF
 (the regular wx and gtk backends handle these types).  It is possible
@@ -599,7 +608,7 @@ environment variable is set.<p>
 You can control the defaults of almost every property in matplotlib:
 figure size and dpi, line width, color and style, axes, axis and grid
 properties, text and font properties and so on.  The format of the
-file is documented within in, so please see <a
+file is documented within it, so please see <a
 href=.matplotlibrc>.matplotlibrc</a> for more information.<p>
 
 You can also dynamically change the defaults in a python script or
@@ -613,8 +622,8 @@ the default line properties, you could do
 </pre>
 
 And the default lines would be thicker and red.  All rc parameters
-except <tt>backend, numerix, interactive and toolbar</tt> can be
-customized this way dyanmically.  See <a
+except <tt>backend, numerix, interactive, toolbar, timezone and
+datapath</tt> can be customized this way dyanmically.  See <a
 href=matplotlib.matlab.html#-rc>rc</a> for more information.
 
 
@@ -627,7 +636,7 @@ The <a href=matplotlib.matlab.html#-axes>axes</a> and <a
 href=matplotlib.matlab.html#-subplot>subplot</a> commands return the
 Axes instance that is created, and you can use that to control
 properties of the axis, such as ticklines, ticklabels, gridlines, etc,
-using the set method calls from the <a href=figure.html#Axis>Axis</a>
+using the set method calls from the <a href=axis.html#Axis>Axis</a>
 API.  Or if you prefer matlab handle graphics commands, you can use
 the <a href=matplotlib.matlab.html#-set>set</a> to control axis
 properties.<p>
@@ -680,30 +689,20 @@ plot([1,2,3], [1,4,9])
 <h3>Using the interactive shell</h3>
 </a>
 
-You can work with matplotlib interactively from the python shell.
-There are known incompatiblities with some of the backends with some
-of the IDEs, because they use different GUI event handlers. If you
-want to use matplotlib from an IDE, please consult the backends
-documentation for compatibility information. You will have the
-greatest likelihood of success if you work interactively from the
-standard python shell or using <a
-href=http://ipython.scipy.org>ipython</a>.  You must use the TkAgg
-backend to work interactively from either of these two shells.<p>
+You can work with matplotlib interactively from the python shell.  The
+recommended python shell is <a
+href=http://ipython.scipy.org>ipython</a>, which includes explcit
+support for all of the matplotlib backends and much more, with the
+<tt>pylab</tt> option.</p>
 
-As described <a href=tutorial.html#figs_and_axes>above</a> in working
-with multiple figures and axes, you can create an arbitrary number of
-figures and use the <a href=matplotlib.matlab.html#-figure>figure</a>,
-<a href=matplotlib.matlab.html#-subplot>subplot</a>, <a
-href=matplotlib.matlab.html#-axes>axes</a>, <a
-href=matplotlib.matlab.html#-clf>clf</a>, <a
-href=matplotlib.matlab.html#-cla>cla</a>, and <a
-href=matplotlib.matlab.html#-close>close</a> command to switch back
-and forth, clear and control the figures and axes. <p>
-
-To work interactively with other backends, shells or IDEs, please
-consult <a href=backends.html>backends</a> and <a
+For other interactive environments, there are known incompatiblities
+with some of the backends and some of the IDEs, because they use
+different GUI event handlers. If you want to use matplotlib from an
+IDE, please consult the backends documentation for compatibility
+information. With the standard, unmodified python shell, you must use
+the TkAgg backend.  To work interactively with other backends, shells
+or IDEs, please consult <a href=backends.html>backends</a> and <a
 href=interactive.html>interactive</a>.
-
 
 <a name="events">
 <h3>Event handling</h3>

@@ -694,6 +694,42 @@ fink users should use Jeffrey Whitaker's matplotlib fink package,
 which supports the GTK, TkAgg, GTKAgg, PS, WX, WXAgg and Agg backends
 - \url{http://fink.sourceforge.net/pdb/package.php/matplotlib-py23}.
 
+\subsection{Getting feedback from matplotlib}
+
+matplotlib uses a verbose setting, defined in the matplotlibrc file,
+to determine how much information to report. 
+
+\begin{verbatim}
+verbose.level  : error     # one of silent, error, helpful, debug, debug-annoying
+verbose.fileo  : sys.stdout  # a log filename, sys.stdout or sys.stderr
+verbose.erro   : sys.stderr  # a log filename, sys.stdout or sys.stderr
+
+\end{verbatim}
+
+
+\noindent These settings control how much information matplotlib gives you at
+runtime and where it goes.  Ther verbosity levels are: \rc{silent,
+  error, helpful, debug, debug-annoying}.  At the \rc{error} level,
+you will only get error messages.  Any level is inclusive of all the
+levels below it.  Ie, if your setting is \rc{helpful}, you'll also get
+all the \rc{error} messages.  If you setting is \rc{debug}, you'll get
+all the \rc{error} and \rc{helpful} messages.  It is not recommended
+to make your setting \rc{silent} because you will not even get
+\rc{error} messages.  When submitting problems to the mailing-list,
+please set verbose to \rc{helpful} or \rc{debug} and paste the output
+into your report.
+
+The \rc{verbose.fileo} setting gives the destination for any calls to
+the verbose report function.  The \rc{verbose.erro} setting gives the
+destination for any calls to verbose error reporting function.  These
+objects can a filename or a full path to a filename, \rc{sys.stderr},
+or \rc{sys.stdout}.  You can override the rc default verbosity from
+the command line by giving the flags {\tt--verbose-LEVEL} where {\tt
+  LEVEL} is one of the legal levels, eg {\tt --verbose-error} {\tt
+  --verbose-helpful}.
+
+You can access the verbose instance in your code 
+\code{from matplotlib import verbose}.
 
 
 \chapter{The \matlab\ interface}
