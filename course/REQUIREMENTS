@@ -1,0 +1,18 @@
+To build the documentation
+
+  lyx and latex
+
+To run the code, you the following software with the recommended
+version nuber (or more recent)
+
+  python 2.2 with tkinget, readline
+  ipython 0.6.12
+  matplotlib  0.72.1 
+  Numeric 23.7.1
+  numarray 1.2.2
+  scipy 0.3.2
+  VTK 4.4 with patented, hybrid, tcl and python wrappers
+
+  
+
+
