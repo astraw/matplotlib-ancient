@@ -5,36 +5,31 @@
 versioninfo = {}
 versioninfo['0.54'] = (
 
-
-    ('More efficient pcolor', """ 
-pcolor is now implemented with matplotlib.collections.polygon
-collections which should provide significantly faster performance
-across backends.  The return value from pcolor is now a PolyColleciton
-object rather than a list of patches, but the API is largely
-compatible.<p>
-
-Eg, You can do 
-
-<pre>
-  c = pcolor(blah, blah)
-  set(c, 'linewidth', 1.0, 'edgecolor', 'g')
-</pre>
-
-The old function pcolor_classic is retained for full backward
-compatibility.
+    ('More general transformation architecture', """Earlier versions
+of matplotlib handled transformation of x and y separately (ie we
+assumed all transformations were separable) but this makes is
+difficult to do rotations or polar transformations, for example.  The
+new transformation lays the framework for doing general
+transformations; see the <http
+href=matplotlib.transforms.html>transforms</a> module.
 """),
+
+    ('More efficient pcolor', """ pcolor is now implemented with
+matplotlib.collections.polygon collections which should provide
+significantly faster performance across backends.  The return value
+from pcolor is now a PolyColleciton object rather than a list of
+patches, but the API is largely compatible.  See <a
+href=API_CHANGES>API_CHANGES</a>.  The old function pcolor_classic is
+retained for full backward compatibility.  """),
 
     ('New scatter plots', """ The scatter command is new, and is
 implemented in the backend with a new polygon collection class.  For
 large scatter plots, the performance is 5 times faster across all
 backends and 10 times faster for the *Agg backends.  Also, scatter
 works with many symbols: diamonds, sqaures, oriented triangles,
-circles and more.  The scatter command returns a collection instance
-rather than a list of patches as before, so if you are setting
-properties on the return values of scatter plots, you <i>may</i> need
-to change some code to use methods appropriate for collections, though
-the user API is largely compatible.  See <a
-href=matplotlib.collections.html>collections</a>. <p>
+circles and more.  As with pcolor, the scatter command returns a
+collection instance rather than a list of patches as before; see <a
+href=API_CHANGES>API_CHANGES</a><p>
 
 Also the size argument is now in points^2 (the area of the symbol in
 points) and is not in data coords as before.  This fixes a few
@@ -46,6 +41,45 @@ The function scatter_classic is the old scatter function and will work
 identically.
 
 """),
+
+    ('Enhanced mathtext', r"""
+A significant rewrite of the mathtext module provides much more
+precise layout.  The freetype component has been factored out of the
+layout engine and replaced by an abstract class for font handling.
+This lays the groundwork for ps mathtext.  Added spacing commands \/
+and \hspace{frac} as well as composite chars such as \angstrom.
+"""),
+
+    ('Many new plot symbols and markers', """Thanks Gary Ruben.  See
+<a href=matplotlib.matlab.html#-plot.
+"""),
+
+    ('Font cacheing', """Paul Barrett added caching support to the
+font manager to increase performance.  This and other changes have
+dramatically improved postscript backend performance.
+"""),
+
+    ('Removed close buttons from GUI', """Steve Chaplin persuasively
+argued these were a bad idea.  It's taken me a while not to
+instinctively try and click on the missing buttons, but I'm used
+to it now.
+"""),
+
+    ('Properly aligned text with arbitrary alignments', 
+"""You can now expect horizontal and vertical alignment specifications
+to work with text at an arbitrary angle, eg, 45 degrees.  See <a href=examples/alignment_demo.py>alignment_demo.py</a>
+"""),
+
+    ('Added stem plotting command', """
+See <a href=matplotlib.matlab:#-stem>stem</a> and <a href=examples/stem_plot.py>stem_plot.py</a>"""),
+
+    ('Bug fix roundup, """
+See <a href=CHANGELOG>CHANGELOG</a> for details.  Executive summary:
+fixed ps centering, errorbar autoscaling, constant data plot, copy
+tick attribute, mathtext fontsizing in interactive mode, missing draw
+if interactive, some numerix/numarray incompatibilities in type
+handling, agg memory leak"""),
+
 
 )
 versioninfo['0.53'] = (
