@@ -7,7 +7,12 @@
 \usepackage{fullpage}
 \usepackage{amssymb}
 \usepackage{verbatimfiles}
-\usepackage[dvips]{hyperref}
+%\usepackage[dvips]{hyperref}
+
+\usepackage{ae,aecompl}
+\usepackage{hyperref}
+%\usepackage{html}
+
 \title{The Matplotlib User's Guide}
 \author{John Hunter}
 \begin{document}
@@ -122,7 +127,7 @@ without affecting user code.
 
 The matplotlib code is conceptually divided into three parts: the
 \textit{pylab interface} is the set of functions provided by
-matplotlib.pylab which allow the user to create plots with code quite
+\mpldoc{matplotlib.pylab} which allow the user to create plots with code quite
 similar to matlab figure generating code.  The \textit{matplotlib
   frontend} or \textit{matplotlib API} is the set of classes that do
 the heavy lifting, creating and managing figures, text, lines, plots
@@ -150,11 +155,11 @@ library so that it will work naturally the way you want it to.  To
 manage this, a number of choices must be made when compiling and
 running matplotlib: do you want to use it in a graphical user
 interface (GUI) or just to generate hardcopy; which array package will
-you use?  
+you use; do you want to work interactively from the python shell?  
 
 Most of this chapter will explain these options and how to configure
 them.  Before diving into these details, let's take a detour comparing
-a typical matplotlib script with it's analog in matlab.
+a typical matplotlib script with its analog in matlab.
 
 \section{Migrating from matlab}
 \label{sec:migrating}
@@ -178,7 +183,7 @@ the signal in one subplot and plot the power spectrum in another.
 
 \begin{lstlisting}[caption={matplotlib and matlab}, label=lst:versus_matlab]
 # python                               % matlab
-from pylab import *        % no import necessary
+from pylab import *                    % no import necessary
 
 dt = 0.01                              dt = 0.01;
 t = arange(0,10,dt)                    t = [0:dt:10];
@@ -205,8 +210,7 @@ array processing and have a variety of functions that efficiently
 operate on arrays and scalars, 2) moderately sophisticated signal
 processing (white noise, convolution, power spectra) is achieved in
 only a few lines of clear code and 3) plots are simple, intuitive and
-attractive (compare Figures~\ref{fig:psd_py} and
-Figures~\ref{fig:psd_matlab}).
+attractive (compare  Figures~\ref{fig:psd_matlab} and Figures~\ref{fig:psd_py}).
 
 
 \fig{4in}{figures/psd_py}{Colored noise signal and power spectrum
@@ -256,14 +260,14 @@ from pylab import *
 commands, but most of the Numeric or numarray package as well
 (depending on your numerix setting).  All of the array creation and
 manipulation functions are imported, such as \func{array},
-\func{arange}, \func{take}, \func{where}, etc, as well as the
-functions and classes outside the main module, such as \func{mean},
-\func{randn}, \func{fft} and much more.  To may your matplotlib
-scripts as portable as possible with respect to your choice of array
-packages, it is advised not to explicitly import Numeric or numarray.
-Rather, you should use matplotlib.numerix where possible, either by
-using the functions imported by \mpldoc{pylab}, or by
-explicitly importing the numerix module, as in 
+\func{arange}, \func{take}, \func{where}, etc.  The other modules,
+such as mlab, fft and linear\_algebra, are available under the numarray
+package structure.  To make your matplotlib scripts as portable as
+possible with respect to your choice of array packages, it is advised
+not to explicitly import Numeric or numarray.  Rather, you should use
+matplotlib.numerix where possible, either by using the functions
+imported by \mpldoc{pylab}, or by explicitly importing the numerix
+module, as in
 
 \begin{lstlisting}
 # create a numerix namespace
@@ -1099,7 +1103,8 @@ matplotlib is fairly tolerant of a number of formats for passing color
 information.  As discussed above, you can use and of the single
 character color strings listed in Table~\ref{tab:color_strings}.
 Additionally, anywhere a color character string is accepted, you can
-also use a grayscale, hex or RGB color argument.
+also use a grayscale, hex, RGB color argument, or any legal hml color
+name, ebg ``red'' or ``darkslategray''.
 
 \fig{4in}{figures/color_demo}{Lots of different ways to specify colors
   generated from Listing~\ref{lst:color_demo}-- not necessarily
@@ -1122,7 +1127,8 @@ label=lst:color_demo]{code/color_demo.py}
       0.75  & a grayscale intensity (any float in [0,1]\\
       \#2F4F4F & an RGB hex color string, eg, this example is dark slate
       gray\\
-      (0.18, 0.31, 0.31)  & an RGB tuple; this is also dark slate gray\\\hline
+      (0.18, 0.31, 0.31)  & an RGB tuple; this is also dark slate gray\\
+      red  & any legal html color name\\\hline
   \end{tabular}
   \caption{\label{tab:color_strings}Color format strings, which can be
       used to set the line or text properties, eg the line, the marker
@@ -1301,8 +1307,6 @@ given figure instance, or all figures
   \item \code{close()} by itself closes the current figure
 
   \item \code{close(num)} closes figure number \val{num}
-
-  \item \code{close(num)} closes figure number \val{num}
     
   \item \code{close(fig)} where \val{fig} is a figure instance closes
     that figure
@@ -1367,7 +1371,7 @@ Here is some example code
 \begin{lstlisting}
 subplot(211)
 plot([1,2,3], [1,2,3])
-set(gca(), 'xticklabels', [])
+set(gca(), xticklabels=[])
 
 subplot(212)
 plot([1,2,3], [1,4,9])
@@ -1405,11 +1409,11 @@ figure and axes.
 \label{sec:axes}
 
 When you need a finer grained control over axes placement than
-afforded by \func{subplot}, use the func{axes} command.  The
-\func{axes} command in initialized with a rectangle code{[left,
+afforded by \func{subplot}, use the \func{axes} command.  The
+\func{axes} command in initialized with a rectangle \code{[left,
   bottom, width, height]} in relative figure coordinates.  \code{left,
   bottom = (0, 0)} is the bottom left of the of the figure canvas, and
-a width/height of 1 spans the figure width/height.  This to create an
+a \code{width}/\code{height} of 1 spans the figure width/height.  This to create an
 axes that entirely fills the figure canvas, you would do \code{axes([0,
   1, 0, 1])}.  This may not be a good idea, because it leaves no room
 for text labels.  \code{axes([0.25, 0.25, 0.5, 0.5])} creates an axes
@@ -1457,7 +1461,9 @@ in mathematical or scientific figures, matplotlib implements a large
 number of \TeX\ math symbols and commands, to support mathematical
 expressions anywhere in your figure.  To get the most out of text in
 matplotlib, you should use a backend that supports freetype2 and
-mathtext, notably all the *Agg backends (see Section~\ref{sec:intro_backends}).
+mathtext, notably all the *Agg backends (see
+Section~\ref{sec:intro_backends}), or the postscript backend, which
+embeds the freetype fonts directly into the PS/EPS output file.
 
 \subsection{Basic text commands}
 \label{sec:basic_text}
@@ -1492,8 +1498,8 @@ instance.  These three are illustrated below
 >>> title('Fun with text', horizontalalignment='left')  
 
 # use set
->>> labels = get(gca(), 'xticklabels')
->>> set(labels, 'color', 'g', rotation=45) 
+>>> locs, labels = xticks()
+>>> set(labels, color=g', rotation=45) 
 
 # instance methods
 >>> l = ylabel('volts')
@@ -1584,8 +1590,8 @@ label=lst:align_text]{code/alignment_demo.py}
 
 matplotlib supports \TeX\ mathematical expressions anywhere a text
 string can be used, as long as the string is delimited by ``\$'' on
-both sides, as in $\mathtt{r'\$5\backslash lambda\$'}$; embedded
-mathtext strings, such as in $\mathtt{r'The answer is \$5\backslash
+both sides, as in $\mathtt{r'\$5\backslash lambda\$'}$; embedded %FIXME
+mathtext strings, such as in $\mathtt{r'The\ answer\ is\ \$5\backslash 
   lambda\$'}$ are not currently supported. A large set of the \TeX\ 
 symbols from the computer modern fonts are provided.  Subscripting and
 superscripting are supported, as well as the over/under style of
@@ -1603,6 +1609,19 @@ font information provided by \mpldoc{matplotlib.ft2font}.
 and $\mathtt{\backslash hspace\{num\}}$ inserts a fraction of the
 current fontsize.  Eg, if \code{num=0.5} and the fontsize is 12.0,
 $\mathtt{\backslash hspace\{0.5\}}$ inserts 6 points of space.
+
+The following accents are provided: $\mathtt{\backslash hat}$,
+$\mathtt{\backslash breve}$, $\mathtt{\backslash grave}$,
+$\mathtt{\backslash bar}$, $\mathtt{\backslash acute}$,
+$\mathtt{\backslash tilde}$, $\mathtt{\backslash vec}$,
+$\mathtt{\backslash dot}$, $\mathtt{\backslash ddot}$.  All of them
+have the same syntax, eg to make an $\bar{o}$ you do
+$\mathtt{\backslash bar\{o\}}$ or to make an $\ddot{o}$ you do
+$\mathtt{\backslash ddot\{o\}}$.  The shortcuts are also provided, eg:
+
+\begin{verbatim}
+\"o \'e \`e \~n \.x \^y
+\end{verbatim}
 
 
 
