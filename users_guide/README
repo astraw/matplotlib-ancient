@@ -4,12 +4,10 @@ To builk the matplotlib users guide, you will need to
 
   * Generate the figures (png and eps) by running the script runall.py
     in the code dir.  Verify that the figures in the figures dir are
-    built.  Verify also that the *.dat files in data were built
+    built.  Verify also that the *.dat files in data were built.  Or
+    run 'make figs'
 
-  * run latex 
+  * build the docs
 
-      > latex users_guide # to generate dvi/ps and 
-    or 
-      
-      > pdflatex users_guide  # pdf
-
+    > make dvi
+    > make pdf
