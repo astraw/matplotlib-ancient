@@ -2837,6 +2837,10 @@ for line in urlopen('http://www.google.com').readlines():
 \layout LyX-Code
 
     print line,
-\layout LyX-Code
+\layout Section
 
+Some highlights of the standard library
+\layout Standard
+
+TODO
 \the_end

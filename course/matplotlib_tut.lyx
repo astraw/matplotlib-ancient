@@ -26,7 +26,774 @@
 \layout Chapter
 
 Introduction to plotting with matplotlib / pylab
+\layout Section
+
+A bird's eye view
 \layout Standard
 
-Hello maptlotlib
+matplotlib is a library for making 2D plots of arrays in python.
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+This short guide is not meant as a complete guide or tutorial.
+ There is a more comprehensive user's guide and tutorial on the matplotlib
+ web-site at http://matplotlib.sf.net.
+\end_inset 
+
+ Although it has its origins in emulating the Matlab graphics commands,
+ it does not require matlab, and has a pure, object oriented API.
+ Although matplotlib is written primarily in python, it makes heavy use
+ of Numeric/numarray and other extension code to provide good performance
+ even for large arrays.
+ matplotlib is designed with the philosophy that you should be able to create
+ simple plots with just a few commands, or just one! If you want to see
+ a histogram of your data, you shouldn't need to instantiate objects, call
+ methods, set properties, and so on; it should just work.
+ 
+\layout Standard
+
+The matplotlib code is divided into three parts: the 
+\shape italic 
+pylab interface
+\shape default 
+ is the set of functions provided by the 
+\family typewriter 
+pylab
+\family default 
+ module which allow the user to create plots with code quite similar to
+ matlab figure generating code.
+ The matplotlib frontend or 
+\shape italic 
+matplotlib API
+\shape default 
+ is the set of classes that do the heavy lifting, creating and managing
+ figures, text, lines, plots and so on.
+ This is an abstract interface that knowns nothing about output formats.
+ The 
+\shape italic 
+backends
+\shape default 
+ are device dependent drawing devices, aka renderers, that transform the
+ frontend representation to hardcopy or a display device.
+ Example backends: PS creates postscript hardcopy, SVG creates scalar vector
+ graphics hardcopy, Agg creates PNG output using the high quality antigrain
+ library that ships with matplotlib, GTK embeds matplotlib in a GTK application,
+ GTKAgg uses the antigrain
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+http://antigrain.com
+\end_inset 
+
+ renderer to create a figure and embed it a GTK application, and so on for
+ WX, Tkinter, FLTK, \SpecialChar \ldots{}
+.
+\layout Standard
+
+For years, I used to use matlab exclusively for data analysis and visualization.
+ matlab excels at making nice looking plots easy.
+ When I began working with EEG data, I found that I needed to write applications
+ to interact with my data, and developed and EEG analysis application in
+ matlab.
+ As the application grew in complexity, interacting with databases, http
+ servers, manipulating complex data structures, I began to strain against
+ the limitations of matlab as a programming language, and decided to start
+ over in python.
+ python more than makes up for all of matlab's deficiencies as a programming
+ language, but I was having difficulty finding a 2D plotting package --
+ for 3D VTK, which is discussed at length below more than exceeds all of
+ my needs.
+\layout Standard
+
+When I went searching for a python plotting package, I had several requirements:
+ 
+\layout Itemize
+
+Plots should look great - publication quality.
+ One important requirement for me is that the text looks good (antialiased,
+ etc)
+\layout Itemize
+
+Postscript output for inclusion with LaTeX documents and publication quality
+ printing
+\layout Itemize
+
+Embeddable in a graphical user interface for application development
+\layout Itemize
+
+The code should be mostly python so itis easy to understand and extend --
+ users become developers!
+\layout Itemize
+
+Making plots should be easy -- just a few lines of code for simple graphs
+\layout Standard
+
+Finding no package that suited me just right, I did what any self-respecting
+ python programmer would do: rolled up my sleeves and dived in.
+ Not having any real experience with computer graphics, I decided to emulate
+ matlab's plotting capabilities because that is something matlab does very
+ well.
+ This had the added advantage that many people have a lot of matlab experience,
+ and thus they can quickly get up to steam plotting in python.
+ From a developer's perspective, having a fixed user interface (the pylab
+ interface) has been very useful, because the guts of the code base can
+ be redesigned without affecting user code.
+ 
+\layout Standard
+
+Without further ado, let's create our first figure.
+ This example uses the matplotlib object oriented API.
+ Most users use the pylab interface, which will be discussed next and makes
+ it easier to make plots because a lot of the tedius work of creating and
+ managing figures and figure windows is done for you behind the hood.
+ But since the real core of the library is the object oriented API, I think
+ it is a good place to start.
+ If you are developing a graphical user interface or making plots on a web
+ server, you probably want maximal control with no magic going on behind
+ the scenes -- this is where the matplotlib API should be used.
+ If you are just trying to make a figure for inclusion in a paper or if
+ your working interactively from the python shell, you'll probably be happy
+ with the pylab interface.
+\layout Standard
+
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+lstinputlisting[caption={Creating a simple figure with the antigrain backend (generates PNG) using the object oriented matplotlib library}]{examples/mpl_agg_oo.py}
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed true
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename fig/mpl_one_two_three.png
+	lyxscale 50
+	width 4in
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:mpl_agg}
+
+\end_inset 
+
+A simple plot generated by the antigrain (Agg) backend .
+\end_inset 
+
+
+\layout Section
+
+A short pylab tutorial
+\layout Standard
+
+Here is about the simplest code you can use to create a figure with matplotlib
+ using the pylab interface.
+ In this section, I'm assuming you are using ipython in the pylab mode --
+ see the ipython chapter for details.
+ 
+\layout LyX-Code
+
+peds-pc311:~> pylab
+\layout LyX-Code
+
+\layout LyX-Code
+
+Python 2.3.3 (#2, Apr 13 2004, 17:41:29)
+\layout LyX-Code
+
+Type "copyright", "credits" or "license" for more information.
+\layout LyX-Code
+
+ 
+\layout LyX-Code
+
+IPython 0.6.12_cvs -- An enhanced Interactive Python.
+\layout LyX-Code
+
+?       -> Introduction to IPython's features.
+\layout LyX-Code
+
+%magic  -> Information about IPython's 'magic' % functions.
+\layout LyX-Code
+
+help    -> Python's own help system.
+\layout LyX-Code
+
+object? -> Details about 'object'.
+ ?object also works, ?? prints more.
+\layout LyX-Code
+
+ 
+\layout LyX-Code
+
+  Welcome to pylab, a matplotlib-based Python environment
+\layout LyX-Code
+
+    help(matplotlib) -> generic matplotlib information
+\layout LyX-Code
+
+    help(pylab)      -> matlab-compatible commands from matplotlib
+\layout LyX-Code
+
+    help(plotting)   -> plotting commands
+\layout LyX-Code
+
+ 
+\layout LyX-Code
+
+In [1]: plot([1,2,3,4])
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed true
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename fig/mpl_toolbar.png
+	lyxscale 50
+	width 5in
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:mpl_toolbar}
+
+\end_inset 
+
+The matplotlib toolbar used to navigate around your figure
+\end_inset 
+
+
+\layout Standard
+
+If your settings are correct, a figure window should popup and you should
+ be able to interact with it.
+ That's a lot less typing than our initial example using the object oriented
+ API in which you had to manually create the Figure, Axes and so on!
+\layout Standard
+
+Try clicking on the navigation toolbar at the bottom of the figure -- the
+ toolbar is shown in Figure
+\begin_inset LatexCommand \ref{fig:mpl_toolbar}
+
+\end_inset 
+
+.
+ The first three buttons from left to right in Figure
+\begin_inset LatexCommand \ref{fig:mpl_toolbar}
+
+\end_inset 
+
+ are 
+\shape italic 
+home
+\shape default 
+, 
+\shape italic 
+back
+\shape default 
+ and 
+\shape italic 
+forward
+\shape default 
+.
+ These byttons are are akin to the web browser buttons.
+ They are used to navigate back and forth between previously defined views.
+ They have no meaning unless you have already navigated somewhere else using
+ the pan and zoom buttons as described below.
+ This is analogous to trying to click 
+\family typewriter 
+Back
+\family default 
+ on your web browser before visiting a new page --nothing happens.
+ The home button always takes you to the first, default view of your data.
+ 
+\layout Standard
+
+The next to button moving right is the pan/zoom button, which looks like
+ a cross with arrows on the end (a 
+\shape italic 
+fleur
+\shape default 
+).
+ The pan/zoom button button has two modes: pan and zoom (no surprise there,
+ right?).
+ Click this toolbar button to activate this mode; you should see 
+\begin_inset Quotes eld
+\end_inset 
+
+pan/zoom mode
+\begin_inset Quotes erd
+\end_inset 
+
+ show up in the status bar.
+ Then put your mouse somewhere over an axes.
+ To activate panning: press the left mouse button and hold it, dragging
+ it to a new position.
+ If you press 
+\family typewriter 
+x
+\family default 
+ or 
+\family typewriter 
+y
+\family default 
+ while panning, the motion will be contrained to the x or y axis, respectively
+ .
+ To activate zooming, press the right mouse button, dragging it to a new
+ position.
+ The x axis will be zoomed in proportionate to the rightward movement and
+ zoomed out proportionate to the leftward movement.
+ Ditto for the yaxis and up/down motions.
+ The point under your mouse when you begin the zoom remains stationary,
+ allowing you to zoom to an arbitrary point in the figure.
+ You can use the modifier keys 
+\family typewriter 
+x
+\family default 
+, 
+\family typewriter 
+y
+\family default 
+ or 
+\family typewriter 
+CONTROL
+\family default 
+ to constrain the zoom to the x axes, the y axes, or aspect ratio preserve,
+ respectively.
+\layout Standard
+
+The
+\shape italic 
+ 
+\shape default 
+next button moving right is the
+\shape italic 
+ zoom to rectangle button
+\shape default 
+ which has a magnifying glass over a piece of paper.
+ The button is striaghtforward and works in the standard way; when you click
+ it, you should see that it is activated by looking for 
+\begin_inset Quotes eld
+\end_inset 
+
+Zoom to rect mode
+\begin_inset Quotes erd
+\end_inset 
+
+ in the status bar, and then you select the rectangular region you want
+ to zoom in on.
+\layout Standard
+
+The final button is the
+\shape italic 
+ save button
+\shape default 
+, which will save your figure in the current view.
+ All of the *Agg backends know how to save the following image types: PNG,
+ PS, EPS, SVG.
+ 
+\layout Standard
+
+Let's make the same figure we made using the object oriented API above,
+ ie Figure
+\begin_inset LatexCommand \ref{fig:mpl_agg}
+
+\end_inset 
+
+, but this time using the pylab 
+\layout LyX-Code
+
+from pylab import *
+\layout LyX-Code
+
+plot([1,2,3])
+\layout LyX-Code
+
+title('hi mom')
+\layout LyX-Code
+
+grid(True)
+\layout LyX-Code
+
+xlabel('time')
+\layout LyX-Code
+
+ylabel('volts')
+\layout LyX-Code
+
+savefig('../fig/mpl_one_two_three.png')
+\layout Standard
+
+As you can see there is basically a direct translation between the OO interface
+ and the pylab interface.
+ When 
+\family typewriter 
+plot
+\family default 
+ is called, the pylab interface makes a call to the function 
+\family typewriter 
+gca()
+\family default 
+ (``get current axes'') to get a reference to the current axes.
+ 
+\family typewriter 
+gca
+\family default 
+ in turn, makes a call to 
+\family typewriter 
+gcf
+\family default 
+ (
+\begin_inset Quotes eld
+\end_inset 
+
+get current figure
+\begin_inset Quotes erd
+\end_inset 
+
+) to get a reference to the current figure.
+ 
+\family typewriter 
+gcf
+\family default 
+, finding that no figure has been created, creates the default figure using
+ 
+\family typewriter 
+figure() 
+\family default 
+and returns it.
+ 
+\family typewriter 
+gca
+\family default 
+ will then return the current axes of that figure if it exists, or create
+ the default axes 
+\family typewriter 
+subplot(111)
+\family default 
+ if it does not.
+ 
+\layout Standard
+
+Thus a lot happens under the hood when you call plot, but for the most part
+ you don't need to think about it -- it just works.
+ The important thing to understand is that the pylab interface has a state,
+ and keeps track of the current figure and axes.
+ All plotting commands target the current axes.
+ You can manipulate when axes and figure are current, as we shall show.
+\layout Section
+
+A common interface to Numeric and numarray
+\layout Standard
+
+Currently the python computing community is in a state of having too many
+ array pacakges, none of which satisfy everyone's needs.
+ Although Numeric and numarray both provide the same set of core functions,
+ they are organized differently, and matplotlib provides a compatibility
+ later so you can use either one in your matplotlib scripts without having
+ to change your code.
+\layout Standard
+
+Several numarray/Numeric developers are codevelopers of matplotlib, giving
+ matplotlib full Numeric and numarray compatibility, thanks in large part
+ to Todd Miller's 
+\family typewriter 
+matplotlib.numerix
+\family default 
+ module and the numarray compatibility layer for extension code.
+ This allows you to choose between Numeric or numarray at the prompt or
+ in a config file.
+ Thus when you do
+\layout LyX-Code
+
+
+\color blue
+# import matplotlib and all the numerix functions
+\layout LyX-Code
+
+from pylab import *
+\layout Standard
+
+you'll not only get all the matplotlib pylab interface commands, but most
+ of the Numeric or numarray package as well (depending on your 
+\family typewriter 
+numerix
+\family default 
+ setting).
+ All of the array creation and manipulation functions are imported, such
+ as 
+\family typewriter 
+array
+\family default 
+, 
+\family typewriter 
+arange
+\family default 
+, 
+\family typewriter 
+take
+\family default 
+, 
+\family typewriter 
+where
+\family default 
+, etc, as are the external module functions which reside in
+\family typewriter 
+ mlab, fft
+\family default 
+ and 
+\family typewriter 
+linear_algebra.
+
+\family default 
+ 
+\layout Standard
+
+Even if you don't want to import all of the numerix symbols from the pytlab
+ interface, to make your matplotlib scripts as portable as possible with
+ respect to your choice of array packages, it is advised not to explicitly
+ import Numeric or numarray.
+ Rather, you should use 
+\family typewriter 
+matplotlib.numerix
+\family default 
+ where possible, either by using the functions imported by
+\family typewriter 
+ pylab
+\family default 
+, or by explicitly importing the 
+\family typewriter 
+numerix
+\family default 
+ module, as in 
+\layout LyX-Code
+
+
+\color blue
+# create a numerix namespace
+\layout LyX-Code
+
+import matplotlib.numerix as n
+\layout LyX-Code
+
+from matplotlib.numerix.mlab import mean
+\layout LyX-Code
+
+x = n.arange(100)
+\layout LyX-Code
+
+y = n.take(x, range(10,20))
+\layout LyX-Code
+
+print mean(y)
+\layout Standard
+
+For the remainder of this manual, the term 
+\family typewriter 
+numerix
+\family default 
+ is used to mean either the Numeric or numarray package.
+ To select numarray or Numeric from the prompt, run your matplotlib script
+ with
+\layout LyX-Code
+
+  > python myscript.py --numarray  
+\color blue
+# use numarray
+\layout LyX-Code
+
+  > python myscript.py --Numeric   
+\color blue
+# use Numeric
+\layout Standard
+
+Typically, however, users will choose one or the other and make this setting
+ in their rc file using either 
+\family typewriter 
+numerix : Numeric
+\family default 
+ or 
+\family typewriter 
+numerix : numarray
+\family default 
+.
+ 
+\layout Section
+
+Customizing the default behavior with the rc file
+\layout Standard
+
+matplotlib is designed to work in a variety of settings: some people use
+ it in "batch mode" on a web server to create images they never look at.
+ Others use graphical user interfaces (GUIs) to interact with their plots.
+ Thus you must customize matplotlib to work like you want it to with the
+ customization file 
+\family typewriter 
+.matplotlibrc
+\family default 
+, in which you can set whether you want to just create images or use a GUI
+ (the backend setting), and whether you want to work interactively from
+ the shell (the interactive setting).
+ Almost all of the matplotlib settings and figure properties can be customized
+ with this file, which is installed with the rest of the matplotlib data
+ (fonts, icons, etc) into a directory determined by distutils.
+ Before compiling matplotlib, it resides in the same dir as 
+\family typewriter 
+setup.py
+\family default 
+ and will be copied into your install path.
+ Typical locations for this file are
+\family typewriter 
+ 
+\layout LyX-Code
+
+C:
+\backslash 
+Python23
+\backslash 
+share
+\backslash 
+matplotlib
+\backslash 
+.matplotlibrc 
+\color blue
+# on Microsoft windows
+\color default
+ /usr/local/share/matplotlib/.matplotlibrc  
+\color blue
+# on linux/UNIX machines
+\layout Standard
+
+By default, the installer will overwrite the existing file in the install
+ path, so if you want to preserve your's, please move it to your 
+\family typewriter 
+HOME
+\family default 
+ dir and set the environment variable if necessary.
+ In the rc file, you can set your backend , your numerix setting , whether
+ you'll be working interactively and default values for most of the figure
+ properties.
+ 
+\layout Standard
+
+In the RC file, blank lines, or lines starting with a comment symbol, are
+ ignored, as are trailing comments.
+ Other lines must have the format
+\layout LyX-Code
+
+ key : val 
+\color blue
+# optional comment
+\color default
+ 
+\layout Standard
+
+where 
+\shape italic 
+key
+\shape default 
+ is some property like 
+\family typewriter 
+backend
+\family default 
+, 
+\family typewriter 
+lines.linewidth
+\family default 
+, or 
+\family typewriter 
+figure.figsize
+\family default 
+ and 
+\shape italic 
+val
+\shape default 
+ is the value of that property.
+ Example entries for these properties are
+\layout LyX-Code
+
+
+\color blue
+# this is a comment and is ignored 
+\layout LyX-Code
+
+backend         : GTKAgg    
+\color blue
+# the default backend 
+\layout LyX-Code
+
+lines.linewidth : 0.5       
+\color blue
+# line width in points
+\color default
+ 
+\layout LyX-Code
+
+figure.figsize  : 8, 6      
+\color blue
+# figure size in inches 
+\layout Standard
+
+A complete sample rc file is included with the matplotlib distribution and
+ available online.
+\begin_inset Foot
+collapsed false
+
+\layout Standard
+
+http://matplotlib.sourceforge.net/.matplotlibrc
+\end_inset 
+
+
+\layout Section
+
+Set and get introspection
+\layout Section
+
+Nonlinear transformations: log and polar
+\layout Section
+
+Scatter plots
+\layout Section
+
+Histograms and bar charts
+\layout Section
+
+Spectral analysis
+\layout Section
+
+Images
+\layout Section
+
+Customizing text and mathematical expressions
+\layout Section
+
+Event handling: Tracking the mouse and keyboard
 \the_end
