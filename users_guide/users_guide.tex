@@ -44,6 +44,9 @@
 \newcommand{\matlab}[0]{matlab{\texttrademark}}
 \newcommand{\fname}[1]{{\tt #1}}
 \newcommand{\func}[1]{{\tt #1}}
+\newcommand{\class}[1]{{\tt #1}}
+\newcommand{\mpldoc}[1]{{\tt #1}}
+
 \newcommand{\code}[1]{{\tt #1}}
 \newcommand{\prompt}[1]{\code{>>> #1}}
 \newcommand{\carg}[1]{\textit{#1}} % command argument
@@ -51,8 +54,7 @@
 \newcommand{\rc}[1]{{\tt #1}}
 
 % a pointer to matplotlib documentation
-\newcommand{\mpldoc}[1]{#1}
-%\newcommand{\url}[1]{{\tt #1}}
+
 
 
 \maketitle
@@ -1041,7 +1043,7 @@ also use a grayscale, hex or RGB color argument.
 \fig{4in}{figures/color_demo}{Lots of different ways to specify colors
   generated from Listing~\ref{lst:color_demo}-- not necessarily
   recommended for aesthetic quality!}{fig:color_demo}
-\lstinputlisting[caption={Wild and wonderful ways to specify colors;
+\lstinputlisting[linerange=1-12,caption={Wild and wonderful ways to specify colors;
   see Figure~\ref{fig:color_demo}},
 label=lst:color_demo]{code/color_demo.py}
 
@@ -1281,7 +1283,7 @@ to create the lower axes.  The last digit counts across the rows.
   subplot command, as shown in
   Listing~\ref{lst:subplot_demo}}{fig:subplot_demo}
 
-\lstinputlisting[caption={Generating multiple axes with subplot; see Figure~\ref{fig:subplot_demo}}, label=lst:subplot_demo]{code/subplot_demo.py}
+\lstinputlisting[linerange=1-22,caption={Generating multiple axes with subplot; see Figure~\ref{fig:subplot_demo}}, label=lst:subplot_demo]{code/subplot_demo.py}
 
 
 \noindent Likewise, to create two columns and one row of axes, you would use
@@ -1374,7 +1376,7 @@ top of another, as in this example
 \fig{4in}{figures/axes_demo}{Using the \func{axes} command to create
   inset axes over another axes; see Listing~\ref{lst:axes_demo}}{fig:axes_demo}
 
-\lstinputlisting[caption={Custom axes;
+\lstinputlisting[linerange=1-27,caption={Custom axes;
   see Figure~\ref{fig:axes_demo}}, label=lst:axes_demo]{code/axes_demo.py}
 
 
@@ -1510,7 +1512,7 @@ upper right.
   \carg{multialignment} options to the \func{text} command; see
   Listing~\ref{lst:align_text}}{fig:align_text}
 
-\lstinputlisting[caption={Aligning text;  see Figure~\ref{fig:align_text}},
+\lstinputlisting[linerange=1-73,caption={Aligning text;  see Figure~\ref{fig:align_text}},
 label=lst:align_text]{code/alignment_demo.py}
 
 
@@ -1624,7 +1626,7 @@ Figure~\ref{fig:mathtext_demo}.
 \fig{4in}{figures/mathtext_demo}{Incorpating \TeX\ expressions into
   your figure; see Listing~\ref{lst:mathtext_demo}}{fig:mathtext_demo}
 
-\lstinputlisting[caption={Using mathtext; see
+\lstinputlisting[linerange=1-17,caption={Using mathtext; see
   Figure~\ref{fig:mathtext_demo}},
 label=lst:mathtext_demo]{code/mathtext_demo.py}
 
@@ -1651,7 +1653,7 @@ An axes image is created with \code{im = imshow(X)} where
 into the current axes box.  Here is some example code to display an
 image
 
-\lstinputlisting{code/simple_imshow.py}
+\lstinputlisting[linerange=1-4]{code/simple_imshow.py}
 
 \noindent \func{imshow} a command in the \mpldoc{matplotlib.matlab}
 interface.  This is a thin wrapper of the
@@ -1693,7 +1695,7 @@ bilinear interpolation, shown in Figure~\ref{fig:image_demo}.
 
 \fig{4in}{figures/image_demo}{Simple axes image; code in Listing~\ref{lst:image_demo}}{fig:image_demo}
 
-\lstinputlisting[caption={Axes images; see Figure~\ref{fig:image_demo}},
+\lstinputlisting[linerange=1-13,caption={Axes images; see Figure~\ref{fig:image_demo}},
 label=lst:image_demo]{code/image_demo.py}
 
 You can create an arbitrary number of axes images inside a single
@@ -1863,7 +1865,7 @@ pass \code{origin='lower'}, as shown in Figure~\ref{fig:image_origin}.
   \carg{origin} keyword argument to \func{imshow} and
   \func{figimage}; see Listing~\ref{lst:image_origin}.}{fig:image_origin}
 
-\lstinputlisting[caption={Setting the image origin;
+\lstinputlisting[linerange=1-11,caption={Setting the image origin;
   see Figure~\ref{fig:image_origin}},label=lst:image_origin]{code/image_origin.py}
 
 
@@ -1899,8 +1901,8 @@ computing and plotting spectral analysis results.  All of them are
 based on Welch's Averaged Periodogram Method \citep{BendatPiersol1986}
 using the numerix \code{fft} method for the fast fourier transforms.
 The spectral plotting functions are \func{psd} for the power spectral
-density, \func{csd} for the cross spectral density, and func{cohere}
-for the coherence (normalized cross spectral density).  
+density, \func{csd} for the cross spectral density, and \func{cohere}
+for the coherence (normalized cross spectral density).
 
 \begin{lstlisting}  
 # signature and defaults for arguments to a typical
@@ -1929,14 +1931,26 @@ for detrending and windowing:
 \item \func{mlab.detrend\_mean} - remove the mean of each segment before fft
 \item \func{mlab.detrend\_linear} - remove the best fit line of each segment
   before fft
-\item \func{mlab.window\_none} - Do not apply any windowing
-\item \func{mlab.window\_hanning} - Multiply each segment by a Hanning window
+\item \func{mlab.window\_none} - no windowing
+\item \func{mlab.window\_hanning} - multiply each segment by a Hanning window
 
 \end{itemize}
 
 \noindent An example power spectra calculation is shown in
 Listing~\ref{lst:versus_matlab} and the output in
 Figure~\ref{fig:psd_py}.
+
+You can create a spectrogram with the \func{specgram} function.
+\func{specgram} splits the data into NFFT length segments and plots
+the instantaneous power in each segment along the y axis using a
+pseudocolor plot, unlike \func{psd} which averages the power across
+each segment.
+
+\fig{4in}{figures/specgram_demo}{A spectrogram generated by Listing~\ref{lst:specgram_demo}}{fig:specgram_demo}
+
+\lstinputlisting[linerange=2-26,caption={Instantaneous power spectra with
+  \func{specgram}; see Figure~\ref{fig:specgram_demo}},
+label=lst:specgram_demo]{code/specgram_demo.py}
 
 
 \section{Axes properties}
@@ -2121,12 +2135,146 @@ hidden magic in your plots, you can create any plots using pure OO
 code that you could create with the matlab interface.
 
 From a developer standpoint, the matlab interface has been a blessing
-in disguise.  
+in disguise.  Because the interface was fixed by the Mathworks before
+the start of matplotlib provided considerable freedom to redesign the
+guts of the plotting library -- the object model can be totally
+revamped and the user interface remains fixed.
 
-was fixed by the Mathworks before the start of matplotlib provided
-considerable freedom to redesign the guts of the plotting library --
-the object model can be totally revamped and the user interface
-remains fixed.
+The matplotlib code is divided conceptually into 3 parts: the matlab
+interface, the matplotlib Artists, and the backend renderers.  The
+\textit{matlab interface} was covered in
+Chapter~\ref{cha:matlab_interface}.  This module
+\mpldoc{matplotlib.matlab} is comprised mainly of code to manage the
+multiple figure windows across backends, and provide a thin,
+procedural wrapper around the object oriented plotting code.  The
+\textit{matplotlib Artists} are a series of classes that derive from
+\mpldoc{matplotlib.artist.Artist}, so named because these are the
+objects that actually draw into the figure; see
+Figure~\ref{fig:artist}.  The \textit{backend renderers} each
+implement a common drawing interface that actually puts the ink on the
+paper, eg creating a postscript document, filling an antigrain pixel
+buffer, or calling the gtk drawing code.
+
+\fig{4in}{figures/artist}{The matplotlib Artist hierarchy.  The
+  primitive Artists are the Patches, Line2D, Text, AxesImage,
+  FigureImage and Collection classes.  All other artists are
+  composites of these.  For example a Tick is comprised of a Line2D
+  instance and a Text instance, which make up the tick line and tick
+  label; the Axis is comprised of a list of Ticks and a Text axis
+  label; see Figure~\ref{fig:containment}.}{fig:artist}
+
+\fig{6in}{figures/containment}{The Artist containment hierarchy.  The
+  top level Artist is the \mpldoc{matplotlib.figure.Figure}, which
+  contains all of the other Artist instances.  The attribute names are
+  given in lower case, and the object type is listed below in upper
+  case.  If the attribute is a sequence, for example the figure
+  contains a list of Axes, then the connecting edge is labeled $0\dots
+  n$ and the object type is in square brackets to indicate a list, eg
+  [Axes].  Some redundant information is omitted; for example, the
+  yaxis contains the equivalent objects that the xaxis contains, the
+  minorTicks have the same containment hierarchy as the majorTicks,
+  and so on. }{fig:containment}
+
+
+\subsection{A peak under the hood}
+Let's look at the simplest matplotlib script and walk through what
+happens under the hood.  This section will be of interest mainly to
+developers or those curious about matplotlib internals - it can be
+safely skipped by others.  We'll assume you are using one of the GUI
+backends, eg GTKAgg and have are running this as a script
+(\rc{interactive : False})
+
+\begin{lstlisting}                    
+from matplotlib.matlab import *       
+plot([1,2,3])
+show()
+\end{lstlisting}
+
+\subsubsection*{Line 1: \texttt{from matplotlib.matlab import *}}
+
+When any matplotlib code is imported the first time, the
+\fname{matplotlib.\_\_init\_\_.py} code is called.  The primary thing
+the init code does is find and parse your rc file, or if it fails fall
+back on a set of default parameters.  Once this is done,
+\mpldoc{matplotlib.matlab} proceeds to import all of the
+\mpldoc{matplotlib.numerix} and \mpldoc{matplotlib.mlab} symbols into
+the namespace, and loads the backend from
+\mpldoc{matplotlib.backends}, which use the rc information to load a
+common set of functions from each backend.  Only four functions are
+required of a given backend: \func{new\_figure\_manager},
+\func{error\_msg}, \func{draw\_if\_interactive}, and \func{show}
+
+\begin{itemize}
+  
+\item \func{new\_figure\_manager} is responsible for creating a new
+  \mpldoc{matplotlib.backend\_bases.FigureManager} instance, which
+  wraps GUI window creation and management.
+
+\item \func{error\_msg} displays an error message; for image backends
+  this goes to the rc verbose parameter \rc{verbose.erro} and for GUI
+  backends it is typically displayed in a GUI dependent dialog box.
+
+\item \func{draw\_if\_interactive} is called after every
+  \mpldoc{matplotlib.matlab} drawing command (\func{plot}, \func{set},
+  \func{xlim}, \dots) and updates the figure window with the new
+  information.
+
+\item \func{show} raises all the GUI figure windows.
+
+\end{itemize}
+
+The matlab interface also imports a \class{Gcf} instance from the
+\mpldoc{matplotlib.\_matlab\_helpers} module, which manages the
+current figure and current axes.  The matlab interface defines
+\func{gcf} and \func{gca} to get a reference to the current figure and
+axes, which in turn are interfaces to the \class{Gcf} class that does
+the real lifting.
+
+
+\subsubsection*{Line 2: \texttt{plot([1,2,3])}}
+
+All of the \mpldoc{matplotlib.matlab} functions are defined similarly:
+they get the current axes and forward the call on to the corresponding
+\mpldoc{matplotlib.axes.Axes} method, which does the real work.  The
+\func{plot} command in the example below calls \func{gca} to get the
+current axes.  If no figure or axes has been defined at the time of
+this call, the are created one on the fly using default parameters
+from the rc file; ultimately the \func{new\_figure\_manager} backend
+method is called to provide new figures when needed, and the default
+\code{subplot(111)} is added to the figure if no other axes has been
+defined.  Once the current axes is obtained by \func{gca}, \func{plot}
+forwards the call to \func{Axes.plot}.  If an exception is raise, the
+backend \func{error\_msg} method is called with the traceback to
+display it.  If the code is successful, the backend
+\func{draw\_if\_interactive} method is called which will update the
+plot if the rc parameter \rc{interactive} is \val{True}, and finally
+the return value is returned.
+
+\begin{lstlisting}                    
+def plot(*args, **kwargs):
+    try:
+        lines =  gca().plot(*args, **kwargs)
+    except ValueError, msg:
+        msg = raise_msg_to_str(msg)
+        error_msg(msg)
+    else:
+        draw_if_interactive()
+        return lines
+plot.__doc__ = Axes.plot.__doc__
+\end{lstlisting}
+
+The \func{matplotlib.axes.Axes.plot} method parses the \code{*args}
+and {**kwargs}, creates the requested line objects, and adds them to
+its list of \class{Line2D} instances.  It will also extract the x and
+y data range and use these to update the data limits of the axes,
+which is turn will be used to autoscale the view limits.  No drawing
+code is actually issued, but is deferred until later.
+
+\subsubsection*{Line 3: \texttt{show()}}
+
+
+
+
 
 
 \chapter{Font finding and properties}
@@ -2267,25 +2415,28 @@ the basic and date tick locators.
   \begin{tabular}[t]{|l|l|}\hline
     \carg{Class}  & \val{Summary}\\\hline
 
+    MinuteLocator & locate minutes \\
 
-   MinuteLocator  & locate minutes that are a multiple of base\\
+    HourLocator & locate hours \\
 
-   HourLocator    & locate hours that are a multiple of base\\
+    DayLocator     & locate specifed days of the month\\
 
-   DayLocator     & locate a given hour each day\\
+    WeekdayLocator & Locate days of the week, eg MO, TU\\
 
-   DayMultiLocator & ticks on day which are multiples of base\\
+    MonthLocator   & locate months, eg 7 for july\\
 
-   WeekdayLocator & locate a given weekday each week\\
+    YearLocator    & locate years that are multiples of base\\
 
-   WeekMultiLocator & ticks on weeks which are multiples of base\\
+    RRuleLocator & locate using a matplotlib.dates.rrulewrapper.
+        The rrulewrapper is a simple wrapper around a dateutils.rrule
+        \url{https://moin.conectiva.com.br/DateUtil} which allow almost
+        arbitrary date tick specifications.  See
+        \fname{examples/date\_demo\_rrule.py}.
 
-   MonthLocator   & locate months that are multiples of base\\
-
-   YearLocator    & locate years that are multiples of base\\\hline
     
   \end{tabular}
-  \caption{\label{tab:date_locators}The tick locators specialized for date plots}
+  \caption{\label{tab:date_locators}The tick locators specialized for
+        date plots; these reside in the \mpldoc{matplotlib.dates} module}
 \end{table}
   
 
@@ -2376,7 +2527,7 @@ Figure~\ref{fig:major_minor_demo}.
   tick locators and formatters; see
   Listing~\ref{lst:major_minor_demo}}{fig:major_minor_demo}
 
-\lstinputlisting[caption={Custom tickers and formatters;
+\lstinputlisting[linerange=1-21,caption={Custom tickers and formatters;
   see Figure~\ref{fig:major_minor_demo}},
 label=lst:major_minor_demo]{code/major_minor_demo.py}
 
@@ -2384,16 +2535,16 @@ label=lst:major_minor_demo]{code/major_minor_demo.py}
 \section{Example 2: date ticking}
 
 Making nice date/time plots requires custom tick locating and
-formatting.  matplotlib converts all datetimes to seconds since the
-epoch, and supports a number of datetime converters to provide a
-unified interface to popular datetime modules like python's datetime
-module and the mx datetime module.
+formatting.  matplotlib converts all datetimes to days since
+0001-01-01, and uses a floating point number to represent fractions of
+days.  The functions \func{date2num} and \func{num2date} are used to
+convert back and forth between python datetimes and these floating
+point numbers.
 
 The example below uses the \mpldoc{matplotlib.finance} module to get
 some historical quotes from yahoo's historical quotes server.  The
 datetime start and end points are specified using a python's datetime
-module, so a PyDatetimeConverter is used to convert those into epoch
-data.  Major ticks are on the months (\code{MonthLocator}) and minor
+module.  Major ticks are on the months (\code{MonthLocator}) and minor
 ticks are on Mondays (\code{WeekdayLocator}).  Only the major ticks
 are labelled, using a strftime format string (\code{DateFormatter}).
 Finally since the y axis is a stock price, a string formatter
@@ -2404,7 +2555,7 @@ tick labels.
   formatters for financial/date plots; see
   Listing~\ref{lst:date_ticker_demo}.}{fig:date_ticker_demo}
 
-\lstinputlisting[caption={Custom date tick locators and formatters;
+\lstinputlisting[linerange=1-48,caption={Custom date tick locators and formatters;
   see Figure~\ref{lst:date_ticker_demo}},
 label=lst:date_ticker_demo]{code/date_ticker_demo.py}
 
@@ -2429,7 +2580,7 @@ of one variable on another.  matplotlib provides \func{polyfit} in the
   some random data; see
   Listing~\ref{lst:linear_regression}.}{fig:linear_regression}
 
-\lstinputlisting[caption={Best fit line;
+\lstinputlisting[linerange=1-17,caption={Best fit line;
   see Figure~\ref{fig:linear_regression}},
 label=lst:linear_regression]{code/linear_regression.py}
 
@@ -2477,7 +2628,7 @@ Mathworld\footnote{\url{http://mathworld.wolfram.com/LeastSquaresFittingPolynomi
 but note that the $k$'s and $n$'s in the superscripts and subscripts
 on that page are problematic.  The linear algebra is correct, however.
 
-\lstinputlisting[caption={est fit polynomial; see
+\lstinputlisting[linerange=1-16,caption={est fit polynomial; see
   Figure~\ref{fig:poly_regression}},
 label=lst:poly_regression]{code/poly_regression.py}
 
@@ -2516,7 +2667,7 @@ Figure~\ref{fig:layer_images}.
   blending; see Listing~\ref{lst:layer_images}.}
 {fig:layer_images}
 
-\lstinputlisting[caption={Alpha-blending multiple images;
+\lstinputlisting[linerange=1-25,caption={Alpha-blending multiple images;
   see Figure~\ref{fig:layer_images}},
 label=lst:layer_images]{code/layer_images.py}
 
@@ -2540,7 +2691,7 @@ Figure~\ref{fig:figure_mosaic}.
   \func{figimage}; see Listing~\ref{lst:figure_mosaic}.}
 {fig:figure_mosaic}
 
-\lstinputlisting[caption={Creating figure mosaics;
+\lstinputlisting[linerange=1-8,caption={Creating figure mosaics;
   see Figure~\ref{fig:figure_mosaic}},
 label=lst:figure_mosaic]{code/figure_mosaic.py}
 

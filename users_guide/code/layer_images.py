@@ -23,6 +23,7 @@ Z2 = func3(X, Y)
 im2 = imshow(Z2, cmap=cm.jet, alpha=.9,
              interpolation='bilinear',  extent=extent)
 axis('off')
+
 savefig('../figures/layer_images.eps')
 savefig('../figures/layer_images.png')
 show()

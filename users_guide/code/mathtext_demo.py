@@ -15,7 +15,7 @@ axis([-0.2, 1.2, -0.2, 1.8])
 # subscripts, superscripts and groups with {} are supported
 xlabel('$\Delta_i^j$', fontsize='x-large')
 ylabel('$\Delta_{i+1}^j$', fontsize='x-large')
+
 savefig('../figures/mathtext_demo.eps')
 savefig('../figures/mathtext_demo.png')
-
 show()

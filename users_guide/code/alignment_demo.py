@@ -10,6 +10,7 @@ ax = gca()
 p = Rectangle((left, bottom), width, height,
               fill=False,
               )
+# axes coordinates are 0,0 is bottom left and 1,1 is upper right
 p.set_transform(ax.transAxes)
 p.set_clip_on(False)
 ax.add_patch(p)

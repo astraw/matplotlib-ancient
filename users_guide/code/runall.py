@@ -18,6 +18,7 @@ files = (
     'poly_regression.py',
     'simple_imshow.py',
     'simple_plot_tkagg.py',
+    'specgram_demo.py',
     'subplot_demo.py',
     )
 
