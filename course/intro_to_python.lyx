@@ -25,5 +25,143 @@
 
 \layout Standard
 
-python intro
+This is a quick-and-dirty introduction to the python language for the impatient
+ scientist.
+ There are many top notch, comprehensive introductions and tutorials for
+ python.
+ For a free tutorial, the best place to start is the official python tutorial,
+ which can be read online
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+http://docs.python.org/tut/tut.html
+\end_inset 
+
+ or downloaded
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+http://docs.python.org/download.html
+\end_inset 
+
+ in a variety of formats.
+ There are over 100 python tutorials collected online.
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+http://www.awaretek.com/tutorials.html
+\end_inset 
+
+
+\layout Standard
+
+There are also many excellent books.
+ Oriented to newbies is Mark Pilgrim's Dive into Python which can also be
+ read online
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+http://diveintopython.org/toc/index.html
+\end_inset 
+
+, though for absolute newbies even this may be too hard 
+\begin_inset LatexCommand \cite{Dive}
+
+\end_inset 
+
+.
+ For experienced programmers, David Beasley's Python Essential Reference
+ is an excellent instroduciton to python, but is a bit dated since it only
+ covers python2.1 
+\begin_inset LatexCommand \cite{Beasley}
+
+\end_inset 
+
+.
+ Likwise Alex Martelli's Python in a Nutshell is highly regarded and a bit
+ more current -- a 2nd edition is in the works
+\begin_inset LatexCommand \cite{Nutshell}
+
+\end_inset 
+
+.
+ And The Python Cookbook is an extremely useful collection of python idioms,
+ tips and tricks 
+\begin_inset LatexCommand \cite{Cookbook}
+
+\end_inset 
+
+.
+\layout Standard
+
+But the typical scientist I encounter wants to solve a specific problem,
+ eg to make a certain kind of graph, or numerically integrate an equation,
+ or fit some data to a parametric model, and don't have the time or interest
+ to read several books or tutorials to get what they want.
+ This guide is for them: a short overview of the language to help them get
+ to what they want (numeric, scipy, matplotlib, mayavi, vtk) as quickly
+ as possible.
+\layout Section
+
+Hello Python
+\layout Standard
+
+Python is a dynamically typed, object oriented, interpreted language.
+ Interpreted means that your program interacts with the python interpreter,
+ similar to Matlab, Perl, Tcl and Java, and unlike FORTRAN, C, or C++ which
+ are compiled.
+ So let's fire up the python interpreter and get started.
+ I'm not going to cover installing python -- it's standard on linux boxes
+ and for windows there is a friendly GUI installer.
+ On windows, you can click 
+\family typewriter 
+Start->All Programs->Python 2.4->Python (command line)
+\family default 
+ or better yet, install 
+\family typewriter 
+ipython
+\family default 
+, a python shell on steroids, and use that.
+ On linux / unix systems, you just need to type 
+\family typewriter 
+python
+\family default 
+ at the command line.
+\layout LyX-Code
+
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+begin{lstlisting}
+\layout Standard
+
+\layout Standard
+1 >>> 2+2
+\layout Standard
+4
+\layout Standard
+2 >>> 2-2
+\layout Standard
+0
+\layout Standard
+3 >>>
+\layout Standard
+
+\backslash 
+end{lstlisting}
+\end_inset 
+
+
 \the_end
