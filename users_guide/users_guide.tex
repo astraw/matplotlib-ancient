@@ -2121,320 +2121,6 @@ mouse moves
 \section{Customizing plot defaults}
 \label{sec:rc_command}
 
-\chapter{Matplotlib API}
-\label{cha:api}
-
-
-The matlab interface does a lot of work for you under the hood,
-creating and managing multiple figure windows, directing your plotting
-commands to the current axes and figure, managing the interactive
-state, and so on.  But that is all it does: all of the plotting is
-handled by a set of classes that the user can instantiate directly.
-If you are developing a GUI application, or simply don't want any
-hidden magic in your plots, you can create any plots using pure OO
-code that you could create with the matlab interface.
-
-From a developer standpoint, the matlab interface has been a blessing
-in disguise.  Because the interface was fixed by the Mathworks before
-the start of matplotlib provided considerable freedom to redesign the
-guts of the plotting library -- the object model can be totally
-revamped and the user interface remains fixed.
-
-The matplotlib code is divided conceptually into 3 parts: the matlab
-interface, the matplotlib Artists, and the backend renderers.  The
-\textit{matlab interface} was covered in
-Chapter~\ref{cha:matlab_interface}.  This module
-\mpldoc{matplotlib.matlab} is comprised mainly of code to manage the
-multiple figure windows across backends, and provide a thin,
-procedural wrapper around the object oriented plotting code.  The
-\textit{matplotlib Artists} are a series of classes that derive from
-\mpldoc{matplotlib.artist.Artist}, so named because these are the
-objects that actually draw into the figure; see
-Figure~\ref{fig:artist}.  The \textit{backend renderers} each
-implement a common drawing interface that actually puts the ink on the
-paper, eg creating a postscript document, filling an antigrain pixel
-buffer, or calling the gtk drawing code.
-
-This chapter delves into matplotlib internals to give a clearer
-picture of how things work and how they are organized.  Some of this
-material may be of interest only to developers, but most of it should
-shed light for anyone who wants to be able to exploit the full
-capabilities of matplotlib.  The normal path of figure creation in
-matplotlib is matlab interface $\rightarrow$ creates artists
-$\rightarrow$ calls to the backend renderer.  This section will invert
-that process, starting with the backend, which is where the drawing
-actually takes place.  This is the natural order of presentation
-because the backend knows nothing about Artists, which in turn known
-nothing about the matlab interface.  After the overview of the backend
-API, there is a discussion of the matplotlib artists; this is the
-section that is most useful to users, particularly those who want to
-embed matplotlib in an application.  The final section shows how the
-matlab interface controls the backends and artists -- this section is
-probably of interest to developers and the terminally curious.
-
-\section{The matplotlib backends}
-\label{sec:backends}
-
-The backend consists of a number of related base classes that together
-define a drawing API.  The original backend was GTK, and the drawing
-API is heavily based on the GTK drawing model, which is very simple.
-There are three essential classes defined in
-matplotlib.backend\_bases: \class{RendererBase},
-\class{GraphicsContextBase} and \class{FigureCanvasBase}.  In
-addition, there are some classes for use with the GUI backends to
-define the interface to the toolbars and event handling.  The
-\class{RendererBase}, aka \textit{renderer} handles all the drawing
-primitives in display coordinates, typical renderer methods are
-\func{draw\_text} and \func{draw\_lines}.  The
-\class{GraphicsContextBase}, aka textit{graphics context} stores
-information about the graphics properties, such as linewidth, cap or
-join style, color, alpha translucency.  The \class{FigureCanvasBase},
-aka \textit{figure canvas}, is primarily a container class to hold the
-\class{Figure} instance; this facilitates separation of the Figure
-from the backend dependent code.  For GUI backends, the figure canvas
-should be a GUI widget embeddable in a GUI window.
-
-
-\fig{5in}{figures/FigureCanvas}{The inheritance diagram for The
-  FigureCanvas hierarchy.  The FigureCanvas is a backend dependent
-  class which contains a figure instance.  For GUI backends, the
-  canvas should be a GUI widget embeddable in a GUI window.  Some of
-  the GUIs have backends with both native drawing and antigrain
-  drawing (GTK/GTKAgg, WX/WXAgg), which is readily achieved with
-  multiple inheritance. }{fig:figurecanvas}
-
-\subsection{The backend renderer and graphics context}
-\label{sec:renderer}
-
-The renderer defines the low-level matplotlib drawing API; all of the
-drawing commands are done in display coordinates.  The matplotlib
-Artist classes handle all of the layout and transformation issue, and
-pass the primitive drawing commands on to the renderer.  The renderers
-know nothing about the matplotlib Artists, and nothing about the
-matlab interface.  Their one and only job is to get ink onto the
-canvas.  The graphics context stores information about the objects to
-be drawn, their color, linewidths, cap and join styles, alpha
-transparency, etc.  Taken together, you can use the backend renderer
-and graphics context directly to make drawings.  This may not be
-advisable, since the whole purpose of the matplotlib Artists and
-matlab interface is to simplify the process of getting ink onto the
-canvas, but it is possible.  However, it is potentially useful to
-developers who may want to extend the capabilities of matplotlib, eg,
-to implement block diagram drawing.
-
-
-\fig{4in}{figures/renderer_agg}{Drawing directly with the backend
-  renderer and graphics context; see
-  Listing~\ref{lst:renderer_agg}}{fig:renderer_agg}
-
-
-\lstinputlisting[caption={Drawing with the agg renderer; see
-  Figure~\ref{fig:renderer_agg}},
-label=lst:renderer_agg]{code/renderer_agg.py}
-
-
-
-
-
-\section{The matplotlib Artists}
-\label{sec:artists}
-
-\fig{4in}{figures/artist}{The matplotlib Artist hierarchy.  The
-  primitive Artists are the Patches, Line2D, Text, AxesImage,
-  FigureImage and Collection classes.  All other artists are
-  composites of these.  For example a Tick is comprised of a Line2D
-  instance and a Text instance, which make up the tick line and tick
-  label; the Axis is comprised of a list of Ticks and a Text axis
-  label; see Figure~\ref{fig:containment}.}{fig:artist}
-
-\fig{6in}{figures/containment}{The Artist containment hierarchy.  The
-  top level Artist is the \mpldoc{matplotlib.figure.Figure}, which
-  contains all of the other Artist instances.  The attribute names are
-  given in lower case, and the object type is listed below in upper
-  case.  If the attribute is a sequence, for example the figure
-  contains a list of Axes, then the connecting edge is labeled $0\dots
-  n$ and the object type is in square brackets to indicate a list, eg
-  [Axes].  Some redundant information is omitted; for example, the
-  yaxis contains the equivalent objects that the xaxis contains, the
-  minorTicks have the same containment hierarchy as the majorTicks,
-  and so on. }{fig:containment}
-
-
-
-\section{matlab interface internals}
-
-Let's look at the simplest matplotlib script and walk through what
-happens under the hood.  This section will be of interest mainly to
-developers or those curious about matplotlib internals - it can be
-safely skipped by others.  We'll assume you are using one of the GUI
-backends, eg GTKAgg and have are running this as a script
-(\rc{interactive : False})
-
-\begin{lstlisting}                    
-from matplotlib.matlab import *       
-plot([1,2,3])
-show()
-\end{lstlisting}
-
-\subsection*{Line 1: \texttt{from matplotlib.matlab import *}}
-
-When any matplotlib code is imported the first time, the
-\fname{matplotlib.\_\_init\_\_.py} code is called.  The primary thing
-the init code does is find and parse your rc file, or if it fails fall
-back on a set of default parameters.  Once this is done,
-\mpldoc{matplotlib.matlab} proceeds to import all of the
-\mpldoc{matplotlib.numerix} and \mpldoc{matplotlib.mlab} symbols into
-the namespace, and loads the backend from
-\mpldoc{matplotlib.backends}, which use the rc information to load
-four functions from the backend module specified by the rc
-\rc{backend} parameter.  The matlab interface requires only four
-functions from the backend: \func{new\_figure\_manager},
-\func{error\_msg}, \func{draw\_if\_interactive}, and \func{show}
-
-\begin{itemize}
-  
-\item \func{new\_figure\_manager} is responsible for creating a new
-  instance from a backend dependent class derived from
-  \mpldoc{matplotlib.backend\_bases.FigureManager}; this class wraps
-  GUI window creation and management.
-  
-\item \func{error\_msg} displays an error message; for image backends
-  this message is printed to the file object determined by the rc
-  parameter \rc{verbose.erro} and for GUI backends it is typically
-  displayed in a GUI dialog box.
-
-\item \func{draw\_if\_interactive} is called after every
-  \mpldoc{matplotlib.matlab} drawing command (\func{plot}, \func{set},
-  \func{xlim}, \dots) and updates the figure window with the new
-  information only if \rc{interactive} is \val{True}.
-
-\item \func{show} raises all the GUI figure windows and triggers a
-  command to draw the figure.
-
-\end{itemize}
-
-\noindent The matlab interface also imports a \class{Gcf} instance from the
-\mpldoc{matplotlib.\_matlab\_helpers} module, which manages the
-current figure and current axes.  The matlab interface defines
-\func{gcf} and \func{gca} to get a reference to the current figure and
-axes, which in turn are interfaces to the \class{Gcf} class that does
-the real lifting.
-
-
-\subsection*{Line 2: \texttt{plot([1,2,3])}}
-
-All of the \mpldoc{matplotlib.matlab} functions are defined similarly:
-they get the current axes and forward the call on to the corresponding
-\mpldoc{matplotlib.axes.Axes} method, which does the real work.  The
-\func{plot} command in the example below calls \func{gca} to get the
-current axes.  If no figure or axes has been defined at the time of
-this call, the are created one on the fly using default parameters
-from the rc file; ultimately the \func{new\_figure\_manager} backend
-method is called to provide new figures when needed, and the default
-\code{subplot(111)} is added to the figure if no other axes has been
-defined.  
-
-The \func{new\_figure\_manager} method deserves a bit more attention,
-because this creates the central object that contains all the other
-objects relevant to the creation of a single figure.
-\mpldoc{matplotlib.backend\_bases.FigureManagerBase} is a container
-class for the figure window (a GUI window) and figure canvas (a GUI
-widget which can be drawn upon).  The figure canvas derives from
-\mpldoc{matplotlib.backend\_bases.FigureCanvasBase}, and contains the
-\mpldoc{matplotlib.figure.Figure} instance.
-
-\fig{3in}{figures/manager}{The matlab interface function
-  \func{new\_figure\_manager} returns a backend dependent concrete
-  implementation of
-  \mpldoc{matplotlib.backend\_bases.FigureManagerBase}, which contains
-  the figure canvas and figure window.  The attribute names are shown
-  in lower case, and the backend dependent classes are shown in upper
-  case.  The standard attribute naming system allows the matlab
-  interface to make calls across backends to the figure canvas and
-  figure.}{fig:manager}
-  
-
-Once the current axes is obtained by \func{gca}, \func{plot} forwards
-the call to \func{Axes.plot}.  If an exception is raise, the backend
-\func{error\_msg} method is called with the traceback to display it.
-If the code is successful, the backend \func{draw\_if\_interactive}
-method is called which will update the plot if the rc parameter
-\rc{interactive} is \val{True}, and finally the return value is
-returned.
-
-\begin{lstlisting}                    
-def plot(*args, **kwargs):
-    try:
-        lines =  gca().plot(*args, **kwargs)
-    except ValueError, msg:
-        msg = raise_msg_to_str(msg)
-        error_msg(msg)
-    else:
-        draw_if_interactive()
-        return lines
-plot.__doc__ = Axes.plot.__doc__
-\end{lstlisting}
-
-The \func{matplotlib.axes.Axes.plot} method parses the \code{*args}
-and {**kwargs}, creates the requested line objects, and adds them to
-its list of \class{Line2D} instances.  It will also extract the x and
-y data range and use these to update the data limits of the axes,
-which is turn will be used to autoscale the view limits.  No drawing
-code is actually issued, but is deferred until later.
-
-\subsection*{Line 3: \texttt{show()}}
-
-\func{show} is an interface to realize and show the GUI windows.  For
-image backends, eg Agg, PS or SVG, it is superfluous.  The image
-backends will draw the figure on a call to savefig, and ignore a
-\func{show} call.  Each GUI backend defines \func{show} to realize all
-of the GUI windows, and start the GUI mainloop.  For this reason, the
-call to \func{show} is blocking, and should be the last line of the
-script.  Here is a representative show method from
-\mpldoc{matplotlib.backends.backend\_gtk}
-
-\begin{lstlisting}
-def show(mainloop=True):
-    """
-    Show all the figures and enter the gtk main loop
-
-    This should be the last line of your script
-    """
-
-    for manager in Gcf.get_all_fig_managers():
-        manager.window.show()
-        
-    if gtk.main_level() == 0 and mainloop:
-        if gtk.pygtk_version >= (2,4,0):  gtk.main()
-        else:                             gtk.mainloop()
-
-
-\end{lstlisting}
-
-Typically, the GUI backends binds the realize or expose event of the
-GUI window to ultimately trigger the \func{Figure.draw} method of the
-Figure instance contained by the \class{FigureCanvas}.  In the show
-function above, \code{manager.window.show()} will trigger an expose
-event in pygtk.  The gtk backend binds the expose event to the
-\func{FigureCanvasGTK.expose\_event} method.  If the canvas has not yet
-been drawn, the \func{expose\_event} method will create a RendererGTK
-instance (which derives from the common drawing API in
-\mpldoc{matplotlib.backends.RendererBase}) and then call
-\func{Figure.draw(renderer)}, which in turn passes the draw command on
-to each \class{Artist} instance it contains; see
-Figure~\ref{fig:containment} for the \class{Artist} containment
-hierarchy.  Each \class{Artist} instance defines the draw method, and
-contains a transform to transform itself to display coordinates.  For
-example, the Line2D instance will transform its x and y data to
-display coordinates, and then call the appropriate renderer method, eg
-\func{RendererGTK.draw\_lines}, which expects x and y data in display
-coordinates.  In this case, the GTK renderer \func{draw\_lines} method makes
-the appropriate calls to the GTK drawing API, and the screen is
-updated; see Figure~\ref{fig:show}.
-
-\fig{6in}{figures/show}{The typical sequence of steps triggered in the
-  backend code by the call to \func{show} that ultimately gets the ink
-  on the canvas.}{fig:show}
 
 
 \chapter{Font finding and properties}
@@ -2885,6 +2571,330 @@ jet = colors.LinearSegmentedColormap('jet', _jet_data, LUTSIZE)
 \noindent Now anyone can use the colormap interactively from the shell, by
 setting it as the default image.cmap in rc, etc.  Please submit your
 changes to the matplotlib-devel mailing list.
+
+\chapter{Matplotlib API}
+\label{cha:api}
+
+
+The matlab interface does a lot of work for you under the hood,
+creating and managing multiple figure windows, directing your plotting
+commands to the current axes and figure, managing the interactive
+state, and so on.  But that is all it does: all of the plotting is
+handled by a set of classes that the user can instantiate directly.
+If you are developing a GUI application, or simply don't want any
+hidden magic in your plots, you can create any plots using pure OO
+code that you could create with the matlab interface.
+
+From a developer standpoint, the matlab interface has been a blessing
+in disguise.  Because the interface was fixed by the Mathworks before
+the start of matplotlib provided considerable freedom to redesign the
+guts of the plotting library -- the object model can be totally
+revamped and the user interface remains fixed.
+
+The matplotlib code is divided conceptually into 3 parts: the matlab
+interface, the matplotlib Artists, and the backend renderers.  The
+\textit{matlab interface} was covered in
+Chapter~\ref{cha:matlab_interface}.  This module
+\mpldoc{matplotlib.matlab} is comprised mainly of code to manage the
+multiple figure windows across backends, and provide a thin,
+procedural wrapper around the object oriented plotting code.  The
+\textit{matplotlib Artists} are a series of classes that derive from
+\mpldoc{matplotlib.artist.Artist}, so named because these are the
+objects that actually draw into the figure; see
+Figure~\ref{fig:artist}.  The \textit{backend renderers} each
+implement a common drawing interface that actually puts the ink on the
+paper, eg creating a postscript document, filling an antigrain pixel
+buffer, or calling the gtk drawing code.
+
+This chapter delves into matplotlib internals to give a clearer
+picture of how things work and how they are organized.  Some of this
+material may be of interest only to developers, but most of it should
+shed light for anyone who wants to be able to exploit the full
+capabilities of matplotlib.  The normal path of figure creation in
+matplotlib is matlab interface $\rightarrow$ creates artists
+$\rightarrow$ calls to the backend renderer.  This section will invert
+that process, starting with the backend, which is where the drawing
+actually takes place.  This is the natural order of presentation
+because the backend knows nothing about Artists, which in turn known
+nothing about the matlab interface.  After the overview of the backend
+API, there is a discussion of the matplotlib artists; this is the
+section that is most useful to users, particularly those who want to
+embed matplotlib in an application.  The final section shows how the
+matlab interface controls the backends and artists -- this section is
+probably of interest to developers and the terminally curious.
+
+\section{The matplotlib backends}
+\label{sec:backends}
+
+The backend consists of a number of related base classes that together
+define a drawing API.  The original backend was GTK, and the drawing
+API is heavily based on the GTK drawing model, which is very simple.
+There are three essential classes defined in
+matplotlib.backend\_bases: \class{RendererBase},
+\class{GraphicsContextBase} and \class{FigureCanvasBase}.  In
+addition, there are some classes for use with the GUI backends to
+define the interface to the toolbars and event handling.  The
+\class{RendererBase}, aka \textit{renderer} handles all the drawing
+primitives in display coordinates, typical renderer methods are
+\func{draw\_text} and \func{draw\_lines}.  The
+\class{GraphicsContextBase}, aka textit{graphics context} stores
+information about the graphics properties, such as linewidth, cap or
+join style, color, alpha translucency.  The \class{FigureCanvasBase},
+aka \textit{figure canvas}, is primarily a container class to hold the
+\class{Figure} instance; this facilitates separation of the Figure
+from the backend dependent code.  For GUI backends, the figure canvas
+should be a GUI widget embeddable in a GUI window.
+
+
+
+\subsection{The renderer and graphics context}
+\label{sec:renderer}
+
+The renderer defines the low-level matplotlib drawing API; all of the
+drawing commands are done in display coordinates.  The matplotlib
+Artist classes handle all of the layout and transformation issue, and
+pass the primitive drawing commands on to the renderer.  The renderers
+know nothing about the matplotlib Artists, and nothing about the
+matlab interface.  Their one and only job is to get ink onto the
+canvas.  The graphics context stores information about the objects to
+be drawn, their color, linewidths, cap and join styles, alpha
+transparency, etc.  Taken together, you can use the backend renderer
+and graphics context directly to make drawings.  This may not be
+advisable, since the whole purpose of the matplotlib Artists and
+matlab interface is to simplify the process of getting ink onto the
+canvas, but it is possible.  However, it is potentially useful to
+developers who may want to extend the capabilities of matplotlib, eg,
+to implement block diagram drawing.
+
+Every backend in \fname{matplotlib/backends} defines a
+\class{Renderer} that inherits from \mpldoc{RendererBase}; some also
+define a backend dependent \class{GraphicsContext}, while other simply
+use the \mpldoc{GraphicsContextBase} for storing the information and
+do all the work of translating these values in the \class Renderer.
+This is the approach the Agg backend uses, shown in the listing below.
+
+\fig{3in}{figures/renderer_agg}{Drawing directly with the backend
+  renderer and graphics context; see
+  Listing~\ref{lst:renderer_agg}}{fig:renderer_agg}
+
+\lstinputlisting[caption={Drawing with the agg renderer; see
+  Figure~\ref{fig:renderer_agg}},
+label=lst:renderer_agg]{code/renderer_agg.py}
+
+\subsection{The figure canvases}
+\label{sec:figurecanvas}
+
+\fig{5in}{figures/FigureCanvas}{The inheritance diagram for The
+  FigureCanvas hierarchy.  The FigureCanvas is a backend dependent
+  class which contains a figure instance.  For GUI backends, the
+  canvas should be a GUI widget embeddable in a GUI window.  Some of
+  the GUIs have backends with both native drawing and antigrain
+  drawing (GTK/GTKAgg, WX/WXAgg), which is readily achieved with
+  multiple inheritance. }{fig:figurecanvas}
+
+
+
+
+
+\section{The matplotlib Artists}
+\label{sec:artists}
+
+\fig{4in}{figures/artist}{The matplotlib Artist hierarchy.  The
+  primitive Artists are the Patches, Line2D, Text, AxesImage,
+  FigureImage and Collection classes.  All other artists are
+  composites of these.  For example a Tick is comprised of a Line2D
+  instance and a Text instance, which make up the tick line and tick
+  label; the Axis is comprised of a list of Ticks and a Text axis
+  label; see Figure~\ref{fig:containment}.}{fig:artist}
+
+\fig{6in}{figures/containment}{The Artist containment hierarchy.  The
+  top level Artist is the \mpldoc{matplotlib.figure.Figure}, which
+  contains all of the other Artist instances.  The attribute names are
+  given in lower case, and the object type is listed below in upper
+  case.  If the attribute is a sequence, for example the figure
+  contains a list of Axes, then the connecting edge is labeled $0\dots
+  n$ and the object type is in square brackets to indicate a list, eg
+  [Axes].  Some redundant information is omitted; for example, the
+  yaxis contains the equivalent objects that the xaxis contains, the
+  minorTicks have the same containment hierarchy as the majorTicks,
+  and so on. }{fig:containment}
+
+
+
+\section{matlab interface internals}
+
+Let's look at the simplest matplotlib script and walk through what
+happens under the hood.  This section will be of interest mainly to
+developers or those curious about matplotlib internals - it can be
+safely skipped by others.  We'll assume you are using one of the GUI
+backends, eg GTKAgg and have are running this as a script
+(\rc{interactive : False})
+
+\begin{lstlisting}                    
+from matplotlib.matlab import *       
+plot([1,2,3])
+show()
+\end{lstlisting}
+
+\subsection*{Line 1: \texttt{from matplotlib.matlab import *}}
+
+When any matplotlib code is imported the first time, the
+\fname{matplotlib.\_\_init\_\_.py} code is called.  The primary thing
+the init code does is find and parse your rc file, or if it fails fall
+back on a set of default parameters.  Once this is done,
+\mpldoc{matplotlib.matlab} proceeds to import all of the
+\mpldoc{matplotlib.numerix} and \mpldoc{matplotlib.mlab} symbols into
+the namespace, and loads the backend from
+\mpldoc{matplotlib.backends}, which use the rc information to load
+four functions from the backend module specified by the rc
+\rc{backend} parameter.  The matlab interface requires only four
+functions from the backend: \func{new\_figure\_manager},
+\func{error\_msg}, \func{draw\_if\_interactive}, and \func{show}
+
+\begin{itemize}
+  
+\item \func{new\_figure\_manager} is responsible for creating a new
+  instance from a backend dependent class derived from
+  \mpldoc{matplotlib.backend\_bases.FigureManager}; this class wraps
+  GUI window creation and management.
+  
+\item \func{error\_msg} displays an error message; for image backends
+  this message is printed to the file object determined by the rc
+  parameter \rc{verbose.erro} and for GUI backends it is typically
+  displayed in a GUI dialog box.
+
+\item \func{draw\_if\_interactive} is called after every
+  \mpldoc{matplotlib.matlab} drawing command (\func{plot}, \func{set},
+  \func{xlim}, \dots) and updates the figure window with the new
+  information only if \rc{interactive} is \val{True}.
+
+\item \func{show} raises all the GUI figure windows and triggers a
+  command to draw the figure.
+
+\end{itemize}
+
+\noindent The matlab interface also imports a \class{Gcf} instance from the
+\mpldoc{matplotlib.\_matlab\_helpers} module, which manages the
+current figure and current axes.  The matlab interface defines
+\func{gcf} and \func{gca} to get a reference to the current figure and
+axes, which in turn are interfaces to the \class{Gcf} class that does
+the real lifting.
+
+
+\subsection*{Line 2: \texttt{plot([1,2,3])}}
+
+All of the \mpldoc{matplotlib.matlab} functions are defined similarly:
+they get the current axes and forward the call on to the corresponding
+\mpldoc{matplotlib.axes.Axes} method, which does the real work.  The
+\func{plot} command in the example below calls \func{gca} to get the
+current axes.  If no figure or axes has been defined at the time of
+this call, the are created one on the fly using default parameters
+from the rc file; ultimately the \func{new\_figure\_manager} backend
+method is called to provide new figures when needed, and the default
+\code{subplot(111)} is added to the figure if no other axes has been
+defined.  
+
+The \func{new\_figure\_manager} method deserves a bit more attention,
+because this creates the central object that contains all the other
+objects relevant to the creation of a single figure.
+\mpldoc{matplotlib.backend\_bases.FigureManagerBase} is a container
+class for the figure window (a GUI window) and figure canvas (a GUI
+widget which can be drawn upon).  The figure canvas derives from
+\mpldoc{matplotlib.backend\_bases.FigureCanvasBase}, and contains the
+\mpldoc{matplotlib.figure.Figure} instance.
+
+\fig{3in}{figures/manager}{The matlab interface function
+  \func{new\_figure\_manager} returns a backend dependent concrete
+  implementation of
+  \mpldoc{matplotlib.backend\_bases.FigureManagerBase}, which contains
+  the figure canvas and figure window.  The attribute names are shown
+  in lower case, and the backend dependent classes are shown in upper
+  case.  The standard attribute naming system allows the matlab
+  interface to make calls across backends to the figure canvas and
+  figure.}{fig:manager}
+  
+
+Once the current axes is obtained by \func{gca}, \func{plot} forwards
+the call to \func{Axes.plot}.  If an exception is raise, the backend
+\func{error\_msg} method is called with the traceback to display it.
+If the code is successful, the backend \func{draw\_if\_interactive}
+method is called which will update the plot if the rc parameter
+\rc{interactive} is \val{True}, and finally the return value is
+returned.
+
+\begin{lstlisting}                    
+def plot(*args, **kwargs):
+    try:
+        lines =  gca().plot(*args, **kwargs)
+    except ValueError, msg:
+        msg = raise_msg_to_str(msg)
+        error_msg(msg)
+    else:
+        draw_if_interactive()
+        return lines
+plot.__doc__ = Axes.plot.__doc__
+\end{lstlisting}
+
+The \func{matplotlib.axes.Axes.plot} method parses the \code{*args}
+and {**kwargs}, creates the requested line objects, and adds them to
+its list of \class{Line2D} instances.  It will also extract the x and
+y data range and use these to update the data limits of the axes,
+which is turn will be used to autoscale the view limits.  No drawing
+code is actually issued, but is deferred until later.
+
+\subsection*{Line 3: \texttt{show()}}
+
+\func{show} is an interface to realize and show the GUI windows.  For
+image backends, eg Agg, PS or SVG, it is superfluous.  The image
+backends will draw the figure on a call to savefig, and ignore a
+\func{show} call.  Each GUI backend defines \func{show} to realize all
+of the GUI windows, and start the GUI mainloop.  For this reason, the
+call to \func{show} is blocking, and should be the last line of the
+script.  Here is a representative show method from
+\mpldoc{matplotlib.backends.backend\_gtk}
+
+\begin{lstlisting}
+def show(mainloop=True):
+    """
+    Show all the figures and enter the gtk main loop
+
+    This should be the last line of your script
+    """
+
+    for manager in Gcf.get_all_fig_managers():
+        manager.window.show()
+        
+    if gtk.main_level() == 0 and mainloop:
+        if gtk.pygtk_version >= (2,4,0):  gtk.main()
+        else:                             gtk.mainloop()
+
+
+\end{lstlisting}
+
+Typically, the GUI backends binds the realize or expose event of the
+GUI window to ultimately trigger the \func{Figure.draw} method of the
+Figure instance contained by the \class{FigureCanvas}.  In the show
+function above, \code{manager.window.show()} will trigger an expose
+event in pygtk.  The gtk backend binds the expose event to the
+\func{FigureCanvasGTK.expose\_event} method.  If the canvas has not yet
+been drawn, the \func{expose\_event} method will create a RendererGTK
+instance (which derives from the common drawing API in
+\mpldoc{matplotlib.backends.RendererBase}) and then call
+\func{Figure.draw(renderer)}, which in turn passes the draw command on
+to each \class{Artist} instance it contains; see
+Figure~\ref{fig:containment} for the \class{Artist} containment
+hierarchy.  Each \class{Artist} instance defines the draw method, and
+contains a transform to transform itself to display coordinates.  For
+example, the Line2D instance will transform its x and y data to
+display coordinates, and then call the appropriate renderer method, eg
+\func{RendererGTK.draw\_lines}, which expects x and y data in display
+coordinates.  In this case, the GTK renderer \func{draw\_lines} method makes
+the appropriate calls to the GTK drawing API, and the screen is
+updated; see Figure~\ref{fig:show}.
+
+\fig{6in}{figures/show}{The typical sequence of steps triggered in the
+  backend code by the call to \func{show} that ultimately gets the ink
+  on the canvas.}{fig:show}
 
 \appendix
 
