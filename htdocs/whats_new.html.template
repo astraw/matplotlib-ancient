@@ -7,6 +7,9 @@ high quality, cross platform image renderer that supports antialiased
 lines, freetype fonts, and other capabilities to soon be exploited.
 Thanks David!  """ )
 
+	('Added x linesyle', """ Matt MacMahon submitted a patch for
+an 'x' linestyle.  Thanks Matt! """ )
+
 	('GD supports clipping and antialiased line drawing', """See
 instructions about upgrading gd and gdmodule at <a
 href=backends.html#GD>Installing the GD backend</a>.  The line object
