@@ -10,7 +10,7 @@ rendering for linux, it is now possible to have great looking fonts.
 
 The most recent versions of GTK (2.2.4.1 and later) and pygtk-2.0.0
 and later on linux have freetype font support built-in by default.  If
-you are using an older version, set the environemnt variab;e
+you are using an older version, set the environment variable
 <tt>GDK_USE_XFT</tt>
 
 <pre>
@@ -23,8 +23,9 @@ or
 setenv GDK_USE_XFT 1    # csh and friends
 </pre>
 
-If you are using GTK under windows, see
-http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.011.htp.
+If you are using GTK under windows, see <a
+href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.011.htp>the
+pygtk FAQ</a>.
 
 <h3>PS</h3>
 
