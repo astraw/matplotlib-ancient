@@ -1,1 +1,0 @@
-from matplotlib.pylab import *
