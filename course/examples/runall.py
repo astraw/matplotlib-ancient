@@ -2,6 +2,7 @@
 
 all = (
     'WallisPi.py',
+    'scipy_least_squares_fit.py',
     'weave_callback.py',
     'weave_cplx.py',
     'weave_examples.py',
