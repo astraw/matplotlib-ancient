@@ -1,7 +1,23 @@
-new_to_43 = ( 
+new_to_50 = ( 
 
-	('GD supports clipping', 
-"""Info about new gd requirements here"""),
+	('GD supports clipping and antialiased line drawing', 
+"""See instructions about ugrading gd and gdmodule at <a
+href=backends.html#GD>Installing the GD backend</a>."""),
+
+	('bar charts support positive and negative bars', """You can
+provide an optional argument originY to the <a
+href=matplotlib.matlab.html#bar>bar</a> command to determine where the
+inflection point is - default at 0.  Thanks to David Moore for the
+patch"""),
+
+	('Figure backend refactored', """The figure functionality was split into a backend independent
+component <a href=matplotlib.figure.html>Figure</a> and a backend
+dependent component <a
+href=matplotlib.backends_bases.html#FigureCanvasBase>FigureCanvasBase</a>.
+This completes the transition to a totally abstrac figure interface
+and improves the ability the switch backends and a figure to multiple
+backends."""),
+
 
 )
 

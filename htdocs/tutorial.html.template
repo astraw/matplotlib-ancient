@@ -11,12 +11,10 @@ font_props = (
 )
 
  
-@header@
-<h2>Using matplotlib</h2>
-Using matplotlib should come naturally if you have ever plotted with
-matlab.  The basic entity is a figure, which contains axes, which
-contain plots.  The axes are decorated with xlabels, ylabels, titles,
-ticklabels, and text.<p>
+@header@ <h2>Using matplotlib</h2> Using matplotlib should come
+naturally if you have ever plotted with matlab.  The basic entity is a
+figure, which contains axes, which contain plots.  The axes are
+decorated with xlabels, ylabels, titles, ticklabels, and text.<p>
 
 Here is about the simplest script you can use to create a figure with
 matplotlib<p>
@@ -80,7 +78,11 @@ useless for numeric processing.  Generally, you will use <a
 href=http://www.pfdubois.com/numpy>Numeric</a> arrays.  In fact, all
 sequences are converted to Numeric arrays internally.  The example
 below illustrates a plotting several lines with different format
-styles in one command using Numeric arrays.<p>
+styles in one command using Numeric arrays.  Note if you are not
+familiar with Numeric, now would be a good time to check out their
+documentation at <a href=http://www.pfdubois.com/numpy>numpy</a> since
+a lot of the matplotlib examples assume you know Numeric, and the
+matplotlib.matlab imports all the Numeric (and MLAb) functions.<p>
 
 <table @plot_table_border@><tr><td>
 <table>

@@ -1,0 +1,142 @@
+API changes at 0.50
+
+  * refactored Figure class so it is no longer backend dependent.
+    FigureCanvasBackend takes over the backend specific duties of the
+    Figure.  matplotlib.backend_bases.FigureBase moved to
+    matplotlib.figure.Figure.
+
+  * backends must implement FigureCanvasBackend (the thing that
+    controls the figure and handles the events if any) and
+    FigureManagerBackend (wraps the canvas and the window for matlab
+    interface).  FigureCanvasBase implements a backend switching
+    mechanism
+
+  * Figure is now an Artist (like everything else in the figure) and
+    is totally backend independent
+
+Migrating code:
+
+  There are no API changes for the matlab interface.  
+
+  There is one important API change for application developers.
+  Figure instances used subclass GUI widgets that enabled them to be
+  placed directly into figures.  Eg, FigureGTK subclassed
+  gtk.DrawingArea.  Now the Figure class is independent of the
+  backend, and FigureCanvas takes over the functionality formerly
+  handled by Figure.  In order to include figures into your apps, you
+  now need to do, for example
+
+    # gtk example
+    fig = Figure(figsize=(5,4), dpi=100)
+    canvas = FigureCanvasGTK(fig)  # a gtk.DrawingArea
+    canvas.show()
+    vbox.pack_start(canvas)
+
+  Apologies for the inconvenience.  This refactorization brings
+  significant more freedom in developing matplotlib and should bring
+  better plotting capabilities, so I hope the inconvenience is worth
+  it.
+  
+
+API changes at 0.42
+
+  * Refactoring AxisText to be backend independent.  Text drawing and
+    get_window_extent functionality will be moved to the Renderer.
+
+  * backend_bases.AxisTextBase is now text.Text module
+
+  * All the erase and reset functionality removed frmo AxisText - not
+    needed with double buffered drawing.  Ditto with state change.
+    Text instances have a get_prop_tup method that returns a hashable
+    tuple of text properties which you can use to see if text props
+    have changed, eg by caching a font or layout instance in a dict
+    with the prop tup as a key -- see RendererGTK.get_pango_layout in
+    backend_gtk for an example.
+
+  * Text._get_xy_display renamed Text.get_xy_display
+  
+  * Artist set_renderer and wash_brushes methods removed
+
+  * Moved Legend class from matplotlib.axes into matplotlib.legend
+
+  * Moved Tick, XTick, YTick, Axis, XAxis, YAxis from matplotlib.axes
+    to matplotlib.axis
+
+  * moved process_text_args to matplotlib.text
+
+  * After getting Text handled in a backend independent fashion, the
+    import process is much cleaner since there are no longer cyclic
+    dependencies
+
+  * matplotlib.matlab._get_current_fig_manager renamed to
+    matplotlib.matlab.get_current_fig_manager to allow user access to
+    the GUI window attribute, eg figManager.window for GTK and
+    figManager.frame for wx
+  
+
+
+
+
+API changes at 0.40
+
+- Artist
+    * __init__ takes a DPI instance and a Bound2D instance which is
+      the bounding box of the artist in display coords
+    * get_window_extent returns a Bound2D instance
+    * set_size is removed; replaced by bbox and dpi
+    * the clip_gc method is removed.  Artists now clip themselves with
+      their box
+    * added _clipOn boolean attribute.  If True, gc clip to bbox.
+    
+- AxisTextBase
+    * Initialized with a transx, transy which are Transform instances
+    * set_drawing_area removed
+    * get_left_right and get_top_bottom are replaced by get_window_extent
+
+- Line2D Patches now take transx, transy
+    * Initialized with a transx, transy which are Transform instances
+
+- Patches
+   * Initialized with a transx, transy which are Transform instances
+
+- FigureBase attributes dpi is a DPI intance rather than scalar and
+  new attribute bbox is a Bound2D in display coords, and I got rid of
+  the left, width, height, etc... attributes.  These are now
+  accessible as, for example, bbox.x.min is left, bbox.x.interval() is
+  width, bbox.y.max is top, etc...
+
+- GcfBase attribute pagesize renamed to figsize
+
+- Axes
+    * removed figbg attribute
+    * added fig instance to __init__
+    * resizing is handled by figure call to resize.
+     
+- Subplot
+    * added fig instance to __init__
+
+- Renderer methods for patches now take gcEdge and gcFace instances.
+  gcFace=None takes the place of filled=False
+
+- True and False symbols provided by cbook in a python2.3 compatible
+  way
+
+- new module transforms supplies Bound1D, Bound2D and Transform
+  instances and more
+
+- Changes to the matlab helpers API
+
+  * _matlab_helpers.GcfBase is renamed by Gcf.  Backends no longer
+    need to derive from this class.  Instead, they provide a factory
+    function new_figure_manager(num, figsize, dpi).  The destroy
+    method of the GcfDerived from the backends is moved to the derived
+    FigureManager.
+
+  * FigureManagerBase moved to backend_bases
+
+  * Gcf.get_all_figwins renamed to Gcf.get_all_fig_managers
+
+Jeremy:
+
+  Make sure to self._reset = False in AxisTextWX._set_font.  This was
+  something missing in my backend code.
