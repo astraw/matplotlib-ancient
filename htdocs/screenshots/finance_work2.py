@@ -14,17 +14,16 @@ import time, os, sys
 from helpers import load_quotes, movavg, fill_over, random_signal
 from matplotlib import rcParams
 
-rcParams['grid.color']     =  0.75
-rcParams['grid.linestyle'] =  '-'      
-rcParams['grid.linewidth'] =  0.5 
 
 
-from matplotlib.dates import EpochConverter, SEC_PER_DAY
-from matplotlib.ticker import  FuncFormatter, NullFormatter, MultipleLocator
-from matplotlib.ticker import IndexLocator, IndexDateFormatter
+from matplotlib.ticker import  IndexLocator, FuncFormatter, NullFormatter, MultipleLocator
+from matplotlib.dates import IndexDateFormatter, Eastern
 from matplotlib.finance import candlestick2, plot_day_summary2, \
      volume_overlay, index_bar
 from matplotlib.matlab import *
+
+
+rc('grid', color=0.75, linestyle='-', linewidth=0.5)
 
 
 
@@ -68,7 +67,7 @@ def get_locator():
     return IndexLocator(10, 1)
 
 
-formatter =  IndexDateFormatter(times, '%b %d %y')
+formatter =  IndexDateFormatter(times, '%b %d %y', tz=Eastern)
 
 nullfmt   = NullFormatter()         # no labels
 

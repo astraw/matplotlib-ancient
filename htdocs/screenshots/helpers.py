@@ -1,6 +1,6 @@
-import time
+import time, datetime
 from matplotlib.numerix import *
-
+from matplotlib.dates import date2num
 
 def load_quotes(fname, maxq=None):
     """
@@ -16,12 +16,13 @@ def load_quotes(fname, maxq=None):
         if maxq is not None and i>maxq: break
         ts,o,h,l,c,v = line.split(',')
 
-        e = time.mktime(time.strptime(ts.strip('"'), '%Y%m%d%H%M%S')) # convert to epoch
+        dt = datetime.datetime(*time.strptime(ts.strip('"'), '%Y%m%d%H%M%S')[:6]) # convert to float days
+        d = date2num(dt)
         o,h,l,c,v = [float(val) for val in o,h,l,c,v]
 
         if o==-1 or h==-1 or l==-1 or c==-1 or v==-1:
             o,h,l,c,v = -1, -1, -1, -1,-1
-        quotes.append((e,o,h,l,c,v))
+        quotes.append((d,o,h,l,c,v))
 
     quotes.sort()  # increasing time
     return quotes
