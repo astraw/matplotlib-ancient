@@ -175,7 +175,11 @@ Todd Miller has written a backend for Tkinter that uses the agg
 backend for rendering.  To use Tkagg, you need to set the BUILD_TKAGG
 flag in setup.py.  The windows installer comes with TkAgg prebuilt.
 See <a href=backends.html#Agg>agg backend</a> for more information on
-agg rendering and fonts.
+agg rendering and fonts.  NOTE: on at least some versions of redhat
+linux, you must install a separate tkinter package, apparently
+tkinter-2.2.2-26.i386.rpm on Red Hat 9 linux.  Alternately, Python
+built from source code (Python.org tarball, not the redhat SRPM)
+includes Tkinter support by default on Red Hat Linux.
 
 <h3><a name=GD>GD output</a></h3>
   
