@@ -9,7 +9,7 @@
 &nbsp;<br>
 The&nbsp;following&nbsp;plotting&nbsp;commands&nbsp;are&nbsp;provided;&nbsp;some&nbsp;of&nbsp;these&nbsp;do&nbsp;not<br>
 exist&nbsp;in&nbsp;matlab(TM)&nbsp;but&nbsp;have&nbsp;proven&nbsp;themselves&nbsp;to&nbsp;be&nbsp;useful&nbsp;nonetheless.<br>
-The&nbsp;majority&nbsp;of&nbsp;them,&nbsp;however,&nbsp;are&nbsp;matlab(TM)&nbsp;commands<br>
+The&nbsp;majority&nbsp;of&nbsp;them,&nbsp;however,&nbsp;have&nbsp;matlab&nbsp;analogs<br>
 &nbsp;<br>
 _Plotting&nbsp;commands<br>
 &nbsp;<br>
@@ -55,6 +55,7 @@ _Plotting&nbsp;commands<br>
 &nbsp;&nbsp;pcolor&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot<br>
 &nbsp;&nbsp;pie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;pie&nbsp;chart<br>
 &nbsp;&nbsp;plot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;line&nbsp;plot<br>
+&nbsp;&nbsp;pie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;pie&nbsp;charts<br>
 &nbsp;&nbsp;polar&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;polar&nbsp;plot&nbsp;on&nbsp;a&nbsp;PolarAxes<br>
 &nbsp;&nbsp;psd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;power&nbsp;spectral&nbsp;density<br>
 &nbsp;&nbsp;rc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;control&nbsp;the&nbsp;default&nbsp;params<br>

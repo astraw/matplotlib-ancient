@@ -11,7 +11,7 @@ def on_move(event):
     if event.inaxes:
         print 'data coords', event.xdata, event.ydata
 
-mpl_connect('motion_notify_event', on_move)
+connect('motion_notify_event', on_move)
 
 
 show()

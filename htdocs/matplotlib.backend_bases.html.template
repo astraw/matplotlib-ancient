@@ -27,9 +27,14 @@ graphics&nbsp;contexts&nbsp;must&nbsp;implement&nbsp;to&nbsp;serve&nbsp;as&nbsp;
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#Event">Event</a>
 </font></dt><dd>
 <dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#LocationEvent">LocationEvent</a>
+</font></dt><dd>
+<dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#KeyEvent">KeyEvent</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#MouseEvent">MouseEvent</a>
 </font></dt></dl>
+</dd>
+</dl>
 </dd>
 <dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#FigureCanvasBase">FigureCanvasBase</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#FigureManagerBase">FigureManagerBase</a>
@@ -87,11 +92,11 @@ Public&nbsp;attribute<br>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="FigureCanvasBase-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
 
-<dl><dt><a name="FigureCanvasBase-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasBase-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;press.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;<a href="#MouseEvent">MouseEvent</a></tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasBase-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasBase-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;<a href="#MouseEvent">MouseEvent</a></tt></dd></dl>
 
@@ -101,7 +106,7 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;<a href="#Mo
 
 <dl><dt><a name="FigureCanvasBase-key_release_event"><strong>key_release_event</strong></a>(self, key)</dt></dl>
 
-<dl><dt><a name="FigureCanvasBase-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasBase-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;<a href="#MouseEvent">MouseEvent</a></tt></dd></dl>
 
@@ -244,7 +249,7 @@ Data and other attributes defined here:<br>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="KeyEvent">class <strong>KeyEvent</strong></a>(<a href="matplotlib.backend_bases.html#Event">Event</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="KeyEvent">class <strong>KeyEvent</strong></a>(<a href="matplotlib.backend_bases.html#LocationEvent">LocationEvent</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>A&nbsp;key&nbsp;event&nbsp;(key&nbsp;press,&nbsp;key&nbsp;release).<br>
@@ -255,19 +260,80 @@ FigureCanvas.connect.<br>
 The&nbsp;following&nbsp;attributes&nbsp;are&nbsp;defined&nbsp;and&nbsp;shown&nbsp;with&nbsp;their&nbsp;default<br>
 values<br>
 &nbsp;<br>
-key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;key&nbsp;pressed:&nbsp;chr(range(255),&nbsp;shift,&nbsp;win,&nbsp;or&nbsp;control<br>
+x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;x&nbsp;position&nbsp;-&nbsp;pixels&nbsp;from&nbsp;left&nbsp;of&nbsp;canvas<br>
+y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;y&nbsp;position&nbsp;-&nbsp;pixels&nbsp;from&nbsp;bottom&nbsp;of&nbsp;canvas<br>
+key&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;key&nbsp;pressed:&nbsp;None,&nbsp;chr(range(255),&nbsp;shift,&nbsp;win,&nbsp;or&nbsp;control<br>
+inaxes&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;Axes&nbsp;instance&nbsp;if&nbsp;mouse&nbsp;us&nbsp;over&nbsp;axes<br>
+xdata&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;x&nbsp;coord&nbsp;of&nbsp;mouse&nbsp;in&nbsp;data&nbsp;coords<br>
+ydata&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;y&nbsp;coord&nbsp;of&nbsp;mouse&nbsp;in&nbsp;data&nbsp;coords<br>
 &nbsp;<br>
 This&nbsp;interface&nbsp;may&nbsp;change&nbsp;slightly&nbsp;when&nbsp;better&nbsp;support&nbsp;for<br>
 modifier&nbsp;keys&nbsp;is&nbsp;included<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="KeyEvent-__init__"><strong>__init__</strong></a>(self, name, canvas, key)</dt></dl>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.backend_bases.html#KeyEvent">KeyEvent</a></dd>
+<dd><a href="matplotlib.backend_bases.html#LocationEvent">LocationEvent</a></dd>
+<dd><a href="matplotlib.backend_bases.html#Event">Event</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="KeyEvent-__init__"><strong>__init__</strong></a>(self, name, canvas, key, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.backend_bases.html#LocationEvent">LocationEvent</a>:<br>
+<dl><dt><strong>button</strong> = None</dl>
+
+<dl><dt><strong>inaxes</strong> = None</dl>
+
+<dl><dt><strong>x</strong> = None</dl>
+
+<dl><dt><strong>xdata</strong> = None</dl>
+
+<dl><dt><strong>y</strong> = None</dl>
+
+<dl><dt><strong>ydata</strong> = None</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="MouseEvent">class <strong>MouseEvent</strong></a>(<a href="matplotlib.backend_bases.html#Event">Event</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="LocationEvent">class <strong>LocationEvent</strong></a>(<a href="matplotlib.backend_bases.html#Event">Event</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;event&nbsp;that&nbsp;has&nbsp;a&nbsp;screen&nbsp;location&nbsp;<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;additional&nbsp;attributes&nbsp;are&nbsp;defined&nbsp;and&nbsp;shown&nbsp;with<br>
+their&nbsp;default&nbsp;values<br>
+&nbsp;<br>
+x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;x&nbsp;position&nbsp;-&nbsp;pixels&nbsp;from&nbsp;left&nbsp;of&nbsp;canvas<br>
+y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;y&nbsp;position&nbsp;-&nbsp;pixels&nbsp;from&nbsp;bottom&nbsp;of&nbsp;canvas<br>
+inaxes&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;Axes&nbsp;instance&nbsp;if&nbsp;mouse&nbsp;us&nbsp;over&nbsp;axes<br>
+xdata&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;x&nbsp;coord&nbsp;of&nbsp;mouse&nbsp;in&nbsp;data&nbsp;coords<br>
+ydata&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;y&nbsp;coord&nbsp;of&nbsp;mouse&nbsp;in&nbsp;data&nbsp;coords<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="LocationEvent-__init__"><strong>__init__</strong></a>(self, name, canvas, x, y)</dt><dd><tt>x,&nbsp;y&nbsp;in&nbsp;figure&nbsp;coords,&nbsp;0,0&nbsp;=&nbsp;bottom,&nbsp;left<br>
+button&nbsp;pressed&nbsp;None,&nbsp;1,&nbsp;2,&nbsp;3</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>button</strong> = None</dl>
+
+<dl><dt><strong>inaxes</strong> = None</dl>
+
+<dl><dt><strong>x</strong> = None</dl>
+
+<dl><dt><strong>xdata</strong> = None</dl>
+
+<dl><dt><strong>y</strong> = None</dl>
+
+<dl><dt><strong>ydata</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MouseEvent">class <strong>MouseEvent</strong></a>(<a href="matplotlib.backend_bases.html#LocationEvent">LocationEvent</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>A&nbsp;mouse&nbsp;event&nbsp;(button_press_event,&nbsp;button_release_event,<br>
@@ -284,7 +350,13 @@ inaxes&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp
 xdata&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;x&nbsp;coord&nbsp;of&nbsp;mouse&nbsp;in&nbsp;data&nbsp;coords<br>
 ydata&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;y&nbsp;coord&nbsp;of&nbsp;mouse&nbsp;in&nbsp;data&nbsp;coords<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.backend_bases.html#MouseEvent">MouseEvent</a></dd>
+<dd><a href="matplotlib.backend_bases.html#LocationEvent">LocationEvent</a></dd>
+<dd><a href="matplotlib.backend_bases.html#Event">Event</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
 <dl><dt><a name="MouseEvent-__init__"><strong>__init__</strong></a>(self, name, canvas, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>x,&nbsp;y&nbsp;in&nbsp;figure&nbsp;coords,&nbsp;0,0&nbsp;=&nbsp;bottom,&nbsp;left<br>
 button&nbsp;pressed&nbsp;None,&nbsp;1,&nbsp;2,&nbsp;3</tt></dd></dl>
 

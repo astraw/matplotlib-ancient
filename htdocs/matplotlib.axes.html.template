@@ -737,6 +737,14 @@ Grid&nbsp;orientation<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 
+<dl><dt><a name="Axes-pick"><strong>pick</strong></a>(self, x, y, trans<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;artist&nbsp;under&nbsp;point&nbsp;that&nbsp;is&nbsp;closest&nbsp;to&nbsp;the&nbsp;x,&nbsp;y.&nbsp;&nbsp;if&nbsp;trans<br>
+is&nbsp;None,&nbsp;x,&nbsp;and&nbsp;y&nbsp;are&nbsp;in&nbsp;window&nbsp;coords,&nbsp;0,0&nbsp;=&nbsp;lower&nbsp;left.&nbsp;&nbsp;Otherwise,<br>
+trans&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;transform&nbsp;that&nbsp;specifies&nbsp;the&nbsp;coordinate&nbsp;system<br>
+of&nbsp;x,&nbsp;y.<br>
+&nbsp;<br>
+Note&nbsp;this&nbsp;algorithm&nbsp;calculates&nbsp;distance&nbsp;to&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the<br>
+polygon,&nbsp;so&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;pick&nbsp;a&nbsp;patch,&nbsp;click&nbsp;on&nbsp;the&nbsp;edge!</tt></dd></dl>
+
 <dl><dt><a name="Axes-pie"><strong>pie</strong></a>(self, x, explode<font color="#909090">=None</font>, labels<font color="#909090">=None</font>, colors<font color="#909090">=('b', 'g', 'r', 'c', 'm', 'y', 'k', 'w')</font>, autopct<font color="#909090">=None</font>, shadow<font color="#909090">=False</font>)</dt><dd><tt>Make&nbsp;a&nbsp;pie&nbsp;chart&nbsp;of&nbsp;array&nbsp;x.&nbsp;&nbsp;The&nbsp;fractional&nbsp;area&nbsp;of&nbsp;each&nbsp;wedge&nbsp;is<br>
 given&nbsp;by&nbsp;x/sum(x).&nbsp;&nbsp;If&nbsp;sum(x)&lt;=1,&nbsp;then&nbsp;the&nbsp;values&nbsp;of&nbsp;x&nbsp;give&nbsp;the<br>
 fractional&nbsp;area&nbsp;directly&nbsp;and&nbsp;the&nbsp;array&nbsp;will&nbsp;not&nbsp;be&nbsp;normalized.<br>
@@ -2014,6 +2022,14 @@ Grid&nbsp;orientation<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 
+<dl><dt><a name="PolarAxes-pick"><strong>pick</strong></a>(self, x, y, trans<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;artist&nbsp;under&nbsp;point&nbsp;that&nbsp;is&nbsp;closest&nbsp;to&nbsp;the&nbsp;x,&nbsp;y.&nbsp;&nbsp;if&nbsp;trans<br>
+is&nbsp;None,&nbsp;x,&nbsp;and&nbsp;y&nbsp;are&nbsp;in&nbsp;window&nbsp;coords,&nbsp;0,0&nbsp;=&nbsp;lower&nbsp;left.&nbsp;&nbsp;Otherwise,<br>
+trans&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;transform&nbsp;that&nbsp;specifies&nbsp;the&nbsp;coordinate&nbsp;system<br>
+of&nbsp;x,&nbsp;y.<br>
+&nbsp;<br>
+Note&nbsp;this&nbsp;algorithm&nbsp;calculates&nbsp;distance&nbsp;to&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the<br>
+polygon,&nbsp;so&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;pick&nbsp;a&nbsp;patch,&nbsp;click&nbsp;on&nbsp;the&nbsp;edge!</tt></dd></dl>
+
 <dl><dt><a name="PolarAxes-pie"><strong>pie</strong></a>(self, x, explode<font color="#909090">=None</font>, labels<font color="#909090">=None</font>, colors<font color="#909090">=('b', 'g', 'r', 'c', 'm', 'y', 'k', 'w')</font>, autopct<font color="#909090">=None</font>, shadow<font color="#909090">=False</font>)</dt><dd><tt>Make&nbsp;a&nbsp;pie&nbsp;chart&nbsp;of&nbsp;array&nbsp;x.&nbsp;&nbsp;The&nbsp;fractional&nbsp;area&nbsp;of&nbsp;each&nbsp;wedge&nbsp;is<br>
 given&nbsp;by&nbsp;x/sum(x).&nbsp;&nbsp;If&nbsp;sum(x)&lt;=1,&nbsp;then&nbsp;the&nbsp;values&nbsp;of&nbsp;x&nbsp;give&nbsp;the<br>
 fractional&nbsp;area&nbsp;directly&nbsp;and&nbsp;the&nbsp;array&nbsp;will&nbsp;not&nbsp;be&nbsp;normalized.<br>
@@ -3285,6 +3301,14 @@ Grid&nbsp;orientation<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 
+<dl><dt><a name="PolarSubplot-pick"><strong>pick</strong></a>(self, x, y, trans<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;artist&nbsp;under&nbsp;point&nbsp;that&nbsp;is&nbsp;closest&nbsp;to&nbsp;the&nbsp;x,&nbsp;y.&nbsp;&nbsp;if&nbsp;trans<br>
+is&nbsp;None,&nbsp;x,&nbsp;and&nbsp;y&nbsp;are&nbsp;in&nbsp;window&nbsp;coords,&nbsp;0,0&nbsp;=&nbsp;lower&nbsp;left.&nbsp;&nbsp;Otherwise,<br>
+trans&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;transform&nbsp;that&nbsp;specifies&nbsp;the&nbsp;coordinate&nbsp;system<br>
+of&nbsp;x,&nbsp;y.<br>
+&nbsp;<br>
+Note&nbsp;this&nbsp;algorithm&nbsp;calculates&nbsp;distance&nbsp;to&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the<br>
+polygon,&nbsp;so&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;pick&nbsp;a&nbsp;patch,&nbsp;click&nbsp;on&nbsp;the&nbsp;edge!</tt></dd></dl>
+
 <dl><dt><a name="PolarSubplot-pie"><strong>pie</strong></a>(self, x, explode<font color="#909090">=None</font>, labels<font color="#909090">=None</font>, colors<font color="#909090">=('b', 'g', 'r', 'c', 'm', 'y', 'k', 'w')</font>, autopct<font color="#909090">=None</font>, shadow<font color="#909090">=False</font>)</dt><dd><tt>Make&nbsp;a&nbsp;pie&nbsp;chart&nbsp;of&nbsp;array&nbsp;x.&nbsp;&nbsp;The&nbsp;fractional&nbsp;area&nbsp;of&nbsp;each&nbsp;wedge&nbsp;is<br>
 given&nbsp;by&nbsp;x/sum(x).&nbsp;&nbsp;If&nbsp;sum(x)&lt;=1,&nbsp;then&nbsp;the&nbsp;values&nbsp;of&nbsp;x&nbsp;give&nbsp;the<br>
 fractional&nbsp;area&nbsp;directly&nbsp;and&nbsp;the&nbsp;array&nbsp;will&nbsp;not&nbsp;be&nbsp;normalized.<br>
@@ -4508,6 +4532,14 @@ Grid&nbsp;orientation<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 
+<dl><dt><a name="Subplot-pick"><strong>pick</strong></a>(self, x, y, trans<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;artist&nbsp;under&nbsp;point&nbsp;that&nbsp;is&nbsp;closest&nbsp;to&nbsp;the&nbsp;x,&nbsp;y.&nbsp;&nbsp;if&nbsp;trans<br>
+is&nbsp;None,&nbsp;x,&nbsp;and&nbsp;y&nbsp;are&nbsp;in&nbsp;window&nbsp;coords,&nbsp;0,0&nbsp;=&nbsp;lower&nbsp;left.&nbsp;&nbsp;Otherwise,<br>
+trans&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;transform&nbsp;that&nbsp;specifies&nbsp;the&nbsp;coordinate&nbsp;system<br>
+of&nbsp;x,&nbsp;y.<br>
+&nbsp;<br>
+Note&nbsp;this&nbsp;algorithm&nbsp;calculates&nbsp;distance&nbsp;to&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the<br>
+polygon,&nbsp;so&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;pick&nbsp;a&nbsp;patch,&nbsp;click&nbsp;on&nbsp;the&nbsp;edge!</tt></dd></dl>
+
 <dl><dt><a name="Subplot-pie"><strong>pie</strong></a>(self, x, explode<font color="#909090">=None</font>, labels<font color="#909090">=None</font>, colors<font color="#909090">=('b', 'g', 'r', 'c', 'm', 'y', 'k', 'w')</font>, autopct<font color="#909090">=None</font>, shadow<font color="#909090">=False</font>)</dt><dd><tt>Make&nbsp;a&nbsp;pie&nbsp;chart&nbsp;of&nbsp;array&nbsp;x.&nbsp;&nbsp;The&nbsp;fractional&nbsp;area&nbsp;of&nbsp;each&nbsp;wedge&nbsp;is<br>
 given&nbsp;by&nbsp;x/sum(x).&nbsp;&nbsp;If&nbsp;sum(x)&lt;=1,&nbsp;then&nbsp;the&nbsp;values&nbsp;of&nbsp;x&nbsp;give&nbsp;the<br>
 fractional&nbsp;area&nbsp;directly&nbsp;and&nbsp;the&nbsp;array&nbsp;will&nbsp;not&nbsp;be&nbsp;normalized.<br>
@@ -5115,5 +5147,6 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>log</strong> = &lt;ufunc 'log'&gt;<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
 <strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>
 <strong>which</strong> = ('numeric', 'rc')</td></tr></table>
 @footer@

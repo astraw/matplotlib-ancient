@@ -2,7 +2,7 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr bgcolor="#7799ee">
 <td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_svg</strong></big></big> (version 0.65.1)</font></td
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_svg</strong></big></big> (version 0.70)</font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_svg.py">/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_svg.py</a></font></td></tr></table>
     <p></p>
@@ -66,11 +66,11 @@
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
 <dl><dt><a name="FigureCanvasSVG-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
 
-<dl><dt><a name="FigureCanvasSVG-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasSVG-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;press.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasSVG-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasSVG-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
@@ -78,7 +78,7 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</
 
 <dl><dt><a name="FigureCanvasSVG-key_release_event"><strong>key_release_event</strong></a>(self, key)</dt></dl>
 
-<dl><dt><a name="FigureCanvasSVG-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasSVG-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
@@ -345,8 +345,8 @@ points&nbsp;to&nbsp;pixels&nbsp;=&nbsp;points&nbsp;*&nbsp;pixels_per_inch/72.0&n
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>__version__</strong> = '0.65.1'<br>
-<strong>backend_version</strong> = '0.65.1'<br>
+<td width="100%"><strong>__version__</strong> = '0.70'<br>
+<strong>backend_version</strong> = '0.70'<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
 <strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>

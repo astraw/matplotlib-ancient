@@ -6,10 +6,24 @@ versioninfo = {}
 
 
 versioninfo['0.70'] = (
+
+  ('Users guide', """\
+Though still not complete, there's enough to be useful -- <a href=users_guide.pdf>users_guide.pdf</a>.
+"""),	
+
   ('pie charts', """\
 See <a href=screenshots.html#pie_demo>pie screenshot</a>.
 """),	
 
+  ('object picking', """\
+
+Support for object picking - see <a
+href=examples/picker_demo.py>examples/picker_demo.py</a>.  As people
+test this out and we settle on an interface, this will probably become
+part of the core, as will other keypress functionality for navigation,
+grid toogle, zoom toggle etc.
+"""),
+  
   ('wx/wxagg coords notification', """\
 The wx toolbar now reports the x,y coords of the mouse
 """),	
@@ -38,6 +52,8 @@ alignment work in matplotlib.  """),
   <li>Refactored event handling - multiple connects and disconnects now
     work across backends.  See examples/coords_demo.py, especially
     with test_disconnect.</li>
+  <li>Fixed a tkagg interactive bug that caused segfaults in some
+    conditions.</li>
   </ul>
 
   """),

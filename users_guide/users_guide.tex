@@ -2141,14 +2141,14 @@ def click(event):
     print 'you clicked', event.x, event.y
 
 # register this function with the event handler
-mpl_connect('button_press_event', click)}.  
+cid = connect('button_press_event', click)}.  
 \end{lstlisting}
 
 \noindent Then
 whenever the user clicks anywhere on the figure canvas, your function
-will be called and passed a \mpldoc{matplotlib.backend\_bases.MplEvent}
-instance.  The event instance will have the following attributes
-defined.
+will be called and passed a
+\mpldoc{matplotlib.backend\_bases.MplEvent} instance.  The event
+instance will have the following attributes defined.
 
 \begin{table}[htbp]
   \centering
@@ -2172,7 +2172,22 @@ defined.
 \end{table}
 
 \noindent You can connect to the following events: 'button\_press\_event',
-'button\_release\_event', 'motion\_notify\_event'.
+'button\_release\_event', 'motion\_notify\_event',
+'key\_press\_event', and 'key\_release\_event'.
+
+You can connect multiple event handlers, and later disconnect them if
+you want with the disconnect function
+
+\begin{lstlisting}
+# register this function with the event handler
+def click1(event): pass 
+def click2(event): pass 
+cid1 = connect('key_press_event', click1)}.  
+cid2 = connect('key_press_event', click2)}.  
+
+...later on....
+disconnect(cid1)  # now only click2 is connected
+\end{lstlisting}
 
 Here's an example to get the mouse location in data coordinates as the
 mouse moves

@@ -70,11 +70,11 @@ filename&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;filename&nbsp;or&nbsp;writable
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
 <dl><dt><a name="FigureCanvasGD-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
 
-<dl><dt><a name="FigureCanvasGD-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasGD-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;press.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasGD-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasGD-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
@@ -82,7 +82,7 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</
 
 <dl><dt><a name="FigureCanvasGD-key_release_event"><strong>key_release_event</strong></a>(self, key)</dt></dl>
 
-<dl><dt><a name="FigureCanvasGD-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasGD-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 

@@ -1,7 +1,7 @@
 import yaptu
 import re, os, sys, copy
 from StringIO import StringIO
-
+import matplotlib
 from hthelpers import modules
 rex=re.compile('@([^@]+)@')
 rbe=re.compile('\s*\+')
@@ -181,15 +181,17 @@ matlab interface now named pylab.  See <a href=matlab_to_pylab.py>matlab_to_pyla
 
 table1 =  LinkBox(header='Matplotlib', links=(
     ('Home', 'http://matplotlib.sourceforge.net'),
-    ('Download', 'http://sourceforge.net/projects/matplotlib'),    
+    ('Download', 'http://sourceforge.net/projects/matplotlib'),
     ('Installing', 'installing.html'),
     ('Screenshots', 'screenshots.html'),
+    ('Examples&nbsp;(zip)', 'matplotlib_examples_%s.zip'%matplotlib.__version__),        
     ("What's&nbsp;New", 'whats_new.html'),
     ('Mailing lists', 'http://sourceforge.net/mail/?group_id=80706'),
     ))
 
 table2 =  LinkBox(header='Documentation', links=(
     ('Tutorial', 'tutorial.html'),
+    ('Users&nbsp;Guide&nbsp;(alpha)', 'users_guide_%s.pdf'%matplotlib.__version__),    
     ('FAQ', 'faq.html'),    
     ('pylab&nbsp;interface', 'pylab_commands.html'),
     ('Class&nbsp;library', 'classdocs.html'),
