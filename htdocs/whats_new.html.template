@@ -65,6 +65,8 @@ the axes and tick label) in matplotlibrc.  The new options and
 defaults are
 
 <pre>
+axes.hold        :   True    # whether to clear the axes by default on
+                             #  each plot command.  Toggle with hold command
 grid.color       :   k       # grid color
 grid.linestyle   :   :       # dotted
 grid.linewidth   :   0.5     # in points            

@@ -18,6 +18,7 @@ plotcommands = (
     ('get', 'get a handle graphics property'),
     ('grid', 'set the axis grid lines on or off'),
     ('hist', 'make a histogram'),
+    ('hold', 'set the hold state on current axes'),
     ('imshow', 'show an image'),
     ('legend', 'add a legend to the axes'),
     ('loglog', 'a log log plot'),

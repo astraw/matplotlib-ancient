@@ -28,7 +28,7 @@ command, the backend can be chosen from the command line with the
 > python subplot_demo.py -dGTKAgg  # GTK GUI with antigrain rendering
 > python subplot_demo.py -dTkAgg   # Tkinter GUI with antigrain rendering
 > python subplot_demo.py -dWX      # WX backend
-> python subplot_demo.py -dWX      # WX GUI with antigrain rendering
+> python subplot_demo.py -dWXAgg   # WX GUI with antigrain rendering
 
 # The image backends, no window pops up; you must call savefig
 > python subplot_demo.py -dAgg     # antigrain geometry backend image
