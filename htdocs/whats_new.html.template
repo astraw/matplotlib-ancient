@@ -55,7 +55,7 @@ href=matplotlib.dates.html>dates documentation</a> provides a
 reasonably complete discussion of working with dates.
 """),
 
-
+    
     ('Ported image support to numarray and postscript backend', """
 The image module now works with Numeric or numarray, and now works in
 the postscript backend as well as GTKAgg, TkAgg, WXAgg, Agg, and GTK.
@@ -66,8 +66,16 @@ Helper functions for loading and saving ASCII arrays.  See <a
 href=matplotlib.matlab.html#-load>load</a> and <a
 href=matplotlib.matlab.html#-save>save</a>.
 """),
-)
-				  )
+
+    ('Two scales on the same axes',
+"""
+Added some features to the axis and ticks to allow two plots with
+different scales on the "same" axes with different scales, ticks
+and labels on the left and right side of the x axis.  To see why same is
+quoted, see <a href=examples/two_scales.py>two_scales.py</a>.
+"""
+     ),
+    )
 
 new_to_52 = ( 
     ('Image support', """
