@@ -42,7 +42,7 @@ isoActor.GetProperty().SetColor(colors.antique_white)
 iso.Update()
 writer = vtk.vtkDataSetWriter()
 writer.SetInput(iso.GetOutput())
-writer.SetFileName('bighead.vtk')
+writer.SetFileName('../data/bighead.vtk')
 writer.SetFileTypeToASCII()
 writer.Write()
 
