@@ -884,5 +884,5 @@ if&nbsp;x&nbsp;is&nbsp;a&nbsp;sequence,&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dateti
 <strong>WEEKDAYS</strong> = (MO, TU, WE, TH, FR, SA, SU)<br>
 <strong>WEEKLY</strong> = 2<br>
 <strong>YEARLY</strong> = 0<br>
-<strong>__all__</strong> = ['date2num', 'num2date', 'drange', 'HOURS_PER_DAY', 'MINUTES_PER_DAY', 'SECONDS_PER_DAY', 'MUSECONDS_PER_DAY', 'SEC_PER_MIN', 'SEC_PER_HOUR', 'SEC_PER_DAY', 'SEC_PER_WEEK', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY', 'MO', 'TU', ...]</td></tr></table>
+<strong>__all__</strong> = ('date2num', 'num2date', 'drange', 'epoch2num', 'num2epoch', 'mx2num', 'DateFormatter', 'IndexDateFormatter', 'DateLocator', 'RRuleLocator', 'YearLocator', 'MonthLocator', 'WeekdayLocator', 'DayLocator', 'HourLocator', 'MinuteLocator', 'SecondLocator', 'rrule', 'MO', 'TU', ...)</td></tr></table>
 @footer@

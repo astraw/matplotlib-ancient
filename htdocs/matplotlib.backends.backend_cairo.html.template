@@ -16,7 +16,7 @@ Features&nbsp;of&nbsp;Cairo:<br>
 &nbsp;*&nbsp;save&nbsp;image&nbsp;files:<br>
 &nbsp;&nbsp;&nbsp;-&nbsp;PNG<br>
 &nbsp;&nbsp;&nbsp;-&nbsp;PostScript&nbsp;(50%&nbsp;complete)<br>
-&nbsp;&nbsp;&nbsp;-&nbsp;PDF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(proposed,&nbsp;0%&nbsp;complete)<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;PDF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(in&nbsp;development)<br>
 &nbsp;<br>
 <a href="http://cairographics.org">http://cairographics.org</a><br>
 Requires&nbsp;(in&nbsp;order,&nbsp;all&nbsp;available&nbsp;from&nbsp;Cairo&nbsp;website):<br>
@@ -330,7 +330,9 @@ Is&nbsp;only&nbsp;currently&nbsp;used&nbsp;by&nbsp;backend_svg</tt></dd></dl>
 <strong>IMAGE_FORMAT_DEFAULT</strong> = 'png'<br>
 <strong>PIXELS_PER_INCH</strong> = 96<br>
 <strong>UInt8</strong> = 'b'<br>
+<strong>backend_version</strong> = 'Unknown'<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>pi</strong> = 3.1415926535897931<br>
-<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;<br>
+<strong>version_required</strong> = (0, 1, 4)</td></tr></table>
 @footer@

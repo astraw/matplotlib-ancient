@@ -176,7 +176,10 @@ def isNewEntry(line):
         return 0
 
 news = NewsBox("""\
-matlab interface now named pylab.  See <a href=matlab_to_pylab.py>matlab_to_pylab.py</a> for conversion details</a>.  If you upgrading from a version older than 0.64, you must remove site-packages/matplotlib before installing.
+numerix module code reorganized in 0.71 -- <i>this may break some
+scripts</i>.  pylab no longer imports the numerix min, max and sum
+functions.  For optimal numerix performance, use amin, amax and asum.
+See <a href=API_CHANGES>API_CHANGES</a> for details
 """)
 
 table1 =  LinkBox(header='Matplotlib', links=(
@@ -191,7 +194,7 @@ table1 =  LinkBox(header='Matplotlib', links=(
 
 table2 =  LinkBox(header='Documentation', links=(
     ('Tutorial', 'tutorial.html'),
-    ('Users&nbsp;Guide&nbsp;(alpha)', 'users_guide_%s.pdf'%matplotlib.__version__),    
+    ("User's&nbsp;Guide&nbsp;(pdf)", 'users_guide_%s.pdf'%matplotlib.__version__),    
     ('FAQ', 'faq.html'),    
     ('pylab&nbsp;interface', 'pylab_commands.html'),
     ('Class&nbsp;library', 'classdocs.html'),

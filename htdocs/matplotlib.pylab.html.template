@@ -193,29 +193,13 @@ exception&nbsp;of&nbsp;those&nbsp;in&nbsp;mlab.py&nbsp;provided&nbsp;by&nbsp;mat
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="LinearAlgebra.html">LinearAlgebra</a><br>
-<a href="MLab.html">MLab</a><br>
-<a href="Numeric.html">Numeric</a><br>
-<a href="RandomArray.html">RandomArray</a><br>
-<a href="matplotlib._pylab_helpers.html">matplotlib._pylab_helpers</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="matplotlib._pylab_helpers.html">matplotlib._pylab_helpers</a><br>
 <a href="matplotlib.cm.html">matplotlib.cm</a><br>
-</td><td width="25%" valign=top><a href="copy.html">copy</a><br>
-<a href="copy_reg.html">copy_reg</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.dates.html">matplotlib.dates</a><br>
 <a href="matplotlib.image.html">matplotlib.image</a><br>
-<a href="math.html">math</a><br>
-<a href="matplotlib.html">matplotlib</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.html">matplotlib</a><br>
 <a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
-</td><td width="25%" valign=top><a href="multiarray.html">multiarray</a><br>
-<a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
-<a href="operator.html">operator</a><br>
-<a href="os.html">os</a><br>
-<a href="pickle.html">pickle</a><br>
-<a href="random.html">random</a><br>
-</td><td width="25%" valign=top><a href="re.html">re</a><br>
-<a href="string.html">string</a><br>
-<a href="sys.html">sys</a><br>
-<a href="time.html">time</a><br>
-<a href="types.html">types</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.ticker.html">matplotlib.ticker</a><br>
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -447,8 +431,8 @@ use,&nbsp;for&nbsp;example&nbsp;for&nbsp;im&nbsp;in&nbsp;<a href="#-gca">gca</a>
 <a href="#-close">close</a>(h)&nbsp;where&nbsp;h&nbsp;is&nbsp;a&nbsp;figure&nbsp;handle(instance)&nbsp;closes&nbsp;that&nbsp;figure<br>
 &nbsp;<br>
 <a href="#-close">close</a>('all')&nbsp;closes&nbsp;all&nbsp;the&nbsp;figure&nbsp;windows</tt></dd></dl>
- <dl><dt><a name="-cohere"><strong>cohere</strong></a>(*args, **kwargs)</dt><dd><tt>COHERE(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
+ <dl><dt><a name="-cohere"><strong>cohere</strong></a>(*args, **kwargs)</dt><dd><tt>COHERE(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)<br>
 &nbsp;<br>
 cohere&nbsp;the&nbsp;coherence&nbsp;between&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;Coherence&nbsp;is&nbsp;the&nbsp;normalized<br>
 cross&nbsp;spectral&nbsp;density<br>
@@ -466,10 +450,16 @@ Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;An
 &nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
- <dl><dt><a name="-colorbar"><strong>colorbar</strong></a>(tickfmt<font color="#909090">='%1.1f'</font>)</dt><dd><tt>Create&nbsp;a&nbsp;colorbar&nbsp;for&nbsp;current&nbsp;mappable&nbsp;image&nbsp;(see&nbsp;gci)<br>
+ <dl><dt><a name="-colorbar"><strong>colorbar</strong></a>(tickfmt<font color="#909090">='%1.1f'</font>, cax<font color="#909090">=None</font>, orientation<font color="#909090">='vertical'</font>)</dt><dd><tt>Create&nbsp;a&nbsp;colorbar&nbsp;for&nbsp;current&nbsp;mappable&nbsp;image&nbsp;(see&nbsp;gci)<br>
 &nbsp;<br>
 tickfmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;to&nbsp;format&nbsp;the&nbsp;colorbar&nbsp;ticks<br>
 &nbsp;<br>
+cax&nbsp;is&nbsp;a&nbsp;colorbar&nbsp;axes&nbsp;instance&nbsp;in&nbsp;which&nbsp;the&nbsp;colorbar&nbsp;will&nbsp;be<br>
+placed.&nbsp;&nbsp;If&nbsp;None,&nbsp;as&nbsp;default&nbsp;axesd&nbsp;will&nbsp;be&nbsp;created&nbsp;resizing&nbsp;the<br>
+current&nbsp;aqxes&nbsp;to&nbsp;make&nbsp;room&nbsp;for&nbsp;it.&nbsp;&nbsp;If&nbsp;not&nbsp;None,&nbsp;the&nbsp;supplied&nbsp;axes<br>
+will&nbsp;be&nbsp;used&nbsp;and&nbsp;the&nbsp;other&nbsp;axes&nbsp;positions&nbsp;will&nbsp;be&nbsp;unchanged.<br>
+&nbsp;<br>
+orientation&nbsp;is&nbsp;the&nbsp;colorbar&nbsp;orientation:&nbsp;one&nbsp;of&nbsp;'vertical'&nbsp;|&nbsp;'horizontal'<br>
 return&nbsp;value&nbsp;is&nbsp;the&nbsp;colorbar&nbsp;axes&nbsp;instance</tt></dd></dl>
  <dl><dt><a name="-colormaps"><strong>colormaps</strong></a>()</dt><dd><tt>matplotlib&nbsp;provides&nbsp;the&nbsp;following&nbsp;colormaps.&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -566,8 +556,7 @@ colors&nbsp;is&nbsp;one&nbsp;of&nbsp;these:<br>
 &nbsp;&nbsp;-&nbsp;one&nbsp;string&nbsp;color,&nbsp;e.g.&nbsp;colors&nbsp;=&nbsp;'r'&nbsp;or&nbsp;colors&nbsp;=&nbsp;'red',&nbsp;all&nbsp;levels<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;this&nbsp;color<br>
 &nbsp;<br>
-&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;color&nbsp;for&nbsp;lines.color&nbsp;in<br>
-&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used.<br>
+&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;colormap&nbsp;will&nbsp;be&nbsp;used<br>
 &nbsp;<br>
 linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
 &nbsp;<br>
@@ -604,12 +593,17 @@ Return&nbsp;value&nbsp;is&nbsp;levels,&nbsp;collections&nbsp;where&nbsp;levels&n
 levels&nbsp;used&nbsp;and&nbsp;collections&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
 matplotlib.collections.LineCollection&nbsp;instances<br>
 &nbsp;<br>
+If&nbsp;cmap&nbsp;is&nbsp;not&nbsp;None,&nbsp;the&nbsp;collections&nbsp;list&nbsp;instance&nbsp;will&nbsp;have&nbsp;the<br>
+mappable&nbsp;attribute&nbsp;attached,&nbsp;where&nbsp;mappable&nbsp;is&nbsp;a&nbsp;cm.ScalarMappable<br>
+which&nbsp;contains&nbsp;the&nbsp;normalize&nbsp;instance&nbsp;and&nbsp;cmap&nbsp;instance&nbsp;and&nbsp;can&nbsp;be<br>
+used&nbsp;for&nbsp;colorbar&nbsp;functionality<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-cool"><strong>cool</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;cool&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-copper"><strong>copper</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;copper&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-cross_correlate"><strong>cross_correlate</strong></a>(...)</dt><dd><tt><a href="#-cross_correlate">cross_correlate</a>(a,v,&nbsp;mode=0)</tt></dd></dl>
- <dl><dt><a name="-csd"><strong>csd</strong></a>(*args, **kwargs)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
+ <dl><dt><a name="-csd"><strong>csd</strong></a>(*args, **kwargs)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)<br>
 &nbsp;<br>
 The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
 The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each<br>
@@ -1305,8 +1299,8 @@ winter&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;winter</
 Make&nbsp;a&nbsp;polar&nbsp;plot.&nbsp;&nbsp;Multiple&nbsp;theta,&nbsp;r&nbsp;arguments&nbsp;are&nbsp;supported,<br>
 with&nbsp;format&nbsp;strings,&nbsp;as&nbsp;in&nbsp;plot.</tt></dd></dl>
  <dl><dt><a name="-prism"><strong>prism</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;prism&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
- <dl><dt><a name="-psd"><strong>psd</strong></a>(*args, **kwargs)</dt><dd><tt>PSD(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+ <dl><dt><a name="-psd"><strong>psd</strong></a>(*args, **kwargs)</dt><dd><tt>PSD(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.&nbsp;&nbsp;The<br>
 vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment&nbsp;is<br>
@@ -1583,8 +1577,8 @@ kwargs.&nbsp;&nbsp;For&nbsp;example,&nbsp;the&nbsp;following&nbsp;are&nbsp;equiv
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-set">set</a>(lines,&nbsp;'linewidth',&nbsp;2,&nbsp;'color',&nbsp;r')&nbsp;&nbsp;#&nbsp;matlab&nbsp;style<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-set">set</a>(lines,&nbsp;linewidth=2,&nbsp;color='r')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;python&nbsp;style</tt></dd></dl>
- <dl><dt><a name="-specgram"><strong>specgram</strong></a>(*args, **kwargs)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=128,<br>
+ <dl><dt><a name="-specgram"><strong>specgram</strong></a>(*args, **kwargs)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=128,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmap=None,&nbsp;xextent=None)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Compute&nbsp;a&nbsp;spectrogram&nbsp;of&nbsp;data&nbsp;in&nbsp;x.&nbsp;&nbsp;Data&nbsp;are&nbsp;split&nbsp;into&nbsp;NFFT&nbsp;length<br>
@@ -1596,7 +1590,7 @@ of&nbsp;each&nbsp;segment&nbsp;is&nbsp;specified&nbsp;with&nbsp;noverlap.&nbsp;&
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;xextent&nbsp;is&nbsp;the&nbsp;image&nbsp;extent&nbsp;in&nbsp;the&nbsp;xaxes&nbsp;xextent=xmin,&nbsp;xmax&nbsp;-<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;0,&nbsp;max(bins),&nbsp;0,&nbsp;max(freqs)&nbsp;where&nbsp;bins&nbsp;is&nbsp;the&nbsp;return<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;from&nbsp;matplotlib.mlab.specgram<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;from&nbsp;matplotlib.matplotlib.mlab.specgram<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;See&nbsp;help(psd)&nbsp;for&nbsp;information&nbsp;on&nbsp;the&nbsp;other&nbsp;keyword&nbsp;arguments.<br>
 &nbsp;<br>
@@ -1821,66 +1815,37 @@ information&nbsp;on&nbsp;text&nbsp;properties.</tt></dd></dl>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>Character</strong> = 'c'<br>
-<strong>Complex</strong> = 'D'<br>
-<strong>Complex0</strong> = 'F'<br>
-<strong>Complex16</strong> = 'F'<br>
+<td width="100%"><strong>Complex</strong> = 'D'<br>
 <strong>Complex32</strong> = 'F'<br>
 <strong>Complex64</strong> = 'D'<br>
-<strong>Complex8</strong> = 'F'<br>
 <strong>DAILY</strong> = 3<br>
 <strong>FR</strong> = FR<br>
-<strong>FRIDAY</strong> = FR<br>
 <strong>Float</strong> = 'd'<br>
-<strong>Float0</strong> = 'f'<br>
-<strong>Float16</strong> = 'f'<br>
 <strong>Float32</strong> = 'f'<br>
 <strong>Float64</strong> = 'd'<br>
-<strong>Float8</strong> = 'f'<br>
 <strong>HOURLY</strong> = 4<br>
-<strong>HOURS_PER_DAY</strong> = 24.0<br>
-<strong>Infinity</strong> = inf<br>
 <strong>Int</strong> = 'l'<br>
-<strong>Int0</strong> = '1'<br>
 <strong>Int16</strong> = 's'<br>
 <strong>Int32</strong> = 'i'<br>
 <strong>Int8</strong> = '1'<br>
-<strong>LittleEndian</strong> = True<br>
 <strong>MINUTELY</strong> = 5<br>
-<strong>MINUTES_PER_DAY</strong> = 1440.0<br>
 <strong>MO</strong> = MO<br>
-<strong>MONDAY</strong> = MO<br>
 <strong>MONTHLY</strong> = 1<br>
-<strong>MUSECONDS_PER_DAY</strong> = 86400000000.0<br>
-<strong>NewAxis</strong> = None<br>
-<strong>PyObject</strong> = 'O'<br>
 <strong>SA</strong> = SA<br>
-<strong>SATURDAY</strong> = SA<br>
 <strong>SECONDLY</strong> = 6<br>
-<strong>SECONDS_PER_DAY</strong> = 86400.0<br>
-<strong>SEC_PER_DAY</strong> = 86400<br>
-<strong>SEC_PER_HOUR</strong> = 3600<br>
-<strong>SEC_PER_MIN</strong> = 60<br>
-<strong>SEC_PER_WEEK</strong> = 604800<br>
 <strong>SU</strong> = SU<br>
-<strong>SUNDAY</strong> = SU<br>
 <strong>TH</strong> = TH<br>
-<strong>THURSDAY</strong> = TH<br>
 <strong>TU</strong> = TU<br>
-<strong>TUESDAY</strong> = TU<br>
-<strong>UInt</strong> = 'u'<br>
 <strong>UInt16</strong> = 'w'<br>
 <strong>UInt32</strong> = 'u'<br>
 <strong>UInt8</strong> = 'b'<br>
-<strong>UnsignedInt16</strong> = 'w'<br>
-<strong>UnsignedInt32</strong> = 'u'<br>
-<strong>UnsignedInt8</strong> = 'b'<br>
-<strong>UnsignedInteger</strong> = 'u'<br>
 <strong>WE</strong> = WE<br>
-<strong>WEDNESDAY</strong> = WE<br>
-<strong>WEEKDAYS</strong> = (MO, TU, WE, TH, FR, SA, SU)<br>
 <strong>WEEKLY</strong> = 2<br>
 <strong>YEARLY</strong> = 0<br>
+<strong>__all__</strong> = ('date2num', 'num2date', 'drange', 'epoch2num', 'num2epoch', 'mx2num', 'DateFormatter', 'IndexDateFormatter', 'DateLocator', 'RRuleLocator', 'YearLocator', 'MonthLocator', 'WeekdayLocator', 'DayLocator', 'HourLocator', 'MinuteLocator', 'SecondLocator', 'rrule', 'MO', 'TU', ...)<br>
+<strong>__dates_all__</strong> = ('date2num', 'num2date', 'drange', 'epoch2num', 'num2epoch', 'mx2num', 'DateFormatter', 'IndexDateFormatter', 'DateLocator', 'RRuleLocator', 'YearLocator', 'MonthLocator', 'WeekdayLocator', 'DayLocator', 'HourLocator', 'MinuteLocator', 'SecondLocator', 'rrule', 'MO', 'TU', ...)<br>
+<strong>__nxall__</strong> = ['array', 'zeros', 'shape', 'rank', 'size', 'fromstring', 'take', 'put', 'putmask', 'reshape', 'repeat', 'choose', 'searchsorted', 'asum', 'cumsum', 'product', 'cumproduct', 'alltrue', 'sometrue', 'allclose', ...]<br>
+<strong>__plotting_all__</strong> = ['plotting', 'colormaps', 'get_current_fig_manager', 'connect', 'disconnect', 'get_plot_commands', 'raise_msg_to_str', 'axis', 'axes', 'delaxes', 'clim', 'close', 'clf', 'colorbar', 'draw', 'figtext', 'figimage', 'figlegend', 'figure', 'gca', ...]<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>add</strong> = &lt;ufunc 'add'&gt;<br>
 <strong>arccos</strong> = &lt;ufunc 'arccos'&gt;<br>
@@ -1898,24 +1863,14 @@ information&nbsp;on&nbsp;text&nbsp;properties.</tt></dd></dl>
 <strong>cos</strong> = &lt;ufunc 'cos'&gt;<br>
 <strong>cosh</strong> = &lt;ufunc 'cosh'&gt;<br>
 <strong>divide</strong> = &lt;ufunc 'divide'&gt;<br>
-<strong>divide_safe</strong> = &lt;ufunc 'divide_safe'&gt;<br>
-<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>e</strong> = 2.7182818284590451<br>
 <strong>equal</strong> = &lt;ufunc 'equal'&gt;<br>
 <strong>exp</strong> = &lt;ufunc 'exp'&gt;<br>
-<strong>exp_safe_MAX</strong> = 1.7976931348623157e+308<br>
-<strong>exp_safe_MIN</strong> = -708.39641853226408<br>
 <strong>fabs</strong> = &lt;ufunc 'fabs'&gt;<br>
 <strong>floor</strong> = &lt;ufunc 'floor'&gt;<br>
-<strong>floor_divide</strong> = &lt;ufunc 'floor_divide'&gt;<br>
 <strong>fmod</strong> = &lt;ufunc 'fmod'&gt;<br>
 <strong>greater</strong> = &lt;ufunc 'greater'&gt;<br>
 <strong>greater_equal</strong> = &lt;ufunc 'greater_equal'&gt;<br>
 <strong>hypot</strong> = &lt;ufunc 'hypot'&gt;<br>
-<strong>inf</strong> = inf<br>
-<strong>infty</strong> = inf<br>
-<strong>invert</strong> = &lt;ufunc 'invert'&gt;<br>
-<strong>left_shift</strong> = &lt;ufunc 'left_shift'&gt;<br>
 <strong>less</strong> = &lt;ufunc 'less'&gt;<br>
 <strong>less_equal</strong> = &lt;ufunc 'less_equal'&gt;<br>
 <strong>log</strong> = &lt;ufunc 'log'&gt;<br>
@@ -1929,23 +1884,14 @@ information&nbsp;on&nbsp;text&nbsp;properties.</tt></dd></dl>
 <strong>multiply</strong> = &lt;ufunc 'multiply'&gt;<br>
 <strong>negative</strong> = &lt;ufunc 'negative'&gt;<br>
 <strong>not_equal</strong> = &lt;ufunc 'not_equal'&gt;<br>
-<strong>nx</strong> = &lt;matplotlib.nc_imports._TypeNamespace instance&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
-<strong>rcParamsDefault</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
-<strong>readme</strong> = '<font color="#c040c0">\n</font>MLab2.py, release 1<font color="#c040c0">\n\n</font>Created on February 2003 b...<font color="#c040c0">\n</font>Look at: http://pdilib.sf.net for new releases.<font color="#c040c0">\n</font>'<br>
-<strong>remainder</strong> = &lt;ufunc 'remainder'&gt;<br>
-<strong>right_shift</strong> = &lt;ufunc 'right_shift'&gt;<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParamsDefault</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
 <strong>sinh</strong> = &lt;ufunc 'sinh'&gt;<br>
 <strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>
 <strong>subtract</strong> = &lt;ufunc 'subtract'&gt;<br>
 <strong>tan</strong> = &lt;ufunc 'tan'&gt;<br>
-<strong>tanh</strong> = &lt;ufunc 'tanh'&gt;<br>
-<strong>true_divide</strong> = &lt;ufunc 'true_divide'&gt;<br>
-<strong>typecodes</strong> = {'Character': 'c', 'Complex': 'FD', 'Float': 'fd', 'Integer': '1sil', 'UnsignedInteger': 'bwu'}<br>
-<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;<br>
-<strong>version</strong> = 'Numeric 23.1'<br>
-<strong>which</strong> = ('numeric', 'rc')</td></tr></table>
+<strong>tanh</strong> = &lt;ufunc 'tanh'&gt;</td></tr></table>
 @footer@

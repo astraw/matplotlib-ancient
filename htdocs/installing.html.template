@@ -122,13 +122,14 @@ although it is designed for astronomical analysis.</p>
 
 If you want to compile yourself on OS X, make sure you read the
 compiling instructions above.  You will need to install freetype2,
-libpng and zlib via fink or from src.  You will also need the base
-libraries for a given backend.  Eg, if you want to run TkAgg, you will
-need a python with Tkinter; if you want to use WxAgg, install
-wxpython.  See <a href=backends.html>backends</a> for a more
-comprehensive discussion of the various backend requirements.  Edit
-setup.py to configure the backends you want to build as described
-above.<p>
+libpng and zlib via fink or from src, or from a package manager such
+as fink or <a href=http://ii2.sourceforge.net>i-Installer</a>.  You
+will also need the base libraries for a given backend.  Eg, if you
+want to run TkAgg, you will need a python with Tkinter; if you want to
+use WxAgg, install wxpython.  See <a href=backends.html>backends</a>
+for a more comprehensive discussion of the various backend
+requirements.  Edit setup.py to configure the backends you want to
+build as described above.<p>
 
 Note when running a GUI backend in OSX, you should launch your
 programs with pythonw rather than python, or you may get

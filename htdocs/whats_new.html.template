@@ -4,7 +4,61 @@
 
 versioninfo = {}
 
+versioninfo['0.71'] = (
 
+  ('numerix refactor', """\
+The organization of the numerix module was refactored to be mindful of
+namespaces.  See <a href=API_CHANGES>API_CHANGES</a>.  pylab no longer
+overrides the built-ins min, max, and sum, and provides amin, amax and
+asum as the numerix/mlab versions of these.  To see the complete list
+of symbols provided
+<pre>
+    >>> import matplotlib.pylab
+    >>> matplotlib.pylab.__all__
+</pre>
+"""),	
+
+  ('contour zigzag bug fixed', """\
+Thanks Nadia for the blood, sweat and tears, and Dominique for the report."""),	
+
+  ('contour colormaps', """\
+Contour now uses the current colormap if colors is not provided, and works with  colorbars.  See <a href=examples/contour_demo2.py>contour_demo2.py</a>"""),	
+
+  ('colorbar enhancements', """\
+Horizontal colorbars supported with keyword arg <tt>orientation='horizontal'</tt> and colorbars can be placed in an arbitrary axes with keyword arg <tt>cax</tt>.  See <a href=matplotlib.pylab.html#-colorbar>colorbar</a>"""),	
+
+  ('accents in mathtext', """\
+Added accents to mathtext: <tt>\hat, \breve, \grave, \bar, \acute, \tilde,
+\vec, \dot, \ddot</tt>.  All of them have the same syntax, eg to make an
+overbar you do <tt>\bar{o}</tt> or to make an o umlaut you do <tt>\ddot{o}</tt>. The
+shortcuts are also provided, eg: <tt>\"o \'e \`e \~n \.x \^y </tt>
+
+See <a href=examples/accent_demo.py>accent_demo.py</a>.
+"""),
+
+  ('fixed super/subscript parsing in mathtext', """\
+Widowed superscripts now work, eg <tt>r'$^12\rm{CO}$'</tt>
+"""),
+
+
+  ('little bugs and enhancements', """\
+Plugged some memory leaks in wx and image module, fixed x,y args in
+contour, added latex symbol kappa, fixed a yticklabel problem under
+change in clim, fixed colorbar number of color bug, fixed set_clip_on
+bug, reverted pythoninspect in tkagg, fixed event handling bugs, fixed
+matlab-compatible load function, exposed vbox attr in
+FigureManagerGTK.
+"""),
+
+  
+
+  
+
+  
+
+
+
+)
 versioninfo['0.70'] = (
 
   ('Users guide', """\

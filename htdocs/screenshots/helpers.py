@@ -1,5 +1,6 @@
 import time, datetime
 from matplotlib.numerix import *
+from matplotlib.numerix.mlab import *
 from matplotlib.dates import date2num
 
 def load_quotes(fname, maxq=None):

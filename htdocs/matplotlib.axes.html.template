@@ -18,9 +18,8 @@
 </td><td width="25%" valign=top><a href="matplotlib.cm.html">matplotlib.cm</a><br>
 <a href="math.html">math</a><br>
 </td><td width="25%" valign=top><a href="matplotlib.html">matplotlib</a><br>
-<a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
-</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td></tr></table></td></tr></table><p>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -241,8 +240,8 @@ scalars&nbsp;or&nbsp;len(x)&nbsp;sequences</tt></dd></dl>
 
 <dl><dt><a name="Axes-clear"><strong>clear</strong></a>(self)</dt><dd><tt>clear&nbsp;the&nbsp;axes</tt></dd></dl>
 
-<dl><dt><a name="Axes-cohere"><strong>cohere</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>COHERE(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
+<dl><dt><a name="Axes-cohere"><strong>cohere</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>COHERE(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)<br>
 &nbsp;<br>
 cohere&nbsp;the&nbsp;coherence&nbsp;between&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;Coherence&nbsp;is&nbsp;the&nbsp;normalized<br>
 cross&nbsp;spectral&nbsp;density<br>
@@ -261,7 +260,7 @@ Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;An
 
 <dl><dt><a name="Axes-connect"><strong>connect</strong></a>(self, s, func)</dt></dl>
 
-<dl><dt><a name="Axes-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
+<dl><dt><a name="Axes-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>, origin<font color="#909090">=None</font>, cmap<font color="#909090">=None</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
 &nbsp;<br>
 plots&nbsp;contour&nbsp;lines&nbsp;of&nbsp;an&nbsp;image&nbsp;z<br>
 &nbsp;<br>
@@ -283,8 +282,7 @@ colors&nbsp;is&nbsp;one&nbsp;of&nbsp;these:<br>
 &nbsp;&nbsp;-&nbsp;one&nbsp;string&nbsp;color,&nbsp;e.g.&nbsp;colors&nbsp;=&nbsp;'r'&nbsp;or&nbsp;colors&nbsp;=&nbsp;'red',&nbsp;all&nbsp;levels<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;this&nbsp;color<br>
 &nbsp;<br>
-&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;color&nbsp;for&nbsp;lines.color&nbsp;in<br>
-&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used.<br>
+&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;colormap&nbsp;will&nbsp;be&nbsp;used<br>
 &nbsp;<br>
 linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
 &nbsp;<br>
@@ -319,10 +317,15 @@ More&nbsp;information&nbsp;on&nbsp;reg&nbsp;and&nbsp;triangle&nbsp;arrays&nbsp;i
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;levels,&nbsp;collections&nbsp;where&nbsp;levels&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;contour<br>
 levels&nbsp;used&nbsp;and&nbsp;collections&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
-matplotlib.collections.LineCollection&nbsp;instances</tt></dd></dl>
+matplotlib.collections.LineCollection&nbsp;instances<br>
+&nbsp;<br>
+If&nbsp;cmap&nbsp;is&nbsp;not&nbsp;None,&nbsp;the&nbsp;collections&nbsp;list&nbsp;instance&nbsp;will&nbsp;have&nbsp;the<br>
+mappable&nbsp;attribute&nbsp;attached,&nbsp;where&nbsp;mappable&nbsp;is&nbsp;a&nbsp;cm.ScalarMappable<br>
+which&nbsp;contains&nbsp;the&nbsp;normalize&nbsp;instance&nbsp;and&nbsp;cmap&nbsp;instance&nbsp;and&nbsp;can&nbsp;be<br>
+used&nbsp;for&nbsp;colorbar&nbsp;functionality</tt></dd></dl>
 
-<dl><dt><a name="Axes-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
+<dl><dt><a name="Axes-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)<br>
 &nbsp;<br>
 The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
 The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each<br>
@@ -869,8 +872,8 @@ and&nbsp;drange&nbsp;for&nbsp;help&nbsp;on&nbsp;creating&nbsp;the&nbsp;required&
 &nbsp;<br>
 tz&nbsp;is&nbsp;the&nbsp;timezone&nbsp;-&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;value</tt></dd></dl>
 
-<dl><dt><a name="Axes-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>PSD(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<dl><dt><a name="Axes-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>PSD(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.&nbsp;&nbsp;The<br>
 vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment&nbsp;is<br>
@@ -1106,8 +1109,8 @@ ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 &nbsp;<br>
 ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
-<dl><dt><a name="Axes-specgram"><strong>specgram</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>, xextent<font color="#909090">=None</font>)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=128,<br>
+<dl><dt><a name="Axes-specgram"><strong>specgram</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>, xextent<font color="#909090">=None</font>)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=128,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmap=None,&nbsp;xextent=None)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Compute&nbsp;a&nbsp;spectrogram&nbsp;of&nbsp;data&nbsp;in&nbsp;x.&nbsp;&nbsp;Data&nbsp;are&nbsp;split&nbsp;into&nbsp;NFFT&nbsp;length<br>
@@ -1119,7 +1122,7 @@ of&nbsp;each&nbsp;segment&nbsp;is&nbsp;specified&nbsp;with&nbsp;noverlap.&nbsp;&
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;xextent&nbsp;is&nbsp;the&nbsp;image&nbsp;extent&nbsp;in&nbsp;the&nbsp;xaxes&nbsp;xextent=xmin,&nbsp;xmax&nbsp;-<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;0,&nbsp;max(bins),&nbsp;0,&nbsp;max(freqs)&nbsp;where&nbsp;bins&nbsp;is&nbsp;the&nbsp;return<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;from&nbsp;matplotlib.mlab.specgram<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;from&nbsp;matplotlib.matplotlib.mlab.specgram<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;See&nbsp;help(psd)&nbsp;for&nbsp;information&nbsp;on&nbsp;the&nbsp;other&nbsp;keyword&nbsp;arguments.<br>
 &nbsp;<br>
@@ -1535,8 +1538,8 @@ scalars&nbsp;or&nbsp;len(x)&nbsp;sequences</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-clear"><strong>clear</strong></a>(self)</dt><dd><tt>clear&nbsp;the&nbsp;axes</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-cohere"><strong>cohere</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>COHERE(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
+<dl><dt><a name="PolarAxes-cohere"><strong>cohere</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>COHERE(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)<br>
 &nbsp;<br>
 cohere&nbsp;the&nbsp;coherence&nbsp;between&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;Coherence&nbsp;is&nbsp;the&nbsp;normalized<br>
 cross&nbsp;spectral&nbsp;density<br>
@@ -1555,7 +1558,7 @@ Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;An
 
 <dl><dt><a name="PolarAxes-connect"><strong>connect</strong></a>(self, s, func)</dt></dl>
 
-<dl><dt><a name="PolarAxes-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
+<dl><dt><a name="PolarAxes-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>, origin<font color="#909090">=None</font>, cmap<font color="#909090">=None</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
 &nbsp;<br>
 plots&nbsp;contour&nbsp;lines&nbsp;of&nbsp;an&nbsp;image&nbsp;z<br>
 &nbsp;<br>
@@ -1577,8 +1580,7 @@ colors&nbsp;is&nbsp;one&nbsp;of&nbsp;these:<br>
 &nbsp;&nbsp;-&nbsp;one&nbsp;string&nbsp;color,&nbsp;e.g.&nbsp;colors&nbsp;=&nbsp;'r'&nbsp;or&nbsp;colors&nbsp;=&nbsp;'red',&nbsp;all&nbsp;levels<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;this&nbsp;color<br>
 &nbsp;<br>
-&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;color&nbsp;for&nbsp;lines.color&nbsp;in<br>
-&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used.<br>
+&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;colormap&nbsp;will&nbsp;be&nbsp;used<br>
 &nbsp;<br>
 linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
 &nbsp;<br>
@@ -1613,10 +1615,15 @@ More&nbsp;information&nbsp;on&nbsp;reg&nbsp;and&nbsp;triangle&nbsp;arrays&nbsp;i
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;levels,&nbsp;collections&nbsp;where&nbsp;levels&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;contour<br>
 levels&nbsp;used&nbsp;and&nbsp;collections&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
-matplotlib.collections.LineCollection&nbsp;instances</tt></dd></dl>
+matplotlib.collections.LineCollection&nbsp;instances<br>
+&nbsp;<br>
+If&nbsp;cmap&nbsp;is&nbsp;not&nbsp;None,&nbsp;the&nbsp;collections&nbsp;list&nbsp;instance&nbsp;will&nbsp;have&nbsp;the<br>
+mappable&nbsp;attribute&nbsp;attached,&nbsp;where&nbsp;mappable&nbsp;is&nbsp;a&nbsp;cm.ScalarMappable<br>
+which&nbsp;contains&nbsp;the&nbsp;normalize&nbsp;instance&nbsp;and&nbsp;cmap&nbsp;instance&nbsp;and&nbsp;can&nbsp;be<br>
+used&nbsp;for&nbsp;colorbar&nbsp;functionality</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
+<dl><dt><a name="PolarAxes-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)<br>
 &nbsp;<br>
 The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
 The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each<br>
@@ -2154,8 +2161,8 @@ and&nbsp;drange&nbsp;for&nbsp;help&nbsp;on&nbsp;creating&nbsp;the&nbsp;required&
 &nbsp;<br>
 tz&nbsp;is&nbsp;the&nbsp;timezone&nbsp;-&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;value</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>PSD(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<dl><dt><a name="PolarAxes-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>PSD(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.&nbsp;&nbsp;The<br>
 vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment&nbsp;is<br>
@@ -2375,8 +2382,8 @@ ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 &nbsp;<br>
 ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-specgram"><strong>specgram</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>, xextent<font color="#909090">=None</font>)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=128,<br>
+<dl><dt><a name="PolarAxes-specgram"><strong>specgram</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>, xextent<font color="#909090">=None</font>)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=128,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmap=None,&nbsp;xextent=None)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Compute&nbsp;a&nbsp;spectrogram&nbsp;of&nbsp;data&nbsp;in&nbsp;x.&nbsp;&nbsp;Data&nbsp;are&nbsp;split&nbsp;into&nbsp;NFFT&nbsp;length<br>
@@ -2388,7 +2395,7 @@ of&nbsp;each&nbsp;segment&nbsp;is&nbsp;specified&nbsp;with&nbsp;noverlap.&nbsp;&
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;xextent&nbsp;is&nbsp;the&nbsp;image&nbsp;extent&nbsp;in&nbsp;the&nbsp;xaxes&nbsp;xextent=xmin,&nbsp;xmax&nbsp;-<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;0,&nbsp;max(bins),&nbsp;0,&nbsp;max(freqs)&nbsp;where&nbsp;bins&nbsp;is&nbsp;the&nbsp;return<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;from&nbsp;matplotlib.mlab.specgram<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;from&nbsp;matplotlib.matplotlib.mlab.specgram<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;See&nbsp;help(psd)&nbsp;for&nbsp;information&nbsp;on&nbsp;the&nbsp;other&nbsp;keyword&nbsp;arguments.<br>
 &nbsp;<br>
@@ -2814,8 +2821,8 @@ scalars&nbsp;or&nbsp;len(x)&nbsp;sequences</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-clear"><strong>clear</strong></a>(self)</dt><dd><tt>clear&nbsp;the&nbsp;axes</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-cohere"><strong>cohere</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>COHERE(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
+<dl><dt><a name="PolarSubplot-cohere"><strong>cohere</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>COHERE(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)<br>
 &nbsp;<br>
 cohere&nbsp;the&nbsp;coherence&nbsp;between&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;Coherence&nbsp;is&nbsp;the&nbsp;normalized<br>
 cross&nbsp;spectral&nbsp;density<br>
@@ -2834,7 +2841,7 @@ Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;An
 
 <dl><dt><a name="PolarSubplot-connect"><strong>connect</strong></a>(self, s, func)</dt></dl>
 
-<dl><dt><a name="PolarSubplot-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
+<dl><dt><a name="PolarSubplot-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>, origin<font color="#909090">=None</font>, cmap<font color="#909090">=None</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
 &nbsp;<br>
 plots&nbsp;contour&nbsp;lines&nbsp;of&nbsp;an&nbsp;image&nbsp;z<br>
 &nbsp;<br>
@@ -2856,8 +2863,7 @@ colors&nbsp;is&nbsp;one&nbsp;of&nbsp;these:<br>
 &nbsp;&nbsp;-&nbsp;one&nbsp;string&nbsp;color,&nbsp;e.g.&nbsp;colors&nbsp;=&nbsp;'r'&nbsp;or&nbsp;colors&nbsp;=&nbsp;'red',&nbsp;all&nbsp;levels<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;this&nbsp;color<br>
 &nbsp;<br>
-&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;color&nbsp;for&nbsp;lines.color&nbsp;in<br>
-&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used.<br>
+&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;colormap&nbsp;will&nbsp;be&nbsp;used<br>
 &nbsp;<br>
 linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
 &nbsp;<br>
@@ -2892,10 +2898,15 @@ More&nbsp;information&nbsp;on&nbsp;reg&nbsp;and&nbsp;triangle&nbsp;arrays&nbsp;i
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;levels,&nbsp;collections&nbsp;where&nbsp;levels&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;contour<br>
 levels&nbsp;used&nbsp;and&nbsp;collections&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
-matplotlib.collections.LineCollection&nbsp;instances</tt></dd></dl>
+matplotlib.collections.LineCollection&nbsp;instances<br>
+&nbsp;<br>
+If&nbsp;cmap&nbsp;is&nbsp;not&nbsp;None,&nbsp;the&nbsp;collections&nbsp;list&nbsp;instance&nbsp;will&nbsp;have&nbsp;the<br>
+mappable&nbsp;attribute&nbsp;attached,&nbsp;where&nbsp;mappable&nbsp;is&nbsp;a&nbsp;cm.ScalarMappable<br>
+which&nbsp;contains&nbsp;the&nbsp;normalize&nbsp;instance&nbsp;and&nbsp;cmap&nbsp;instance&nbsp;and&nbsp;can&nbsp;be<br>
+used&nbsp;for&nbsp;colorbar&nbsp;functionality</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
+<dl><dt><a name="PolarSubplot-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)<br>
 &nbsp;<br>
 The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
 The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each<br>
@@ -3433,8 +3444,8 @@ and&nbsp;drange&nbsp;for&nbsp;help&nbsp;on&nbsp;creating&nbsp;the&nbsp;required&
 &nbsp;<br>
 tz&nbsp;is&nbsp;the&nbsp;timezone&nbsp;-&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;value</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>PSD(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<dl><dt><a name="PolarSubplot-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>PSD(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.&nbsp;&nbsp;The<br>
 vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment&nbsp;is<br>
@@ -3654,8 +3665,8 @@ ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 &nbsp;<br>
 ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-specgram"><strong>specgram</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>, xextent<font color="#909090">=None</font>)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=128,<br>
+<dl><dt><a name="PolarSubplot-specgram"><strong>specgram</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>, xextent<font color="#909090">=None</font>)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=128,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmap=None,&nbsp;xextent=None)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Compute&nbsp;a&nbsp;spectrogram&nbsp;of&nbsp;data&nbsp;in&nbsp;x.&nbsp;&nbsp;Data&nbsp;are&nbsp;split&nbsp;into&nbsp;NFFT&nbsp;length<br>
@@ -3667,7 +3678,7 @@ of&nbsp;each&nbsp;segment&nbsp;is&nbsp;specified&nbsp;with&nbsp;noverlap.&nbsp;&
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;xextent&nbsp;is&nbsp;the&nbsp;image&nbsp;extent&nbsp;in&nbsp;the&nbsp;xaxes&nbsp;xextent=xmin,&nbsp;xmax&nbsp;-<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;0,&nbsp;max(bins),&nbsp;0,&nbsp;max(freqs)&nbsp;where&nbsp;bins&nbsp;is&nbsp;the&nbsp;return<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;from&nbsp;matplotlib.mlab.specgram<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;from&nbsp;matplotlib.matplotlib.mlab.specgram<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;See&nbsp;help(psd)&nbsp;for&nbsp;information&nbsp;on&nbsp;the&nbsp;other&nbsp;keyword&nbsp;arguments.<br>
 &nbsp;<br>
@@ -4036,8 +4047,8 @@ scalars&nbsp;or&nbsp;len(x)&nbsp;sequences</tt></dd></dl>
 
 <dl><dt><a name="Subplot-clear"><strong>clear</strong></a>(self)</dt><dd><tt>clear&nbsp;the&nbsp;axes</tt></dd></dl>
 
-<dl><dt><a name="Subplot-cohere"><strong>cohere</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>COHERE(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
+<dl><dt><a name="Subplot-cohere"><strong>cohere</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>COHERE(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)<br>
 &nbsp;<br>
 cohere&nbsp;the&nbsp;coherence&nbsp;between&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;Coherence&nbsp;is&nbsp;the&nbsp;normalized<br>
 cross&nbsp;spectral&nbsp;density<br>
@@ -4056,7 +4067,7 @@ Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;An
 
 <dl><dt><a name="Subplot-connect"><strong>connect</strong></a>(self, s, func)</dt></dl>
 
-<dl><dt><a name="Subplot-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
+<dl><dt><a name="Subplot-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>, origin<font color="#909090">=None</font>, cmap<font color="#909090">=None</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
 &nbsp;<br>
 plots&nbsp;contour&nbsp;lines&nbsp;of&nbsp;an&nbsp;image&nbsp;z<br>
 &nbsp;<br>
@@ -4078,8 +4089,7 @@ colors&nbsp;is&nbsp;one&nbsp;of&nbsp;these:<br>
 &nbsp;&nbsp;-&nbsp;one&nbsp;string&nbsp;color,&nbsp;e.g.&nbsp;colors&nbsp;=&nbsp;'r'&nbsp;or&nbsp;colors&nbsp;=&nbsp;'red',&nbsp;all&nbsp;levels<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;this&nbsp;color<br>
 &nbsp;<br>
-&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;color&nbsp;for&nbsp;lines.color&nbsp;in<br>
-&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used.<br>
+&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;colormap&nbsp;will&nbsp;be&nbsp;used<br>
 &nbsp;<br>
 linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
 &nbsp;<br>
@@ -4114,10 +4124,15 @@ More&nbsp;information&nbsp;on&nbsp;reg&nbsp;and&nbsp;triangle&nbsp;arrays&nbsp;i
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;levels,&nbsp;collections&nbsp;where&nbsp;levels&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;contour<br>
 levels&nbsp;used&nbsp;and&nbsp;collections&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
-matplotlib.collections.LineCollection&nbsp;instances</tt></dd></dl>
+matplotlib.collections.LineCollection&nbsp;instances<br>
+&nbsp;<br>
+If&nbsp;cmap&nbsp;is&nbsp;not&nbsp;None,&nbsp;the&nbsp;collections&nbsp;list&nbsp;instance&nbsp;will&nbsp;have&nbsp;the<br>
+mappable&nbsp;attribute&nbsp;attached,&nbsp;where&nbsp;mappable&nbsp;is&nbsp;a&nbsp;cm.ScalarMappable<br>
+which&nbsp;contains&nbsp;the&nbsp;normalize&nbsp;instance&nbsp;and&nbsp;cmap&nbsp;instance&nbsp;and&nbsp;can&nbsp;be<br>
+used&nbsp;for&nbsp;colorbar&nbsp;functionality</tt></dd></dl>
 
-<dl><dt><a name="Subplot-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)<br>
+<dl><dt><a name="Subplot-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)<br>
 &nbsp;<br>
 The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
 The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each<br>
@@ -4664,8 +4679,8 @@ and&nbsp;drange&nbsp;for&nbsp;help&nbsp;on&nbsp;creating&nbsp;the&nbsp;required&
 &nbsp;<br>
 tz&nbsp;is&nbsp;the&nbsp;timezone&nbsp;-&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;value</tt></dd></dl>
 
-<dl><dt><a name="Subplot-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>PSD(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<dl><dt><a name="Subplot-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>PSD(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.&nbsp;&nbsp;The<br>
 vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment&nbsp;is<br>
@@ -4901,8 +4916,8 @@ ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 &nbsp;<br>
 ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
-<dl><dt><a name="Subplot-specgram"><strong>specgram</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>, xextent<font color="#909090">=None</font>)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=128,<br>
+<dl><dt><a name="Subplot-specgram"><strong>specgram</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>, xextent<font color="#909090">=None</font>)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=128,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmap=None,&nbsp;xextent=None)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Compute&nbsp;a&nbsp;spectrogram&nbsp;of&nbsp;data&nbsp;in&nbsp;x.&nbsp;&nbsp;Data&nbsp;are&nbsp;split&nbsp;into&nbsp;NFFT&nbsp;length<br>
@@ -4914,7 +4929,7 @@ of&nbsp;each&nbsp;segment&nbsp;is&nbsp;specified&nbsp;with&nbsp;noverlap.&nbsp;&
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;xextent&nbsp;is&nbsp;the&nbsp;image&nbsp;extent&nbsp;in&nbsp;the&nbsp;xaxes&nbsp;xextent=xmin,&nbsp;xmax&nbsp;-<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;0,&nbsp;max(bins),&nbsp;0,&nbsp;max(freqs)&nbsp;where&nbsp;bins&nbsp;is&nbsp;the&nbsp;return<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;from&nbsp;matplotlib.mlab.specgram<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;from&nbsp;matplotlib.matplotlib.mlab.specgram<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;See&nbsp;help(psd)&nbsp;for&nbsp;information&nbsp;on&nbsp;the&nbsp;other&nbsp;keyword&nbsp;arguments.<br>
 &nbsp;<br>
@@ -5129,6 +5144,8 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>Float32</strong> = 'f'<br>
 <strong>Float64</strong> = 'd'<br>
 <strong>IDENTITY</strong> = 0<br>
+<strong>Int</strong> = 'l'<br>
+<strong>Int16</strong> = 's'<br>
 <strong>Int32</strong> = 'i'<br>
 <strong>LOG10</strong> = 1<br>
 <strong>POLAR</strong> = 0<br>
@@ -5146,7 +5163,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1, 'None': 1, 'steps': 1}<br>
 <strong>log</strong> = &lt;ufunc 'log'&gt;<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>
 <strong>which</strong> = ('numeric', 'rc')</td></tr></table>
 @footer@

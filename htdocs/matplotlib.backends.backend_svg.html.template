@@ -2,7 +2,7 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr bgcolor="#7799ee">
 <td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_svg</strong></big></big> (version 0.70)</font></td
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_svg</strong></big></big> (version 0.71)</font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_svg.py">/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_svg.py</a></font></td></tr></table>
     <p></p>
@@ -345,11 +345,11 @@ points&nbsp;to&nbsp;pixels&nbsp;=&nbsp;points&nbsp;*&nbsp;pixels_per_inch/72.0&n
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>__version__</strong> = '0.70'<br>
-<strong>backend_version</strong> = '0.70'<br>
+<td width="100%"><strong>__version__</strong> = '0.71'<br>
+<strong>backend_version</strong> = '0.71'<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>svgProlog</strong> = '&lt;?xml version="1.0" standalone="no"?&gt;<font color="#c040c0">\n</font>&lt;!DOCTYPE ...0"<font color="#c040c0">\n</font>   width="%f"<font color="#c040c0">\n</font>   height="%f"   <font color="#c040c0">\n</font>   id="svg1"&gt;<font color="#c040c0">\n</font>'<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

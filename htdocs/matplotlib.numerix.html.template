@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.numerix</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/numerix.py">/usr/local/lib/python2.3/site-packages/matplotlib/numerix.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/numerix/__init__.py">/usr/local/lib/python2.3/site-packages/matplotlib/numerix/__init__.py</a></font></td></tr></table>
     <p><tt>numerix&nbsp;&nbsp;imports&nbsp;either&nbsp;Numeric&nbsp;or&nbsp;numarray&nbsp;based&nbsp;on&nbsp;various&nbsp;selectors.<br>
 &nbsp;<br>
 0.&nbsp;&nbsp;If&nbsp;the&nbsp;value&nbsp;"--numarray"&nbsp;or&nbsp;"--Numeric"&nbsp;is&nbsp;specified&nbsp;on&nbsp;the<br>
@@ -23,23 +23,16 @@ and&nbsp;the&nbsp;default&nbsp;array&nbsp;package&nbsp;is&nbsp;Numeric.</tt></p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="LinearAlgebra.html">LinearAlgebra</a><br>
-<a href="MLab.html">MLab</a><br>
-<a href="Numeric.html">Numeric</a><br>
-<a href="RandomArray.html">RandomArray</a><br>
-</td><td width="25%" valign=top><a href="copy.html">copy</a><br>
-<a href="copy_reg.html">copy_reg</a><br>
-<a href="math.html">math</a><br>
-<a href="multiarray.html">multiarray</a><br>
-</td><td width="25%" valign=top><a href="os.html">os</a><br>
-<a href="pickle.html">pickle</a><br>
-<a href="string.html">string</a><br>
-<a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top><a href="types.html">types</a><br>
-</td></tr></table></td></tr></table><p>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="matplotlib.numerix._na_imports.html">_na_imports</a><br>
+<a href="matplotlib.numerix._nc_imports.html">_nc_imports</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.numerix.fft.html"><strong>fft</strong>&nbsp;(package)</a><br>
+<a href="matplotlib.numerix.linear_algebra.html"><strong>linear_algebra</strong>&nbsp;(package)</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.numerix.mlab.html"><strong>mlab</strong>&nbsp;(package)</a><br>
+<a href="matplotlib.numerix.random_array.html"><strong>random_array</strong>&nbsp;(package)</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -128,7 +121,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>greater_equal</strong> = &lt;ufunc 'greater_equal'&gt;<br>
 <strong>hypot</strong> = &lt;ufunc 'hypot'&gt;<br>
 <strong>inf</strong> = inf<br>
-<strong>infty</strong> = inf<br>
+<strong>infinity</strong> = inf<br>
 <strong>invert</strong> = &lt;ufunc 'invert'&gt;<br>
 <strong>left_shift</strong> = &lt;ufunc 'left_shift'&gt;<br>
 <strong>less</strong> = &lt;ufunc 'less'&gt;<br>
@@ -144,10 +137,10 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>multiply</strong> = &lt;ufunc 'multiply'&gt;<br>
 <strong>negative</strong> = &lt;ufunc 'negative'&gt;<br>
 <strong>not_equal</strong> = &lt;ufunc 'not_equal'&gt;<br>
-<strong>nx</strong> = &lt;matplotlib.nc_imports._TypeNamespace instance&gt;<br>
+<strong>nx</strong> = &lt;matplotlib.numerix._nc_imports._TypeNamespace instance&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>remainder</strong> = &lt;ufunc 'remainder'&gt;<br>
 <strong>right_shift</strong> = &lt;ufunc 'right_shift'&gt;<br>
 <strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>

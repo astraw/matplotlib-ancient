@@ -25,7 +25,8 @@ files = {
     'align_text.py'     : default,          
     'scatter_demo2.py'  : default, 
     'polar_demo.py'     : default,
-    'pie_demo.py'     : default,     
+    'pie_demo.py'     : default,
+    'plotmap.py'     : default,         
     }
 
 figsize = 'figsize=(8,6)'

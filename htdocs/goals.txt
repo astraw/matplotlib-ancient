@@ -107,6 +107,13 @@ support for arbitrary rotations depends on whether the backend
 supports arbitrary rotations (*Agg, PS, GD, Paint do; GTK and WX
 support only horizontal and vertical).  Added in <a href="whats_new.html#0.54-Newlines_in_text">matplotlib-0.54</a>.
 
+*******************
+International / unicode support
+
+some progress
+
+Via mathtext, you can use accented western characters, eg \"o and \'e,
+but the work on supporting unicode in general is not started.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Plot types
 *******************
@@ -133,7 +140,9 @@ interface command <a href=matplotlib.pylab.html#-polar>polar</a>
 command.  Note you can make other kinds of plots on polar, axes, eg
 scatter plots, as shown in <a
 href=examples/polar_scatter.py>polar_scatter.py</a>.  See <a
-href=screenshots.html#polar_demo>polar screenshot</a>.
+href=screenshots.html#polar_demo>polar screenshot</a>.  Some work
+remains to be done on making the navigation toolbar behave sanely wih
+polar plots.
 
 ******************* 
 Shared axes
@@ -171,6 +180,12 @@ algorithms.
 2-D vector plots
 
 not started
+
+*******************
+Gradient polygon fills
+
+not started
+
 
 *******************
 Full dash control
@@ -237,6 +252,21 @@ done
 
 Plots often clip error bars; fixed in <a
 href="whats_new.html#0.54-Bug_fix_roundup">matplotlib-0.54</a>.
+
+*******************
+Detachable axis from main axes box and customizable tickline locations
+
+not started
+
+Currently the axis line, the and the tick lines that abut it are fixed
+to the edge of the axes rectangular frame.  For some plots, it is nice
+to offset this line, eg for the xaxis below the rectqangluar axes
+area.  Also, for the ticks, it is nice to be able to place them on the
+axis line either centered, with the tick inside the frame, or outside,
+Currently, the only supported mode is inside, though there are hacks
+to work around this, eg as described in <a
+href=http://sourceforge.net/mailarchive/forum.php?thread_id=6348033&forum_id=33405>this
+thread</a> from matplotlib-users.
 
 ===========================================================================
 GUI Functionality

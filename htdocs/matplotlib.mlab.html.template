@@ -63,23 +63,13 @@ Credits:<br>
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="LinearAlgebra.html">LinearAlgebra</a><br>
-<a href="MLab.html">MLab</a><br>
-<a href="Numeric.html">Numeric</a><br>
-<a href="RandomArray.html">RandomArray</a><br>
-</td><td width="25%" valign=top><a href="copy.html">copy</a><br>
-<a href="copy_reg.html">copy_reg</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="matplotlib.numerix.linear_algebra.html">matplotlib.numerix.linear_algebra</a><br>
 <a href="math.html">math</a><br>
-<a href="multiarray.html">multiarray</a><br>
 </td><td width="25%" valign=top><a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
 <a href="operator.html">operator</a><br>
-<a href="os.html">os</a><br>
-<a href="pickle.html">pickle</a><br>
 </td><td width="25%" valign=top><a href="random.html">random</a><br>
-<a href="string.html">string</a><br>
 <a href="sys.html">sys</a><br>
-<a href="types.html">types</a><br>
-</td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -97,10 +87,6 @@ This&nbsp;function&nbsp;is&nbsp;needed&nbsp;by&nbsp;sqrtm&nbsp;and&nbsp;allows&n
 &nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
 specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
  <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
- <dl><dt><a name="-arrayrange"><strong>arrayrange</strong></a> = arange(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
-&nbsp;<br>
-&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
-specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
  <dl><dt><a name="-base_repr"><strong>base_repr</strong></a>(number, base<font color="#909090">=2</font>, padding<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;representation&nbsp;of&nbsp;a&nbsp;number&nbsp;in&nbsp;any&nbsp;given&nbsp;base.</tt></dd></dl>
  <dl><dt><a name="-binary_repr"><strong>binary_repr</strong></a>(number, max_length<font color="#909090">=1025</font>)</dt><dd><tt>Return&nbsp;the&nbsp;binary&nbsp;representation&nbsp;of&nbsp;the&nbsp;input&nbsp;number&nbsp;as&nbsp;a&nbsp;string.<br>
 &nbsp;<br>
@@ -115,7 +101,6 @@ converted&nbsp;to&nbsp;a&nbsp;Python&nbsp;float.</tt></dd></dl>
  <dl><dt><a name="-center_matrix"><strong>center_matrix</strong></a>(M, dim<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;matrix&nbsp;M&nbsp;with&nbsp;each&nbsp;row&nbsp;having&nbsp;zero&nbsp;mean&nbsp;and&nbsp;unit&nbsp;std<br>
 &nbsp;<br>
 if&nbsp;dim=1,&nbsp;center&nbsp;columns&nbsp;rather&nbsp;than&nbsp;rows</tt></dd></dl>
- <dl><dt><a name="-choose"><strong>choose</strong></a>(...)</dt><dd><tt><a href="#-choose">choose</a>(a,&nbsp;(b1,b2,...))</tt></dd></dl>
  <dl><dt><a name="-cohere"><strong>cohere</strong></a>(x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>cohere&nbsp;the&nbsp;coherence&nbsp;between&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;Coherence&nbsp;is&nbsp;the&nbsp;normalized<br>
 cross&nbsp;spectral&nbsp;density<br>
 &nbsp;<br>
@@ -198,7 +183,6 @@ Numeric&nbsp;arrays&nbsp;can&nbsp;be&nbsp;real&nbsp;or&nbsp;complex<br>
 The&nbsp;correlation&nbsp;matrix&nbsp;is&nbsp;defined&nbsp;from&nbsp;the&nbsp;covariance&nbsp;matrix&nbsp;C&nbsp;as<br>
 &nbsp;<br>
 r(i,j)&nbsp;=&nbsp;C[i,j]&nbsp;/&nbsp;sqrt(C[i,i]*C[j,j])</tt></dd></dl>
- <dl><dt><a name="-cross_correlate"><strong>cross_correlate</strong></a>(...)</dt><dd><tt><a href="#-cross_correlate">cross_correlate</a>(a,v,&nbsp;mode=0)</tt></dd></dl>
  <dl><dt><a name="-csd"><strong>csd</strong></a>(x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram<br>
 method.&nbsp;&nbsp;The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length<br>
 segments.&nbsp;&nbsp;Each&nbsp;segment&nbsp;is&nbsp;detrended&nbsp;by&nbsp;function&nbsp;detrend&nbsp;and<br>
@@ -283,7 +267,6 @@ Call&nbsp;it&nbsp;as&nbsp;(keywords&nbsp;are&nbsp;optional):<br>
 &nbsp;<br>
 The&nbsp;function&nbsp;MyFunction()&nbsp;is&nbsp;responsible&nbsp;for&nbsp;handling&nbsp;the&nbsp;dictionary&nbsp;of<br>
 keywords&nbsp;it&nbsp;will&nbsp;recieve.</tt></dd></dl>
- <dl><dt><a name="-fromstring"><strong>fromstring</strong></a>(...)</dt><dd><tt><a href="#-fromstring">fromstring</a>(string,&nbsp;typecode='l',&nbsp;count=-1)&nbsp;returns&nbsp;a&nbsp;new&nbsp;1d&nbsp;array&nbsp;initialized&nbsp;from&nbsp;the&nbsp;raw&nbsp;binary&nbsp;data&nbsp;in&nbsp;string.&nbsp;&nbsp;If&nbsp;count&nbsp;is&nbsp;positive,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;have&nbsp;count&nbsp;elements,&nbsp;otherwise&nbsp;it's&nbsp;size&nbsp;is&nbsp;determined&nbsp;by&nbsp;the&nbsp;size&nbsp;of&nbsp;string.</tt></dd></dl>
  <dl><dt><a name="-get_sparse_matrix"><strong>get_sparse_matrix</strong></a>(M, N, frac<font color="#909090">=0.10000000000000001</font>)</dt><dd><tt>return&nbsp;a&nbsp;MxN&nbsp;sparse&nbsp;matrix&nbsp;with&nbsp;frac&nbsp;elements&nbsp;randomly&nbsp;filled</tt></dd></dl>
  <dl><dt><a name="-get_xyz_where"><strong>get_xyz_where</strong></a>(Z, Cond)</dt><dd><tt>Z&nbsp;and&nbsp;Cond&nbsp;are&nbsp;MxN&nbsp;matrices.&nbsp;&nbsp;Z&nbsp;are&nbsp;data&nbsp;and&nbsp;Cond&nbsp;is&nbsp;a&nbsp;boolean<br>
 matrix&nbsp;where&nbsp;some&nbsp;condition&nbsp;is&nbsp;satisfied.&nbsp;&nbsp;Return&nbsp;value&nbsp;is&nbsp;x,y,z<br>
@@ -449,7 +432,7 @@ Refs:<br>
 The&nbsp;rank&nbsp;is&nbsp;understood&nbsp;here&nbsp;as&nbsp;the&nbsp;an&nbsp;estimation&nbsp;of&nbsp;the&nbsp;number&nbsp;of<br>
 linearly&nbsp;independent&nbsp;rows&nbsp;or&nbsp;columns&nbsp;(depending&nbsp;on&nbsp;the&nbsp;size&nbsp;of&nbsp;the<br>
 matrix).<br>
-Note&nbsp;that&nbsp;MLab.<a href="#-rank">rank</a>()&nbsp;is&nbsp;not&nbsp;equivalent&nbsp;to&nbsp;Matlab's&nbsp;rank.<br>
+Note&nbsp;that&nbsp;numerix.mlab.<a href="#-rank">rank</a>()&nbsp;is&nbsp;not&nbsp;equivalent&nbsp;to&nbsp;Matlab's&nbsp;rank.<br>
 This&nbsp;function&nbsp;is!</tt></dd></dl>
  <dl><dt><a name="-rem"><strong>rem</strong></a>(x, y)</dt><dd><tt>Remainder&nbsp;after&nbsp;division.<br>
 <a href="#-rem">rem</a>(x,y)&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;x&nbsp;-&nbsp;y.*<a href="#-fix">fix</a>(x./y)&nbsp;in&nbsp;case&nbsp;y&nbsp;is&nbsp;not&nbsp;zero.<br>
@@ -520,100 +503,23 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>Character</strong> = 'c'<br>
-<strong>Complex</strong> = 'D'<br>
-<strong>Complex0</strong> = 'F'<br>
-<strong>Complex16</strong> = 'F'<br>
-<strong>Complex32</strong> = 'F'<br>
-<strong>Complex64</strong> = 'D'<br>
-<strong>Complex8</strong> = 'F'<br>
+<td width="100%"><strong>Complex</strong> = 'D'<br>
 <strong>Float</strong> = 'd'<br>
-<strong>Float0</strong> = 'f'<br>
-<strong>Float16</strong> = 'f'<br>
-<strong>Float32</strong> = 'f'<br>
-<strong>Float64</strong> = 'd'<br>
-<strong>Float8</strong> = 'f'<br>
-<strong>Infinity</strong> = inf<br>
 <strong>Int</strong> = 'l'<br>
-<strong>Int0</strong> = '1'<br>
-<strong>Int16</strong> = 's'<br>
-<strong>Int32</strong> = 'i'<br>
-<strong>Int8</strong> = '1'<br>
-<strong>LittleEndian</strong> = True<br>
-<strong>NewAxis</strong> = None<br>
-<strong>PyObject</strong> = 'O'<br>
-<strong>UInt</strong> = 'u'<br>
-<strong>UInt16</strong> = 'w'<br>
-<strong>UInt32</strong> = 'u'<br>
-<strong>UInt8</strong> = 'b'<br>
-<strong>UnsignedInt16</strong> = 'w'<br>
-<strong>UnsignedInt32</strong> = 'u'<br>
-<strong>UnsignedInt8</strong> = 'b'<br>
-<strong>UnsignedInteger</strong> = 'u'<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
-<strong>add</strong> = &lt;ufunc 'add'&gt;<br>
-<strong>arccos</strong> = &lt;ufunc 'arccos'&gt;<br>
-<strong>arccosh</strong> = &lt;ufunc 'arccosh'&gt;<br>
-<strong>arcsin</strong> = &lt;ufunc 'arcsin'&gt;<br>
-<strong>arcsinh</strong> = &lt;ufunc 'arcsinh'&gt;<br>
-<strong>arctan</strong> = &lt;ufunc 'arctan'&gt;<br>
 <strong>arctan2</strong> = &lt;ufunc 'arctan2'&gt;<br>
-<strong>arctanh</strong> = &lt;ufunc 'arctanh'&gt;<br>
-<strong>bitwise_and</strong> = &lt;ufunc 'bitwise_and'&gt;<br>
-<strong>bitwise_or</strong> = &lt;ufunc 'bitwise_or'&gt;<br>
-<strong>bitwise_xor</strong> = &lt;ufunc 'bitwise_xor'&gt;<br>
 <strong>ceil</strong> = &lt;ufunc 'ceil'&gt;<br>
 <strong>conjugate</strong> = &lt;ufunc 'conjugate'&gt;<br>
-<strong>cos</strong> = &lt;ufunc 'cos'&gt;<br>
-<strong>cosh</strong> = &lt;ufunc 'cosh'&gt;<br>
 <strong>divide</strong> = &lt;ufunc 'divide'&gt;<br>
-<strong>divide_safe</strong> = &lt;ufunc 'divide_safe'&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>e</strong> = 2.7182818284590451<br>
-<strong>equal</strong> = &lt;ufunc 'equal'&gt;<br>
 <strong>exp</strong> = &lt;ufunc 'exp'&gt;<br>
 <strong>exp_safe_MAX</strong> = 1.7976931348623157e+308<br>
 <strong>exp_safe_MIN</strong> = -708.39641853226408<br>
-<strong>fabs</strong> = &lt;ufunc 'fabs'&gt;<br>
 <strong>floor</strong> = &lt;ufunc 'floor'&gt;<br>
-<strong>floor_divide</strong> = &lt;ufunc 'floor_divide'&gt;<br>
-<strong>fmod</strong> = &lt;ufunc 'fmod'&gt;<br>
-<strong>greater</strong> = &lt;ufunc 'greater'&gt;<br>
-<strong>greater_equal</strong> = &lt;ufunc 'greater_equal'&gt;<br>
-<strong>hypot</strong> = &lt;ufunc 'hypot'&gt;<br>
-<strong>inf</strong> = inf<br>
-<strong>infty</strong> = inf<br>
-<strong>invert</strong> = &lt;ufunc 'invert'&gt;<br>
-<strong>left_shift</strong> = &lt;ufunc 'left_shift'&gt;<br>
-<strong>less</strong> = &lt;ufunc 'less'&gt;<br>
-<strong>less_equal</strong> = &lt;ufunc 'less_equal'&gt;<br>
 <strong>log</strong> = &lt;ufunc 'log'&gt;<br>
-<strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
-<strong>logical_and</strong> = &lt;ufunc 'logical_and'&gt;<br>
-<strong>logical_not</strong> = &lt;ufunc 'logical_not'&gt;<br>
-<strong>logical_or</strong> = &lt;ufunc 'logical_or'&gt;<br>
-<strong>logical_xor</strong> = &lt;ufunc 'logical_xor'&gt;<br>
-<strong>maximum</strong> = &lt;ufunc 'maximum'&gt;<br>
-<strong>minimum</strong> = &lt;ufunc 'minimum'&gt;<br>
 <strong>multiply</strong> = &lt;ufunc 'multiply'&gt;<br>
-<strong>negative</strong> = &lt;ufunc 'negative'&gt;<br>
-<strong>not_equal</strong> = &lt;ufunc 'not_equal'&gt;<br>
-<strong>nx</strong> = &lt;matplotlib.nc_imports._TypeNamespace instance&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>readme</strong> = '<font color="#c040c0">\n</font>MLab2.py, release 1<font color="#c040c0">\n\n</font>Created on February 2003 b...<font color="#c040c0">\n</font>Look at: http://pdilib.sf.net for new releases.<font color="#c040c0">\n</font>'<br>
-<strong>remainder</strong> = &lt;ufunc 'remainder'&gt;<br>
-<strong>right_shift</strong> = &lt;ufunc 'right_shift'&gt;<br>
-<strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
-<strong>sinh</strong> = &lt;ufunc 'sinh'&gt;<br>
-<strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>
-<strong>subtract</strong> = &lt;ufunc 'subtract'&gt;<br>
-<strong>tan</strong> = &lt;ufunc 'tan'&gt;<br>
-<strong>tanh</strong> = &lt;ufunc 'tanh'&gt;<br>
-<strong>true_divide</strong> = &lt;ufunc 'true_divide'&gt;<br>
-<strong>typecodes</strong> = {'Character': 'c', 'Complex': 'FD', 'Float': 'fd', 'Integer': '1sil', 'UnsignedInteger': 'bwu'}<br>
-<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;<br>
-<strong>version</strong> = 'Numeric 23.1'<br>
-<strong>which</strong> = ('numeric', 'rc')</td></tr></table>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

@@ -23,10 +23,17 @@
 &nbsp;<br>
 &nbsp;&nbsp;The&nbsp;fonts&nbsp;\cal,&nbsp;\rm,&nbsp;\it,&nbsp;and&nbsp;\tt&nbsp;are&nbsp;allowed.<br>
 &nbsp;<br>
+&nbsp;&nbsp;The&nbsp;following&nbsp;accents&nbsp;are&nbsp;provided:&nbsp;\hat,&nbsp;\breve,&nbsp;\grave,&nbsp;\bar,<br>
+&nbsp;&nbsp;\acute,&nbsp;\tilde,&nbsp;\vec,&nbsp;\dot,&nbsp;\ddot.&nbsp;&nbsp;All&nbsp;of&nbsp;them&nbsp;have&nbsp;the&nbsp;same<br>
+&nbsp;&nbsp;syntax,&nbsp;eg&nbsp;to&nbsp;make&nbsp;an&nbsp;overbar&nbsp;you&nbsp;do&nbsp;\bar{o}&nbsp;or&nbsp;to&nbsp;make&nbsp;an&nbsp;o&nbsp;umlaut<br>
+&nbsp;&nbsp;you&nbsp;do&nbsp;\ddot{o}.&nbsp;&nbsp;The&nbsp;shortcuts&nbsp;are&nbsp;also&nbsp;provided,&nbsp;eg:&nbsp;\"o&nbsp;\'e&nbsp;\`e<br>
+&nbsp;&nbsp;\~n&nbsp;\.x&nbsp;\^y<br>
+&nbsp;<br>
 &nbsp;&nbsp;The&nbsp;spacing&nbsp;elements&nbsp;\&nbsp;,&nbsp;\/&nbsp;and&nbsp;\hspace{num}&nbsp;are&nbsp;provided.&nbsp;&nbsp;\/<br>
 &nbsp;&nbsp;inserts&nbsp;a&nbsp;small&nbsp;space,&nbsp;and&nbsp;\hspace{num}&nbsp;inserts&nbsp;a&nbsp;fraction&nbsp;of&nbsp;the<br>
 &nbsp;&nbsp;current&nbsp;fontsize.&nbsp;&nbsp;Eg,&nbsp;if&nbsp;num=0.5&nbsp;and&nbsp;the&nbsp;fontsize&nbsp;is&nbsp;12.0,<br>
 &nbsp;&nbsp;hspace{0.5}&nbsp;inserts&nbsp;6&nbsp;points&nbsp;of&nbsp;space<br>
+&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;<br>
 &nbsp;&nbsp;If&nbsp;you&nbsp;find&nbsp;TeX&nbsp;expressions&nbsp;that&nbsp;don't&nbsp;parse&nbsp;or&nbsp;render&nbsp;properly,<br>
@@ -107,7 +114,7 @@ USAGE:<br>
 &nbsp;&nbsp;\subseteq&nbsp;\succ&nbsp;\succeq&nbsp;\sum&nbsp;\supset&nbsp;\supseteq&nbsp;\swarrow&nbsp;\tau&nbsp;\theta<br>
 &nbsp;&nbsp;\times&nbsp;\top&nbsp;\triangleleft&nbsp;\triangleright&nbsp;\uparrow&nbsp;\updownarrow<br>
 &nbsp;&nbsp;\uplus&nbsp;\upsilon&nbsp;\varepsilon&nbsp;\varphi&nbsp;\varphi&nbsp;\varrho&nbsp;\varsigma<br>
-&nbsp;&nbsp;\vartheta&nbsp;\vdash&nbsp;\vee&nbsp;\wedge&nbsp;\wp&nbsp;\wr&nbsp;\xi&nbsp;\zeta<br>
+&nbsp;&nbsp;\vartheta&nbsp;\vdash&nbsp;\vee&nbsp;\vert&nbsp;\wedge&nbsp;\wp&nbsp;\wr&nbsp;\xi&nbsp;\zeta<br>
 &nbsp;<br>
 &nbsp;&nbsp;<br>
 BACKENDS<br>
@@ -464,6 +471,8 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#Eleme
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
+<dl><dt><a name="Handler-accent"><strong>accent</strong></a>(self, s, loc, toks)</dt></dl>
+
 <dl><dt><a name="Handler-clear"><strong>clear</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Handler-composite"><strong>composite</strong></a>(self, s, loc, toks)</dt></dl>
@@ -500,7 +509,8 @@ Data and other attributes defined here:<br>
 <td colspan=2><tt>blank&nbsp;horizontal&nbsp;space<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="SpaceElement-__init__"><strong>__init__</strong></a>(self, space)</dt><dd><tt>space&nbsp;is&nbsp;the&nbsp;amount&nbsp;of&nbsp;blank&nbsp;space&nbsp;in&nbsp;fraction&nbsp;of&nbsp;fontsize</tt></dd></dl>
+<dl><dt><a name="SpaceElement-__init__"><strong>__init__</strong></a>(self, space, height<font color="#909090">=0</font>)</dt><dd><tt>space&nbsp;is&nbsp;the&nbsp;amount&nbsp;of&nbsp;blank&nbsp;space&nbsp;in&nbsp;fraction&nbsp;of&nbsp;fontsize<br>
+height&nbsp;is&nbsp;the&nbsp;height&nbsp;of&nbsp;the&nbsp;space&nbsp;in&nbsp;fraction&nbsp;of&nbsp;fontsize</tt></dd></dl>
 
 <dl><dt><a name="SpaceElement-advance"><strong>advance</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;horiz&nbsp;advance</tt></dd></dl>
 
@@ -643,6 +653,7 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
+<strong>accent</strong> = accent<br>
 <strong>alphanums</strong> = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'<br>
 <strong>alphas</strong> = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'<br>
 <strong>ampersand</strong> = "&amp;"<br>

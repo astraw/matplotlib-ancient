@@ -124,6 +124,29 @@ and then the errorbar command will pick a "locator" to handle ticking
 and viewport scaling appropriately from the outset.  This is the
 approach taken in <a href=examples/log_bar.py>log_bar.py</a>.
 """),
+
+    ('EQUAL', 
+     'How do I make my figure square / axes sides equal?',
+     """\
+There are three considerations: the width/height of the figure, of the
+axes, and the view limits
+
+<pre>
+figure(figsize=(8,8))       # figure sides equal
+axes([0.1, 0.1, 0.8, 0.8])  # axes width, height equal
+plot(something)
+axis([-5, 5, -5, 5])        # view limits equal
+</pre>
+
+Note that your display device may not have the same dpi, in which case
+your image will still not look square on your display.  I should
+probably add dpix and dpiy to correct for this.  ZBut your postscript
+and other hardcopy will be correct.<p>
+
+If you really want square on a display with different horizontal and
+vertical resolutions, you can do a little hack on the figure width and
+height to correct for the display differences.
+"""),
     
     ('FREEZE',
     'My matplotlib window is freezing',

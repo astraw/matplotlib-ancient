@@ -108,9 +108,20 @@ show()
 </td></tr>
 </table><br>
 
-<a href=pylab.html#-plot>plot</a> is a versatile command, and will
-take an arbitrary number of arguments.  For example, to plot x versus
-y, you can issue the command<p>
+If you are new to python, the first question you are probably asking
+yourself about this plot is, "Why does the xaxis range from 0-3 and
+the yaxis from 0-4."  The answer is that if you provide a single list
+or array to the plot command, matplotlib assumes it a vector of
+y-values, and automatically generates the x-values for you.  Since
+python ranges start with 0, the default x vector has the same length
+as your y vector but starts with 0.  Hence the x vector is [0,1,2,3].
+
+Of course, if you don't want the default behavior, you can supply the
+x data explicitly, as in <tt>plot(x,y)</tt> where <tt>x</tt> and
+<tt>y</tt> are equal length vectors.<p> <a
+href=pylab.html#-plot>plot</a> is a versatile command, and will take
+an arbitrary number of arguments.  For example, to plot x versus y,
+you can issue the command<p>
 
 <pre>
 plot([1,2,3,4], [1,4,9,16])
@@ -160,9 +171,9 @@ with different format styles in one command using numerix arrays.
 Note if you are not familiar with Numeric or numarray, now would be a
 good time to check out the documentation at <a
 href=http://www.pfdubois.com/numpy>Numerical python</a> since a lot of
-the matplotlib examples assume you know Numeric, and the
-pylab imports all the numerical python and associated
-(MLab/FFT/etc) functionality.<p>
+the matplotlib examples assume you know Numeric, and the pylab module
+imports all the numerical python and associated (MLab/FFT/etc)
+functionality.<p>
 
 <table @plot_table_border@><tr><td>
 <table>
@@ -194,14 +205,15 @@ There are several ways to set line properties
 plot(x, y, linewidth=2.0)  
 
 # Use the setter methods of the Line2D instance.  plot returns a list
-# of lines (eg line1, line2 = plot(x1,y1,x2,x2)).  Below I have only
+# of lines; eg line1, line2 = plot(x1,y1,x2,x2).  Below I have only
 # one line so it is a list of length 1.  I use tuple unpacking in the
 # line, = plot(x, y, 'o') to get the first element of the list
 line, = plot(x, y, 'o')
 line.set_antialiased(False) # turn off antialising
 
 # Use the set command.  The example below uses matlab handle graphics
-# style command to set multiple properties on a list of lines
+# style command to set multiple properties on a list of lines.  Set
+# works transparently with a list of objects or a single object
 lines = plot(x1, y1, x2, y2) 
 set(lines, color='r', linewidth=2.0)
 
@@ -218,6 +230,17 @@ set(lines, 'color', 'r', 'linewidth', 2.0)
       <tr><td align=left>@prop@</td> <td align=left>@values@</td></tr>
     -
 </table><br>
+
+To get a list of settable line properties, call the <a
+href=matplotlib.pylab.html#-set>set</a> function with a line or lines
+as argument
+
+<pre>
+>>> lines = plot([1,2,3])
+>>> set(lines)
+
+</pre>
+
 
 <a name=figs_and_axes>
 <h3>Working with multiple figure and axes</h3>
@@ -475,6 +498,12 @@ Here "s" and "t" are variable in italics font (default), "sin" is in
 roman font, and the amplitude "A" is in caligraphy font. The font
 choices are roman <tt>\rm</tt>, italics <tt>\it</tt>, caligraphy
 <tt>\cal</tt>, and typewriter <tt>\tt</tt> <p>
+
+The following accents are provided: <tt>\hat</tt>, <tt>\breve</tt>,
+<tt>\grave</tt>, <tt>\bar</tt>, <tt>\acute</tt>, <tt>\tilde</tt>,
+<tt>\vec</tt>, <tt>\dot</tt>, <tt>\ddot</tt>.  All of them have the
+same syntax, eg to make an overbar you do <tt>\bar{o}</tt> or to make an o
+umlaut you do <tt>\ddot{o}</tt>.<p>
 
 
 <table @plot_table_border@><tr><td>

@@ -60,9 +60,14 @@ financial plot.  Some of the data in the plot, are real financial
 data, some are random traces that I used since the goal was to
 illustrate plotting techniques, not market analysis!""", 1),
 
-('plotmap', """Jeff Whitaker provided this nice example showing how to
-efficiently plot a collection of lines over a colormap image.
-""", 1),
+('plotmap', """Jeff Whitaker provided this example showing how to
+efficiently plot a collection of lines over a colormap image using the
+<a
+href=http://www.cdc.noaa.gov/people/jeffrey.s.whitaker/python/basemap>basemap
+matplotlib toolkit</a>.  Many map projections are handled via the proj
+command line tool: cylindrical equidistant, mercator, lambert
+conformal conic, lambert azimuthal equal area, albers equal area conic
+and stereographic.  """, 1),
 
 
 

@@ -90,7 +90,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137300960)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137215904)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -482,11 +482,11 @@ Data and other attributes inherited from <a href="matplotlib.backend_bases.html#
 <strong>IMAGE_FORMAT_DEFAULT</strong> = 'png'<br>
 <strong>PIXELS_PER_INCH</strong> = 96<br>
 <strong>UInt8</strong> = 'b'<br>
-<strong>backend_version</strong> = 'PyGTK(2.2.0)'<br>
+<strong>backend_version</strong> = 'PyGTK(2.2.0),PyCairo ??'<br>
 <strong>cursord</strong> = {0: &lt;GdkCursor&gt;, 1: &lt;GdkCursor&gt;, 2: &lt;GdkCursor&gt;, 3: &lt;GdkCursor&gt;}<br>
 <strong>cursors</strong> = &lt;matplotlib.backend_bases.Cursors instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
-<strong>nx</strong> = &lt;matplotlib.nc_imports._TypeNamespace instance&gt;<br>
+<strong>nx</strong> = &lt;matplotlib.numerix._nc_imports._TypeNamespace instance&gt;<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

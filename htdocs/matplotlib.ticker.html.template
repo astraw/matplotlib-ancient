@@ -1031,6 +1031,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>Float</strong> = 'd'<br>
+<strong>__all__</strong> = ('TickHelper', 'Formatter', 'FixedFormatter', 'NullFormatter', 'FuncFormatter', 'FormatStrFormatter', 'ScalarFormatter', 'LogFormatter', 'LogFormatterExponent', 'LogFormatterMathtext', 'Locator', 'IndexLocator', 'FixedLocator', 'NullLocator', 'LinearLocator', 'LogLocator', 'AutoLocator', 'MultipleLocator')<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>log</strong> = &lt;ufunc 'log'&gt;<br>
 <strong>logical_and</strong> = &lt;ufunc 'logical_and'&gt;<br>

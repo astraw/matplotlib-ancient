@@ -408,6 +408,8 @@ Update&nbsp;the&nbsp;cmap,&nbsp;norm&nbsp;accordingly</tt></dd></dl>
 
 <dl><dt><a name="PatchCollection-set_cmap"><strong>set_cmap</strong></a>(self, cmap)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
 
+<dl><dt><a name="PatchCollection-set_colorbar"><strong>set_colorbar</strong></a>(self, im, ax)</dt><dd><tt>set&nbsp;the&nbsp;colorbar&nbsp;image&nbsp;and&nbsp;axes&nbsp;associated&nbsp;with&nbsp;mappable</tt></dd></dl>
+
 <dl><dt><a name="PatchCollection-set_norm"><strong>set_norm</strong></a>(self, norm)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
 
 <dl><dt><a name="PatchCollection-to_rgba"><strong>to_rgba</strong></a>(self, x, alpha<font color="#909090">=1.0</font>)</dt></dl>
@@ -560,6 +562,8 @@ Update&nbsp;the&nbsp;cmap,&nbsp;norm&nbsp;accordingly</tt></dd></dl>
 
 <dl><dt><a name="PolyCollection-set_cmap"><strong>set_cmap</strong></a>(self, cmap)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
 
+<dl><dt><a name="PolyCollection-set_colorbar"><strong>set_colorbar</strong></a>(self, im, ax)</dt><dd><tt>set&nbsp;the&nbsp;colorbar&nbsp;image&nbsp;and&nbsp;axes&nbsp;associated&nbsp;with&nbsp;mappable</tt></dd></dl>
+
 <dl><dt><a name="PolyCollection-set_norm"><strong>set_norm</strong></a>(self, norm)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
 
 <dl><dt><a name="PolyCollection-to_rgba"><strong>to_rgba</strong></a>(self, x, alpha<font color="#909090">=1.0</font>)</dt></dl>
@@ -709,6 +713,8 @@ Update&nbsp;the&nbsp;cmap,&nbsp;norm&nbsp;accordingly</tt></dd></dl>
 
 <dl><dt><a name="RegularPolyCollection-set_cmap"><strong>set_cmap</strong></a>(self, cmap)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
 
+<dl><dt><a name="RegularPolyCollection-set_colorbar"><strong>set_colorbar</strong></a>(self, im, ax)</dt><dd><tt>set&nbsp;the&nbsp;colorbar&nbsp;image&nbsp;and&nbsp;axes&nbsp;associated&nbsp;with&nbsp;mappable</tt></dd></dl>
+
 <dl><dt><a name="RegularPolyCollection-set_norm"><strong>set_norm</strong></a>(self, norm)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
 
 <dl><dt><a name="RegularPolyCollection-to_rgba"><strong>to_rgba</strong></a>(self, x, alpha<font color="#909090">=1.0</font>)</dt></dl>
@@ -734,7 +740,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <td width="100%"><strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>cos</strong> = &lt;ufunc 'cos'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
 <strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;</td></tr></table>
 @footer@
