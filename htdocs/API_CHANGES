@@ -3,22 +3,13 @@ API CHANGES in matplotlib-0.71
    Significant numerix namespace changes, introduced to resolve
    namespace clashes between python built-ins and mlab names.
    Refactored numerix to maintain separate modules, rather than
-   folding all these names into a single namespace.  See the following
-   mailing list threads for more information and background
+   folding all these names into a single namespace
 
-     http://sourceforge.net/mailarchive/forum.php?thread_id=6398890&forum_id=36187
-     http://sourceforge.net/mailarchive/forum.php?thread_id=6323208&forum_id=36187
-
-
-  OLD usage
-
-   from matplotlib.numerix import array, mean, fft
-
-  NEW usage
-
+  OLD 
+   from matplotlib.numerix import array, mean
+  NEW
    from matplotlib.numerix import array
    from matplotlib.numerix.mlab import mean
-   from matplotlib.numerix.fft import fft
 
   numerix dir structure mirrors numarray (though it is an incomplete
   implementation)
@@ -37,6 +28,12 @@ API CHANGES in matplotlib-0.71
   (min, max, sum), pylab keeps the builtins and provides the numeric
   versions with an a* prefix, eg (amin, amax, asum)
 
+  See the following mailing list threads for more information and
+  background
+
+     http://sourceforge.net/mailarchive/forum.php?thread_id=6398890&forum_id=36187
+
+     http://sourceforge.net/mailarchive/forum.php?thread_id=6323208&forum_id=36187
 
 
 API CHANGES in matplotlib-0.70

@@ -62,14 +62,25 @@ matplotlib was written by John Hunter<p>
   mathtext grammar.</i>
 
 
+  <li>Fernando Perez has provided numerous bug reports and patches for
+  cleaning up backend imports and expanding pylab functionality, and
+  provided matplotlib support in the pylab mode for <a
+  href=http://ipython.scipy.org>ipython</a>.</li>
+
   <li>Andrew Dalke of Dalke Scientific Software contributed the
   strftime formatting code to handle years earlier than 1900</li>
 
-  <li>Jochen Voss maintains the PS backend and has contributes several
+  <li>Jochen Voss maintains the PS backend and has contributed several
   bugfixes.</li>
 
   <li>Nadia Dencheva <dencheva@stsci.edu> of <a
   href=http://www.stsci.edu/>STSci</a> provided the contouring code</li>
+
+  <li>Baptiste Carvello provided the key ideas in a patch for proper
+  shared axes support that underlies ganged plots and multiscale
+  plots<</li>
+
 </ul>
+  
 
 @footer@

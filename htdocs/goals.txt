@@ -147,14 +147,19 @@ polar plots.
 ******************* 
 Shared axes
 
-not started
+done
 
-Although it is now possible to have multiple plots share a common
-axis, this work would make it easier to create such plots.
+<a href="whats_new.html#0.72-shared_axes">matplotlib-0.72</a> added
+the <tt>sharex</tt> and <tt>sharey</tt> keyword args to the <a
+href=matplotlib.pylab.html#-axes>axes</a> and <a
+href=matplotlib.pylab.html#-subplot>subplot</a> commands.  See <a
+href=examples/shared_axis_demo.py>shared_axis_demo.py</a>, <a
+href=examples/ganged_plots.py>ganged_plots.py</a>  and <a
+href=examples/two_scales.py>two_scales.py</a>.
 *******************
 Contour plots
 
-work in progress
+mostly done
 
 A <a href=matplotlib.pylab.html#-contour>contour</a> routine was
 provided in <a href="whats_new.html#0.65-contour">matplotlib-0.65</a> .
@@ -227,21 +232,23 @@ with matplotlib imshow to incorporate 3D but much more work is needed.
 *******************
 Pie Charts
 
-Matlab&reg compatible <a href=matplotlib.pylab.html#-pie>pie</a> command
-implemented in in <a
-href="whats_new.html#0.70-pie_charts">matplotlib-0.70</a> .
+done
 
+Matlab&reg compatible <a href=matplotlib.pylab.html#-pie>pie</a>
+command implemented in in <a
+href="whats_new.html#0.70-pie_charts">matplotlib-0.70</a> .  See <a
+href=screenshots.html#pie_demo>pie screenshot</a>.
 
-See <a href=screenshots.html#pie_demo>pie screenshot</a>.
 *******************
 Map Projections
 
 some preliminary work
 
 Support standard map projections (e.g., Mercator) as well as allowing
-user-defined 2-D coordinate mappings. Jeffrey Whittaker has been
-working on a cartographic project module for use with matplotlib.  See
-<a href=screenshots.html#plotmap>the plotmap demo</a>.
+user-defined 2-D coordinate mappings. Jeffrey Whittaker has released a
+matplotlib toolkit <i>basemap</i>, a cartographic project module for
+use with matplotlib.  See <a href=screenshots.html#plotmap>the plotmap
+demo</a> for more information.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Axis autoranging and tick customization
@@ -273,7 +280,7 @@ GUI Functionality
 *******************
 Generalized event handling framework
 
-partly done
+mostly done
 
 Provide a standard event handling framework that works with all GUI
 back-ends. Some basic event handling, GUI neutral, event handling is
@@ -281,7 +288,8 @@ implemented with the <a
 href=matplotlib.pylab.html#-connect>connect</a> and <a
 href=matplotlib.pylab.html#-disconnect>disconnect</a>
 methods.  See, for example, <a
-href=examples/coords_demo.py>coords_demo.py</a>.
+href=examples/coords_demo.py>coords_demo.py</a> and <a
+href=examples/keypress_demo.py>keypress_demo.py</a>
 
 *******************
 Key press event handling
@@ -358,10 +366,11 @@ Documentation
 *******************
 Fixed and non-fixed interfaces
 
-work in progress on User's Guide in CVS
+in progress
 
-Provide a guide to users as to what parts of matplotlib should
-not change and what parts may still change.
+The users guide available on the matplotlib web site is beginning to
+document the API.
+
 ============================================================================
 User Interface
 *******************

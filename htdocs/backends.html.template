@@ -248,7 +248,7 @@ includes Tkinter support by default on Red Hat Linux.
 In general, TkAgg is known to work with
 <ul>
 <li>python</li>
-<li>idle -n</li>
+<li>idle -n (set <tt>tk.PYTHONINSPECT : True</tt> in <a href=.matplotlibrc>.matplotlibrc</a> </li>
 <li>IPython</li>
 </ul>
 
