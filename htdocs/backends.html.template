@@ -61,6 +61,7 @@ The current backend strings that are supported are
 href=matplotlib.backends.backend_gd.html>GD</a>, <a
 href=matplotlib.backends.backend_agg.html>Agg</a>, <a
 href=matplotlib.backends.backend_gtk.html>GTK</a>, <a
+href=matplotlib.backends.backend_gtkagg.html>GTKAgg</a>, <a
 href=matplotlib.backends.backend_ps.html>PS</a> <a
 href=matplotlib.backends.backend_tkagg.html>TkAgg</a> <a
 href=matplotlib.backends.backend_ps.html>WX</a> <a
@@ -89,6 +90,7 @@ this page below or by clicking
 <li><a href=backends.html#GTK>GTK</a></li>
 <li><a href=backends.html#Agg>Agg</a></li>
 <li><a href=backends.html#TkAgg>TkAgg</a></li>
+<li><a href=backends.html#GTKAgg>GTKAgg</a></li>
 <li><a href=backends.html#WX>WX</a></li>
 <li><a href=backends.html#PS>PS</a></li>
 <li><a href=backends.html#Paint>Paint</a></li>
