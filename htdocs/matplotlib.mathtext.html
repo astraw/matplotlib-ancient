@@ -96,6 +96,12 @@
 &nbsp;<br>
 &nbsp;&nbsp;The&nbsp;fonts&nbsp;\cal,&nbsp;\rm,&nbsp;\it,&nbsp;and&nbsp;\tt&nbsp;are&nbsp;allowed.<br>
 &nbsp;<br>
+&nbsp;&nbsp;The&nbsp;spacing&nbsp;elements&nbsp;\/&nbsp;and&nbsp;\hspace{num}&nbsp;are&nbsp;provided.&nbsp;&nbsp;\/&nbsp;inserts&nbsp;a<br>
+&nbsp;&nbsp;small&nbsp;space,&nbsp;and&nbsp;\hspace{num}&nbsp;inserts&nbsp;a&nbsp;fraction&nbsp;of&nbsp;the&nbsp;current<br>
+&nbsp;&nbsp;fontsize.&nbsp;&nbsp;Eg,&nbsp;if&nbsp;num=0.5&nbsp;and&nbsp;the&nbsp;fontsize&nbsp;is&nbsp;12.0,&nbsp;hspace{0.5}<br>
+&nbsp;&nbsp;inserts&nbsp;6&nbsp;points&nbsp;of&nbsp;space<br>
+&nbsp;<br>
+&nbsp;&nbsp;<br>
 &nbsp;&nbsp;If&nbsp;you&nbsp;find&nbsp;TeX&nbsp;expressions&nbsp;that&nbsp;don't&nbsp;parse&nbsp;or&nbsp;render&nbsp;properly,<br>
 &nbsp;&nbsp;please&nbsp;email&nbsp;me,&nbsp;but&nbsp;please&nbsp;check&nbsp;KNOWN&nbsp;ISSUES&nbsp;below&nbsp;first.<br>
 &nbsp;<br>
@@ -112,6 +118,13 @@ LICENSING:<br>
 &nbsp;&nbsp;For&nbsp;commercial&nbsp;use,&nbsp;please&nbsp;consult&nbsp;the&nbsp;licenses&nbsp;in&nbsp;fonts/ttf&nbsp;and&nbsp;the<br>
 &nbsp;&nbsp;author&nbsp;Basil&nbsp;K.&nbsp;Malyshev&nbsp;-&nbsp;see&nbsp;also<br>
 &nbsp;&nbsp;<a href="http://www.mozilla.org/projects/mathml/fonts/encoding/license-bakoma.txt">http://www.mozilla.org/projects/mathml/fonts/encoding/license-bakoma.txt</a><br>
+&nbsp;&nbsp;and&nbsp;the&nbsp;file&nbsp;BaKoMa-CM.<a href="#Fonts">Fonts</a>&nbsp;in&nbsp;the&nbsp;matplotlib&nbsp;fonts&nbsp;dir.<br>
+&nbsp;<br>
+&nbsp;&nbsp;Note&nbsp;that&nbsp;all&nbsp;the&nbsp;code&nbsp;in&nbsp;this&nbsp;module&nbsp;is&nbsp;distributed&nbsp;under&nbsp;the<br>
+&nbsp;&nbsp;matplotlib&nbsp;license,&nbsp;and&nbsp;a&nbsp;truly&nbsp;free&nbsp;implementation&nbsp;of&nbsp;mathtext&nbsp;for<br>
+&nbsp;&nbsp;either&nbsp;freetype&nbsp;or&nbsp;ps&nbsp;would&nbsp;simply&nbsp;require&nbsp;deriving&nbsp;another&nbsp;concrete<br>
+&nbsp;&nbsp;implementation&nbsp;from&nbsp;the&nbsp;<a href="#Fonts">Fonts</a>&nbsp;class&nbsp;defined&nbsp;in&nbsp;this&nbsp;module&nbsp;which<br>
+&nbsp;&nbsp;used&nbsp;free&nbsp;fonts.<br>
 &nbsp;<br>
 USAGE:<br>
 &nbsp;<br>
@@ -143,30 +156,31 @@ USAGE:<br>
 &nbsp;<br>
 &nbsp;&nbsp;Allowed&nbsp;TeX&nbsp;symbols:<br>
 &nbsp;<br>
-&nbsp;&nbsp;\Delta&nbsp;\Downarrow&nbsp;\Gamma&nbsp;\Im&nbsp;\LEFTangle&nbsp;\LEFTbrace&nbsp;\LEFTbracket<br>
+&nbsp;&nbsp;\/&nbsp;\Delta&nbsp;\Downarrow&nbsp;\Gamma&nbsp;\Im&nbsp;\LEFTangle&nbsp;\LEFTbrace&nbsp;\LEFTbracket<br>
 &nbsp;&nbsp;\LEFTparen&nbsp;\Lambda&nbsp;\Leftarrow&nbsp;\Leftbrace&nbsp;\Leftbracket&nbsp;\Leftparen<br>
 &nbsp;&nbsp;\Leftrightarrow&nbsp;\Omega&nbsp;\P&nbsp;\Phi&nbsp;\Pi&nbsp;\Psi&nbsp;\RIGHTangle&nbsp;\RIGHTbrace<br>
 &nbsp;&nbsp;\RIGHTbracket&nbsp;\RIGHTparen&nbsp;\Re&nbsp;\Rightarrow&nbsp;\Rightbrace&nbsp;\Rightbracket<br>
 &nbsp;&nbsp;\Rightparen&nbsp;\S&nbsp;\SQRT&nbsp;\Sigma&nbsp;\Sqrt&nbsp;\Theta&nbsp;\Uparrow&nbsp;\Updownarrow<br>
-&nbsp;&nbsp;\Upsilon&nbsp;\Vert&nbsp;\Xi&nbsp;\aleph&nbsp;\alpha&nbsp;\approx&nbsp;\ast&nbsp;\asymp&nbsp;\backslash<br>
-&nbsp;&nbsp;\beta&nbsp;\bigcap&nbsp;\bigcirc&nbsp;\bigcup&nbsp;\bigodot&nbsp;\bigoplus&nbsp;\bigotimes<br>
-&nbsp;&nbsp;\bigtriangledown&nbsp;\bigtriangleup&nbsp;\biguplus&nbsp;\bigvee&nbsp;\bigwedge&nbsp;\bot<br>
-&nbsp;&nbsp;\bullet&nbsp;\cap&nbsp;\cdot&nbsp;\chi&nbsp;\circ&nbsp;\clubsuit&nbsp;\coprod&nbsp;\cup&nbsp;\dag&nbsp;\dashv<br>
-&nbsp;&nbsp;\ddag&nbsp;\delta&nbsp;\diamond&nbsp;\diamondsuit&nbsp;\div&nbsp;\downarrow&nbsp;\ell&nbsp;\emptyset<br>
-&nbsp;&nbsp;\epsilon&nbsp;\equiv&nbsp;\eta&nbsp;\exists&nbsp;\flat&nbsp;\forall&nbsp;\frown&nbsp;\gamma&nbsp;\geq&nbsp;\gg<br>
-&nbsp;&nbsp;\heartsuit&nbsp;\imath&nbsp;\in&nbsp;\infty&nbsp;\int&nbsp;\iota&nbsp;\jmath&nbsp;\kappa&nbsp;\lambda<br>
-&nbsp;&nbsp;\langle&nbsp;\lbrace&nbsp;\lceil&nbsp;\leftangle&nbsp;\leftarrow&nbsp;\leftbrace&nbsp;\leftbracket<br>
-&nbsp;&nbsp;\leftharpoondown&nbsp;\leftharpoonup&nbsp;\leftparen&nbsp;\leftrightarrow&nbsp;\leq<br>
-&nbsp;&nbsp;\lfloor&nbsp;\ll&nbsp;\mid&nbsp;\mp&nbsp;\mu&nbsp;\nabla&nbsp;\natural&nbsp;\nearrow&nbsp;\neg&nbsp;\ni&nbsp;\nu<br>
-&nbsp;&nbsp;\nwarrow&nbsp;\odot&nbsp;\oint&nbsp;\omega&nbsp;\ominus&nbsp;\oplus&nbsp;\oslash&nbsp;\otimes&nbsp;\phi&nbsp;\pi<br>
-&nbsp;&nbsp;\pm&nbsp;\prec&nbsp;\preceq&nbsp;\prime&nbsp;\prod&nbsp;\propto&nbsp;\psi&nbsp;\rangle&nbsp;\rbrace&nbsp;\rceil<br>
-&nbsp;&nbsp;\rfloor&nbsp;\rho&nbsp;\rightangle&nbsp;\rightarrow&nbsp;\rightbrace&nbsp;\rightbracket<br>
-&nbsp;&nbsp;\rightharpoondown&nbsp;\rightharpoonup&nbsp;\rightparen&nbsp;\searrow&nbsp;\sharp&nbsp;\sigma<br>
-&nbsp;&nbsp;\sim&nbsp;\simeq&nbsp;\slash&nbsp;\smile&nbsp;\spadesuit&nbsp;\sqcap&nbsp;\sqcup&nbsp;\sqrt&nbsp;\sqsubseteq<br>
-&nbsp;&nbsp;\sqsupseteq&nbsp;\subset&nbsp;\subseteq&nbsp;\succ&nbsp;\succeq&nbsp;\sum&nbsp;\supset&nbsp;\supseteq<br>
-&nbsp;&nbsp;\swarrow&nbsp;\tau&nbsp;\theta&nbsp;\times&nbsp;\top&nbsp;\triangleleft&nbsp;\triangleright<br>
-&nbsp;&nbsp;\uparrow&nbsp;\updownarrow&nbsp;\uplus&nbsp;\upsilon&nbsp;\varepsilon&nbsp;\varphi&nbsp;\varphi<br>
-&nbsp;&nbsp;\varrho&nbsp;\varsigma&nbsp;\vartheta&nbsp;\vdash&nbsp;\vee&nbsp;\wedge&nbsp;\wp&nbsp;\wr&nbsp;\xi&nbsp;\zeta<br>
+&nbsp;&nbsp;\Upsilon&nbsp;\Vert&nbsp;\Xi&nbsp;\aleph&nbsp;\alpha&nbsp;\approx&nbsp;\angstrom&nbsp;\ast&nbsp;\asymp<br>
+&nbsp;&nbsp;\backslash&nbsp;\beta&nbsp;\bigcap&nbsp;\bigcirc&nbsp;\bigcup&nbsp;\bigodot&nbsp;\bigoplus<br>
+&nbsp;&nbsp;\bigotimes&nbsp;\bigtriangledown&nbsp;\bigtriangleup&nbsp;\biguplus&nbsp;\bigvee<br>
+&nbsp;&nbsp;\bigwedge&nbsp;\bot&nbsp;\bullet&nbsp;\cap&nbsp;\cdot&nbsp;\chi&nbsp;\circ&nbsp;\clubsuit&nbsp;\coprod&nbsp;\cup<br>
+&nbsp;&nbsp;\dag&nbsp;\dashv&nbsp;\ddag&nbsp;\delta&nbsp;\diamond&nbsp;\diamondsuit&nbsp;\div&nbsp;\downarrow&nbsp;\ell<br>
+&nbsp;&nbsp;\emptyset&nbsp;\epsilon&nbsp;\equiv&nbsp;\eta&nbsp;\exists&nbsp;\flat&nbsp;\forall&nbsp;\frown&nbsp;\gamma<br>
+&nbsp;&nbsp;\geq&nbsp;\gg&nbsp;\heartsuit&nbsp;\hspace&nbsp;\imath&nbsp;\in&nbsp;\infty&nbsp;\int&nbsp;\iota&nbsp;\jmath<br>
+&nbsp;&nbsp;\kappa&nbsp;\lambda&nbsp;\langle&nbsp;\lbrace&nbsp;\lceil&nbsp;\leftangle&nbsp;\leftarrow<br>
+&nbsp;&nbsp;\leftbrace&nbsp;\leftbracket&nbsp;\leftharpoondown&nbsp;\leftharpoonup&nbsp;\leftparen<br>
+&nbsp;&nbsp;\leftrightarrow&nbsp;\leq&nbsp;\lfloor&nbsp;\ll&nbsp;\mid&nbsp;\mp&nbsp;\mu&nbsp;\nabla&nbsp;\natural<br>
+&nbsp;&nbsp;\nearrow&nbsp;\neg&nbsp;\ni&nbsp;\nu&nbsp;\nwarrow&nbsp;\odot&nbsp;\oint&nbsp;\omega&nbsp;\ominus&nbsp;\oplus<br>
+&nbsp;&nbsp;\oslash&nbsp;\otimes&nbsp;\phi&nbsp;\pi&nbsp;\pm&nbsp;\prec&nbsp;\preceq&nbsp;\prime&nbsp;\prod&nbsp;\propto&nbsp;\psi<br>
+&nbsp;&nbsp;\rangle&nbsp;\rbrace&nbsp;\rceil&nbsp;\rfloor&nbsp;\rho&nbsp;\rightangle&nbsp;\rightarrow<br>
+&nbsp;&nbsp;\rightbrace&nbsp;\rightbracket&nbsp;\rightharpoondown&nbsp;\rightharpoonup<br>
+&nbsp;&nbsp;\rightparen&nbsp;\searrow&nbsp;\sharp&nbsp;\sigma&nbsp;\sim&nbsp;\simeq&nbsp;\slash&nbsp;\smile<br>
+&nbsp;&nbsp;\spadesuit&nbsp;\sqcap&nbsp;\sqcup&nbsp;\sqrt&nbsp;\sqsubseteq&nbsp;\sqsupseteq&nbsp;\subset<br>
+&nbsp;&nbsp;\subseteq&nbsp;\succ&nbsp;\succeq&nbsp;\sum&nbsp;\supset&nbsp;\supseteq&nbsp;\swarrow&nbsp;\tau&nbsp;\theta<br>
+&nbsp;&nbsp;\times&nbsp;\top&nbsp;\triangleleft&nbsp;\triangleright&nbsp;\uparrow&nbsp;\updownarrow<br>
+&nbsp;&nbsp;\uplus&nbsp;\upsilon&nbsp;\varepsilon&nbsp;\varphi&nbsp;\varphi&nbsp;\varrho&nbsp;\varsigma<br>
+&nbsp;&nbsp;\vartheta&nbsp;\vdash&nbsp;\vee&nbsp;\wedge&nbsp;\wp&nbsp;\wr&nbsp;\xi&nbsp;\zeta<br>
 &nbsp;<br>
 &nbsp;&nbsp;<br>
 BACKENDS<br>
@@ -184,8 +198,8 @@ BACKENDS<br>
 &nbsp;<br>
 KNOWN&nbsp;ISSUES:<br>
 &nbsp;<br>
-&nbsp;-&nbsp;some&nbsp;hackish&nbsp;ways&nbsp;I&nbsp;deal&nbsp;with&nbsp;a&nbsp;strange&nbsp;offset&nbsp;in&nbsp;cmex10<br>
-&nbsp;-&nbsp;nested&nbsp;subscripts,&nbsp;eg,&nbsp;x_i_i&nbsp;not&nbsp;working<br>
+&nbsp;-&nbsp;FIXED&nbsp;in&nbsp;0.54&nbsp;-&nbsp;some&nbsp;hackish&nbsp;ways&nbsp;I&nbsp;deal&nbsp;with&nbsp;a&nbsp;strange&nbsp;offset&nbsp;in&nbsp;cmex10<br>
+&nbsp;-&nbsp;nested&nbsp;subscripts,&nbsp;eg,&nbsp;x_i_j&nbsp;not&nbsp;working;&nbsp;but&nbsp;you&nbsp;can&nbsp;do&nbsp;x_{i_j}<br>
 &nbsp;-&nbsp;nesting&nbsp;fonts&nbsp;changes&nbsp;in&nbsp;sub/superscript&nbsp;groups&nbsp;not&nbsp;parsing<br>
 &nbsp;-&nbsp;I&nbsp;would&nbsp;also&nbsp;like&nbsp;to&nbsp;add&nbsp;a&nbsp;few&nbsp;more&nbsp;layout&nbsp;commands,&nbsp;like&nbsp;\frac.<br>
 &nbsp;<br>
@@ -209,171 +223,296 @@ License&nbsp;&nbsp;&nbsp;:&nbsp;matplotlib&nbsp;license&nbsp;(PSF&nbsp;compatibl
     
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#Handler">Handler</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#MathText">MathText</a>
+<dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#Element">Element</a>
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#Expr">Expr</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#Font">Font</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#Grp">Grp</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#Single">Single</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#SubSup">SubSup</a>
+<dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#GroupElement">GroupElement</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#ExpressionElement">ExpressionElement</a>
 </font></dt></dl>
 </dd>
-</dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#SpaceElement">SpaceElement</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#SymbolElement">SymbolElement</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#Fonts">Fonts</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#BakomaPSFonts">BakomaPSFonts</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#BakomaTrueTypeFonts">BakomaTrueTypeFonts</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#Handler">Handler</a>
+</font></dt></dl>
  <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Expr">class <strong>Expr</strong></a>(<a href="matplotlib.mathtext.html#MathText">MathText</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="BakomaPSFonts">class <strong>BakomaPSFonts</strong></a>(<a href="matplotlib.mathtext.html#Fonts">Fonts</a>)</font></td></tr>
     
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Use&nbsp;the&nbsp;Bakoma&nbsp;postscript&nbsp;fonts&nbsp;for&nbsp;rendering&nbsp;to&nbsp;backend_ps<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Expr-__init__"><strong>__init__</strong></a>(self, objs)</dt></dl>
+<dl><dt><a name="BakomaPSFonts-__init__"><strong>__init__</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Expr-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+<dl><dt><a name="BakomaPSFonts-get_metrics"><strong>get_metrics</strong></a>(self, font, sym, fontsize, dpi)</dt></dl>
 
-<dl><dt><a name="Expr-get_children"><strong>get_children</strong></a>(self)</dt></dl>
+<dl><dt><a name="BakomaPSFonts-render"><strong>render</strong></a>(self, ox, oy, font, sym, fontsize, dpi)</dt></dl>
 
-<hr>
-Methods inherited from <a href="matplotlib.mathtext.html#MathText">MathText</a>:<br>
-<dl><dt><a name="Expr-draw"><strong>draw</strong></a>(self, baseline)</dt></dl>
-
-<dl><dt><a name="Expr-get_bbox"><strong>get_bbox</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="Expr-load_glyphs"><strong>load_glyphs</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="Expr-set_fontfile"><strong>set_fontfile</strong></a>(self, fontfile)</dt></dl>
-
-<dl><dt><a name="Expr-set_next"><strong>set_next</strong></a>(self, nx, ny)</dt><dd><tt>Set&nbsp;the&nbsp;pen&nbsp;location&nbsp;where&nbsp;drawing&nbsp;should&nbsp;begin&nbsp;for&nbsp;the<br>
-following&nbsp;<a href="#MathText">MathText</a></tt></dd></dl>
-
-<dl><dt><a name="Expr-set_offsets"><strong>set_offsets</strong></a>(self, previous)</dt><dd><tt>Set&nbsp;the&nbsp;offsets&nbsp;assuming&nbsp;previous&nbsp;is&nbsp;the&nbsp;symbol&nbsp;before<br>
-you.&nbsp;return&nbsp;a&nbsp;new&nbsp;previous</tt></dd></dl>
-
-<dl><dt><a name="Expr-set_origin"><strong>set_origin</strong></a>(self, ox, oy)</dt><dd><tt>Set&nbsp;the&nbsp;pen&nbsp;location&nbsp;where&nbsp;drawing&nbsp;should&nbsp;begin</tt></dd></dl>
-
-<dl><dt><a name="Expr-set_size"><strong>set_size</strong></a>(self, size)</dt></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathText">MathText</a>:<br>
-<dl><dt><strong>dpi</strong> = 200</dl>
-
-<dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
-
-<dl><dt><strong>nx</strong> = 0</dl>
-
-<dl><dt><strong>ny</strong> = 0</dl>
-
-<dl><dt><strong>ox</strong> = 0</dl>
-
-<dl><dt><strong>oy</strong> = 0</dl>
-
-<dl><dt><strong>size</strong> = 12</dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Font">class <strong>Font</strong></a>(<a href="matplotlib.mathtext.html#MathText">MathText</a>)</font></td></tr>
-    
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="Font-__init__"><strong>__init__</strong></a>(self, name, grp)</dt></dl>
-
-<dl><dt><a name="Font-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="Font-get_children"><strong>get_children</strong></a>(self)</dt></dl>
+<dl><dt><a name="BakomaPSFonts-set_canvas_size"><strong>set_canvas_size</strong></a>(self, w, h)</dt><dd><tt>Dimension&nbsp;the&nbsp;drawing&nbsp;canvas;&nbsp;may&nbsp;be&nbsp;a&nbsp;noop</tt></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>symmap</strong> = {r'\cal': 'cmsy10.ttf', r'\it': 'cmmi10.ttf', r'\rm': 'cmr10.ttf', r'\tt': 'cmtt10.ttf'}</dl>
+<dl><dt><strong>basepath</strong> = '/usr/local/share/matplotlib'</dl>
 
-<hr>
-Methods inherited from <a href="matplotlib.mathtext.html#MathText">MathText</a>:<br>
-<dl><dt><a name="Font-draw"><strong>draw</strong></a>(self, baseline)</dt></dl>
+<dl><dt><strong>fnames</strong> = ('cmmi10', 'cmsy10', 'cmex10', 'cmtt10', 'cmr10')</dl>
 
-<dl><dt><a name="Font-get_bbox"><strong>get_bbox</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="Font-load_glyphs"><strong>load_glyphs</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="Font-set_fontfile"><strong>set_fontfile</strong></a>(self, fontfile)</dt></dl>
-
-<dl><dt><a name="Font-set_next"><strong>set_next</strong></a>(self, nx, ny)</dt><dd><tt>Set&nbsp;the&nbsp;pen&nbsp;location&nbsp;where&nbsp;drawing&nbsp;should&nbsp;begin&nbsp;for&nbsp;the<br>
-following&nbsp;<a href="#MathText">MathText</a></tt></dd></dl>
-
-<dl><dt><a name="Font-set_offsets"><strong>set_offsets</strong></a>(self, previous)</dt><dd><tt>Set&nbsp;the&nbsp;offsets&nbsp;assuming&nbsp;previous&nbsp;is&nbsp;the&nbsp;symbol&nbsp;before<br>
-you.&nbsp;return&nbsp;a&nbsp;new&nbsp;previous</tt></dd></dl>
-
-<dl><dt><a name="Font-set_origin"><strong>set_origin</strong></a>(self, ox, oy)</dt><dd><tt>Set&nbsp;the&nbsp;pen&nbsp;location&nbsp;where&nbsp;drawing&nbsp;should&nbsp;begin</tt></dd></dl>
-
-<dl><dt><a name="Font-set_size"><strong>set_size</strong></a>(self, size)</dt></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathText">MathText</a>:<br>
-<dl><dt><strong>dpi</strong> = 200</dl>
-
-<dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
-
-<dl><dt><strong>nx</strong> = 0</dl>
-
-<dl><dt><strong>ny</strong> = 0</dl>
-
-<dl><dt><strong>ox</strong> = 0</dl>
-
-<dl><dt><strong>oy</strong> = 0</dl>
-
-<dl><dt><strong>size</strong> = 12</dl>
+<dl><dt><strong>fontmap</strong> = {None: 'cmmi10', 'cal': 'cmsy10', 'it': 'cmmi10', 'rm': 'cmr10', 'tt': 'cmtt10'}</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Grp">class <strong>Grp</strong></a>(<a href="matplotlib.mathtext.html#MathText">MathText</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="BakomaTrueTypeFonts">class <strong>BakomaTrueTypeFonts</strong></a>(<a href="matplotlib.mathtext.html#Fonts">Fonts</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Use&nbsp;the&nbsp;Bakoma&nbsp;true&nbsp;type&nbsp;fonts&nbsp;for&nbsp;rendering<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="BakomaTrueTypeFonts-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="BakomaTrueTypeFonts-get_metrics"><strong>get_metrics</strong></a>(self, font, sym, fontsize, dpi)</dt></dl>
+
+<dl><dt><a name="BakomaTrueTypeFonts-render"><strong>render</strong></a>(self, ox, oy, font, sym, fontsize, dpi)</dt></dl>
+
+<dl><dt><a name="BakomaTrueTypeFonts-set_canvas_size"><strong>set_canvas_size</strong></a>(self, w, h)</dt><dd><tt>Dimension&nbsp;the&nbsp;drawing&nbsp;canvas;&nbsp;may&nbsp;be&nbsp;a&nbsp;noop</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>basepath</strong> = '/usr/local/share/matplotlib'</dl>
+
+<dl><dt><strong>fnames</strong> = ('cmmi10', 'cmsy10', 'cmex10', 'cmtt10', 'cmr10')</dl>
+
+<dl><dt><strong>fontmap</strong> = {None: 'cmmi10', 'cal': 'cmsy10', 'it': 'cmmi10', 'rm': 'cmr10', 'tt': 'cmtt10'}</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Element">class <strong>Element</strong></a></font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Grp-__init__"><strong>__init__</strong></a>(self, members)</dt></dl>
+<dl><dt><a name="Element-__init__"><strong>__init__</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Grp-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+<dl><dt><a name="Element-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Grp-get_children"><strong>get_children</strong></a>(self)</dt></dl>
+<dl><dt><a name="Element-advance"><strong>advance</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;horiz&nbsp;advance</tt></dd></dl>
+
+<dl><dt><a name="Element-centerx"><strong>centerx</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Element-centery"><strong>centery</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Element-height"><strong>height</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;element&nbsp;height:&nbsp;ymax-ymin</tt></dd></dl>
+
+<dl><dt><a name="Element-padx"><strong>padx</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Element-pady"><strong>pady</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Element-render"><strong>render</strong></a>(self)</dt><dd><tt>render&nbsp;to&nbsp;the&nbsp;fonts&nbsp;canvas</tt></dd></dl>
+
+<dl><dt><a name="Element-set_font"><strong>set_font</strong></a>(self, font)</dt><dd><tt>set&nbsp;the&nbsp;font&nbsp;(one&nbsp;of&nbsp;tt,&nbsp;it,&nbsp;rm&nbsp;,&nbsp;cal)</tt></dd></dl>
+
+<dl><dt><a name="Element-set_origin"><strong>set_origin</strong></a>(self, ox, oy)</dt></dl>
+
+<dl><dt><a name="Element-set_padx"><strong>set_padx</strong></a>(self, pad)</dt><dd><tt>set&nbsp;the&nbsp;y&nbsp;padding&nbsp;in&nbsp;points</tt></dd></dl>
+
+<dl><dt><a name="Element-set_pady"><strong>set_pady</strong></a>(self, pad)</dt><dd><tt>set&nbsp;the&nbsp;y&nbsp;padding&nbsp;in&nbsp;points</tt></dd></dl>
+
+<dl><dt><a name="Element-set_scale"><strong>set_scale</strong></a>(self, scale)</dt><dd><tt>scale&nbsp;the&nbsp;element&nbsp;by&nbsp;scale</tt></dd></dl>
+
+<dl><dt><a name="Element-set_size_info"><strong>set_size_info</strong></a>(self, fontsize, dpi)</dt></dl>
+
+<dl><dt><a name="Element-width"><strong>width</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;element&nbsp;width:&nbsp;xmax-xmin</tt></dd></dl>
+
+<dl><dt><a name="Element-xmax"><strong>xmax</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;xmax&nbsp;of&nbsp;ink&nbsp;rect</tt></dd></dl>
+
+<dl><dt><a name="Element-xmin"><strong>xmin</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;xmin&nbsp;of&nbsp;ink&nbsp;rect</tt></dd></dl>
+
+<dl><dt><a name="Element-ymax"><strong>ymax</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;ymax&nbsp;of&nbsp;ink&nbsp;rect</tt></dd></dl>
+
+<dl><dt><a name="Element-ymin"><strong>ymin</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;ymin&nbsp;of&nbsp;ink&nbsp;rect</tt></dd></dl>
 
 <hr>
-Methods inherited from <a href="matplotlib.mathtext.html#MathText">MathText</a>:<br>
-<dl><dt><a name="Grp-draw"><strong>draw</strong></a>(self, baseline)</dt></dl>
+Data and other attributes defined here:<br>
+<dl><dt><strong>dpi</strong> = 72</dl>
 
-<dl><dt><a name="Grp-get_bbox"><strong>get_bbox</strong></a>(self)</dt></dl>
+<dl><dt><strong>font</strong> = 'it'</dl>
 
-<dl><dt><a name="Grp-load_glyphs"><strong>load_glyphs</strong></a>(self)</dt></dl>
+<dl><dt><strong>fontsize</strong> = 12</dl>
 
-<dl><dt><a name="Grp-set_fontfile"><strong>set_fontfile</strong></a>(self, fontfile)</dt></dl>
-
-<dl><dt><a name="Grp-set_next"><strong>set_next</strong></a>(self, nx, ny)</dt><dd><tt>Set&nbsp;the&nbsp;pen&nbsp;location&nbsp;where&nbsp;drawing&nbsp;should&nbsp;begin&nbsp;for&nbsp;the<br>
-following&nbsp;<a href="#MathText">MathText</a></tt></dd></dl>
-
-<dl><dt><a name="Grp-set_offsets"><strong>set_offsets</strong></a>(self, previous)</dt><dd><tt>Set&nbsp;the&nbsp;offsets&nbsp;assuming&nbsp;previous&nbsp;is&nbsp;the&nbsp;symbol&nbsp;before<br>
-you.&nbsp;return&nbsp;a&nbsp;new&nbsp;previous</tt></dd></dl>
-
-<dl><dt><a name="Grp-set_origin"><strong>set_origin</strong></a>(self, ox, oy)</dt><dd><tt>Set&nbsp;the&nbsp;pen&nbsp;location&nbsp;where&nbsp;drawing&nbsp;should&nbsp;begin</tt></dd></dl>
-
-<dl><dt><a name="Grp-set_size"><strong>set_size</strong></a>(self, size)</dt></dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ExpressionElement">class <strong>ExpressionElement</strong></a>(<a href="matplotlib.mathtext.html#GroupElement">GroupElement</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;entire&nbsp;mathtext&nbsp;expression<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.mathtext.html#ExpressionElement">ExpressionElement</a></dd>
+<dd><a href="matplotlib.mathtext.html#GroupElement">GroupElement</a></dd>
+<dd><a href="matplotlib.mathtext.html#Element">Element</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ExpressionElement-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
 
 <hr>
-Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathText">MathText</a>:<br>
-<dl><dt><strong>dpi</strong> = 200</dl>
+Methods inherited from <a href="matplotlib.mathtext.html#GroupElement">GroupElement</a>:<br>
+<dl><dt><a name="ExpressionElement-__init__"><strong>__init__</strong></a>(self, elements)</dt></dl>
 
-<dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
+<dl><dt><a name="ExpressionElement-advance"><strong>advance</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;horiz&nbsp;advance</tt></dd></dl>
 
-<dl><dt><strong>nx</strong> = 0</dl>
+<dl><dt><a name="ExpressionElement-height"><strong>height</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;element&nbsp;height:&nbsp;ymax-ymin</tt></dd></dl>
 
-<dl><dt><strong>ny</strong> = 0</dl>
+<dl><dt><a name="ExpressionElement-render"><strong>render</strong></a>(self)</dt><dd><tt>render&nbsp;to&nbsp;the&nbsp;fonts&nbsp;canvas</tt></dd></dl>
 
-<dl><dt><strong>ox</strong> = 0</dl>
+<dl><dt><a name="ExpressionElement-set_font"><strong>set_font</strong></a>(self, font)</dt><dd><tt>set&nbsp;the&nbsp;font&nbsp;(one&nbsp;of&nbsp;tt,&nbsp;it,&nbsp;rm&nbsp;,&nbsp;cal)</tt></dd></dl>
 
-<dl><dt><strong>oy</strong> = 0</dl>
+<dl><dt><a name="ExpressionElement-set_origin"><strong>set_origin</strong></a>(self, ox, oy)</dt></dl>
 
-<dl><dt><strong>size</strong> = 12</dl>
+<dl><dt><a name="ExpressionElement-set_size_info"><strong>set_size_info</strong></a>(self, fontsize, dpi)</dt></dl>
+
+<dl><dt><a name="ExpressionElement-width"><strong>width</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;element&nbsp;width:&nbsp;xmax-xmin</tt></dd></dl>
+
+<dl><dt><a name="ExpressionElement-xmax"><strong>xmax</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;max&nbsp;ink&nbsp;in&nbsp;x</tt></dd></dl>
+
+<dl><dt><a name="ExpressionElement-xmin"><strong>xmin</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;minimum&nbsp;ink&nbsp;in&nbsp;x</tt></dd></dl>
+
+<dl><dt><a name="ExpressionElement-ymax"><strong>ymax</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;max&nbsp;ink&nbsp;in&nbsp;y</tt></dd></dl>
+
+<dl><dt><a name="ExpressionElement-ymin"><strong>ymin</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;minimum&nbsp;ink&nbsp;in&nbsp;y</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.mathtext.html#Element">Element</a>:<br>
+<dl><dt><a name="ExpressionElement-centerx"><strong>centerx</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ExpressionElement-centery"><strong>centery</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ExpressionElement-padx"><strong>padx</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ExpressionElement-pady"><strong>pady</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ExpressionElement-set_padx"><strong>set_padx</strong></a>(self, pad)</dt><dd><tt>set&nbsp;the&nbsp;y&nbsp;padding&nbsp;in&nbsp;points</tt></dd></dl>
+
+<dl><dt><a name="ExpressionElement-set_pady"><strong>set_pady</strong></a>(self, pad)</dt><dd><tt>set&nbsp;the&nbsp;y&nbsp;padding&nbsp;in&nbsp;points</tt></dd></dl>
+
+<dl><dt><a name="ExpressionElement-set_scale"><strong>set_scale</strong></a>(self, scale)</dt><dd><tt>scale&nbsp;the&nbsp;element&nbsp;by&nbsp;scale</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.mathtext.html#Element">Element</a>:<br>
+<dl><dt><strong>dpi</strong> = 72</dl>
+
+<dl><dt><strong>font</strong> = 'it'</dl>
+
+<dl><dt><strong>fontsize</strong> = 12</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Fonts">class <strong>Fonts</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>An&nbsp;abstract&nbsp;base&nbsp;class&nbsp;for&nbsp;fonts&nbsp;that&nbsp;want&nbsp;to&nbsp;render&nbsp;mathtext<br>
+&nbsp;<br>
+The&nbsp;class&nbsp;must&nbsp;be&nbsp;able&nbsp;to&nbsp;take&nbsp;symbol&nbsp;keys&nbsp;and&nbsp;font&nbsp;file&nbsp;names&nbsp;and<br>
+return&nbsp;the&nbsp;character&nbsp;metrics&nbsp;as&nbsp;well&nbsp;as&nbsp;do&nbsp;the&nbsp;drawing<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Fonts-get_metrics"><strong>get_metrics</strong></a>(self, font, sym, fontsize, dpi)</dt><dd><tt>font&nbsp;is&nbsp;one&nbsp;of&nbsp;tt,&nbsp;it,&nbsp;rm,&nbsp;cal&nbsp;or&nbsp;None<br>
+&nbsp;<br>
+sym&nbsp;is&nbsp;an&nbsp;single&nbsp;symbol(alphanum,&nbsp;punct)&nbsp;or&nbsp;a&nbsp;special&nbsp;symbol<br>
+&nbsp;&nbsp;like&nbsp;\sigma.<br>
+&nbsp;<br>
+fontsize&nbsp;is&nbsp;in&nbsp;points<br>
+&nbsp;<br>
+Return&nbsp;object&nbsp;has&nbsp;attributes&nbsp;-&nbsp;see<br>
+<a href="http://www.freetype.org/freetype2/docs/tutorial/step2.html">http://www.freetype.org/freetype2/docs/tutorial/step2.html</a>&nbsp;for<br>
+a&nbsp;pictoral&nbsp;representation&nbsp;of&nbsp;these&nbsp;attributes<br>
+&nbsp;<br>
+&nbsp;&nbsp;advance<br>
+&nbsp;&nbsp;height<br>
+&nbsp;&nbsp;width<br>
+&nbsp;&nbsp;xmin,&nbsp;xmax,&nbsp;ymin,&nbsp;ymax&nbsp;&nbsp;-&nbsp;the&nbsp;ink&nbsp;rectangle&nbsp;of&nbsp;the&nbsp;glyph</tt></dd></dl>
+
+<dl><dt><a name="Fonts-render"><strong>render</strong></a>(self, ox, oy, font, sym, fontsize, dpi)</dt></dl>
+
+<dl><dt><a name="Fonts-set_canvas_size"><strong>set_canvas_size</strong></a>(self, w, h)</dt><dd><tt>Dimension&nbsp;the&nbsp;drawing&nbsp;canvas;&nbsp;may&nbsp;be&nbsp;a&nbsp;noop</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="GroupElement">class <strong>GroupElement</strong></a>(<a href="matplotlib.mathtext.html#Element">Element</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;group&nbsp;is&nbsp;a&nbsp;collection&nbsp;of&nbsp;elements<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="GroupElement-__init__"><strong>__init__</strong></a>(self, elements)</dt></dl>
+
+<dl><dt><a name="GroupElement-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GroupElement-advance"><strong>advance</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;horiz&nbsp;advance</tt></dd></dl>
+
+<dl><dt><a name="GroupElement-height"><strong>height</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;element&nbsp;height:&nbsp;ymax-ymin</tt></dd></dl>
+
+<dl><dt><a name="GroupElement-render"><strong>render</strong></a>(self)</dt><dd><tt>render&nbsp;to&nbsp;the&nbsp;fonts&nbsp;canvas</tt></dd></dl>
+
+<dl><dt><a name="GroupElement-set_font"><strong>set_font</strong></a>(self, font)</dt><dd><tt>set&nbsp;the&nbsp;font&nbsp;(one&nbsp;of&nbsp;tt,&nbsp;it,&nbsp;rm&nbsp;,&nbsp;cal)</tt></dd></dl>
+
+<dl><dt><a name="GroupElement-set_origin"><strong>set_origin</strong></a>(self, ox, oy)</dt></dl>
+
+<dl><dt><a name="GroupElement-set_size_info"><strong>set_size_info</strong></a>(self, fontsize, dpi)</dt></dl>
+
+<dl><dt><a name="GroupElement-width"><strong>width</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;element&nbsp;width:&nbsp;xmax-xmin</tt></dd></dl>
+
+<dl><dt><a name="GroupElement-xmax"><strong>xmax</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;max&nbsp;ink&nbsp;in&nbsp;x</tt></dd></dl>
+
+<dl><dt><a name="GroupElement-xmin"><strong>xmin</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;minimum&nbsp;ink&nbsp;in&nbsp;x</tt></dd></dl>
+
+<dl><dt><a name="GroupElement-ymax"><strong>ymax</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;max&nbsp;ink&nbsp;in&nbsp;y</tt></dd></dl>
+
+<dl><dt><a name="GroupElement-ymin"><strong>ymin</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;minimum&nbsp;ink&nbsp;in&nbsp;y</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.mathtext.html#Element">Element</a>:<br>
+<dl><dt><a name="GroupElement-centerx"><strong>centerx</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GroupElement-centery"><strong>centery</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GroupElement-padx"><strong>padx</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GroupElement-pady"><strong>pady</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="GroupElement-set_padx"><strong>set_padx</strong></a>(self, pad)</dt><dd><tt>set&nbsp;the&nbsp;y&nbsp;padding&nbsp;in&nbsp;points</tt></dd></dl>
+
+<dl><dt><a name="GroupElement-set_pady"><strong>set_pady</strong></a>(self, pad)</dt><dd><tt>set&nbsp;the&nbsp;y&nbsp;padding&nbsp;in&nbsp;points</tt></dd></dl>
+
+<dl><dt><a name="GroupElement-set_scale"><strong>set_scale</strong></a>(self, scale)</dt><dd><tt>scale&nbsp;the&nbsp;element&nbsp;by&nbsp;scale</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.mathtext.html#Element">Element</a>:<br>
+<dl><dt><strong>dpi</strong> = 72</dl>
+
+<dl><dt><strong>font</strong> = 'it'</dl>
+
+<dl><dt><strong>fontsize</strong> = 12</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -383,167 +522,147 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathT
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Handler-expr"><strong>expr</strong></a>(self, s, loc, toks)</dt></dl>
+<dl><dt><a name="Handler-clear"><strong>clear</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Handler-fontgrp"><strong>fontgrp</strong></a>(self, s, loc, toks)</dt></dl>
+<dl><dt><a name="Handler-expression"><strong>expression</strong></a>(self, s, loc, toks)</dt></dl>
 
-<dl><dt><a name="Handler-grp"><strong>grp</strong></a>(self, s, loc, toks)</dt></dl>
+<dl><dt><a name="Handler-font"><strong>font</strong></a>(self, s, loc, toks)</dt></dl>
 
-<dl><dt><a name="Handler-singlesym"><strong>singlesym</strong></a>(self, s, loc, toks)</dt></dl>
+<dl><dt><a name="Handler-group"><strong>group</strong></a>(self, s, loc, toks)</dt></dl>
 
-<dl><dt><a name="Handler-subsupgrp"><strong>subsupgrp</strong></a>(self, s, loc, toks)</dt></dl>
+<dl><dt><a name="Handler-is_overunder"><strong>is_overunder</strong></a>(self, prev)</dt></dl>
 
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="MathText">class <strong>MathText</strong></a></font></td></tr>
-    
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="MathText-draw"><strong>draw</strong></a>(self, baseline)</dt></dl>
+<dl><dt><a name="Handler-space"><strong>space</strong></a>(self, s, loc, toks)</dt></dl>
 
-<dl><dt><a name="MathText-get_bbox"><strong>get_bbox</strong></a>(self)</dt></dl>
+<dl><dt><a name="Handler-subscript"><strong>subscript</strong></a>(self, s, loc, toks)</dt></dl>
 
-<dl><dt><a name="MathText-get_children"><strong>get_children</strong></a>(self)</dt></dl>
+<dl><dt><a name="Handler-subsuperscript"><strong>subsuperscript</strong></a>(self, s, loc, toks)</dt></dl>
 
-<dl><dt><a name="MathText-load_glyphs"><strong>load_glyphs</strong></a>(self)</dt></dl>
+<dl><dt><a name="Handler-superscript"><strong>superscript</strong></a>(self, s, loc, toks)</dt></dl>
 
-<dl><dt><a name="MathText-set_fontfile"><strong>set_fontfile</strong></a>(self, fontfile)</dt></dl>
-
-<dl><dt><a name="MathText-set_next"><strong>set_next</strong></a>(self, nx, ny)</dt><dd><tt>Set&nbsp;the&nbsp;pen&nbsp;location&nbsp;where&nbsp;drawing&nbsp;should&nbsp;begin&nbsp;for&nbsp;the<br>
-following&nbsp;<a href="#MathText">MathText</a></tt></dd></dl>
-
-<dl><dt><a name="MathText-set_offsets"><strong>set_offsets</strong></a>(self, previous)</dt><dd><tt>Set&nbsp;the&nbsp;offsets&nbsp;assuming&nbsp;previous&nbsp;is&nbsp;the&nbsp;symbol&nbsp;before<br>
-you.&nbsp;return&nbsp;a&nbsp;new&nbsp;previous</tt></dd></dl>
-
-<dl><dt><a name="MathText-set_origin"><strong>set_origin</strong></a>(self, ox, oy)</dt><dd><tt>Set&nbsp;the&nbsp;pen&nbsp;location&nbsp;where&nbsp;drawing&nbsp;should&nbsp;begin</tt></dd></dl>
-
-<dl><dt><a name="MathText-set_size"><strong>set_size</strong></a>(self, size)</dt></dl>
+<dl><dt><a name="Handler-symbol"><strong>symbol</strong></a>(self, s, loc, toks)</dt></dl>
 
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>dpi</strong> = 200</dl>
-
-<dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
-
-<dl><dt><strong>nx</strong> = 0</dl>
-
-<dl><dt><strong>ny</strong> = 0</dl>
-
-<dl><dt><strong>ox</strong> = 0</dl>
-
-<dl><dt><strong>oy</strong> = 0</dl>
-
-<dl><dt><strong>size</strong> = 12</dl>
+<dl><dt><strong>symbols</strong> = []</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Single">class <strong>Single</strong></a>(<a href="matplotlib.mathtext.html#MathText">MathText</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="SpaceElement">class <strong>SpaceElement</strong></a>(<a href="matplotlib.mathtext.html#Element">Element</a>)</font></td></tr>
     
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>blank&nbsp;horizontal&nbsp;space<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Single-__init__"><strong>__init__</strong></a>(self, c)</dt></dl>
+<dl><dt><a name="SpaceElement-__init__"><strong>__init__</strong></a>(self, space)</dt><dd><tt>space&nbsp;is&nbsp;the&nbsp;amount&nbsp;of&nbsp;blank&nbsp;space&nbsp;in&nbsp;fraction&nbsp;of&nbsp;fontsize</tt></dd></dl>
 
-<dl><dt><a name="Single-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+<dl><dt><a name="SpaceElement-advance"><strong>advance</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;horiz&nbsp;advance</tt></dd></dl>
 
-<dl><dt><a name="Single-draw"><strong>draw</strong></a>(self, baseline)</dt></dl>
+<dl><dt><a name="SpaceElement-height"><strong>height</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;element&nbsp;height:&nbsp;ymax-ymin</tt></dd></dl>
 
-<dl><dt><a name="Single-get_alignment"><strong>get_alignment</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;descent&nbsp;below&nbsp;baseline</tt></dd></dl>
+<dl><dt><a name="SpaceElement-width"><strong>width</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;element&nbsp;width:&nbsp;xmax-xmin</tt></dd></dl>
 
-<dl><dt><a name="Single-get_bbox"><strong>get_bbox</strong></a>(self)</dt></dl>
+<dl><dt><a name="SpaceElement-xmax"><strong>xmax</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;max&nbsp;ink&nbsp;in&nbsp;x</tt></dd></dl>
 
-<dl><dt><a name="Single-get_children"><strong>get_children</strong></a>(self)</dt></dl>
+<dl><dt><a name="SpaceElement-xmin"><strong>xmin</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;minimum&nbsp;ink&nbsp;in&nbsp;x</tt></dd></dl>
 
-<dl><dt><a name="Single-load_glyphs"><strong>load_glyphs</strong></a>(self)</dt></dl>
+<dl><dt><a name="SpaceElement-ymax"><strong>ymax</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;max&nbsp;ink&nbsp;in&nbsp;y</tt></dd></dl>
 
-<dl><dt><a name="Single-set_fontfile"><strong>set_fontfile</strong></a>(self, fontfile)</dt></dl>
-
-<dl><dt><a name="Single-set_offsets"><strong>set_offsets</strong></a>(self, previous)</dt></dl>
-
-<dl><dt><a name="Single-set_size"><strong>set_size</strong></a>(self, size)</dt></dl>
+<dl><dt><a name="SpaceElement-ymin"><strong>ymin</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;minimum&nbsp;ink&nbsp;in&nbsp;y</tt></dd></dl>
 
 <hr>
-Methods inherited from <a href="matplotlib.mathtext.html#MathText">MathText</a>:<br>
-<dl><dt><a name="Single-set_next"><strong>set_next</strong></a>(self, nx, ny)</dt><dd><tt>Set&nbsp;the&nbsp;pen&nbsp;location&nbsp;where&nbsp;drawing&nbsp;should&nbsp;begin&nbsp;for&nbsp;the<br>
-following&nbsp;<a href="#MathText">MathText</a></tt></dd></dl>
+Methods inherited from <a href="matplotlib.mathtext.html#Element">Element</a>:<br>
+<dl><dt><a name="SpaceElement-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Single-set_origin"><strong>set_origin</strong></a>(self, ox, oy)</dt><dd><tt>Set&nbsp;the&nbsp;pen&nbsp;location&nbsp;where&nbsp;drawing&nbsp;should&nbsp;begin</tt></dd></dl>
+<dl><dt><a name="SpaceElement-centerx"><strong>centerx</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SpaceElement-centery"><strong>centery</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SpaceElement-padx"><strong>padx</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SpaceElement-pady"><strong>pady</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SpaceElement-render"><strong>render</strong></a>(self)</dt><dd><tt>render&nbsp;to&nbsp;the&nbsp;fonts&nbsp;canvas</tt></dd></dl>
+
+<dl><dt><a name="SpaceElement-set_font"><strong>set_font</strong></a>(self, font)</dt><dd><tt>set&nbsp;the&nbsp;font&nbsp;(one&nbsp;of&nbsp;tt,&nbsp;it,&nbsp;rm&nbsp;,&nbsp;cal)</tt></dd></dl>
+
+<dl><dt><a name="SpaceElement-set_origin"><strong>set_origin</strong></a>(self, ox, oy)</dt></dl>
+
+<dl><dt><a name="SpaceElement-set_padx"><strong>set_padx</strong></a>(self, pad)</dt><dd><tt>set&nbsp;the&nbsp;y&nbsp;padding&nbsp;in&nbsp;points</tt></dd></dl>
+
+<dl><dt><a name="SpaceElement-set_pady"><strong>set_pady</strong></a>(self, pad)</dt><dd><tt>set&nbsp;the&nbsp;y&nbsp;padding&nbsp;in&nbsp;points</tt></dd></dl>
+
+<dl><dt><a name="SpaceElement-set_scale"><strong>set_scale</strong></a>(self, scale)</dt><dd><tt>scale&nbsp;the&nbsp;element&nbsp;by&nbsp;scale</tt></dd></dl>
+
+<dl><dt><a name="SpaceElement-set_size_info"><strong>set_size_info</strong></a>(self, fontsize, dpi)</dt></dl>
 
 <hr>
-Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathText">MathText</a>:<br>
-<dl><dt><strong>dpi</strong> = 200</dl>
+Data and other attributes inherited from <a href="matplotlib.mathtext.html#Element">Element</a>:<br>
+<dl><dt><strong>dpi</strong> = 72</dl>
 
-<dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
+<dl><dt><strong>font</strong> = 'it'</dl>
 
-<dl><dt><strong>nx</strong> = 0</dl>
-
-<dl><dt><strong>ny</strong> = 0</dl>
-
-<dl><dt><strong>ox</strong> = 0</dl>
-
-<dl><dt><strong>oy</strong> = 0</dl>
-
-<dl><dt><strong>size</strong> = 12</dl>
+<dl><dt><strong>fontsize</strong> = 12</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="SubSup">class <strong>SubSup</strong></a>(<a href="matplotlib.mathtext.html#MathText">MathText</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="SymbolElement">class <strong>SymbolElement</strong></a>(<a href="matplotlib.mathtext.html#Element">Element</a>)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="SubSup-__init__"><strong>__init__</strong></a>(self, type, obj)</dt></dl>
+<dl><dt><a name="SymbolElement-__init__"><strong>__init__</strong></a>(self, sym)</dt></dl>
 
-<dl><dt><a name="SubSup-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+<dl><dt><a name="SymbolElement-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="SubSup-get_children"><strong>get_children</strong></a>(self)</dt></dl>
+<dl><dt><a name="SymbolElement-advance"><strong>advance</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;horiz&nbsp;advance</tt></dd></dl>
 
-<dl><dt><a name="SubSup-set_offsets"><strong>set_offsets</strong></a>(self, previous)</dt></dl>
+<dl><dt><a name="SymbolElement-height"><strong>height</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;element&nbsp;height:&nbsp;ymax-ymin</tt></dd></dl>
 
-<dl><dt><a name="SubSup-set_size"><strong>set_size</strong></a>(self, size)</dt></dl>
+<dl><dt><a name="SymbolElement-render"><strong>render</strong></a>(self)</dt><dd><tt>render&nbsp;to&nbsp;the&nbsp;fonts&nbsp;canvas</tt></dd></dl>
 
-<hr>
-Data and other attributes defined here:<br>
-<dl><dt><strong>SUBOFFSET</strong> = 0.5</dl>
+<dl><dt><a name="SymbolElement-set_font"><strong>set_font</strong></a>(self, font)</dt><dd><tt>set&nbsp;the&nbsp;font&nbsp;(one&nbsp;of&nbsp;tt,&nbsp;it,&nbsp;rm&nbsp;,&nbsp;cal)</tt></dd></dl>
 
-<dl><dt><strong>SUBSCALE</strong> = 0.69999999999999996</dl>
+<dl><dt><a name="SymbolElement-set_origin"><strong>set_origin</strong></a>(self, ox, oy)</dt></dl>
 
-<dl><dt><strong>SUPOFFSET</strong> = 0.75</dl>
+<dl><dt><a name="SymbolElement-set_size_info"><strong>set_size_info</strong></a>(self, fontsize, dpi)</dt></dl>
 
-<hr>
-Methods inherited from <a href="matplotlib.mathtext.html#MathText">MathText</a>:<br>
-<dl><dt><a name="SubSup-draw"><strong>draw</strong></a>(self, baseline)</dt></dl>
+<dl><dt><a name="SymbolElement-width"><strong>width</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;element&nbsp;width:&nbsp;xmax-xmin</tt></dd></dl>
 
-<dl><dt><a name="SubSup-get_bbox"><strong>get_bbox</strong></a>(self)</dt></dl>
+<dl><dt><a name="SymbolElement-xmax"><strong>xmax</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;max&nbsp;ink&nbsp;in&nbsp;x</tt></dd></dl>
 
-<dl><dt><a name="SubSup-load_glyphs"><strong>load_glyphs</strong></a>(self)</dt></dl>
+<dl><dt><a name="SymbolElement-xmin"><strong>xmin</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;minimum&nbsp;ink&nbsp;in&nbsp;x</tt></dd></dl>
 
-<dl><dt><a name="SubSup-set_fontfile"><strong>set_fontfile</strong></a>(self, fontfile)</dt></dl>
+<dl><dt><a name="SymbolElement-ymax"><strong>ymax</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;max&nbsp;ink&nbsp;in&nbsp;y</tt></dd></dl>
 
-<dl><dt><a name="SubSup-set_next"><strong>set_next</strong></a>(self, nx, ny)</dt><dd><tt>Set&nbsp;the&nbsp;pen&nbsp;location&nbsp;where&nbsp;drawing&nbsp;should&nbsp;begin&nbsp;for&nbsp;the<br>
-following&nbsp;<a href="#MathText">MathText</a></tt></dd></dl>
-
-<dl><dt><a name="SubSup-set_origin"><strong>set_origin</strong></a>(self, ox, oy)</dt><dd><tt>Set&nbsp;the&nbsp;pen&nbsp;location&nbsp;where&nbsp;drawing&nbsp;should&nbsp;begin</tt></dd></dl>
+<dl><dt><a name="SymbolElement-ymin"><strong>ymin</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;minimum&nbsp;ink&nbsp;in&nbsp;y</tt></dd></dl>
 
 <hr>
-Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathText">MathText</a>:<br>
-<dl><dt><strong>dpi</strong> = 200</dl>
+Methods inherited from <a href="matplotlib.mathtext.html#Element">Element</a>:<br>
+<dl><dt><a name="SymbolElement-centerx"><strong>centerx</strong></a>(self)</dt></dl>
 
-<dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
+<dl><dt><a name="SymbolElement-centery"><strong>centery</strong></a>(self)</dt></dl>
 
-<dl><dt><strong>nx</strong> = 0</dl>
+<dl><dt><a name="SymbolElement-padx"><strong>padx</strong></a>(self)</dt></dl>
 
-<dl><dt><strong>ny</strong> = 0</dl>
+<dl><dt><a name="SymbolElement-pady"><strong>pady</strong></a>(self)</dt></dl>
 
-<dl><dt><strong>ox</strong> = 0</dl>
+<dl><dt><a name="SymbolElement-set_padx"><strong>set_padx</strong></a>(self, pad)</dt><dd><tt>set&nbsp;the&nbsp;y&nbsp;padding&nbsp;in&nbsp;points</tt></dd></dl>
 
-<dl><dt><strong>oy</strong> = 0</dl>
+<dl><dt><a name="SymbolElement-set_pady"><strong>set_pady</strong></a>(self, pad)</dt><dd><tt>set&nbsp;the&nbsp;y&nbsp;padding&nbsp;in&nbsp;points</tt></dd></dl>
 
-<dl><dt><strong>size</strong> = 12</dl>
+<dl><dt><a name="SymbolElement-set_scale"><strong>set_scale</strong></a>(self, scale)</dt><dd><tt>scale&nbsp;the&nbsp;element&nbsp;by&nbsp;scale</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.mathtext.html#Element">Element</a>:<br>
+<dl><dt><strong>dpi</strong> = 72</dl>
+
+<dl><dt><strong>font</strong> = 'it'</dl>
+
+<dl><dt><strong>fontsize</strong> = 12</dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -576,13 +695,7 @@ The&nbsp;following&nbsp;are&nbsp;available,&nbsp;if&nbsp;scalable&nbsp;is&nbsp;t
 &nbsp;&nbsp;max_advance_height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;same&nbsp;for&nbsp;vertical&nbsp;layout<br>
 &nbsp;&nbsp;underline_position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;position&nbsp;of&nbsp;the&nbsp;underline&nbsp;bar<br>
 &nbsp;&nbsp;underline_thickness&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;thickness&nbsp;of&nbsp;the&nbsp;underline</tt></dd></dl>
- <dl><dt><a name="-math_parse_s"><strong>math_parse_s</strong></a>(s, dpi, fontsize)</dt><dd><tt>Parse&nbsp;the&nbsp;math&nbsp;expression&nbsp;s,&nbsp;return&nbsp;the&nbsp;(bbox,&nbsp;fonts)&nbsp;tuple&nbsp;needed<br>
-to&nbsp;render&nbsp;it.<br>
-&nbsp;<br>
-fontsize&nbsp;must&nbsp;be&nbsp;in&nbsp;points<br>
-&nbsp;<br>
-bbox:&nbsp;left,&nbsp;bottom,&nbsp;width,&nbsp;heigt<br>
-fonts:&nbsp;a&nbsp;seq&nbsp;of&nbsp;FT2Fonts</tt></dd></dl>
+ <dl><dt><a name="-StringIO"><strong>StringIO</strong></a>(...)</dt><dd><tt><a href="#-StringIO">StringIO</a>([s])&nbsp;--&nbsp;Return&nbsp;a&nbsp;StringIO-like&nbsp;stream&nbsp;for&nbsp;reading&nbsp;or&nbsp;writing</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -591,30 +704,30 @@ fonts:&nbsp;a&nbsp;seq&nbsp;of&nbsp;FT2Fonts</tt></dd></dl>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
-<strong>OFFSET_EX10</strong> = 4.0<br>
 <strong>True</strong> = True<br>
-<strong>absolute</strong> = &lt;UFunc: 'abs'&gt;<br>
+<strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>alphanums</strong> = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'<br>
 <strong>alphas</strong> = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'<br>
 <strong>ampersand</strong> = "&amp;"<br>
+<strong>ams_type1</strong> = {'(': ('cmex10', '28'), ')': ('cmex10', '29'), '*': ('cmsy10', '03'), '+': ('cmex10', '2B'), ',': ('cmmi10', '3B'), '-': ('cmsy10', '00'), '.': ('cmmi10', '3A'), '/': ('cmmi10', '3D'), '0': ('cmex10', '30'), '1': ('cmex10', '31'), ...}<br>
 <strong>at</strong> = "@"<br>
-<strong>binop</strong> = MatchFirst:([MatchFirst:([MatchFirst:(["+", "-"]), "*"]), "/"])<br>
+<strong>bakoma_truetype</strong> = {'(': ('cmr10', '28'), ')': ('cmr10', '29'), '*': ('cmsy10', 'A4'), '+': ('cmr10', '2B'), ',': ('cmmi10', '3B'), '-': ('cmsy10', 'A1'), '.': ('cmmi10', '3A'), '/': ('cmmi10', '3D'), '0': ('cmr10', '30'), '1': ('cmr10', '31'), ...}<br>
+<strong>binop</strong> = {{{"+" | "-"} | "*"} | "/"}<br>
 <strong>bslash</strong> = "\"<br>
 <strong>cal</strong> = "cal"<br>
 <strong>char</strong> = W:(abcd...)<br>
+<strong>charOverChars</strong> = {r'\angstrom': (('rm', 'A', 1.0), (None, r'\circ', 0.5), 0.0)}<br>
 <strong>colon</strong> = ":"<br>
 <strong>comma</strong> = ","<br>
 <strong>div</strong> = "/"<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>equals</strong> = "="<br>
 <strong>exclamation</strong> = "!"<br>
-<strong>expr</strong> = OneOrMore:(Or:([Or:([Or:([Or:([Or:([Or:([Or:([Or...Optional:(Forward:(Group:(And:([...]))))])))])]))<br>
-<strong>fontgrp</strong> = Group:(And:([Combine:(And:(["\", MatchFirst:([Ma...:(Group:(And:([...])))]))]), Suppress:("}")]))]))<br>
-<strong>fontname</strong> = MatchFirst:([MatchFirst:([MatchFirst:(["rm", "cal"]), "it"]), "tt"])<br>
-<strong>fonttable</strong> = {'(': ('cmr10.ttf', '28'), ')': ('cmr10.ttf', '29'), '*': ('cmsy10.ttf', 'A4'), '+': ('cmr10.ttf', '2B'), ',': ('cmmi10.ttf', '3B'), '-': ('cmsy10.ttf', 'A1'), '.': ('cmmi10.ttf', '3A'), '/': ('cmmi10.ttf', '3D'), '0': ('cmr10.ttf', '30'), '1': ('cmr10.ttf', '31'), ...}<br>
-<strong>group</strong> = Or:([Or:([Group:(And:([And:([Suppress:("{"), One...), Optional:(Forward:(Group:(And:([...]))))])))])<br>
-<strong>grouping</strong> = MatchFirst:([MatchFirst:([MatchFirst:(["[", "]"]), "("]), ")"])<br>
-<strong>grp</strong> = Group:(And:([And:([Suppress:("{"), OneOrMore:(Or:([...]))]), Suppress:("}")]))<br>
+<strong>expression</strong> = expression<br>
+<strong>font</strong> = font<br>
+<strong>fontname</strong> = {{{"rm" | "cal"} | "it"} | "tt"}<br>
+<strong>group</strong> = group<br>
+<strong>grouping</strong> = {{{"[" | "]"} | "("} | ")"}<br>
 <strong>handler</strong> = &lt;matplotlib.mathtext.Handler instance&gt;<br>
 <strong>italics</strong> = "it"<br>
 <strong>langle</strong> = "&lt;"<br>
@@ -622,28 +735,30 @@ fonts:&nbsp;a&nbsp;seq&nbsp;of&nbsp;FT2Fonts</tt></dd></dl>
 <strong>lbrack</strong> = "["<br>
 <strong>lparen</strong> = "("<br>
 <strong>minus</strong> = "-"<br>
-<strong>misc</strong> = MatchFirst:([MatchFirst:([MatchFirst:(["!", "@"]), "%"]), "&amp;"])<br>
+<strong>misc</strong> = {{{"!" | "@"} | "%"} | "&amp;"}<br>
+<strong>number</strong> = Combine:({{W:(0123...) ["."]} [W:(0123...)]})<br>
 <strong>nums</strong> = '0123456789'<br>
 <strong>overunder</strong> = {r'\coprod': 1, r'\int': 1, r'\prod': 1, r'\sum': 1}<br>
 <strong>percent</strong> = "%"<br>
 <strong>period</strong> = "."<br>
 <strong>plus</strong> = "+"<br>
-<strong>punctuation</strong> = MatchFirst:([MatchFirst:([MatchFirst:([":", ","]), "."]), ";"])<br>
+<strong>punctuation</strong> = {{{":" | ","} | "."} | ";"}<br>
 <strong>rangle</strong> = "&gt;"<br>
 <strong>rbrace</strong> = Suppress:("}")<br>
 <strong>rbrack</strong> = "]"<br>
-<strong>relation</strong> = MatchFirst:([MatchFirst:(["&lt;", "&gt;"]), "="])<br>
+<strong>relation</strong> = {{"&lt;" | "&gt;"} | "="}<br>
 <strong>roman</strong> = "rm"<br>
 <strong>rparen</strong> = ")"<br>
 <strong>semicolon</strong> = ";"<br>
-<strong>singlesym</strong> = Or:([Or:([Or:([Or:([Or:([Or:([Combine:(And:([And...chFirst:([MatchFirst:(["[", "]"]), "("]), ")"])])<br>
-<strong>subsupgrp</strong> = Forward:(Group:(And:([And:([Or:(["_", "^"]), Or:...)]), Optional:(Forward:(Group:(And:([...]))))])))<br>
-<strong>superscript</strong> = "^"<br>
-<strong>symbol</strong> = Or:([Or:([Or:([Or:([Or:([Or:([Or:([Combine:(And:...), Optional:(Forward:(Group:(And:([...]))))])))])<br>
-<strong>texsym</strong> = Combine:(And:([And:(["\", W:(abcd...)]), NotAny:(Suppress:("{"))]))<br>
+<strong>space</strong> = space<br>
+<strong>subscript</strong> = subscript<br>
+<strong>subsuperscript</strong> = subsuperscript<br>
+<strong>superscript</strong> = superscript<br>
+<strong>symbol</strong> = {{{{{{Combine:({{"\" W:(abcd...)} ~{Suppress:("{...@"} | "%"} | "&amp;"}} ^ {{{"[" | "]"} | "("} | ")"}}<br>
+<strong>symgroup</strong> = {{{{{{{Combine:({{"\" W:(abcd...)} ~{Suppress:("...} | "&amp;"}} ^ {{{"[" | "]"} | "("} | ")"}} ^ group}<br>
+<strong>texsym</strong> = Combine:({{"\" W:(abcd...)} ~{Suppress:("{")}})<br>
 <strong>times</strong> = "*"<br>
-<strong>typewriter</strong> = "tt"<br>
-<strong>underscore</strong> = "_"</td></tr></table>
+<strong>typewriter</strong> = "tt"</td></tr></table>
     </td>
     </tr>
 </table>

@@ -18,21 +18,32 @@ Math text
 *******************
 Support special symbols
 
-not started
+mostly done
 
 Many of the standard TeX symbols are already defined (see <a
-href=matplotlib.mathtext.html>mathtext</a>).  Adding composite symbols
-such as the Angstrom symbol requires additional work.
+href=matplotlib.mathtext.html>mathtext</a>).  The framework for adding
+composite symbols is in place, eg \angstrom is defined.  Additional
+symbols will be added on as as needed bassis, so speak up!  These
+improvements appeared in <a href="whats_new.html#0.54-Enhanced_mathtext">matplotlib-0.54</a>.
+
 *******************
 Postscript support
 
-not started
+partial
+
+The freetype engine was factorerd out of mathtext and replaced with an
+abstract font handler.  The framework for PS support is in place but
+there are some unresolved issues.
+
 *******************
 Parser fixes
 
-not started
+mostly done
 
-Over/under bug, groupings, recursive sub/superscipts.
+Over/under subscripts now work, recursive sub/superscipts are
+supported if you do x_i_{j}, note the extra curlys; fixed in <a
+href="whats_new.html#0.54-Enhanced_mathtext">matplotlib-0.54</a>
+
 *******************
 kerning
 
@@ -48,7 +59,11 @@ not started
 *******************
 add spacing commands
 
-not started
+done
+
+added \/ the small space command and \hspace{frac} where frac is a
+space determined by a fraction of the point size; added in <a
+href="whats_new.html#0.54-Enhanced_mathtext">matplotlib-0.54</a>
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Regular text
@@ -79,9 +94,9 @@ Image support
 done
 
 AGG support appeared in 
-<a href="whats_new.html#0.52-Image support">
+<a href="whats_new.html#0.52-Image_support">
 matplotlib-0.52</a>, Postscript image support in 
-<a href="whats_new.html#0.53-Ported image support to numarray and postscript backend">
+<a href="whats_new.html#0.53-Ported_image_support_to_numarray_and_postscript_backend">
 matplotlib-0.53</a>.
 See <a href="matplotlib.matlab.html#-imshow">
 imshow</a>
@@ -117,8 +132,8 @@ done
 
 You can set a sequence of on-off ink for dashes in addition to the
 preset line styles '--' and '-.'.  Added in <a
-href=whats_new.html#0.54>matplotlib-0.54</a>.  See <a
-href=examples/dash_control.py>dash_control.py</a>.
+href=whats_new.html#0.54-Full_dash_control>matplotlib-0.54</a>.  See
+<a href=examples/dash_control.py>dash_control.py</a>.
 
 *******************
 Date plots
@@ -161,7 +176,9 @@ Error bars included in auto ranging
 
 done
 
-Plots often clip error bars.
+Plots often clip error bars; fixed in <a
+href="whats_new.html#0.54-Bug_fix_roundup">matplotlib-0.54</a>.
+
 ===========================================================================
 GUI Functionality
 *******************
@@ -198,20 +215,22 @@ Performance
 *******************
 Faster Postscript rendering
 
-not started
+mostly done
 
-Almost all of the time spent by the postscript backend is spent
-parsing the AFM files.  We need to implement caching of the parsing
-results to speed-up this backend.
+font caching and other changes have significantly improved postscript
+performance; fixed in <a href="whats_new.html#0.54-Font_cacheing">matplotlib-0.54</a>
 
 *******************
 Faster point and symbol plots
 
-not started
+mostly done
 
-Symbol and point plots currently loop over all points
-in Python. New backend functions that render within C
-would greatly speed up these kinds of plots.
+A new transformation class and <a
+href=matplotlib.collections.html>collections</a> module have
+dramatically improved pcolor and scatter plots.  scatter also supports
+a variety of different markers - currently regular polygons but this
+will soon be expanded.  For large scatter plots (eg 50,000 markers),
+performance is 10x faster in <a href="whats_new.html#0.54-New_scatter_plots">matplotlib-0.54</a>.
 
 ********************
 Faster math text
@@ -239,13 +258,15 @@ Backends
 *******************
 Various WX improvements and fixes
 
-not started
+partially done
 
-Tooltips, close button, etc. 
-Jeremy, the author and maintainer of the wx backend, no longer has
-the time to fully maintain the wx backend, though he continues to
-work on it.  So we are looking for someone to help maintain
-the wx and wxagg backends.
+Jeremy fixed the known wx bugs relating to tooltips and the close
+button button not returning the interpreter in <a
+href="whats_new.html#0.54-Bug_fix_roundup">matplotlib-0.54</a>.
+Jeremy, the author and maintainer of the wx backend, no longer has the
+time to fully maintain the wx backend, though he continues to work on
+it.  So we are looking for someone to help maintain the wx and wxagg
+backends.
 
 *******************
 PDF backend

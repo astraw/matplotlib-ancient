@@ -249,41 +249,6 @@ v&nbsp;defaults&nbsp;to&nbsp;None.</tt></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#eeaa77">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
-    
-<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-enumerate"><strong>enumerate</strong></a>(seq)</dt><dd><tt>#&nbsp;until&nbsp;2.3</tt></dd></dl>
- <dl><dt><a name="-exception_to_str"><strong>exception_to_str</strong></a>(s<font color="#909090">=None</font>)</dt></dl>
- <dl><dt><a name="-flatten"><strong>flatten</strong></a>(seq, scalarp<font color="#909090">=&lt;function is_scalar&gt;</font>)</dt><dd><tt>this&nbsp;generator&nbsp;flattens&nbsp;nested&nbsp;containers&nbsp;such&nbsp;as<br>
-&nbsp;<br>
-&gt;&gt;&gt;&nbsp;l=(&nbsp;('John',&nbsp;'Hunter'),&nbsp;(1,23),&nbsp;[[[[42,(5,23)]]]])<br>
-&nbsp;<br>
-so&nbsp;that<br>
-&nbsp;<br>
-&gt;&gt;&gt;&nbsp;for&nbsp;i&nbsp;in&nbsp;<a href="#-flatten">flatten</a>(l):&nbsp;print&nbsp;i,<br>
-John&nbsp;Hunter&nbsp;1&nbsp;23&nbsp;42&nbsp;5&nbsp;23<br>
-&nbsp;<br>
-By:&nbsp;Composite&nbsp;of&nbsp;Holger&nbsp;Krekel&nbsp;and&nbsp;Luther&nbsp;Blissett<br>
-From:&nbsp;<a href="http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/121294">http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/121294</a><br>
-and&nbsp;Recipe&nbsp;1.12&nbsp;in&nbsp;cookbook</tt></dd></dl>
- <dl><dt><a name="-get_recursive_filelist"><strong>get_recursive_filelist</strong></a>(args)</dt><dd><tt>Recurs&nbsp;all&nbsp;the&nbsp;files&nbsp;and&nbsp;dirs&nbsp;in&nbsp;args&nbsp;ignoring&nbsp;symbolic&nbsp;links&nbsp;and<br>
-return&nbsp;the&nbsp;files&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings</tt></dd></dl>
- <dl><dt><a name="-get_split_ind"><strong>get_split_ind</strong></a>(seq, N)</dt><dd><tt>seq&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;words.&nbsp;&nbsp;Return&nbsp;the&nbsp;index&nbsp;into&nbsp;seq&nbsp;such&nbsp;that<br>
-len('&nbsp;'.join(seq[:ind])&lt;=N</tt></dd></dl>
- <dl><dt><a name="-is_scalar"><strong>is_scalar</strong></a>(obj)</dt></dl>
- <dl><dt><a name="-is_string_like"><strong>is_string_like</strong></a>(obj)</dt></dl>
- <dl><dt><a name="-iterable"><strong>iterable</strong></a>(obj)</dt></dl>
- <dl><dt><a name="-listFiles"><strong>listFiles</strong></a>(root, patterns<font color="#909090">='*'</font>, recurse<font color="#909090">=1</font>, return_folders<font color="#909090">=0</font>)</dt><dd><tt>Recursively&nbsp;list&nbsp;files<br>
-from&nbsp;Parmar&nbsp;and&nbsp;Martelli&nbsp;in&nbsp;the&nbsp;Python&nbsp;Cookbook</tt></dd></dl>
- <dl><dt><a name="-mkdirs"><strong>mkdirs</strong></a>(newdir, mode<font color="#909090">=511</font>)</dt></dl>
- <dl><dt><a name="-pieces"><strong>pieces</strong></a>(seq, num<font color="#909090">=2</font>)</dt><dd><tt>Break&nbsp;up&nbsp;the&nbsp;seq&nbsp;into&nbsp;num&nbsp;tuples</tt></dd></dl>
- <dl><dt><a name="-soundex"><strong>soundex</strong></a>(name, len<font color="#909090">=4</font>)</dt><dd><tt>soundex&nbsp;module&nbsp;conforming&nbsp;to&nbsp;Odell-Russell&nbsp;algorithm</tt></dd></dl>
- <dl><dt><a name="-warn"><strong>warn</strong></a>(s)</dt><dd><tt>issue&nbsp;a&nbsp;warning</tt></dd></dl>
- <dl><dt><a name="-wrap"><strong>wrap</strong></a>(prefix, text, cols)</dt></dl>
-</td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>

@@ -97,20 +97,6 @@ as&nbsp;a&nbsp;w,h&nbsp;tuple</tt></dd></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#eeaa77">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
-    
-<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-parse_afm"><strong>parse_afm</strong></a>(fh)</dt><dd><tt>Parse&nbsp;the&nbsp;Adobe&nbsp;Font&nbsp;Metics&nbsp;file&nbsp;in&nbsp;file&nbsp;handle&nbsp;fh<br>
-Return&nbsp;value&nbsp;is&nbsp;a&nbsp;(dhead,&nbsp;dcmetrics,&nbsp;dkernpairs,&nbsp;dcomposite)&nbsp;tuple&nbsp;where<br>
-&nbsp;<br>
-dhead&nbsp;:&nbsp;a&nbsp;parse_header&nbsp;dict<br>
-dcmetrics&nbsp;:&nbsp;&nbsp;a&nbsp;parse_composites&nbsp;dict<br>
-dkernpairs&nbsp;:&nbsp;a&nbsp;parse_kern_pairs&nbsp;dict,&nbsp;possibly&nbsp;{}<br>
-dcomposite&nbsp;:&nbsp;a&nbsp;parse_composites&nbsp;dict&nbsp;,&nbsp;possibly&nbsp;{}</tt></dd></dl>
-</td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>

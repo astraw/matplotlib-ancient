@@ -20,11 +20,15 @@
 <dt><font face="helvetica, arial"><a href="matplotlib.patches.html#Patch">Patch</a>
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.patches.html#Circle">Circle</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.patches.html#Polygon">Polygon</a>
+<dt><font face="helvetica, arial"><a href="matplotlib.patches.html#Polygon">Polygon</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.patches.html#Rectangle">Rectangle</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.patches.html#RegularPolygon">RegularPolygon</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.patches.html#Circle">Circle</a>
 </font></dt></dl>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd>
@@ -33,40 +37,38 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Circle">class <strong>Circle</strong></a>(<a href="matplotlib.patches.html#Patch">Patch</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="Circle">class <strong>Circle</strong></a>(<a href="matplotlib.patches.html#RegularPolygon">RegularPolygon</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>A&nbsp;circle&nbsp;patch<br>
-&nbsp;<br>
-Public&nbsp;attributes:<br>
-&nbsp;&nbsp;dpi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;DPI&nbsp;instance<br>
-&nbsp;&nbsp;bbox&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;Bound2D&nbsp;instance&nbsp;in&nbsp;display&nbsp;coords<br>
-&nbsp;&nbsp;transx&nbsp;:&nbsp;a&nbsp;Bound1D&nbsp;instance&nbsp;giving&nbsp;the&nbsp;x&nbsp;coords<br>
-&nbsp;&nbsp;transy&nbsp;:&nbsp;a&nbsp;Bound1D&nbsp;instance&nbsp;giving&nbsp;the&nbsp;y&nbsp;coords<br>
-&nbsp;&nbsp;transrx&nbsp;:&nbsp;a&nbsp;Bound1D&nbsp;instance&nbsp;giving&nbsp;the&nbsp;radius&nbsp;coords&nbsp;in&nbsp;x&nbsp;direction<br>
-&nbsp;&nbsp;transry&nbsp;:&nbsp;a&nbsp;Bound1D&nbsp;instance&nbsp;giving&nbsp;the&nbsp;radius&nbsp;coords&nbsp;in&nbsp;y&nbsp;direction<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>A&nbsp;circle&nbsp;patch<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="matplotlib.patches.html#Circle">Circle</a></dd>
+<dd><a href="matplotlib.patches.html#RegularPolygon">RegularPolygon</a></dd>
 <dd><a href="matplotlib.patches.html#Patch">Patch</a></dd>
 <dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Circle-__init__"><strong>__init__</strong></a>(self, dpi, bbox, xy, radius<font color="#909090">=5</font>, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=1</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transrx<font color="#909090">=None</font>, transry<font color="#909090">=None</font>)</dt><dd><tt>if&nbsp;transrx&nbsp;is&nbsp;None,&nbsp;default&nbsp;to&nbsp;transx<br>
-if&nbsp;transry&nbsp;is&nbsp;None,&nbsp;default&nbsp;to&nbsp;transy</tt></dd></dl>
+<dl><dt><a name="Circle-__init__"><strong>__init__</strong></a>(self, xy, radius<font color="#909090">=5</font>, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=1</font>, resolution<font color="#909090">=20</font>)</dt></dl>
 
-<dl><dt><a name="Circle-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt></dl>
+<hr>
+Methods inherited from <a href="matplotlib.patches.html#RegularPolygon">RegularPolygon</a>:<br>
+<dl><dt><a name="Circle-get_verts"><strong>get_verts</strong></a>(self)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 <dl><dt><a name="Circle-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Circle-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
 <dl><dt><a name="Circle-get_edgecolor"><strong>get_edgecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Circle-get_facecolor"><strong>get_facecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Circle-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Circle-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="Circle-set_edgecolor"><strong>set_edgecolor</strong></a>(self, color)</dt></dl>
 
@@ -78,29 +80,33 @@ Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="Circle-draw"><strong>draw</strong></a>(self, renderer<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
 <dl><dt><a name="Circle-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="Circle-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;all&nbsp;artists&nbsp;contained&nbsp;in&nbsp;self</tt></dd></dl>
-
 <dl><dt><a name="Circle-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
-<dl><dt><a name="Circle-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+<dl><dt><a name="Circle-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="Circle-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="Circle-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Circle-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
 
 <dl><dt><a name="Circle-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="Circle-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+<dl><dt><a name="Circle-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
 
-<dl><dt><a name="Circle-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+<dl><dt><a name="Circle-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Circle-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
 
 <dl><dt><a name="Circle-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Circle-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="Circle-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
@@ -115,24 +121,24 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <font color="#000000" face="helvetica, arial"><a name="Patch">class <strong>Patch</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>A&nbsp;patch&nbsp;is&nbsp;a&nbsp;2D&nbsp;thingy&nbsp;with&nbsp;a&nbsp;face&nbsp;color&nbsp;and&nbsp;an&nbsp;edge&nbsp;color<br>
-&nbsp;<br>
-Public&nbsp;attributes:<br>
-dpi&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;DPI&nbsp;instance<br>
-bbox&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;Bound2D&nbsp;instance&nbsp;in&nbsp;display&nbsp;coords<br>
-transx&nbsp;:&nbsp;a&nbsp;Transform&nbsp;instance<br>
-transy&nbsp;:&nbsp;a&nbsp;Transform&nbsp;instance<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>A&nbsp;patch&nbsp;is&nbsp;a&nbsp;2D&nbsp;thingy&nbsp;with&nbsp;a&nbsp;face&nbsp;color&nbsp;and&nbsp;an&nbsp;edge&nbsp;color<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Patch-__init__"><strong>__init__</strong></a>(self, dpi, bbox, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=1</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt></dl>
+<dl><dt><a name="Patch-__init__"><strong>__init__</strong></a>(self, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=1</font>)</dt></dl>
 
 <dl><dt><a name="Patch-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Patch-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
 <dl><dt><a name="Patch-get_edgecolor"><strong>get_edgecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Patch-get_facecolor"><strong>get_facecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Patch-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Patch-get_verts"><strong>get_verts</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the&nbsp;patch</tt></dd></dl>
+
+<dl><dt><a name="Patch-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="Patch-set_edgecolor"><strong>set_edgecolor</strong></a>(self, color)</dt></dl>
 
@@ -144,31 +150,33 @@ transy&nbsp;:&nbsp;a&nbsp;Transform&nbsp;instance<br>&nbsp;</tt></td></tr>
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="Patch-draw"><strong>draw</strong></a>(self, renderer<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
 <dl><dt><a name="Patch-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="Patch-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;all&nbsp;artists&nbsp;contained&nbsp;in&nbsp;self</tt></dd></dl>
-
 <dl><dt><a name="Patch-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
-<dl><dt><a name="Patch-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+<dl><dt><a name="Patch-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="Patch-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
-<dl><dt><a name="Patch-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="Patch-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Patch-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
 
 <dl><dt><a name="Patch-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="Patch-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+<dl><dt><a name="Patch-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
 
-<dl><dt><a name="Patch-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+<dl><dt><a name="Patch-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Patch-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
 
 <dl><dt><a name="Patch-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Patch-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="Patch-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
@@ -183,13 +191,7 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <font color="#000000" face="helvetica, arial"><a name="Polygon">class <strong>Polygon</strong></a>(<a href="matplotlib.patches.html#Patch">Patch</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>A&nbsp;general&nbsp;polygon&nbsp;patch.&nbsp;&nbsp;xy&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;x,y&nbsp;2&nbsp;tuples&nbsp;tuples<br>
-&nbsp;<br>
-Public&nbsp;attributes:<br>
-dpi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;DPI&nbsp;instance<br>
-bbox&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;Bound2D&nbsp;instance&nbsp;in&nbsp;display&nbsp;coords<br>
-transx&nbsp;&nbsp;:&nbsp;a&nbsp;Transform&nbsp;for&nbsp;the&nbsp;x&nbsp;data<br>
-transy&nbsp;&nbsp;:&nbsp;a&nbsp;Transform&nbsp;for&nbsp;the&nbsp;y&nbsp;data<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>A&nbsp;general&nbsp;polygon&nbsp;patch.&nbsp;&nbsp;xy&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;x,y&nbsp;2&nbsp;tuples&nbsp;tuples<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="matplotlib.patches.html#Polygon">Polygon</a></dd>
@@ -198,21 +200,23 @@ transy&nbsp;&nbsp;:&nbsp;a&nbsp;Transform&nbsp;for&nbsp;the&nbsp;y&nbsp;data<br>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Polygon-__init__"><strong>__init__</strong></a>(self, dpi, bbox, xy, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=0</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt></dl>
+<dl><dt><a name="Polygon-__init__"><strong>__init__</strong></a>(self, xy, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=0</font>)</dt></dl>
 
-<dl><dt><a name="Polygon-get_xlim"><strong>get_xlim</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="Polygon-get_ylim"><strong>get_ylim</strong></a>(self)</dt></dl>
+<dl><dt><a name="Polygon-get_verts"><strong>get_verts</strong></a>(self)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 <dl><dt><a name="Polygon-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Polygon-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
 <dl><dt><a name="Polygon-get_edgecolor"><strong>get_edgecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Polygon-get_facecolor"><strong>get_facecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Polygon-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Polygon-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="Polygon-set_edgecolor"><strong>set_edgecolor</strong></a>(self, color)</dt></dl>
 
@@ -224,31 +228,33 @@ Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="Polygon-draw"><strong>draw</strong></a>(self, renderer<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
 <dl><dt><a name="Polygon-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="Polygon-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;all&nbsp;artists&nbsp;contained&nbsp;in&nbsp;self</tt></dd></dl>
-
 <dl><dt><a name="Polygon-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
-<dl><dt><a name="Polygon-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+<dl><dt><a name="Polygon-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="Polygon-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
-<dl><dt><a name="Polygon-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="Polygon-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Polygon-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
 
 <dl><dt><a name="Polygon-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="Polygon-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+<dl><dt><a name="Polygon-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
 
-<dl><dt><a name="Polygon-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+<dl><dt><a name="Polygon-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Polygon-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
 
 <dl><dt><a name="Polygon-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Polygon-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="Polygon-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
@@ -264,15 +270,7 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>Draw&nbsp;a&nbsp;rectangle&nbsp;with&nbsp;lower&nbsp;left&nbsp;at&nbsp;xy=(x,y)&nbsp;with&nbsp;specified<br>
-width&nbsp;and&nbsp;height<br>
-&nbsp;<br>
-Public&nbsp;attributes:<br>
-dpi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;DPI&nbsp;instance<br>
-bbox&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;Bound2D&nbsp;instance&nbsp;in&nbsp;display&nbsp;coords<br>
-transx&nbsp;:&nbsp;a&nbsp;Transform&nbsp;instance&nbsp;for&nbsp;x&nbsp;data<br>
-transy&nbsp;:&nbsp;a&nbsp;Transform&nbsp;instance&nbsp;for&nbsp;y&nbsp;data<br>
-transw&nbsp;:&nbsp;a&nbsp;Transform&nbsp;instance&nbsp;for&nbsp;width&nbsp;data,&nbsp;default&nbsp;transx<br>
-transh&nbsp;:&nbsp;a&nbsp;Transform&nbsp;instance&nbsp;for&nbsp;height&nbsp;data,&nbsp;default&nbsp;transy<br>&nbsp;</tt></td></tr>
+width&nbsp;and&nbsp;height<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="matplotlib.patches.html#Rectangle">Rectangle</a></dd>
@@ -281,26 +279,17 @@ transh&nbsp;:&nbsp;a&nbsp;Transform&nbsp;instance&nbsp;for&nbsp;height&nbsp;data
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Rectangle-__init__"><strong>__init__</strong></a>(self, dpi, bbox, xy, width, height, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=True</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transw<font color="#909090">=None</font>, transh<font color="#909090">=None</font>)</dt><dd><tt>dpi&nbsp;is&nbsp;a&nbsp;DPI&nbsp;instance<br>
-&nbsp;<br>
-bbox&nbsp;is&nbsp;the&nbsp;display&nbsp;Bound2D&nbsp;bounding&nbsp;boc<br>
-&nbsp;<br>
-xy&nbsp;is&nbsp;an&nbsp;x,y&nbsp;tuple&nbsp;lower,&nbsp;left<br>
+<dl><dt><a name="Rectangle-__init__"><strong>__init__</strong></a>(self, xy, width, height, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=True</font>)</dt><dd><tt>xy&nbsp;is&nbsp;an&nbsp;x,y&nbsp;tuple&nbsp;lower,&nbsp;left<br>
 &nbsp;<br>
 width&nbsp;and&nbsp;height&nbsp;are&nbsp;width&nbsp;and&nbsp;height&nbsp;of&nbsp;rectangle<br>
 &nbsp;<br>
-fill&nbsp;is&nbsp;a&nbsp;boolean&nbsp;indicating&nbsp;whether&nbsp;to&nbsp;fill&nbsp;the&nbsp;rectangle<br>
-&nbsp;<br>
-transy&nbsp;and&nbsp;transy&nbsp;are&nbsp;the&nbsp;transforms&nbsp;of&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;data<br>
-&nbsp;<br>
-transw&nbsp;and&nbsp;hccords&nbsp;are&nbsp;the&nbsp;transforms&nbsp;of&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;data<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;None,&nbsp;use&nbsp;transx&nbsp;and&nbsp;transy</tt></dd></dl>
+fill&nbsp;is&nbsp;a&nbsp;boolean&nbsp;indicating&nbsp;whether&nbsp;to&nbsp;fill&nbsp;the&nbsp;rectangle</tt></dd></dl>
 
 <dl><dt><a name="Rectangle-get_height"><strong>get_height</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;height&nbsp;of&nbsp;the&nbsp;rectangle</tt></dd></dl>
 
-<dl><dt><a name="Rectangle-get_width"><strong>get_width</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;width&nbsp;of&nbsp;the&nbsp;&nbsp;rectangle</tt></dd></dl>
+<dl><dt><a name="Rectangle-get_verts"><strong>get_verts</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the&nbsp;rectangle</tt></dd></dl>
 
-<dl><dt><a name="Rectangle-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt></dl>
+<dl><dt><a name="Rectangle-get_width"><strong>get_width</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;width&nbsp;of&nbsp;the&nbsp;&nbsp;rectangle</tt></dd></dl>
 
 <dl><dt><a name="Rectangle-get_x"><strong>get_x</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;left&nbsp;coord&nbsp;of&nbsp;the&nbsp;rectangle</tt></dd></dl>
 
@@ -320,11 +309,15 @@ transw&nbsp;and&nbsp;hccords&nbsp;are&nbsp;the&nbsp;transforms&nbsp;of&nbsp;the&
 Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 <dl><dt><a name="Rectangle-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
 
+<dl><dt><a name="Rectangle-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
+
 <dl><dt><a name="Rectangle-get_edgecolor"><strong>get_edgecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Rectangle-get_facecolor"><strong>get_facecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Rectangle-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Rectangle-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="Rectangle-set_edgecolor"><strong>set_edgecolor</strong></a>(self, color)</dt></dl>
 
@@ -336,29 +329,33 @@ Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="Rectangle-draw"><strong>draw</strong></a>(self, renderer<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
 <dl><dt><a name="Rectangle-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="Rectangle-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;all&nbsp;artists&nbsp;contained&nbsp;in&nbsp;self</tt></dd></dl>
-
 <dl><dt><a name="Rectangle-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
-<dl><dt><a name="Rectangle-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+<dl><dt><a name="Rectangle-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="Rectangle-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="Rectangle-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Rectangle-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
 
 <dl><dt><a name="Rectangle-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="Rectangle-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+<dl><dt><a name="Rectangle-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
 
-<dl><dt><a name="Rectangle-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+<dl><dt><a name="Rectangle-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Rectangle-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
 
 <dl><dt><a name="Rectangle-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Rectangle-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="Rectangle-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
@@ -376,14 +373,7 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <td colspan=2><tt>A&nbsp;regular&nbsp;polygon&nbsp;patch.&nbsp;&nbsp;xy&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple&nbsp;(the&nbsp;center)<br>
 numVertices&nbsp;is&nbsp;the&nbsp;number&nbsp;of&nbsp;vertices.&nbsp;&nbsp;Radius&nbsp;is&nbsp;the&nbsp;distance<br>
 from&nbsp;the&nbsp;center&nbsp;to&nbsp;each&nbsp;of&nbsp;the&nbsp;vertices.&nbsp;&nbsp;Orientation&nbsp;is&nbsp;in<br>
-radians&nbsp;and&nbsp;rotates&nbsp;the&nbsp;polygon.<br>
-&nbsp;<br>
-Public&nbsp;attributes:<br>
-dpi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;DPI&nbsp;instance<br>
-bbox&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;Bound2D&nbsp;instance&nbsp;in&nbsp;display&nbsp;coords<br>
-transx&nbsp;&nbsp;:&nbsp;a&nbsp;Transform&nbsp;for&nbsp;the&nbsp;x&nbsp;data<br>
-transy&nbsp;&nbsp;:&nbsp;a&nbsp;Transform&nbsp;for&nbsp;the&nbsp;y&nbsp;data<br>
-transw&nbsp;&nbsp;:&nbsp;a&nbsp;Transform&nbsp;for&nbsp;the&nbsp;radius<br>&nbsp;</tt></td></tr>
+radians&nbsp;and&nbsp;rotates&nbsp;the&nbsp;polygon.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="matplotlib.patches.html#RegularPolygon">RegularPolygon</a></dd>
@@ -392,19 +382,23 @@ transw&nbsp;&nbsp;:&nbsp;a&nbsp;Transform&nbsp;for&nbsp;the&nbsp;radius<br>&nbsp
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="RegularPolygon-__init__"><strong>__init__</strong></a>(self, dpi, bbox, xy, numVertices, radius<font color="#909090">=5</font>, orientation<font color="#909090">=0</font>, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=1</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transr<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt></dl>
+<dl><dt><a name="RegularPolygon-__init__"><strong>__init__</strong></a>(self, xy, numVertices, radius<font color="#909090">=5</font>, orientation<font color="#909090">=0</font>, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=1</font>)</dt></dl>
 
-<dl><dt><a name="RegularPolygon-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt></dl>
+<dl><dt><a name="RegularPolygon-get_verts"><strong>get_verts</strong></a>(self)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 <dl><dt><a name="RegularPolygon-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="RegularPolygon-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
 <dl><dt><a name="RegularPolygon-get_edgecolor"><strong>get_edgecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="RegularPolygon-get_facecolor"><strong>get_facecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="RegularPolygon-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RegularPolygon-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="RegularPolygon-set_edgecolor"><strong>set_edgecolor</strong></a>(self, color)</dt></dl>
 
@@ -416,29 +410,33 @@ Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="RegularPolygon-draw"><strong>draw</strong></a>(self, renderer<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
 <dl><dt><a name="RegularPolygon-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="RegularPolygon-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;all&nbsp;artists&nbsp;contained&nbsp;in&nbsp;self</tt></dd></dl>
-
 <dl><dt><a name="RegularPolygon-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
-<dl><dt><a name="RegularPolygon-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+<dl><dt><a name="RegularPolygon-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="RegularPolygon-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="RegularPolygon-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RegularPolygon-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
 
 <dl><dt><a name="RegularPolygon-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="RegularPolygon-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+<dl><dt><a name="RegularPolygon-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
 
-<dl><dt><a name="RegularPolygon-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+<dl><dt><a name="RegularPolygon-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="RegularPolygon-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
 
 <dl><dt><a name="RegularPolygon-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="RegularPolygon-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="RegularPolygon-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
@@ -453,10 +451,15 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-bbox_artist"><strong>bbox_artist</strong></a>(artist, renderer)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;debug&nbsp;function&nbsp;to&nbsp;draw&nbsp;a&nbsp;rectangle&nbsp;around&nbsp;the&nbsp;bounding<br>
+<td width="100%"><dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
+&nbsp;<br>
+&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
+specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
+ <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
+ <dl><dt><a name="-bbox_artist"><strong>bbox_artist</strong></a>(artist, renderer)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;debug&nbsp;function&nbsp;to&nbsp;draw&nbsp;a&nbsp;rectangle&nbsp;around&nbsp;the&nbsp;bounding<br>
 box&nbsp;returned&nbsp;by&nbsp;get_window_extent&nbsp;of&nbsp;an&nbsp;artist,&nbsp;to&nbsp;test&nbsp;whether<br>
 the&nbsp;artist&nbsp;is&nbsp;returning&nbsp;the&nbsp;correct&nbsp;bbox</tt></dd></dl>
- <dl><dt><a name="-draw_bbox"><strong>draw_bbox</strong></a>(dpi, bbox, renderer)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;debug&nbsp;function&nbsp;to&nbsp;draw&nbsp;a&nbsp;rectangle&nbsp;around&nbsp;the&nbsp;bounding<br>
+ <dl><dt><a name="-draw_bbox"><strong>draw_bbox</strong></a>(bbox, renderer, color<font color="#909090">='k'</font>, trans<font color="#909090">=None</font>)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;debug&nbsp;function&nbsp;to&nbsp;draw&nbsp;a&nbsp;rectangle&nbsp;around&nbsp;the&nbsp;bounding<br>
 box&nbsp;returned&nbsp;by&nbsp;get_window_extent&nbsp;of&nbsp;an&nbsp;artist,&nbsp;to&nbsp;test&nbsp;whether<br>
 the&nbsp;artist&nbsp;is&nbsp;returning&nbsp;the&nbsp;correct&nbsp;bbox</tt></dd></dl>
 </td></tr></table><p>
@@ -467,11 +470,11 @@ the&nbsp;artist&nbsp;is&nbsp;returning&nbsp;the&nbsp;correct&nbsp;bbox</tt></dd>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
-<strong>Float</strong> = Float64<br>
+<strong>Float</strong> = 'd'<br>
 <strong>True</strong> = True<br>
 <strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
-<strong>cos</strong> = &lt;UFunc: 'cos'&gt;<br>
+<strong>cos</strong> = &lt;ufunc 'cos'&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>pi</strong> = 3.1415926535897931<br>
-<strong>sin</strong> = &lt;UFunc: 'sin'&gt;</td></tr></table>
+<strong>sin</strong> = &lt;ufunc 'sin'&gt;</td></tr></table>
 @footer@

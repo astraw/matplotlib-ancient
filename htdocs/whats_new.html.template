@@ -51,13 +51,17 @@ and \hspace{frac} as well as composite chars such as \angstrom.
 """),
 
     ('Many new plot symbols and markers', """Thanks Gary Ruben.  See
-<a href=matplotlib.matlab.html#-plot.
+<a href=matplotlib.matlab.html#-plot>plot</a>.
 """),
 
     ('Font cacheing', """Paul Barrett added caching support to the
 font manager to increase performance.  This and other changes have
 dramatically improved postscript backend performance.
 """),
+
+    ('Full dash control', """You can precisely control the dashes with
+a sequence of on off ink in points.  See <a
+href=examples/dash_control.py>dash_control.py</a> """),
 
     ('Removed close buttons from GUI', """Steve Chaplin persuasively
 argued these were a bad idea.  It's taken me a while not to
@@ -67,18 +71,18 @@ to it now.
 
     ('Properly aligned text with arbitrary alignments', 
 """You can now expect horizontal and vertical alignment specifications
-to work with text at an arbitrary angle, eg, 45 degrees.  See <a href=examples/alignment_demo.py>alignment_demo.py</a>
+to work with text at an arbitrary angle, eg, 45 degrees.  See <a href=examples/alignment_test.py>alignment_test.py</a>
 """),
 
     ('Added stem plotting command', """
-See <a href=matplotlib.matlab:#-stem>stem</a> and <a href=examples/stem_plot.py>stem_plot.py</a>"""),
+See <a href=matplotlib.matlab.html#-stem>stem</a> and <a href=examples/stem_plot.py>stem_plot.py</a>"""),
 
-    ('Bug fix roundup, """
-See <a href=CHANGELOG>CHANGELOG</a> for details.  Executive summary:
-fixed ps centering, errorbar autoscaling, constant data plot, copy
-tick attribute, mathtext fontsizing in interactive mode, missing draw
-if interactive, some numerix/numarray incompatibilities in type
-handling, agg memory leak"""),
+    ('Bug fix roundup', """ See <a href=CHANGELOG>CHANGELOG</a> for
+details.  Executive summary: fixed ps centering, errorbar autoscaling,
+constant data plot, copy tick attribute, mathtext fontsizing in
+interactive mode, missing draw if interactive, some numerix/numarray
+incompatibilities in type handling, agg memory leak, wx tooltips and
+close not returning interpreter."""),
 
 
 )
@@ -782,7 +786,7 @@ versioninfo_list = [(ver, versioninfo[ver]) for ver in versions]
 + for version, items in versioninfo_list:
 <h2> <a name=@version@>What's new in matplotlib @version@</a></h2>
   + for title, description in items:
-<h4> <a name="@version@-@title@">@title@</a></h4>
+<h4> <a name="@version@-@title.replace(' ', '_')@">@title@</a></h4>
 @description@<br>
   -
 -

@@ -24,7 +24,8 @@ financial&nbsp;data.&nbsp;&nbsp;&nbsp;User&nbsp;contributions&nbsp;welcome!</tt>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-candlestick"><strong>candlestick</strong></a>(ax, quotes, width<font color="#909090">=0.20000000000000001</font>, colorup<font color="#909090">='k'</font>, colordown<font color="#909090">='r'</font>, converter<font color="#909090">=&lt;matplotlib.dates.EpochConverter instance&gt;</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>quotes&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;(time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low,&nbsp;...)&nbsp;&nbsp;tuples.<br>
+<td width="100%"><dl><dt><a name="-Value"><strong>Value</strong></a>(...)</dt><dd><tt><a href="#-Value">Value</a>(x)</tt></dd></dl>
+ <dl><dt><a name="-candlestick"><strong>candlestick</strong></a>(ax, quotes, width<font color="#909090">=0.20000000000000001</font>, colorup<font color="#909090">='k'</font>, colordown<font color="#909090">='r'</font>, converter<font color="#909090">=&lt;matplotlib.dates.EpochConverter instance&gt;</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>quotes&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;(time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low,&nbsp;...)&nbsp;&nbsp;tuples.<br>
 As&nbsp;long&nbsp;as&nbsp;the&nbsp;first&nbsp;5&nbsp;elements&nbsp;of&nbsp;the&nbsp;tuples&nbsp;are&nbsp;these&nbsp;values,<br>
 the&nbsp;tuple&nbsp;can&nbsp;be&nbsp;as&nbsp;long&nbsp;as&nbsp;you&nbsp;want&nbsp;(eg&nbsp;it&nbsp;may&nbsp;store&nbsp;volume).<br>
 &nbsp;<br>
@@ -43,27 +44,36 @@ alpha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;rectangle&nbsp;al
 &nbsp;<br>
 return&nbsp;value&nbsp;is&nbsp;lines,&nbsp;patches&nbsp;where&nbsp;lines&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines<br>
 added&nbsp;and&nbsp;patches&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;rectangle&nbsp;patches&nbsp;added</tt></dd></dl>
- <dl><dt><a name="-plot_day_summary"><strong>plot_day_summary</strong></a>(ax, quotes, ticksize<font color="#909090">=0.20000000000000001</font>, colorup<font color="#909090">='k'</font>, colordown<font color="#909090">='r'</font>, converter<font color="#909090">=&lt;matplotlib.dates.EpochConverter instance&gt;</font>)</dt><dd><tt>quotes&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;(time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low,&nbsp;...)&nbsp;tuples<br>
+ <dl><dt><a name="-candlestick2"><strong>candlestick2</strong></a>(ax, opens, closes, highs, lows, width<font color="#909090">=4</font>, colorup<font color="#909090">='k'</font>, colordown<font color="#909090">='r'</font>, alpha<font color="#909090">=0.75</font>)</dt><dd><tt>Represent&nbsp;the&nbsp;open,&nbsp;close&nbsp;as&nbsp;a&nbsp;bar&nbsp;line&nbsp;and&nbsp;high&nbsp;low&nbsp;range&nbsp;as&nbsp;a<br>
+vertical&nbsp;line.<br>
+&nbsp;<br>
+&nbsp;<br>
+ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;an&nbsp;Axes&nbsp;instance&nbsp;to&nbsp;plot&nbsp;to<br>
+width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;bar&nbsp;width&nbsp;in&nbsp;points<br>
+colorup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;lines&nbsp;where&nbsp;close&nbsp;&gt;=&nbsp;open<br>
+colordown&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;lines&nbsp;where&nbsp;close&nbsp;&lt;&nbsp;&nbsp;open&nbsp;&nbsp;&nbsp;&nbsp;<br>
+alpha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;bar&nbsp;transparency<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;added</tt></dd></dl>
+ <dl><dt><a name="-plot_day_summary"><strong>plot_day_summary</strong></a>(ax, quotes, ticksize<font color="#909090">=3</font>, colorup<font color="#909090">='k'</font>, colordown<font color="#909090">='r'</font>, converter<font color="#909090">=&lt;matplotlib.dates.EpochConverter instance&gt;</font>)</dt><dd><tt>quotes&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;(time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low,&nbsp;...)&nbsp;tuples<br>
 &nbsp;<br>
 Represent&nbsp;the&nbsp;time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low&nbsp;as&nbsp;a&nbsp;vertical&nbsp;line<br>
 ranging&nbsp;from&nbsp;low&nbsp;to&nbsp;high.&nbsp;&nbsp;The&nbsp;left&nbsp;tick&nbsp;is&nbsp;the&nbsp;open&nbsp;and&nbsp;the&nbsp;right<br>
 tick&nbsp;is&nbsp;the&nbsp;close.<br>
 &nbsp;<br>
 ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;an&nbsp;Axes&nbsp;instance&nbsp;to&nbsp;plot&nbsp;to<br>
-ticksize&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;fraction&nbsp;of&nbsp;a&nbsp;day&nbsp;for&nbsp;the&nbsp;open&nbsp;and&nbsp;close&nbsp;ticks<br>
+ticksize&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;open/close&nbsp;tick&nbsp;marker&nbsp;in&nbsp;points<br>
 colorup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;lines&nbsp;where&nbsp;close&nbsp;&gt;=&nbsp;open<br>
 colordown&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;lines&nbsp;where&nbsp;close&nbsp;&lt;&nbsp;&nbsp;open&nbsp;&nbsp;&nbsp;&nbsp;<br>
 converter&nbsp;&nbsp;&nbsp;:&nbsp;dates.DateConverter&nbsp;instance&nbsp;used&nbsp;to&nbsp;convert&nbsp;your&nbsp;times.&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;your&nbsp;data&nbsp;is&nbsp;already&nbsp;epoch,&nbsp;you&nbsp;can&nbsp;use&nbsp;converter=None<br>
 return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;added</tt></dd></dl>
- <dl><dt><a name="-plot_day_summary2"><strong>plot_day_summary2</strong></a>(ax, quotes, ticksize<font color="#909090">=0.20000000000000001</font>, colorup<font color="#909090">='k'</font>, colordown<font color="#909090">='r'</font>)</dt><dd><tt>quotes&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;(time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low,&nbsp;...)&nbsp;tuples<br>
-&nbsp;<br>
-Represent&nbsp;the&nbsp;time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low&nbsp;as&nbsp;a&nbsp;vertical&nbsp;line<br>
+ <dl><dt><a name="-plot_day_summary2"><strong>plot_day_summary2</strong></a>(ax, opens, closes, highs, lows, ticksize<font color="#909090">=4</font>, colorup<font color="#909090">='k'</font>, colordown<font color="#909090">='r'</font>)</dt><dd><tt>Represent&nbsp;the&nbsp;time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low&nbsp;as&nbsp;a&nbsp;vertical&nbsp;line<br>
 ranging&nbsp;from&nbsp;low&nbsp;to&nbsp;high.&nbsp;&nbsp;The&nbsp;left&nbsp;tick&nbsp;is&nbsp;the&nbsp;open&nbsp;and&nbsp;the&nbsp;right<br>
 tick&nbsp;is&nbsp;the&nbsp;close.<br>
 &nbsp;<br>
 ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;an&nbsp;Axes&nbsp;instance&nbsp;to&nbsp;plot&nbsp;to<br>
-ticksize&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;fraction&nbsp;(0-1)&nbsp;for&nbsp;the&nbsp;open&nbsp;and&nbsp;close&nbsp;ticks<br>
+ticksize&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;size&nbsp;of&nbsp;open&nbsp;and&nbsp;close&nbsp;ticks&nbsp;in&nbsp;points<br>
 colorup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;lines&nbsp;where&nbsp;close&nbsp;&gt;=&nbsp;open<br>
 colordown&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;lines&nbsp;where&nbsp;close&nbsp;&lt;&nbsp;&nbsp;open&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -90,7 +100,9 @@ where&nbsp;d&nbsp;is&nbsp;an&nbsp;instnace&nbsp;of&nbsp;your&nbsp;datetime&nbsp;
 <strong>SEC_PER_DAY</strong> = 86400<br>
 <strong>SUNDAY</strong> = 6<br>
 <strong>THURSDAY</strong> = 3<br>
+<strong>TICKLEFT</strong> = 0<br>
+<strong>TICKRIGHT</strong> = 1<br>
 <strong>TUESDAY</strong> = 1<br>
 <strong>WEDNESDAY</strong> = 2<br>
-<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
+<strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;</td></tr></table>
 @footer@

@@ -31,7 +31,7 @@ ax.xaxis.set_minor_locator(hours)
 ax.xaxis.set_major_formatter(weekFormatter)
 #ax.xaxis.set_minor_formatter(dayFormatter)
 
-#plot_day_summary(ax, quotes, ticksize=0.4, converter=converter)
+#plot_day_summary(ax, quotes, ticksize=3, converter=converter)
 candlestick(ax, quotes, width=0.6, converter=converter)
 
 show()

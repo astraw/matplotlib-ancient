@@ -176,9 +176,6 @@ point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
 
 <dl><dt><a name="RendererAgg-get_canvas_width_height"><strong>get_canvas_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;canvas&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords</tt></dd></dl>
 
-<dl><dt><a name="RendererAgg-get_text_scale"><strong>get_text_scale</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;scale&nbsp;factor&nbsp;for&nbsp;fontsize&nbsp;taking&nbsp;screendpi&nbsp;and&nbsp;pixels&nbsp;per<br>
-inch&nbsp;into&nbsp;account</tt></dd></dl>
-
 <dl><dt><a name="RendererAgg-get_text_width_height"><strong>get_text_width_height</strong></a>(self, s, prop, ismath)</dt><dd><tt>get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;string&nbsp;s<br>
 with&nbsp;FontPropertry&nbsp;prop</tt></dd></dl>
 
@@ -195,7 +192,7 @@ Data and other attributes defined here:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
-<dl><dt><a name="RendererAgg-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, affines, clipbox, colors, linewidths, antialiaseds, offsetx<font color="#909090">=None</font>, offsety<font color="#909090">=None</font>)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;&nbsp;If&nbsp;you&nbsp;need&nbsp;to<br>
+<dl><dt><a name="RendererAgg-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, transform, clipbox, colors, linewidths, antialiaseds, offsets, transOffset)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;&nbsp;If&nbsp;you&nbsp;need&nbsp;to<br>
 draw&nbsp;many&nbsp;line&nbsp;segments&nbsp;with&nbsp;similar&nbsp;properties,&nbsp;it&nbsp;is&nbsp;faster<br>
 to&nbsp;avoid&nbsp;the&nbsp;overhead&nbsp;of&nbsp;all&nbsp;the&nbsp;object&nbsp;creation&nbsp;etc.&nbsp;&nbsp;The<br>
 lack&nbsp;of&nbsp;total&nbsp;configurability&nbsp;is&nbsp;compensated&nbsp;for&nbsp;with<br>
@@ -208,8 +205,7 @@ y11,&nbsp;y11),&nbsp;)&nbsp;tuples.&nbsp;Unlike&nbsp;other&nbsp;backend&nbsp;com
 in&nbsp;non-transfomed&nbsp;coords.&nbsp;&nbsp;Here&nbsp;we&nbsp;let&nbsp;the&nbsp;backend&nbsp;do&nbsp;the<br>
 transformation&nbsp;for&nbsp;efficiency<br>
 &nbsp;<br>
-affines&nbsp;is&nbsp;an&nbsp;sequence&nbsp;of&nbsp;affine&nbsp;length&nbsp;6&nbsp;transformation<br>
-vectors.&nbsp;&nbsp;See&nbsp;matplotlib.collections&nbsp;for&nbsp;more&nbsp;information<br>
+transform&nbsp;is&nbsp;used&nbsp;to&nbsp;Transform&nbsp;the&nbsp;lines<br>
 &nbsp;<br>
 clipbox&nbsp;is&nbsp;a&nbsp;&nbsp;xmin,&nbsp;ymin,&nbsp;width,&nbsp;height&nbsp;clip&nbsp;rect<br>
 &nbsp;<br>
@@ -220,6 +216,10 @@ linewidths&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;linewidths<br>
 antialiseds&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;ones&nbsp;or&nbsp;zeros&nbsp;indicating&nbsp;whether&nbsp;the<br>
 segment&nbsp;should&nbsp;be&nbsp;aa&nbsp;or&nbsp;not<br>
 &nbsp;<br>
+offsets,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;x,y&nbsp;offsets&nbsp;to&nbsp;translate<br>
+the&nbsp;lines&nbsp;by&nbsp;after&nbsp;transoff&nbsp;is&nbsp;used&nbsp;to&nbsp;transform&nbsp;the&nbsp;offset<br>
+coords<br>
+&nbsp;<br>
 This&nbsp;function&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;overridden&nbsp;by&nbsp;the&nbsp;backend<br>
 level&nbsp;in&nbsp;extension&nbsp;code&nbsp;for&nbsp;backends&nbsp;that&nbsp;want&nbsp;fast&nbsp;line<br>
 collection&nbsp;drawing.&nbsp;&nbsp;Here&nbsp;is&nbsp;is&nbsp;implemented&nbsp;using&nbsp;native<br>
@@ -228,16 +228,39 @@ backend&nbsp;calls&nbsp;and&nbsp;may&nbsp;be&nbsp;slow</tt></dd></dl>
 <dl><dt><a name="RendererAgg-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
 point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
 
-<dl><dt><a name="RendererAgg-draw_polygon"><strong>draw_polygon</strong></a>(self, gcEdge, gcFace, points)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon.&nbsp;&nbsp;points&nbsp;is&nbsp;a&nbsp;len&nbsp;vertices&nbsp;tuple,&nbsp;each&nbsp;element<br>
+<dl><dt><a name="RendererAgg-draw_poly_collection"><strong>draw_poly_collection</strong></a>(self, verts, transform, clipbox, facecolors, edgecolors, linewidths, antialiaseds, offsets, transOffset)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon&nbsp;collection<br>
+&nbsp;<br>
+verts&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;polygon&nbsp;vectors,&nbsp;where&nbsp;each&nbsp;polygon<br>
+vector&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;x,y&nbsp;tuples&nbsp;of&nbsp;vertices<br>
+&nbsp;<br>
+facecolors&nbsp;and&nbsp;edgecolors&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;RGBA&nbsp;tuples<br>
+linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
+antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
+
+<dl><dt><a name="RendererAgg-draw_polygon"><strong>draw_polygon</strong></a>(self, gc, rgbFace, points)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon.&nbsp;&nbsp;points&nbsp;is&nbsp;a&nbsp;len&nbsp;vertices&nbsp;tuple,&nbsp;each&nbsp;element<br>
 giving&nbsp;the&nbsp;x,y&nbsp;coords&nbsp;a&nbsp;vertex<br>
 &nbsp;<br>
-If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
+If&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;poly&nbsp;with&nbsp;it.&nbsp;&nbsp;gc<br>
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="RendererAgg-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gcEdge, gcFace, x, y, width, height)</dt><dd><tt>Draw&nbsp;a&nbsp;rectangle&nbsp;with&nbsp;lower&nbsp;left&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height.<br>
 &nbsp;<br>
 If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="RendererAgg-draw_regpoly_collection"><strong>draw_regpoly_collection</strong></a>(self, clipbox, offsets, transOffset, verts, sizes, facecolors, edgecolors, linewidths, antialiaseds)</dt><dd><tt>Draw&nbsp;a&nbsp;regular&nbsp;poly&nbsp;collection<br>
+&nbsp;<br>
+offsets&nbsp;is&nbsp;a&nbsp;sequence&nbsp;is&nbsp;x,y&nbsp;tuples&nbsp;and&nbsp;transOffset&nbsp;maps&nbsp;this<br>
+to&nbsp;display&nbsp;coords<br>
+&nbsp;<br>
+verts&nbsp;are&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the&nbsp;regular&nbsp;polygon&nbsp;at&nbsp;the&nbsp;origin<br>
+&nbsp;<br>
+sizes&nbsp;are&nbsp;the&nbsp;area&nbsp;of&nbsp;the&nbsp;circle&nbsp;that&nbsp;circumscribes&nbsp;the<br>
+polygon&nbsp;in&nbsp;points^2<br>
+&nbsp;<br>
+facecolors&nbsp;and&nbsp;edgecolors&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;RGBA&nbsp;tuples<br>
+linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
+antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
 
 <dl><dt><a name="RendererAgg-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer</tt></dd></dl>
 
@@ -288,7 +311,6 @@ The&nbsp;following&nbsp;are&nbsp;available,&nbsp;if&nbsp;scalable&nbsp;is&nbsp;t
 <td width="100%"><strong>DEBUG</strong> = 0<br>
 <strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
-<strong>PIXELS_PER_INCH</strong> = 96<br>
 <strong>True</strong> = True<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;</td></tr></table>

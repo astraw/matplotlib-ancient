@@ -5,7 +5,7 @@
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.text</strong></big></big></font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/text.py">/usr/local/lib/python2.3/site-packages/matplotlib/text.py</a></font></td></tr></table>
-    <p><tt>Figure&nbsp;and&nbsp;Axes&nbsp;text</tt></p>
+    <p><tt>aFigure&nbsp;and&nbsp;Axes&nbsp;text</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -36,18 +36,14 @@
 <font color="#000000" face="helvetica, arial"><a name="Text">class <strong>Text</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Handle&nbsp;storing&nbsp;and&nbsp;drawing&nbsp;of&nbsp;text&nbsp;in&nbsp;window&nbsp;or&nbsp;data&nbsp;coordinates<br>
-&nbsp;<br>
-Publicly&nbsp;accessible&nbsp;attributes<br>
-&nbsp;&nbsp;dpi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;DPI&nbsp;instance<br>
-&nbsp;&nbsp;bbox&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;display&nbsp;bounding&nbsp;box&nbsp;Bound2D&nbsp;instance<br>
-&nbsp;&nbsp;transx&nbsp;:&nbsp;the&nbsp;transform&nbsp;of&nbsp;the&nbsp;x&nbsp;data<br>
-&nbsp;&nbsp;transy&nbsp;:&nbsp;the&nbsp;transform&nbsp;of&nbsp;the&nbsp;y&nbsp;data<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>Handle&nbsp;storing&nbsp;and&nbsp;drawing&nbsp;of&nbsp;text&nbsp;in&nbsp;window&nbsp;or&nbsp;data&nbsp;coordinates<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Text-__init__"><strong>__init__</strong></a>(self, dpi, bbox, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, text<font color="#909090">=''</font>, color<font color="#909090">='k'</font>, verticalalignment<font color="#909090">='bottom'</font>, horizontalalignment<font color="#909090">='left'</font>, fontproperties<font color="#909090">=&lt;matplotlib.font_manager.FontProperties instance&gt;</font>, rotation<font color="#909090">=None</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt></dl>
+<dl><dt><a name="Text-__init__"><strong>__init__</strong></a>(self, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, text<font color="#909090">=''</font>, color<font color="#909090">='k'</font>, verticalalignment<font color="#909090">='bottom'</font>, horizontalalignment<font color="#909090">='left'</font>, fontproperties<font color="#909090">=&lt;matplotlib.font_manager.FontProperties instance&gt;</font>, rotation<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="Text-copy_properties"><strong>copy_properties</strong></a>(self, t)</dt><dd><tt>Copy&nbsp;properties&nbsp;from&nbsp;t&nbsp;to&nbsp;self</tt></dd></dl>
+
+<dl><dt><a name="Text-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
 <dl><dt><a name="Text-get_angle"><strong>get_angle</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;text&nbsp;angle&nbsp;as&nbsp;float</tt></dd></dl>
 
@@ -85,8 +81,6 @@ need&nbsp;to&nbsp;know&nbsp;if&nbsp;the&nbsp;text&nbsp;has&nbsp;changed</tt></dd
 
 <dl><dt><a name="Text-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer)</dt></dl>
 
-<dl><dt><a name="Text-get_xy_display"><strong>get_xy_display</strong></a>(self)</dt></dl>
-
 <dl><dt><a name="Text-is_math_text"><strong>is_math_text</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Text-set_backgroundcolor"><strong>set_backgroundcolor</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;background&nbsp;color&nbsp;of&nbsp;the&nbsp;text</tt></dd></dl>
@@ -117,10 +111,6 @@ need&nbsp;to&nbsp;know&nbsp;if&nbsp;the&nbsp;text&nbsp;has&nbsp;changed</tt></dd
 
 <dl><dt><a name="Text-set_text"><strong>set_text</strong></a>(self, text)</dt><dd><tt>Set&nbsp;the&nbsp;text</tt></dd></dl>
 
-<dl><dt><a name="Text-set_transx"><strong>set_transx</strong></a>(self, tx)</dt></dl>
-
-<dl><dt><a name="Text-set_transy"><strong>set_transy</strong></a>(self, ty)</dt></dl>
-
 <dl><dt><a name="Text-set_verticalalignment"><strong>set_verticalalignment</strong></a>(self, align)</dt><dd><tt>Set&nbsp;the&nbsp;vertical&nbsp;alignment&nbsp;to&nbsp;one&nbsp;of<br>
 'center',&nbsp;'top',&nbsp;or&nbsp;'bottom'</tt></dd></dl>
 
@@ -132,29 +122,33 @@ need&nbsp;to&nbsp;know&nbsp;if&nbsp;the&nbsp;text&nbsp;has&nbsp;changed</tt></dd
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="Text-draw"><strong>draw</strong></a>(self, renderer<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
-
 <dl><dt><a name="Text-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="Text-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;all&nbsp;artists&nbsp;contained&nbsp;in&nbsp;self</tt></dd></dl>
-
 <dl><dt><a name="Text-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
-<dl><dt><a name="Text-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+<dl><dt><a name="Text-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="Text-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="Text-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Text-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
 
 <dl><dt><a name="Text-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="Text-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+<dl><dt><a name="Text-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
 
-<dl><dt><a name="Text-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+<dl><dt><a name="Text-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Text-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
 
 <dl><dt><a name="Text-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Text-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
 <dl><dt><a name="Text-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
@@ -171,9 +165,9 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
 <strong>True</strong> = True<br>
-<strong>cos</strong> = &lt;UFunc: 'cos'&gt;<br>
+<strong>cos</strong> = &lt;ufunc 'cos'&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>pi</strong> = 3.1415926535897931<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}<br>
-<strong>sin</strong> = &lt;UFunc: 'sin'&gt;</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 72.0, ...}<br>
+<strong>sin</strong> = &lt;ufunc 'sin'&gt;</td></tr></table>
 @footer@

@@ -16,8 +16,8 @@ from matplotlib.mlab import normpdf
 from matplotlib.numerix import randn
 
 fig = Figure(figsize=(5,4), dpi=100)
-ax = Subplot(fig, 111)
-fig.add_axis(ax)
+ax = fig.add_subplot(111)
+
 canvas = FigureCanvasAgg(fig)
 
 mu, sigma = 100, 15

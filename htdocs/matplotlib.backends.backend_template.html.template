@@ -29,7 +29,7 @@ off.&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;your&nbsp;backend&nbsp;with<br>
 &nbsp;&nbsp;matplotlib.use('xxx')<br>
 &nbsp;&nbsp;from&nbsp;matplotlib.matlab&nbsp;import&nbsp;*<br>
 &nbsp;&nbsp;plot([1,2,3])<br>
-&nbsp;&nbsp;<a href="#-show">show</a>()<br>
+&nbsp;&nbsp;show()<br>
 &nbsp;<br>
 The&nbsp;files&nbsp;that&nbsp;are&nbsp;most&nbsp;relevant&nbsp;to&nbsp;backend_writers&nbsp;are<br>
 &nbsp;<br>
@@ -281,10 +281,6 @@ avoid&nbsp;the&nbsp;performace&nbsp;hit&nbsp;of&nbsp;the&nbsp;conversion</tt></d
 context&nbsp;instance&nbsp;that&nbsp;controls&nbsp;the&nbsp;colors/styles<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="RendererTemplate-compute_text_offsets"><strong>compute_text_offsets</strong></a>(self, text)</dt><dd><tt>Return&nbsp;the&nbsp;(x,y)&nbsp;offsets&nbsp;to&nbsp;adjust&nbsp;for&nbsp;the&nbsp;alignment<br>
-specifications.&nbsp;&nbsp;This&nbsp;method&nbsp;is&nbsp;not&nbsp;required&nbsp;by&nbsp;the&nbsp;API,&nbsp;but<br>
-is&nbsp;a&nbsp;useful&nbsp;to&nbsp;compute&nbsp;the&nbsp;alignment&nbsp;offsets</tt></dd></dl>
-
 <dl><dt><a name="RendererTemplate-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, rgbFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
 from&nbsp;0.0&nbsp;to&nbsp;360.0.<br>
 &nbsp;<br>
@@ -309,10 +305,15 @@ is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 If&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="RendererTemplate-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, text)</dt><dd><tt>Render&nbsp;the&nbsp;matplotlib.text.Text&nbsp;instance&nbsp;at&nbsp;x,&nbsp;y&nbsp;in&nbsp;window<br>
+<dl><dt><a name="RendererTemplate-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, s, prop, angle, ismath<font color="#909090">=False</font>)</dt><dd><tt>Render&nbsp;the&nbsp;matplotlib.text.Text&nbsp;instance&nbsp;at&nbsp;x,&nbsp;y&nbsp;in&nbsp;window<br>
 coords&nbsp;using&nbsp;GraphicsContext&nbsp;gc</tt></dd></dl>
 
-<dl><dt><a name="RendererTemplate-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Return&nbsp;the&nbsp;ink&nbsp;extent&nbsp;of&nbsp;the&nbsp;text&nbsp;as&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="RendererTemplate-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="RendererTemplate-get_canvas_width_height"><strong>get_canvas_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;canvas&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="RendererTemplate-get_text_width_height"><strong>get_text_width_height</strong></a>(self, s, fontsize, ismath<font color="#909090">=False</font>)</dt><dd><tt>get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;string&nbsp;s<br>
+with&nbsp;fontsize&nbsp;in&nbsp;points</tt></dd></dl>
 
 <dl><dt><a name="RendererTemplate-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;<a href="#GraphicsContextTemplate">GraphicsContextTemplate</a></tt></dd></dl>
 
@@ -324,15 +325,63 @@ dpi&nbsp;=&nbsp;300.&nbsp;&nbsp;Then&nbsp;points&nbsp;to&nbsp;pixels&nbsp;is</tt
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
 <dl><dt><a name="RendererTemplate-draw_image"><strong>draw_image</strong></a>(self, x, y, im)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
 
-<dl><dt><a name="RendererTemplate-draw_mathtext"><strong>draw_mathtext</strong></a>(self, gc, x, y, s, prop, angle)</dt><dd><tt>Draw&nbsp;string&nbsp;s&nbsp;at&nbsp;x,y&nbsp;(display&nbsp;coords)&nbsp;with&nbsp;font&nbsp;properties<br>
-instance&nbsp;prop&nbsp;at&nbsp;angle&nbsp;in&nbsp;degrees</tt></dd></dl>
+<dl><dt><a name="RendererTemplate-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, transform, clipbox, colors, linewidths, antialiaseds, offsets, transOffset)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;&nbsp;If&nbsp;you&nbsp;need&nbsp;to<br>
+draw&nbsp;many&nbsp;line&nbsp;segments&nbsp;with&nbsp;similar&nbsp;properties,&nbsp;it&nbsp;is&nbsp;faster<br>
+to&nbsp;avoid&nbsp;the&nbsp;overhead&nbsp;of&nbsp;all&nbsp;the&nbsp;object&nbsp;creation&nbsp;etc.&nbsp;&nbsp;The<br>
+lack&nbsp;of&nbsp;total&nbsp;configurability&nbsp;is&nbsp;compensated&nbsp;for&nbsp;with<br>
+efficiency.&nbsp;&nbsp;Hence&nbsp;we&nbsp;don't&nbsp;use&nbsp;a&nbsp;GC&nbsp;and&nbsp;many&nbsp;of&nbsp;the&nbsp;line<br>
+props&nbsp;it&nbsp;supports.&nbsp;&nbsp;See&nbsp;matplotlib.collections&nbsp;for&nbsp;more<br>
+details<br>
+&nbsp;<br>
+sements&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;(x00,&nbsp;y00,&nbsp;x01,&nbsp;y01),&nbsp;(x10,&nbsp;y10,<br>
+y11,&nbsp;y11),&nbsp;)&nbsp;tuples.&nbsp;Unlike&nbsp;other&nbsp;backend&nbsp;commands,&nbsp;these&nbsp;are<br>
+in&nbsp;non-transfomed&nbsp;coords.&nbsp;&nbsp;Here&nbsp;we&nbsp;let&nbsp;the&nbsp;backend&nbsp;do&nbsp;the<br>
+transformation&nbsp;for&nbsp;efficiency<br>
+&nbsp;<br>
+transform&nbsp;is&nbsp;used&nbsp;to&nbsp;Transform&nbsp;the&nbsp;lines<br>
+&nbsp;<br>
+clipbox&nbsp;is&nbsp;a&nbsp;&nbsp;xmin,&nbsp;ymin,&nbsp;width,&nbsp;height&nbsp;clip&nbsp;rect<br>
+&nbsp;<br>
+colors&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;RGBA&nbsp;tuples<br>
+&nbsp;<br>
+linewidths&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;linewidths<br>
+&nbsp;<br>
+antialiseds&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;ones&nbsp;or&nbsp;zeros&nbsp;indicating&nbsp;whether&nbsp;the<br>
+segment&nbsp;should&nbsp;be&nbsp;aa&nbsp;or&nbsp;not<br>
+&nbsp;<br>
+offsets,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;x,y&nbsp;offsets&nbsp;to&nbsp;translate<br>
+the&nbsp;lines&nbsp;by&nbsp;after&nbsp;transoff&nbsp;is&nbsp;used&nbsp;to&nbsp;transform&nbsp;the&nbsp;offset<br>
+coords<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;overridden&nbsp;by&nbsp;the&nbsp;backend<br>
+level&nbsp;in&nbsp;extension&nbsp;code&nbsp;for&nbsp;backends&nbsp;that&nbsp;want&nbsp;fast&nbsp;line<br>
+collection&nbsp;drawing.&nbsp;&nbsp;Here&nbsp;is&nbsp;is&nbsp;implemented&nbsp;using&nbsp;native<br>
+backend&nbsp;calls&nbsp;and&nbsp;may&nbsp;be&nbsp;slow</tt></dd></dl>
 
-<dl><dt><a name="RendererTemplate-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer</tt></dd></dl>
+<dl><dt><a name="RendererTemplate-draw_poly_collection"><strong>draw_poly_collection</strong></a>(self, verts, transform, clipbox, facecolors, edgecolors, linewidths, antialiaseds, offsets, transOffset)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon&nbsp;collection<br>
+&nbsp;<br>
+verts&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;polygon&nbsp;vectors,&nbsp;where&nbsp;each&nbsp;polygon<br>
+vector&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;x,y&nbsp;tuples&nbsp;of&nbsp;vertices<br>
+&nbsp;<br>
+facecolors&nbsp;and&nbsp;edgecolors&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;RGBA&nbsp;tuples<br>
+linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
+antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
 
-<dl><dt><a name="RendererTemplate-get_canvas_width_height"><strong>get_canvas_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;canvas&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords</tt></dd></dl>
+<dl><dt><a name="RendererTemplate-draw_regpoly_collection"><strong>draw_regpoly_collection</strong></a>(self, clipbox, offsets, transOffset, verts, sizes, facecolors, edgecolors, linewidths, antialiaseds)</dt><dd><tt>Draw&nbsp;a&nbsp;regular&nbsp;poly&nbsp;collection<br>
+&nbsp;<br>
+offsets&nbsp;is&nbsp;a&nbsp;sequence&nbsp;is&nbsp;x,y&nbsp;tuples&nbsp;and&nbsp;transOffset&nbsp;maps&nbsp;this<br>
+to&nbsp;display&nbsp;coords<br>
+&nbsp;<br>
+verts&nbsp;are&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the&nbsp;regular&nbsp;polygon&nbsp;at&nbsp;the&nbsp;origin<br>
+&nbsp;<br>
+sizes&nbsp;are&nbsp;the&nbsp;area&nbsp;of&nbsp;the&nbsp;circle&nbsp;that&nbsp;circumscribes&nbsp;the<br>
+polygon&nbsp;in&nbsp;points^2<br>
+&nbsp;<br>
+facecolors&nbsp;and&nbsp;edgecolors&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;RGBA&nbsp;tuples<br>
+linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
+antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
 
-<dl><dt><a name="RendererTemplate-get_text_width_height"><strong>get_text_width_height</strong></a>(self, s, fontsize)</dt><dd><tt>get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;string&nbsp;s<br>
-with&nbsp;fontsize&nbsp;in&nbsp;points</tt></dd></dl>
+<dl><dt><a name="RendererTemplate-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
 
 <dl><dt><a name="RendererTemplate-using_ft2font"><strong>using_ft2font</strong></a>(self)</dt></dl>
 
@@ -343,15 +392,7 @@ with&nbsp;fontsize&nbsp;in&nbsp;points</tt></dd></dl>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-draw_if_interactive"><strong>draw_if_interactive</strong></a>()</dt><dd><tt>This&nbsp;should&nbsp;be&nbsp;overriden&nbsp;in&nbsp;a&nbsp;windowing&nbsp;environment&nbsp;if&nbsp;drawing<br>
-should&nbsp;be&nbsp;done&nbsp;in&nbsp;interactive&nbsp;python&nbsp;mode</tt></dd></dl>
- <dl><dt><a name="-error_msg"><strong>error_msg</strong></a> = error_msg_template(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
- <dl><dt><a name="-error_msg_template"><strong>error_msg_template</strong></a>(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
- <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
- <dl><dt><a name="-show"><strong>show</strong></a>()</dt><dd><tt>This&nbsp;is&nbsp;usually&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;a&nbsp;matlab&nbsp;script&nbsp;and&nbsp;tells&nbsp;the<br>
-backend&nbsp;that&nbsp;it&nbsp;is&nbsp;time&nbsp;to&nbsp;draw.&nbsp;&nbsp;In&nbsp;interactive&nbsp;mode,&nbsp;this&nbsp;may&nbsp;be<br>
-a&nbsp;do&nbsp;nothing&nbsp;func.&nbsp;&nbsp;See&nbsp;the&nbsp;GTK&nbsp;backend&nbsp;for&nbsp;an&nbsp;example&nbsp;of&nbsp;how&nbsp;to<br>
-handle&nbsp;interactive&nbsp;versus&nbsp;batch&nbsp;mode</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-Bbox"><strong>Bbox</strong></a>(...)</dt><dd><tt><a href="#-Bbox">Bbox</a>(ll,&nbsp;ur)</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">

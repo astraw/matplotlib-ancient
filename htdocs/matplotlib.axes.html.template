@@ -351,6 +351,47 @@ Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
 will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 
+<dl><dt><a name="Axes-pcolor_classic"><strong>pcolor_classic</strong></a>(self, *args, **kwargs)</dt><dd><tt><a href="#Axes-pcolor">pcolor</a>(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
+&nbsp;<br>
+<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y&nbsp;&nbsp;<br>
+&nbsp;<br>
+<a href="#Axes-pcolor">pcolor</a>(C,&nbsp;cmap=colormapInstance)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of<br>
+matrix&nbsp;C&nbsp;using&nbsp;rectangle&nbsp;patches&nbsp;using&nbsp;a&nbsp;custom&nbsp;colormap&nbsp;derived<br>
+from&nbsp;matplotlib.colors.Colormap.&nbsp;&nbsp;You&nbsp;must&nbsp;pass&nbsp;this&nbsp;as&nbsp;a&nbsp;kwarg.<br>
+&nbsp;<br>
+Shading:<br>
+&nbsp;<br>
+&nbsp;&nbsp;The&nbsp;optional&nbsp;keyword&nbsp;arg&nbsp;shading&nbsp;('flat'&nbsp;or&nbsp;'faceted')&nbsp;will<br>
+&nbsp;&nbsp;determine&nbsp;whether&nbsp;a&nbsp;black&nbsp;grid&nbsp;is&nbsp;drawn&nbsp;around&nbsp;each&nbsp;pcolor<br>
+&nbsp;&nbsp;square.&nbsp;&nbsp;Default&nbsp;'faceteted'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.,&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(C,&nbsp;shading='flat')&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C,&nbsp;shading='faceted')<br>
+&nbsp;<br>
+returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects<br>
+&nbsp;<br>
+Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit<br>
+counterintuitive&nbsp;for&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
+&nbsp;<br>
+&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
+&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
+&nbsp;<br>
+&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
+&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
+&nbsp;<br>
+will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
+happy&nbsp;with<br>
+&nbsp;<br>
+&nbsp;<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
+&nbsp;<br>
+Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
+&nbsp;<br>
+&nbsp;<a href="#Axes-pcolor">pcolor</a>(transpose(Z))<br>
+&nbsp;<br>
+will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
+and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
+
 <dl><dt><a name="Axes-plot"><strong>plot</strong></a>(self, *args, **kwargs)</dt><dd><tt>Emulate&nbsp;matlab's&nbsp;plot&nbsp;command.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
 argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional<br>
 format&nbsp;string.&nbsp;&nbsp;For&nbsp;example,&nbsp;all&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;legal,<br>
@@ -402,7 +443,28 @@ Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
 
-<dl><dt><a name="Axes-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=None</font>, c<font color="#909090">='b'</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data<br>
+<dl><dt><a name="Axes-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=3</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=&lt;matplotlib.colors.ColormapJet instance&gt;</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a<br>
+scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color<br>
+and&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array<br>
+of&nbsp;intensities&nbsp;which&nbsp;will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the<br>
+matplotlib.colors.colormap&nbsp;instance&nbsp;cmap<br>
+&nbsp;<br>
+The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'s'&nbsp;:&nbsp;square<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'o'&nbsp;:&nbsp;circle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'^'&nbsp;:&nbsp;triangle&nbsp;up<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&gt;'&nbsp;:&nbsp;triangle&nbsp;right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'v'&nbsp;:&nbsp;triangle&nbsp;down<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&lt;'&nbsp;:&nbsp;triangle&nbsp;left<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'d'&nbsp;:&nbsp;diamond<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'p'&nbsp;:&nbsp;pentagram<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;:&nbsp;hexagon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'8'&nbsp;:&nbsp;octogon<br>
+&nbsp;<br>
+s&nbsp;is&nbsp;a&nbsp;size&nbsp;argument&nbsp;in&nbsp;points&nbsp;squared.</tt></dd></dl>
+
+<dl><dt><a name="Axes-scatter_classic"><strong>scatter_classic</strong></a>(self, x, y, s<font color="#909090">=None</font>, c<font color="#909090">='b'</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data<br>
 coords)&nbsp;and&nbsp;can&nbsp;be&nbsp;either&nbsp;a&nbsp;scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same<br>
 length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;color<br>
 format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array&nbsp;of&nbsp;intensities&nbsp;which&nbsp;will<br>
@@ -926,6 +988,47 @@ Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
 will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 
+<dl><dt><a name="Subplot-pcolor_classic"><strong>pcolor_classic</strong></a>(self, *args, **kwargs)</dt><dd><tt><a href="#Subplot-pcolor">pcolor</a>(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
+&nbsp;<br>
+<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y&nbsp;&nbsp;<br>
+&nbsp;<br>
+<a href="#Subplot-pcolor">pcolor</a>(C,&nbsp;cmap=colormapInstance)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of<br>
+matrix&nbsp;C&nbsp;using&nbsp;rectangle&nbsp;patches&nbsp;using&nbsp;a&nbsp;custom&nbsp;colormap&nbsp;derived<br>
+from&nbsp;matplotlib.colors.Colormap.&nbsp;&nbsp;You&nbsp;must&nbsp;pass&nbsp;this&nbsp;as&nbsp;a&nbsp;kwarg.<br>
+&nbsp;<br>
+Shading:<br>
+&nbsp;<br>
+&nbsp;&nbsp;The&nbsp;optional&nbsp;keyword&nbsp;arg&nbsp;shading&nbsp;('flat'&nbsp;or&nbsp;'faceted')&nbsp;will<br>
+&nbsp;&nbsp;determine&nbsp;whether&nbsp;a&nbsp;black&nbsp;grid&nbsp;is&nbsp;drawn&nbsp;around&nbsp;each&nbsp;pcolor<br>
+&nbsp;&nbsp;square.&nbsp;&nbsp;Default&nbsp;'faceteted'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.,&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(C,&nbsp;shading='flat')&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C,&nbsp;shading='faceted')<br>
+&nbsp;<br>
+returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects<br>
+&nbsp;<br>
+Note,&nbsp;the&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab&nbsp;is&nbsp;a&nbsp;bit<br>
+counterintuitive&nbsp;for&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
+&nbsp;<br>
+&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
+&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
+&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
+&nbsp;<br>
+&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
+&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
+&nbsp;<br>
+will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
+happy&nbsp;with<br>
+&nbsp;<br>
+&nbsp;<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
+&nbsp;<br>
+Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
+&nbsp;<br>
+&nbsp;<a href="#Subplot-pcolor">pcolor</a>(transpose(Z))<br>
+&nbsp;<br>
+will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
+and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
+
 <dl><dt><a name="Subplot-plot"><strong>plot</strong></a>(self, *args, **kwargs)</dt><dd><tt>Emulate&nbsp;matlab's&nbsp;plot&nbsp;command.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
 argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional<br>
 format&nbsp;string.&nbsp;&nbsp;For&nbsp;example,&nbsp;all&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;legal,<br>
@@ -977,7 +1080,28 @@ Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
 
-<dl><dt><a name="Subplot-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=None</font>, c<font color="#909090">='b'</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data<br>
+<dl><dt><a name="Subplot-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=3</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=&lt;matplotlib.colors.ColormapJet instance&gt;</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a<br>
+scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color<br>
+and&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array<br>
+of&nbsp;intensities&nbsp;which&nbsp;will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the<br>
+matplotlib.colors.colormap&nbsp;instance&nbsp;cmap<br>
+&nbsp;<br>
+The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'s'&nbsp;:&nbsp;square<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'o'&nbsp;:&nbsp;circle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'^'&nbsp;:&nbsp;triangle&nbsp;up<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&gt;'&nbsp;:&nbsp;triangle&nbsp;right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'v'&nbsp;:&nbsp;triangle&nbsp;down<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'&lt;'&nbsp;:&nbsp;triangle&nbsp;left<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'d'&nbsp;:&nbsp;diamond<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'p'&nbsp;:&nbsp;pentagram<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;:&nbsp;hexagon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'8'&nbsp;:&nbsp;octogon<br>
+&nbsp;<br>
+s&nbsp;is&nbsp;a&nbsp;size&nbsp;argument&nbsp;in&nbsp;points&nbsp;squared.</tt></dd></dl>
+
+<dl><dt><a name="Subplot-scatter_classic"><strong>scatter_classic</strong></a>(self, x, y, s<font color="#909090">=None</font>, c<font color="#909090">='b'</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data<br>
 coords)&nbsp;and&nbsp;can&nbsp;be&nbsp;either&nbsp;a&nbsp;scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same<br>
 length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;color<br>
 format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array&nbsp;of&nbsp;intensities&nbsp;which&nbsp;will<br>
@@ -1180,7 +1304,6 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
  <dl><dt><a name="-Identity"><strong>Identity</strong></a>(...)</dt><dd><tt><a href="#-Identity">Identity</a>())</tt></dd></dl>
  <dl><dt><a name="-Log"><strong>Log</strong></a>(...)</dt><dd><tt><a href="#-Log">Log</a>())</tt></dd></dl>
  <dl><dt><a name="-Point"><strong>Point</strong></a>(...)</dt><dd><tt><a href="#-Point">Point</a>(x,&nbsp;y)</tt></dd></dl>
- <dl><dt><a name="-Transformation"><strong>Transformation</strong></a>(...)</dt><dd><tt><a href="#-Transformation">Transformation</a>(affine,&nbsp;funcxy))</tt></dd></dl>
  <dl><dt><a name="-Value"><strong>Value</strong></a>(...)</dt><dd><tt><a href="#-Value">Value</a>(x)</tt></dd></dl>
  <dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
 &nbsp;<br>
@@ -1201,10 +1324,11 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>SEC_PER_WEEK</strong> = 604800<br>
 <strong>True</strong> = True<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
+<strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>generators</strong> = _Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 4096)<br>
 <strong>lineMarkers</strong> = {0: 1, 1: 1, 2: 1, 3: 1, '+': 1, ',': 1, '.': 1, '1': 1, '2': 1, '3': 1, ...}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1}<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 72.0, ...}</td></tr></table>
 @footer@

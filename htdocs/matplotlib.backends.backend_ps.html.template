@@ -211,7 +211,7 @@ avoid&nbsp;the&nbsp;performace&nbsp;hit&nbsp;of&nbsp;the&nbsp;conversion</tt></d
 
 <dl><dt><a name="RendererPS-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gc, rgbFace, x, y, width, height)</dt></dl>
 
-<dl><dt><a name="RendererPS-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, s, prop, angle)</dt><dd><tt>draw&nbsp;a&nbsp;Text&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="RendererPS-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, s, prop, angle, ismath)</dt><dd><tt>draw&nbsp;a&nbsp;Text&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="RendererPS-finish"><strong>finish</strong></a>(self)</dt></dl>
 
@@ -221,15 +221,68 @@ avoid&nbsp;the&nbsp;performace&nbsp;hit&nbsp;of&nbsp;the&nbsp;conversion</tt></d
 
 <dl><dt><a name="RendererPS-get_ps"><strong>get_ps</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="RendererPS-get_text_width_height"><strong>get_text_width_height</strong></a>(self, s, prop)</dt><dd><tt>get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;string&nbsp;s<br>
+<dl><dt><a name="RendererPS-get_text_width_height"><strong>get_text_width_height</strong></a>(self, s, prop, ismath)</dt><dd><tt>get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;string&nbsp;s<br>
 with&nbsp;FontPropertry&nbsp;prop</tt></dd></dl>
 
 <dl><dt><a name="RendererPS-new_gc"><strong>new_gc</strong></a>(self)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
-<dl><dt><a name="RendererPS-draw_mathtext"><strong>draw_mathtext</strong></a>(self, gc, x, y, s, prop, angle)</dt><dd><tt>Draw&nbsp;string&nbsp;s&nbsp;at&nbsp;x,y&nbsp;(display&nbsp;coords)&nbsp;with&nbsp;font&nbsp;properties<br>
-instance&nbsp;prop&nbsp;at&nbsp;angle&nbsp;in&nbsp;degrees</tt></dd></dl>
+<dl><dt><a name="RendererPS-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, transform, clipbox, colors, linewidths, antialiaseds, offsets, transOffset)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;&nbsp;If&nbsp;you&nbsp;need&nbsp;to<br>
+draw&nbsp;many&nbsp;line&nbsp;segments&nbsp;with&nbsp;similar&nbsp;properties,&nbsp;it&nbsp;is&nbsp;faster<br>
+to&nbsp;avoid&nbsp;the&nbsp;overhead&nbsp;of&nbsp;all&nbsp;the&nbsp;object&nbsp;creation&nbsp;etc.&nbsp;&nbsp;The<br>
+lack&nbsp;of&nbsp;total&nbsp;configurability&nbsp;is&nbsp;compensated&nbsp;for&nbsp;with<br>
+efficiency.&nbsp;&nbsp;Hence&nbsp;we&nbsp;don't&nbsp;use&nbsp;a&nbsp;GC&nbsp;and&nbsp;many&nbsp;of&nbsp;the&nbsp;line<br>
+props&nbsp;it&nbsp;supports.&nbsp;&nbsp;See&nbsp;matplotlib.collections&nbsp;for&nbsp;more<br>
+details<br>
+&nbsp;<br>
+sements&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;(x00,&nbsp;y00,&nbsp;x01,&nbsp;y01),&nbsp;(x10,&nbsp;y10,<br>
+y11,&nbsp;y11),&nbsp;)&nbsp;tuples.&nbsp;Unlike&nbsp;other&nbsp;backend&nbsp;commands,&nbsp;these&nbsp;are<br>
+in&nbsp;non-transfomed&nbsp;coords.&nbsp;&nbsp;Here&nbsp;we&nbsp;let&nbsp;the&nbsp;backend&nbsp;do&nbsp;the<br>
+transformation&nbsp;for&nbsp;efficiency<br>
+&nbsp;<br>
+transform&nbsp;is&nbsp;used&nbsp;to&nbsp;Transform&nbsp;the&nbsp;lines<br>
+&nbsp;<br>
+clipbox&nbsp;is&nbsp;a&nbsp;&nbsp;xmin,&nbsp;ymin,&nbsp;width,&nbsp;height&nbsp;clip&nbsp;rect<br>
+&nbsp;<br>
+colors&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;RGBA&nbsp;tuples<br>
+&nbsp;<br>
+linewidths&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;linewidths<br>
+&nbsp;<br>
+antialiseds&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;ones&nbsp;or&nbsp;zeros&nbsp;indicating&nbsp;whether&nbsp;the<br>
+segment&nbsp;should&nbsp;be&nbsp;aa&nbsp;or&nbsp;not<br>
+&nbsp;<br>
+offsets,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;x,y&nbsp;offsets&nbsp;to&nbsp;translate<br>
+the&nbsp;lines&nbsp;by&nbsp;after&nbsp;transoff&nbsp;is&nbsp;used&nbsp;to&nbsp;transform&nbsp;the&nbsp;offset<br>
+coords<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;overridden&nbsp;by&nbsp;the&nbsp;backend<br>
+level&nbsp;in&nbsp;extension&nbsp;code&nbsp;for&nbsp;backends&nbsp;that&nbsp;want&nbsp;fast&nbsp;line<br>
+collection&nbsp;drawing.&nbsp;&nbsp;Here&nbsp;is&nbsp;is&nbsp;implemented&nbsp;using&nbsp;native<br>
+backend&nbsp;calls&nbsp;and&nbsp;may&nbsp;be&nbsp;slow</tt></dd></dl>
+
+<dl><dt><a name="RendererPS-draw_poly_collection"><strong>draw_poly_collection</strong></a>(self, verts, transform, clipbox, facecolors, edgecolors, linewidths, antialiaseds, offsets, transOffset)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon&nbsp;collection<br>
+&nbsp;<br>
+verts&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;polygon&nbsp;vectors,&nbsp;where&nbsp;each&nbsp;polygon<br>
+vector&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;x,y&nbsp;tuples&nbsp;of&nbsp;vertices<br>
+&nbsp;<br>
+facecolors&nbsp;and&nbsp;edgecolors&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;RGBA&nbsp;tuples<br>
+linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
+antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
+
+<dl><dt><a name="RendererPS-draw_regpoly_collection"><strong>draw_regpoly_collection</strong></a>(self, clipbox, offsets, transOffset, verts, sizes, facecolors, edgecolors, linewidths, antialiaseds)</dt><dd><tt>Draw&nbsp;a&nbsp;regular&nbsp;poly&nbsp;collection<br>
+&nbsp;<br>
+offsets&nbsp;is&nbsp;a&nbsp;sequence&nbsp;is&nbsp;x,y&nbsp;tuples&nbsp;and&nbsp;transOffset&nbsp;maps&nbsp;this<br>
+to&nbsp;display&nbsp;coords<br>
+&nbsp;<br>
+verts&nbsp;are&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the&nbsp;regular&nbsp;polygon&nbsp;at&nbsp;the&nbsp;origin<br>
+&nbsp;<br>
+sizes&nbsp;are&nbsp;the&nbsp;area&nbsp;of&nbsp;the&nbsp;circle&nbsp;that&nbsp;circumscribes&nbsp;the<br>
+polygon&nbsp;in&nbsp;points^2<br>
+&nbsp;<br>
+facecolors&nbsp;and&nbsp;edgecolors&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;RGBA&nbsp;tuples<br>
+linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
+antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
 
 <dl><dt><a name="RendererPS-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
 
@@ -273,6 +326,7 @@ The&nbsp;following&nbsp;are&nbsp;available,&nbsp;if&nbsp;scalable&nbsp;is&nbsp;t
  <dl><dt><a name="-draw_if_interactive"><strong>draw_if_interactive</strong></a>()</dt></dl>
  <dl><dt><a name="-error_msg"><strong>error_msg</strong></a> = error_msg_ps(msg, *args)</dt></dl>
  <dl><dt><a name="-error_msg_ps"><strong>error_msg_ps</strong></a>(msg, *args)</dt></dl>
+ <dl><dt><a name="-fromstring"><strong>fromstring</strong></a>(...)</dt><dd><tt><a href="#-fromstring">fromstring</a>(string,&nbsp;typecode='l',&nbsp;count=-1)&nbsp;returns&nbsp;a&nbsp;new&nbsp;1d&nbsp;array&nbsp;initialized&nbsp;from&nbsp;the&nbsp;raw&nbsp;binary&nbsp;data&nbsp;in&nbsp;string.&nbsp;&nbsp;If&nbsp;count&nbsp;is&nbsp;positive,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;have&nbsp;count&nbsp;elements,&nbsp;otherwise&nbsp;it's&nbsp;size&nbsp;is&nbsp;determined&nbsp;by&nbsp;the&nbsp;size&nbsp;of&nbsp;string.</tt></dd></dl>
  <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args)</dt></dl>
  <dl><dt><a name="-show"><strong>show</strong></a>()</dt><dd><tt>Show&nbsp;all&nbsp;the&nbsp;figures&nbsp;and&nbsp;enter&nbsp;the&nbsp;gtk&nbsp;mainloop<br>
 &nbsp;<br>
@@ -285,12 +339,12 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
-<strong>Float32</strong> = Float32<br>
+<strong>Float32</strong> = 'f'<br>
 <strong>True</strong> = True<br>
-<strong>UInt8</strong> = UInt8<br>
+<strong>UInt8</strong> = 'b'<br>
 <strong>defaultPaperSize</strong> = (8.5, 11)<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
 <strong>fontd</strong> = {}<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 72.0, ...}</td></tr></table>
 @footer@
