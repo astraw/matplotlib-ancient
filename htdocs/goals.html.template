@@ -113,7 +113,16 @@ mailing list</a>.<p>
 	href=matplotlib.matlab.html#-semilogx>semilogx</a>, <a
 	href=matplotlib.matlab.html#-semilogy>semilogy</a>, and <a
 	href=matplotlib.matlab.html#-loglog>loglog</a>, and demo <a
-	href=examples/log_demo.py>log_demo.py</a> </td> </tr>
+	href=examples/log_demo.py>log_demo.py</a> </td> 
+</tr>
+
+<tr>
+    <td>
+      Add more 2D plot commands
+    </td>
+
+    <td @td_remainging@> polar, pie</td> 
+</tr>
 
 
 <tr>
