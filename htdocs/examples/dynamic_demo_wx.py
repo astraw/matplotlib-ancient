@@ -20,8 +20,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.45  2004/07/09 15:11:28  jdh2358
-*** empty log message ***
+Revision 1.46  2004/07/10 20:01:07  jdh2358
+moved rc to matplotlib
 
 Revision 1.5  2004/06/26 06:37:20  astraw
 Trivial bugfix to eliminate IndexError
