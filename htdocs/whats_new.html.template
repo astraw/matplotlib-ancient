@@ -1,3 +1,9 @@
+new_to_53 = ( 
+    ('Ported image support to numarray', """
+The image module now works with Numeric or numarray
+"""),
+)
+
 new_to_52 = ( 
     ('Image support', """
 Basic image support.  Images can be specified by Numeric float arrays
@@ -589,6 +595,12 @@ defined in figure.py.
 )
 
 @header@
+
+<h2> What's new in matplotlib 0.53</h2>
+ + for title, new in new_to_53:
+   <h4>@title@</h4>
+   @new@<br>
+ -
 
 <h2> What's new in matplotlib 0.52</h2>
  + for title, new in new_to_52:
