@@ -7,11 +7,17 @@
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/matlab.py">/usr/local/lib/python2.3/site-packages/matplotlib/matlab.py</a></font></td></tr></table>
     <p><tt>This&nbsp;is&nbsp;a&nbsp;matlab&nbsp;style&nbsp;functional&nbsp;interface&nbsp;the&nbsp;matplotlib.<br>
 &nbsp;<br>
-The&nbsp;following&nbsp;matlab&nbsp;compatible&nbsp;commands&nbsp;are&nbsp;provided<br>
+The&nbsp;following&nbsp;plotting&nbsp;commands&nbsp;are&nbsp;provided;&nbsp;some&nbsp;of&nbsp;these&nbsp;do&nbsp;not<br>
+exist&nbsp;in&nbsp;matlab&nbsp;but&nbsp;have&nbsp;proven&nbsp;themselves&nbsp;to&nbsp;be&nbsp;useful&nbsp;nonetheless.<br>
+The&nbsp;majority&nbsp;of&nbsp;them,&nbsp;however,&nbsp;are&nbsp;matlab&nbsp;commands<br>
 &nbsp;<br>
-Plotting&nbsp;commands<br>
+_Plotting&nbsp;commands<br>
 &nbsp;<br>
 &nbsp;&nbsp;axes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Create&nbsp;a&nbsp;new&nbsp;axes<br>
+&nbsp;&nbsp;axhline&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;horizontal&nbsp;line&nbsp;across&nbsp;axes<br>
+&nbsp;&nbsp;axvline&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;vertical&nbsp;line&nbsp;across&nbsp;axes<br>
+&nbsp;&nbsp;axhspan&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;horizontal&nbsp;bar&nbsp;across&nbsp;axes<br>
+&nbsp;&nbsp;axvspan&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;vertical&nbsp;bar&nbsp;across&nbsp;axes&nbsp;<br>
 &nbsp;&nbsp;axis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Set&nbsp;or&nbsp;return&nbsp;the&nbsp;current&nbsp;axis&nbsp;limits<br>
 &nbsp;&nbsp;bar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;bar&nbsp;chart<br>
 &nbsp;&nbsp;cla&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;current&nbsp;axes<br>
@@ -55,10 +61,14 @@ Plotting&nbsp;commands<br>
 &nbsp;&nbsp;table&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;table&nbsp;to&nbsp;the&nbsp;plot<br>
 &nbsp;&nbsp;text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;some&nbsp;text&nbsp;at&nbsp;location&nbsp;x,y&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
 &nbsp;&nbsp;title&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;title&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
+&nbsp;&nbsp;xlim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set/get&nbsp;the&nbsp;xlimits<br>
+&nbsp;&nbsp;ylim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set/get&nbsp;the&nbsp;ylimits<br>
+&nbsp;&nbsp;xticks&nbsp;&nbsp;&nbsp;-&nbsp;set/get&nbsp;the&nbsp;xticks<br>
+&nbsp;&nbsp;yticks&nbsp;&nbsp;&nbsp;-&nbsp;set/get&nbsp;the&nbsp;yticks<br>
 &nbsp;&nbsp;xlabel&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;an&nbsp;xlabel&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
 &nbsp;&nbsp;ylabel&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;ylabel&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
 &nbsp;<br>
-Matrix&nbsp;commands<br>
+_Matrix&nbsp;commands<br>
 &nbsp;<br>
 &nbsp;&nbsp;cumprod&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;cumulative&nbsp;product&nbsp;along&nbsp;a&nbsp;dimension<br>
 &nbsp;&nbsp;cumsum&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;cumulative&nbsp;sum&nbsp;along&nbsp;a&nbsp;dimension<br>
@@ -84,14 +94,14 @@ Matrix&nbsp;commands<br>
 &nbsp;&nbsp;svd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;singular&nbsp;value&nbsp;decomposition<br>
 &nbsp;&nbsp;zeros&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;matrix&nbsp;of&nbsp;zeros<br>
 &nbsp;&nbsp;<br>
-Probability<br>
+_Probability<br>
 &nbsp;<br>
 &nbsp;&nbsp;levypdf&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;levy&nbsp;probability&nbsp;density&nbsp;function&nbsp;from&nbsp;the&nbsp;char.&nbsp;func.<br>
 &nbsp;&nbsp;normpdf&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;Gaussian&nbsp;probability&nbsp;density&nbsp;function<br>
 &nbsp;&nbsp;rand&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;random&nbsp;numbers&nbsp;from&nbsp;the&nbsp;uniform&nbsp;distribution<br>
 &nbsp;&nbsp;randn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;random&nbsp;numbers&nbsp;from&nbsp;the&nbsp;normal&nbsp;distribution<br>
 &nbsp;<br>
-Statistics<br>
+_Statistics<br>
 &nbsp;<br>
 &nbsp;&nbsp;corrcoef&nbsp;&nbsp;-&nbsp;correlation&nbsp;coefficient<br>
 &nbsp;&nbsp;cov&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;covariance&nbsp;matrix<br>
@@ -105,7 +115,7 @@ Statistics<br>
 &nbsp;&nbsp;std&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;standard&nbsp;deviation&nbsp;along&nbsp;dimension&nbsp;m<br>
 &nbsp;&nbsp;sum&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;sum&nbsp;along&nbsp;dimension&nbsp;m<br>
 &nbsp;<br>
-Time&nbsp;series&nbsp;analysis<br>
+_Time&nbsp;series&nbsp;analysis<br>
 &nbsp;<br>
 &nbsp;&nbsp;bartlett&nbsp;&nbsp;-&nbsp;M-point&nbsp;Bartlett&nbsp;window<br>
 &nbsp;&nbsp;blackman&nbsp;&nbsp;-&nbsp;M-point&nbsp;Blackman&nbsp;window<br>
@@ -119,7 +129,7 @@ Time&nbsp;series&nbsp;analysis<br>
 &nbsp;&nbsp;psd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;power&nbsp;spectral&nbsp;density&nbsp;using&nbsp;average&nbsp;periodiogram<br>
 &nbsp;&nbsp;sinc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;sinc&nbsp;function&nbsp;of&nbsp;array&nbsp;x<br>
 &nbsp;<br>
-Other<br>
+_Other<br>
 &nbsp;<br>
 &nbsp;&nbsp;angle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;angle&nbsp;of&nbsp;a&nbsp;complex&nbsp;array<br>
 &nbsp;&nbsp;load&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;load&nbsp;ASCII&nbsp;data&nbsp;into&nbsp;array<br>
@@ -129,6 +139,7 @@ Other<br>
 &nbsp;&nbsp;save&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;save&nbsp;an&nbsp;array&nbsp;to&nbsp;an&nbsp;ASCII&nbsp;file<br>
 &nbsp;&nbsp;trapz&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;trapezoidal&nbsp;integration<br>
 &nbsp;<br>
+__end<br>
 &nbsp;<br>
 Credits:&nbsp;The&nbsp;plotting&nbsp;commands&nbsp;were&nbsp;provided&nbsp;by<br>
 John&nbsp;D.&nbsp;Hunter&nbsp;&lt;jdhunter@ace.bsd.uhicago.edu&gt;<br>
@@ -195,12 +206,103 @@ If&nbsp;axisbg&nbsp;is&nbsp;a&nbsp;length&nbsp;1&nbsp;string,&nbsp;assume&nbsp;i
 assume&nbsp;it's&nbsp;a&nbsp;hex&nbsp;color&nbsp;string,&nbsp;as&nbsp;used&nbsp;in&nbsp;html,&nbsp;eg,&nbsp;'#eeefff'.<br>
 If&nbsp;it&nbsp;is&nbsp;a&nbsp;len(3)&nbsp;tuple,&nbsp;assume&nbsp;it's&nbsp;an&nbsp;rgb&nbsp;value&nbsp;where&nbsp;r,g,b&nbsp;in<br>
 [0,1].</tt></dd></dl>
+ <dl><dt><a name="-axhline"><strong>axhline</strong></a>(y<font color="#909090">=0</font>, xmin<font color="#909090">=0</font>, xmax<font color="#909090">=1</font>, **kwargs)</dt><dd><tt>axhline&nbsp;:&nbsp;Axis&nbsp;Horizontal&nbsp;Line<br>
+&nbsp;<br>
+Draw&nbsp;a&nbsp;horizontal&nbsp;line&nbsp;at&nbsp;y&nbsp;from&nbsp;xmin&nbsp;to&nbsp;xmax.&nbsp;&nbsp;With&nbsp;the&nbsp;default<br>
+values&nbsp;of&nbsp;xmin=0&nbsp;and&nbsp;xmax=1,&nbsp;this&nbsp;line&nbsp;will&nbsp;always&nbsp;span&nbsp;the&nbsp;horizontal<br>
+extent&nbsp;of&nbsp;the&nbsp;axes,&nbsp;regardless&nbsp;of&nbsp;the&nbsp;xlim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you<br>
+change&nbsp;them,&nbsp;eg&nbsp;with&nbsp;the&nbsp;xlim&nbsp;command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;horizontal&nbsp;extent<br>
+is&nbsp;in&nbsp;axes&nbsp;coords:&nbsp;0=left,&nbsp;0.5=middle,&nbsp;1.0=right&nbsp;but&nbsp;the&nbsp;y&nbsp;location&nbsp;is<br>
+in&nbsp;data&nbsp;coordinates.<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;the&nbsp;Line2D&nbsp;instance.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;kwargs&nbsp;to<br>
+plot,&nbsp;and&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;control&nbsp;the&nbsp;line&nbsp;properties.&nbsp;&nbsp;Eg<br>
+&nbsp;<br>
+#&nbsp;draw&nbsp;a&nbsp;thick&nbsp;red&nbsp;hline&nbsp;at&nbsp;y=0&nbsp;that&nbsp;spans&nbsp;the&nbsp;xrange<br>
+l&nbsp;=&nbsp;<a href="#-axhline">axhline</a>(linewidth=4,&nbsp;color='r')<br>
+&nbsp;<br>
+#&nbsp;draw&nbsp;a&nbsp;default&nbsp;hline&nbsp;at&nbsp;y=1&nbsp;that&nbsp;spans&nbsp;the&nbsp;xrange<br>
+l&nbsp;=&nbsp;<a href="#-axhline">axhline</a>(y=1)<br>
+&nbsp;<br>
+#&nbsp;draw&nbsp;a&nbsp;default&nbsp;hline&nbsp;at&nbsp;y=.5&nbsp;that&nbsp;spans&nbsp;the&nbsp;the&nbsp;middle&nbsp;half&nbsp;of<br>
+#&nbsp;the&nbsp;xrange<br>
+l&nbsp;=&nbsp;<a href="#-axhline">axhline</a>(y=.5,&nbsp;xmin=0.25,&nbsp;xmax=0.75)<br>
+<a href="#-ylim">ylim</a>(-1,2)</tt></dd></dl>
+ <dl><dt><a name="-axhspan"><strong>axhspan</strong></a>(ymin, ymax, xmin<font color="#909090">=0</font>, xmax<font color="#909090">=1</font>, **kwargs)</dt><dd><tt>axhspan&nbsp;:&nbsp;Axis&nbsp;Horizontal&nbsp;Span.&nbsp;&nbsp;ycoords&nbsp;are&nbsp;in&nbsp;data&nbsp;units&nbsp;and&nbsp;x<br>
+coords&nbsp;are&nbsp;in&nbsp;axes&nbsp;(relative&nbsp;0-1)&nbsp;units<br>
+&nbsp;<br>
+Draw&nbsp;a&nbsp;horizontal&nbsp;span&nbsp;(regtangle)&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;With&nbsp;the<br>
+default&nbsp;values&nbsp;of&nbsp;xmin=0&nbsp;and&nbsp;xmax=1,&nbsp;this&nbsp;always&nbsp;span&nbsp;the&nbsp;xrange,<br>
+regardless&nbsp;of&nbsp;the&nbsp;xlim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you&nbsp;change&nbsp;them,&nbsp;eg&nbsp;with&nbsp;the<br>
+xlim&nbsp;command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;horizontal&nbsp;extent&nbsp;is&nbsp;in&nbsp;axes&nbsp;coords:<br>
+0=left,&nbsp;0.5=middle,&nbsp;1.0=right&nbsp;but&nbsp;the&nbsp;y&nbsp;location&nbsp;is&nbsp;in&nbsp;data<br>
+coordinates.<br>
+&nbsp;<br>
+kwargs&nbsp;are&nbsp;the&nbsp;kwargs&nbsp;to&nbsp;Patch,&nbsp;eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;antialiased,&nbsp;aa<br>
+&nbsp;&nbsp;linewidth,&nbsp;&nbsp;&nbsp;lw<br>
+&nbsp;&nbsp;edgecolor,&nbsp;&nbsp;&nbsp;ec<br>
+&nbsp;&nbsp;facecolor,&nbsp;&nbsp;&nbsp;fc<br>
+&nbsp;<br>
+the&nbsp;terms&nbsp;on&nbsp;the&nbsp;right&nbsp;are&nbsp;aliases<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;the&nbsp;patches.Polygon&nbsp;instance.<br>
+&nbsp;<br>
+#draws&nbsp;a&nbsp;gray&nbsp;rectangle&nbsp;from&nbsp;y=0.25-0.75&nbsp;that&nbsp;spans&nbsp;the&nbsp;horizontal<br>
+#extent&nbsp;of&nbsp;the&nbsp;axes<br>
+p&nbsp;=&nbsp;<a href="#-axhspan">axhspan</a>(0.25,&nbsp;0.75,&nbsp;facecolor=0.5,&nbsp;alpha=0.5)</tt></dd></dl>
  <dl><dt><a name="-axis"><strong>axis</strong></a>(*v)</dt><dd><tt><a href="#-axis">axis</a>()&nbsp;returns&nbsp;the&nbsp;current&nbsp;axis&nbsp;as&nbsp;a&nbsp;length&nbsp;a&nbsp;length&nbsp;4&nbsp;vector<br>
 &nbsp;<br>
 <a href="#-axis">axis</a>(v)&nbsp;where&nbsp;v=&nbsp;[xmin&nbsp;xmax&nbsp;ymin&nbsp;ymax]&nbsp;sets&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the<br>
 x&nbsp;and&nbsp;y&nbsp;axis&nbsp;limits<br>
 &nbsp;<br>
 <a href="#-axis">axis</a>('off')&nbsp;turns&nbsp;off&nbsp;the&nbsp;axis&nbsp;lines&nbsp;and&nbsp;labels</tt></dd></dl>
+ <dl><dt><a name="-axvline"><strong>axvline</strong></a>(x<font color="#909090">=0</font>, ymin<font color="#909090">=0</font>, ymax<font color="#909090">=1</font>, **kwargs)</dt><dd><tt>axvline&nbsp;:&nbsp;Axis&nbsp;Vertical&nbsp;Line<br>
+&nbsp;<br>
+Draw&nbsp;a&nbsp;vertical&nbsp;line&nbsp;at&nbsp;x&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;With&nbsp;the&nbsp;default&nbsp;values<br>
+of&nbsp;ymin=0&nbsp;and&nbsp;ymax=1,&nbsp;this&nbsp;line&nbsp;will&nbsp;always&nbsp;span&nbsp;the&nbsp;vertical&nbsp;extent<br>
+of&nbsp;the&nbsp;axes,&nbsp;regardless&nbsp;of&nbsp;the&nbsp;xlim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you&nbsp;change&nbsp;them,<br>
+eg&nbsp;with&nbsp;the&nbsp;xlim&nbsp;command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;vertical&nbsp;extent&nbsp;is&nbsp;in&nbsp;axes<br>
+coords:&nbsp;0=bottom,&nbsp;0.5=middle,&nbsp;1.0=top&nbsp;but&nbsp;the&nbsp;x&nbsp;location&nbsp;is&nbsp;in&nbsp;data<br>
+coordinates.<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;the&nbsp;Line2D&nbsp;instance.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;the&nbsp;same&nbsp;as<br>
+kwargs&nbsp;to&nbsp;plot,&nbsp;and&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;control&nbsp;the&nbsp;line&nbsp;properties.&nbsp;&nbsp;Eg<br>
+&nbsp;<br>
+#&nbsp;draw&nbsp;a&nbsp;thick&nbsp;red&nbsp;vline&nbsp;at&nbsp;x=0&nbsp;that&nbsp;spans&nbsp;the&nbsp;yrange<br>
+l&nbsp;=&nbsp;<a href="#-axvline">axvline</a>(linewidth=4,&nbsp;color='r')<br>
+&nbsp;<br>
+#&nbsp;draw&nbsp;a&nbsp;default&nbsp;vline&nbsp;at&nbsp;x=1&nbsp;that&nbsp;spans&nbsp;the&nbsp;yrange<br>
+l&nbsp;=&nbsp;<a href="#-axvline">axvline</a>(x=1)<br>
+&nbsp;<br>
+#&nbsp;draw&nbsp;a&nbsp;default&nbsp;vline&nbsp;at&nbsp;x=.5&nbsp;that&nbsp;spans&nbsp;the&nbsp;the&nbsp;middle&nbsp;half&nbsp;of<br>
+#&nbsp;the&nbsp;yrange<br>
+l&nbsp;=&nbsp;<a href="#-axvline">axvline</a>(x=.5,&nbsp;ymin=0.25,&nbsp;ymax=0.75)<br>
+<a href="#-xlim">xlim</a>(-1,2)</tt></dd></dl>
+ <dl><dt><a name="-axvspan"><strong>axvspan</strong></a>(xmin, xmax, ymin<font color="#909090">=0</font>, ymax<font color="#909090">=1</font>, **kwargs)</dt><dd><tt>axvspan&nbsp;:&nbsp;Axis&nbsp;Vertical&nbsp;Span.&nbsp;&nbsp;xcoords&nbsp;are&nbsp;in&nbsp;data&nbsp;units&nbsp;and&nbsp;y&nbsp;coords<br>
+are&nbsp;in&nbsp;axes&nbsp;(relative&nbsp;0-1)&nbsp;units<br>
+&nbsp;<br>
+Draw&nbsp;a&nbsp;vertical&nbsp;span&nbsp;(regtangle)&nbsp;from&nbsp;xmin&nbsp;to&nbsp;xmax.&nbsp;&nbsp;With&nbsp;the&nbsp;default<br>
+values&nbsp;of&nbsp;ymin=0&nbsp;and&nbsp;ymax=1,&nbsp;this&nbsp;always&nbsp;span&nbsp;the&nbsp;yrange,&nbsp;regardless<br>
+of&nbsp;the&nbsp;ylim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you&nbsp;change&nbsp;them,&nbsp;eg&nbsp;with&nbsp;the&nbsp;ylim<br>
+command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;vertical&nbsp;extent&nbsp;is&nbsp;in&nbsp;axes&nbsp;coords:&nbsp;0=bottom,<br>
+0.5=middle,&nbsp;1.0=top&nbsp;but&nbsp;the&nbsp;y&nbsp;location&nbsp;is&nbsp;in&nbsp;data&nbsp;coordinates.<br>
+&nbsp;<br>
+kwargs&nbsp;are&nbsp;the&nbsp;kwargs&nbsp;to&nbsp;Patch,&nbsp;eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;antialiased,&nbsp;aa<br>
+&nbsp;&nbsp;linewidth,&nbsp;&nbsp;&nbsp;lw<br>
+&nbsp;&nbsp;edgecolor,&nbsp;&nbsp;&nbsp;ec<br>
+&nbsp;&nbsp;facecolor,&nbsp;&nbsp;&nbsp;fc<br>
+&nbsp;<br>
+the&nbsp;terms&nbsp;on&nbsp;the&nbsp;right&nbsp;are&nbsp;aliases<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;the&nbsp;patches.Polygon&nbsp;instance.<br>
+&nbsp;<br>
+#&nbsp;draw&nbsp;a&nbsp;vertical&nbsp;green&nbsp;translucent&nbsp;rectangle&nbsp;from&nbsp;x=1.25&nbsp;to&nbsp;1.55&nbsp;that<br>
+#&nbsp;spans&nbsp;the&nbsp;yrange&nbsp;of&nbsp;the&nbsp;axes<br>
+p&nbsp;=&nbsp;<a href="#-axvspan">axvspan</a>(1.25,&nbsp;1.55,&nbsp;facecolor='g',&nbsp;alpha=0.5)</tt></dd></dl>
  <dl><dt><a name="-bar"><strong>bar</strong></a>(*args, **kwargs)</dt><dd><tt>BAR(left,&nbsp;height)<br>
 &nbsp;<br>
 Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at<br>
@@ -1235,6 +1337,22 @@ Default&nbsp;override&nbsp;is<br>
 &nbsp;<br>
 See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information&nbsp;of&nbsp;how&nbsp;override&nbsp;and<br>
 the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
+ <dl><dt><a name="-xlim"><strong>xlim</strong></a>(*args, **kwargs)</dt><dd><tt>Set/Get&nbsp;the&nbsp;xlimits&nbsp;of&nbsp;the&nbsp;current&nbsp;axes<br>
+&nbsp;<br>
+xmin,&nbsp;xmax&nbsp;=&nbsp;<a href="#-xlim">xlim</a>()&nbsp;&nbsp;&nbsp;:&nbsp;return&nbsp;the&nbsp;current&nbsp;xlim<br>
+<a href="#-xlim">xlim</a>(&nbsp;(xmin,&nbsp;xmax)&nbsp;)&nbsp;&nbsp;:&nbsp;set&nbsp;the&nbsp;xlim&nbsp;to&nbsp;xmin,&nbsp;xmax<br>
+<a href="#-xlim">xlim</a>(&nbsp;xmin,&nbsp;xmax&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;set&nbsp;the&nbsp;xlim&nbsp;to&nbsp;xmin,&nbsp;xmax</tt></dd></dl>
+ <dl><dt><a name="-xticks"><strong>xticks</strong></a>(*args, **kwargs)</dt><dd><tt>Set/Get&nbsp;the&nbsp;xlimits&nbsp;of&nbsp;the&nbsp;current&nbsp;ticklocs,&nbsp;labels<br>
+&nbsp;<br>
+#&nbsp;return&nbsp;locs,&nbsp;labels&nbsp;where&nbsp;locs&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;tick&nbsp;locations&nbsp;and<br>
+#&nbsp;labels&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;tick&nbsp;labels.<br>
+locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-xticks">xticks</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+#&nbsp;set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;xticks<br>
+<a href="#-xticks">xticks</a>(&nbsp;<a href="#-arange">arange</a>(6)&nbsp;)<br>
+&nbsp;<br>
+#&nbsp;set&nbsp;the&nbsp;locations&nbsp;and&nbsp;labels&nbsp;of&nbsp;the&nbsp;xticks<br>
+<a href="#-xticks">xticks</a>(&nbsp;<a href="#-arange">arange</a>(5),&nbsp;('Tom',&nbsp;'Dick',&nbsp;'Harry',&nbsp;'Sally',&nbsp;'Sue')&nbsp;)</tt></dd></dl>
  <dl><dt><a name="-ylabel"><strong>ylabel</strong></a>(s, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;axis&nbsp;label&nbsp;of&nbsp;the&nbsp;current&nbsp;axis&nbsp;to&nbsp;s<br>
 &nbsp;<br>
 Defaults&nbsp;override&nbsp;is<br>
@@ -1247,6 +1365,22 @@ Defaults&nbsp;override&nbsp;is<br>
 &nbsp;<br>
 See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information&nbsp;of&nbsp;how&nbsp;override&nbsp;and&nbsp;the<br>
 optional&nbsp;args&nbsp;work</tt></dd></dl>
+ <dl><dt><a name="-ylim"><strong>ylim</strong></a>(*args, **kwargs)</dt><dd><tt>Set/Get&nbsp;the&nbsp;ylimits&nbsp;of&nbsp;the&nbsp;current&nbsp;axes<br>
+&nbsp;<br>
+ymin,&nbsp;ymax&nbsp;=&nbsp;<a href="#-ylim">ylim</a>()&nbsp;&nbsp;&nbsp;:&nbsp;return&nbsp;the&nbsp;current&nbsp;ylim<br>
+<a href="#-ylim">ylim</a>(&nbsp;(ymin,&nbsp;ymax)&nbsp;)&nbsp;&nbsp;:&nbsp;set&nbsp;the&nbsp;ylim&nbsp;to&nbsp;ymin,&nbsp;ymax<br>
+<a href="#-ylim">ylim</a>(&nbsp;ymin,&nbsp;ymax&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;set&nbsp;the&nbsp;ylim&nbsp;to&nbsp;ymin,&nbsp;ymax</tt></dd></dl>
+ <dl><dt><a name="-yticks"><strong>yticks</strong></a>(*args, **kwargs)</dt><dd><tt>Set/Get&nbsp;the&nbsp;ylimits&nbsp;of&nbsp;the&nbsp;current&nbsp;ticklocs,&nbsp;labels<br>
+&nbsp;<br>
+#&nbsp;return&nbsp;locs,&nbsp;labels&nbsp;where&nbsp;locs&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;tick&nbsp;locations&nbsp;and<br>
+#&nbsp;labels&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;tick&nbsp;labels.<br>
+locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-yticks">yticks</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+#&nbsp;set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;yticks<br>
+<a href="#-yticks">yticks</a>(&nbsp;<a href="#-arange">arange</a>(6)&nbsp;)<br>
+&nbsp;<br>
+#&nbsp;set&nbsp;the&nbsp;locations&nbsp;and&nbsp;labels&nbsp;of&nbsp;the&nbsp;yticks<br>
+<a href="#-yticks">yticks</a>(&nbsp;<a href="#-arange">arange</a>(5),&nbsp;('Tom',&nbsp;'Dick',&nbsp;'Harry',&nbsp;'Sally',&nbsp;'Sue')&nbsp;)</tt></dd></dl>
  <dl><dt><a name="-zeros"><strong>zeros</strong></a>(...)</dt><dd><tt><a href="#-zeros">zeros</a>((d1,...,dn),typecode='l',savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;of&nbsp;shape&nbsp;(d1,...,dn)&nbsp;and&nbsp;type&nbsp;typecode&nbsp;with&nbsp;all&nbsp;it's&nbsp;entries&nbsp;initialized&nbsp;to&nbsp;zero.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero&nbsp;the&nbsp;array&nbsp;will&nbsp;be&nbsp;a&nbsp;spacesaver&nbsp;array.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

@@ -20,8 +20,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.64  2004/08/30 19:48:25  jdh2358
-added eeg for guide
+Revision 1.65  2004/09/09 15:54:28  jdh2358
+updated htdocs to new funcs
 
 Revision 1.5  2004/06/26 06:37:20  astraw
 Trivial bugfix to eliminate IndexError

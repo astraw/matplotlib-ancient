@@ -717,6 +717,44 @@ print 'Average memory consumed per loop: %1.4fk bytes\n' % ((end-start)/float(in
 </pre>
 """),
 
+
+     ('GUIWIDGETS',
+      "How do I control the properties of my figure window, eg title, size, etc...?",
+    """
+The only way currently to control the window size from the matlab
+interface is to set the figure size with the figsize option, eg
+figure(figsize=(10,12)).  However, you can set window properties in a
+backend dependent manner with the figure manager instance.
+<pre>
+  manager = get_current_fig_manager()
+</pre>
+<ul>
+<li>backend_gtk*    : manager.window is a gtk.Window instance</li>
+<li>backend_wx*     : manager.frame is a wxFrame instance</li>
+<li>backend_tkagg   : manager.window is a Tk.Tk() instance</li>
+<li>backend_fltkagg : manager.window is a Fltk.Fl_Double_Window</li>
+</ul>
+
+Thus to set the title in a gtk* backend, you could do
+<pre>
+manager = get_current_fig_manager()
+manager.window.set_title('hi mom')
+</pre>
+Of course, now your scripts won't work with other matplotlib
+backends.<p>
+
+In theory, we could abstract the essential window calls and expose
+them in a GUI neutral manner.  We are trying to resist the urge to
+become a GUI wrapping library so we can focus on being a plotting
+library.<p>
+
+If you need a lot of control over GUI properties, you may want to skip
+the matlab interface and use the matplotlib API directly, eg build a
+GTK app which embeds matplotlib.  See examples/embedding_in*.py in the
+matplotlib src distribution or at <a
+href=http://matplotlib.sf.net/examples>examples</a> explaining how to
+embed matplotlib in your GUI of choice.
+"""),
     
      )
 @header@

@@ -35,3 +35,29 @@ modules = (
     'matplotlib.text',
     'matplotlib.ticker',
     'matplotlib.transforms' )
+
+
+def get_mpl_commands():
+    """
+    return value is a list of (header, commands) where commands is a
+    list of (func, desc)
+    """
+    
+    plot_commands = []
+    # parse the header for the commands provided commands
+    for line in file('../matplotlib/matlab.py'):
+        line = line.strip()
+        if not len(line): continue
+        if line.startswith('__end'): break
+        if line.startswith('_'):
+            header = line[1:].strip()
+            these = []
+            plot_commands.append((header, these))
+            continue
+        tup = line.split('-', 1)
+        if len(tup)!=2: continue
+        func, desc = tup
+        func = func.strip()
+        desc = desc.strip()
+        these.append((func, desc))                                             
+    return plot_commands

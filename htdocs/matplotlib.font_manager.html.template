@@ -257,6 +257,7 @@ dictionary.&nbsp;&nbsp;This&nbsp;proceedure&nbsp;is&nbsp;necessary&nbsp;since&nb
 algorithm&nbsp;always&nbsp;matches&nbsp;on&nbsp;the&nbsp;weight&nbsp;property.</tt></dd></dl>
  <dl><dt><a name="-ttfFontProperty"><strong>ttfFontProperty</strong></a>(font)</dt><dd><tt>A&nbsp;function&nbsp;for&nbsp;populating&nbsp;the&nbsp;<a href="#FontKey">FontKey</a>&nbsp;by&nbsp;extracting&nbsp;information<br>
 from&nbsp;the&nbsp;TrueType&nbsp;font&nbsp;file.</tt></dd></dl>
+ <dl><dt><a name="-ttfdict_to_fnames"><strong>ttfdict_to_fnames</strong></a>(d)</dt><dd><tt>flatten&nbsp;a&nbsp;ttfdict&nbsp;to&nbsp;all&nbsp;the&nbsp;filenames&nbsp;it&nbsp;contains</tt></dd></dl>
  <dl><dt><a name="-weight_as_number"><strong>weight_as_number</strong></a>(weight)</dt><dd><tt>Return&nbsp;the&nbsp;weight&nbsp;property&nbsp;as&nbsp;a&nbsp;numeric&nbsp;value.&nbsp;&nbsp;String&nbsp;values<br>
 are&nbsp;converted&nbsp;to&nbsp;their&nbsp;corresponding&nbsp;numeric&nbsp;value.</tt></dd></dl>
  <dl><dt><a name="-win32FontDirectory"><strong>win32FontDirectory</strong></a>()</dt><dd><tt>Return&nbsp;the&nbsp;user-specified&nbsp;font&nbsp;directory&nbsp;for&nbsp;Win32.</tt></dd></dl>

@@ -1,52 +1,9 @@
-commands = (
-    ('axes', 'create a new axes'),
-    ('axis', 'set or return the current axis limits'),
-    ('bar', 'make a bar chart'),
-    ('cla', 'clear the current axes'),
-    ('clf', 'clear the current figure window'),
-    ('clim', 'set the current color limits'),    
-    ('close', 'close the current figure window'),
-    ('cohere', 'make a plot of coherence'),
-    ('csd', 'make a plot of cross spectral density'),
-    ('date_plot', 'plot date data'),
-    ('errorbar', 'make an errorbar graph'),
-    ('figlegend', 'add a legend to the figure'),
-    ('figimage', 'add an image to the figure'),
-    ('figtext', 'add text in figure coords'),        
-    ('figure', 'create or change active figure'),
-    ('fill', 'draw filled polygons'),
-    ('gca', 'return the current axes'),
-    ('gcf', 'return the current figure'),
-    ('get', 'get a handle graphics property'),
-    ('gray', 'set current colormap to gray'),	    
-    ('grid', 'set the axis grid lines on or off'),	
-    ('hist', 'make a histogram'),
-    ('imread', 'read an image file into an array'),
-    ('imshow', 'show an image'),
-    ('jet', 'set current colormap to jet'),	        
-    ('legend', 'add a legend to the axes'),
-    ('load',  'load ASCII data into an array'),
-    ('loglog', 'a log log plot'),
-    ('pcolor', 'generate pseudo color plots'),
-    ('plot', 'make a line plot'),
-    ('psd', 'make a plot of power spectral density'),
-    ('rc', 'set the rc params'),    
-    ('save',  'save array as ASCII data array'),
-    ('savefig', 'save the current figure'),
-    ('scatter', 'make a scatter plot'),
-    ('semilogx', 'log x axis'),
-    ('semilogy', 'log y axis'),
-    ('set', 'set a handle graphics property'),
-    ('show', 'show the figures'),
-    ('stem', 'a stem plot'),
-    ('specgram', 'a spectrogram'),
-    ('subplot', 'make a subplot (numrows, numcols, axesnum)'),
-    ('table', 'add a table to the axes'),
-    ('text', 'add some text at location x,y to the current axes'),
-    ('title', 'add a title to the current axes'),
-    ('xlabel', 'add an xlabel to the current axes'),
-    ('ylabel', 'add a ylabel to the current axes'),
-)
+from hthelpers import get_mpl_commands
+
+all_commands = get_mpl_commands()
+commands = all_commands[0][1]
+
+
 
 @header@
 
