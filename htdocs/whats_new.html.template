@@ -1,3 +1,18 @@
+new_to_42 = ( ('EPS output from PS backend', 
+"""Just add an eps extension"""),
+
+	('PS save from GTK backend fixed',
+"""
+A few of the bugs that were lingering in the PS output from the GTK
+backend have been cleared up.  A fairly substantial refactoring of the
+Text class enabled this.  Text is now backend independent and behaves
+like the other artists in the figure (lines, patches, etc).  This
+results in a much cleaner design under the hood.
+"""),	
+
+)
+
+
 new_to_41 = ( ('Pcolor optimizations', 
 """Several optimizations have improved the performance of pcolor
 across all backends, 4x on the GTK backend"""),
@@ -300,6 +315,12 @@ defined in figure.py.
 )
 
 @header@
+
+<h2> What's new in matplotlib 0.42</h2>
+ + for title, new in new_to_42:
+   <h4>@title@</h4>
+   @new@<br>
+ -
 
 
 <h2> What's new in matplotlib 0.41</h2>
