@@ -1,22 +1,33 @@
 new_to_50 = ( 
-
-	('Paint/libart backend', """ David Moore wrote a backend for
-<a href=http://pypaint.sourceforge.net>pypaint</a>, a <a
+    #TODO: pypaint?
+    ('Paint/libart backend', """\
+David Moore wrote a backend for <a
+href=http://pypaint.sourceforge.net>pypaint</a>, a <a
 href=http://www.levien.com/libart>libart</a> wrapper.  libart is a
 high quality, cross platform image renderer that supports antialiased
 lines, freetype fonts, and other capabilities to soon be exploited.
-Thanks David!  """ ),
+Thanks David!""" ),
 
         ('The Matplotlib <a href=faq.html>FAQ</a>', ''),
 
+        #TODO: backend specific info
         ('Alpha channel attribute', """\
 All the figure elements now have an alpha attribute to allow blending
 and translucency.  Not all backends are currenly capable of supporting
 alpha"""),
 
+        #TODO: update links
+        ('Table class added', """\
+John Gill has developed a very nice <a
+href=matplotlib.table.html>table</a> class that plays well with bar
+charts ad stacked bar charts.  See <a href=examples/table_demo.py</a>
+and screenshot <a href=screenshots.html#table_demo>table_demo</a>.
+"""),
+
 	('Added x linesyle', """Matt MacMahon submitted a patch for an
 'x' linestyle.  Thanks Matt! """ ),
 
+    #TODO: update docs
 	('gd module on win32', """With much weeping and gnashing of teeth and help from half the people
 on this globe, built a gdmodule win32 installer.  Special thanks to
 Stefan Kuzminski for putting up with my endless windows confusions.""" ),
@@ -53,7 +64,7 @@ David Moore and John Gill for suggestions and code.  """),
 
   <li> GD and GTK : Fixed line width to scale with DPI</li>
 
-  <li> GTK and WX : Layz import of backend_ps for backend switching
+  <li> GTK and WX : Lazy import of backend_ps for backend switching
   improves startup time</li>
 
   <li> GD, GTK and PS : Fixed minor text layout problems</li>
