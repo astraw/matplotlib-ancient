@@ -139,8 +139,8 @@ are easy to install.
 
   <li><a href=http://www.boutell.com/gd>GD lib</a> -- The GD library.
   Note if you are using linux and have this installed in /usr/lib, you
-  will need to install the latest version over the existing
-  installunless you have gd-2.0.15 or later</li>
+  will need to install the latest version over the existing install
+  unless you have gd-2.0.15 or later</li>
 
   <li><a
   href=http://newcenturycomputers.net/projects/gdmodule.html>gdmodule</a>
@@ -154,6 +154,13 @@ are easy to install.
   desired font.  You must use version 0.2.6 or later</li>
 
    <h4>Quick install guide for GD output</h4>
+ 
+   The latest snapshot of matplotlib requires a patch to
+   gdmodule-0.51.  I contacted the maintainer and this will be folded
+   into the 0.52 release.  Replace <a
+   href=gd/_gdmodule.c>_gdmodule.c</a> and install as below.
+
+
    <pre>
     cd /var/tmp
     tar xvfz ~/src/gd-2.0.15.tar.gz
@@ -162,8 +169,9 @@ are easy to install.
     sudo make install
 
     cd /var/tmp
-    tar xvfz ~/python/src/gdmodule-0.42.tar.gz
-    cd gdmodule-0.42/
+    tar xvfz ~/python/src/gdmodule-0.51.tar.gz
+    cd gdmodule-0.51
+    # apply new _gdmodule.c linked above
     sudo python2.3 Setup.py install
 
     cd /var/tmp

@@ -174,28 +174,30 @@ If&nbsp;it&nbsp;is&nbsp;a&nbsp;len(3)&nbsp;tuple,&nbsp;assume&nbsp;it's&nbsp;an&
 &nbsp;<br>
 <a href="#-axis">axis</a>(v)&nbsp;where&nbsp;v=&nbsp;[xmin&nbsp;xmax&nbsp;ymin&nbsp;ymax]&nbsp;sets&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the<br>
 x&nbsp;and&nbsp;y&nbsp;axis&nbsp;limits</tt></dd></dl>
- <dl><dt><a name="-bar"><strong>bar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-bar">bar</a>(self,&nbsp;x,&nbsp;y,&nbsp;width=0.8)<br>
+ <dl><dt><a name="-bar"><strong>bar</strong></a>(*args, **kwargs)</dt><dd><tt>BAR(left,&nbsp;height)<br>
 &nbsp;<br>
-&nbsp;&nbsp;Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at&nbsp;x,&nbsp;x+width,&nbsp;0,&nbsp;y&nbsp;x&nbsp;and&nbsp;y&nbsp;are<br>
-&nbsp;&nbsp;Numeric&nbsp;arrays<br>
+Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at<br>
+&nbsp;&nbsp;left,&nbsp;left+width,&nbsp;0,&nbsp;height<br>
+left&nbsp;and&nbsp;height&nbsp;are&nbsp;Numeric&nbsp;arrays<br>
 &nbsp;<br>
-<a href="#-bar">bar</a>(x,&nbsp;y,&nbsp;width=0.8,&nbsp;color='b',<br>
-&nbsp;&nbsp;&nbsp;yerr=None,&nbsp;xerr=None,&nbsp;capsize=3,<br>
-&nbsp;&nbsp;&nbsp;originY=0)<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>
 &nbsp;<br>
-&nbsp;&nbsp;xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
-&nbsp;&nbsp;on&nbsp;the&nbsp;bar&nbsp;chart&nbsp;for&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes,&nbsp;respectively.&nbsp;&nbsp;See<br>
-&nbsp;&nbsp;errorbar&nbsp;for&nbsp;more&nbsp;info&nbsp;on&nbsp;the&nbsp;xerr&nbsp;and&nbsp;yerr&nbsp;optional&nbsp;arguments.<br>
+BAR(left,&nbsp;height,&nbsp;width,&nbsp;bottom,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color,&nbsp;yerr,&nbsp;xerr,&nbsp;capsize,&nbsp;yoff)<br>
 &nbsp;<br>
-&nbsp;&nbsp;color&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;string&nbsp;or&nbsp;tuple,&nbsp;or&nbsp;it&nbsp;can&nbsp;be&nbsp;a<br>
-&nbsp;&nbsp;min(len(x),&nbsp;len(y))&nbsp;list&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;strings&nbsp;or&nbsp;tuples<br>
-&nbsp;&nbsp;<br>
-&nbsp;&nbsp;capsize&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;errorbar;&nbsp;see&nbsp;errorbar&nbsp;for&nbsp;more<br>
-&nbsp;&nbsp;info.<br>
+xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
+on&nbsp;the&nbsp;bar&nbsp;chart<br>
 &nbsp;<br>
-&nbsp;&nbsp;originY&nbsp;sets&nbsp;the&nbsp;origin&nbsp;for&nbsp;the&nbsp;bars&nbsp;(default&nbsp;0)<br>
-&nbsp;&nbsp;<br>
-Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances</tt></dd></dl>
+color&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;bar<br>
+&nbsp;<br>
+capsize&nbsp;determines&nbsp;the&nbsp;length&nbsp;in&nbsp;points&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps<br>
+&nbsp;<br>
+&nbsp;<br>
+The&nbsp;optional&nbsp;arguments&nbsp;color,&nbsp;width&nbsp;and&nbsp;bottom&nbsp;can&nbsp;be&nbsp;either<br>
+scalars&nbsp;or&nbsp;len(x)&nbsp;sequences<br>
+&nbsp;<br>
+This&nbsp;enables&nbsp;you&nbsp;to&nbsp;use&nbsp;bar&nbsp;as&nbsp;the&nbsp;basis&nbsp;for&nbsp;stacked&nbsp;bar<br>
+charts,&nbsp;or&nbsp;candlestick&nbsp;plots</tt></dd></dl>
  <dl><dt><a name="-choose"><strong>choose</strong></a>(...)</dt><dd><tt><a href="#-choose">choose</a>(a,&nbsp;(b1,b2,...))</tt></dd></dl>
  <dl><dt><a name="-close"><strong>close</strong></a>(*args)</dt><dd><tt>Close&nbsp;a&nbsp;figure&nbsp;window<br>
 &nbsp;<br>

@@ -1,16 +1,16 @@
 new_to_50 = ( 
 
 	('GD supports clipping and antialiased line drawing', """See
-instructions about ugrading gd and gdmodule at <a
+instructions about upgrading gd and gdmodule at <a
 href=backends.html#GD>Installing the GD backend</a>.  The line object
 has a new 'antialiased' property, that if true, the backend will
 render the line antialiased if supported.  """),
 
 	('wild and wonderful bar charts', """You can provide an
 optional argument bottom to the <a
-href=matplotlib.matlab.html#bar>bar</a> command to determine where the
-bottom of each bar is, default 0 for all.  This enables stacked bar
-plots and candelstick plots -- <a
+href=matplotlib.matlab.html#-bar>bar</a> command to determine where
+the bottom of each bar is, default 0 for all.  This enables stacked
+bar plots and candelstick plots -- <a
 href=examples/bar_stacked.py>examples/bar_stacked.py</a>.  Thanks to
 David Moore and John Gill for suggestions and code.  """),
 
@@ -18,7 +18,7 @@ David Moore and John Gill for suggestions and code.  """),
 
 <ul>
 
-  <li> All : the yticks on the right hand side were placed incorretly,
+  <li> All : the yticks on the right hand side were placed incorrectly,
   now fixed</li>
 
   <li> All : ticklabels now make a more intelligent choice about how
@@ -32,7 +32,7 @@ David Moore and John Gill for suggestions and code.  """),
   <li> GD : Fixed small text layout bug</li>
 
   <li> GD : Fixed the constant for GD which maps pixels per inch -
-  this should give better agreement with other backends witht he
+  this should give better agreement with other backends with he
   relative sizes of objects</li>
 
   <li> GTK : Dash spacing was not properly scaling with DPI</li>
@@ -46,7 +46,7 @@ split into a backend independent component <a
 href=matplotlib.figure.html>Figure</a> and a backend dependent
 component <a
 href=matplotlib.backend_bases.html#FigureCanvasBase>FigureCanvasBase</a>.
-This completes the transition to a totally abstrac figure interface
+This completes the transition to a totally abstract figure interface
 and improves the ability the switch backends and a figure to multiple
 backends.  See <a href=API_CHANGES>API_CHANGES</a> for information on
 migrating applications to the new API."""),
@@ -137,7 +137,7 @@ center'.  See <a href=screenshots.html#legend_demo>legend_demo</a> and
         ('Expanded errorbar capabilities',
 """
 Gary Ruben contributed some code to support x and y errorbars, either
-symmetrix or asymettric.  See <a
+symmetric or asymmetric.  See <a
 href=examples/errorbar_demo.py>errorbar_demo.py</a> for examples of
 all the wild and wonderful errorbar styles.  Bar charts can now also
 display errorbars; see <a
@@ -148,7 +148,7 @@ href=screenshots.html#barchart_demo>barchart_demo</a>
 """
 The transform architecture was refactored, allowing much more precise
 layout.  Lines, patches, text, etc... can now be placed and scaled in
-arbitrary units, relative axes units, or physical size.  Applicaiton
+arbitrary units, relative axes units, or physical size.  Application
 programmers who want to create lines, patches and text directly using
 the API should read the <a href=matplotlib.transforms.html>transform
 module</a> docs for more info.  See <a
@@ -211,7 +211,7 @@ the new src release.
 """A matlab compatible legend command has been added.  See
 <a href=examples/legend_demo.py>legend_demo.py</a>
 """),
-   ('Bug fixes in alterate color specifications',
+   ('Bug fixes in alternate color specifications',
 """Some bugs regarding alternate ways of specifying colors have been
 ironed out (you can now use hex strings or 0-1 RGB tuples anywhere a
 color format string is supported ).  See <a
@@ -248,7 +248,7 @@ backend for your favorite GUI or output format.
         ('Line class rewritten for greater matlab compatibility',
 """
 The line classes have all been reorganized into a single class that
-has greater matlab compatibity.  This enables you to change existing
+has greater matlab compatibility.  This enables you to change existing
 lines to a new line style (eg, from solid line to markers with
 circles) as well as supports lines with a combination of line styles
 and markers times (eg, data points marked with circles and a dash line
@@ -266,7 +266,7 @@ new_2_to_21 = (
 Several users reported Deprecation warnings with python2.3 and pygtk
 1.99.18.  These were all related to passing floats rather than ints to
 gtk drawing commands.  These have been cleaned up and none of the
-examples generate wanings.  Let me know if you get some!
+examples generate warnings.  Let me know if you get some!
 """),
     ('Improved interactive shell',
 """
@@ -328,7 +328,7 @@ interactively</a>.
 """ Ability to save figures in arbitrary resolution PNG or JPEG with a
 bug fix that caused saved figures to be corrupted by anything blocking
 the figure window.  A GUI widget has been added to the figure toolbar
-to save figures and a new comand <a
+to save figures and a new command <a
 href=matplotlib.matlab.html#-savefig>savefig</a> has been added.  """),
 
 ('Navigation',
@@ -340,7 +340,7 @@ href=tutorial.html#navigation>Navigation tutorial</a>.
 
 ('More examples and screenshots',
 """
-New examples and screenshot illustrating the new text functionality,
+New examples and screenshots illustrating the new text functionality,
 the new plot types, and new commands.  See the examples subdirectory
 in the src distribution.
 """),
