@@ -42,4 +42,4 @@ o.draw_text( gc, 100, 300, "That's all folks!", prop, -45, 0)
 # there is no standard renderer interface to save the input to a file,
 # as this is the job of the figure canvas.  Here I make the call that
 # the figure canvas would make for the antigrain render
-o._renderer.write_png('renderer_agg.png')
+o._renderer.write_png('../figures/renderer_agg.png')

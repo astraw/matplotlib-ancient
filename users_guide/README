@@ -28,7 +28,16 @@ To build the matplotlib users guide, you will need to
     Verify that the figures in the figures dir are built.  Verify also
     that the *.dat files in data were built.
 
+  * graphviz - the graphviz program is used to make some diagrams.
+    You will need a working version of "dot", from the graphiviz
+    suite.  To generate the dot graphs
+
+    > make dot
+
   * build the docs
 
     > make dvi
     > make pdf
+
+ Typing make will build all of the figures, graphs and output formats
+ for the users guide

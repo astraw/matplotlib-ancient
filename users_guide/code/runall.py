@@ -6,6 +6,7 @@ files = (
     'color_demo.py',            
     'date_ticker_demo.py',
     'figure_mosaic.py',
+    'fill_between.py',
     'fonts_demo_kw.py',
     'from_pil.py',
     'image_demo.py',

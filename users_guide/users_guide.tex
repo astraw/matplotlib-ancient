@@ -312,7 +312,7 @@ numarray builds for win32 are available on the download page.
   numarray users, whereas the unlabelled installer is for Numeric users.}
 
 \section{Backends}
-\label{sec:backends}
+\label{sec:intro_backends}
 
 The matplotlib backends are responsible for taking the figure
 representation and transferring this to a display device, either a
@@ -416,7 +416,7 @@ configuration file; see Section~\ref{sec:matplotlibrc}.
 There are many python shells out there: the standard python shell,
 ipython, PyShell, pysh, pycrust.  Some of these are GUI dependent
 (PyShell/pycrust) and some are not (ipython, pysh).  As discussed in
-backends Section~\ref{sec:backends}, not all shells are compatible
+backends Section~\ref{sec:intro_backends}, not all shells are compatible
 with all matplotlib backends because of GUI mainloop issues.  With a
 non-GUI python shell such as the standard python shell, ipython or
 pysh, the TkAgg backend is the best choice for interactive use.  Just
@@ -463,7 +463,7 @@ C:\Python23\share\matplotlib\.matplotlibrc  # windows
 the install path, so if you want to preserve your's, please move it to
 your HOME dir and set the environment variable if necessary.
 
-In the rc file, you can set your backend (Section~\ref{sec:backends}),
+In the rc file, you can set your backend (Section~\ref{sec:intro_backends}),
 your numerix setting (Section~\ref{sec:numerix}), whether you'll be
 working interactively (Section~\ref{sec:interactive}) and default
 values for most of the figure properties.  
@@ -638,7 +638,7 @@ compiling instructions above.  You will need to install freetype2,
 libpng and zlib via fink or from src.  You will also need the base
 libraries for a given backend.  Eg, if you want to run TkAgg, you will
 need a python with Tkinter; if you want to use WxAgg, install
-wxpython.  See Section~\ref{sec:backends} for a more comprehensive
+wxpython.  See Section~\ref{sec:intro_backends} for a more comprehensive
 discussion of the various backend requirements.  Edit \fname{setup.py}
 to configure the backends you want to build as described above.
 
@@ -777,7 +777,7 @@ there is a call to \func{show} or \func{savefig}.  In the examples
 that follow, I'll assume you have set \rc{interactive : True} in your
 \fname{.matplotlibrc} file and are working from an interactive python
 shell using a compatible backend.  Please make sure you have read and
-understood Sections~\ref{sec:matplotlibrc}, \ref{sec:backends} and
+understood Sections~\ref{sec:matplotlibrc}, \ref{sec:intro_backends} and
 \ref{sec:ides} before trying these examples.
 
 \section{Simple plots}
@@ -1396,7 +1396,7 @@ in mathematical or scientific figures, matplotlib implements a large
 number of \TeX\ math symbols and commands, to support mathematical
 expressions anywhere in your figure.  To get the most out of text in
 matplotlib, you should use a backend that supports freetype2 and
-mathtext, notably all the *Agg backends (see Section~{ref:backends}).
+mathtext, notably all the *Agg backends (see Section~\ref{sec:intro_backends}).
 
 \subsection{Basic text commands}
 \label{sec:basic_text}
@@ -2413,6 +2413,51 @@ label=lst:date_ticker_demo]{code/date_ticker_demo.py}
 \chapter{Cookbook}
 \label{cha:cookbook}
 
+\section{Plot elements}
+
+\subsection{Fill the area between two curves}
+\label{cbook:fill_between}
+
+The fill command takes a list of vertices and draws a polygon.  A
+filled area between two curves is simply a large polygon.  All you
+need to do is get the vertices in the correct order, which basically
+means reversing the order of the x,y pairs in one of the lines, so
+that path across the vertices of the polygon is continuous.  Here is a
+simple example
+
+\fig{4in}{figures/fill_between}{Fill the area between two curves; see
+  Listing~\ref{lst:fill_between}.}{fig:fill_between}
+
+\lstinputlisting[linerange=1-10,caption={Fill the area between two
+  curves; see Figure~\ref{lst:fill_between}},
+label=lst:fill_between]{code/fill_between.py}
+
+
+\section{Text}
+
+\subsection{Adding a ylabel on the right of the axes}
+\label{cbook:ylabel_right}
+
+
+To make a ylabel on the right, use the \func{text} command.  You need
+to set the transform to use axes coordinates (\code{ax.transAxes}),
+rotate the text vertically, make the horizontal alignment left, the
+vertical alignment centered.  Note that x, y = 1, 0.5 is the right,
+middle of the axes in axes coordinates.  You also need to turn off
+clipping, so the text can appear outside the axes w/o being clipped by
+the axes bounding box, which is the default behavior.
+
+\begin{lstlisting}
+text(1.02, 0.5, 'volts',
+     horizontalalignment='left',
+     verticalalignment='center',
+     rotation='vertical',
+     transform=gca().transAxes,
+     clip_on=False)
+\end{lstlisting}
+
+
+
 \section{Data analysis}
 
 \subsection{Linear regression}
@@ -2477,7 +2522,6 @@ on that page are problematic.  The linear algebra is correct, however.
 \lstinputlisting[linerange=1-16,caption={est fit polynomial; see
   Figure~\ref{fig:poly_regression}},
 label=lst:poly_regression]{code/poly_regression.py}
-
 
 
 \section{Working with images}
@@ -2572,6 +2616,29 @@ jet = colors.LinearSegmentedColormap('jet', _jet_data, LUTSIZE)
 setting it as the default image.cmap in rc, etc.  Please submit your
 changes to the matplotlib-devel mailing list.
 
+\section{Output}
+\label{sec:output}
+
+\subsection{Printing to standard output}
+\label{cbook:print_stdout}
+
+In some instances, it is nice to be able to print to a file object, eg
+\code{sys.stdot}, for example in a web application server where the
+creation of a temporary file storing the images is a wasted step.  The
+antigrain backend accepts a file object to the \func{savefig} command
+and will print a PNG to it.  Thus to print to standard output, you
+could do
+
+\begin{lstlisting}
+import sys
+import matplotlib
+# this is not supported across all backends, as of matplotlib-0.63
+matplotlib.use('Agg')
+from matplotlib.matlab import *
+plot([1,2,3])
+savefig(sys.stdout)
+\end{lstlisting}
+
 \chapter{Matplotlib API}
 \label{cha:api}
 
@@ -2624,7 +2691,7 @@ matlab interface controls the backends and artists -- this section is
 probably of interest to developers and the terminally curious.
 
 \section{The matplotlib backends}
-\label{sec:backends}
+\label{sec:api_backends}
 
 The backend consists of a number of related base classes that together
 define a drawing API.  The original backend was GTK, and the drawing
@@ -2900,7 +2967,7 @@ updated; see Figure~\ref{fig:show}.
 
 \chapter{A sample \fname{.matplotlibrc}}
 \label{cha:rc}
-\lstinputlisting{../.matplotlibrc}
+\lstinputlisting{code/.matplotlibrc}
 
 \chapter{mathtext symbols}
 \label{cha:math_symbols}
