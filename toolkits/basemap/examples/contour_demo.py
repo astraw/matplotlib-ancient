@@ -1,10 +1,6 @@
 from matplotlib.toolkits.basemap import Basemap, interp
 from pylab import *
 import cPickle
-from matplotlib import __version__
-
-if __version__ <= '0.70':
-    print 'warning - contour example will not work with this version of matplotlib if axes.patch is not applied'
 
 # read in data on lat/lon grid.
 datadict = cPickle.load(open('500hgt.pickle','rb'))
@@ -18,6 +14,8 @@ m = Basemap(-150.,-20.,30.,-20.,
 nx = 101
 ny = 101
 lonsout, latsout = m.makegrid(nx,ny)
+# get rid of negative lons.
+lonsout = where(lonsout < 0., lonsout + 360., lonsout)
 hgt = interp(hgt,lons,lats,lonsout,latsout)
 dx = (m.xmax-m.xmin)/(nx-1)
 dy = (m.ymax-m.ymin)/(ny-1)  

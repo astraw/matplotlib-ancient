@@ -32,7 +32,7 @@ class Basemap:
  Example Usage:
  (this example plus others can be run by running test.py in the examples dir)
 
->>> from basemap import *
+>>> from matplotlib.toolkits.basemap import Basemap
 >>> import cPickle
 >>> from pylab import *
 >>> # read in topo data from pickle (on a regular lat/lon grid)
@@ -58,7 +58,7 @@ class Basemap:
 >>> title('Cylindrical Equidistant')
 >>> show()
 
- Version: 20050130
+ Version: 0.1.2 (20050331)
  Contact: Jeff Whitaker <jeffrey.s.whitaker@noaa.gov>
     """
 
@@ -150,9 +150,14 @@ class Basemap:
 
         # extend longitudes around the earth a second time
         # (in case projection region straddles Greenwich meridian).
+        # also include negative longitudes, so valid longitudes
+        # can range from -360 to 720.
         coastlons2 = [lon+360. for lon in coastlons]
         cntrylons2 = [lon+360. for lon in cntrylons]
         statelons2 = [lon+360. for lon in statelons]
+        coastlons3 = [lon-360. for lon in coastlons]
+        cntrylons3 = [lon-360. for lon in cntrylons]
+        statelons3 = [lon-360. for lon in statelons]
 
         # set up projections using Proj class.
         self.projection = projection
@@ -221,27 +226,33 @@ class Basemap:
         # transform coastline polygons to native map coordinates.
         xc,yc = proj(N.array(coastlons,'f'),N.array(coastlats,'f'))
         xc2,yc2 = proj(N.array(coastlons2,'f'),N.array(coastlats,'f'))
+        xc3,yc3 = proj(N.array(coastlons3,'f'),N.array(coastlats,'f'))
         if projection == 'merc': yc2=yc
         # set up segments in form needed for LineCollection,
         # ignoring 'inf' values that are off the map, and skipping
         # polygons that have an area > area_thresh..
         segments = [zip(xc[i0:i1],yc[i0:i1]) for a,i0,i1 in zip(coastsegarea[:-1],coastsegind[:-1],coastsegind[1:]) if a > area_thresh]
         segments2 = [zip(xc2[i0:i1],yc2[i0:i1]) for a,i0,i1 in zip(coastsegarea[:-1],coastsegind[:-1],coastsegind[1:]) if a > area_thresh and max(xc2[i0:i1]) < 1.e20 and max(yc2[i0:i1]) < 1.e20]
-        self.coastsegs = segments+segments2
+        segments3 = [zip(xc3[i0:i1],yc3[i0:i1]) for a,i0,i1 in zip(coastsegarea[:-1],coastsegind[:-1],coastsegind[1:]) if a > area_thresh and max(xc3[i0:i1]) < 1.e20 and max(yc3[i0:i1]) < 1.e20]
+        self.coastsegs = segments+segments2+segments3
 
         # same as above for country polygons.
         xc,yc = proj(N.array(cntrylons,'f'),N.array(cntrylats,'f'))
         xc2,yc2 = proj(N.array(cntrylons2,'f'),N.array(cntrylats,'f'))
+        xc3,yc3 = proj(N.array(cntrylons2,'f'),N.array(cntrylats,'f'))
         segments = [zip(xc[i0:i1],yc[i0:i1]) for i0,i1 in zip(cntrysegind[:-1],cntrysegind[1:])]
         segments2 = [zip(xc2[i0:i1],yc2[i0:i1]) for i0,i1 in zip(cntrysegind[:-1],cntrysegind[1:]) if max(xc2[i0:i1]) < 1.e20 and max(yc2[i0:i1]) < 1.e20]
-        self.cntrysegs = segments+segments2
+        segments3 = [zip(xc3[i0:i1],yc3[i0:i1]) for i0,i1 in zip(cntrysegind[:-1],cntrysegind[1:]) if max(xc3[i0:i1]) < 1.e20 and max(yc3[i0:i1]) < 1.e20]
+        self.cntrysegs = segments+segments2+segments3
 
         # same as above for state polygons.
         xc,yc = proj(N.array(statelons,'f'),N.array(statelats,'f'))
         xc2,yc2 = proj(N.array(statelons2,'f'),N.array(statelats,'f'))
+        xc3,yc3 = proj(N.array(statelons3,'f'),N.array(statelats,'f'))
         segments = [zip(xc[i0:i1],yc[i0:i1]) for i0,i1 in zip(statesegind[:-1],statesegind[1:])]
         segments2 = [zip(xc2[i0:i1],yc2[i0:i1]) for i0,i1 in zip(statesegind[:-1],statesegind[1:]) if max(xc2[i0:i1]) < 1.e20 and max(yc2[i0:i1]) < 1.e20]
-        self.statesegs = segments+segments2
+        segments3 = [zip(xc3[i0:i1],yc3[i0:i1]) for i0,i1 in zip(statesegind[:-1],statesegind[1:]) if max(xc3[i0:i1]) < 1.e20 and max(yc3[i0:i1]) < 1.e20]
+        self.statesegs = segments+segments2+segments3
 
         # store coast polygons for filling.
         # special treatment (kludge) for Antarctica.
@@ -266,6 +277,11 @@ class Basemap:
                     y.append(-90)
                     x.insert(0,720.)
                     y.insert(0,-90)
+                if x[-1] == -360.000 and y[-1] < -68.: 
+                    x.append(-360.)
+                    y.append(-90)
+                    x.insert(0,0.)
+                    y.insert(0,-90)
             elif projection == 'merc':
                 if x[-1] == 0.000 and y[-1] < ya: # close antarctica
                     x.append(0.)
@@ -276,6 +292,11 @@ class Basemap:
                     x.append(360.)
                     y.append(ysp)
                     x.insert(0,720.)
+                    y.insert(0,ysp)
+                if x[-1] == -360.000 and y[-1] < ya: 
+                    x.append(-360.)
+                    y.append(ysp)
+                    x.insert(0,0.)
                     y.insert(0,ysp)
             self.coastpolygons.append((x,y))
 
@@ -345,7 +366,10 @@ class Basemap:
  antialiased - antialiasing switch for coastlines (default True).
         """
         coastlines = LineCollection(self.coastsegs,antialiaseds=(antialiased,))
-        coastlines.color(color)
+        try:
+            coastlines.set_color(color)
+        except: # this was a typo that existed in matplotlib-0.71 and earlier
+            coastlines.color(color)
         coastlines.set_linewidth(linewidth)
         ax.add_collection(coastlines)
 
@@ -359,7 +383,10 @@ class Basemap:
  antialiased - antialiasing switch for country boundaries (default True).
         """
         coastlines = LineCollection(self.cntrysegs,antialiaseds=(antialiased,))
-        coastlines.color(color)
+        try:
+            coastlines.set_color(color)
+        except: # this was a typo that existed in matplotlib-0.71 and earlier
+            coastlines.color(color)
         coastlines.set_linewidth(linewidth)
         ax.add_collection(coastlines)
 
@@ -373,7 +400,10 @@ class Basemap:
  antialiased - antialiasing switch for state boundaries (default True).
         """
         coastlines = LineCollection(self.statesegs,antialiaseds=(antialiased,))
-        coastlines.color(color)
+        try:
+            coastlines.set_color(color)
+        except: # this was a typo that existed in matplotlib-0.71 and earlier
+            coastlines.color(color)
         coastlines.set_linewidth(linewidth)
         ax.add_collection(coastlines)
 
@@ -504,7 +534,7 @@ def interp(datain,lonsin,latsin,lonsout,latsout,checkbounds=False,mode='nearest'
     """
  dataout = interp(datain,lonsin,latsin,lonsout,latsout,mode='constant',cval=0.0,order=3)
 
- interpolate data (datain) on a regularly spaced lat/lon grid (with lons=lonsin
+ interpolate data (datain) on a rectilinear lat/lon grid (with lons=lonsin
  lats=latsin) to a grid with lons=lonsout, lats=latsout.
 
  datain is a rank-2 array with 1st dimension corresponding to longitude,
@@ -529,28 +559,52 @@ def interp(datain,lonsin,latsin,lonsout,latsout,checkbounds=False,mode='nearest'
  for nearest neighbor interpolation (nd_image only allows 1-6) - if
  order=0 bounds checking is done even if checkbounds=False.
     """
-    # lons and lats must be monotonically increasing.
-    # lonsin, latsin assumed equally spaced.
-    # make sure lonsin, latsin increasing.
+    # lonsin and latsin must be monotonically increasing.
     if lonsin[-1]-lonsin[0] < 0 or latsin[-1]-latsin[0] < 0:
         raise ValueError, 'lonsin and latsin must be increasing!'
-    # make sure lonsin, latsin are regularly spaced.
-    delon = lonsin[1:]-lonsin[0:-1]
-    delat = latsin[1:]-latsin[0:-1]
-    if max(delat)-min(delat) > 1.e-4 or max(delon)-min(delon) > 1.e-4:
-        raise ValueError, 'lat/lon grid must be uniform!'
     # optionally, check that lonsout,latsout are 
     # within region defined by lonsin,latsin.
+    # (this check is always done if nearest neighbor 
+    # interpolation (order=0) requested).
     if checkbounds or order == 0:
         if min(N.ravel(lonsout)) < min(lonsin) or \
            max(N.ravel(lonsout)) > max(lonsin) or \
            min(N.ravel(latsout)) < min(latsin) or \
            max(N.ravel(latsout)) > max(latsin):
             raise ValueError, 'latsout or lonsout outside range of latsin or lonsin'
-    xcoords = (len(lonsin)-1)*(lonsout-lonsin[0])/(lonsin[-1]-lonsin[0])
-    ycoords = (len(latsin)-1)*(latsout-latsin[0])/(latsin[-1]-latsin[0])
+    # compute grid coordinates of output grid.
+    delon = lonsin[1:]-lonsin[0:-1]
+    delat = latsin[1:]-latsin[0:-1]
+    if max(delat)-min(delat) < 1.e-4 and max(delon)-min(delon) < 1.e-4:
+        # regular input grid.
+        xcoords = (len(lonsin)-1)*(lonsout-lonsin[0])/(lonsin[-1]-lonsin[0])
+        ycoords = (len(latsin)-1)*(latsout-latsin[0])/(latsin[-1]-latsin[0])
+    else:
+        # irregular (but still rectilinear) input grid.
+        lonsoutflat = N.ravel(lonsout)
+        latsoutflat = N.ravel(latsout)
+        ix = N.searchsorted(lonsin,lonsoutflat)-1
+        iy = N.searchsorted(latsin,latsoutflat)-1
+        xcoords = N.zeros(ix.shape,'f')
+        ycoords = N.zeros(iy.shape,'f')
+        for n,i in enumerate(ix):
+            if i < 0:
+                xcoords[n] = -1 # outside of range on lonsin (lower end)
+            elif i >= len(lonsin)-1:
+                xcoords[n] = len(lonsin) # outside range on upper end.
+            else:
+                xcoords[n] = float(i)+(lonsoutflat[n]-lonsin[i])/(lonsin[i+1]-lonsin[i])
+        xcoords = N.reshape(xcoords,lonsout.shape)
+        for m,j in enumerate(iy):
+            if j < 0:
+                ycoords[m] = -1 # outside of range of latsin (on lower end)
+            elif j >= len(latsin)-1:
+                ycoords[m] = len(latsin) # outside range on upper end
+            else:
+                ycoords[m] = float(j)+(latsoutflat[m]-latsin[j])/(latsin[j+1]-latsin[j])
+        ycoords = N.reshape(ycoords,latsout.shape)
     coords = [ycoords,xcoords]
-    # interpolate to projection grid using numarray.nd_image spline filter.
+    # interpolate to output grid using numarray.nd_image spline filter.
     if order:
         return nd_image.map_coordinates(datain,coords,mode=mode,cval=cval,order=order)
     else:
