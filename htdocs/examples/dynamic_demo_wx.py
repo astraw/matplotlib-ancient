@@ -20,8 +20,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.71  2004/09/30 16:47:22  jdh2358
-python22 fixes; verbose class
+Revision 1.72  2004/09/30 17:13:11  jdh2358
+added hbar
 
 Revision 1.5  2004/06/26 06:37:20  astraw
 Trivial bugfix to eliminate IndexError
