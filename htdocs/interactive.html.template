@@ -25,8 +25,7 @@ should work out of the box.  Note, in batch mode, ie when making
 figures from scripts, interactive mode can be slow since it redraws
 the figure with each command.  So you may want to think carefully
 before making this the default behavior.  TkAgg sets interactive mode
-to True when you issue the <a
-href=matplotlib.pylab.html#-show>show</a> command.<p>
+to True when you issue the show command.<p>
 
 Unfortunately, due to the 'mainloop' cycle of GUI toolkits, it is not
 yet possible to use matplotlib from an arbitrary python shell with the

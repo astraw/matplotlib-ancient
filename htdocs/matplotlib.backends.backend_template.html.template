@@ -118,10 +118,11 @@ colors.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;because&nbsp;some&nbsp;of&nbsp;
 face&nbsp;color&nbsp;background&nbsp;and&nbsp;you'll&nbsp;probably&nbsp;want&nbsp;to&nbsp;override&nbsp;this&nbsp;on<br>
 hardcopy.<br>
 &nbsp;<br>
-orientation&nbsp;-&nbsp;only&nbsp;currently&nbsp;applies&nbsp;to&nbsp;PostScript&nbsp;printing.</tt></dd></dl>
-
-<dl><dt><a name="FigureCanvasTemplate-realize"><strong>realize</strong></a>(self, *args)</dt><dd><tt>This&nbsp;method&nbsp;will&nbsp;be&nbsp;called&nbsp;when&nbsp;the&nbsp;system&nbsp;is&nbsp;ready&nbsp;to&nbsp;draw,<br>
-eg&nbsp;when&nbsp;a&nbsp;GUI&nbsp;window&nbsp;is&nbsp;realized</tt></dd></dl>
+orientation&nbsp;-&nbsp;only&nbsp;currently&nbsp;applies&nbsp;to&nbsp;PostScript&nbsp;printing.<br>
+&nbsp;<br>
+A&nbsp;GUI&nbsp;backend&nbsp;should&nbsp;save&nbsp;and&nbsp;restore&nbsp;the&nbsp;original&nbsp;figure&nbsp;settings.<br>
+An&nbsp;image&nbsp;backend&nbsp;does&nbsp;not&nbsp;need&nbsp;to&nbsp;do&nbsp;this&nbsp;since&nbsp;after&nbsp;the&nbsp;print&nbsp;the<br>
+figure&nbsp;is&nbsp;done</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>

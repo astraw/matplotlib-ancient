@@ -55,7 +55,7 @@ The&nbsp;bbox&nbsp;methods&nbsp;are<br>
 &nbsp;<br>
 &nbsp;&nbsp;ll()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;lower&nbsp;left&nbsp;Point<br>
 &nbsp;&nbsp;ur()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;upper&nbsp;right&nbsp;Point<br>
-&nbsp;&nbsp;contains(x,y&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;True&nbsp;if&nbsp;self&nbsp;contains&nbsp;point<br>
+&nbsp;&nbsp;contains(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;True&nbsp;if&nbsp;self&nbsp;contains&nbsp;point<br>
 &nbsp;&nbsp;overlaps(bbox)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;True&nbsp;if&nbsp;self&nbsp;overlaps&nbsp;bbox<br>
 &nbsp;&nbsp;overlapsx(bbox)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;True&nbsp;if&nbsp;self&nbsp;overlaps&nbsp;bbox&nbsp;in&nbsp;the&nbsp;x&nbsp;interval<br>
 &nbsp;&nbsp;overlapsy(bbox)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;True&nbsp;if&nbsp;self&nbsp;overlaps&nbsp;bbox&nbsp;in&nbsp;the&nbsp;y&nbsp;interval<br>
@@ -94,7 +94,8 @@ where&nbsp;funcx&nbsp;and&nbsp;funcy&nbsp;operate&nbsp;on&nbsp;x&nbsp;and&nbsp;y
 coordinate&nbsp;transformation&nbsp;maps&nbsp;one&nbsp;bounding&nbsp;box&nbsp;to&nbsp;another,&nbsp;with&nbsp;funcx<br>
 and&nbsp;funcy&nbsp;both&nbsp;identity.&nbsp;&nbsp;Eg,<br>
 &nbsp;<br>
-&nbsp;&nbsp;transData&nbsp;=&nbsp;Transformation(viewLim,&nbsp;displayLim,&nbsp;<a href="#-Func">Func</a>(IDENTITY),&nbsp;<a href="#-Func">Func</a>(IDENTITY))<br>
+&nbsp;&nbsp;transData&nbsp;=&nbsp;Transformation(viewLim,&nbsp;displayLim,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-Func">Func</a>(IDENTITY),&nbsp;<a href="#-Func">Func</a>(IDENTITY))<br>
 &nbsp;<br>
 maps&nbsp;the&nbsp;axes&nbsp;view&nbsp;limits&nbsp;to&nbsp;display&nbsp;limits.&nbsp;&nbsp;If&nbsp;the&nbsp;xaxis&nbsp;scaling&nbsp;is<br>
 changed&nbsp;to&nbsp;log,&nbsp;one&nbsp;simply&nbsp;calls<br>

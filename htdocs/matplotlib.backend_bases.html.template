@@ -95,6 +95,7 @@ colors.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;because&nbsp;some&nbsp;of&nbsp;
 face&nbsp;color&nbsp;background&nbsp;and&nbsp;you'll&nbsp;probably&nbsp;want&nbsp;to&nbsp;override&nbsp;this&nbsp;on<br>
 hardcopy.<br>
 &nbsp;<br>
+filename&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;can&nbsp;also&nbsp;be&nbsp;a&nbsp;file&nbsp;object&nbsp;on&nbsp;image&nbsp;backends<br>
 orientation&nbsp;-&nbsp;only&nbsp;currently&nbsp;applies&nbsp;to&nbsp;PostScript&nbsp;printing.</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasBase-switch_backends"><strong>switch_backends</strong></a>(self, FigureCanvasClass)</dt><dd><tt>instantiate&nbsp;an&nbsp;instance&nbsp;of&nbsp;FigureCanvasClass<br>

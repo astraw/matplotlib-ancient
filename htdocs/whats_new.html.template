@@ -62,7 +62,8 @@ object.  Thanks Steve Chaplin.
   """),
 
   ('printing in wx', """\
-Thanks Matthew Newville, who graciously volunteered to be the new wx
+Matthew Newville contributed a print button and preview for the wx
+backends.  He also, who graciously volunteered to be the new wx
 backend maintainer.
   """),
 
@@ -72,11 +73,10 @@ mpl_connect and disconnect for event handling.
   """),
 
 
-  ('over plotting', """\
-over command for quick <a href=matplotlib.pylab.html#-over>over</a>
-plots when you're too lazy to worry about managing the <tt>hold</tt>
-state.  This will form the basis of the <tt>hold=True</tt> flag in later
-releases.
+  ('hold kwarg for all plotting commands', """\
+Pass hold=True|False to any plotting command to override the current
+hold setting.  The original hold setting will be restored at the end
+of the plot function
   """),
 
   ('text bounding boxes', """\
@@ -104,11 +104,12 @@ New plotting functions <a href=matplotlib.pylab.html#-spy>spy</a>, <a href=matpl
 ('customizing polar plots', """\
 pylab interface functions <a
 href=matplotlib.pylab.html#-rgrids>rgrids</a> and <a
-href=matplotlib.pylab.html#-thetragrids>thetragrids</a> for
+href=matplotlib.pylab.html#-thetagrids>thetagrids</a> for
 customizing the grid locations and labels for polar plots - see
 <a href=examples/polar_demo.py>polar_demo.py</a>."""),
 
-('interactive control functions', """\ added <a
+('interactive control functions', """\
+Added <a
 href=matplotlib.pylab.html#-ion>ion</a>, <a
 href=matplotlib.pylab.html#-ioff>ioff</a> and <a
 href=matplotlib.pylab.html#-isinteractive>isinteractive</a> to pylab

@@ -61,6 +61,16 @@ bug</a>.  The patch is in pygtk CVS.  You basically need to add the
 </pre>
 """),
 
+    ('ZORDER',
+    "How can I control the order that my plot elements appear" , """\
+Within an axes, the order that the various lines, markers, text,
+collections, etc appear is determined by the <tt>zorder</tt> property
+(matplotlib-0.65 or later).  The default order is patches, lines,
+text, with collections of lines and collections of patches appearing
+at the same level as regular lines and patches, respectively.  See <a
+href=examples/zorder_demo.py>examples/zorder_demo.py</a>.
+"""),
+
     ('TOOLBAR2',
     'Nothing happens when I click the new toolbar buttons', """\
 The Home, Forward and back buttons on the new toolbar are used to
@@ -186,12 +196,31 @@ and post the results to the matplotlib-devel or matplotlib-users
     
 
     ('EXAMPLES',
-    'Where can I find examples of matplotlib code?',
-"""
-The matplotlib src distribution (*.zip for windows, *.tar.gz for linux
-and friends) comes with many examples in the examples directory.
-Notably, the windows installer <i>does not</i> come with the
-examples dirrectory.  You can also get all the examples from <a href=http://matplotlib.sourceforge.net/examples>examples</a>.
+    'Where can I find information about what matplotlib can do?',
+"""\
+There are a lot of features under the hood in matplotlib.  This
+tutorial is a good place to start.  When you are finished with it, the
+next step (other than getting to work on your own figures, of course)
+is to download the source distribution and take a look at the <a
+href=http://matplotlib.sf.net/examples>examples</a> subdirectory.  If
+you are working with date plots you'll find several date demos with
+obvious filenames like <a
+href=examples/date_demo1.py>examples/date_demo1.py</a>.  Likewise,
+you'll find examples for images (<a
+href=examples/image_demo.py>examples/image_demo.py</a>), contouring
+(<a href=examples/contour_demo.py>examples/contour_demo.py</a>, using
+matplotlib with a graphical user interface (<a
+href=examples/embedding_in_wx.py>examples/embedding_in_wx.py</a> and
+many more.  At last count, there were 116 examples.  Because these are
+not included with the standard windows installer, they are often
+overlooked, which is why I emphasize them here.<p>
+
+The next place to turn to find the hidden gems is the <a
+href=whats_new.html>what's new</a> page.  Every feature ever
+introduced into matplotlib is listed on that page with the version it
+was introduced, usually with links to examples and functions.
+Scrolling through that page is one of the best ways to find out what
+capabilities and customizations are supported.<p>
 """),
 
 
@@ -303,6 +332,13 @@ compiled.  Both Numeric and numarray extensions are available in the
 windows installer .  Failure to do so can cause
 up to a 30-fold performance hit in some cases.<p>
 
+Also, if you are running a python script, make sure your interactive
+setting in your <a href=.matplotlibrc>.matplotlirc</a> is false;
+otherwise the figure will be redrawn with every plotting command when
+what you want if for the figure to be drawn only once at the end of
+the script.  See <a href=interactive.html>interactive</a> and <a
+href=faq.html#SHOW>what's up with show?</a> for more information.<p>
+
 Another possibility to speed things up is to use <a
 href=matplotlib.collections.html>collections</a>, which were designed
 to efficiently plot large numbers of objects with some shared
@@ -313,9 +349,10 @@ implementatation of scatter and pcolor, and the matplotlib.finance
 module, for examples.<p>
 
 If you are experiencing problems with performance, please post an
-example to the mailing list.
-
-
+example to the mailing list.  It would be helpful to provide as much
+information as possible, such as what OS you are on, what backend you
+are using, the size of the data arrays you are plotting, and the
+output of <tt>python yourscript.py --verbose-helpful</tt>.
 """),
 
     ('MATPLOTLIBRC', 
