@@ -45,6 +45,10 @@ matplotlib was written by John Hunter<p>
   <li>Steve Chaplin is the GTK maintainer</li>
 
   <li>Jim Benson provided the patch to handle vertical mathttext</li>
+
+  <li>Gregory Lielens provided the fltk backend and several patches
+  for the frontend, including contributions to toolbar2	</li>
+
 </ul>
 
 @footer@
