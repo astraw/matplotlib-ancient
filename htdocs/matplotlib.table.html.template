@@ -75,11 +75,11 @@ Methods defined here:<br>
 
 <dl><dt><a name="Cell-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
-<dl><dt><a name="Cell-get_fontsize"><strong>get_fontsize</strong></a>(self)</dt></dl>
+<dl><dt><a name="Cell-get_fontsize"><strong>get_fontsize</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;cell&nbsp;fontsize</tt></dd></dl>
 
 <dl><dt><a name="Cell-get_required_width"><strong>get_required_width</strong></a>(self, renderer)</dt><dd><tt>Get&nbsp;width&nbsp;required&nbsp;for&nbsp;this&nbsp;cell.</tt></dd></dl>
 
-<dl><dt><a name="Cell-get_text"><strong>get_text</strong></a>(self)</dt></dl>
+<dl><dt><a name="Cell-get_text"><strong>get_text</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;cell&nbsp;Text&nbsp;intance</tt></dd></dl>
 
 <dl><dt><a name="Cell-get_text_bounds"><strong>get_text_bounds</strong></a>(self, renderer)</dt><dd><tt>Get&nbsp;text&nbsp;bounds&nbsp;in&nbsp;axes&nbsp;co-ordinates.</tt></dd></dl>
 
@@ -143,6 +143,8 @@ Methods inherited from <a href="matplotlib.patches.html#Patch">matplotlib.patche
 
 <dl><dt><a name="Cell-get_fc"><strong>get_fc</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_facecolor</tt></dd></dl>
 
+<dl><dt><a name="Cell-get_fill"><strong>get_fill</strong></a>(self)</dt><dd><tt>return&nbsp;whether&nbsp;fill&nbsp;is&nbsp;set</tt></dd></dl>
+
 <dl><dt><a name="Cell-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Cell-get_lw"><strong>get_lw</strong></a>(self)</dt><dd><tt>alias&nbsp;for&nbsp;get_linewidth</tt></dd></dl>
@@ -185,6 +187,8 @@ Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist
 backends</tt></dd></dl>
 
 <dl><dt><a name="Cell-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Cell-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Cell-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
@@ -266,13 +270,15 @@ up&nbsp;the&nbsp;table<br>&nbsp;</tt></td></tr>
 
 <dl><dt><a name="Table-get_celld"><strong>get_celld</strong></a>(self)</dt><dd><tt>return&nbsp;a&nbsp;dict&nbsp;of&nbsp;cells&nbsp;in&nbsp;the&nbsp;table</tt></dd></dl>
 
-<dl><dt><a name="Table-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
+<dl><dt><a name="Table-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;Artists&nbsp;cintained&nbsp;by&nbsp;the&nbsp;table</tt></dd></dl>
 
-<dl><dt><a name="Table-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer)</dt></dl>
+<dl><dt><a name="Table-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer)</dt><dd><tt>Return&nbsp;the&nbsp;bounding&nbsp;box&nbsp;of&nbsp;the&nbsp;table&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
 
 <dl><dt><a name="Table-scale"><strong>scale</strong></a>(self, xscale, yscale)</dt><dd><tt>Scale&nbsp;column&nbsp;widths&nbsp;by&nbsp;xscale&nbsp;and&nbsp;row&nbsp;heights&nbsp;by&nbsp;yscale.</tt></dd></dl>
 
-<dl><dt><a name="Table-set_fontsize"><strong>set_fontsize</strong></a>(self, size)</dt></dl>
+<dl><dt><a name="Table-set_fontsize"><strong>set_fontsize</strong></a>(self, size)</dt><dd><tt>Set&nbsp;the&nbsp;fontsize&nbsp;of&nbsp;the&nbsp;cell&nbsp;text<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;float&nbsp;in&nbsp;points</tt></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -288,6 +294,8 @@ Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist
 backends</tt></dd></dl>
 
 <dl><dt><a name="Table-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Table-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Table-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
@@ -363,9 +371,7 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>False</strong> = False<br>
-<strong>Float</strong> = 'd'<br>
-<strong>True</strong> = True<br>
+<td width="100%"><strong>Float</strong> = 'd'<br>
 <strong>add</strong> = &lt;ufunc 'add'&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>

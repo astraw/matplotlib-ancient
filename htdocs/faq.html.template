@@ -320,17 +320,18 @@ actual extension chosen at runtime will be determined by your
 
     ('SLOW', 'matplotlib seems painfully slow, am I doing something wrong?',
 
-     """Hopefully, yes.  A lot of work has gone into making
-matplotlib reasonably fast plotting largish arrays and image data.  If
-things seem exceptionally pokey, it may indicate a problem in your
-setup.  The most common cause is getting your numerix settings out of
-kilter.  As indicated in <a href=faq.html#NUMARRAY>the numarray
-faq</a>, it is important that the Numeric/numarray extension you want
-to use is available at the time you compile matplotlib, since the
-appropriate extensions are determined automatically when matplotlib is
-compiled.  Both Numeric and numarray extensions are available in the
-windows installer .  Failure to do so can cause
-up to a 30-fold performance hit in some cases.<p>
+     """\
+Hopefully, yes.  A lot of work has gone into making matplotlib
+reasonably fast plotting largish arrays and image data.  If things
+seem exceptionally pokey, it may indicate a problem in your setup.
+Before matplotlib-0.64, the most common cause is getting your numerix
+settings out of kilter.  As indicated in <a href=faq.html#NUMARRAY>the
+numarray faq</a>, it is important that the Numeric/numarray extension
+you want to use is available at the time you compile matplotlib, since
+the appropriate extensions are determined automatically when
+matplotlib is compiled.  Both Numeric and numarray extensions are
+available in the windows installer .  Failure to do so can cause up to
+a 30-fold performance hit in some cases.<p>
 
 Also, if you are running a python script, make sure your interactive
 setting in your <a href=.matplotlibrc>.matplotlirc</a> is false;
@@ -338,6 +339,20 @@ otherwise the figure will be redrawn with every plotting command when
 what you want if for the figure to be drawn only once at the end of
 the script.  See <a href=interactive.html>interactive</a> and <a
 href=faq.html#SHOW>what's up with show?</a> for more information.<p>
+
+For images, matplotlib-0.70 added a number of optimizations that
+delivered approximately a 4x performance boost over earlier versions.
+So if you need fast image support, make sure you are using the latest
+release.  Also, the matplotlib normalization code, which converts
+image data on an arbitrary scale to the unit interval, may be
+unnecessary if your data is already scaled to the unit interval.  You
+can avoid this cose by writing a do-nothing normalization function.
+<pre>
+class mynorm(normalize):
+    def __call__(self, X):
+        return X
+imshow(X, norm=mynorm())
+</pre>
 
 Another possibility to speed things up is to use <a
 href=matplotlib.collections.html>collections</a>, which were designed

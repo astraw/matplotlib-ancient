@@ -5,7 +5,7 @@ dfile = '../../examples/data/s1045.ima'
 im = fromstring(file(dfile).read(), Int16).astype(Float)
 im.shape = 256, 256
 
-imshow(im, ColormapJet(256))
+imshow(im)
 axis('off')
 savefig('mri_demo_small', dpi=50)
 savefig('mri_demo_large', dpi=100)

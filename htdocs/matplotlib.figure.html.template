@@ -41,22 +41,41 @@
 <dl><dt><a name="Figure-__init__"><strong>__init__</strong></a>(self, figsize<font color="#909090">=None</font>, dpi<font color="#909090">=None</font>, facecolor<font color="#909090">=None</font>, edgecolor<font color="#909090">=None</font>, linewidth<font color="#909090">=1.0</font>, frameon<font color="#909090">=True</font>)</dt><dd><tt>paper&nbsp;size&nbsp;is&nbsp;a&nbsp;w,h&nbsp;tuple&nbsp;in&nbsp;inches<br>
 DPI&nbsp;is&nbsp;dots&nbsp;per&nbsp;inch</tt></dd></dl>
 
-<dl><dt><a name="Figure-add_axes"><strong>add_axes</strong></a>(self, rect, axisbg<font color="#909090">=None</font>, frameon<font color="#909090">=True</font>, **kwargs)</dt><dd><tt>Add&nbsp;an&nbsp;a&nbsp;axes&nbsp;with&nbsp;axes&nbsp;rect&nbsp;[left,&nbsp;bottom,&nbsp;width,&nbsp;height]<br>
-where&nbsp;all&nbsp;quantities&nbsp;are&nbsp;in&nbsp;fractions&nbsp;of&nbsp;figure&nbsp;width&nbsp;and<br>
-height.<br>
+<dl><dt><a name="Figure-add_axes"><strong>add_axes</strong></a>(self, *args, **kwargs)</dt><dd><tt>Add&nbsp;an&nbsp;a&nbsp;axes&nbsp;with&nbsp;axes&nbsp;rect&nbsp;[left,&nbsp;bottom,&nbsp;width,&nbsp;height]&nbsp;where&nbsp;all<br>
+quantities&nbsp;are&nbsp;in&nbsp;fractions&nbsp;of&nbsp;figure&nbsp;width&nbsp;and&nbsp;height.&nbsp;&nbsp;kwargs&nbsp;are<br>
+legal&nbsp;Axes&nbsp;kwargs&nbsp;plus"polar"&nbsp;which&nbsp;sets&nbsp;whether&nbsp;to&nbsp;create&nbsp;a&nbsp;polar&nbsp;axes<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Figure-add_axes">add_axes</a>((l,b,w,h))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Figure-add_axes">add_axes</a>((l,b,w,h),&nbsp;frameon=False,&nbsp;axisbg='g')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Figure-add_axes">add_axes</a>((l,b,w,h),&nbsp;polar=True)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Figure-add_axes">add_axes</a>(ax)&nbsp;&nbsp;&nbsp;#&nbsp;add&nbsp;an&nbsp;Axes&nbsp;instance<br>
+&nbsp;<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;figure&nbsp;already&nbsp;has&nbsp;an&nbsp;axed&nbsp;with&nbsp;key&nbsp;*args,&nbsp;*kwargs&nbsp;then&nbsp;it<br>
+will&nbsp;simply&nbsp;make&nbsp;that&nbsp;axes&nbsp;current&nbsp;and&nbsp;return&nbsp;it<br>
 &nbsp;<br>
 The&nbsp;Axes&nbsp;instance&nbsp;will&nbsp;be&nbsp;returned</tt></dd></dl>
 
-<dl><dt><a name="Figure-add_axis"><strong>add_axis</strong></a>(self, *args, **kwargs)</dt></dl>
+<dl><dt><a name="Figure-add_axobserver"><strong>add_axobserver</strong></a>(self, func)</dt><dd><tt>whenever&nbsp;the&nbsp;axes&nbsp;state&nbsp;change,&nbsp;func(self)&nbsp;will&nbsp;be&nbsp;called</tt></dd></dl>
 
-<dl><dt><a name="Figure-add_subplot"><strong>add_subplot</strong></a>(self, *args, **kwargs)</dt><dd><tt>Add&nbsp;an&nbsp;a&nbsp;subplot,&nbsp;eg<br>
-<a href="#Figure-add_subplot">add_subplot</a>(111)&nbsp;or&nbsp;<a href="#Figure-add_subplot">add_subplot</a>(212,&nbsp;axisbg='r')<br>
+<dl><dt><a name="Figure-add_subplot"><strong>add_subplot</strong></a>(self, *args, **kwargs)</dt><dd><tt>Add&nbsp;an&nbsp;a&nbsp;subplot.&nbsp;&nbsp;Examples<br>
 &nbsp;<br>
-The&nbsp;Axes&nbsp;instance&nbsp;will&nbsp;be&nbsp;returned</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Figure-add_subplot">add_subplot</a>(111)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Figure-add_subplot">add_subplot</a>(212,&nbsp;axisbg='r')&nbsp;&nbsp;#&nbsp;add&nbsp;subplot&nbsp;with&nbsp;red&nbsp;background<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Figure-add_subplot">add_subplot</a>(111,&nbsp;polar=True)&nbsp;&nbsp;#&nbsp;add&nbsp;a&nbsp;polar&nbsp;subplot<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Figure-add_subplot">add_subplot</a>(sub)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;add&nbsp;Subplot&nbsp;instance&nbsp;sub<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+kwargs&nbsp;are&nbsp;legal&nbsp;Axes&nbsp;kwargs&nbsp;plus"polar"&nbsp;which&nbsp;sets&nbsp;whether&nbsp;to&nbsp;create&nbsp;a<br>
+polar&nbsp;axes.&nbsp;&nbsp;The&nbsp;Axes&nbsp;instance&nbsp;will&nbsp;be&nbsp;returned.<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;figure&nbsp;already&nbsp;has&nbsp;a&nbsp;subplot&nbsp;with&nbsp;key&nbsp;*args,&nbsp;*kwargs&nbsp;then&nbsp;it&nbsp;will<br>
+simply&nbsp;make&nbsp;that&nbsp;subplot&nbsp;current&nbsp;and&nbsp;return&nbsp;it</tt></dd></dl>
 
 <dl><dt><a name="Figure-clear"><strong>clear</strong></a>(self)</dt><dd><tt>Clear&nbsp;the&nbsp;figure</tt></dd></dl>
 
 <dl><dt><a name="Figure-clf"><strong>clf</strong></a>(self)</dt><dd><tt>Clear&nbsp;the&nbsp;figure</tt></dd></dl>
+
+<dl><dt><a name="Figure-delaxes"><strong>delaxes</strong></a>(self, a)</dt><dd><tt>remove&nbsp;a&nbsp;from&nbsp;the&nbsp;figure&nbsp;and&nbsp;update&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
 
 <dl><dt><a name="Figure-draw"><strong>draw</strong></a>(self, renderer)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;using&nbsp;RendererGD&nbsp;instance&nbsp;renderer</tt></dd></dl>
 
@@ -99,6 +118,8 @@ current&nbsp;axes.&nbsp;&nbsp;If&nbsp;you&nbsp;want&nbsp;a&nbsp;resampled&nbsp;i
 figure,&nbsp;you&nbsp;can&nbsp;define&nbsp;an&nbsp;Axes&nbsp;with&nbsp;size&nbsp;[0,1,0,1].<br>
 &nbsp;<br>
 A&nbsp;image.FigureImage&nbsp;instance&nbsp;is&nbsp;returned.</tt></dd></dl>
+
+<dl><dt><a name="Figure-gca"><strong>gca</strong></a>(self, **kwargs)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes,&nbsp;creating&nbsp;one&nbsp;if&nbsp;necessary</tt></dd></dl>
 
 <dl><dt><a name="Figure-get_axes"><strong>get_axes</strong></a>(self)</dt></dl>
 
@@ -144,11 +165,22 @@ The&nbsp;LOC&nbsp;location&nbsp;codes&nbsp;are<br>
 &nbsp;<br>
 The&nbsp;legend&nbsp;instance&nbsp;is&nbsp;returned</tt></dd></dl>
 
-<dl><dt><a name="Figure-set_edgecolor"><strong>set_edgecolor</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;edge&nbsp;color&nbsp;of&nbsp;the&nbsp;<a href="#Figure">Figure</a>&nbsp;rectangle</tt></dd></dl>
+<dl><dt><a name="Figure-sca"><strong>sca</strong></a>(self, a)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;axes&nbsp;to&nbsp;be&nbsp;a&nbsp;and&nbsp;return&nbsp;a</tt></dd></dl>
 
-<dl><dt><a name="Figure-set_facecolor"><strong>set_facecolor</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;face&nbsp;color&nbsp;of&nbsp;the&nbsp;<a href="#Figure">Figure</a>&nbsp;rectangle</tt></dd></dl>
+<dl><dt><a name="Figure-set_edgecolor"><strong>set_edgecolor</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;edge&nbsp;color&nbsp;of&nbsp;the&nbsp;<a href="#Figure">Figure</a>&nbsp;rectangle<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;matplotlib&nbsp;color&nbsp;-&nbsp;see&nbsp;help(colors)</tt></dd></dl>
 
-<dl><dt><a name="Figure-set_figsize_inches"><strong>set_figsize_inches</strong></a>(self, w, h)</dt><dd><tt>set&nbsp;the&nbsp;figure&nbsp;size&nbsp;in&nbsp;inches</tt></dd></dl>
+<dl><dt><a name="Figure-set_facecolor"><strong>set_facecolor</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;face&nbsp;color&nbsp;of&nbsp;the&nbsp;<a href="#Figure">Figure</a>&nbsp;rectangle<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;matplotlib&nbsp;color&nbsp;-&nbsp;see&nbsp;help(colors)</tt></dd></dl>
+
+<dl><dt><a name="Figure-set_figsize_inches"><strong>set_figsize_inches</strong></a>(self, *args)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;size&nbsp;in&nbsp;inches<br>
+&nbsp;<br>
+Usage:&nbsp;<a href="#Figure-set_figsize_inches">set_figsize_inches</a>(self,&nbsp;w,h)&nbsp;&nbsp;OR<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Figure-set_figsize_inches">set_figsize_inches</a>(self,&nbsp;(w,h)&nbsp;)<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;w,h&nbsp;tuple&nbsp;with&nbsp;w,h&nbsp;in&nbsp;inches</tt></dd></dl>
 
 <dl><dt><a name="Figure-text"><strong>text</strong></a>(self, x, y, s, *args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
 the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
@@ -159,6 +191,8 @@ Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist
 backends</tt></dd></dl>
 
 <dl><dt><a name="Figure-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Figure-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Figure-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
@@ -236,7 +270,5 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>False</strong> = False<br>
-<strong>True</strong> = True<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
+<td width="100%"><strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
 @footer@

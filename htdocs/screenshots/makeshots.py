@@ -24,7 +24,8 @@ files = {
     'log_shot.py'       : default,
     'align_text.py'     : default,          
     'scatter_demo2.py'  : default, 
-    'polar_demo.py'     : default, 
+    'polar_demo.py'     : default,
+    'pie_demo.py'     : default,     
     }
 
 figsize = 'figsize=(8,6)'
@@ -36,7 +37,7 @@ def make_shot(fname, backend):
         'import matplotlib\n',
         'matplotlib.use("%s")\n' % backend,
         'from pylab import *\n'
-        'figure(%s)\n' % figsize,
+#        'figure(%s)\n' % figsize,
         ]
     
     print '\tdriving %s' % fname

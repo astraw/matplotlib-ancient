@@ -9,7 +9,6 @@ from matplotlib.lines import Line2D
 from matplotlib.transforms import get_bbox_transform, Point, Value, Bbox,\
      unit_bbox
 
-
 # I use if 1 to break up the different regions of code visually
 
 if 1:   # load the data
@@ -20,7 +19,7 @@ if 1:   # load the data
 
 if 1: # plot the MRI in pcolor
     subplot(221)
-    imshow(im, cmap=cm.jet)
+    imshow(im)
     axis('off')
 
 if 1:  # plot the histogram of MRI intensity
@@ -29,7 +28,7 @@ if 1:  # plot the histogram of MRI intensity
     im = take(im, nonzero(im)) # ignore the background
     im = im/(2.0**15) # normalize
     hist(im, 100)
-    xticks([-1, -.5, 0, .5, 1])
+    xticks([])
     yticks([])
     xlabel('intensity')
     ylabel('MRI density')

@@ -20,7 +20,7 @@ xticks(ind+width, ('G1', 'G2', 'G3', 'G4', 'G5') )
 xlim(-width,len(ind))
 yticks(arange(0,41,10))
 
-legend( (p1[0], p2[0]), ('Men', 'Women') )
+legend( (p1[0], p2[0]), ('Men', 'Women'), shadow=True)
 
 savefig('barchart_demo_small.png', dpi=60)
 savefig('barchart_demo_large.png', dpi=120)

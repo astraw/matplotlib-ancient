@@ -48,6 +48,7 @@ files = (
     'pcolor_demo.py',
     'pcolor_demo2.py',
     'pcolor_small.py',
+    'pie_demo.py',
     'polar_demo.py',
     'polar_scatter.py',
     'psd_demo.py',
@@ -60,6 +61,7 @@ files = (
 #    'set_and_get.py',    
     'table_demo.py',
     'text_handles.py',
+    'text_rotation.py',
     'text_themes.py',
     'two_scales.py',
     'vline_demo.py',
@@ -102,8 +104,8 @@ def drive(backend, python='python2.3'):
 
 times = {}
 #backends = ['Agg', 'Cairo', 'GDK', 'PS', 'SVG', 'Template']
-backends = ['Agg', 'PS', 'SVG', 'Template']
-backends.extend([ 'GTK', 'WX', 'TkAgg'])
+backends = ['Agg', 'SVG', 'PS', 'Template']
+#backends = [ 'GTK', 'WX', 'TkAgg']
 
 python = 'python2.3'
 for backend in backends:

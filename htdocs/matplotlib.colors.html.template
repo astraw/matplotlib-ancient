@@ -189,10 +189,8 @@ gives&nbsp;the&nbsp;closest&nbsp;value&nbsp;for&nbsp;values&nbsp;of&nbsp;x&nbsp;
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>False</strong> = False<br>
-<strong>Float</strong> = 'd'<br>
+<td width="100%"><strong>Float</strong> = 'd'<br>
 <strong>Int</strong> = 'l'<br>
-<strong>True</strong> = True<br>
 <strong>cnames</strong> = {'aliceblue': '#F0F8FF', 'antiquewhite': '#FAEBD7', 'aqua': '#00FFFF', 'aquamarine': '#7FFFD4', 'azure': '#F0FFFF', 'beige': '#F5F5DC', 'bisque': '#FFE4C4', 'black': '#000000', 'blanchedalmond': '#FFEBCD', 'blue': '#0000FF', ...}<br>
 <strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>divide</strong> = &lt;ufunc 'divide'&gt;</td></tr></table>

@@ -94,18 +94,30 @@ if&nbsp;b&nbsp;is&nbsp;None,&nbsp;toggle&nbsp;the&nbsp;grid&nbsp;state</tt></dd>
 
 <dl><dt><a name="Axis-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
-<dl><dt><a name="Axis-set_major_formatter"><strong>set_major_formatter</strong></a>(self, formatter)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker</tt></dd></dl>
+<dl><dt><a name="Axis-set_major_formatter"><strong>set_major_formatter</strong></a>(self, formatter)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;A&nbsp;Formatter&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Axis-set_major_locator"><strong>set_major_locator</strong></a>(self, locator)</dt><dd><tt>Set&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker</tt></dd></dl>
+<dl><dt><a name="Axis-set_major_locator"><strong>set_major_locator</strong></a>(self, locator)</dt><dd><tt>Set&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;Locator&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Axis-set_minor_formatter"><strong>set_minor_formatter</strong></a>(self, formatter)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker</tt></dd></dl>
+<dl><dt><a name="Axis-set_minor_formatter"><strong>set_minor_formatter</strong></a>(self, formatter)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;A&nbsp;Formatter&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Axis-set_minor_locator"><strong>set_minor_locator</strong></a>(self, locator)</dt><dd><tt>Set&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker</tt></dd></dl>
+<dl><dt><a name="Axis-set_minor_locator"><strong>set_minor_locator</strong></a>(self, locator)</dt><dd><tt>Set&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;Locator&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Axis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;&nbsp;ticklabels&nbsp;is&nbsp;a<br>
-sequence&nbsp;of&nbsp;strings.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
+<dl><dt><a name="Axis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text<br>
+instances.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 
-<dl><dt><a name="Axis-set_ticks"><strong>set_ticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;tick&nbsp;marks&nbsp;from&nbsp;sequence&nbsp;ticks</tt></dd></dl>
+<dl><dt><a name="Axis-set_ticks"><strong>set_ticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;tick&nbsp;marks&nbsp;from&nbsp;sequence&nbsp;ticks<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="Axis-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
@@ -119,6 +131,8 @@ Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist
 backends</tt></dd></dl>
 
 <dl><dt><a name="Axis-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Axis-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Axis-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
@@ -214,15 +228,25 @@ size&nbsp;is&nbsp;the&nbsp;tick&nbsp;size&nbsp;in&nbsp;relative,&nbsp;axes&nbsp;
 
 <dl><dt><a name="Tick-get_view_interval"><strong>get_view_interval</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;view&nbsp;Interval&nbsp;instance&nbsp;for&nbsp;the&nbsp;axis&nbsp;tjis&nbsp;tick&nbsp;is&nbsp;ticking</tt></dd></dl>
 
-<dl><dt><a name="Tick-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
+<dl><dt><a name="Tick-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
-<dl><dt><a name="Tick-set_label1"><strong>set_label1</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
+<dl><dt><a name="Tick-set_label1"><strong>set_label1</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
-<dl><dt><a name="Tick-set_label2"><strong>set_label2</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel2&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
+<dl><dt><a name="Tick-set_label2"><strong>set_label2</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel2<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
-<dl><dt><a name="Tick-set_pad"><strong>set_pad</strong></a>(self, val)</dt><dd><tt>Set&nbsp;the&nbsp;tick&nbsp;label&nbsp;pad&nbsp;in&nbsp;points</tt></dd></dl>
+<dl><dt><a name="Tick-set_pad"><strong>set_pad</strong></a>(self, val)</dt><dd><tt>Set&nbsp;the&nbsp;tick&nbsp;label&nbsp;pad&nbsp;in&nbsp;points<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
 
-<dl><dt><a name="Tick-set_xy"><strong>set_xy</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc</tt></dd></dl>
+<dl><dt><a name="Tick-set_xy"><strong>set_xy</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
@@ -230,6 +254,8 @@ Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist
 backends</tt></dd></dl>
 
 <dl><dt><a name="Tick-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Tick-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Tick-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
@@ -343,18 +369,30 @@ if&nbsp;b&nbsp;is&nbsp;None,&nbsp;toggle&nbsp;the&nbsp;grid&nbsp;state</tt></dd>
 
 <dl><dt><a name="XAxis-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
-<dl><dt><a name="XAxis-set_major_formatter"><strong>set_major_formatter</strong></a>(self, formatter)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker</tt></dd></dl>
+<dl><dt><a name="XAxis-set_major_formatter"><strong>set_major_formatter</strong></a>(self, formatter)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;A&nbsp;Formatter&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="XAxis-set_major_locator"><strong>set_major_locator</strong></a>(self, locator)</dt><dd><tt>Set&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker</tt></dd></dl>
+<dl><dt><a name="XAxis-set_major_locator"><strong>set_major_locator</strong></a>(self, locator)</dt><dd><tt>Set&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;Locator&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="XAxis-set_minor_formatter"><strong>set_minor_formatter</strong></a>(self, formatter)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker</tt></dd></dl>
+<dl><dt><a name="XAxis-set_minor_formatter"><strong>set_minor_formatter</strong></a>(self, formatter)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;A&nbsp;Formatter&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="XAxis-set_minor_locator"><strong>set_minor_locator</strong></a>(self, locator)</dt><dd><tt>Set&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker</tt></dd></dl>
+<dl><dt><a name="XAxis-set_minor_locator"><strong>set_minor_locator</strong></a>(self, locator)</dt><dd><tt>Set&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;Locator&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="XAxis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;&nbsp;ticklabels&nbsp;is&nbsp;a<br>
-sequence&nbsp;of&nbsp;strings.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
+<dl><dt><a name="XAxis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text<br>
+instances.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 
-<dl><dt><a name="XAxis-set_ticks"><strong>set_ticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;tick&nbsp;marks&nbsp;from&nbsp;sequence&nbsp;ticks</tt></dd></dl>
+<dl><dt><a name="XAxis-set_ticks"><strong>set_ticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;tick&nbsp;marks&nbsp;from&nbsp;sequence&nbsp;ticks<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="XAxis-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
@@ -368,6 +406,8 @@ Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist
 backends</tt></dd></dl>
 
 <dl><dt><a name="XAxis-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="XAxis-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="XAxis-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
@@ -461,15 +501,25 @@ size&nbsp;is&nbsp;the&nbsp;tick&nbsp;size&nbsp;in&nbsp;relative,&nbsp;axes&nbsp;
 
 <dl><dt><a name="XTick-get_pad"><strong>get_pad</strong></a>(self, val)</dt><dd><tt>Get&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;tick&nbsp;label&nbsp;pad&nbsp;in&nbsp;points</tt></dd></dl>
 
-<dl><dt><a name="XTick-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
+<dl><dt><a name="XTick-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
-<dl><dt><a name="XTick-set_label1"><strong>set_label1</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
+<dl><dt><a name="XTick-set_label1"><strong>set_label1</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
-<dl><dt><a name="XTick-set_label2"><strong>set_label2</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel2&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
+<dl><dt><a name="XTick-set_label2"><strong>set_label2</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel2<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
-<dl><dt><a name="XTick-set_pad"><strong>set_pad</strong></a>(self, val)</dt><dd><tt>Set&nbsp;the&nbsp;tick&nbsp;label&nbsp;pad&nbsp;in&nbsp;points</tt></dd></dl>
+<dl><dt><a name="XTick-set_pad"><strong>set_pad</strong></a>(self, val)</dt><dd><tt>Set&nbsp;the&nbsp;tick&nbsp;label&nbsp;pad&nbsp;in&nbsp;points<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
 
-<dl><dt><a name="XTick-set_xy"><strong>set_xy</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc</tt></dd></dl>
+<dl><dt><a name="XTick-set_xy"><strong>set_xy</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
@@ -477,6 +527,8 @@ Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist
 backends</tt></dd></dl>
 
 <dl><dt><a name="XTick-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="XTick-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="XTick-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
@@ -590,18 +642,30 @@ if&nbsp;b&nbsp;is&nbsp;None,&nbsp;toggle&nbsp;the&nbsp;grid&nbsp;state</tt></dd>
 
 <dl><dt><a name="YAxis-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
-<dl><dt><a name="YAxis-set_major_formatter"><strong>set_major_formatter</strong></a>(self, formatter)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker</tt></dd></dl>
+<dl><dt><a name="YAxis-set_major_formatter"><strong>set_major_formatter</strong></a>(self, formatter)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;A&nbsp;Formatter&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="YAxis-set_major_locator"><strong>set_major_locator</strong></a>(self, locator)</dt><dd><tt>Set&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker</tt></dd></dl>
+<dl><dt><a name="YAxis-set_major_locator"><strong>set_major_locator</strong></a>(self, locator)</dt><dd><tt>Set&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;Locator&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="YAxis-set_minor_formatter"><strong>set_minor_formatter</strong></a>(self, formatter)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker</tt></dd></dl>
+<dl><dt><a name="YAxis-set_minor_formatter"><strong>set_minor_formatter</strong></a>(self, formatter)</dt><dd><tt>Set&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;A&nbsp;Formatter&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="YAxis-set_minor_locator"><strong>set_minor_locator</strong></a>(self, locator)</dt><dd><tt>Set&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker</tt></dd></dl>
+<dl><dt><a name="YAxis-set_minor_locator"><strong>set_minor_locator</strong></a>(self, locator)</dt><dd><tt>Set&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;Locator&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="YAxis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;&nbsp;ticklabels&nbsp;is&nbsp;a<br>
-sequence&nbsp;of&nbsp;strings.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
+<dl><dt><a name="YAxis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text<br>
+instances.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 
-<dl><dt><a name="YAxis-set_ticks"><strong>set_ticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;tick&nbsp;marks&nbsp;from&nbsp;sequence&nbsp;ticks</tt></dd></dl>
+<dl><dt><a name="YAxis-set_ticks"><strong>set_ticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;tick&nbsp;marks&nbsp;from&nbsp;sequence&nbsp;ticks<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="YAxis-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
 
@@ -615,6 +679,8 @@ Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist
 backends</tt></dd></dl>
 
 <dl><dt><a name="YAxis-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="YAxis-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
@@ -708,15 +774,25 @@ size&nbsp;is&nbsp;the&nbsp;tick&nbsp;size&nbsp;in&nbsp;relative,&nbsp;axes&nbsp;
 
 <dl><dt><a name="YTick-get_pad"><strong>get_pad</strong></a>(self, val)</dt><dd><tt>Get&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;tick&nbsp;label&nbsp;pad&nbsp;in&nbsp;points</tt></dd></dl>
 
-<dl><dt><a name="YTick-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
+<dl><dt><a name="YTick-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
-<dl><dt><a name="YTick-set_label1"><strong>set_label1</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
+<dl><dt><a name="YTick-set_label1"><strong>set_label1</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
-<dl><dt><a name="YTick-set_label2"><strong>set_label2</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel2&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
+<dl><dt><a name="YTick-set_label2"><strong>set_label2</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel2<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
-<dl><dt><a name="YTick-set_pad"><strong>set_pad</strong></a>(self, val)</dt><dd><tt>Set&nbsp;the&nbsp;tick&nbsp;label&nbsp;pad&nbsp;in&nbsp;points</tt></dd></dl>
+<dl><dt><a name="YTick-set_pad"><strong>set_pad</strong></a>(self, val)</dt><dd><tt>Set&nbsp;the&nbsp;tick&nbsp;label&nbsp;pad&nbsp;in&nbsp;points<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
 
-<dl><dt><a name="YTick-set_xy"><strong>set_xy</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc</tt></dd></dl>
+<dl><dt><a name="YTick-set_xy"><strong>set_xy</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
@@ -724,6 +800,8 @@ Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist
 backends</tt></dd></dl>
 
 <dl><dt><a name="YTick-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="YTick-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="YTick-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
@@ -802,15 +880,13 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>False</strong> = False<br>
-<strong>Float</strong> = 'd'<br>
+<td width="100%"><strong>Float</strong> = 'd'<br>
 <strong>TICKDOWN</strong> = 3<br>
 <strong>TICKLEFT</strong> = 0<br>
 <strong>TICKRIGHT</strong> = 1<br>
 <strong>TICKUP</strong> = 2<br>
-<strong>True</strong> = True<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
 <strong>logical_and</strong> = &lt;ufunc 'logical_and'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
 @footer@

@@ -6,8 +6,7 @@ shots = (
 """Multiple regular axes are created with <a
 href=matplotlib.pylab.html#-subplot>subplot</a>.  This is a screenshot of the
 matplotlib figure window.  Navigation controls on the bottom of the
-figure let you pan and zoom the X and Y axis of any combination of
-subplots together or separately""", 0),
+figure support a variety of pan and zoom modes.""", 0),
 
 ('histogram_demo', 
 """The <a href=matplotlib.pylab.html#-hist>hist</a> command
@@ -20,6 +19,12 @@ and down bars, stacked bars, 'candlestick' bars, etc, ... See <a
 href=examples/bar_stacked.py>bar_stacked.py</a> for another example.
 You can make horizontal bar charts with the <a
 href=matplotlib.pylab.html#-barh>barh</a> command.
+""", 1),
+
+('pie_demo', """The <a href=matplotlib.pylab.html#-pie>pie</a> command
+uses a matlab(TM) compatible syntax to produce py charts.  Optional
+features include auto-labeling the percentage of area, "exploding" one
+or more wedges out from the center of the pie, and a shadow effect.
 """, 1),
 
 ('table_demo', """The <a href=matplotlib.pylab.html#-table>table</a>
@@ -45,7 +50,7 @@ formatters for both the major and minor ticks; see <a
 href=matplotlib.ticker.html>ticker</a> and <a
 href=matplotlib.dates.html>dates</a> for details and usage.  This plot
 uses the <a href=matplotlib.finance.html>finance module</a> to
-retrieve stock data and plot it with a candlestick plot""",
+retrieve stock data.""",
 1),
 
 ('finance_work2', """ You can make much more sophisticated financial
@@ -88,7 +93,8 @@ or any external packages installed on your computer.""", 1),
 
 ('pcolor_demo', """The <a
 href=matplotlib.pylab.html#-pcolor>pcolor</a> command generates
-pseudo color plots.""", 1),
+pseudo color plots.  matplotlib has 14 built-in colormaps.  The <a
+href=matplotlib.pylab.html#-hot>hot</a> colormap is shown here.""", 1),
 
 ('layer_images', """You can layer multiple images of different shapes and colormaps with
 alpha blending using the <a
@@ -128,7 +134,7 @@ a much simpler example of embedding matplotlib in pygtk.  For an
 example of how to use the navigation toolbar in your applications, see
 <a href=examples/embedding_in_gtk2.py>embedding_in_gtk2.py</a>.  If
 you want to use matplotlib in a wx application, see <a
-href=examples/embedding_in_wx.py>embedding_in_wx.py</a>.  If you want
+href=examples/embedding_in_wx2.py>embedding_in_wx2.py</a>.  If you want
 to work with <a href=http://glade.gnome.org>glade</a>, see <a
 href=examples/mpl_with_glade.py>mpl_with_glade.py</a> """, 0),
 

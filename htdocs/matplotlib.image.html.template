@@ -65,6 +65,9 @@ extent&nbsp;is&nbsp;a&nbsp;data&nbsp;xmin,&nbsp;xmax,&nbsp;ymin,&nbsp;ymax&nbsp;
 registered&nbsp;with&nbsp;data&nbsp;plots.&nbsp;&nbsp;Default&nbsp;is&nbsp;the&nbsp;image&nbsp;dimensions<br>
 in&nbsp;pixels</tt></dd></dl>
 
+<dl><dt><a name="AxesImage-changed"><strong>changed</strong></a>(self)</dt><dd><tt>Call&nbsp;this&nbsp;whenever&nbsp;the&nbsp;mappable&nbsp;is&nbsp;changed&nbsp;so&nbsp;observers&nbsp;can<br>
+update&nbsp;state</tt></dd></dl>
+
 <dl><dt><a name="AxesImage-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt></dl>
 
 <dl><dt><a name="AxesImage-get_aspect"><strong>get_aspect</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;method&nbsp;used&nbsp;to&nbsp;constrain&nbsp;the&nbsp;aspoect&nbsp;ratio&nbsp;of&nbsp;the<br>
@@ -86,28 +89,27 @@ One&nbsp;of<br>
 
 <dl><dt><a name="AxesImage-make_image"><strong>make_image</strong></a>(self, flipy)</dt></dl>
 
-<dl><dt><a name="AxesImage-set_array"><strong>set_array</strong></a>(self, A)</dt><dd><tt>retained&nbsp;for&nbsp;backwards&nbsp;compatibility&nbsp;-&nbsp;use&nbsp;set_data&nbsp;instead</tt></dd></dl>
+<dl><dt><a name="AxesImage-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-set_array"><strong>set_array</strong></a>(self, A)</dt><dd><tt>retained&nbsp;for&nbsp;backwards&nbsp;compatibility&nbsp;-&nbsp;use&nbsp;set_data&nbsp;instead<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;numeric/numarray/PIL&nbsp;Image&nbsp;A</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-set_aspect"><strong>set_aspect</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;method&nbsp;used&nbsp;to&nbsp;constrain&nbsp;the&nbsp;aspoect&nbsp;ratio&nbsp;of&nbsp;the<br>
 image&nbsp;ehen&nbsp;resizing,<br>
 &nbsp;<br>
-One&nbsp;of<br>
+ACCEPTS&nbsp;['free'&nbsp;|&nbsp;'preserve']</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-set_data"><strong>set_data</strong></a>(self, A)</dt><dd><tt>Set&nbsp;the&nbsp;image&nbsp;array<br>
 &nbsp;<br>
-'free'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;aspect&nbsp;ratio&nbsp;not&nbsp;constrained<br>
-'preserve'&nbsp;:&nbsp;preserve&nbsp;aspect&nbsp;ratio&nbsp;when&nbsp;resizing</tt></dd></dl>
-
-<dl><dt><a name="AxesImage-set_data"><strong>set_data</strong></a>(self, A)</dt><dd><tt>Set&nbsp;the&nbsp;image&nbsp;array&nbsp;from&nbsp;numeric/numarray/PIL&nbsp;Image&nbsp;A</tt></dd></dl>
-
-<dl><dt><a name="AxesImage-set_data_extent"><strong>set_data_extent</strong></a>(self, xmin, xmax, ymin, ymax)</dt><dd><tt>Set&nbsp;the&nbsp;data&nbsp;extent&nbsp;that&nbsp;the&nbsp;image&nbsp;pixels&nbsp;represent.&nbsp;&nbsp;If&nbsp;you<br>
-are&nbsp;using&nbsp;the&nbsp;matlab&nbsp;interface,&nbsp;use&nbsp;Axes.set_image_extent<br>
-instead</tt></dd></dl>
+ACCEPTS:&nbsp;numeric/numarray/PIL&nbsp;Image&nbsp;A</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-set_interpolation"><strong>set_interpolation</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;interpolation&nbsp;method&nbsp;the&nbsp;image&nbsp;uses&nbsp;when&nbsp;resizing.<br>
 &nbsp;<br>
-One&nbsp;of<br>
-&nbsp;<br>
-'bicubic',&nbsp;'bilinear',&nbsp;'blackman100',&nbsp;'blackman256',&nbsp;'blackman64',<br>
-'nearest',&nbsp;'sinc144',&nbsp;'sinc256',&nbsp;'sinc64',&nbsp;'spline16',&nbsp;'spline36'</tt></dd></dl>
+ACCEPTS:&nbsp;['bicubic'&nbsp;|&nbsp;'bilinear'&nbsp;|&nbsp;'blackman100'&nbsp;|&nbsp;'blackman256'&nbsp;|&nbsp;'blackman64',&nbsp;'nearest'&nbsp;|&nbsp;'sinc144'&nbsp;|&nbsp;'sinc256'&nbsp;|&nbsp;'sinc64'&nbsp;|&nbsp;'spline16'&nbsp;|&nbsp;'spline36']</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-write_png"><strong>write_png</strong></a>(self, fname)</dt><dd><tt>Write&nbsp;the&nbsp;image&nbsp;to&nbsp;png&nbsp;file&nbsp;with&nbsp;fname</tt></dd></dl>
 
@@ -117,6 +119,8 @@ Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist
 backends</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
@@ -129,11 +133,6 @@ backends</tt></dd></dl>
 <dl><dt><a name="AxesImage-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="AxesImage-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
-
-<dl><dt><a name="AxesImage-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends<br>
-&nbsp;<br>
-ACCEPTS:&nbsp;float</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox<br>
 &nbsp;<br>
@@ -188,9 +187,6 @@ cmap&nbsp;of&nbsp;another&nbsp;image</tt></dd></dl>
 <dl><dt><a name="AxesImage-autoscale"><strong>autoscale</strong></a>(self)</dt><dd><tt>Autoscale&nbsp;the&nbsp;scalar&nbsp;limits&nbsp;on&nbsp;the&nbsp;norm&nbsp;instance&nbsp;using&nbsp;the<br>
 current&nbsp;array</tt></dd></dl>
 
-<dl><dt><a name="AxesImage-changed"><strong>changed</strong></a>(self)</dt><dd><tt>Call&nbsp;this&nbsp;whenever&nbsp;the&nbsp;mappable&nbsp;is&nbsp;changed&nbsp;so&nbsp;observers&nbsp;can<br>
-update&nbsp;state</tt></dd></dl>
-
 <dl><dt><a name="AxesImage-notify"><strong>notify</strong></a>(self, mappable)</dt><dd><tt>If&nbsp;this&nbsp;is&nbsp;called&nbsp;then&nbsp;we&nbsp;are&nbsp;pegged&nbsp;to&nbsp;another&nbsp;mappable.<br>
 Update&nbsp;the&nbsp;cmap,&nbsp;norm&nbsp;accordingly</tt></dd></dl>
 
@@ -233,6 +229,8 @@ Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist
 backends</tt></dd></dl>
 
 <dl><dt><a name="FigureImage-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="FigureImage-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
@@ -344,5 +342,5 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;MxNx4&nbsp;array&nbsp;of&nbsp;0-1&nbsp;nor
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
 @footer@

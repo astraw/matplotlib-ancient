@@ -77,7 +77,7 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;text,&nbsp;line&nbsp
 up&nbsp;the&nbsp;legend<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Legend-__init__"><strong>__init__</strong></a>(self, parent, handles, labels, loc, isaxes<font color="#909090">=True</font>, numpoints<font color="#909090">=4</font>, prop<font color="#909090">=&lt;matplotlib.font_manager.FontProperties instance&gt;</font>, pad<font color="#909090">=0.20000000000000001</font>, labelsep<font color="#909090">=0.0050000000000000001</font>, handlelen<font color="#909090">=0.050000000000000003</font>, handletextsep<font color="#909090">=0.02</font>, axespad<font color="#909090">=0.02</font>)</dt><dd><tt>&nbsp;&nbsp;parent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;artist&nbsp;that&nbsp;contains&nbsp;the&nbsp;legend<br>
+<dl><dt><a name="Legend-__init__"><strong>__init__</strong></a>(self, parent, handles, labels, loc, isaxes<font color="#909090">=True</font>, numpoints<font color="#909090">=4</font>, prop<font color="#909090">=&lt;matplotlib.font_manager.FontProperties instance&gt;</font>, pad<font color="#909090">=0.20000000000000001</font>, labelsep<font color="#909090">=0.0050000000000000001</font>, handlelen<font color="#909090">=0.050000000000000003</font>, handletextsep<font color="#909090">=0.02</font>, axespad<font color="#909090">=0.02</font>, shadow<font color="#909090">=False</font>)</dt><dd><tt>&nbsp;&nbsp;parent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;artist&nbsp;that&nbsp;contains&nbsp;the&nbsp;legend<br>
 &nbsp;&nbsp;handles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;list&nbsp;of&nbsp;artists&nbsp;(lines,&nbsp;patches)&nbsp;to&nbsp;add&nbsp;to&nbsp;the&nbsp;legend<br>
 &nbsp;&nbsp;labels&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;to&nbsp;label&nbsp;the&nbsp;legend&nbsp;<br>
 &nbsp;&nbsp;loc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;location&nbsp;code<br>
@@ -85,6 +85,7 @@ up&nbsp;the&nbsp;legend<br>&nbsp;</tt></td></tr>
 &nbsp;&nbsp;numpoints&nbsp;=&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;number&nbsp;of&nbsp;points&nbsp;in&nbsp;the&nbsp;legend&nbsp;line<br>
 &nbsp;&nbsp;fontprop&nbsp;=&nbsp;FontProperties('smaller')&nbsp;&nbsp;#&nbsp;the&nbsp;font&nbsp;property<br>
 &nbsp;&nbsp;pad&nbsp;=&nbsp;0.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;fractional&nbsp;whitespace&nbsp;inside&nbsp;the&nbsp;legend&nbsp;border<br>
+&nbsp;&nbsp;shadow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;if&nbsp;True,&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;behind&nbsp;legend&nbsp;<br>
 &nbsp;<br>
 The&nbsp;following&nbsp;dimensions&nbsp;are&nbsp;in&nbsp;axes&nbsp;coords<br>
 &nbsp;&nbsp;labelsep&nbsp;=&nbsp;0.005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;vertical&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;entries<br>
@@ -116,6 +117,8 @@ Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist
 backends</tt></dd></dl>
 
 <dl><dt><a name="Legend-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Legend-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Legend-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
@@ -194,9 +197,7 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>False</strong> = False<br>
-<strong>Float</strong> = 'd'<br>
-<strong>True</strong> = True<br>
+<td width="100%"><strong>Float</strong> = 'd'<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

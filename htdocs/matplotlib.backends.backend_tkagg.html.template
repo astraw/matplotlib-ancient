@@ -155,23 +155,15 @@ window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;tk.Window<br>&nbsp;</t
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="FigureManagerTkAgg-__init__"><strong>__init__</strong></a>(self, canvas, num, window)</dt></dl>
 
-<dl><dt><a name="FigureManagerTkAgg-add_axes"><strong>add_axes</strong></a>(self, rect, **kwargs)</dt></dl>
-
-<dl><dt><a name="FigureManagerTkAgg-add_subplot"><strong>add_subplot</strong></a>(self, *args, **kwargs)</dt></dl>
-
 <dl><dt><a name="FigureManagerTkAgg-destroy"><strong>destroy</strong></a>(self, *args)</dt></dl>
 
 <dl><dt><a name="FigureManagerTkAgg-resize"><strong>resize</strong></a>(self, event)</dt></dl>
-
-<dl><dt><a name="FigureManagerTkAgg-set_current_axes"><strong>set_current_axes</strong></a>(self, a)</dt></dl>
 
 <dl><dt><a name="FigureManagerTkAgg-show"><strong>show</strong></a>(self)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>:<br>
 <dl><dt><a name="FigureManagerTkAgg-clf"><strong>clf</strong></a>(self)</dt><dd><tt>clear&nbsp;the&nbsp;figure</tt></dd></dl>
-
-<dl><dt><a name="FigureManagerTkAgg-get_current_axis"><strong>get_current_axis</strong></a>(self, **kwargs)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -190,23 +182,15 @@ window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;tk.Window<br>&nbsp;</t
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="FigureManagerTkAgg-__init__"><strong>__init__</strong></a>(self, canvas, num, window)</dt></dl>
 
-<dl><dt><a name="FigureManagerTkAgg-add_axes"><strong>add_axes</strong></a>(self, rect, **kwargs)</dt></dl>
-
-<dl><dt><a name="FigureManagerTkAgg-add_subplot"><strong>add_subplot</strong></a>(self, *args, **kwargs)</dt></dl>
-
 <dl><dt><a name="FigureManagerTkAgg-destroy"><strong>destroy</strong></a>(self, *args)</dt></dl>
 
 <dl><dt><a name="FigureManagerTkAgg-resize"><strong>resize</strong></a>(self, event)</dt></dl>
-
-<dl><dt><a name="FigureManagerTkAgg-set_current_axes"><strong>set_current_axes</strong></a>(self, a)</dt></dl>
 
 <dl><dt><a name="FigureManagerTkAgg-show"><strong>show</strong></a>(self)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>:<br>
 <dl><dt><a name="FigureManagerTkAgg-clf"><strong>clf</strong></a>(self)</dt><dd><tt>clear&nbsp;the&nbsp;figure</tt></dd></dl>
-
-<dl><dt><a name="FigureManagerTkAgg-get_current_axis"><strong>get_current_axis</strong></a>(self, **kwargs)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -232,9 +216,7 @@ Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase"
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="NavigationToolbar-__init__"><strong>__init__</strong></a>(self, canvas, figman)</dt></dl>
-
-<dl><dt><a name="NavigationToolbar-close"><strong>close</strong></a>(self)</dt></dl>
+<dl><dt><a name="NavigationToolbar-__init__"><strong>__init__</strong></a>(self, canvas, window)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-panx"><strong>panx</strong></a>(self, arg)</dt></dl>
 
@@ -960,7 +942,7 @@ widget&nbsp;is&nbsp;located.</tt></dd></dl>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="NavigationToolbar2TkAgg-__init__"><strong>__init__</strong></a>(self, canvas, figman)</dt></dl>
+<dl><dt><a name="NavigationToolbar2TkAgg-__init__"><strong>__init__</strong></a>(self, canvas, window)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2TkAgg-draw_rubberband"><strong>draw_rubberband</strong></a>(self, event, x0, y0, x1, y1)</dt></dl>
 
@@ -1716,13 +1698,11 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>False</strong> = False<br>
-<strong>PIXELS_PER_INCH</strong> = 75<br>
-<strong>True</strong> = True<br>
+<td width="100%"><strong>PIXELS_PER_INCH</strong> = 75<br>
 <strong>backend_version</strong> = 8.4000000000000004<br>
 <strong>cursord</strong> = {0: 'hand2', 1: 'arrow', 2: 'tcross', 3: 'fleur'}<br>
 <strong>cursors</strong> = &lt;matplotlib.backend_bases.Cursors instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

@@ -13,16 +13,14 @@
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="MLab.html">MLab</a><br>
-<a href="matplotlib._contour.html">matplotlib._contour</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="matplotlib._contour.html">matplotlib._contour</a><br>
 <a href="matplotlib._image.html">matplotlib._image</a><br>
 </td><td width="25%" valign=top><a href="matplotlib.cm.html">matplotlib.cm</a><br>
 <a href="math.html">math</a><br>
-<a href="matplotlib.html">matplotlib</a><br>
-</td><td width="25%" valign=top><a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
-<a href="random.html">random</a><br>
-<a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top><a href="matplotlib.html">matplotlib</a><br>
+<a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -263,7 +261,7 @@ Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;An
 
 <dl><dt><a name="Axes-connect"><strong>connect</strong></a>(self, s, func)</dt></dl>
 
-<dl><dt><a name="Axes-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
+<dl><dt><a name="Axes-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
 &nbsp;<br>
 plots&nbsp;contour&nbsp;lines&nbsp;of&nbsp;an&nbsp;image&nbsp;z<br>
 &nbsp;<br>
@@ -300,6 +298,8 @@ linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
 &nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
 &nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;<br>
 reg&nbsp;is&nbsp;a&nbsp;2D&nbsp;region&nbsp;number&nbsp;array&nbsp;with&nbsp;the&nbsp;same&nbsp;dimensions&nbsp;as&nbsp;x&nbsp;and<br>
 &nbsp;&nbsp;y.&nbsp;The&nbsp;values&nbsp;of&nbsp;reg&nbsp;should&nbsp;be&nbsp;positive&nbsp;region&nbsp;numbers,&nbsp;and&nbsp;zero&nbsp;fro<br>
 &nbsp;&nbsp;zones&nbsp;wich&nbsp;do&nbsp;not&nbsp;exist.<br>
@@ -311,6 +311,9 @@ alpha&nbsp;:&nbsp;the&nbsp;default&nbsp;transparency&nbsp;of&nbsp;contour&nbsp;l
 fmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;for&nbsp;adding&nbsp;a&nbsp;label&nbsp;to&nbsp;each&nbsp;collection.<br>
 &nbsp;&nbsp;Currently&nbsp;this&nbsp;is&nbsp;useful&nbsp;for&nbsp;auto-legending&nbsp;and&nbsp;may&nbsp;be&nbsp;useful&nbsp;down<br>
 &nbsp;&nbsp;the&nbsp;road&nbsp;for&nbsp;legend&nbsp;labeling<br>
+&nbsp;<br>
+origin&nbsp;=&nbsp;'upper'|'lower'|None.&nbsp;&nbsp;If&nbsp;None,&nbsp;the&nbsp;rc&nbsp;value&nbsp;for&nbsp;image.origin<br>
+will&nbsp;be&nbsp;used<br>
 &nbsp;<br>
 More&nbsp;information&nbsp;on&nbsp;reg&nbsp;and&nbsp;triangle&nbsp;arrays&nbsp;is&nbsp;in&nbsp;_contour.c<br>
 &nbsp;<br>
@@ -410,7 +413,7 @@ major&nbsp;formatter</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_axis_bgcolor"><strong>get_axis_bgcolor</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;background&nbsp;color</tt></dd></dl>
 
-<dl><dt><a name="Axes-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
+<dl><dt><a name="Axes-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;artists&nbsp;the&nbsp;axes&nbsp;contains.&nbsp;&nbsp;Deprecated</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_frame"><strong>get_frame</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axes&nbsp;Rectangle&nbsp;frame</tt></dd></dl>
 
@@ -600,7 +603,8 @@ and&nbsp;so&nbsp;on.&nbsp;&nbsp;The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;sup
 &nbsp;&nbsp;labelsep&nbsp;=&nbsp;0.005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;vertical&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;entries<br>
 &nbsp;&nbsp;handlelen&nbsp;=&nbsp;0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;legend&nbsp;lines<br>
 &nbsp;&nbsp;handletextsep&nbsp;=&nbsp;0.02&nbsp;#&nbsp;the&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;line&nbsp;and&nbsp;legend&nbsp;text<br>
-&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge</tt></dd></dl>
+&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge<br>
+&nbsp;&nbsp;shadow&nbsp;=&nbsp;False&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;if&nbsp;True,&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;behind&nbsp;legend</tt></dd></dl>
 
 <dl><dt><a name="Axes-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>LOGLOG(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -732,6 +736,41 @@ Grid&nbsp;orientation<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
+
+<dl><dt><a name="Axes-pie"><strong>pie</strong></a>(self, x, explode<font color="#909090">=None</font>, labels<font color="#909090">=None</font>, colors<font color="#909090">=('b', 'g', 'r', 'c', 'm', 'y', 'k', 'w')</font>, autopct<font color="#909090">=None</font>, shadow<font color="#909090">=False</font>)</dt><dd><tt>Make&nbsp;a&nbsp;pie&nbsp;chart&nbsp;of&nbsp;array&nbsp;x.&nbsp;&nbsp;The&nbsp;fractional&nbsp;area&nbsp;of&nbsp;each&nbsp;wedge&nbsp;is<br>
+given&nbsp;by&nbsp;x/sum(x).&nbsp;&nbsp;If&nbsp;sum(x)&lt;=1,&nbsp;then&nbsp;the&nbsp;values&nbsp;of&nbsp;x&nbsp;give&nbsp;the<br>
+fractional&nbsp;area&nbsp;directly&nbsp;and&nbsp;the&nbsp;array&nbsp;will&nbsp;not&nbsp;be&nbsp;normalized.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;explode,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(x)&nbsp;array&nbsp;which&nbsp;specifies&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fraction&nbsp;of&nbsp;the&nbsp;radius&nbsp;to&nbsp;offset&nbsp;that&nbsp;wedge.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;colors&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;that&nbsp;the&nbsp;pie&nbsp;chart<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;cycle.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;labels,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(x)&nbsp;list&nbsp;of&nbsp;labels.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;autopct,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;or&nbsp;function&nbsp;used&nbsp;to&nbsp;label&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wedges&nbsp;with&nbsp;their&nbsp;numeric&nbsp;value.&nbsp;&nbsp;The&nbsp;label&nbsp;will&nbsp;be&nbsp;placed&nbsp;inside<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;wedge.&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a&nbsp;format&nbsp;string,&nbsp;the&nbsp;label&nbsp;will&nbsp;be&nbsp;fmt%pct.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a&nbsp;function,&nbsp;it&nbsp;will&nbsp;be&nbsp;called<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;shadow,&nbsp;if&nbsp;True,&nbsp;will&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;beneath&nbsp;the&nbsp;pie.<br>
+&nbsp;&nbsp;<br>
+The&nbsp;pie&nbsp;chart&nbsp;will&nbsp;probably&nbsp;look&nbsp;best&nbsp;if&nbsp;the&nbsp;figure&nbsp;and&nbsp;axes&nbsp;are<br>
+square.&nbsp;&nbsp;Eg,<br>
+&nbsp;<br>
+&nbsp;&nbsp;figure(figsize=(8,8))<br>
+&nbsp;&nbsp;ax&nbsp;=&nbsp;axes([0.1,&nbsp;0.1,&nbsp;0.8,&nbsp;0.8])<br>
+&nbsp;<br>
+Return&nbsp;value:<br>
+&nbsp;<br>
+&nbsp;&nbsp;If&nbsp;autopct&nbsp;is&nbsp;None,&nbsp;return&nbsp;a&nbsp;list&nbsp;of&nbsp;(patches,&nbsp;texts),&nbsp;where&nbsp;patches<br>
+&nbsp;&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;matplotlib.patches.Wedge&nbsp;instances&nbsp;and&nbsp;texts&nbsp;is&nbsp;a<br>
+&nbsp;&nbsp;list&nbsp;of&nbsp;the&nbsp;label&nbsp;Text&nbsp;instnaces<br>
+&nbsp;<br>
+&nbsp;&nbsp;If&nbsp;autopct&nbsp;is&nbsp;not&nbsp;None,&nbsp;return&nbsp;(patches,&nbsp;texts,&nbsp;autotexts),&nbsp;where<br>
+&nbsp;&nbsp;patches&nbsp;and&nbsp;texts&nbsp;are&nbsp;as&nbsp;above,&nbsp;and&nbsp;autotexts&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;text<br>
+&nbsp;&nbsp;instances&nbsp;for&nbsp;the&nbsp;numeric&nbsp;labels</tt></dd></dl>
 
 <dl><dt><a name="Axes-plot"><strong>plot</strong></a>(self, *args, **kwargs)</dt><dd><tt>PLOT(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -949,35 +988,52 @@ plot&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basey)</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_axis_bgcolor"><strong>set_axis_bgcolor</strong></a>(self, color)</dt><dd><tt>set&nbsp;the&nbsp;axes&nbsp;bacground&nbsp;color</tt></dd></dl>
+<dl><dt><a name="Axes-set_axis_bgcolor"><strong>set_axis_bgcolor</strong></a>(self, color)</dt><dd><tt>set&nbsp;the&nbsp;axes&nbsp;background&nbsp;color<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;matplotlib&nbsp;color&nbsp;-&nbsp;see&nbsp;help(colors)</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_axis_off"><strong>set_axis_off</strong></a>(self)</dt><dd><tt>turn&nbsp;off&nbsp;the&nbsp;axis</tt></dd></dl>
+<dl><dt><a name="Axes-set_axis_off"><strong>set_axis_off</strong></a>(self)</dt><dd><tt>turn&nbsp;off&nbsp;the&nbsp;axis<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;void</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_axis_on"><strong>set_axis_on</strong></a>(self)</dt><dd><tt>turn&nbsp;on&nbsp;the&nbsp;axis</tt></dd></dl>
+<dl><dt><a name="Axes-set_axis_on"><strong>set_axis_on</strong></a>(self)</dt><dd><tt>turn&nbsp;on&nbsp;the&nbsp;axis<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;void</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_frame_on"><strong>set_frame_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;the&nbsp;axes&nbsp;rectangle&nbsp;patch&nbsp;is&nbsp;drawn&nbsp;with&nbsp;boolean&nbsp;b</tt></dd></dl>
+<dl><dt><a name="Axes-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;<a href="#Axes">Axes</a>&nbsp;figure<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;Figure&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_image_extent"><strong>set_image_extent</strong></a>(self, xmin, xmax, ymin, ymax)</dt><dd><tt>Set&nbsp;the&nbsp;data&nbsp;units&nbsp;of&nbsp;the&nbsp;image.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
-plot&nbsp;other&nbsp;things&nbsp;over&nbsp;the&nbsp;image,&nbsp;eg,&nbsp;lines&nbsp;or&nbsp;scatter</tt></dd></dl>
+<dl><dt><a name="Axes-set_frame_on"><strong>set_frame_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;the&nbsp;axes&nbsp;rectangle&nbsp;patch&nbsp;is&nbsp;drawn<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;True|False</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_position"><strong>set_position</strong></a>(self, pos)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;position&nbsp;with&nbsp;pos&nbsp;=&nbsp;[left,&nbsp;bottom,&nbsp;width,&nbsp;height]<br>
-in&nbsp;relative&nbsp;0,1&nbsp;coords</tt></dd></dl>
+in&nbsp;relative&nbsp;0,1&nbsp;coords<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;len(4)&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_title"><strong>set_title</strong></a>(self, label, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_TITLE(label,&nbsp;fontdict=None,&nbsp;**kwargs):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;title&nbsp;for&nbsp;the&nbsp;xaxis.&nbsp;&nbsp;See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information<br>
-of&nbsp;how&nbsp;override&nbsp;and&nbsp;the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
+of&nbsp;how&nbsp;override&nbsp;and&nbsp;the&nbsp;optional&nbsp;args&nbsp;work<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_xlabel"><strong>set_xlabel</strong></a>(self, xlabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_XLABEL(xlabel,&nbsp;fontdict=None,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;label&nbsp;for&nbsp;the&nbsp;xaxis.&nbsp;&nbsp;See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information<br>
-of&nbsp;how&nbsp;override&nbsp;and&nbsp;the&nbsp;optional&nbsp;args&nbsp;work.</tt></dd></dl>
+of&nbsp;how&nbsp;override&nbsp;and&nbsp;the&nbsp;optional&nbsp;args&nbsp;work.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_xlim"><strong>set_xlim</strong></a>(self, v, emit<font color="#909090">=True</font>)</dt><dd><tt>SET_XLIM(v,&nbsp;emit=True)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[xmin,&nbsp;xmax]<br>
 &nbsp;<br>
-If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do&nbsp;not&nbsp;trigger&nbsp;an&nbsp;event</tt></dd></dl>
+If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do&nbsp;not&nbsp;trigger&nbsp;an&nbsp;event<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;len(2)&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_xscale"><strong>set_xscale</strong></a>(self, value, basex<font color="#909090">=10</font>, subsx<font color="#909090">=None</font>)</dt><dd><tt>SET_XSCALE(value,&nbsp;basex=10,&nbsp;subsx=None)<br>
 &nbsp;<br>
@@ -987,33 +1043,36 @@ If&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_xticklabels"><strong>set_xticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_XTICKLABELS(labels,&nbsp;fontdict=None,&nbsp;**kwargs)<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;axis<br>
-text&nbsp;instances</tt></dd></dl>
+text&nbsp;instances<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_xticks"><strong>set_xticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+<dl><dt><a name="Axes-set_xticks"><strong>set_xticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_ylabel"><strong>set_ylabel</strong></a>(self, ylabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_YLABEL(ylabel,&nbsp;fontdict=None,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;label&nbsp;for&nbsp;the&nbsp;yaxis<br>
 &nbsp;<br>
-Defaults&nbsp;override&nbsp;is<br>
-&nbsp;<br>
-&nbsp;&nbsp;override&nbsp;=&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'verticalalignment'&nbsp;&nbsp;&nbsp;:&nbsp;'center',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'horizontalalignment'&nbsp;:&nbsp;'right',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rotation'='vertical'&nbsp;:&nbsp;}<br>
-&nbsp;<br>
 See&nbsp;the&nbsp;text&nbsp;doctstring&nbsp;for&nbsp;information&nbsp;of&nbsp;how&nbsp;override&nbsp;and<br>
-the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
+the&nbsp;optional&nbsp;args&nbsp;work<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_ylim"><strong>set_ylim</strong></a>(self, v, emit<font color="#909090">=True</font>)</dt><dd><tt>SET_YLIM(v,&nbsp;emit=True)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[ymin,&nbsp;ymax].&nbsp;&nbsp;If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do<br>
-not&nbsp;trigger&nbsp;an&nbsp;event.</tt></dd></dl>
+not&nbsp;trigger&nbsp;an&nbsp;event.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;len(2)&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_yscale"><strong>set_yscale</strong></a>(self, value, basey<font color="#909090">=10</font>, subsy<font color="#909090">=None</font>)</dt><dd><tt>SET_YSCALE(value,&nbsp;basey=10,&nbsp;subsy=None)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -1024,14 +1083,20 @@ If&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;are&nbsp;the&nbsp;default<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basex)</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basex)<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_yticklabels"><strong>set_yticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_YTICKLABELS(labels,&nbsp;fontdict=None,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of<br>
-Text&nbsp;instances</tt></dd></dl>
+Text&nbsp;instances<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+<dl><dt><a name="Axes-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="Axes-specgram"><strong>specgram</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>, xextent<font color="#909090">=None</font>)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=128,<br>
@@ -1142,6 +1207,8 @@ backends</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
+<dl><dt><a name="Axes-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
+
 <dl><dt><a name="Axes-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Axes-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
@@ -1166,10 +1233,6 @@ ACCEPTS:&nbsp;a&nbsp;matplotlib.transform.Bbox&nbsp;instance</tt></dd></dl>
 <dl><dt><a name="Axes-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
-
-<dl><dt><a name="Axes-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to<br>
-&nbsp;<br>
-ACCEPTS:&nbsp;a&nbsp;matplotlib.figure.Figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;line&nbsp;label&nbsp;to&nbsp;s&nbsp;for&nbsp;auto&nbsp;legend<br>
 &nbsp;<br>
@@ -1258,7 +1321,9 @@ if&nbsp;labels&nbsp;is&nbsp;None,&nbsp;the&nbsp;self.<strong>rformatter</strong>
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines,&nbsp;labels&nbsp;where&nbsp;the&nbsp;lines&nbsp;are<br>
 matplotlib.Line2D&nbsp;instances&nbsp;and&nbsp;the&nbsp;labels&nbsp;are&nbsp;matplotlib.Text<br>
-instances</tt></dd></dl>
+instances<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-set_thetagrids"><strong>set_thetagrids</strong></a>(self, angles, labels<font color="#909090">=None</font>, fmt<font color="#909090">='%d'</font>, frac<font color="#909090">=1.1000000000000001</font>, **kwargs)</dt><dd><tt>set&nbsp;the&nbsp;angles&nbsp;at&nbsp;which&nbsp;to&nbsp;place&nbsp;the&nbsp;theta&nbsp;grids&nbsp;(these<br>
 gridlines&nbsp;are&nbsp;equal&nbsp;along&nbsp;the&nbsp;theta&nbsp;dimension).&nbsp;&nbsp;angles&nbsp;is&nbsp;in<br>
@@ -1277,7 +1342,9 @@ kwargs&nbsp;are&nbsp;optional&nbsp;text&nbsp;properties&nbsp;for&nbsp;the&nbsp;l
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines,&nbsp;labels&nbsp;where&nbsp;the&nbsp;lines&nbsp;are<br>
 matplotlib.Line2D&nbsp;instances&nbsp;and&nbsp;the&nbsp;labels&nbsp;are&nbsp;matplotlib.Text<br>
-instances</tt></dd></dl>
+instances<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-set_xlabel"><strong>set_xlabel</strong></a>(self, xlabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>xlabel&nbsp;not&nbsp;implemented</tt></dd></dl>
 
@@ -1480,7 +1547,7 @@ Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;An
 
 <dl><dt><a name="PolarAxes-connect"><strong>connect</strong></a>(self, s, func)</dt></dl>
 
-<dl><dt><a name="PolarAxes-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
+<dl><dt><a name="PolarAxes-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
 &nbsp;<br>
 plots&nbsp;contour&nbsp;lines&nbsp;of&nbsp;an&nbsp;image&nbsp;z<br>
 &nbsp;<br>
@@ -1517,6 +1584,8 @@ linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
 &nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
 &nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;<br>
 reg&nbsp;is&nbsp;a&nbsp;2D&nbsp;region&nbsp;number&nbsp;array&nbsp;with&nbsp;the&nbsp;same&nbsp;dimensions&nbsp;as&nbsp;x&nbsp;and<br>
 &nbsp;&nbsp;y.&nbsp;The&nbsp;values&nbsp;of&nbsp;reg&nbsp;should&nbsp;be&nbsp;positive&nbsp;region&nbsp;numbers,&nbsp;and&nbsp;zero&nbsp;fro<br>
 &nbsp;&nbsp;zones&nbsp;wich&nbsp;do&nbsp;not&nbsp;exist.<br>
@@ -1528,6 +1597,9 @@ alpha&nbsp;:&nbsp;the&nbsp;default&nbsp;transparency&nbsp;of&nbsp;contour&nbsp;l
 fmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;for&nbsp;adding&nbsp;a&nbsp;label&nbsp;to&nbsp;each&nbsp;collection.<br>
 &nbsp;&nbsp;Currently&nbsp;this&nbsp;is&nbsp;useful&nbsp;for&nbsp;auto-legending&nbsp;and&nbsp;may&nbsp;be&nbsp;useful&nbsp;down<br>
 &nbsp;&nbsp;the&nbsp;road&nbsp;for&nbsp;legend&nbsp;labeling<br>
+&nbsp;<br>
+origin&nbsp;=&nbsp;'upper'|'lower'|None.&nbsp;&nbsp;If&nbsp;None,&nbsp;the&nbsp;rc&nbsp;value&nbsp;for&nbsp;image.origin<br>
+will&nbsp;be&nbsp;used<br>
 &nbsp;<br>
 More&nbsp;information&nbsp;on&nbsp;reg&nbsp;and&nbsp;triangle&nbsp;arrays&nbsp;is&nbsp;in&nbsp;_contour.c<br>
 &nbsp;<br>
@@ -1623,7 +1695,7 @@ major&nbsp;formatter</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-get_axis_bgcolor"><strong>get_axis_bgcolor</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;background&nbsp;color</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
+<dl><dt><a name="PolarAxes-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;artists&nbsp;the&nbsp;axes&nbsp;contains.&nbsp;&nbsp;Deprecated</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-get_frame"><strong>get_frame</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axes&nbsp;Rectangle&nbsp;frame</tt></dd></dl>
 
@@ -1808,7 +1880,8 @@ and&nbsp;so&nbsp;on.&nbsp;&nbsp;The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;sup
 &nbsp;&nbsp;labelsep&nbsp;=&nbsp;0.005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;vertical&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;entries<br>
 &nbsp;&nbsp;handlelen&nbsp;=&nbsp;0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;legend&nbsp;lines<br>
 &nbsp;&nbsp;handletextsep&nbsp;=&nbsp;0.02&nbsp;#&nbsp;the&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;line&nbsp;and&nbsp;legend&nbsp;text<br>
-&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge</tt></dd></dl>
+&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge<br>
+&nbsp;&nbsp;shadow&nbsp;=&nbsp;False&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;if&nbsp;True,&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;behind&nbsp;legend</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>LOGLOG(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -1940,6 +2013,41 @@ Grid&nbsp;orientation<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
+
+<dl><dt><a name="PolarAxes-pie"><strong>pie</strong></a>(self, x, explode<font color="#909090">=None</font>, labels<font color="#909090">=None</font>, colors<font color="#909090">=('b', 'g', 'r', 'c', 'm', 'y', 'k', 'w')</font>, autopct<font color="#909090">=None</font>, shadow<font color="#909090">=False</font>)</dt><dd><tt>Make&nbsp;a&nbsp;pie&nbsp;chart&nbsp;of&nbsp;array&nbsp;x.&nbsp;&nbsp;The&nbsp;fractional&nbsp;area&nbsp;of&nbsp;each&nbsp;wedge&nbsp;is<br>
+given&nbsp;by&nbsp;x/sum(x).&nbsp;&nbsp;If&nbsp;sum(x)&lt;=1,&nbsp;then&nbsp;the&nbsp;values&nbsp;of&nbsp;x&nbsp;give&nbsp;the<br>
+fractional&nbsp;area&nbsp;directly&nbsp;and&nbsp;the&nbsp;array&nbsp;will&nbsp;not&nbsp;be&nbsp;normalized.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;explode,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(x)&nbsp;array&nbsp;which&nbsp;specifies&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fraction&nbsp;of&nbsp;the&nbsp;radius&nbsp;to&nbsp;offset&nbsp;that&nbsp;wedge.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;colors&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;that&nbsp;the&nbsp;pie&nbsp;chart<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;cycle.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;labels,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(x)&nbsp;list&nbsp;of&nbsp;labels.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;autopct,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;or&nbsp;function&nbsp;used&nbsp;to&nbsp;label&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wedges&nbsp;with&nbsp;their&nbsp;numeric&nbsp;value.&nbsp;&nbsp;The&nbsp;label&nbsp;will&nbsp;be&nbsp;placed&nbsp;inside<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;wedge.&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a&nbsp;format&nbsp;string,&nbsp;the&nbsp;label&nbsp;will&nbsp;be&nbsp;fmt%pct.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a&nbsp;function,&nbsp;it&nbsp;will&nbsp;be&nbsp;called<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;shadow,&nbsp;if&nbsp;True,&nbsp;will&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;beneath&nbsp;the&nbsp;pie.<br>
+&nbsp;&nbsp;<br>
+The&nbsp;pie&nbsp;chart&nbsp;will&nbsp;probably&nbsp;look&nbsp;best&nbsp;if&nbsp;the&nbsp;figure&nbsp;and&nbsp;axes&nbsp;are<br>
+square.&nbsp;&nbsp;Eg,<br>
+&nbsp;<br>
+&nbsp;&nbsp;figure(figsize=(8,8))<br>
+&nbsp;&nbsp;ax&nbsp;=&nbsp;axes([0.1,&nbsp;0.1,&nbsp;0.8,&nbsp;0.8])<br>
+&nbsp;<br>
+Return&nbsp;value:<br>
+&nbsp;<br>
+&nbsp;&nbsp;If&nbsp;autopct&nbsp;is&nbsp;None,&nbsp;return&nbsp;a&nbsp;list&nbsp;of&nbsp;(patches,&nbsp;texts),&nbsp;where&nbsp;patches<br>
+&nbsp;&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;matplotlib.patches.Wedge&nbsp;instances&nbsp;and&nbsp;texts&nbsp;is&nbsp;a<br>
+&nbsp;&nbsp;list&nbsp;of&nbsp;the&nbsp;label&nbsp;Text&nbsp;instnaces<br>
+&nbsp;<br>
+&nbsp;&nbsp;If&nbsp;autopct&nbsp;is&nbsp;not&nbsp;None,&nbsp;return&nbsp;(patches,&nbsp;texts,&nbsp;autotexts),&nbsp;where<br>
+&nbsp;&nbsp;patches&nbsp;and&nbsp;texts&nbsp;are&nbsp;as&nbsp;above,&nbsp;and&nbsp;autotexts&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;text<br>
+&nbsp;&nbsp;instances&nbsp;for&nbsp;the&nbsp;numeric&nbsp;labels</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-plot"><strong>plot</strong></a>(self, *args, **kwargs)</dt><dd><tt>PLOT(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -2157,30 +2265,45 @@ plot&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basey)</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-set_axis_bgcolor"><strong>set_axis_bgcolor</strong></a>(self, color)</dt><dd><tt>set&nbsp;the&nbsp;axes&nbsp;bacground&nbsp;color</tt></dd></dl>
+<dl><dt><a name="PolarAxes-set_axis_bgcolor"><strong>set_axis_bgcolor</strong></a>(self, color)</dt><dd><tt>set&nbsp;the&nbsp;axes&nbsp;background&nbsp;color<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;matplotlib&nbsp;color&nbsp;-&nbsp;see&nbsp;help(colors)</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-set_axis_off"><strong>set_axis_off</strong></a>(self)</dt><dd><tt>turn&nbsp;off&nbsp;the&nbsp;axis</tt></dd></dl>
+<dl><dt><a name="PolarAxes-set_axis_off"><strong>set_axis_off</strong></a>(self)</dt><dd><tt>turn&nbsp;off&nbsp;the&nbsp;axis<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;void</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-set_axis_on"><strong>set_axis_on</strong></a>(self)</dt><dd><tt>turn&nbsp;on&nbsp;the&nbsp;axis</tt></dd></dl>
+<dl><dt><a name="PolarAxes-set_axis_on"><strong>set_axis_on</strong></a>(self)</dt><dd><tt>turn&nbsp;on&nbsp;the&nbsp;axis<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;void</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-set_frame_on"><strong>set_frame_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;the&nbsp;axes&nbsp;rectangle&nbsp;patch&nbsp;is&nbsp;drawn&nbsp;with&nbsp;boolean&nbsp;b</tt></dd></dl>
+<dl><dt><a name="PolarAxes-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;<a href="#Axes">Axes</a>&nbsp;figure<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;Figure&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-set_image_extent"><strong>set_image_extent</strong></a>(self, xmin, xmax, ymin, ymax)</dt><dd><tt>Set&nbsp;the&nbsp;data&nbsp;units&nbsp;of&nbsp;the&nbsp;image.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
-plot&nbsp;other&nbsp;things&nbsp;over&nbsp;the&nbsp;image,&nbsp;eg,&nbsp;lines&nbsp;or&nbsp;scatter</tt></dd></dl>
+<dl><dt><a name="PolarAxes-set_frame_on"><strong>set_frame_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;the&nbsp;axes&nbsp;rectangle&nbsp;patch&nbsp;is&nbsp;drawn<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;True|False</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-set_position"><strong>set_position</strong></a>(self, pos)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;position&nbsp;with&nbsp;pos&nbsp;=&nbsp;[left,&nbsp;bottom,&nbsp;width,&nbsp;height]<br>
-in&nbsp;relative&nbsp;0,1&nbsp;coords</tt></dd></dl>
+in&nbsp;relative&nbsp;0,1&nbsp;coords<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;len(4)&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-set_title"><strong>set_title</strong></a>(self, label, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_TITLE(label,&nbsp;fontdict=None,&nbsp;**kwargs):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;title&nbsp;for&nbsp;the&nbsp;xaxis.&nbsp;&nbsp;See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information<br>
-of&nbsp;how&nbsp;override&nbsp;and&nbsp;the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
+of&nbsp;how&nbsp;override&nbsp;and&nbsp;the&nbsp;optional&nbsp;args&nbsp;work<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-set_xlim"><strong>set_xlim</strong></a>(self, v, emit<font color="#909090">=True</font>)</dt><dd><tt>SET_XLIM(v,&nbsp;emit=True)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[xmin,&nbsp;xmax]<br>
 &nbsp;<br>
-If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do&nbsp;not&nbsp;trigger&nbsp;an&nbsp;event</tt></dd></dl>
+If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do&nbsp;not&nbsp;trigger&nbsp;an&nbsp;event<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;len(2)&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-set_xscale"><strong>set_xscale</strong></a>(self, value, basex<font color="#909090">=10</font>, subsx<font color="#909090">=None</font>)</dt><dd><tt>SET_XSCALE(value,&nbsp;basex=10,&nbsp;subsx=None)<br>
 &nbsp;<br>
@@ -2190,19 +2313,27 @@ If&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-set_xticklabels"><strong>set_xticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_XTICKLABELS(labels,&nbsp;fontdict=None,&nbsp;**kwargs)<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;axis<br>
-text&nbsp;instances</tt></dd></dl>
+text&nbsp;instances<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-set_xticks"><strong>set_xticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+<dl><dt><a name="PolarAxes-set_xticks"><strong>set_xticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-set_ylim"><strong>set_ylim</strong></a>(self, v, emit<font color="#909090">=True</font>)</dt><dd><tt>SET_YLIM(v,&nbsp;emit=True)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[ymin,&nbsp;ymax].&nbsp;&nbsp;If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do<br>
-not&nbsp;trigger&nbsp;an&nbsp;event.</tt></dd></dl>
+not&nbsp;trigger&nbsp;an&nbsp;event.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;len(2)&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-set_yscale"><strong>set_yscale</strong></a>(self, value, basey<font color="#909090">=10</font>, subsy<font color="#909090">=None</font>)</dt><dd><tt>SET_YSCALE(value,&nbsp;basey=10,&nbsp;subsy=None)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -2213,14 +2344,20 @@ If&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;are&nbsp;the&nbsp;default<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basex)</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basex)<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-set_yticklabels"><strong>set_yticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_YTICKLABELS(labels,&nbsp;fontdict=None,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of<br>
-Text&nbsp;instances</tt></dd></dl>
+Text&nbsp;instances<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 
-<dl><dt><a name="PolarAxes-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+<dl><dt><a name="PolarAxes-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-specgram"><strong>specgram</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>, xextent<font color="#909090">=None</font>)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=128,<br>
@@ -2331,6 +2468,8 @@ backends</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
+<dl><dt><a name="PolarAxes-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
+
 <dl><dt><a name="PolarAxes-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="PolarAxes-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
@@ -2355,10 +2494,6 @@ ACCEPTS:&nbsp;a&nbsp;matplotlib.transform.Bbox&nbsp;instance</tt></dd></dl>
 <dl><dt><a name="PolarAxes-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
-
-<dl><dt><a name="PolarAxes-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to<br>
-&nbsp;<br>
-ACCEPTS:&nbsp;a&nbsp;matplotlib.figure.Figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="PolarAxes-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;line&nbsp;label&nbsp;to&nbsp;s&nbsp;for&nbsp;auto&nbsp;legend<br>
 &nbsp;<br>
@@ -2457,7 +2592,9 @@ if&nbsp;labels&nbsp;is&nbsp;None,&nbsp;the&nbsp;self.<strong>rformatter</strong>
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines,&nbsp;labels&nbsp;where&nbsp;the&nbsp;lines&nbsp;are<br>
 matplotlib.Line2D&nbsp;instances&nbsp;and&nbsp;the&nbsp;labels&nbsp;are&nbsp;matplotlib.Text<br>
-instances</tt></dd></dl>
+instances<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-set_thetagrids"><strong>set_thetagrids</strong></a>(self, angles, labels<font color="#909090">=None</font>, fmt<font color="#909090">='%d'</font>, frac<font color="#909090">=1.1000000000000001</font>, **kwargs)</dt><dd><tt>set&nbsp;the&nbsp;angles&nbsp;at&nbsp;which&nbsp;to&nbsp;place&nbsp;the&nbsp;theta&nbsp;grids&nbsp;(these<br>
 gridlines&nbsp;are&nbsp;equal&nbsp;along&nbsp;the&nbsp;theta&nbsp;dimension).&nbsp;&nbsp;angles&nbsp;is&nbsp;in<br>
@@ -2476,7 +2613,9 @@ kwargs&nbsp;are&nbsp;optional&nbsp;text&nbsp;properties&nbsp;for&nbsp;the&nbsp;l
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines,&nbsp;labels&nbsp;where&nbsp;the&nbsp;lines&nbsp;are<br>
 matplotlib.Line2D&nbsp;instances&nbsp;and&nbsp;the&nbsp;labels&nbsp;are&nbsp;matplotlib.Text<br>
-instances</tt></dd></dl>
+instances<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-set_xlabel"><strong>set_xlabel</strong></a>(self, xlabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>xlabel&nbsp;not&nbsp;implemented</tt></dd></dl>
 
@@ -2679,7 +2818,7 @@ Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;An
 
 <dl><dt><a name="PolarSubplot-connect"><strong>connect</strong></a>(self, s, func)</dt></dl>
 
-<dl><dt><a name="PolarSubplot-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
+<dl><dt><a name="PolarSubplot-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
 &nbsp;<br>
 plots&nbsp;contour&nbsp;lines&nbsp;of&nbsp;an&nbsp;image&nbsp;z<br>
 &nbsp;<br>
@@ -2716,6 +2855,8 @@ linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
 &nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
 &nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;<br>
 reg&nbsp;is&nbsp;a&nbsp;2D&nbsp;region&nbsp;number&nbsp;array&nbsp;with&nbsp;the&nbsp;same&nbsp;dimensions&nbsp;as&nbsp;x&nbsp;and<br>
 &nbsp;&nbsp;y.&nbsp;The&nbsp;values&nbsp;of&nbsp;reg&nbsp;should&nbsp;be&nbsp;positive&nbsp;region&nbsp;numbers,&nbsp;and&nbsp;zero&nbsp;fro<br>
 &nbsp;&nbsp;zones&nbsp;wich&nbsp;do&nbsp;not&nbsp;exist.<br>
@@ -2727,6 +2868,9 @@ alpha&nbsp;:&nbsp;the&nbsp;default&nbsp;transparency&nbsp;of&nbsp;contour&nbsp;l
 fmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;for&nbsp;adding&nbsp;a&nbsp;label&nbsp;to&nbsp;each&nbsp;collection.<br>
 &nbsp;&nbsp;Currently&nbsp;this&nbsp;is&nbsp;useful&nbsp;for&nbsp;auto-legending&nbsp;and&nbsp;may&nbsp;be&nbsp;useful&nbsp;down<br>
 &nbsp;&nbsp;the&nbsp;road&nbsp;for&nbsp;legend&nbsp;labeling<br>
+&nbsp;<br>
+origin&nbsp;=&nbsp;'upper'|'lower'|None.&nbsp;&nbsp;If&nbsp;None,&nbsp;the&nbsp;rc&nbsp;value&nbsp;for&nbsp;image.origin<br>
+will&nbsp;be&nbsp;used<br>
 &nbsp;<br>
 More&nbsp;information&nbsp;on&nbsp;reg&nbsp;and&nbsp;triangle&nbsp;arrays&nbsp;is&nbsp;in&nbsp;_contour.c<br>
 &nbsp;<br>
@@ -2822,7 +2966,7 @@ major&nbsp;formatter</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-get_axis_bgcolor"><strong>get_axis_bgcolor</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;background&nbsp;color</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
+<dl><dt><a name="PolarSubplot-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;artists&nbsp;the&nbsp;axes&nbsp;contains.&nbsp;&nbsp;Deprecated</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-get_frame"><strong>get_frame</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axes&nbsp;Rectangle&nbsp;frame</tt></dd></dl>
 
@@ -3007,7 +3151,8 @@ and&nbsp;so&nbsp;on.&nbsp;&nbsp;The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;sup
 &nbsp;&nbsp;labelsep&nbsp;=&nbsp;0.005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;vertical&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;entries<br>
 &nbsp;&nbsp;handlelen&nbsp;=&nbsp;0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;legend&nbsp;lines<br>
 &nbsp;&nbsp;handletextsep&nbsp;=&nbsp;0.02&nbsp;#&nbsp;the&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;line&nbsp;and&nbsp;legend&nbsp;text<br>
-&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge</tt></dd></dl>
+&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge<br>
+&nbsp;&nbsp;shadow&nbsp;=&nbsp;False&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;if&nbsp;True,&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;behind&nbsp;legend</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>LOGLOG(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -3139,6 +3284,41 @@ Grid&nbsp;orientation<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
+
+<dl><dt><a name="PolarSubplot-pie"><strong>pie</strong></a>(self, x, explode<font color="#909090">=None</font>, labels<font color="#909090">=None</font>, colors<font color="#909090">=('b', 'g', 'r', 'c', 'm', 'y', 'k', 'w')</font>, autopct<font color="#909090">=None</font>, shadow<font color="#909090">=False</font>)</dt><dd><tt>Make&nbsp;a&nbsp;pie&nbsp;chart&nbsp;of&nbsp;array&nbsp;x.&nbsp;&nbsp;The&nbsp;fractional&nbsp;area&nbsp;of&nbsp;each&nbsp;wedge&nbsp;is<br>
+given&nbsp;by&nbsp;x/sum(x).&nbsp;&nbsp;If&nbsp;sum(x)&lt;=1,&nbsp;then&nbsp;the&nbsp;values&nbsp;of&nbsp;x&nbsp;give&nbsp;the<br>
+fractional&nbsp;area&nbsp;directly&nbsp;and&nbsp;the&nbsp;array&nbsp;will&nbsp;not&nbsp;be&nbsp;normalized.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;explode,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(x)&nbsp;array&nbsp;which&nbsp;specifies&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fraction&nbsp;of&nbsp;the&nbsp;radius&nbsp;to&nbsp;offset&nbsp;that&nbsp;wedge.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;colors&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;that&nbsp;the&nbsp;pie&nbsp;chart<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;cycle.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;labels,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(x)&nbsp;list&nbsp;of&nbsp;labels.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;autopct,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;or&nbsp;function&nbsp;used&nbsp;to&nbsp;label&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wedges&nbsp;with&nbsp;their&nbsp;numeric&nbsp;value.&nbsp;&nbsp;The&nbsp;label&nbsp;will&nbsp;be&nbsp;placed&nbsp;inside<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;wedge.&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a&nbsp;format&nbsp;string,&nbsp;the&nbsp;label&nbsp;will&nbsp;be&nbsp;fmt%pct.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a&nbsp;function,&nbsp;it&nbsp;will&nbsp;be&nbsp;called<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;shadow,&nbsp;if&nbsp;True,&nbsp;will&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;beneath&nbsp;the&nbsp;pie.<br>
+&nbsp;&nbsp;<br>
+The&nbsp;pie&nbsp;chart&nbsp;will&nbsp;probably&nbsp;look&nbsp;best&nbsp;if&nbsp;the&nbsp;figure&nbsp;and&nbsp;axes&nbsp;are<br>
+square.&nbsp;&nbsp;Eg,<br>
+&nbsp;<br>
+&nbsp;&nbsp;figure(figsize=(8,8))<br>
+&nbsp;&nbsp;ax&nbsp;=&nbsp;axes([0.1,&nbsp;0.1,&nbsp;0.8,&nbsp;0.8])<br>
+&nbsp;<br>
+Return&nbsp;value:<br>
+&nbsp;<br>
+&nbsp;&nbsp;If&nbsp;autopct&nbsp;is&nbsp;None,&nbsp;return&nbsp;a&nbsp;list&nbsp;of&nbsp;(patches,&nbsp;texts),&nbsp;where&nbsp;patches<br>
+&nbsp;&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;matplotlib.patches.Wedge&nbsp;instances&nbsp;and&nbsp;texts&nbsp;is&nbsp;a<br>
+&nbsp;&nbsp;list&nbsp;of&nbsp;the&nbsp;label&nbsp;Text&nbsp;instnaces<br>
+&nbsp;<br>
+&nbsp;&nbsp;If&nbsp;autopct&nbsp;is&nbsp;not&nbsp;None,&nbsp;return&nbsp;(patches,&nbsp;texts,&nbsp;autotexts),&nbsp;where<br>
+&nbsp;&nbsp;patches&nbsp;and&nbsp;texts&nbsp;are&nbsp;as&nbsp;above,&nbsp;and&nbsp;autotexts&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;text<br>
+&nbsp;&nbsp;instances&nbsp;for&nbsp;the&nbsp;numeric&nbsp;labels</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-plot"><strong>plot</strong></a>(self, *args, **kwargs)</dt><dd><tt>PLOT(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -3356,30 +3536,45 @@ plot&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basey)</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-set_axis_bgcolor"><strong>set_axis_bgcolor</strong></a>(self, color)</dt><dd><tt>set&nbsp;the&nbsp;axes&nbsp;bacground&nbsp;color</tt></dd></dl>
+<dl><dt><a name="PolarSubplot-set_axis_bgcolor"><strong>set_axis_bgcolor</strong></a>(self, color)</dt><dd><tt>set&nbsp;the&nbsp;axes&nbsp;background&nbsp;color<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;matplotlib&nbsp;color&nbsp;-&nbsp;see&nbsp;help(colors)</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-set_axis_off"><strong>set_axis_off</strong></a>(self)</dt><dd><tt>turn&nbsp;off&nbsp;the&nbsp;axis</tt></dd></dl>
+<dl><dt><a name="PolarSubplot-set_axis_off"><strong>set_axis_off</strong></a>(self)</dt><dd><tt>turn&nbsp;off&nbsp;the&nbsp;axis<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;void</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-set_axis_on"><strong>set_axis_on</strong></a>(self)</dt><dd><tt>turn&nbsp;on&nbsp;the&nbsp;axis</tt></dd></dl>
+<dl><dt><a name="PolarSubplot-set_axis_on"><strong>set_axis_on</strong></a>(self)</dt><dd><tt>turn&nbsp;on&nbsp;the&nbsp;axis<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;void</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-set_frame_on"><strong>set_frame_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;the&nbsp;axes&nbsp;rectangle&nbsp;patch&nbsp;is&nbsp;drawn&nbsp;with&nbsp;boolean&nbsp;b</tt></dd></dl>
+<dl><dt><a name="PolarSubplot-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;<a href="#Axes">Axes</a>&nbsp;figure<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;Figure&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-set_image_extent"><strong>set_image_extent</strong></a>(self, xmin, xmax, ymin, ymax)</dt><dd><tt>Set&nbsp;the&nbsp;data&nbsp;units&nbsp;of&nbsp;the&nbsp;image.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
-plot&nbsp;other&nbsp;things&nbsp;over&nbsp;the&nbsp;image,&nbsp;eg,&nbsp;lines&nbsp;or&nbsp;scatter</tt></dd></dl>
+<dl><dt><a name="PolarSubplot-set_frame_on"><strong>set_frame_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;the&nbsp;axes&nbsp;rectangle&nbsp;patch&nbsp;is&nbsp;drawn<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;True|False</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-set_position"><strong>set_position</strong></a>(self, pos)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;position&nbsp;with&nbsp;pos&nbsp;=&nbsp;[left,&nbsp;bottom,&nbsp;width,&nbsp;height]<br>
-in&nbsp;relative&nbsp;0,1&nbsp;coords</tt></dd></dl>
+in&nbsp;relative&nbsp;0,1&nbsp;coords<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;len(4)&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-set_title"><strong>set_title</strong></a>(self, label, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_TITLE(label,&nbsp;fontdict=None,&nbsp;**kwargs):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;title&nbsp;for&nbsp;the&nbsp;xaxis.&nbsp;&nbsp;See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information<br>
-of&nbsp;how&nbsp;override&nbsp;and&nbsp;the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
+of&nbsp;how&nbsp;override&nbsp;and&nbsp;the&nbsp;optional&nbsp;args&nbsp;work<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-set_xlim"><strong>set_xlim</strong></a>(self, v, emit<font color="#909090">=True</font>)</dt><dd><tt>SET_XLIM(v,&nbsp;emit=True)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[xmin,&nbsp;xmax]<br>
 &nbsp;<br>
-If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do&nbsp;not&nbsp;trigger&nbsp;an&nbsp;event</tt></dd></dl>
+If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do&nbsp;not&nbsp;trigger&nbsp;an&nbsp;event<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;len(2)&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-set_xscale"><strong>set_xscale</strong></a>(self, value, basex<font color="#909090">=10</font>, subsx<font color="#909090">=None</font>)</dt><dd><tt>SET_XSCALE(value,&nbsp;basex=10,&nbsp;subsx=None)<br>
 &nbsp;<br>
@@ -3389,19 +3584,27 @@ If&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-set_xticklabels"><strong>set_xticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_XTICKLABELS(labels,&nbsp;fontdict=None,&nbsp;**kwargs)<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;axis<br>
-text&nbsp;instances</tt></dd></dl>
+text&nbsp;instances<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-set_xticks"><strong>set_xticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+<dl><dt><a name="PolarSubplot-set_xticks"><strong>set_xticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-set_ylim"><strong>set_ylim</strong></a>(self, v, emit<font color="#909090">=True</font>)</dt><dd><tt>SET_YLIM(v,&nbsp;emit=True)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[ymin,&nbsp;ymax].&nbsp;&nbsp;If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do<br>
-not&nbsp;trigger&nbsp;an&nbsp;event.</tt></dd></dl>
+not&nbsp;trigger&nbsp;an&nbsp;event.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;len(2)&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-set_yscale"><strong>set_yscale</strong></a>(self, value, basey<font color="#909090">=10</font>, subsy<font color="#909090">=None</font>)</dt><dd><tt>SET_YSCALE(value,&nbsp;basey=10,&nbsp;subsy=None)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -3412,14 +3615,20 @@ If&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;are&nbsp;the&nbsp;default<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basex)</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basex)<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-set_yticklabels"><strong>set_yticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_YTICKLABELS(labels,&nbsp;fontdict=None,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of<br>
-Text&nbsp;instances</tt></dd></dl>
+Text&nbsp;instances<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 
-<dl><dt><a name="PolarSubplot-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+<dl><dt><a name="PolarSubplot-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-specgram"><strong>specgram</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>, xextent<font color="#909090">=None</font>)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=128,<br>
@@ -3530,6 +3739,8 @@ backends</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
+<dl><dt><a name="PolarSubplot-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
+
 <dl><dt><a name="PolarSubplot-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="PolarSubplot-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
@@ -3554,10 +3765,6 @@ ACCEPTS:&nbsp;a&nbsp;matplotlib.transform.Bbox&nbsp;instance</tt></dd></dl>
 <dl><dt><a name="PolarSubplot-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
-
-<dl><dt><a name="PolarSubplot-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to<br>
-&nbsp;<br>
-ACCEPTS:&nbsp;a&nbsp;matplotlib.figure.Figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="PolarSubplot-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;line&nbsp;label&nbsp;to&nbsp;s&nbsp;for&nbsp;auto&nbsp;legend<br>
 &nbsp;<br>
@@ -3825,7 +4032,7 @@ Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;An
 
 <dl><dt><a name="Subplot-connect"><strong>connect</strong></a>(self, s, func)</dt></dl>
 
-<dl><dt><a name="Subplot-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
+<dl><dt><a name="Subplot-contour"><strong>contour</strong></a>(self, z, x<font color="#909090">=None</font>, y<font color="#909090">=None</font>, levels<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, fmt<font color="#909090">='%1.3f'</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>CONTOUR(z,&nbsp;x&nbsp;=&nbsp;None,&nbsp;y&nbsp;=&nbsp;None,&nbsp;levels&nbsp;=&nbsp;None,&nbsp;colors&nbsp;=&nbsp;None)<br>
 &nbsp;<br>
 plots&nbsp;contour&nbsp;lines&nbsp;of&nbsp;an&nbsp;image&nbsp;z<br>
 &nbsp;<br>
@@ -3862,6 +4069,8 @@ linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
 &nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
 &nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;<br>
 reg&nbsp;is&nbsp;a&nbsp;2D&nbsp;region&nbsp;number&nbsp;array&nbsp;with&nbsp;the&nbsp;same&nbsp;dimensions&nbsp;as&nbsp;x&nbsp;and<br>
 &nbsp;&nbsp;y.&nbsp;The&nbsp;values&nbsp;of&nbsp;reg&nbsp;should&nbsp;be&nbsp;positive&nbsp;region&nbsp;numbers,&nbsp;and&nbsp;zero&nbsp;fro<br>
 &nbsp;&nbsp;zones&nbsp;wich&nbsp;do&nbsp;not&nbsp;exist.<br>
@@ -3873,6 +4082,9 @@ alpha&nbsp;:&nbsp;the&nbsp;default&nbsp;transparency&nbsp;of&nbsp;contour&nbsp;l
 fmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;for&nbsp;adding&nbsp;a&nbsp;label&nbsp;to&nbsp;each&nbsp;collection.<br>
 &nbsp;&nbsp;Currently&nbsp;this&nbsp;is&nbsp;useful&nbsp;for&nbsp;auto-legending&nbsp;and&nbsp;may&nbsp;be&nbsp;useful&nbsp;down<br>
 &nbsp;&nbsp;the&nbsp;road&nbsp;for&nbsp;legend&nbsp;labeling<br>
+&nbsp;<br>
+origin&nbsp;=&nbsp;'upper'|'lower'|None.&nbsp;&nbsp;If&nbsp;None,&nbsp;the&nbsp;rc&nbsp;value&nbsp;for&nbsp;image.origin<br>
+will&nbsp;be&nbsp;used<br>
 &nbsp;<br>
 More&nbsp;information&nbsp;on&nbsp;reg&nbsp;and&nbsp;triangle&nbsp;arrays&nbsp;is&nbsp;in&nbsp;_contour.c<br>
 &nbsp;<br>
@@ -3972,7 +4184,7 @@ major&nbsp;formatter</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_axis_bgcolor"><strong>get_axis_bgcolor</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;background&nbsp;color</tt></dd></dl>
 
-<dl><dt><a name="Subplot-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
+<dl><dt><a name="Subplot-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;artists&nbsp;the&nbsp;axes&nbsp;contains.&nbsp;&nbsp;Deprecated</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_frame"><strong>get_frame</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axes&nbsp;Rectangle&nbsp;frame</tt></dd></dl>
 
@@ -4162,7 +4374,8 @@ and&nbsp;so&nbsp;on.&nbsp;&nbsp;The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;sup
 &nbsp;&nbsp;labelsep&nbsp;=&nbsp;0.005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;vertical&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;entries<br>
 &nbsp;&nbsp;handlelen&nbsp;=&nbsp;0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;legend&nbsp;lines<br>
 &nbsp;&nbsp;handletextsep&nbsp;=&nbsp;0.02&nbsp;#&nbsp;the&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;line&nbsp;and&nbsp;legend&nbsp;text<br>
-&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge</tt></dd></dl>
+&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge<br>
+&nbsp;&nbsp;shadow&nbsp;=&nbsp;False&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;if&nbsp;True,&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;behind&nbsp;legend</tt></dd></dl>
 
 <dl><dt><a name="Subplot-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>LOGLOG(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -4294,6 +4507,41 @@ Grid&nbsp;orientation<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
+
+<dl><dt><a name="Subplot-pie"><strong>pie</strong></a>(self, x, explode<font color="#909090">=None</font>, labels<font color="#909090">=None</font>, colors<font color="#909090">=('b', 'g', 'r', 'c', 'm', 'y', 'k', 'w')</font>, autopct<font color="#909090">=None</font>, shadow<font color="#909090">=False</font>)</dt><dd><tt>Make&nbsp;a&nbsp;pie&nbsp;chart&nbsp;of&nbsp;array&nbsp;x.&nbsp;&nbsp;The&nbsp;fractional&nbsp;area&nbsp;of&nbsp;each&nbsp;wedge&nbsp;is<br>
+given&nbsp;by&nbsp;x/sum(x).&nbsp;&nbsp;If&nbsp;sum(x)&lt;=1,&nbsp;then&nbsp;the&nbsp;values&nbsp;of&nbsp;x&nbsp;give&nbsp;the<br>
+fractional&nbsp;area&nbsp;directly&nbsp;and&nbsp;the&nbsp;array&nbsp;will&nbsp;not&nbsp;be&nbsp;normalized.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;explode,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(x)&nbsp;array&nbsp;which&nbsp;specifies&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fraction&nbsp;of&nbsp;the&nbsp;radius&nbsp;to&nbsp;offset&nbsp;that&nbsp;wedge.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;colors&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;that&nbsp;the&nbsp;pie&nbsp;chart<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;cycle.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;labels,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(x)&nbsp;list&nbsp;of&nbsp;labels.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;autopct,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;or&nbsp;function&nbsp;used&nbsp;to&nbsp;label&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wedges&nbsp;with&nbsp;their&nbsp;numeric&nbsp;value.&nbsp;&nbsp;The&nbsp;label&nbsp;will&nbsp;be&nbsp;placed&nbsp;inside<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;wedge.&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a&nbsp;format&nbsp;string,&nbsp;the&nbsp;label&nbsp;will&nbsp;be&nbsp;fmt%pct.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a&nbsp;function,&nbsp;it&nbsp;will&nbsp;be&nbsp;called<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;shadow,&nbsp;if&nbsp;True,&nbsp;will&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;beneath&nbsp;the&nbsp;pie.<br>
+&nbsp;&nbsp;<br>
+The&nbsp;pie&nbsp;chart&nbsp;will&nbsp;probably&nbsp;look&nbsp;best&nbsp;if&nbsp;the&nbsp;figure&nbsp;and&nbsp;axes&nbsp;are<br>
+square.&nbsp;&nbsp;Eg,<br>
+&nbsp;<br>
+&nbsp;&nbsp;figure(figsize=(8,8))<br>
+&nbsp;&nbsp;ax&nbsp;=&nbsp;axes([0.1,&nbsp;0.1,&nbsp;0.8,&nbsp;0.8])<br>
+&nbsp;<br>
+Return&nbsp;value:<br>
+&nbsp;<br>
+&nbsp;&nbsp;If&nbsp;autopct&nbsp;is&nbsp;None,&nbsp;return&nbsp;a&nbsp;list&nbsp;of&nbsp;(patches,&nbsp;texts),&nbsp;where&nbsp;patches<br>
+&nbsp;&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;matplotlib.patches.Wedge&nbsp;instances&nbsp;and&nbsp;texts&nbsp;is&nbsp;a<br>
+&nbsp;&nbsp;list&nbsp;of&nbsp;the&nbsp;label&nbsp;Text&nbsp;instnaces<br>
+&nbsp;<br>
+&nbsp;&nbsp;If&nbsp;autopct&nbsp;is&nbsp;not&nbsp;None,&nbsp;return&nbsp;(patches,&nbsp;texts,&nbsp;autotexts),&nbsp;where<br>
+&nbsp;&nbsp;patches&nbsp;and&nbsp;texts&nbsp;are&nbsp;as&nbsp;above,&nbsp;and&nbsp;autotexts&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;text<br>
+&nbsp;&nbsp;instances&nbsp;for&nbsp;the&nbsp;numeric&nbsp;labels</tt></dd></dl>
 
 <dl><dt><a name="Subplot-plot"><strong>plot</strong></a>(self, *args, **kwargs)</dt><dd><tt>PLOT(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -4511,35 +4759,52 @@ plot&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basey)</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_axis_bgcolor"><strong>set_axis_bgcolor</strong></a>(self, color)</dt><dd><tt>set&nbsp;the&nbsp;axes&nbsp;bacground&nbsp;color</tt></dd></dl>
+<dl><dt><a name="Subplot-set_axis_bgcolor"><strong>set_axis_bgcolor</strong></a>(self, color)</dt><dd><tt>set&nbsp;the&nbsp;axes&nbsp;background&nbsp;color<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;matplotlib&nbsp;color&nbsp;-&nbsp;see&nbsp;help(colors)</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_axis_off"><strong>set_axis_off</strong></a>(self)</dt><dd><tt>turn&nbsp;off&nbsp;the&nbsp;axis</tt></dd></dl>
+<dl><dt><a name="Subplot-set_axis_off"><strong>set_axis_off</strong></a>(self)</dt><dd><tt>turn&nbsp;off&nbsp;the&nbsp;axis<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;void</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_axis_on"><strong>set_axis_on</strong></a>(self)</dt><dd><tt>turn&nbsp;on&nbsp;the&nbsp;axis</tt></dd></dl>
+<dl><dt><a name="Subplot-set_axis_on"><strong>set_axis_on</strong></a>(self)</dt><dd><tt>turn&nbsp;on&nbsp;the&nbsp;axis<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;void</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_frame_on"><strong>set_frame_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;the&nbsp;axes&nbsp;rectangle&nbsp;patch&nbsp;is&nbsp;drawn&nbsp;with&nbsp;boolean&nbsp;b</tt></dd></dl>
+<dl><dt><a name="Subplot-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;<a href="#Axes">Axes</a>&nbsp;figure<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;Figure&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_image_extent"><strong>set_image_extent</strong></a>(self, xmin, xmax, ymin, ymax)</dt><dd><tt>Set&nbsp;the&nbsp;data&nbsp;units&nbsp;of&nbsp;the&nbsp;image.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
-plot&nbsp;other&nbsp;things&nbsp;over&nbsp;the&nbsp;image,&nbsp;eg,&nbsp;lines&nbsp;or&nbsp;scatter</tt></dd></dl>
+<dl><dt><a name="Subplot-set_frame_on"><strong>set_frame_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;the&nbsp;axes&nbsp;rectangle&nbsp;patch&nbsp;is&nbsp;drawn<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;True|False</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_position"><strong>set_position</strong></a>(self, pos)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;position&nbsp;with&nbsp;pos&nbsp;=&nbsp;[left,&nbsp;bottom,&nbsp;width,&nbsp;height]<br>
-in&nbsp;relative&nbsp;0,1&nbsp;coords</tt></dd></dl>
+in&nbsp;relative&nbsp;0,1&nbsp;coords<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;len(4)&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_title"><strong>set_title</strong></a>(self, label, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_TITLE(label,&nbsp;fontdict=None,&nbsp;**kwargs):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;title&nbsp;for&nbsp;the&nbsp;xaxis.&nbsp;&nbsp;See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information<br>
-of&nbsp;how&nbsp;override&nbsp;and&nbsp;the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
+of&nbsp;how&nbsp;override&nbsp;and&nbsp;the&nbsp;optional&nbsp;args&nbsp;work<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_xlabel"><strong>set_xlabel</strong></a>(self, xlabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_XLABEL(xlabel,&nbsp;fontdict=None,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;label&nbsp;for&nbsp;the&nbsp;xaxis.&nbsp;&nbsp;See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information<br>
-of&nbsp;how&nbsp;override&nbsp;and&nbsp;the&nbsp;optional&nbsp;args&nbsp;work.</tt></dd></dl>
+of&nbsp;how&nbsp;override&nbsp;and&nbsp;the&nbsp;optional&nbsp;args&nbsp;work.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_xlim"><strong>set_xlim</strong></a>(self, v, emit<font color="#909090">=True</font>)</dt><dd><tt>SET_XLIM(v,&nbsp;emit=True)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[xmin,&nbsp;xmax]<br>
 &nbsp;<br>
-If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do&nbsp;not&nbsp;trigger&nbsp;an&nbsp;event</tt></dd></dl>
+If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do&nbsp;not&nbsp;trigger&nbsp;an&nbsp;event<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;len(2)&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_xscale"><strong>set_xscale</strong></a>(self, value, basex<font color="#909090">=10</font>, subsx<font color="#909090">=None</font>)</dt><dd><tt>SET_XSCALE(value,&nbsp;basex=10,&nbsp;subsx=None)<br>
 &nbsp;<br>
@@ -4549,33 +4814,36 @@ If&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_xticklabels"><strong>set_xticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_XTICKLABELS(labels,&nbsp;fontdict=None,&nbsp;**kwargs)<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;axis<br>
-text&nbsp;instances</tt></dd></dl>
+text&nbsp;instances<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_xticks"><strong>set_xticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+<dl><dt><a name="Subplot-set_xticks"><strong>set_xticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_ylabel"><strong>set_ylabel</strong></a>(self, ylabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_YLABEL(ylabel,&nbsp;fontdict=None,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;label&nbsp;for&nbsp;the&nbsp;yaxis<br>
 &nbsp;<br>
-Defaults&nbsp;override&nbsp;is<br>
-&nbsp;<br>
-&nbsp;&nbsp;override&nbsp;=&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'verticalalignment'&nbsp;&nbsp;&nbsp;:&nbsp;'center',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'horizontalalignment'&nbsp;:&nbsp;'right',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rotation'='vertical'&nbsp;:&nbsp;}<br>
-&nbsp;<br>
 See&nbsp;the&nbsp;text&nbsp;doctstring&nbsp;for&nbsp;information&nbsp;of&nbsp;how&nbsp;override&nbsp;and<br>
-the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
+the&nbsp;optional&nbsp;args&nbsp;work<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_ylim"><strong>set_ylim</strong></a>(self, v, emit<font color="#909090">=True</font>)</dt><dd><tt>SET_YLIM(v,&nbsp;emit=True)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[ymin,&nbsp;ymax].&nbsp;&nbsp;If&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do<br>
-not&nbsp;trigger&nbsp;an&nbsp;event.</tt></dd></dl>
+not&nbsp;trigger&nbsp;an&nbsp;event.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;len(2)&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_yscale"><strong>set_yscale</strong></a>(self, value, basey<font color="#909090">=10</font>, subsy<font color="#909090">=None</font>)</dt><dd><tt>SET_YSCALE(value,&nbsp;basey=10,&nbsp;subsy=None)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -4586,14 +4854,20 @@ If&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;are&nbsp;the&nbsp;default<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basex)</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;range(2,basex)<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;str</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_yticklabels"><strong>set_yticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>SET_YTICKLABELS(labels,&nbsp;fontdict=None,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;<br>
 Set&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of<br>
-Text&nbsp;instances</tt></dd></dl>
+Text&nbsp;instances<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;strings</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+<dl><dt><a name="Subplot-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
 <dl><dt><a name="Subplot-specgram"><strong>specgram</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=None</font>, xextent<font color="#909090">=None</font>)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=mlab.detrend_none,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=mlab.window_hanning,&nbsp;noverlap=128,<br>
@@ -4704,6 +4978,8 @@ backends</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
+<dl><dt><a name="Subplot-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
+
 <dl><dt><a name="Subplot-get_label"><strong>get_label</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Subplot-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
@@ -4728,10 +5004,6 @@ ACCEPTS:&nbsp;a&nbsp;matplotlib.transform.Bbox&nbsp;instance</tt></dd></dl>
 <dl><dt><a name="Subplot-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
-
-<dl><dt><a name="Subplot-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to<br>
-&nbsp;<br>
-ACCEPTS:&nbsp;a&nbsp;matplotlib.figure.Figure&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;line&nbsp;label&nbsp;to&nbsp;s&nbsp;for&nbsp;auto&nbsp;legend<br>
 &nbsp;<br>
@@ -4821,8 +5093,8 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>False</strong> = False<br>
-<strong>Float</strong> = 'd'<br>
+<td width="100%"><strong>Float</strong> = 'd'<br>
+<strong>Float32</strong> = 'f'<br>
 <strong>Float64</strong> = 'd'<br>
 <strong>IDENTITY</strong> = 0<br>
 <strong>Int32</strong> = 'i'<br>
@@ -4832,16 +5104,16 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>SEC_PER_HOUR</strong> = 3600<br>
 <strong>SEC_PER_MIN</strong> = 60<br>
 <strong>SEC_PER_WEEK</strong> = 604800<br>
-<strong>True</strong> = True<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>ceil</strong> = &lt;ufunc 'ceil'&gt;<br>
 <strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
+<strong>divide</strong> = &lt;ufunc 'divide'&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>generators</strong> = _Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 4096)<br>
 <strong>lineMarkers</strong> = {0: 1, 1: 1, 2: 1, 3: 1, '+': 1, ',': 1, '.': 1, '1': 1, '2': 1, '3': 1, ...}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1, 'None': 1, 'steps': 1}<br>
 <strong>log</strong> = &lt;ufunc 'log'&gt;<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>which</strong> = ('numeric', 'rc')</td></tr></table>
 @footer@

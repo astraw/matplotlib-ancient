@@ -23,11 +23,13 @@ _Plotting&nbsp;commands<br>
 &nbsp;&nbsp;barh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;horizontal&nbsp;bar&nbsp;chart&nbsp;&nbsp;<br>
 &nbsp;&nbsp;cla&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;current&nbsp;axes<br>
 &nbsp;&nbsp;clf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;a&nbsp;figure&nbsp;window<br>
+&nbsp;&nbsp;clim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;adjust&nbsp;the&nbsp;color&nbsp;limits&nbsp;of&nbsp;the&nbsp;current&nbsp;image<br>
 &nbsp;&nbsp;close&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;close&nbsp;a&nbsp;figure&nbsp;window<br>
 &nbsp;&nbsp;colorbar&nbsp;-&nbsp;add&nbsp;a&nbsp;colorbar&nbsp;to&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;cohere&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;coherence<br>
 &nbsp;&nbsp;contour&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;contour&nbsp;plot<br>
 &nbsp;&nbsp;csd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;&nbsp;<br>
+&nbsp;&nbsp;delaxes&nbsp;&nbsp;-&nbsp;delete&nbsp;an&nbsp;axes&nbsp;from&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;draw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Force&nbsp;a&nbsp;redraw&nbsp;of&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;errorbar&nbsp;-&nbsp;make&nbsp;an&nbsp;errorbar&nbsp;graph<br>
 &nbsp;&nbsp;figlegend&nbsp;-&nbsp;make&nbsp;legend&nbsp;on&nbsp;the&nbsp;figure&nbsp;rather&nbsp;than&nbsp;the&nbsp;axes<br>
@@ -39,18 +41,24 @@ _Plotting&nbsp;commands<br>
 &nbsp;&nbsp;gcf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;gci&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;get&nbsp;the&nbsp;current&nbsp;image,&nbsp;or&nbsp;None<br>
 &nbsp;&nbsp;get&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;get&nbsp;a&nbsp;handle&nbsp;graphics&nbsp;property<br>
+&nbsp;&nbsp;grid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;whether&nbsp;gridding&nbsp;is&nbsp;on<br>
 &nbsp;&nbsp;hist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;histogram<br>
 &nbsp;&nbsp;hold&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;axes&nbsp;hold&nbsp;state<br>
-&nbsp;&nbsp;legend&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;an&nbsp;axes&nbsp;legend<br>
-&nbsp;&nbsp;loglog&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;log&nbsp;log&nbsp;plot<br>
+&nbsp;&nbsp;ioff&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;turn&nbsp;interaction&nbsp;mode&nbsp;off<br>
+&nbsp;&nbsp;ion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;turn&nbsp;interaction&nbsp;mode&nbsp;on<br>
+&nbsp;&nbsp;isinteractive&nbsp;-&nbsp;return&nbsp;True&nbsp;if&nbsp;interaction&nbsp;mode&nbsp;is&nbsp;on<br>
 &nbsp;&nbsp;imread&nbsp;&nbsp;&nbsp;-&nbsp;load&nbsp;image&nbsp;file&nbsp;into&nbsp;array<br>
 &nbsp;&nbsp;imshow&nbsp;&nbsp;&nbsp;-&nbsp;plot&nbsp;image&nbsp;data<br>
 &nbsp;&nbsp;ishold&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;hold&nbsp;state&nbsp;of&nbsp;the&nbsp;current&nbsp;axes<br>
+&nbsp;&nbsp;legend&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;an&nbsp;axes&nbsp;legend<br>
+&nbsp;&nbsp;loglog&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;log&nbsp;log&nbsp;plot<br>
 &nbsp;&nbsp;pcolor&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot<br>
+&nbsp;&nbsp;pie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;pie&nbsp;chart<br>
 &nbsp;&nbsp;plot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;line&nbsp;plot<br>
 &nbsp;&nbsp;polar&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;polar&nbsp;plot&nbsp;on&nbsp;a&nbsp;PolarAxes<br>
 &nbsp;&nbsp;psd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;power&nbsp;spectral&nbsp;density<br>
 &nbsp;&nbsp;rc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;control&nbsp;the&nbsp;default&nbsp;params<br>
+&nbsp;&nbsp;rgrids&nbsp;&nbsp;&nbsp;-&nbsp;customize&nbsp;the&nbsp;radial&nbsp;grids&nbsp;and&nbsp;labels&nbsp;for&nbsp;polar&nbsp;<br>
 &nbsp;&nbsp;savefig&nbsp;&nbsp;-&nbsp;save&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;scatter&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot<br>
 &nbsp;&nbsp;set&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;a&nbsp;handle&nbsp;graphics&nbsp;property<br>
@@ -64,6 +72,7 @@ _Plotting&nbsp;commands<br>
 &nbsp;&nbsp;subplot&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;subplot&nbsp;(numrows,&nbsp;numcols,&nbsp;axesnum)<br>
 &nbsp;&nbsp;table&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;table&nbsp;to&nbsp;the&nbsp;plot<br>
 &nbsp;&nbsp;text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;some&nbsp;text&nbsp;at&nbsp;location&nbsp;x,y&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
+&nbsp;&nbsp;thetagrids&nbsp;-&nbsp;customize&nbsp;the&nbsp;radial&nbsp;theta&nbsp;grids&nbsp;and&nbsp;labels&nbsp;for&nbsp;polar&nbsp;<br>
 &nbsp;&nbsp;title&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;title&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
 &nbsp;&nbsp;xlim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set/get&nbsp;the&nbsp;xlimits<br>
 &nbsp;&nbsp;ylim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set/get&nbsp;the&nbsp;ylimits<br>
@@ -200,8 +209,9 @@ exception&nbsp;of&nbsp;those&nbsp;in&nbsp;mlab.py&nbsp;provided&nbsp;by&nbsp;mat
 <a href="operator.html">operator</a><br>
 <a href="os.html">os</a><br>
 <a href="pickle.html">pickle</a><br>
-<a href="re.html">re</a><br>
-</td><td width="25%" valign=top><a href="string.html">string</a><br>
+<a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="string.html">string</a><br>
 <a href="sys.html">sys</a><br>
 <a href="time.html">time</a><br>
 <a href="types.html">types</a><br>
@@ -569,6 +579,8 @@ linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
 &nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
 &nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;<br>
 reg&nbsp;is&nbsp;a&nbsp;2D&nbsp;region&nbsp;number&nbsp;array&nbsp;with&nbsp;the&nbsp;same&nbsp;dimensions&nbsp;as&nbsp;x&nbsp;and<br>
 &nbsp;&nbsp;y.&nbsp;The&nbsp;values&nbsp;of&nbsp;reg&nbsp;should&nbsp;be&nbsp;positive&nbsp;region&nbsp;numbers,&nbsp;and&nbsp;zero&nbsp;fro<br>
 &nbsp;&nbsp;zones&nbsp;wich&nbsp;do&nbsp;not&nbsp;exist.<br>
@@ -580,6 +592,9 @@ alpha&nbsp;:&nbsp;the&nbsp;default&nbsp;transparency&nbsp;of&nbsp;contour&nbsp;l
 fmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;for&nbsp;adding&nbsp;a&nbsp;label&nbsp;to&nbsp;each&nbsp;collection.<br>
 &nbsp;&nbsp;Currently&nbsp;this&nbsp;is&nbsp;useful&nbsp;for&nbsp;auto-legending&nbsp;and&nbsp;may&nbsp;be&nbsp;useful&nbsp;down<br>
 &nbsp;&nbsp;the&nbsp;road&nbsp;for&nbsp;legend&nbsp;labeling<br>
+&nbsp;<br>
+origin&nbsp;=&nbsp;'upper'|'lower'|None.&nbsp;&nbsp;If&nbsp;None,&nbsp;the&nbsp;rc&nbsp;value&nbsp;for&nbsp;image.origin<br>
+will&nbsp;be&nbsp;used<br>
 &nbsp;<br>
 More&nbsp;information&nbsp;on&nbsp;reg&nbsp;and&nbsp;triangle&nbsp;arrays&nbsp;is&nbsp;in&nbsp;_contour.c<br>
 &nbsp;<br>
@@ -612,6 +627,10 @@ Refs:<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
+ <dl><dt><a name="-delaxes"><strong>delaxes</strong></a>(*args)</dt><dd><tt><a href="#-delaxes">delaxes</a>(ax)&nbsp;-&nbsp;remove&nbsp;ax&nbsp;from&nbsp;the&nbsp;current&nbsp;figure.&nbsp;&nbsp;If&nbsp;ax&nbsp;doesn't<br>
+exist&nbsp;an&nbsp;error&nbsp;will&nbsp;be&nbsp;raised.<br>
+&nbsp;<br>
+<a href="#-delaxes">delaxes</a>():&nbsp;delete&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
  <dl><dt><a name="-disconnect"><strong>disconnect</strong></a>(cid)</dt><dd><tt>Connect&nbsp;s&nbsp;to&nbsp;func.&nbsp;return&nbsp;an&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect<br>
 Method&nbsp;should&nbsp;return&nbsp;None</tt></dd></dl>
  <dl><dt><a name="-draw"><strong>draw</strong></a>()</dt><dd><tt>redraw&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
@@ -694,7 +713,7 @@ A&nbsp;image.FigureImage&nbsp;instance&nbsp;is&nbsp;returned.<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-figlegend"><strong>figlegend</strong></a>(handles, labels, loc, **kwargs)</dt><dd><tt>Place&nbsp;a&nbsp;legend&nbsp;in&nbsp;the&nbsp;figure.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of<br>
 strings,&nbsp;handles&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;line&nbsp;or&nbsp;patch&nbsp;instances,&nbsp;and<br>
-loc&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;or&nbsp;an&nbsp;integer&nbsp;specifying&nbsp;the&nbsp;legend<br>
+loc&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;r&nbsp;an&nbsp;integer&nbsp;specifying&nbsp;the&nbsp;legend<br>
 location<br>
 &nbsp;<br>
 USAGE:&nbsp;<br>
@@ -941,7 +960,8 @@ and&nbsp;so&nbsp;on.&nbsp;&nbsp;The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;sup
 &nbsp;&nbsp;labelsep&nbsp;=&nbsp;0.005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;vertical&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;entries<br>
 &nbsp;&nbsp;handlelen&nbsp;=&nbsp;0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;legend&nbsp;lines<br>
 &nbsp;&nbsp;handletextsep&nbsp;=&nbsp;0.02&nbsp;#&nbsp;the&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;line&nbsp;and&nbsp;legend&nbsp;text<br>
-&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge</tt></dd></dl>
+&nbsp;&nbsp;axespad&nbsp;=&nbsp;0.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;border&nbsp;between&nbsp;the&nbsp;axes&nbsp;and&nbsp;legend&nbsp;edge<br>
+&nbsp;&nbsp;shadow&nbsp;=&nbsp;False&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;if&nbsp;True,&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;behind&nbsp;legend</tt></dd></dl>
  <dl><dt><a name="-load"><strong>load</strong></a>(fname)</dt><dd><tt>Load&nbsp;ASCII&nbsp;data&nbsp;from&nbsp;fname&nbsp;into&nbsp;an&nbsp;array&nbsp;and&nbsp;return&nbsp;the&nbsp;array.<br>
 &nbsp;<br>
 The&nbsp;data&nbsp;must&nbsp;be&nbsp;regular,&nbsp;same&nbsp;number&nbsp;of&nbsp;values&nbsp;in&nbsp;every&nbsp;row<br>
@@ -1088,6 +1108,42 @@ Grid&nbsp;orientation<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;numcols&nbsp;of&nbsp;Z<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
+ <dl><dt><a name="-pie"><strong>pie</strong></a>(*args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;pie&nbsp;chart&nbsp;of&nbsp;array&nbsp;x.&nbsp;&nbsp;The&nbsp;fractional&nbsp;area&nbsp;of&nbsp;each&nbsp;wedge&nbsp;is<br>
+given&nbsp;by&nbsp;x/sum(x).&nbsp;&nbsp;If&nbsp;sum(x)&lt;=1,&nbsp;then&nbsp;the&nbsp;values&nbsp;of&nbsp;x&nbsp;give&nbsp;the<br>
+fractional&nbsp;area&nbsp;directly&nbsp;and&nbsp;the&nbsp;array&nbsp;will&nbsp;not&nbsp;be&nbsp;normalized.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;explode,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(x)&nbsp;array&nbsp;which&nbsp;specifies&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fraction&nbsp;of&nbsp;the&nbsp;radius&nbsp;to&nbsp;offset&nbsp;that&nbsp;wedge.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;colors&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;that&nbsp;the&nbsp;pie&nbsp;chart<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;cycle.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;labels,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(x)&nbsp;list&nbsp;of&nbsp;labels.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;autopct,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;or&nbsp;function&nbsp;used&nbsp;to&nbsp;label&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wedges&nbsp;with&nbsp;their&nbsp;numeric&nbsp;value.&nbsp;&nbsp;The&nbsp;label&nbsp;will&nbsp;be&nbsp;placed&nbsp;inside<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;wedge.&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a&nbsp;format&nbsp;string,&nbsp;the&nbsp;label&nbsp;will&nbsp;be&nbsp;fmt%pct.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a&nbsp;function,&nbsp;it&nbsp;will&nbsp;be&nbsp;called<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;shadow,&nbsp;if&nbsp;True,&nbsp;will&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;beneath&nbsp;the&nbsp;pie.<br>
+&nbsp;&nbsp;<br>
+The&nbsp;pie&nbsp;chart&nbsp;will&nbsp;probably&nbsp;look&nbsp;best&nbsp;if&nbsp;the&nbsp;figure&nbsp;and&nbsp;axes&nbsp;are<br>
+square.&nbsp;&nbsp;Eg,<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#-figure">figure</a>(figsize=(8,8))<br>
+&nbsp;&nbsp;ax&nbsp;=&nbsp;<a href="#-axes">axes</a>([0.1,&nbsp;0.1,&nbsp;0.8,&nbsp;0.8])<br>
+&nbsp;<br>
+Return&nbsp;value:<br>
+&nbsp;<br>
+&nbsp;&nbsp;If&nbsp;autopct&nbsp;is&nbsp;None,&nbsp;return&nbsp;a&nbsp;list&nbsp;of&nbsp;(patches,&nbsp;texts),&nbsp;where&nbsp;patches<br>
+&nbsp;&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;matplotlib.patches.Wedge&nbsp;instances&nbsp;and&nbsp;texts&nbsp;is&nbsp;a<br>
+&nbsp;&nbsp;list&nbsp;of&nbsp;the&nbsp;label&nbsp;Text&nbsp;instnaces<br>
+&nbsp;<br>
+&nbsp;&nbsp;If&nbsp;autopct&nbsp;is&nbsp;not&nbsp;None,&nbsp;return&nbsp;(patches,&nbsp;texts,&nbsp;autotexts),&nbsp;where<br>
+&nbsp;&nbsp;patches&nbsp;and&nbsp;texts&nbsp;are&nbsp;as&nbsp;above,&nbsp;and&nbsp;autotexts&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;text<br>
+&nbsp;&nbsp;instances&nbsp;for&nbsp;the&nbsp;numeric&nbsp;labels<br>
+&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-pink"><strong>pink</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;pink&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-plot"><strong>plot</strong></a>(*args, **kwargs)</dt><dd><tt>PLOT(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
@@ -1773,7 +1829,6 @@ information&nbsp;on&nbsp;text&nbsp;properties.</tt></dd></dl>
 <strong>DAILY</strong> = 3<br>
 <strong>FR</strong> = FR<br>
 <strong>FRIDAY</strong> = FR<br>
-<strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
 <strong>Float0</strong> = 'f'<br>
 <strong>Float16</strong> = 'f'<br>
@@ -1811,7 +1866,6 @@ information&nbsp;on&nbsp;text&nbsp;properties.</tt></dd></dl>
 <strong>THURSDAY</strong> = TH<br>
 <strong>TU</strong> = TU<br>
 <strong>TUESDAY</strong> = TU<br>
-<strong>True</strong> = True<br>
 <strong>UInt</strong> = 'u'<br>
 <strong>UInt16</strong> = 'w'<br>
 <strong>UInt32</strong> = 'u'<br>
@@ -1876,8 +1930,8 @@ information&nbsp;on&nbsp;text&nbsp;properties.</tt></dd></dl>
 <strong>nx</strong> = &lt;matplotlib.nc_imports._TypeNamespace instance&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
-<strong>rcParamsDefault</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParamsDefault</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>readme</strong> = '<font color="#c040c0">\n</font>MLab2.py, release 1<font color="#c040c0">\n\n</font>Created on February 2003 b...<font color="#c040c0">\n</font>Look at: http://pdilib.sf.net for new releases.<font color="#c040c0">\n</font>'<br>
 <strong>remainder</strong> = &lt;ufunc 'remainder'&gt;<br>
 <strong>right_shift</strong> = &lt;ufunc 'right_shift'&gt;<br>

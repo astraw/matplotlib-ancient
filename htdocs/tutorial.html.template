@@ -50,10 +50,10 @@ href=http://matplotlib.sf.net/examples>matplotlib examples</a>
 subdirectory.  If you are working with date plots you'll find several
 date demos with obvious filenames like <a
 href=examples/date_demo1.py>examples/date_demo1.py</a>.  Likewise,
-you'll find examples for images (<a
-href=examples/image_demo.py>examples/image_demo.py</a>), contouring
-(<a href=examples/contour_demo.py>examples/contour_demo.py</a>, using
-matplotlib with a graphical user interface (<a
+you'll find examples for images <a
+href=examples/image_demo.py>examples/image_demo.py</a>, contouring <a
+href=examples/contour_demo.py>examples/contour_demo.py</a>, using
+matplotlib with a graphical user interface <a
 href=examples/embedding_in_wx.py>examples/embedding_in_wx.py</a> and
 many more.  Because these are not included with the standard windows
 installer, they are often overlooked, which is why I emphasize them
@@ -732,8 +732,8 @@ input from the user.  All graphical user interfaces (GUIs) provide
 event handling to determine things like key presses, mouse position,
 and button clicks.  matplotlib supports a number of GUIs, and provides
 an interface to the GUI event handling via the <a
-href=pylab.html#-mpl_connect>mpl_connect</a> and <a
-href=pylab.html#-mpl_disconnect>mpl_disconnect</a> methods
+href=pylab.html#-connect>connect</a> and <a
+href=pylab.html#-disconnect>disconnect</a> methods
 of the pylab interface.  API users will probably want to use their
 GUIs event handling directly, but do have the option of using their
 <tt>FigureCanvas.mpl_connect</tt> method.<p>
@@ -749,7 +749,7 @@ def click(event):
     print 'you clicked', event.x, event.y
 
 #register this function with the event handler
-mpl_connect('button_press_event', click)  
+connect('button_press_event', click)  
 </pre>
 
 Then whenever the user clicks anywhere on the figure canvas, your
@@ -789,7 +789,7 @@ def on_move(event):
     if event.inaxes:
         print 'data coords', event.xdata, event.ydata
 
-mpl_connect('motion_notify_event', on_move)
+connect('motion_notify_event', on_move)
 
 show()
 

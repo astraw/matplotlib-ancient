@@ -27,7 +27,7 @@ class NewsBox:
                'cellspacing=1>\n'
         s += self.format_header()
         s += '<tr><td valign="top" bgcolor=#efefef>\n'
-        s += '<font color="red">%s</font>'%self.body
+        s += '<font color="black">%s</font>'%self.body
         s += '</td></tr>\n'
         s += '</table>\n'
         return s

@@ -1,5 +1,61 @@
 New entries should be added at the top
 
+2004-12-27 Added Shadow class and added shadow kwarg to legend and pie
+           for shadow effect - JDH
+
+2004-12-27 Added pie charts and new example/pie_demo.py
+
+2004-12-23 Fixed an agg text rotation alignment bug, fixed some text
+           kwarg processing bugs, and added examples/text_rotation.py
+           to explain and demonstrate how text rotations and alignment
+           work in matplotlib. - JDH
+
+======================================================================
+
+2004-12-22 0.65.1 released - JDH
+
+2004-12-22 Fixed colorbar bug which caused colorbar not to respond to
+           changes in colormap in some instances - JDH
+
+2004-12-22 Refactored NavigationToolbar in tkagg to support app
+           embedding , init now takes (canvas, window) rather than
+           (canvas, figman) - JDH
+
+2004-12-21 Refactored axes and subplot management - removed
+           add_subplot and add_axes from the FigureManager.  classic
+           toolbar updates are done via an observer pattern on the
+           figure using add_axobserver.  Figure now maintains the axes
+           stack (for gca) and supports axes deletion.  Ported changes
+           to GTK, Tk, Wx, and FLTK.  Please test!  Added delaxes - JDH
+
+2004-12-21 Lots of image optimizations - 4x performance boost over
+           0.65 JDH
+
+2004-12-20 Fixed a figimage bug where the axes is shown and modified
+           tkagg to move the destroy binding into the show method.
+
+2004-12-18 Minor refactoring of NavigationToolbar2 to support
+           embedding in an application - JDH
+
+2004-12-14 Added linestyle to collections (currently broken) -  JDH
+
+2004-12-14 Applied Nadia's setupext patch to fix libstdc++ link
+           problem with contour and solaris  -JDH
+
+2004-12-14 A number of pychecker inspired fixes, including removal of
+           True and False from cbook which I erroneously thought was
+           needed for python2.2 - JDH
+
+2004-12-14 Finished porting doc strings for set introspection.
+           Used silent_list for many get funcs that return
+           lists. JDH
+
+2004-12-13 dates.py: removed all timezone() calls, except for UTC - SC
+
+======================================================================
+
+2004-12-13 0.65 released - JDH
+
 2004-12-13 colors.py: rgb2hex(), hex2color() made simpler (and faster), also
            rgb2hex() - added round() instead of integer truncation
            hex2color() - changed 256.0 divisor to 255.0, so now

@@ -853,25 +853,17 @@ if&nbsp;x&nbsp;is&nbsp;a&nbsp;sequence,&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dateti
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>Berlin</strong> = &lt;DstTzInfo 'Europe/Berlin' CET+1:00:00 STD&gt;<br>
-<strong>Central</strong> = &lt;DstTzInfo 'US/Central' CST-1 day, 18:00:00 STD&gt;<br>
-<strong>DAILY</strong> = 3<br>
-<strong>Eastern</strong> = &lt;DstTzInfo 'US/Eastern' EST-1 day, 19:00:00 STD&gt;<br>
+<td width="100%"><strong>DAILY</strong> = 3<br>
 <strong>FR</strong> = FR<br>
 <strong>FRIDAY</strong> = FR<br>
 <strong>HOURLY</strong> = 4<br>
 <strong>HOURS_PER_DAY</strong> = 24.0<br>
-<strong>London</strong> = &lt;DstTzInfo 'Europe/London' GMT0:00:00 STD&gt;<br>
 <strong>MINUTELY</strong> = 5<br>
 <strong>MINUTES_PER_DAY</strong> = 1440.0<br>
 <strong>MO</strong> = MO<br>
 <strong>MONDAY</strong> = MO<br>
 <strong>MONTHLY</strong> = 1<br>
 <strong>MUSECONDS_PER_DAY</strong> = 86400000000.0<br>
-<strong>Moscow</strong> = &lt;DstTzInfo 'Europe/Moscow' MMT+2:30:00 STD&gt;<br>
-<strong>Mountain</strong> = &lt;DstTzInfo 'US/Mountain' MST-1 day, 17:00:00 STD&gt;<br>
-<strong>Pacific</strong> = &lt;DstTzInfo 'US/Pacific' PST-1 day, 16:00:00 STD&gt;<br>
-<strong>Paris</strong> = &lt;DstTzInfo 'Europe/Paris' PMT+0:09:00 STD&gt;<br>
 <strong>SA</strong> = SA<br>
 <strong>SATURDAY</strong> = SA<br>
 <strong>SECONDLY</strong> = 6<br>
