@@ -1,5 +1,6 @@
 new_to_53 = ( 
 
+
     ('Improved font manager and support', """
 Paul Barrett has thoroughly overhauled font support.  FontTools and
 ttfquery are no longer required for font finding as matplotlib now has
@@ -14,12 +15,10 @@ monospace, cursive or fantasy.  You can specify relative font sizes
 like 'smaller' or 'larger' for text elements, which enables you to
 change to entire font sizing scheme of a figure just by changing the
 base size.  See <a href=matplotlib.font_manager.html>the font manager
-documentation</a> for more details; please update your matplotlibrc
-files as described in that link.
-"""),
-
-    ('Ported image support to numarray', """
-The image module now works with Numeric or numarray
+documentation</a>, the <a href=fonts.html>fonts documentation</a> and
+the updated <a href=.matplotlibrc>.matplotlibrc</a> file for more
+details; please update your .matplotlibrc files as described in that
+link.
 """),
 
     ('Backend WXAgg', """
@@ -29,12 +28,45 @@ including mathtext, antialised drawing, alpha blending and image
 support.
 """),
 
-    ('load and save commands', """
-Helper functions for loading and saving ASCII arrays.  See <a
-href=matplotlib.matlab.html#-load>load</a> and See <a
-href=matplotlib.matlab.html#-save>save</a>.
+    ('Major and minor ticks',
+"""
+Full support for major and minor ticks with a bevy of more intelligent
+tick locators supplied in the <a
+href=matplotlib.ticker.html>ticker</a> module.  Fully customizable and
+user definable tick locators and formatters.  See <a
+href=examples/major_minor_demo1.py>major_minor_demo1.py</a> and <a
+href=examples/major_minor_demo2.py>major_minor_demo2.py</a>.  The
+default tick labeler is much more intelligent is choosing good tick
+locations.
+"""
+     ),
+
+    ('Date plot',
+"""
+A new command a href=matplotlib.matlab.html#-plot_date>plot_date</a>
+command for plotting date dependent data.  Converters supplied in the
+<a href=matplotlib.dates.html>dates</a> module allow you to work with
+a variety of datetime instances.  Custom date locators and formatters
+allow you to place major and minor ticks by minute, hour, weekday,
+month, year, etc, and use strftime format strings to format the ticks.
+See examples <a href=examples/date_demo1.py>date_demo1.py</a> and <a
+href=examples/date_demo2.py>date_demo2.py</a>.  The <a
+href=matplotlib.dates.html>dates documentation</a> provides a
+reasonably complete discussion of working with dates.
 """),
 
+
+    ('Ported image support to numarray and postscript backend', """
+The image module now works with Numeric or numarray, and now works in
+the postscript backend as well as GTKAgg, TkAgg, WXAgg, Agg, and GTK.
+"""),
+
+    ('load and save commands', """
+Helper functions for loading and saving ASCII arrays.  See <a
+href=matplotlib.matlab.html#-load>load</a> and <a
+href=matplotlib.matlab.html#-save>save</a>.
+"""),
+)
 				  )
 
 new_to_52 = ( 
