@@ -1,9 +1,8 @@
-new_to_40 = (
-	('Wx python backend',
-"""
-Jeremy O'Donoghue has done an amazing job implementing the backend for
-<a href=http://www.wxpython.org>wxpython</a>.  
-"""),	
+new_to_40 = ( ('Wx python backend', 
+""" Jeremy O'Donoghue has done an amazing job implementing the backend
+for <a href=http://www.wxpython.org>wxpython</a>.  See <a
+href=matplotlib.backends.backend_wx.html>backend_wx</a> for a status
+report on what's working and what the outstanding issues are."""),
 
 	('New plotting functions',
 """
