@@ -104,8 +104,8 @@ sub main {
     set_cmd_defaults(\%cmd);
     $file_base=check_file_exists($file_in);
     # various filenames (with extensions)
-    my @exts=qw(lyx tex aux dvi log ps pdf out toc);
-    my ($lyx,$tex,$aux,$dvi,$log,$ps,$pdf,$out,$toc) = map { "$file_base.$_" } @exts;
+    my @exts=qw(lyx tex aux dvi log ps pdf out toc bbl blg);
+    my ($lyx,$tex,$aux,$dvi,$log,$ps,$pdf,$out,$toc,$bbl,$blg) = map { "$file_base.$_" } @exts;
 
     # first, if tex file is older than lyx file, update
     @latex_from_lyx=update_tex($lyx,$tex);
@@ -135,7 +135,7 @@ sub main {
 
     #cleanup before exiting and print some diagnostics info
     unless ($opt{debug}) {
-	unlink ($dvi,$log,$out);
+	unlink ($dvi,$log,$out,$bbl,$blg);
     }
     # extra cleanup
     if ($opt{tidy}) {
@@ -256,12 +256,15 @@ sub run_latex {
     # get base filename (no ext.) to run bibtex on it.
     my($basefile,$dir,$ext);
     ($basefile,$dir,$ext) = fileparse($file,'\..*');
+    #print "file: $file\n";
+    #print "basefile: $basefile\n";
+    #my($x);$x=0; print 1/$x;
     # pre-determined # of runs
     if ($$runs_ref > 0) {
 	foreach (1..$$runs_ref) {
 	    lyxport_info("$latex_cmd run # $$runs_ref");
 	    safe_system("$latex_cmd $file");
-            safe_system("bibtex $file");
+            safe_system("bibtex $basefile");
 	}
     }
     # or make as many runs as needed to get things right (not very robust...)
@@ -271,7 +274,6 @@ sub run_latex {
 	    $$runs_ref++;
 	    lyxport_info("$latex_cmd run # $$runs_ref");
 	    $_ = `$latex_cmd $file`;
-            print "*** Running file $basefile\n";
             safe_system("bibtex $basefile");
 	    print;
 	    last unless (/Rerun to get cross-references right/m or 
