@@ -380,13 +380,13 @@ The default Python interactive shell only allows valid Python code to be
  use it turns out to be rather limiting.
  A good interactive environment should allow you to control the environment
  itself, in hopefully the most typing-efficient way.
- Verbosity in code is a good thing, since code is a long-lived entity, and
- deciphering three-letter acronyms for variable names, 6 months after a
- program was written, is typically an exercise in frustration.
  
 \layout Standard
 
-However at an interactive prompt, where every keystroke counts and things
+Verbosity in code is a good thing, since code is a long-lived entity, and
+ deciphering three-letter acronyms for variable names, 6 months after a
+ program was written, is typically an exercise in frustration.
+ However at an interactive prompt, where every keystroke counts and things
  are not meant to be permanent, compact and efficient control of your environmen
 t is an important feature.
  The default Python shell does not offer this, and the Python language's
@@ -1101,6 +1101,264 @@ import
 \family default 
  instead.
  
+\layout Standard
+
+By default, 
+\layout LyX-Code
+
+%run myfile arg1 arg2 ...
+\layout Standard
+
+executes 
+\family typewriter 
+myfile 
+\family default 
+in a namespace initially consisting only of 
+\family typewriter 
+__name__=='__main__'
+\family default 
+ and 
+\family typewriter 
+sys.argv
+\family default 
+ being filled with arg1, arg2, etc.
+ This means that using 
+\family typewriter 
+%run
+\family default 
+ is functionally very simlar to executing a script at the system command
+ line, but you get all the functionality of IPython (better tracebacks,
+ debugger and profiler access, etc.).
+ The 
+\family typewriter 
+-n
+\family default 
+ option prevents 
+\family typewriter 
+__name__ 
+\family default 
+from being set equal to 
+\family typewriter 
+'__main__'
+\family default 
+, in case you want to test the part of a script which only runs when 
+\family typewriter 
+import
+\family default 
+ed.
+ 
+\layout Standard
+
+Additionally, the fact that IPython then updates your interactive namespace
+ with the variables defined in the script is very useful, because you can
+ run your code to do a lot of processing, and then continue using and exploring
+ interactively the objects created by the program.
+ 
+\layout Standard
+
+For example, if the file 
+\family typewriter 
+ip_simple.py
+\family default 
+ contains:
+\layout Standard
+
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+lstinputlisting{examples/ip_simple.py}
+\end_inset 
+
+you can run it in IPython as follows:
+\layout LyX-Code
+
+
+\emph on 
+\color blue
+# First, let's check that x is undefined
+\layout LyX-Code
+
+In [1]: x
+\layout LyX-Code
+
+---------------------------------------------------------------------------
+\layout LyX-Code
+
+exceptions.NameError                                 Traceback (most recent
+ call last)
+\layout LyX-Code
+
+/usr/local/home/fperez/teach/course/examples/<console>
+\layout LyX-Code
+
+NameError: name 'x' is not defined
+\layout LyX-Code
+
+\layout LyX-Code
+
+
+\emph on 
+\color blue
+# Now we run the script (the .py extension is optional):
+\layout LyX-Code
+
+In [2]: run ip_simple
+\layout LyX-Code
+
+sys.argv is: ['ip_simple.py']
+\layout LyX-Code
+
+__name__ is: __main__
+\layout LyX-Code
+
+\layout LyX-Code
+
+
+\emph on 
+\color blue
+# If we print x, now it has the value from the script
+\layout LyX-Code
+
+In [3]: x
+\layout LyX-Code
+
+Out[3]: 1
+\layout LyX-Code
+
+\layout LyX-Code
+
+
+\emph on 
+\color blue
+# Again, but now running with some arguments:
+\layout LyX-Code
+
+In [4]: run ip_simple -x arg1 "hello world"
+\layout LyX-Code
+
+sys.argv is: ['ip_simple.py', '-x', 'arg1', 'hello world']
+\layout LyX-Code
+
+__name__ is: __main__
+\layout Standard
+
+With the 
+\family typewriter 
+-i
+\family default 
+ option, the namespace where your script runs is actually your interactive
+ one.
+ This can be used for two sligthly different purposes.
+ The simpler case, is just to quickly type up a set of commands in an editor
+ which you want to execute on your current environment (although the 
+\family typewriter 
+%edit
+\family default 
+ command can also be used for this).
+ Consider running the file 
+\family typewriter 
+ip_simple2.py
+\family default 
+:
+\layout Standard
+
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+lstinputlisting{examples/ip_simple2.py}
+\end_inset 
+
+in IPython:
+\layout LyX-Code
+
+
+\emph on 
+\color blue
+# A regular %run will produce an error:
+\layout LyX-Code
+
+In [1]: run ip_simple2
+\layout LyX-Code
+
+---------------------------------------------------------
+\layout LyX-Code
+
+exceptions.NameError              Traceback (most recent call last)
+\layout LyX-Code
+
+/usr/local/home/fperez/teach/course/examples/ip_simple2.py
+\layout LyX-Code
+
+      2
+\layout LyX-Code
+
+      3 It should be run via IPython's %run with the -i option."""
+\layout LyX-Code
+
+      4
+\layout LyX-Code
+
+----> 5 print 'x is:',x
+\layout LyX-Code
+
+      6
+\layout LyX-Code
+
+NameError: name 'x' is not defined
+\layout LyX-Code
+
+WARNING: Failure executing file: <ip_simple2.py>
+\layout LyX-Code
+
+x is:
+\layout LyX-Code
+
+
+\emph on 
+\color blue
+# However, if you do have a variable x defined:
+\layout LyX-Code
+
+In [2]: x='hello'
+\layout LyX-Code
+
+
+\emph on 
+\color blue
+# you can use the -i option and the code will see x:
+\layout LyX-Code
+
+In [3]: run -i ip_simple2
+\layout LyX-Code
+
+x is: hello
+\layout Standard
+
+A different use of 
+\family typewriter 
+%run -i
+\family default 
+, is to repeatedly run scripts which may have a potentially expensive initializa
+tion phase.
+ If this initialization does not need to be repeated on each run (for example,
+ you are debugging some other submodule and can reuse the same expensive
+ object several times), you can avoid it by protecting the expensive object
+ with a 
+\family typewriter 
+try/except
+\family default 
+ block.
+\layout Standard
+
+XXX
 \layout Standard
 
 
