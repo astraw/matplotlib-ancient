@@ -1,5 +1,21 @@
 
 FAQs = (
+
+    ('VERSIONS',
+    'What do the version numbers mean?',
+
+    """My system has been evolving a bit over the years, but here is what
+I am currently using.
+
+0.50, 0.60, etc.: major releases to wider community.  Should be thoroughly
+                  bug tested and vetted,
+
+0.51, 0.52, etc.: new features released to matplotlib-users for
+                  bug-vetting,
+
+0.51.1, 0.51.2, etc.: bug fix releases.
+"""),
+
     ('NUMARRAY',
     'Does matplotlib work with numarray?',
     """
