@@ -9,28 +9,29 @@ rendering for linux, it is now possible to have great looking fonts.
 <h3><a name=TTFFONTS>Freetype fonts: GD, Agg, Paint</a></h3>
 
 The GD, Agg, and Paint backends all support freetype fonts, which
-provide high quality, anti-aliased font rendering to PNG and JPEG
-output without X support.  This is particularly useful for batch
-processing over terminal, or for web application servers. <p> 
+provide high quality, anti-aliased font rendering to PNG and JPEG output
+without X support.  This is particularly useful for batch processing
+over terminal, or for web application servers. <p>
 
 You need to have truetype '*.ttf' files on your system to use these
 fonts.  The font finder does platform dependent searches to find them.
 In addition, matplotlib distributes the <tt>Vera</tt> fonts from
 bitstream, which were released under a permissive license, as well as
 the BaKoMa computer modern TeX fonts, which are free for noncommerical
-use.  If you want more, set the environment variable <tt>TTFPATH</tt>
-to point to them.  Note, if you are on linux but have access to a
-licensed copy of windows ttf fonts, the same <tt>*.ttf</tt> fonts in
+use.  If you want more, set the environment variable <tt>TTFPATH</tt> to
+point to them.  Note, if you are on linux but have access to a licensed
+copy of windows ttf fonts, the same <tt>*.ttf</tt> fonts in
 <tt>C:\windows\fonts</tt> will work with matplotlib on linux if you
 place them in your TTFPATH; see <a href=http://corefonts.sf.net>core
 fonts</>.<p>
 
-If you are using matplotlib to generate images for html, you may want
-to consider using a backend which supports freetype2.  freetype 2
-tends to render fonts better at very small raster sizes.  See <a
-href=faq.html#APPSERVER>matplotlib images in html</a> for more
-information.  The Agg and GD image backends both support freetype2.
-If you are trying to decide among an image backend, see the <a
+If you are using matplotlib to generate images for html, you may want to
+consider using a backend which supports freetype2.  freetype 2 tends to
+render fonts better at very small raster sizes.  See <a
+href=faq.html#APPSERVER>matplotlib images in html</a> and <a
+href=matplotlib.font_manager.html>font manager docs</a> for more
+information.  The Agg and GD image backends both support freetype2.  If
+you are trying to decide among an image backend, see the <a
 href=faq.html#WHICHBACKEND>which backend should I use</a><p>
 
 If you are aware of other freely distributable ttf fonts, please
@@ -38,39 +39,38 @@ contact me.
 
 <h3><a name=MANAGER>The font manager</a></h3>
 
-Thanks to Paul Barret, matplotlib now has a freestanding, cross
+Thanks to Paul Barrett, matplotlib now has a freestanding, cross
 platform font finder, resusing parts of ttfquery, which implements the
-<a href=http://www.w3.org/TR/1999/REC-CSS1-19990111>W3C standard</a>
-for describing fonts. Formerly, matplotlib required the external
-packages fonttools and ttfquery, but no longer does.<p>
+<a href=http://www.w3.org/TR/1999/REC-CSS1-19990111>W3C standard</a> for
+describing fonts. Formerly, matplotlib required the external packages
+fonttools and ttfquery, but no longer does.<p>
 
 Fonts are described by properties, and the font manager searches your
-system for the font that most closely matches the properties you
-choose.  The 6 font properties used for font matching are given below
-with their default values.  The <a
+system for the font that most closely matches the properties you choose.
+The 6 font properties used for font matching are given below with their
+default values.  The <a
 href=matplotlib.font_manager.html#FontProperties>FontProperties</a>
 class is used to describe these properties.<p>
 
-See <a
-href=examples/font_properties_demo.py>font_properties_demo.py</a> for
-an example setting the default font property and changing it in the
+See <a href=examples/font_properties_demo.py>font_properties_demo.py</a>
+for an example setting the default font property and changing it in the
 middle of the script.
 
 <h4>font family</h4> 
 
 The font.family property has five values: 'serif' (e.g. Times),
-'sans-serif' (e.g. Helvetica), 'cursive' (e.g. Zapf-Chancery),
-'fantasy' (e.g. Western), and 'monospace' (e.g. Courier).  Each of
-these font families has a default list of font names in decreasing
-order of priority associated with them.  You describe which family you
-want by choosing, eg, <tt>family='serif'</tt>, and the font manager
-will search the font.serif list looking for one of the named fonts on
-your system.  The lists are user configurable, and reside in your <a
-href=.matplotlibrc>.matplotlibrc</a> file. <p> 
+'sans-serif' (e.g. Helvetica), 'cursive' (e.g. Zapf-Chancery), 'fantasy'
+(e.g. Western), and 'monospace' (e.g. Courier).  Each of these font
+families has a default list of font names in decreasing order of
+priority associated with them.  You describe which family you want by
+choosing, eg, <tt>family='serif'</tt>, and the font manager will search
+the font.serif list looking for one of the named fonts on your system.
+The lists are user configurable, and reside in your <a
+href=.matplotlibrc>.matplotlibrc</a> file. <p>
 
-This allows you to choose your family in your matplotlib script and
-the font manager will try and find the best font no matter which
-platform you run on.  
+This allows you to choose your family in your matplotlib script and the
+font manager will try and find the best font no matter which platform
+you run on.
 
 <h4>font style</h4>  
 

@@ -332,7 +332,14 @@ won't see the messages again.  If you want to see the error messages,
 remove font.cache and rerun your script, capturing them to a file.
 """ ),
      
-     
+     ('FREETYPE2',
+      "Why are my fonts not being rendered properly?",
+    """
+This is probably due to an outdated freetype2 library.  The latest
+version is 2.1.8.  See <a href=matplotlib.font_manager.html>font manager
+docs</a> for details.
+""" ),
+    
     
      )
 @header@
