@@ -27,7 +27,7 @@ iso.SetValue(0,100)
 isoMapper = vtk.vtkPolyDataMapper()
 isoMapper.SetInput(iso.GetOutput())
 
-# you can assign scalars to voxels, eg to map things onto the cortex
+# You can assign scalars to voxels, eg to map things onto the cortex
 # Here we are just dislpaying the anatomy so we turn scalars off
 isoMapper.ScalarVisibilityOff()
 
@@ -36,7 +36,17 @@ isoActor.SetMapper(isoMapper)
 # this is the color of the surface
 isoActor.GetProperty().SetColor(colors.antique_white)
 
-# Set up the renderer and add the actor
+
+# Let's save the data to a VTK file for external processing
+# Make sure the pipeline is up-to-date before writing
+iso.Update()
+writer = vtk.vtkDataSetWriter()
+writer.SetInput(iso.GetOutput())
+writer.SetFileName('bighead.vtk')
+writer.SetFileTypeToASCII()
+writer.Write()
+
+# Now visualize it; set up the renderer and add the actor
 ren = vtk.vtkRenderer()
 ren.AddActor(isoActor)
 ren.SetBackground(0.2,0.3,0.4)
