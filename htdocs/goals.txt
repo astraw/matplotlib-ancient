@@ -107,6 +107,16 @@ not started
 not started
 
 *******************
+Full dash control
+
+done
+
+You can set a sequence of on-off ink for dashes in addition to the
+preset line styles '--' and '-.'.  Added in <a
+href=whats_new.html#0.54>matplotlib-0.54</a>.  See <a
+href=examples/dash_control.py>dash_control.py</a>.
+
+*******************
 Bezier curves, paths
 
 not started

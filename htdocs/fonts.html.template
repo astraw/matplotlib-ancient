@@ -23,7 +23,7 @@ point to them.  Note, if you are on linux but have access to a licensed
 copy of windows ttf fonts, the same <tt>*.ttf</tt> fonts in
 <tt>C:\windows\fonts</tt> will work with matplotlib on linux if you
 place them in your TTFPATH; see <a href=http://corefonts.sf.net>core
-fonts</>.<p>
+fonts</a>.<p>
 
 If you are using matplotlib to generate images for html, you may want to
 consider using a backend which supports freetype2.  freetype 2 tends to

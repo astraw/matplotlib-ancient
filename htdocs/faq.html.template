@@ -27,8 +27,8 @@ bug-vetting</li>
 Yes.  Todd Miller has added a numerix module which allows you to
 choose between Numeric or numarray at the promptw, in a config file,
 or using an environment variable.  For the most part, this works
-seamlessly.  See <a href=numerix.html>numerix module</a> for more
-information.
+seamlessly.  See <a href=matplotlib.numerix.html>numerix module</a>
+for more information.
 """),
 
     ('MATPLOTLIBRC', 

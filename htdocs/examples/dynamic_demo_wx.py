@@ -20,8 +20,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.30  2004/05/03 21:44:23  jdh2358
-splot plain text out of mathtext in goals htdocs
+Revision 1.31  2004/05/04 18:37:43  jdh2358
+major overhaul of text
 
 Revision 1.4  2004/05/03 12:12:26  jdh2358
 added bang header to examples
