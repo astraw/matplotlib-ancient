@@ -75,13 +75,13 @@ they require), I suggest
 
 <table> 
 
-<tr><td>matplotlib core</td><td> zlib, zlib-devel, libpng,
+<tr><td><b>matplotlib core:</b></td><td> zlib, zlib-devel, libpng,
 libpng-devel, freetype, freetype-devel, freetype-utils</td>
 
-<tr><td>gtk backend</td><td>gtk2-devel, gtk+-devel, pygtk2,
+<tr><td><b>gtk backend</b></td><td>gtk2-devel, gtk+-devel, pygtk2,
 glib-devel, pygtk2-devel, gnome-libs-devel, pygtk2-libglade</td>
 
-<tr><td>tk backend</td><td>tcl, tk, tkinter </td>
+<tr><td><b>tk backend</b></td><td>tcl, tk, tkinter </td>
 
 
 </table>
