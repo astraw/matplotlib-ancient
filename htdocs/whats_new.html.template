@@ -4,10 +4,68 @@
 
 versioninfo = {}
 versioninfo['0.63'] = (
+	('image interpolation', """\
+image interpolation works properly.  I think I have finally and for
+real this time fixed the image interpolation / edge effect bug.  It
+turns out there was a bug in antigrain (very unusual!)  that was just
+found, fixed, and released.  I've incorporated the latest release into
+matplotlib, and after talking with the Maxim implemented a solution in
+matplotlib which fixes the edge problem w/o the view lim hack used
+previously.  Basically, I pad the edges of the input image.  This is
+described in more detail in the new <a
+href=examples/image_interp.py>image_interp.py</a>.  There is still an
+occasional off by 1 rounding problem that causes a 1 pixel error (this
+is independent of the interpolation/edge bug)."""),
 
-    ('ipython support', """\
+        ('new dates handling', """\
+The dates handling is rewritten from the ground up, and now requires
+python2.3.  It makes extensive use of dateutil for date ticking.  All
+of your old date code will break, but it's an easy port.  In
+particular, note that the date tick location constructors now have a
+different meaning.  See <a href=API_CHANGES>API_CHANGES</a>, <a
+href=matplotlib.dates.html>matplotlib.dates</a>, the updated date
+demos in examples/ and the new dates tutorial at <a
+href=tutorial.html#dates>dates tutorial</a>."""),
 
-"""),
+('numerix supports both extensions at compile time', """\
+setup.py now automatically detects Numeric, numarray or both, and
+compiles in the appropriate extension code.  Thus you can use
+matplotlib with either or both packages and still get the optimal
+performance.  So it is no longer necessary to set NUMERIX in setup.py,
+but it is necessary to have the extensions you want compiled available
+at the time you compile matplotlib."""),
+
+        ('xlim, ylim, xticks and yticks',"""\
+New functions <a href=matplotlib.matlab.html#-xlim>xlim</a>, <a
+href=matplotlib.matlab.html#-ylim>ylim</a>, <a
+href=matplotlib.matlab.html#-xticks>xticks</a> and <a
+href=matplotlib.matlab.html#-yticks>yticks</a> to make setting axis
+limits, tick locations and labels more natural and elegant."""),
+
+       ('print to file obj in agg', """\
+Added print to file handle for backend agg; see <a
+href=examples/print_stdout.py>print_stdout.py</a>.  Useful for webapp
+servers who want to print to a pipe."""),
+
+        ('x and y coord reporting', """\
+x and y coords are printed in the toolbar on nouse motion in backends
+gtk* and tkagg (not implemented yet in wx*). You can set the axis
+attributes ax.fmt_xdata and ax.fmt_ydata with callable functions to
+control the formatting of the reported coords (default uses the major
+tick formatter).  See <a
+href=examples/coords_report.py>coords_report.py</a> and <a
+href=date_demo1.py>date_demo1.py</a>."""),
+
+        ('axhline, axvline, axhspan and axvspan', """\
+Added <a href=matplotlib.matlab.html#-axhline>axhline</a>, <a
+href=matplotlib.matlab.html#-axvline>axvline</a>, <a
+href=matplotlib.matlab.html#-axhspan>axhspan</a> and <a
+href=matplotlib.matlab.html#-axvspan>axvspan</a> for plotting lines
+and rectangles (spans) in mixed data/axes coords.  This is useful if
+for example, you want to provide a threshold line or range where the x
+range spans the axes (0-1 in axes coords) and the y range is given in
+data units.  See <a href=examples/axhspan_demo.py>axhspan_demo.py</a>."""),
+
 )
 
 versioninfo['0.62'] = (

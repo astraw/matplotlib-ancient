@@ -275,6 +275,7 @@ and&nbsp;Recipe&nbsp;1.12&nbsp;in&nbsp;cookbook</tt></dd></dl>
 return&nbsp;the&nbsp;files&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;strings</tt></dd></dl>
  <dl><dt><a name="-get_split_ind"><strong>get_split_ind</strong></a>(seq, N)</dt><dd><tt>seq&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;words.&nbsp;&nbsp;Return&nbsp;the&nbsp;index&nbsp;into&nbsp;seq&nbsp;such&nbsp;that<br>
 len('&nbsp;'.join(seq[:ind])&lt;=N</tt></dd></dl>
+ <dl><dt><a name="-is_file_like"><strong>is_file_like</strong></a>(obj)</dt></dl>
  <dl><dt><a name="-is_scalar"><strong>is_scalar</strong></a>(obj)</dt></dl>
  <dl><dt><a name="-is_string_like"><strong>is_string_like</strong></a>(obj)</dt></dl>
  <dl><dt><a name="-iterable"><strong>iterable</strong></a>(obj)</dt></dl>

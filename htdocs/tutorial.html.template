@@ -755,9 +755,9 @@ show()
 
 </pre>
 
-<a name="dates">
-<h3>Plotting dates</h3>
-</a>
+
+<h3><a name="dates">Plotting dates</a></h3>
+
 
 matplotlib handles date plotting by providing converter functions to
 convert python datetime objects to and from floating point numbers.
