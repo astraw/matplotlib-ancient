@@ -7,26 +7,16 @@
 %\usepackage{html}
 \usepackage{color}
 
+\definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
 % Use and configure listings package for nicely formatted code
 \usepackage{listings}
 \lstset{
   language=Python,
-  basicstyle=\small,
-  commentstyle=\color{blue},
-  stringstyle=\ttfamily,
+  basicstyle=\small\ttfamily,
+  commentstyle=\ttfamily\color{blue},
+  stringstyle=\ttfamily\color{orange},
   showstringspaces=false,
-%  frame=single, 
-  emph = {axes, axis, bar, cla, clf, clim, close, cohere, colorbar,
-    colors, csd, draw, errorbar, figimage, figlegend, figtext, figure,
-    fill, gca, gcf, gci, get, get_current_fig_manager,
-    get_plot_commands, gray, grid, hist, hlines, hold, imshow, jet,
-    legend, load, loglog, pcolor, pcolor_classic, plot, plot_date,
-    plotting, psd, raise_msg_to_str, rc, rcdefaults, save, savefig,
-    scatter, scatter_classic, semilogx, semilogy, set, specgram, stem,
-    subplot, table, text, title, vlines, xlabel, ylabel},
-  emphstyle = \color{black},  % color for matplotlib funcs
   breaklines=true,
-%  breakatwhitespace = true,
   postbreak = \space\dots
 }
 

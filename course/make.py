@@ -4,7 +4,7 @@ import os, sys
 
 def clean():
     print 'cleaning...'
-    os.system('rm -f *.bbl *.blg *.dvi *.log *.toc *.aux *.tex *~ #*')
+    os.system('rm -f *.bbl *.blg *.dvi *.log *.toc *.aux *.tex *.out *~ #*')
 
 for arg in sys.argv[1:]:
     if arg=='clean': clean()
