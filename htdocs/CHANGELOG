@@ -1,6 +1,6 @@
 New entries should be added at the top
 
-2004-08-05 Updated installing.html and INSTALL
+2004-08-05 Updated installing.html and INSTALL - JDH
 
 2004-08-01 backend_gtk.py: move all drawing code into the expose_event()
 
