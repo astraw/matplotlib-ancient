@@ -44,6 +44,11 @@ interactive use with the standard python shell.  If you are using the
 enthought edition of python, the <a href=backends.html#WXAgg>WXAgg
 backend</a> will also work out of the box.<p>
 
+The windows installer *.exe on the download page contains all the code
+you need to get up and tunning.  But if you want to try the many demos
+that come in the matplotlib src distribution, download the zip file
+and look in the examples subdir.
+
 <i>Important: There are known conflicts with some of the backends
 with some python IDEs such as pycrust, idle.  If you want to use
 matplotlib from an IDE, please consult the <a
