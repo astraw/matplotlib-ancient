@@ -562,12 +562,11 @@ docs</a> for details.
 """\
 A number of severe memory leaks were fixed in the 0.54 and 0.60
 matplotlib releases.  These have been fixed, and here are no known
-severe leaks in matplotlib, though we continue to track down small
-leaks.  There is a leak in freetype 2.1.7 and earlier that was fixed
-in freetype 2.1.9.  The memory leak situation has continued to improve
-significantly as I've migrated almost all of the extension code to
-pycxx, and I use a number of unit tests to test leaks of various
-extension code components. <p>
+severe leaks in matplotlib as of 0.61There is a leak in freetype 2.1.7
+and earlier that was fixed in freetype 2.1.9.  The memory leak
+situation has improved significantly as I've migrated almost all of
+the extension code to pycxx, and I use a number of unit tests to test
+leaks of various extension code components. <p>
 
 Below is a prototypical script that I use to diagnose and report
 memory leaks.  Please use something like it when reporting leaks so I
@@ -577,11 +576,11 @@ much information about the versions of the libraries you are using:
 freetype, png and zlib.  It would also help if you posted code so I
 could look for any obvious coding errors vis-a-vis matplotlib.<p>
 
-Running the code below, I'm getting about 7 bytes / per figure
-(matplotlib-0.60.2 / agg backend on linux with freetype 2.1.9,
-libpng1.2 and libz 1.1.4).  If your numbers are much worse, it may be
-that you are doing something wrong, ie, not properly closing, reusing
-figure, etc, so please post some code to the list.<p>
+Running the code below, I'm getting about anywhere between -5 to 5
+bytes / per figure (matplotlib-0.60.2 / agg backend on linux with
+freetype 2.1.9, libpng1.2 and libz 1.1.4).  If your numbers are much
+worse, it may be that you are doing something wrong, ie, not properly
+closing, reusing figure, etc, so please post some code to the list.<p>
 
 <pre>
 # Script to diagnose and report leaks
@@ -599,24 +598,34 @@ def report_memory(i):
 
 
 
-N = 200
-for i in range(N):
+# take a memory snapshot on indStart and compare it with indEnd
+indStart, indEnd = 10, 200
+for i in range(indEnd):
     ind = arange(100)
     xx = rand(len(ind))
     figure(1)
-    subplot(211)
+    subplot(221)
     plot(ind, xx)
-    subplot(212)
+    subplot(222)
     X = rand(50,50)
     imshow(X)
+
+    subplot(223)
+    scatter(rand(50), rand(50))
+    subplot(224)
+    pcolor(10*rand(50,50))
     savefig('tmp%d' % i, dpi = 75)
     close(1)
 
     val = report_memory(i)
-    if i==1: start = val
+    if i==indStart: start = val # wait a few cycles for memory usage to stabilize
 
 end = val
-print 'Average memory consumed per loop: %1.4fk bytes\n' % ((end-start)/float(N))
+print 'Average memory consumed per loop: %1.4fk bytes\n' % ((end-start)/float(indEnd-indStart))
+
+"""
+Average memory consumed per loop: 0.0053k bytes
+"""
 </pre>
 """),
 
