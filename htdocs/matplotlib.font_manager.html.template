@@ -252,11 +252,9 @@ dictionary&nbsp;can&nbsp;optionally&nbsp;be&nbsp;created.</tt></dd></dl>
  <dl><dt><a name="-findSystemFonts"><strong>findSystemFonts</strong></a>(fontpaths<font color="#909090">=None</font>, fontext<font color="#909090">='ttf'</font>)</dt><dd><tt>Search&nbsp;for&nbsp;fonts&nbsp;in&nbsp;the&nbsp;specified&nbsp;font&nbsp;paths,&nbsp;or&nbsp;use&nbsp;the&nbsp;system<br>
 paths&nbsp;if&nbsp;none&nbsp;given.&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;TrueType&nbsp;fonts&nbsp;are&nbsp;returned&nbsp;by&nbsp;default<br>
 with&nbsp;AFM&nbsp;fonts&nbsp;as&nbsp;an&nbsp;option.</tt></dd></dl>
- <dl><dt><a name="-get_default_font"><strong>get_default_font</strong></a>()</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;default&nbsp;font&nbsp;properties</tt></dd></dl>
  <dl><dt><a name="-setWeights"><strong>setWeights</strong></a>(font)</dt><dd><tt>A&nbsp;function&nbsp;to&nbsp;populate&nbsp;missing&nbsp;values&nbsp;in&nbsp;a&nbsp;font&nbsp;weight<br>
 dictionary.&nbsp;&nbsp;This&nbsp;proceedure&nbsp;is&nbsp;necessary&nbsp;since&nbsp;the&nbsp;font&nbsp;finding<br>
 algorithm&nbsp;always&nbsp;matches&nbsp;on&nbsp;the&nbsp;weight&nbsp;property.</tt></dd></dl>
- <dl><dt><a name="-set_default_font"><strong>set_default_font</strong></a>(font)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;default&nbsp;font&nbsp;properties</tt></dd></dl>
  <dl><dt><a name="-ttfFontProperty"><strong>ttfFontProperty</strong></a>(font)</dt><dd><tt>A&nbsp;function&nbsp;for&nbsp;populating&nbsp;the&nbsp;<a href="#FontKey">FontKey</a>&nbsp;by&nbsp;extracting&nbsp;information<br>
 from&nbsp;the&nbsp;TrueType&nbsp;font&nbsp;file.</tt></dd></dl>
  <dl><dt><a name="-weight_as_number"><strong>weight_as_number</strong></a>(weight)</dt><dd><tt>Return&nbsp;the&nbsp;weight&nbsp;property&nbsp;as&nbsp;a&nbsp;numeric&nbsp;value.&nbsp;&nbsp;String&nbsp;values<br>

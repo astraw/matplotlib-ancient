@@ -45,7 +45,7 @@ enthought edition of python, the <a href=backends.html#WXAgg>WXAgg
 backend</a> will also work out of the box.<p>
 
 The windows installer *.exe on the download page contains all the code
-you need to get up and tunning.  But if you want to try the many demos
+you need to get up and running.  But if you want to try the many demos
 that come in the matplotlib src distribution, download the zip file
 and look in the examples subdir.
 
@@ -96,18 +96,20 @@ Edit setup.py to configure the backends you want to build and then do
 
 <h2><a name=Debian>Debian</a></h3>
 
-Vittorio Palmisano <redclay@email.it> posted this message to matplotlib-devel
+Vittorio Palmisano <redclay@email.it> maintails the debian packages at
+<a href=http://mentors.debian.net>http://mentors.debian.net</a>.
 
 <pre>
-  Hello,
+Installation:
 
-  I've made a Debian package for matplotlib and I've put it at:
-  http://anakonda.altervista.org/debian/
+    * add this lines to your /etc/apt/sources.list:
+      deb http://mentors.debian.net/debian unstable main contrib non-free
+      deb-src http://mentors.debian.net/debian unstable main contrib non-free
 
-  I've read some specification for dependencies from
-  http://bugs.debian.org/206691, this is my first package and so there
-  are some (many?) things to fix.  I think that the package may also
-  include the api documentation generated with pydoc.  
+    * then run:
+      # apt-get update
+      # apt-get install python-matplotlib python-matplotlib-doc
+
 </pre>
 
 <h2><a name=OSX>OS X</a></h2> 

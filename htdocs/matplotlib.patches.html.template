@@ -50,7 +50,7 @@
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Circle-__init__"><strong>__init__</strong></a>(self, xy, radius<font color="#909090">=5</font>, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=1</font>, resolution<font color="#909090">=20</font>)</dt></dl>
+<dl><dt><a name="Circle-__init__"><strong>__init__</strong></a>(self, xy, radius<font color="#909090">=5</font>, resolution<font color="#909090">=20</font>, **kwargs)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.patches.html#RegularPolygon">RegularPolygon</a>:<br>
@@ -121,10 +121,13 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <font color="#000000" face="helvetica, arial"><a name="Patch">class <strong>Patch</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>A&nbsp;patch&nbsp;is&nbsp;a&nbsp;2D&nbsp;thingy&nbsp;with&nbsp;a&nbsp;face&nbsp;color&nbsp;and&nbsp;an&nbsp;edge&nbsp;color<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>A&nbsp;patch&nbsp;is&nbsp;a&nbsp;2D&nbsp;thingy&nbsp;with&nbsp;a&nbsp;face&nbsp;color&nbsp;and&nbsp;an&nbsp;edge&nbsp;color<br>
+&nbsp;<br>
+If&nbsp;any&nbsp;of&nbsp;edgecolor,&nbsp;facecolor,&nbsp;linewidth,&nbsp;or&nbsp;antialiased&nbsp;are<br>
+None,&nbsp;they&nbsp;default&nbsp;to&nbsp;their&nbsp;rc&nbsp;params&nbsp;setting<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Patch-__init__"><strong>__init__</strong></a>(self, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=1</font>)</dt></dl>
+<dl><dt><a name="Patch-__init__"><strong>__init__</strong></a>(self, edgecolor<font color="#909090">=None</font>, facecolor<font color="#909090">=None</font>, linewidth<font color="#909090">=None</font>, antialiased<font color="#909090">=None</font>, fill<font color="#909090">=1</font>)</dt></dl>
 
 <dl><dt><a name="Patch-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
 
@@ -200,7 +203,7 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Polygon-__init__"><strong>__init__</strong></a>(self, xy, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=0</font>)</dt></dl>
+<dl><dt><a name="Polygon-__init__"><strong>__init__</strong></a>(self, xy, **kwargs)</dt></dl>
 
 <dl><dt><a name="Polygon-get_verts"><strong>get_verts</strong></a>(self)</dt></dl>
 
@@ -279,7 +282,7 @@ width&nbsp;and&nbsp;height<br>&nbsp;</tt></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Rectangle-__init__"><strong>__init__</strong></a>(self, xy, width, height, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=True</font>)</dt><dd><tt>xy&nbsp;is&nbsp;an&nbsp;x,y&nbsp;tuple&nbsp;lower,&nbsp;left<br>
+<dl><dt><a name="Rectangle-__init__"><strong>__init__</strong></a>(self, xy, width, height, **kwargs)</dt><dd><tt>xy&nbsp;is&nbsp;an&nbsp;x,y&nbsp;tuple&nbsp;lower,&nbsp;left<br>
 &nbsp;<br>
 width&nbsp;and&nbsp;height&nbsp;are&nbsp;width&nbsp;and&nbsp;height&nbsp;of&nbsp;rectangle<br>
 &nbsp;<br>
@@ -382,7 +385,7 @@ radians&nbsp;and&nbsp;rotates&nbsp;the&nbsp;polygon.<br>&nbsp;</tt></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="RegularPolygon-__init__"><strong>__init__</strong></a>(self, xy, numVertices, radius<font color="#909090">=5</font>, orientation<font color="#909090">=0</font>, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=1</font>)</dt></dl>
+<dl><dt><a name="RegularPolygon-__init__"><strong>__init__</strong></a>(self, xy, numVertices, radius<font color="#909090">=5</font>, orientation<font color="#909090">=0</font>, **kwargs)</dt></dl>
 
 <dl><dt><a name="RegularPolygon-get_verts"><strong>get_verts</strong></a>(self)</dt></dl>
 
@@ -476,5 +479,6 @@ the&nbsp;artist&nbsp;is&nbsp;returning&nbsp;the&nbsp;correct&nbsp;bbox</tt></dd>
 <strong>cos</strong> = &lt;ufunc 'cos'&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>pi</strong> = 3.1415926535897931<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>sin</strong> = &lt;ufunc 'sin'&gt;</td></tr></table>
 @footer@

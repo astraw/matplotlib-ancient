@@ -124,13 +124,16 @@ the&nbsp;len&nbsp;of&nbsp;props&nbsp;is&nbsp;less&nbsp;than&nbsp;the&nbsp;number
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="LineCollection-__init__"><strong>__init__</strong></a>(self, segments, linewidths<font color="#909090">=(0.5,)</font>, colors<font color="#909090">=((1, 1, 1, 0),)</font>, antialiaseds<font color="#909090">=(True,)</font>, offsets<font color="#909090">=None</font>, transOffset<font color="#909090">=&lt;Affine object&gt;</font>)</dt><dd><tt>sements&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;(x00,&nbsp;y00,&nbsp;x01,&nbsp;y01),&nbsp;(x10,&nbsp;y10,<br>
+<dl><dt><a name="LineCollection-__init__"><strong>__init__</strong></a>(self, segments, linewidths<font color="#909090">=None</font>, colors<font color="#909090">=None</font>, antialiaseds<font color="#909090">=None</font>, offsets<font color="#909090">=None</font>, transOffset<font color="#909090">=&lt;Affine object&gt;</font>)</dt><dd><tt>sements&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;(x00,&nbsp;y00,&nbsp;x01,&nbsp;y01),&nbsp;(x10,&nbsp;y10,<br>
 y11,&nbsp;y11),&nbsp;)&nbsp;tuples<br>
 &nbsp;<br>
 colors&nbsp;must&nbsp;be&nbsp;a&nbsp;tuple&nbsp;of&nbsp;RGBA&nbsp;tuples&nbsp;(eg&nbsp;arbitrary&nbsp;color<br>
 strings,&nbsp;etc,&nbsp;not&nbsp;allowed).<br>
 &nbsp;<br>
-antialiaseds&nbsp;must&nbsp;be&nbsp;a&nbsp;sequence&nbsp;of&nbsp;ones&nbsp;or&nbsp;zeros</tt></dd></dl>
+antialiaseds&nbsp;must&nbsp;be&nbsp;a&nbsp;sequence&nbsp;of&nbsp;ones&nbsp;or&nbsp;zeros<br>
+&nbsp;<br>
+if&nbsp;linewidths,&nbsp;colors&nbsp;or&nbsp;antialiaseds&nbsp;is&nbsp;None,&nbsp;they&nbsp;default&nbsp;to<br>
+their&nbsp;rc&nbsp;params&nbsp;setting,&nbsp;in&nbsp;sequence&nbsp;form</tt></dd></dl>
 
 <dl><dt><a name="LineCollection-color"><strong>color</strong></a>(self, c)</dt><dd><tt>c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),<br>
 or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the<br>
@@ -184,7 +187,11 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>and&nbsp;transOffset&nbsp;are&nbsp;used&nbsp;to&nbsp;translate&nbsp;the&nbsp;patch&nbsp;after<br>
-rendering&nbsp;(default&nbsp;no&nbsp;offsets)<br>&nbsp;</tt></td></tr>
+rendering&nbsp;(default&nbsp;no&nbsp;offsets)<br>
+&nbsp;<br>
+If&nbsp;any&nbsp;of&nbsp;edgecolors,&nbsp;facecolors,&nbsp;linewidths,&nbsp;antialiaseds&nbsp;are<br>
+None,&nbsp;they&nbsp;default&nbsp;to&nbsp;their&nbsp;patch.*&nbsp;rc&nbsp;params&nbsp;setting,&nbsp;in&nbsp;sequence<br>
+form<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="matplotlib.collections.html#PatchCollection">PatchCollection</a></dd>
@@ -193,7 +200,7 @@ rendering&nbsp;(default&nbsp;no&nbsp;offsets)<br>&nbsp;</tt></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="PatchCollection-__init__"><strong>__init__</strong></a>(self, edgecolors<font color="#909090">=((0, 0, 0, 1),)</font>, facecolors<font color="#909090">=((1, 1, 1, 0),)</font>, linewidths<font color="#909090">=(1.0,)</font>, antialiaseds<font color="#909090">=(1,)</font>, offsets<font color="#909090">=None</font>, transOffset<font color="#909090">=&lt;Affine object&gt;</font>)</dt></dl>
+<dl><dt><a name="PatchCollection-__init__"><strong>__init__</strong></a>(self, edgecolors<font color="#909090">=None</font>, facecolors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, antialiaseds<font color="#909090">=None</font>, offsets<font color="#909090">=None</font>, transOffset<font color="#909090">=&lt;Affine object&gt;</font>)</dt></dl>
 
 <dl><dt><a name="PatchCollection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt></dl>
 

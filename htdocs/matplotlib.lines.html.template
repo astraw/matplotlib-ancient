@@ -38,7 +38,7 @@ variety&nbsp;of&nbsp;line&nbsp;styles,&nbsp;markers&nbsp;and&nbsp;colors</tt></p
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Line2D-__init__"><strong>__init__</strong></a>(self, xdata, ydata, linewidth<font color="#909090">=0.5</font>, linestyle<font color="#909090">='-'</font>, color<font color="#909090">='b'</font>, marker<font color="#909090">=None</font>, markersize<font color="#909090">=6.0</font>, markeredgewidth<font color="#909090">=None</font>, markeredgecolor<font color="#909090">=None</font>, markerfacecolor<font color="#909090">=None</font>, antialiased<font color="#909090">=True</font>)</dt><dd><tt>xdata&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;x&nbsp;data<br>
+<dl><dt><a name="Line2D-__init__"><strong>__init__</strong></a>(self, xdata, ydata, linewidth<font color="#909090">=None</font>, linestyle<font color="#909090">=None</font>, color<font color="#909090">=None</font>, marker<font color="#909090">=None</font>, markersize<font color="#909090">=None</font>, markeredgewidth<font color="#909090">=None</font>, markeredgecolor<font color="#909090">=None</font>, markerfacecolor<font color="#909090">=None</font>, antialiased<font color="#909090">=None</font>)</dt><dd><tt>xdata&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;x&nbsp;data<br>
 ydata&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;y&nbsp;data<br>
 linewidth&nbsp;is&nbsp;the&nbsp;width&nbsp;of&nbsp;the&nbsp;line&nbsp;in&nbsp;points<br>
 linestyle&nbsp;is&nbsp;one&nbsp;of&nbsp;lineStyles<br>

@@ -54,7 +54,7 @@ fraction&nbsp;of&nbsp;the&nbsp;total&nbsp;figure&nbsp;window.&nbsp;&nbsp;<br>
 axisbg&nbsp;is&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;axis&nbsp;background<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Axes-__init__"><strong>__init__</strong></a>(self, fig, rect, axisbg<font color="#909090">='w'</font>, frameon<font color="#909090">=True</font>)</dt></dl>
+<dl><dt><a name="Axes-__init__"><strong>__init__</strong></a>(self, fig, rect, axisbg<font color="#909090">=None</font>, frameon<font color="#909090">=True</font>)</dt></dl>
 
 <dl><dt><a name="Axes-add_artist"><strong>add_artist</strong></a>(self, a)</dt><dd><tt>Add&nbsp;any&nbsp;artist&nbsp;to&nbsp;the&nbsp;axes</tt></dd></dl>
 

@@ -328,7 +328,7 @@ USAGE:&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'upper&nbsp;right')<br>
 &nbsp;<br>
 See&nbsp;help(legend)&nbsp;for&nbsp;information&nbsp;about&nbsp;the&nbsp;location&nbsp;codes</tt></dd></dl>
- <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=1</font>, figsize<font color="#909090">=[8.0, 6.0]</font>, dpi<font color="#909090">=80.0</font>, facecolor<font color="#909090">=0.75</font>, edgecolor<font color="#909090">='w'</font>, frameon<font color="#909090">=True</font>)</dt><dd><tt><a href="#-figure">figure</a>(num&nbsp;=&nbsp;1,&nbsp;figsize=(8,&nbsp;6),&nbsp;dpi=80,&nbsp;facecolor='w',&nbsp;edgecolor='k')<br>
+ <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=1</font>, figsize<font color="#909090">=None</font>, dpi<font color="#909090">=None</font>, facecolor<font color="#909090">=None</font>, edgecolor<font color="#909090">=None</font>, frameon<font color="#909090">=True</font>)</dt><dd><tt><a href="#-figure">figure</a>(num&nbsp;=&nbsp;1,&nbsp;figsize=(8,&nbsp;6),&nbsp;dpi=80,&nbsp;facecolor='w',&nbsp;edgecolor='k')<br>
 &nbsp;<br>
 &nbsp;<br>
 Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;and&nbsp;return&nbsp;a&nbsp;handle&nbsp;to&nbsp;it<br>
@@ -338,10 +338,10 @@ handle&nbsp;to&nbsp;it.<br>
 &nbsp;<br>
 &nbsp;&nbsp;<a href="#-figure">figure</a>(1)<br>
 &nbsp;<br>
-figsize&nbsp;-&nbsp;width&nbsp;in&nbsp;height&nbsp;x&nbsp;inches<br>
-dpi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;resolution<br>
-facecolor&nbsp;-&nbsp;the&nbsp;background&nbsp;color&nbsp;&nbsp;&nbsp;&nbsp;<br>
-edgecolor&nbsp;-&nbsp;the&nbsp;border&nbsp;color<br>
+figsize&nbsp;-&nbsp;width&nbsp;in&nbsp;height&nbsp;x&nbsp;inches;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;figure.figsize<br>
+dpi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;resolution;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;figure.dpi<br>
+facecolor&nbsp;-&nbsp;the&nbsp;background&nbsp;color;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;figure.facecolor<br>
+edgecolor&nbsp;-&nbsp;the&nbsp;border&nbsp;color;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;figure.edgecolor<br>
 &nbsp;<br>
 rcParams&nbsp;gives&nbsp;the&nbsp;default&nbsp;values&nbsp;from&nbsp;the&nbsp;.matplotlibrc&nbsp;file</tt></dd></dl>
  <dl><dt><a name="-fill"><strong>fill</strong></a>(*args, **kwargs)</dt><dd><tt>plot&nbsp;filled&nbsp;polygons.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length&nbsp;argument,<br>
@@ -743,6 +743,38 @@ Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
  <dl><dt><a name="-raise_msg_to_str"><strong>raise_msg_to_str</strong></a>(msg)</dt><dd><tt>msg&nbsp;is&nbsp;a&nbsp;return&nbsp;arg&nbsp;from&nbsp;a&nbsp;raise.&nbsp;&nbsp;Join&nbsp;with&nbsp;new&nbsp;lines</tt></dd></dl>
+ <dl><dt><a name="-rc"><strong>rc</strong></a>(group, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;rc&nbsp;params.&nbsp;&nbsp;Group&nbsp;is&nbsp;the&nbsp;grouping&nbsp;for&nbsp;the&nbsp;rc,&nbsp;eg<br>
+for&nbsp;lines.linewidth&nbsp;the&nbsp;group&nbsp;is&nbsp;'lines',&nbsp;for&nbsp;axes.facecolor,&nbsp;the<br>
+group&nbsp;is&nbsp;'axes',&nbsp;and&nbsp;so&nbsp;on.&nbsp;&nbsp;kwargs&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;attribute<br>
+name/value&nbsp;pairs,&nbsp;eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#-rc">rc</a>('lines',&nbsp;linewidth=2,&nbsp;color='r')<br>
+&nbsp;<br>
+sets&nbsp;the&nbsp;current&nbsp;rc&nbsp;params&nbsp;and&nbsp;is&nbsp;equivalent&nbsp;to<br>
+&nbsp;<br>
+&nbsp;&nbsp;rcParams['lines.linewidth']&nbsp;=&nbsp;2<br>
+&nbsp;&nbsp;rcParams['lines.color']&nbsp;=&nbsp;'r'<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;aliases&nbsp;are&nbsp;available&nbsp;to&nbsp;save&nbsp;typing&nbsp;for&nbsp;interactive<br>
+users<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'lw'&nbsp;&nbsp;:&nbsp;'linewidth'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'ls'&nbsp;&nbsp;:&nbsp;'linestyle'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'c'&nbsp;&nbsp;&nbsp;:&nbsp;'color'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'fc'&nbsp;&nbsp;:&nbsp;'facecolor'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'ec'&nbsp;&nbsp;:&nbsp;'edgecolor'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'mfc'&nbsp;:&nbsp;'markerfacecolor'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'mec'&nbsp;:&nbsp;'markeredgecolor'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'mew'&nbsp;:&nbsp;'markeredgewidth'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'aa'&nbsp;&nbsp;:&nbsp;'antialiased'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'l'&nbsp;&nbsp;&nbsp;:&nbsp;'lines'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'a'&nbsp;&nbsp;&nbsp;:&nbsp;'axes'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'f'&nbsp;&nbsp;&nbsp;:&nbsp;'figure'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'p'&nbsp;&nbsp;&nbsp;:&nbsp;'patches'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'g'&nbsp;&nbsp;&nbsp;:&nbsp;'grid'<br>
+&nbsp;<br>
+Thus&nbsp;you&nbsp;could&nbsp;abbreviate&nbsp;the&nbsp;above&nbsp;rc&nbsp;command&nbsp;as<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-rc">rc</a>('l',&nbsp;lw=2,&nbsp;c='r')</tt></dd></dl>
  <dl><dt><a name="-reshape"><strong>reshape</strong></a>(...)</dt><dd><tt><a href="#-reshape">reshape</a>(a,&nbsp;(d1,&nbsp;d2,&nbsp;...,&nbsp;dn)).&nbsp;&nbsp;Change&nbsp;the&nbsp;shape&nbsp;of&nbsp;a&nbsp;to&nbsp;be&nbsp;an&nbsp;n-dimensional&nbsp;array&nbsp;with&nbsp;dimensions&nbsp;given&nbsp;by&nbsp;d1...dn.&nbsp;&nbsp;Note:&nbsp;the&nbsp;size&nbsp;specified&nbsp;for&nbsp;the&nbsp;new&nbsp;array&nbsp;must&nbsp;be&nbsp;exactly&nbsp;equal&nbsp;to&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;&nbsp;old&nbsp;one&nbsp;or&nbsp;an&nbsp;error&nbsp;will&nbsp;occur.</tt></dd></dl>
  <dl><dt><a name="-save"><strong>save</strong></a>(fname, X, fmt<font color="#909090">='%1.4f'</font>)</dt><dd><tt>Save&nbsp;the&nbsp;data&nbsp;in&nbsp;X&nbsp;to&nbsp;file&nbsp;fname&nbsp;using&nbsp;fmt&nbsp;string&nbsp;to&nbsp;convert&nbsp;the<br>
 data&nbsp;to&nbsp;strings<br>

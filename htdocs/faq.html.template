@@ -1,6 +1,59 @@
 
 FAQs = (
 
+    ('FREEZE',
+    'My matplotlib window is freezing',
+
+""" Often times this is caused by running matplotlib inside an IDE, eg
+Idle, PythonWin, Scintilla, etc, with an incompatible backend.  There
+are known incompatiblities with some of the backends with some of the
+IDEs, because they use different GUI event handlers. If you want to
+use matplotlib from an IDE, please consult the backends documentation
+for compatibility information. You will have the greatest likelihood
+of success if you run the examples from the command shell or by double
+clicking on them, rather than from an IDE. If you are interactively
+generating plots, your best bet is TkAgg from the standard python
+shell.<p>
+
+To find out which IDEs are compatible with your backend, see <a
+href=http://matplotlib.sourceforge.net/backends.html>backend</a>.<p>
+
+To test whether you are experiencing a problem inherent in matplotlib,
+you should open up a command shell and try to run one of the examples
+from the matplotlib src distribution (the *.zip file for windows
+users); Eg,
+
+<pre>
+  c:\matplotlib\examples> python simple_plot.py
+</pre>
+
+If this works fine, then you likely have an IDE problem and not a
+matplotlib specific problem.  Unfortunately, this problem tends to
+crop up a lot.  See for example <a
+href=http://sourceforge.net/mailarchive/message.php?msg_id=8610351>this
+thread</a> and the responses to that post for more information.
+
+"""),
+
+    ('EXAMPLES',
+    'Where can I find examples of matplotlib code?',
+"""
+The matplotlib src distribution (*.zip for windows, *.tar.gz for linux
+and friends) comes with many examples in the examples directory.
+Notably, the windows installer <i>does not</i> come with the
+examples dirrectory.  You can also get all the examples from <a href=http://matplotlib.sourceforge.net/examples>examples</a>.
+"""),
+
+   ('PROMPT',
+    "After my matplotlib script runs, I get a python shell prompt. What's going on?",
+"""
+Tkinter, used by the default windows backend TkAgg not have a mainloop
+like GTK or WX.  We needed a way to keep the figure open, and decided
+the best way was to switch into interactive mode in python.  This has
+the additional benefit that you can issue additional python commands
+to customize your figure interactively, if you want.
+"""),
+
     ('VERSIONS',
     'What do the version numbers mean?',
 

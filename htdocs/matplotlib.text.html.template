@@ -39,7 +39,7 @@
 <td colspan=2><tt>Handle&nbsp;storing&nbsp;and&nbsp;drawing&nbsp;of&nbsp;text&nbsp;in&nbsp;window&nbsp;or&nbsp;data&nbsp;coordinates<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Text-__init__"><strong>__init__</strong></a>(self, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, text<font color="#909090">=''</font>, color<font color="#909090">='k'</font>, verticalalignment<font color="#909090">='bottom'</font>, horizontalalignment<font color="#909090">='left'</font>, multialignment<font color="#909090">=None</font>, fontproperties<font color="#909090">=&lt;matplotlib.font_manager.FontProperties instance&gt;</font>, rotation<font color="#909090">=None</font>)</dt></dl>
+<dl><dt><a name="Text-__init__"><strong>__init__</strong></a>(self, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, text<font color="#909090">=''</font>, color<font color="#909090">=None</font>, verticalalignment<font color="#909090">='bottom'</font>, horizontalalignment<font color="#909090">='left'</font>, multialignment<font color="#909090">=None</font>, fontproperties<font color="#909090">=None</font>, rotation<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="Text-copy_properties"><strong>copy_properties</strong></a>(self, t)</dt><dd><tt>Copy&nbsp;properties&nbsp;from&nbsp;t&nbsp;to&nbsp;self</tt></dd></dl>
 

@@ -37,10 +37,10 @@
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Figure-__init__"><strong>__init__</strong></a>(self, figsize<font color="#909090">=[8.0, 6.0]</font>, dpi<font color="#909090">=80.0</font>, facecolor<font color="#909090">=0.75</font>, edgecolor<font color="#909090">='w'</font>, frameon<font color="#909090">=True</font>)</dt><dd><tt>paper&nbsp;size&nbsp;is&nbsp;a&nbsp;w,h&nbsp;tuple&nbsp;in&nbsp;inches<br>
+<dl><dt><a name="Figure-__init__"><strong>__init__</strong></a>(self, figsize<font color="#909090">=None</font>, dpi<font color="#909090">=None</font>, facecolor<font color="#909090">=None</font>, edgecolor<font color="#909090">=None</font>, frameon<font color="#909090">=True</font>)</dt><dd><tt>paper&nbsp;size&nbsp;is&nbsp;a&nbsp;w,h&nbsp;tuple&nbsp;in&nbsp;inches<br>
 DPI&nbsp;is&nbsp;dots&nbsp;per&nbsp;inch</tt></dd></dl>
 
-<dl><dt><a name="Figure-add_axes"><strong>add_axes</strong></a>(self, rect, axisbg<font color="#909090">='w'</font>, frameon<font color="#909090">=True</font>)</dt><dd><tt>Add&nbsp;an&nbsp;a&nbsp;axes&nbsp;with&nbsp;axes&nbsp;rect&nbsp;[left,&nbsp;bottom,&nbsp;width,&nbsp;height]<br>
+<dl><dt><a name="Figure-add_axes"><strong>add_axes</strong></a>(self, rect, axisbg<font color="#909090">=None</font>, frameon<font color="#909090">=True</font>)</dt><dd><tt>Add&nbsp;an&nbsp;a&nbsp;axes&nbsp;with&nbsp;axes&nbsp;rect&nbsp;[left,&nbsp;bottom,&nbsp;width,&nbsp;height]<br>
 where&nbsp;all&nbsp;quantities&nbsp;are&nbsp;in&nbsp;fractions&nbsp;of&nbsp;figure&nbsp;width&nbsp;and<br>
 height.<br>
 &nbsp;<br>

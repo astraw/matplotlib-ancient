@@ -165,7 +165,7 @@ Publicly&nbsp;accessible&nbsp;attributes<br>
 &nbsp;&nbsp;label2On&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;tick&nbsp;label<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Tick-__init__"><strong>__init__</strong></a>(self, axes, loc, label, size<font color="#909090">=None</font>, gridOn<font color="#909090">=False</font>, tick1On<font color="#909090">=True</font>, tick2On<font color="#909090">=True</font>, label1On<font color="#909090">=True</font>, label2On<font color="#909090">=False</font>, major<font color="#909090">=True</font>)</dt><dd><tt>bbox&nbsp;is&nbsp;the&nbsp;Bound2D&nbsp;bounding&nbsp;box&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;Axes<br>
+<dl><dt><a name="Tick-__init__"><strong>__init__</strong></a>(self, axes, loc, label, size<font color="#909090">=None</font>, gridOn<font color="#909090">=None</font>, tick1On<font color="#909090">=True</font>, tick2On<font color="#909090">=True</font>, label1On<font color="#909090">=True</font>, label2On<font color="#909090">=False</font>, major<font color="#909090">=True</font>)</dt><dd><tt>bbox&nbsp;is&nbsp;the&nbsp;Bound2D&nbsp;bounding&nbsp;box&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;Axes<br>
 loc&nbsp;is&nbsp;the&nbsp;tick&nbsp;location&nbsp;in&nbsp;data&nbsp;coords<br>
 size&nbsp;is&nbsp;the&nbsp;tick&nbsp;size&nbsp;in&nbsp;relative,&nbsp;axes&nbsp;coords</tt></dd></dl>
 
@@ -352,7 +352,7 @@ Methods defined here:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.axis.html#Tick">Tick</a>:<br>
-<dl><dt><a name="XTick-__init__"><strong>__init__</strong></a>(self, axes, loc, label, size<font color="#909090">=None</font>, gridOn<font color="#909090">=False</font>, tick1On<font color="#909090">=True</font>, tick2On<font color="#909090">=True</font>, label1On<font color="#909090">=True</font>, label2On<font color="#909090">=False</font>, major<font color="#909090">=True</font>)</dt><dd><tt>bbox&nbsp;is&nbsp;the&nbsp;Bound2D&nbsp;bounding&nbsp;box&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;Axes<br>
+<dl><dt><a name="XTick-__init__"><strong>__init__</strong></a>(self, axes, loc, label, size<font color="#909090">=None</font>, gridOn<font color="#909090">=None</font>, tick1On<font color="#909090">=True</font>, tick2On<font color="#909090">=True</font>, label1On<font color="#909090">=True</font>, label2On<font color="#909090">=False</font>, major<font color="#909090">=True</font>)</dt><dd><tt>bbox&nbsp;is&nbsp;the&nbsp;Bound2D&nbsp;bounding&nbsp;box&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;Axes<br>
 loc&nbsp;is&nbsp;the&nbsp;tick&nbsp;location&nbsp;in&nbsp;data&nbsp;coords<br>
 size&nbsp;is&nbsp;the&nbsp;tick&nbsp;size&nbsp;in&nbsp;relative,&nbsp;axes&nbsp;coords</tt></dd></dl>
 
@@ -537,7 +537,7 @@ Methods defined here:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.axis.html#Tick">Tick</a>:<br>
-<dl><dt><a name="YTick-__init__"><strong>__init__</strong></a>(self, axes, loc, label, size<font color="#909090">=None</font>, gridOn<font color="#909090">=False</font>, tick1On<font color="#909090">=True</font>, tick2On<font color="#909090">=True</font>, label1On<font color="#909090">=True</font>, label2On<font color="#909090">=False</font>, major<font color="#909090">=True</font>)</dt><dd><tt>bbox&nbsp;is&nbsp;the&nbsp;Bound2D&nbsp;bounding&nbsp;box&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;Axes<br>
+<dl><dt><a name="YTick-__init__"><strong>__init__</strong></a>(self, axes, loc, label, size<font color="#909090">=None</font>, gridOn<font color="#909090">=None</font>, tick1On<font color="#909090">=True</font>, tick2On<font color="#909090">=True</font>, label1On<font color="#909090">=True</font>, label2On<font color="#909090">=False</font>, major<font color="#909090">=True</font>)</dt><dd><tt>bbox&nbsp;is&nbsp;the&nbsp;Bound2D&nbsp;bounding&nbsp;box&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;Axes<br>
 loc&nbsp;is&nbsp;the&nbsp;tick&nbsp;location&nbsp;in&nbsp;data&nbsp;coords<br>
 size&nbsp;is&nbsp;the&nbsp;tick&nbsp;size&nbsp;in&nbsp;relative,&nbsp;axes&nbsp;coords</tt></dd></dl>
 
