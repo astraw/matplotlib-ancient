@@ -31,8 +31,9 @@ matplotlib was written by John Hunter<p>
   with much pain and suffering.</li>
 
   <li>Paul Barrett overhauled font management to provide an improved,
-  free-standing, platform independent font manager with a WC3 compliant
-  font finder and cache mechanism and ported mathtext to PS</li>
+  free-standing, platform independent font manager with a WC3
+  compliant font finder and cache mechanism and ported truetype and
+  mathtext to PS</li>
 
   <li>Perry Greenfield overhauled and modernized the goals and
   priorities page, implemented an imporved colormap framework, and has
@@ -42,6 +43,8 @@ matplotlib was written by John Hunter<p>
   <li>Jared Wahlstrand wrote the SVG backend</li>
 
   <li>Steve Chaplin is the GTK maintainer</li>
+
+  <li>Jim Benson provided the patch to handle vertical mathttext</li>
 </ul>
 
 @footer@

@@ -1,3 +1,14 @@
+"""
+You need a additional files to run this example.  Save the following
+in the same dir as this file
+
+  http://matplotlib.sourceforge.net/screenshots/helpers.py
+
+  http://matplotlib.sourceforge.net/screenshots/msft_nasdaq_d.csv
+
+  http://matplotlib.sourceforge.net/screenshots/__init__.py
+
+"""
 from __future__ import division
 import time, os, sys
 from helpers import load_quotes, movavg, fill_over, random_signal
@@ -208,5 +219,4 @@ for a in allAxes:
     a.dataLim.intervalx().set_bounds(*xlim)
     a.set_xlim(xlim)
 
-
-
+show()
