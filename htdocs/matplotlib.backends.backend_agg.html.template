@@ -188,6 +188,10 @@ inch&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 <dl><dt><a name="RendererAgg-tostring_rgb"><strong>tostring_rgb</strong></a>(self)</dt></dl>
 
 <hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>debug</strong> = 1</dl>
+
+<hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
 <dl><dt><a name="RendererAgg-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
 point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
@@ -247,7 +251,8 @@ The&nbsp;following&nbsp;are&nbsp;available,&nbsp;if&nbsp;scalable&nbsp;is&nbsp;t
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>False</strong> = False<br>
+<td width="100%"><strong>DEBUG</strong> = 0<br>
+<strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
 <strong>PIXELS_PER_INCH</strong> = 96<br>
 <strong>True</strong> = True<br>

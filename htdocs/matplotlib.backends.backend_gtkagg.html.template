@@ -85,7 +85,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137046968)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137050624)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -442,7 +442,8 @@ figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>False</strong> = False<br>
+<td width="100%"><strong>DEBUG</strong> = 0<br>
+<strong>False</strong> = False<br>
 <strong>PIXELS_PER_INCH</strong> = 72<br>
 <strong>True</strong> = True<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>

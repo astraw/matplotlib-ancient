@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from matplotlib.matlab import *
 
 figure(1)
@@ -9,5 +10,5 @@ xlabel('time (s)')
 ylabel('voltage (mV)')
 title('About as simple as it gets, folks')
 grid(True)
-savefig('simple_plot.eps')
+#savefig('simple_plot')
 show()

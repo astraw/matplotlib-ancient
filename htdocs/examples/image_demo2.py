@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from matplotlib.matlab import *
 
 w, h = 512, 512
@@ -28,5 +29,7 @@ if 0:
     set(gca(), 'xlim', [0,h-1])
     ylabel('density')
     set(gca(), 'xticklabels', [])
+
+savefig('image_demo2')
 show()
 

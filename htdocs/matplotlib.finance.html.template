@@ -56,6 +56,18 @@ colordown&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;lines&nbs
 converter&nbsp;&nbsp;&nbsp;:&nbsp;dates.DateConverter&nbsp;instance&nbsp;used&nbsp;to&nbsp;convert&nbsp;your&nbsp;times.&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;your&nbsp;data&nbsp;is&nbsp;already&nbsp;epoch,&nbsp;you&nbsp;can&nbsp;use&nbsp;converter=None<br>
 return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;added</tt></dd></dl>
+ <dl><dt><a name="-plot_day_summary2"><strong>plot_day_summary2</strong></a>(ax, quotes, ticksize<font color="#909090">=0.20000000000000001</font>, colorup<font color="#909090">='k'</font>, colordown<font color="#909090">='r'</font>)</dt><dd><tt>quotes&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;(time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low,&nbsp;...)&nbsp;tuples<br>
+&nbsp;<br>
+Represent&nbsp;the&nbsp;time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low&nbsp;as&nbsp;a&nbsp;vertical&nbsp;line<br>
+ranging&nbsp;from&nbsp;low&nbsp;to&nbsp;high.&nbsp;&nbsp;The&nbsp;left&nbsp;tick&nbsp;is&nbsp;the&nbsp;open&nbsp;and&nbsp;the&nbsp;right<br>
+tick&nbsp;is&nbsp;the&nbsp;close.<br>
+&nbsp;<br>
+ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;an&nbsp;Axes&nbsp;instance&nbsp;to&nbsp;plot&nbsp;to<br>
+ticksize&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;fraction&nbsp;(0-1)&nbsp;for&nbsp;the&nbsp;open&nbsp;and&nbsp;close&nbsp;ticks<br>
+colorup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;lines&nbsp;where&nbsp;close&nbsp;&gt;=&nbsp;open<br>
+colordown&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;lines&nbsp;where&nbsp;close&nbsp;&lt;&nbsp;&nbsp;open&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;added</tt></dd></dl>
  <dl><dt><a name="-quotes_historical_yahoo"><strong>quotes_historical_yahoo</strong></a>(ticker, date1, date2, converter<font color="#909090">=&lt;matplotlib.dates.EpochConverter instance&gt;</font>)</dt><dd><tt>Get&nbsp;historical&nbsp;data&nbsp;for&nbsp;ticker&nbsp;between&nbsp;date1&nbsp;and&nbsp;date2.&nbsp;&nbsp;converter<br>
 is&nbsp;a&nbsp;DateConverter&nbsp;class&nbsp;appropriate&nbsp;for&nbsp;converting&nbsp;your&nbsp;dates<br>
 &nbsp;<br>

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 This is use to drive many of the examples across the image backends
 and is used for regression testing and comparing backend efficiency
@@ -77,7 +78,7 @@ def drive(backend):
 times = {}
 backends = ['PS', 'GD', 'Paint', 'Agg', 'Template']
 #backends.extend([ 'GTK', 'WX', 'TkAgg'])
-#backends = [ 'Agg']
+backends = [ 'Agg']
 
 for backend in backends:
     print 'testing %s' % backend

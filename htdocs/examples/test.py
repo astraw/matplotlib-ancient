@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import datetime, time
 
 class intdate(int):
