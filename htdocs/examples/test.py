@@ -39,7 +39,7 @@ ax = subplot(111)
 ax.xaxis.set_major_locator( MinuteLocator(20) )
 ax.xaxis.set_major_formatter( DateFormatter('%H:%M') )
 ax.bar(t, s, width=60)
-savefig('test')
+#savefig('test')
 show()
 
 

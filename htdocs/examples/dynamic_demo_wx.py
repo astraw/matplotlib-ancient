@@ -20,8 +20,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.34  2004/05/17 15:08:56  jdh2358
-updated goals and what's new
+Revision 1.35  2004/05/19 19:55:21  jdh2358
+sync to 0.54
 
 Revision 1.4  2004/05/03 12:12:26  jdh2358
 added bang header to examples

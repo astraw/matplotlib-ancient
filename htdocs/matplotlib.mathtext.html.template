@@ -489,6 +489,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><a name="SpaceElement-height"><strong>height</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;element&nbsp;height:&nbsp;ymax-ymin</tt></dd></dl>
 
+<dl><dt><a name="SpaceElement-set_font"><strong>set_font</strong></a>(self, f)</dt></dl>
+
 <dl><dt><a name="SpaceElement-width"><strong>width</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;element&nbsp;width:&nbsp;xmax-xmin</tt></dd></dl>
 
 <dl><dt><a name="SpaceElement-xmax"><strong>xmax</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;max&nbsp;ink&nbsp;in&nbsp;x</tt></dd></dl>
@@ -512,8 +514,6 @@ Methods inherited from <a href="matplotlib.mathtext.html#Element">Element</a>:<b
 <dl><dt><a name="SpaceElement-pady"><strong>pady</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="SpaceElement-render"><strong>render</strong></a>(self)</dt><dd><tt>render&nbsp;to&nbsp;the&nbsp;fonts&nbsp;canvas</tt></dd></dl>
-
-<dl><dt><a name="SpaceElement-set_font"><strong>set_font</strong></a>(self, font)</dt><dd><tt>set&nbsp;the&nbsp;font&nbsp;(one&nbsp;of&nbsp;tt,&nbsp;it,&nbsp;rm&nbsp;,&nbsp;cal)</tt></dd></dl>
 
 <dl><dt><a name="SpaceElement-set_origin"><strong>set_origin</strong></a>(self, ox, oy)</dt></dl>
 
@@ -623,6 +623,18 @@ The&nbsp;following&nbsp;are&nbsp;available,&nbsp;if&nbsp;scalable&nbsp;is&nbsp;t
 &nbsp;&nbsp;underline_position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;position&nbsp;of&nbsp;the&nbsp;underline&nbsp;bar<br>
 &nbsp;&nbsp;underline_thickness&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;thickness&nbsp;of&nbsp;the&nbsp;underline</tt></dd></dl>
  <dl><dt><a name="-StringIO"><strong>StringIO</strong></a>(...)</dt><dd><tt><a href="#-StringIO">StringIO</a>([s])&nbsp;--&nbsp;Return&nbsp;a&nbsp;StringIO-like&nbsp;stream&nbsp;for&nbsp;reading&nbsp;or&nbsp;writing</tt></dd></dl>
+ <dl><dt><a name="-math_parse_s_ft2font"><strong>math_parse_s_ft2font</strong></a>(s, dpi, fontsize)</dt><dd><tt>Parse&nbsp;the&nbsp;math&nbsp;expression&nbsp;s,&nbsp;return&nbsp;the&nbsp;(bbox,&nbsp;fonts)&nbsp;tuple&nbsp;needed<br>
+to&nbsp;render&nbsp;it.<br>
+&nbsp;<br>
+fontsize&nbsp;must&nbsp;be&nbsp;in&nbsp;points<br>
+&nbsp;<br>
+return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
+ <dl><dt><a name="-math_parse_s_ps"><strong>math_parse_s_ps</strong></a>(s, dpi, fontsize)</dt><dd><tt>Parse&nbsp;the&nbsp;math&nbsp;expression&nbsp;s,&nbsp;return&nbsp;the&nbsp;(bbox,&nbsp;fonts)&nbsp;tuple&nbsp;needed<br>
+to&nbsp;render&nbsp;it.<br>
+&nbsp;<br>
+fontsize&nbsp;must&nbsp;be&nbsp;in&nbsp;points<br>
+&nbsp;<br>
+return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">

@@ -79,12 +79,13 @@ make scaling all fonts within a plot simpler.
 *******************
 Newline separated text and arbitrary rotations
 
-partial
+mostly done
 
-agg and postscript support arbitrary rotations but the horizontal and
-vertical alignment strings only work with 0 and 90 degrees.  We want
-to support arbitrary rotations w/ newlines across backends, with a
-high priority given to Agg and PS.
+
+Properly aligned newline separated text works across backends.  The
+support for arbitrary rotations depends on whether the backend
+supports arbitrary rotations (*Agg, PS, GD, Paint do; GTK and WX
+support only horizontal and vertical).  Added in <a href="whats_new.html#0.54-Newlines_in_text">matplotlib-0.54</a>.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Plot types
@@ -136,7 +137,7 @@ href=whats_new.html#0.54-Full_dash_control>matplotlib-0.54</a>.  See
 <a href=examples/dash_control.py>dash_control.py</a>.
 
 *******************
-Date plots
+Generalize date plots
 
 not started
 
@@ -215,7 +216,7 @@ Performance
 *******************
 Faster Postscript rendering
 
-mostly done
+done
 
 font caching and other changes have significantly improved postscript
 performance; fixed in <a href="whats_new.html#0.54-Font_cacheing">matplotlib-0.54</a>

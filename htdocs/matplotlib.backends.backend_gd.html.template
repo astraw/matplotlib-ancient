@@ -339,10 +339,10 @@ the&nbsp;figure&nbsp;in&nbsp;it.</tt></dd></dl>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
-<strong>Int16</strong> = 's'<br>
 <strong>PIXELS_PER_INCH</strong> = 96<br>
 <strong>True</strong> = True<br>
 <strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;</td></tr></table>
+<strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
+<strong>nx</strong> = &lt;matplotlib.nc_imports._TypeNamespace instance&gt;</td></tr></table>
 @footer@

@@ -236,6 +236,38 @@ a&nbsp;list&nbsp;of&nbsp;possible&nbsp;values.</tt></dd></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-add_filename"><strong>add_filename</strong></a>(fontdict, prop, fname)</dt><dd><tt>A&nbsp;function&nbsp;to&nbsp;add&nbsp;a&nbsp;font&nbsp;file&nbsp;name&nbsp;to&nbsp;the&nbsp;font&nbsp;dictionary&nbsp;using<br>
+the&nbsp;<a href="#FontKey">FontKey</a>&nbsp;properties.&nbsp;&nbsp;If&nbsp;a&nbsp;font&nbsp;property&nbsp;has&nbsp;no&nbsp;dictionary,&nbsp;then<br>
+create&nbsp;it.</tt></dd></dl>
+ <dl><dt><a name="-afmFontProperty"><strong>afmFontProperty</strong></a>(font)</dt><dd><tt>A&nbsp;function&nbsp;for&nbsp;populating&nbsp;the&nbsp;<a href="#FontKey">FontKey</a>&nbsp;by&nbsp;extracting&nbsp;information<br>
+from&nbsp;the&nbsp;AFM&nbsp;font&nbsp;file.</tt></dd></dl>
+ <dl><dt><a name="-createFontDict"><strong>createFontDict</strong></a>(fontfiles, fontext<font color="#909090">='ttf'</font>)</dt><dd><tt>A&nbsp;function&nbsp;to&nbsp;create&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;font&nbsp;file&nbsp;paths.&nbsp;&nbsp;The<br>
+default&nbsp;is&nbsp;to&nbsp;create&nbsp;a&nbsp;dictionary&nbsp;for&nbsp;TrueType&nbsp;fonts.&nbsp;&nbsp;An&nbsp;AFM&nbsp;font<br>
+dictionary&nbsp;can&nbsp;optionally&nbsp;be&nbsp;created.</tt></dd></dl>
+ <dl><dt><a name="-findSystemFonts"><strong>findSystemFonts</strong></a>(fontpaths<font color="#909090">=None</font>, fontext<font color="#909090">='ttf'</font>)</dt><dd><tt>Search&nbsp;for&nbsp;fonts&nbsp;in&nbsp;the&nbsp;specified&nbsp;font&nbsp;paths,&nbsp;or&nbsp;use&nbsp;the&nbsp;system<br>
+paths&nbsp;if&nbsp;none&nbsp;given.&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;TrueType&nbsp;fonts&nbsp;are&nbsp;returned&nbsp;by&nbsp;default<br>
+with&nbsp;AFM&nbsp;fonts&nbsp;as&nbsp;an&nbsp;option.</tt></dd></dl>
+ <dl><dt><a name="-get_default_font"><strong>get_default_font</strong></a>()</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;default&nbsp;font&nbsp;properties</tt></dd></dl>
+ <dl><dt><a name="-setWeights"><strong>setWeights</strong></a>(font)</dt><dd><tt>A&nbsp;function&nbsp;to&nbsp;populate&nbsp;missing&nbsp;values&nbsp;in&nbsp;a&nbsp;font&nbsp;weight<br>
+dictionary.&nbsp;&nbsp;This&nbsp;proceedure&nbsp;is&nbsp;necessary&nbsp;since&nbsp;the&nbsp;font&nbsp;finding<br>
+algorithm&nbsp;always&nbsp;matches&nbsp;on&nbsp;the&nbsp;weight&nbsp;property.</tt></dd></dl>
+ <dl><dt><a name="-set_default_font"><strong>set_default_font</strong></a>(font)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;default&nbsp;font&nbsp;properties</tt></dd></dl>
+ <dl><dt><a name="-ttfFontProperty"><strong>ttfFontProperty</strong></a>(font)</dt><dd><tt>A&nbsp;function&nbsp;for&nbsp;populating&nbsp;the&nbsp;<a href="#FontKey">FontKey</a>&nbsp;by&nbsp;extracting&nbsp;information<br>
+from&nbsp;the&nbsp;TrueType&nbsp;font&nbsp;file.</tt></dd></dl>
+ <dl><dt><a name="-weight_as_number"><strong>weight_as_number</strong></a>(weight)</dt><dd><tt>Return&nbsp;the&nbsp;weight&nbsp;property&nbsp;as&nbsp;a&nbsp;numeric&nbsp;value.&nbsp;&nbsp;String&nbsp;values<br>
+are&nbsp;converted&nbsp;to&nbsp;their&nbsp;corresponding&nbsp;numeric&nbsp;value.</tt></dd></dl>
+ <dl><dt><a name="-win32FontDirectory"><strong>win32FontDirectory</strong></a>()</dt><dd><tt>Return&nbsp;the&nbsp;user-specified&nbsp;font&nbsp;directory&nbsp;for&nbsp;Win32.</tt></dd></dl>
+ <dl><dt><a name="-win32InstalledFonts"><strong>win32InstalledFonts</strong></a>(directory<font color="#909090">=None</font>, fontext<font color="#909090">='ttf'</font>)</dt><dd><tt>Search&nbsp;for&nbsp;fonts&nbsp;in&nbsp;the&nbsp;specified&nbsp;font&nbsp;directory,&nbsp;or&nbsp;use&nbsp;the<br>
+system&nbsp;directories&nbsp;if&nbsp;none&nbsp;given.&nbsp;&nbsp;A&nbsp;list&nbsp;of&nbsp;TrueType&nbsp;fonts&nbsp;are<br>
+returned&nbsp;by&nbsp;default&nbsp;with&nbsp;AFM&nbsp;fonts&nbsp;as&nbsp;an&nbsp;option.</tt></dd></dl>
+ <dl><dt><a name="-x11FontDirectory"><strong>x11FontDirectory</strong></a>()</dt><dd><tt>Return&nbsp;the&nbsp;system&nbsp;font&nbsp;directories&nbsp;for&nbsp;X11.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
@@ -246,6 +278,6 @@ a&nbsp;list&nbsp;of&nbsp;possible&nbsp;values.</tt></dd></dl>
 <strong>X11FontDirectories</strong> = ['/usr/X11R6/lib/X11/fonts/TTF/', '/usr/lib/openoffice/share/fonts/truetype/', '/usr/share/fonts', '~/Library/Fonts/', '/Library/Fonts/', '/Network/Library/Fonts/', '/System/Library/Fonts/', 'System Folder:Fonts:']<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
 <strong>font_scalings</strong> = {'large': 1.2, 'medium': 1.0, 'small': 0.83299999999999996, 'x-large': 1.4399999999999999, 'x-small': 0.69399999999999995, 'xx-large': 1.728, 'xx-small': 0.57899999999999996}<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 72.0, ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>weight_dict</strong> = {'black': 900, 'bold': 700, 'book': 400, 'demi': 600, 'demibold': 600, 'extra bold': 800, 'heavy': 800, 'light': 200, 'medium': 500, 'normal': 400, ...}</td></tr></table>
 @footer@

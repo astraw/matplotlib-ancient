@@ -9,7 +9,7 @@ default = 'Agg'
 files = {'simple_plot.py'    : default, 
          'axes_demo.py'      : default,  # color allocation bug   
          'histogram_demo.py' : default, 
-         'mri_with_eeg.py'   : default,
+#         'mri_with_eeg.py'   : default,
          'fill_demo.py'  : default,
          'date_demo.py'  : default,         
          'barchart_demo.py'  : default,
@@ -49,7 +49,7 @@ def make_shot(fname, backend):
     tmpfile = '_tmp_%s.py' % basename
     file(tmpfile, 'w').write(''.join(lines))
     os.system('python %s' % tmpfile)
-    os.remove(tmpfile)
+    #os.remove(tmpfile)
     
 for fname, backend in files.items():
     make_shot(fname, backend)

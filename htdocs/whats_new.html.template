@@ -42,13 +42,15 @@ identically.
 
 """),
 
-    ('Enhanced mathtext', r"""
-A significant rewrite of the mathtext module provides much more
-precise layout.  The freetype component has been factored out of the
-layout engine and replaced by an abstract class for font handling.
-This lays the groundwork for ps mathtext.  Added spacing commands \/
-and \hspace{frac} as well as composite chars such as \angstrom.
-"""),
+    ('Enhanced mathtext', r""" A significant rewrite of the mathtext
+module provides much more precise layout.  The freetype component has
+been factored out of the layout engine and replaced by an abstract
+class for font handling.  This lays the groundwork for ps mathtext.
+The text clipping problems have been fixed.  Added spacing commands
+'\/' (small space) and '\ ' (regular space), and '\hspace{frac}'
+(space is fraction of pointsize) as well as composite chars such as
+\angstrom.  Fixed over/under subscripts so you can say x_i^j and
+nested subscripts if you do x_i_{j} (you need the curlys)"""),
 
     ('Many new plot symbols and markers', """Thanks Gary Ruben.  See
 <a href=matplotlib.matlab.html#-plot>plot</a>.
@@ -58,6 +60,15 @@ and \hspace{frac} as well as composite chars such as \angstrom.
 font manager to increase performance.  This and other changes have
 dramatically improved postscript backend performance.
 """),
+
+    ('Newlines in text', """After much encouragement from Al, I
+finally got around to supporting newline separated text in the Text
+frontend, so this is no longer backend dependent.  As a bonus, it even
+works with arbitrary rotations.  There is an additional text attribute
+'multialignment' that specifies the alignment of the lines in
+multiline text.  See <a href=examples/multiline.py>multiline.py</a>
+and <a href=screenshots.html#align_text>alignment screenshot</a>.
+Works with all text instances except mathtext."""),
 
     ('Axes hold', """\
 matlab compatible hold command determines whether subsequent plot

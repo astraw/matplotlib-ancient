@@ -212,7 +212,7 @@ Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patches&nbsp;that&nbsp;were&nbsp;added.</t
 
 <dl><dt><a name="Axes-has_data"><strong>has_data</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Axes-hist"><strong>hist</strong></a>(self, x, bins<font color="#909090">=10</font>, normed<font color="#909090">=0</font>)</dt><dd><tt>Compute&nbsp;the&nbsp;histogram&nbsp;of&nbsp;x.&nbsp;&nbsp;bins&nbsp;is&nbsp;either&nbsp;an&nbsp;integer&nbsp;number&nbsp;of<br>
+<dl><dt><a name="Axes-hist"><strong>hist</strong></a>(self, x, bins<font color="#909090">=10</font>, normed<font color="#909090">=0</font>, bottom<font color="#909090">=0</font>)</dt><dd><tt>Compute&nbsp;the&nbsp;histogram&nbsp;of&nbsp;x.&nbsp;&nbsp;bins&nbsp;is&nbsp;either&nbsp;an&nbsp;integer&nbsp;number&nbsp;of<br>
 bins&nbsp;or&nbsp;a&nbsp;sequence&nbsp;giving&nbsp;the&nbsp;bins.&nbsp;&nbsp;x&nbsp;are&nbsp;the&nbsp;data&nbsp;to&nbsp;be&nbsp;binned.<br>
 &nbsp;<br>
 if&nbsp;noplot&nbsp;is&nbsp;True,&nbsp;just&nbsp;compute&nbsp;the&nbsp;histogram&nbsp;and&nbsp;return&nbsp;the<br>
@@ -231,6 +231,14 @@ scalars,&nbsp;then&nbsp;the&nbsp;respective&nbsp;values&nbsp;are&nbsp;constant,&
 widths&nbsp;of&nbsp;the&nbsp;lines&nbsp;are&nbsp;determined&nbsp;by&nbsp;xmin&nbsp;and&nbsp;xmax<br>
 &nbsp;<br>
 Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;line&nbsp;instances&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+
+<dl><dt><a name="Axes-hold"><strong>hold</strong></a>(self, b<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;hold&nbsp;state.&nbsp;&nbsp;If&nbsp;hold&nbsp;is&nbsp;None&nbsp;(default),&nbsp;toggle&nbsp;the<br>
+hold&nbsp;state.&nbsp;&nbsp;Else&nbsp;set&nbsp;the&nbsp;hold&nbsp;state&nbsp;to&nbsp;boolean&nbsp;value&nbsp;b.<br>
+&nbsp;<br>
+Eg<br>
+<a href="#Axes-hold">hold</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;toggle&nbsp;hold<br>
+<a href="#Axes-hold">hold</a>(True)&nbsp;&nbsp;#&nbsp;hold&nbsp;is&nbsp;on<br>
+<a href="#Axes-hold">hold</a>(False)&nbsp;#&nbsp;hold&nbsp;is&nbsp;off</tt></dd></dl>
 
 <dl><dt><a name="Axes-imshow"><strong>imshow</strong></a>(self, X, cmap<font color="#909090">=&lt;matplotlib.colors.Grayscale instance&gt;</font>)</dt><dd><tt>Display&nbsp;the&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;must&nbsp;be&nbsp;a<br>
 float&nbsp;array<br>
@@ -849,7 +857,7 @@ Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patches&nbsp;that&nbsp;were&nbsp;added.</t
 
 <dl><dt><a name="Subplot-has_data"><strong>has_data</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Subplot-hist"><strong>hist</strong></a>(self, x, bins<font color="#909090">=10</font>, normed<font color="#909090">=0</font>)</dt><dd><tt>Compute&nbsp;the&nbsp;histogram&nbsp;of&nbsp;x.&nbsp;&nbsp;bins&nbsp;is&nbsp;either&nbsp;an&nbsp;integer&nbsp;number&nbsp;of<br>
+<dl><dt><a name="Subplot-hist"><strong>hist</strong></a>(self, x, bins<font color="#909090">=10</font>, normed<font color="#909090">=0</font>, bottom<font color="#909090">=0</font>)</dt><dd><tt>Compute&nbsp;the&nbsp;histogram&nbsp;of&nbsp;x.&nbsp;&nbsp;bins&nbsp;is&nbsp;either&nbsp;an&nbsp;integer&nbsp;number&nbsp;of<br>
 bins&nbsp;or&nbsp;a&nbsp;sequence&nbsp;giving&nbsp;the&nbsp;bins.&nbsp;&nbsp;x&nbsp;are&nbsp;the&nbsp;data&nbsp;to&nbsp;be&nbsp;binned.<br>
 &nbsp;<br>
 if&nbsp;noplot&nbsp;is&nbsp;True,&nbsp;just&nbsp;compute&nbsp;the&nbsp;histogram&nbsp;and&nbsp;return&nbsp;the<br>
@@ -868,6 +876,14 @@ scalars,&nbsp;then&nbsp;the&nbsp;respective&nbsp;values&nbsp;are&nbsp;constant,&
 widths&nbsp;of&nbsp;the&nbsp;lines&nbsp;are&nbsp;determined&nbsp;by&nbsp;xmin&nbsp;and&nbsp;xmax<br>
 &nbsp;<br>
 Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;line&nbsp;instances&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+
+<dl><dt><a name="Subplot-hold"><strong>hold</strong></a>(self, b<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;hold&nbsp;state.&nbsp;&nbsp;If&nbsp;hold&nbsp;is&nbsp;None&nbsp;(default),&nbsp;toggle&nbsp;the<br>
+hold&nbsp;state.&nbsp;&nbsp;Else&nbsp;set&nbsp;the&nbsp;hold&nbsp;state&nbsp;to&nbsp;boolean&nbsp;value&nbsp;b.<br>
+&nbsp;<br>
+Eg<br>
+<a href="#Subplot-hold">hold</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;toggle&nbsp;hold<br>
+<a href="#Subplot-hold">hold</a>(True)&nbsp;&nbsp;#&nbsp;hold&nbsp;is&nbsp;on<br>
+<a href="#Subplot-hold">hold</a>(False)&nbsp;#&nbsp;hold&nbsp;is&nbsp;off</tt></dd></dl>
 
 <dl><dt><a name="Subplot-imshow"><strong>imshow</strong></a>(self, X, cmap<font color="#909090">=&lt;matplotlib.colors.Grayscale instance&gt;</font>)</dt><dd><tt>Display&nbsp;the&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;must&nbsp;be&nbsp;a<br>
 float&nbsp;array<br>
@@ -1330,5 +1346,5 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>lineMarkers</strong> = {0: 1, 1: 1, 2: 1, 3: 1, '+': 1, ',': 1, '.': 1, '1': 1, '2': 1, '3': 1, ...}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1}<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 72.0, ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
 @footer@

@@ -53,8 +53,10 @@ ylabel('share price $')
 ax.xaxis.set_major_locator(mondays)
 ax.xaxis.set_major_formatter(fmt)
 ax.xaxis.set_minor_locator(days)
-ax.xaxis.autoscale_view()
-labels = ax.get_xticklabels()
-set(labels, 'rotation', 'vertical')
+ax.autoscale_view()
+
+
+set( ax.xaxis.get_major_ticks(), 'pad', 10)
+set( ax.get_xticklabels(),       'rotation', 45)
 grid(True)
 show()

@@ -27,7 +27,8 @@ Plotting&nbsp;commands<br>
 &nbsp;&nbsp;gcf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;get&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;get&nbsp;a&nbsp;handle&nbsp;graphics&nbsp;property<br>
 &nbsp;&nbsp;hist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;histogram<br>
-&nbsp;&nbsp;legend&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;an&nbsp;eaxes&nbsp;legend<br>
+&nbsp;&nbsp;hold&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;axes&nbsp;hold&nbsp;state<br>
+&nbsp;&nbsp;legend&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;an&nbsp;axes&nbsp;legend<br>
 &nbsp;&nbsp;loglog&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;log&nbsp;log&nbsp;plot<br>
 &nbsp;&nbsp;imshow&nbsp;&nbsp;&nbsp;-&nbsp;plot&nbsp;image&nbsp;data<br>
 &nbsp;&nbsp;pcolor&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot<br>
@@ -319,7 +320,7 @@ USAGE:&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'upper&nbsp;right')<br>
 &nbsp;<br>
 See&nbsp;help(legend)&nbsp;for&nbsp;information&nbsp;about&nbsp;the&nbsp;location&nbsp;codes</tt></dd></dl>
- <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=1</font>, figsize<font color="#909090">=[8.0, 6.0]</font>, dpi<font color="#909090">=72.0</font>, facecolor<font color="#909090">=0.75</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt><a href="#-figure">figure</a>(num&nbsp;=&nbsp;1,&nbsp;figsize=(8,&nbsp;6),&nbsp;dpi=80,&nbsp;facecolor='w',&nbsp;edgecolor='k')<br>
+ <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=1</font>, figsize<font color="#909090">=[8.0, 6.0]</font>, dpi<font color="#909090">=80.0</font>, facecolor<font color="#909090">=0.75</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt><a href="#-figure">figure</a>(num&nbsp;=&nbsp;1,&nbsp;figsize=(8,&nbsp;6),&nbsp;dpi=80,&nbsp;facecolor='w',&nbsp;edgecolor='k')<br>
 &nbsp;<br>
 &nbsp;<br>
 Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;and&nbsp;return&nbsp;a&nbsp;handle&nbsp;to&nbsp;it<br>
@@ -396,7 +397,7 @@ if&nbsp;s&nbsp;is&nbsp;'somename',&nbsp;this&nbsp;function&nbsp;returns<br>
  <dl><dt><a name="-get_current_fig_manager"><strong>get_current_fig_manager</strong></a>()</dt></dl>
  <dl><dt><a name="-get_plot_commands"><strong>get_plot_commands</strong></a>()</dt></dl>
  <dl><dt><a name="-grid"><strong>grid</strong></a>(b)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;grid&nbsp;to&nbsp;be&nbsp;on&nbsp;or&nbsp;off&nbsp;(b&nbsp;is&nbsp;a&nbsp;boolean)</tt></dd></dl>
- <dl><dt><a name="-hist"><strong>hist</strong></a>(x, bins<font color="#909090">=10</font>, noplot<font color="#909090">=0</font>, normed<font color="#909090">=0</font>)</dt><dd><tt>Compute&nbsp;the&nbsp;histogram&nbsp;of&nbsp;x.&nbsp;&nbsp;bins&nbsp;is&nbsp;either&nbsp;an&nbsp;integer&nbsp;number&nbsp;of<br>
+ <dl><dt><a name="-hist"><strong>hist</strong></a>(x, bins<font color="#909090">=10</font>, noplot<font color="#909090">=0</font>, normed<font color="#909090">=0</font>, bottom<font color="#909090">=0</font>)</dt><dd><tt>Compute&nbsp;the&nbsp;histogram&nbsp;of&nbsp;x.&nbsp;&nbsp;bins&nbsp;is&nbsp;either&nbsp;an&nbsp;integer&nbsp;number&nbsp;of<br>
 bins&nbsp;or&nbsp;a&nbsp;sequence&nbsp;giving&nbsp;the&nbsp;bins.&nbsp;&nbsp;x&nbsp;are&nbsp;the&nbsp;data&nbsp;to&nbsp;be&nbsp;binned.<br>
 &nbsp;<br>
 if&nbsp;noplot&nbsp;is&nbsp;True,&nbsp;just&nbsp;compute&nbsp;the&nbsp;histogram&nbsp;and&nbsp;return&nbsp;the<br>
@@ -416,6 +417,13 @@ scalars,&nbsp;then&nbsp;the&nbsp;respective&nbsp;values&nbsp;are&nbsp;constant,&
 widths&nbsp;of&nbsp;the&nbsp;lines&nbsp;are&nbsp;determined&nbsp;by&nbsp;xmin&nbsp;and&nbsp;xmax<br>
 &nbsp;<br>
 Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;line&nbsp;instances&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+ <dl><dt><a name="-hold"><strong>hold</strong></a>(b<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;hold&nbsp;state.&nbsp;&nbsp;If&nbsp;hold&nbsp;is&nbsp;None&nbsp;(default),&nbsp;toggle&nbsp;the<br>
+hold&nbsp;state.&nbsp;&nbsp;Else&nbsp;set&nbsp;the&nbsp;hold&nbsp;state&nbsp;to&nbsp;boolean&nbsp;value&nbsp;b.<br>
+&nbsp;<br>
+Eg<br>
+<a href="#-hold">hold</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;toggle&nbsp;hold<br>
+<a href="#-hold">hold</a>(True)&nbsp;&nbsp;#&nbsp;hold&nbsp;is&nbsp;on<br>
+<a href="#-hold">hold</a>(False)&nbsp;#&nbsp;hold&nbsp;is&nbsp;off</tt></dd></dl>
  <dl><dt><a name="-imshow"><strong>imshow</strong></a>(*args, **kwargs)</dt><dd><tt>Display&nbsp;the&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;must&nbsp;be&nbsp;a<br>
 float&nbsp;array<br>
 &nbsp;<br>
@@ -666,6 +674,7 @@ gca&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;current&nbsp;
 gcf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;current&nbsp;figure<br>
 get&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;get&nbsp;a&nbsp;handle&nbsp;graphics&nbsp;property<br>
 hist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;histogram<br>
+hold&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;hold&nbsp;state&nbsp;on&nbsp;current&nbsp;axes<br>
 legend&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;legend&nbsp;to&nbsp;the&nbsp;axes<br>
 loglog&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;log&nbsp;log&nbsp;plot<br>
 imshow&nbsp;&nbsp;&nbsp;-&nbsp;plot&nbsp;image&nbsp;data<br>
@@ -1021,7 +1030,7 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>nx</strong> = &lt;matplotlib.nc_imports._TypeNamespace instance&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 72.0, ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>readme</strong> = '<font color="#c040c0">\n</font>MLab2.py, release 1<font color="#c040c0">\n\n</font>Created on February 2003 b...<font color="#c040c0">\n</font>Look at: http://pdilib.sf.net for new releases.<font color="#c040c0">\n</font>'<br>
 <strong>remainder</strong> = &lt;ufunc 'remainder'&gt;<br>
 <strong>right_shift</strong> = &lt;ufunc 'right_shift'&gt;<br>
