@@ -23,6 +23,9 @@
 \papersides 1
 \paperpagestyle default
 
+\layout Chapter
+
+3D visualization with VTK
 \layout Standard
 
 The Visualization Toolkit is a library for creating, analyzing, and visualizing

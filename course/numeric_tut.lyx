@@ -23,6 +23,9 @@
 \papersides 1
 \paperpagestyle default
 
+\layout Chapter
+
+Introduction to numerix arrays
 \layout Standard
 
 Numeric tut

@@ -23,6 +23,9 @@
 \papersides 1
 \paperpagestyle default
 
+\layout Chapter
+
+A tour of scipy
 \layout Standard
 
 Purpose

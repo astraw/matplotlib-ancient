@@ -23,6 +23,9 @@
 \papersides 1
 \paperpagestyle default
 
+\layout Chapter
+
+Interfacing with external libraries
 \layout Section
 
 weave

@@ -90,9 +90,6 @@ Fernando Perez
 \end_inset 
 
 
-\layout Chapter
-
-Why python?
 \layout Standard
 
 
@@ -102,9 +99,6 @@ preview false
 \end_inset 
 
 
-\layout Chapter
-
-A whirlwind tour of python and the standard library
 \layout Standard
 
 
@@ -114,9 +108,6 @@ preview false
 \end_inset 
 
 
-\layout Chapter
-
-Introduction to numerix arrays
 \layout Standard
 
 
@@ -126,9 +117,6 @@ preview false
 \end_inset 
 
 
-\layout Chapter
-
-Introduction to plotting with matplotlib / pylab
 \layout Standard
 
 
@@ -138,9 +126,6 @@ preview false
 \end_inset 
 
 
-\layout Chapter
-
-A tour of ipython
 \layout Standard
 
 
@@ -150,9 +135,6 @@ preview false
 \end_inset 
 
 
-\layout Chapter
-
-A tour of scipy
 \layout Standard
 
 
@@ -162,9 +144,6 @@ preview false
 \end_inset 
 
 
-\layout Chapter
-
-3D visualization with VTK
 \layout Standard
 
 
@@ -174,9 +153,6 @@ preview false
 \end_inset 
 
 
-\layout Chapter
-
-3D visualization with MayaVi
 \layout Standard
 
 
@@ -186,9 +162,6 @@ preview false
 \end_inset 
 
 
-\layout Chapter
-
-Interfacing with external libraries
 \layout Standard
 
 

@@ -23,6 +23,9 @@
 \papersides 1
 \paperpagestyle default
 
+\layout Chapter
+
+3D visualization with MayaVi
 \layout Section
 
 Generalities

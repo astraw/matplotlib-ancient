@@ -23,6 +23,9 @@
 \papersides 1
 \paperpagestyle default
 
+\layout Chapter
+
+A tour of ipython
 \layout Standard
 
 One of Python's most useful features is its interactive interpreter.

@@ -23,6 +23,9 @@
 \papersides 1
 \paperpagestyle default
 
+\layout Chapter
+
+A whirlwind tour of python and the standard library
 \layout Standard
 
 This is a quick-and-dirty introduction to the python language for the impatient
