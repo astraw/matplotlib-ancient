@@ -13,7 +13,13 @@ To build the matplotlib users guide, you will need to
       cd ..
       sudo python setup.py install
 
-  * add the styles dir to your TEXINPUTS environment variable
+  * add the styles dir to your TEXINPUTS environment variable.  Eg,  
+
+      setenv TEXINPUTS .:styles:/usr/share/texmf//
+
+    Note the double slash at the end tells TeX to recusively search
+    that dir.
+
 
   * Generate the figures 
      
