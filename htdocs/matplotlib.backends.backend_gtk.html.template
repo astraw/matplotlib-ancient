@@ -151,7 +151,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137142840)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137142880)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -1250,7 +1250,7 @@ Methods inherited from <a href="gtk.html#FileSelection">gtk.FileSelection</a>:<b
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#FileSelection">gtk.FileSelection</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileSelection (137144096)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileSelection (137150680)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.FileSelection' objects&gt;</dl>
 

@@ -419,8 +419,8 @@ text(1,2, r's(t) = $\cal{A}\rm{sin}(2 \omega t)$')
 
 Here "s" and "t" are variable in italics font (default), "sin" is in
 roman font, and the amplitude "A" is in caligraphy font. The font
-choices are roman <tt>\\rm</tt>, italics <tt>\\it</tt>, caligraphy
-<tt>\\cal</tt>, and typewriter <tt>\\tt</tt> <p>
+choices are roman <tt>\rm</tt>, italics <tt>\it</tt>, caligraphy
+<tt>\cal</tt>, and typewriter <tt>\tt</tt> <p>
 
 
 <table @plot_table_border@><tr><td>
@@ -672,14 +672,14 @@ event handling to determine things like key presses, mouse position,
 and button clicks.  matplotlib supports a number of GUIs, and provides
 an interface to the GUI event handling via the <a
 href=matplotlib.matlab.html#-mpl_connect>mpl_connect</a> and <a
-href=matplotlib.matlab.html#-mpl_disconnect>mpl_disconnect</a> methods of
-the matlab interface (API users will probably want to use their GUIs
-event handling directly, but do have the option of using their
+href=matplotlib.matlab.html#-mpl_disconnect>mpl_disconnect</a> methods
+of the matlab interface.  API users will probably want to use their
+GUIs event handling directly, but do have the option of using their
 <tt>FigureCanvas.mpl_connect</tt> method.<p>
 
 matplotlib uses a callback event handling mechanism.  The basic idea
 is that you register an event that you want to listen for, and the
-figure canvas, will call a user defined function when that event
+figure canvas will call a user defined function when that event
 occurs.  For example, if you want to know where the user clicks a
 mouse on your figure, you could define a function
 
@@ -695,7 +695,7 @@ Then whenever the user clicks anywhere on the figure canvas, your
 function will be called and passed a <a
 href=matplotlib.backend_bases.html#MplEvent>MplEvent</a> instance.
 The event instance will have the following attributes defined.
-<table>
+<table @default_table@>
     <tr><td><b>Property</b></td><td><b>Meaning</b></td></tr>
     <tr><td>x</td><td>x position - pixels from left of canvas</td></tr>
     <tr><td>y</td><td>y position - pixels from bottom of canvas</td></tr>

@@ -43,7 +43,7 @@ from GUI backends by providing the right extensions.  SVG is currently
 the fastest backend in my tests."""),
 
     ('More memory leaks fixed', """\
-See <a href=faq.html#LEAKS> for details.  My estimate is that complex
+See <a href=faq.html#LEAKS>leaks FAQ</a> for details.  My estimate is that complex
 figures (multiple subplots, images, etc..)  now leak no more than
 10-50 bytes per figure.  Down from several hundred bytes per figure in
 0.60."""),
