@@ -126,7 +126,7 @@ matplotlib.pylab which allow the user to create plots with code quite
 similar to matlab figure generating code.  The \textit{matplotlib
   frontend} or \textit{matplotlib API} is the set of classes that do
 the heavy lifting, creating and managing figures, text, lines, plots
-and so on.  This is an abstract interface that knowns nothing about
+and so on.  This is an abstract interface that knows nothing about
 output.  The \textit{backends} are device dependent drawing devices,
 aka renderers, that transform the frontend representation to hardcopy
 or a display device.  Example backends: PS creates postscript
@@ -142,7 +142,7 @@ printer or publishers.  Others deploy matplotlib on a web application
 server to generate PNG output for inclusion in dynamically generated
 web pages.  Some use matplotlib interactively from the python shell in
 Tkinter on windows.  My primary use is to embed matplotlib in a GTK
-EEG application that runs on windows, linux and OS X.
+EEG application that runs on windows, linux and OS~X.
 
 Because there are so many ways people want to use a plotting library,
 there is a certain amount of complexity inherent in configuring the
@@ -349,7 +349,7 @@ In choosing your backend, the following considerations are important
   Do you need a GUI interface?  Each of the python GUIs work on all
   major platforms, but some are easier than others to install.  Each
   have different advantages: GTK is natural for linux and has
-  excellent looking widgets but is a tough install on OS X.  Tkinter
+  excellent looking widgets but is a tough install on OS~X.  Tkinter
   is deployed with most python installations but has primitive looking
   widgets.  wxpython has native widgets but can be difficult to
   install.  \textit{Windows users note: the enthought edition of
@@ -405,7 +405,7 @@ their matplotlib compatibility.\footnote{If you have experience with
 \label{sec:interactive}
 
 By default, matplotlib defers drawing until the end of the script
-because drawing can be an expensive opertation, and in often you don't
+because drawing can be an expensive operation, and in often you don't
 want to update the plot every time a single property is changed, only
 once after all the properties have changed.  But in interactive mode,
 eg from the python shell, you usually do want to update the plot with
@@ -484,7 +484,7 @@ interactive state at the end of the run.
 \end{lstlisting}
 
 The pylab interface provides 4 commands that are useful for
-interactive control.  Note again that the interactgive setting
+interactive control.  Note again that the interactive setting
 primarily controls whether the figure is redrawn with each plotting
 command.  \func{isinteractive} returns the interactive setting,
 \func{ion} turns interactive on, \func{ioff} turns it off, and
@@ -599,7 +599,7 @@ matplotlib will search for an rc file in the following locations
 matplotlib requires at a minimum python 2.2+, Numeric or numarray and
 freetype.  To get the most out of matplotlib, you will want to build
 some of the optional GUI and image extensions, discussed below.
-Matplotlib is known to work on linux, unix, win32 and OS X platforms.
+Matplotlib is known to work on linux, unix, win32 and OS~X platforms.
 
 \subsection{Compiling matplotlib}
 \label{sec:compilng}
@@ -632,7 +632,7 @@ basedir list for your platform.
   
 Note, matplotlib works with with Numeric or numarray, but it is
 important that you set \code{NUMERIX} in \fname{setup.py} to the array
-package you typically use, for efficiency reasons.  For performace, it
+package you typically use, for efficiency reasons.  For performance, it
 is critical that the numerix settings in \fname{setup.py} and in your
 \fname{.matplotlibrc} file are the same, and are the same as the array
 package you typically use.
@@ -689,12 +689,12 @@ your best bet is TkAgg from the standard python shell or ipython.
 \subsubsection{OS X}
 \label{sec:osx}
 
-All of the backends run on OS X.  fink users consult the fink section
+All of the backends run on OS~X.  fink users consult the fink section
 below.  Another option is \url{http://www.stecf.org/macosxscisoft}
-which packages many scientific packages for python on OS X, including
+which packages many scientific packages for python on OS~X, including
 matplotlib, although it is designed for astronomical analysis.
 
-If you want to compile yourself on OS X, make sure you read the
+If you want to compile matplotlib yourself on OS~X, make sure you read the
 compiling instructions above.  You will need to install freetype2,
 libpng and zlib via fink or from src.  You will also need the base
 libraries for a given backend.  Eg, if you want to run TkAgg, you will
@@ -703,7 +703,7 @@ wxpython.  See Section~\ref{sec:intro_backends} for a more comprehensive
 discussion of the various backend requirements.  Edit \fname{setup.py}
 to configure the backends you want to build as described above.
 
-Note when running a GUI backend in OSX, you should launch your
+Note when running a GUI backend in OS~X, you should launch your
 programs with pythonw rather than python, or you may get
 nonresponsive GUIs.
 
@@ -713,7 +713,7 @@ nonresponsive GUIs.
 \label{sec:rpms}
 
 To build all the backends on a binary linux distro such as redhat, you
-ccgneed to install a number of the devel libs (and whatever dependencies
+need to install a number of the devel libs (and whatever dependencies
 they require), I suggest
 \begin{itemize}
   
@@ -771,7 +771,7 @@ verbose.erro   : sys.stderr  # a log filename, sys.stdout or sys.stderr
 
 
 \noindent These settings control how much information matplotlib gives you at
-runtime and where it goes.  Ther verbosity levels are: \rc{silent,
+runtime and where it goes.  The verbosity levels are: \rc{silent,
   error, helpful, debug, debug-annoying}.  At the \rc{error} level,
 you will only get error messages.  Any level is inclusive of all the
 levels below it.  Ie, if your setting is \rc{helpful}, you'll also get
@@ -1894,7 +1894,7 @@ image, they also set the default for future images.
 
 For quantitative plotting of pseduocolor images, use the
 \func{colorbar} function to provide a colorbar associated with the
-iamge, Here is an example interactive session controlling image
+image, Here is an example interactive session controlling image
 scaling and color mapping with a colorbar
 
 \begin{lstlisting}
@@ -3130,9 +3130,3 @@ Agreement.
 
 
 \end{document}
-
-
-
-
-
-
