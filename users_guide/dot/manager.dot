@@ -1,0 +1,11 @@
+digraph G {
+  new_figure_manager->FigureManagerGTK[label="returns"];
+
+  
+  FigureManagerGTK->FigureCanvasGTK[label="contains"];
+  FigureCanvasGTK->Figure[label="contains"];
+  Figure[label="figure\nFigure"];
+  FigureCanvasGTK[label="canvas\nFigureCanvasGTK"];
+  FigureManagerGTK->GUIWindow[label="contains"];
+  GUIWindow[label="window\ngtk.Window"];
+}

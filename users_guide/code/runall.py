@@ -28,12 +28,5 @@ for fname in files:
     os.system('python %s' % fname)
     
 
-
-"""
-simple_plot_tkagg.png
-simple_plot_tkagg_labeled.png
-simple_plot_tkagg_sine.png
-simple_plot_tkagg.eps
-simple_plot_tkagg_labeled.eps
-simple_plot_tkagg_sine.eps
-"""
+print 'converting renderer_agg to ps'
+os.system('convert ../figures/renderer_agg.png ../figures/renderer_agg.ps')
