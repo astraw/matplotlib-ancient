@@ -146,23 +146,13 @@ Pérez
 <Fernando.Perez@colorado.edu>
 \family default 
 \size default 
-
-\newline 
-Brian Granger
-\newline 
-
-\family typewriter 
-\size scriptsize 
-<bgranger@scu.edu>
-\family default 
-\size default 
-
+ 
 \begin_inset OptArg
 collapsed false
 
 \layout Standard
 
-JDH/FP/BG
+JDH/FP
 \begin_inset Note
 collapsed true
 
@@ -181,9 +171,7 @@ Pediatric Neurology, U.
  of Chicago
 \newline 
 Applied Mathematics, U.
- of Colorado at Boulder
-\newline 
-Physics, Santa Clara U.
+ of Colorado at Boulder 
 \begin_inset Note
 collapsed true
 
@@ -203,7 +191,7 @@ collapsed false
 
 \layout Standard
 
-UofC/CUB/SCU
+UofC/CUB
 \begin_inset Note
 collapsed true
 
@@ -393,12 +381,6 @@ Matplotlib
 \layout BeginFrame
 
 Matplotlib
-\layout Subsection
-
-Parallel
-\layout BeginFrame
-
-Parallel
 \layout Section
 
 Proposal
@@ -423,24 +405,6 @@ Integrate code with text and graphics.
 \layout Standard
 
 Files remain valid python code (editable with any editor).
-\layout Subsection
-
-Parallel
-\layout BeginFrame
-
-Parallel
-\layout Standard
-
-Multiple backends
-\layout Standard
-
-Uniform (where possible) user frontend
-\layout Standard
-
-Mostly a library, with a simple set of magics for interactive support
-\layout Standard
-
-IPython's threaded %bg and pyxgrid are a model.
 \layout EndFrame
 
 \layout Section*
@@ -472,18 +436,6 @@ Matplotlib, 2d plotting with Matlab syntax
 \newline 
 
 \begin_inset LatexCommand \htmlurl{http://matplotlib.sourceforge.net}
-
-\end_inset 
-
-
-\layout Itemize
-
-PyXgrid
-\color blue
-:
-\newline 
-
-\begin_inset LatexCommand \htmlurl{http://hammonds.scu.edu/~classes/computation.html}
 
 \end_inset 
 
