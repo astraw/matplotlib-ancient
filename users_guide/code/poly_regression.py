@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 
 # Generate some test data; y is a poly function of x + nse
 x = arange(0.0, 2.0, 0.05)

@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 
 def func3(x,y):
     return (1- x/2.0 + x**5 + y**3)*exp(-x**2-y**2)

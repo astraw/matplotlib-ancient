@@ -3,9 +3,9 @@
 
 
 By default, matplotlib defers drawing until the end of the script
-because drawing can be an expensive opertation, and in often you don't
-want to update the plot every time a single property is changed, only
-once after all the properties have changed.
+because drawing can be an expensive opertation, and you may not want
+to update the plot every time a single property is changed, only once
+after all the properties have changed.
 
 But in interactive mode, eg from the python shell, you usually do want
 to update the plot with every command, eg, after changing the xlabel
@@ -30,16 +30,76 @@ href=matplotlib.pylab.html#-show>show</a> command.<p>
 
 Unfortunately, due to the 'mainloop' cycle of GUI toolkits, it is not
 yet possible to use matplotlib from an arbitrary python shell with the
-other GUI backends.  Instead, there are custom solutions depending on
-the GUI environment in which you use matplotlib.<p>
+other GUI backends.  You must use a custom python shell that runs the
+GUI is a separate thread.<p>
 
 The recommended way to use matplotlib interactively from a shell is
 with <a href=http://ipython.scipy.org>ipython</a>, which has an pylab
 mode that detects your matplotlib <a
-href=.matplotlibrc>matplotlibrc</a> file and makes the right settings
+href=.matplotlibrc>.matplotlibrc</a> file and makes the right settings
 to run matplotlib with your GUI of choice in interactive mode using
 threading.  gtk users will need to make sure that they have compiled
-gtk with threading for this to work.<p>
+gtk with threading for this to work.  Using ipython in pylab mode is
+basically a nobrainer because it knows enough about matplotlib
+internals to make all the right settings for you internally<p>
+
+<pre>
+peds-pc311:~> ipython -pylab
+Python 2.3.3 (#2, Apr 13 2004, 17:41:29) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 0.6.5 -- An enhanced Interactive Python.
+?       -> Introduction to IPython's features.
+%magic  -> Information about IPython's 'magic' % functions.
+help    -> Python's own help system.
+object? -> Details about 'object'. ?object also works, ?? prints more.
+
+Welcome to pylab, a matplotlib-based Python environment.
+  help(matplotlib) -> generic matplotlib information.
+  help(matlab)     -> matlab-compatible commands from matplotlib.
+  help(plotting)   -> plotting commands.
+
+>>> plot( rand(20), rand(20), 'go' )
+</pre>
+
+Note that you did not need to import any matplotlib names because in
+pylab mode ipython will import them for you.  ipython turns on
+interactive mode for you, and also provides a <tt>run</tt> command so
+you can run matplotlib scripts from the matplotlib shell and then
+interactively update your figure.  ipython will turn off interactive
+mode during a run command for efficiency, and then restore the
+interactive state at the end of the run.<p>
+
+<pre>
+>>> cd python/projects/matplotlib/examples/
+/home/jdhunter/python/projects/matplotlib/examples
+>>> run simple_plot.py
+>>> title('a new title', color='r')
+</pre> 
+
+The pylab interface provides 4 commands that are useful for
+interactive control.  Note again that the interactgive setting
+primarily controls whether the figure is redrawn with each plotting
+command.  <a
+href=matplotlib.pylab.html#-isinteractive>isinteractive</a> returns
+the interactive setting, <a href=matplotlib.pylab.html#-ion>ion</a>
+turns interactive on, <a href=matplotlib.pylab.html#-ioff>ioff</a>
+turns it off, and <a href=matplotlib.pylab.html#-draw>draw</a> forces
+a redraw of the entire figure.  Thus when working with a big figure in
+which drawing is expensive, you may want to turn matplotlib's
+interactive setting off temporarily to avoid the performance hit
+
+<pre>
+>>> run mybigfatfigure.py
+>>> ioff()      # turn updates off
+>>> title('now how much would you pay?')
+>>> xticklabels(fontsize=20, color='green')
+>>> draw()      # force a draw
+>>> savefig('alldone', dpi=300)
+>>> close()
+>>> ion()      # turn updates back on
+>>> plot(rand(20), mfc='g', mec='r', ms=40, mew=4, ls='--', lw=3)
+</pre>
 
 
 <h3>WX and pycrust</h3>

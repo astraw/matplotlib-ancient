@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 figure(1)
 plot([1,2,3])
 figure(2)

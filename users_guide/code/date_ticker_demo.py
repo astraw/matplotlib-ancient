@@ -1,5 +1,5 @@
 import datetime
-from matplotlib.matlab import *
+from pylab import *
 from matplotlib.dates import MONDAY, SATURDAY
 from matplotlib.finance import quotes_historical_yahoo
 from matplotlib.dates import MonthLocator, WeekdayLocator, DateFormatter

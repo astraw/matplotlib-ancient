@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 
 delta = 0.025
 # generate a mesh of x and y vectors

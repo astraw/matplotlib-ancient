@@ -108,6 +108,13 @@ href=matplotlib.pylab.html#-thetragrids>thetragrids</a> for
 customizing the grid locations and labels for polar plots - see
 <a href=examples/polar_demo.py>polar_demo.py</a>."""),
 
+('interactive control functions', """\ added <a
+href=matplotlib.pylab.html#-ion>ion</a>, <a
+href=matplotlib.pylab.html#-ioff>ioff</a> and <a
+href=matplotlib.pylab.html#-isinteractive>isinteractive</a> to pylab
+interface for control of interactive mode.  See updated discussion at
+<a href=interactive.html>interactive matplotlib</a>."""),
+
 ('bug fixes', """\
 <ul>
   <li>Fixed colorbar bug with scatter</li>

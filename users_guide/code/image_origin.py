@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 
 x = arange(100.0); x.shape = 10,10
 

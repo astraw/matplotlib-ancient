@@ -1,5 +1,5 @@
 import Image
-from matplotlib.matlab import *
+from pylab import *
 
 im = Image.open('../data/leo_ratner.jpg')
 s = im.tostring()    # convert PIL image -> string

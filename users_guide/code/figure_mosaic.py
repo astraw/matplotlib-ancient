@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 rc('axes', hold=True)
 rc('image', origin='upper')
 

@@ -116,13 +116,13 @@ decided to emulate matlab's plotting capabilities because that is
 something matlab does very well.  This had the added advantage that
 many people have a lot of matlab experience, and thus they can quickly
 get up to steam plotting in python.  From a developer's perspective,
-having a fixed user interface (the matplotlib.matlab interface) has
+having a fixed user interface (the pylab interface) has
 been very useful, because the guts of the code base can be redesigned
 without affecting user code.
 
 The matplotlib code is conceptually divided into three parts: the
-\textit{matlab interface} is the set of functions provided by
-matplotlib.matlab which allow the user to create plots with code quite
+\textit{pylab interface} is the set of functions provided by
+matplotlib.pylab which allow the user to create plots with code quite
 similar to matlab figure generating code.  The \textit{matplotlib
   frontend} or \textit{matplotlib API} is the set of classes that do
 the heavy lifting, creating and managing figures, text, lines, plots
@@ -178,7 +178,7 @@ the signal in one subplot and plot the power spectrum in another.
 
 \begin{lstlisting}[caption={matplotlib and matlab}, label=lst:versus_matlab]
 # python                               % matlab
-from matplotlib.matlab import *        % no import necessary
+from pylab import *        % no import necessary
 
 dt = 0.01                              dt = 0.01;
 t = arange(0,10,dt)                    t = [0:dt:10];
@@ -249,10 +249,10 @@ file.  Thus when you do
 
 \begin{lstlisting}
 # import matplotlib and all the numerix functions
-from matplotlib.matlab import *
+from pylab import *
 \end{lstlisting}
 
-\noindent you'll not only get all the matplotlib matlab interface
+\noindent you'll not only get all the matplotlib pylab interface
 commands, but most of the Numeric or numarray package as well
 (depending on your numerix setting).  All of the array creation and
 manipulation functions are imported, such as \func{array},
@@ -262,7 +262,7 @@ functions and classes outside the main module, such as \func{mean},
 scripts as portable as possible with respect to your choice of array
 packages, it is advised not to explicitly import Numeric or numarray.
 Rather, you should use matplotlib.numerix where possible, either by
-using the functions imported by \mpldoc{matplotlib.matlab}, or by
+using the functions imported by \mpldoc{pylab}, or by
 explicitly importing the numerix module, as in 
 
 \begin{lstlisting}
@@ -339,10 +339,10 @@ In choosing your backend, the following considerations are important
   often need to use a custom shell to work interactively with a GUI
   application from the shell (pycrust for wx, PyShell for gtk).  A
   notable exception is Tkinter, which can be controlled from a
-  standard python shell or ipython.  At this time, the best backend
-  for interactive use is TkAgg.\footnote{Fernando Perez, the
-  ipython developer, is working for a threaded ipython shell for use
-  with matplotlib and GTK, so this may change in the near future.}
+  standard python shell or ipython.  Fernando Perez, the author of
+  ipython, has written a pylab mode that lets you use WX, GTK or Tk
+  interactively from the python shell.  If you want to work
+  interactively with matplotlib, this is the recommended approach.
 
 \item What platform do you work most on?  Do you want to embed
   matplotlib in an application that you distribute across platforms?
@@ -425,7 +425,7 @@ set \rc{backend : TkAgg} and \rc{interactive : True} in your
 
 \begin{lstlisting}
   # using matplotlib interactively from the python shell
-  >>> from matplotlib.matlab import *
+  >>> from pylab import *
   >>> plot([1,2,3])
   >>> xlabel('hi mom')
 \end{lstlisting}
@@ -437,12 +437,73 @@ before making this the default behavior.
 
 Unfortunately, due to the 'mainloop' cycle of GUI toolkits, it is not
 yet possible to use matplotlib from an arbitrary python shell with the
-other GUI backends.  Instead, there are custom solutions depending on
-the GUI environment in which you use matplotlib; see
-\url{http://matplotlib.sourceforge.net/backends.html}.  Fernando Perez
-is working on a GTK threaded version of ipython for use with the
-GTK/GTKAgg backends, which should be nice!
+other GUI backends.  You must use a custom python shell that runs the
+GUI is a separate thread.
 
+The recommended way to use matplotlib interactively from a shell is
+with ipython, which has an pylab
+mode that detects your matplotlib .matplotlibrc file and makes the right settings
+to run matplotlib with your GUI of choice in interactive mode using
+threading.  gtk users will need to make sure that they have compiled
+gtk with threading for this to work.  Using ipython in pylab mode is
+basically a nobrainer because it knows enough about matplotlib
+internals to make all the right settings for you internally.
+
+\begin{lstlisting}
+peds-pc311:~> ipython -pylab
+Python 2.3.3 (#2, Apr 13 2004, 17:41:29) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 0.6.5 -- An enhanced Interactive Python.
+?       -> Introduction to IPython's features.
+%magic  -> Information about IPython's 'magic' % functions.
+help    -> Python's own help system.
+object? -> Details about 'object'. ?object also works, ?? prints more.
+
+Welcome to pylab, a matplotlib-based Python environment.
+  help(matplotlib) -> generic matplotlib information.
+  help(matlab)     -> matlab-compatible commands from matplotlib.
+  help(plotting)   -> plotting commands.
+
+>>> plot( rand(20), rand(20), 'go' )
+\end{lstlisting}
+
+Note that you did not need to import any matplotlib names because in
+pylab mode ipython will import them for you.  ipython turns on
+interactive mode for you, and also provides a \code{run} command so
+you can run matplotlib scripts from the matplotlib shell and then
+interactively update your figure.  ipython will turn off interactive
+mode during a run command for efficiency, and then restore the
+interactive state at the end of the run.
+
+\begin{lstlisting}
+>>> cd python/projects/matplotlib/examples/
+/home/jdhunter/python/projects/matplotlib/examples
+>>> run simple_plot.py
+>>> title('a new title', color='r')
+\end{lstlisting}
+
+The pylab interface provides 4 commands that are useful for
+interactive control.  Note again that the interactgive setting
+primarily controls whether the figure is redrawn with each plotting
+command.  \func{isinteractive} returns the interactive setting,
+\func{ion} turns interactive on, \func{ioff} turns it off, and
+\func{draw} forces a redraw of the entire figure.  Thus when working
+with a big figure in which drawing is expensive, you may want to turn
+matplotlib's interactive setting off temporarily to avoid the
+performance hit
+
+\begin{lstlisting}
+>>> run mybigfatfigure.py
+>>> ioff()      # turn updates off
+>>> title('now how much would you pay?')
+>>> xticklabels(fontsize=20, color='green')
+>>> draw()      # force a draw
+>>> savefig('alldone', dpi=300)
+>>> close()
+>>> ion()      # turn updates back on
+>>> plot(rand(20), mfc='g', mec='r', ms=40, mew=4, ls='--', lw=3)
+\end{lstlisting}
 
 \section{Customization using \fname{.matplotlibrc}}
 \label{sec:matplotlibrc}
@@ -499,7 +560,7 @@ given script uses numarray, you could do
 \begin{lstlisting}
 from  matplotlib import rcParams
 rcParams['numerix'] = 'numarray'
-from matplotlib.matlab import *
+from pylab import *
 \end{lstlisting}
 
 \noindent Additionally, the commands \mpldoc{matplotlib.rc} and
@@ -734,15 +795,15 @@ You can access the verbose instance in your code
 \code{from matplotlib import verbose}.
 
 
-\chapter{The \matlab\ interface}
+\chapter{The pylab interface}
 \label{cha:matlab_interface}
 
 Although matplotlib has a full object oriented API (see
 Chapter~\ref{cha:api}), the primary way people create plots is via the
-matlab interface, which can be imported with
+pylab interface, which can be imported with
 
 \begin{lstlisting}
-from matplotlib.matlab import *
+from pylab import *
 \end{lstlisting}
 
 \noindent This import command brings in all of the matplotlib code
@@ -752,7 +813,7 @@ matplotlib.numerix code needed to create and manipulate arrays.  The
 latter import depends on your \rc{numerix} setting in
 \fname{.matplotlibrc}, as described in Sections~\ref{sec:numerix} and
 \ref{sec:matplotlibrc}; ie, when you import
-\mpldoc{matplotlib.matlab}, you will either get all of Numeric or all
+\mpldoc{pylab}, you will either get all of Numeric or all
 of numarray depending on your \rc{numerix} setting.
 
 matplotlib is organized around figures and axes.  The figure contains
@@ -763,22 +824,22 @@ will try and do the right thing by automatically creating default
 figures and axes for you if you issue a plot command before creating a
 figure or axes. 
 
-There are two ways of working in the matlab interface: interactively
-or in script mode.  When working interactively, you want every
-plotting command to update the figure.  Under the hood, this means
-that the canvas is redrawn after every command that affects the
-figure.  When working in script mode, this is inefficient.  In this
-case, you only want the figure to be drawn once, either to the GUI
-window or saved to a file.  To handle these two cases, matplotlib has
-an \rc{interactive} setting in \fname{.matplotlibrc}.  When
-\rc{interactive : True}, the figure will be redrawn with each command.
-When \rc{interactive : False}, the figure will be drawn only when
-there is a call to \func{show} or \func{savefig}.  In the examples
-that follow, I'll assume you have set \rc{interactive : True} in your
+There are two ways of working in the pylab interface: interactively or
+in script mode.  When working interactively, you want every plotting
+command to update the figure.  Under the hood, this means that the
+canvas is redrawn after every command that affects the figure.  When
+working in script mode, this is inefficient.  In this case, you only
+want the figure to be drawn once, either to the GUI window or saved to
+a file.  To handle these two cases, matplotlib has an \rc{interactive}
+setting in \fname{.matplotlibrc}.  When \rc{interactive : True}, the
+figure will be redrawn with each command.  When \rc{interactive :
+  False}, the figure will be drawn only when there is a call to
+\func{show} or \func{savefig}.  In the examples that follow, I'll
+assume you have set \rc{interactive : True} in your
 \fname{.matplotlibrc} file and are working from an interactive python
 shell using a compatible backend.  Please make sure you have read and
-understood Sections~\ref{sec:matplotlibrc}, \ref{sec:intro_backends} and
-\ref{sec:ides} before trying these examples.
+understood Sections~\ref{sec:matplotlibrc}, \ref{sec:intro_backends}
+and \ref{sec:ides} before trying these examples.
 
 \section{Simple plots}
 \label{sec:simple_plot}
@@ -786,7 +847,7 @@ understood Sections~\ref{sec:matplotlibrc}, \ref{sec:intro_backends} and
 Just about the simplest plot you can create is
 
 \begin{lstlisting}
->>> from matplotlib.matlab import *
+>>> from pylab import *
 >>> plot([1,2,3])
 \end{lstlisting}
 
@@ -924,7 +985,7 @@ The line properties are shown in Table~\ref{tab:line_props}.
     \carg{markersize}      & The size of the marker in points\\\hline
   \end{tabular}
   \caption{\label{tab:line_props}Line properties; see
-    \mpldoc{matplotlib.matlab.plot} for more marker
+    \mpldoc{pylab.plot} for more marker
     styles}
 \end{table}
 
@@ -980,7 +1041,7 @@ of the sequence as \carg{line}: \code{line, = plot(t, s1)}
 \end{lstlisting}
 
 \noindent Note, however, that we haven't issued any
-\mpldoc{matplotlib.matlab} commands after the initial \func{plot}
+\mpldoc{pylab} commands after the initial \func{plot}
 command so the figure will not be redrawn even though interactive mode
 is set.  To trigger a redraw, you can simply resize the figure window
 a little or call the \func{draw} method.  The fruits of your labors
@@ -1071,7 +1132,7 @@ label=lst:color_demo]{code/color_demo.py}
 \section{Loading and saving data}
 \label{sec:loading_data}
 
-\mpldoc{matplotlib.matlab} provides support for loading and saving
+\mpldoc{pylab} provides support for loading and saving
 ASCII arrays or vectors with the \func{load} and \func{save} command.
 \mpldoc{matplotlib.numerix} provides support for loading and saving
 binary arrays with the \func{fromstring} and \func{tostring} methods.
@@ -1163,11 +1224,11 @@ and \func{axes} to explicitly control this process.  Let's take a look
 at what happens under the hood when you issue the commands
 
 \begin{lstlisting}
->>> from matplotlib.matlab import *
+>>> from pylab import *
 >>> plot([1,2,3])
 \end{lstlisting}
 
-When plot is called, the matlab interface makes a call to \func{gca()}
+When plot is called, the pylab interface makes a call to \func{gca()}
 (``get current axes'') to get a reference to the current axes.
 \func{gca} in turn, makes a call to \func{gcf} to get a reference to
 the current figure.  \func{gcf}, finding that no figure has been
@@ -1177,7 +1238,7 @@ exists, or create the default axes \code{subplot(111)} if it does
 not.  Thus the code above is equivalent to 
 
 \begin{lstlisting}
->>> from matplotlib.matlab import *
+>>> from pylab import *
 >>> figure()
 >>> subplot(111)
 >>> plot([1,2,3])
@@ -1401,7 +1462,7 @@ mathtext, notably all the *Agg backends (see Section~\ref{sec:intro_backends}).
 \subsection{Basic text commands}
 \label{sec:basic_text}
 
-The following commands are used to create text in the maplotlib.matlab
+The following commands are used to create text in the pylab
 interface
 
 \begin{itemize}
@@ -1655,7 +1716,7 @@ image
 
 \lstinputlisting[linerange=1-4]{code/simple_imshow.py}
 
-\noindent \func{imshow} a command in the \mpldoc{matplotlib.matlab}
+\noindent \func{imshow} a command in the \mpldoc{pylab}
 interface.  This is a thin wrapper of the
 \mpldoc{matplotlib.Axes.imshow} method, which can be called from any
 Axes instance, eg \code{ax.imshow(X)}.
@@ -1724,7 +1785,7 @@ figure canvas \footnote{If you want a resampled image to occupy the
 and thus can become the background of other matplotlib drawing
 commands.
 
-In the matlab interface, figure images are created with the
+In the pylab interface, figure images are created with the
 \func{figimage} command, which unlike \func{imshow}, does not
 accept an \carg{interpolation} or \carg{aspect} keyword argument
 because no image resampling is used.  If the pixel extent of the
@@ -1755,7 +1816,7 @@ figimage(X,           # the numerix array
 The \carg{cmap, norm, vmin, vmax} and \carg{origin} arguments are
 explained in the sections below.
 
-\mpldoc{matplotlib.matlab.figimage} is a thin wrapper of
+\mpldoc{pylab.figimage} is a thin wrapper of
 \mpldoc{matplotlib.figure.figimage} and you can generate figure images
 directly with the pythonic API using \code{fig.figimage(X)} where
 fig is a Figure instance.
@@ -2064,7 +2125,7 @@ input from the user.  All graphical user interfaces (GUIs) provide
 event handling to determine things like key presses, mouse position,
 and button clicks.  matplotlib supports a number of GUIs, and provides
 an interface to the GUI event handling via the \func{mpl\_connect} and
-\func{mpl\_disconnect} methods of the matlab interface (API users will
+\func{mpl\_disconnect} methods of the pylab interface (API users will
 probably want to use their GUIs event handling directly, but do have
 the option of using their \mpldoc{FigureCanvas.mpl\_connect} method).
 
@@ -2363,7 +2424,7 @@ The \code{MultipleLocator} ticker class is used to place ticks on
 multiples of some base.  The \code{FormatStrFormatter} uses a string format
 string (eg'\%d' or '\%1.2f' or '\%1.1f cm' ) to format the tick.
 
-Note that the matlab interface grid command changes the grid settings
+Note that the pylab interface grid command changes the grid settings
 of the major ticks of the y and y axis together.  If you want to
 control the grid of the minor ticks for a given axis, use for example
 \code{ax.xaxis.grid(True, which='minor')}.  See
@@ -2414,6 +2475,20 @@ label=lst:date_ticker_demo]{code/date_ticker_demo.py}
 \label{cha:cookbook}
 
 \section{Plot elements}
+
+\subsection{Horizontal or vertical lines/spans}
+\label{cbook:axhv_line_span}
+
+It is often useful to draw a line that stretches from the left to the
+right side of the axes at a given height, eg to represent a y-axis
+threshold.  In this case, the left and right are plotted in axes
+coordinates (0 and 1 respectively), and the y coordinate is in data
+coordinates.  Plotted this way, the horizontal extent of the line will
+not change if you interactively change the xlimits, eg by using the
+pan navigation tool.  Although you can create these lines yourself
+using \mpldoc{matplotlib.lines.Line2D} instances and setting the
+appropriate transforms, several helper functions are provided to make
+this easier.
 
 \subsection{Fill the area between two curves}
 \label{cbook:fill_between}
@@ -2608,8 +2683,8 @@ example of jet in \mpldoc{matplotlib.cm}.  Here are the steps
 jet = colors.LinearSegmentedColormap('jet', _jet_data, LUTSIZE)
 \end{lstlisting}
 
-\item{add a matplotlib.matlab function which has the same name as your
-    colormap, following the example of \mpldoc{matplotlib.matlab.jet}.}
+\item{add a pylab function which has the same name as your
+    colormap, following the example of \mpldoc{pylab.jet}.}
 \end{itemize}
 
 \noindent Now anyone can use the colormap interactively from the shell, by
@@ -2634,7 +2709,7 @@ import sys
 import matplotlib
 # this is not supported across all backends, as of matplotlib-0.63
 matplotlib.use('Agg')
-from matplotlib.matlab import *
+from pylab import *
 plot([1,2,3])
 savefig(sys.stdout)
 \end{lstlisting}
@@ -2643,16 +2718,16 @@ savefig(sys.stdout)
 \label{cha:api}
 
 
-The matlab interface does a lot of work for you under the hood,
+The pylab interface does a lot of work for you under the hood,
 creating and managing multiple figure windows, directing your plotting
 commands to the current axes and figure, managing the interactive
 state, and so on.  But that is all it does: all of the plotting is
 handled by a set of classes that the user can instantiate directly.
 If you are developing a GUI application, or simply don't want any
 hidden magic in your plots, you can create any plots using pure OO
-code that you could create with the matlab interface.
+code that you could create with the pylab interface.
 
-From a developer standpoint, the matlab interface has been a blessing
+From a developer standpoint, the pylab interface has been a blessing
 in disguise.  Because the interface was fixed by the Mathworks before
 the start of matplotlib provided considerable freedom to redesign the
 guts of the plotting library -- the object model can be totally
@@ -2660,9 +2735,9 @@ revamped and the user interface remains fixed.
 
 The matplotlib code is divided conceptually into 3 parts: the matlab
 interface, the matplotlib Artists, and the backend renderers.  The
-\textit{matlab interface} was covered in
+\textit{pylab interface} was covered in
 Chapter~\ref{cha:matlab_interface}.  This module
-\mpldoc{matplotlib.matlab} is comprised mainly of code to manage the
+\mpldoc{pylab} is comprised mainly of code to manage the
 multiple figure windows across backends, and provide a thin,
 procedural wrapper around the object oriented plotting code.  The
 \textit{matplotlib Artists} are a series of classes that derive from
@@ -2678,16 +2753,16 @@ picture of how things work and how they are organized.  Some of this
 material may be of interest only to developers, but most of it should
 shed light for anyone who wants to be able to exploit the full
 capabilities of matplotlib.  The normal path of figure creation in
-matplotlib is matlab interface $\rightarrow$ creates artists
+matplotlib is pylab interface $\rightarrow$ creates artists
 $\rightarrow$ calls to the backend renderer.  This section will invert
 that process, starting with the backend, which is where the drawing
 actually takes place.  This is the natural order of presentation
 because the backend knows nothing about Artists, which in turn known
-nothing about the matlab interface.  After the overview of the backend
+nothing about the pylab interface.  After the overview of the backend
 API, there is a discussion of the matplotlib artists; this is the
 section that is most useful to users, particularly those who want to
 embed matplotlib in an application.  The final section shows how the
-matlab interface controls the backends and artists -- this section is
+pylab interface controls the backends and artists -- this section is
 probably of interest to developers and the terminally curious.
 
 \section{The matplotlib backends}
@@ -2722,13 +2797,13 @@ drawing commands are done in display coordinates.  The matplotlib
 Artist classes handle all of the layout and transformation issue, and
 pass the primitive drawing commands on to the renderer.  The renderers
 know nothing about the matplotlib Artists, and nothing about the
-matlab interface.  Their one and only job is to get ink onto the
+pylab interface.  Their one and only job is to get ink onto the
 canvas.  The graphics context stores information about the objects to
 be drawn, their color, linewidths, cap and join styles, alpha
 transparency, etc.  Taken together, you can use the backend renderer
 and graphics context directly to make drawings.  This may not be
 advisable, since the whole purpose of the matplotlib Artists and
-matlab interface is to simplify the process of getting ink onto the
+pylab interface is to simplify the process of getting ink onto the
 canvas, but it is possible.  However, it is potentially useful to
 developers who may want to extend the capabilities of matplotlib, eg,
 to implement block diagram drawing.
@@ -2788,7 +2863,7 @@ label=lst:renderer_agg]{code/renderer_agg.py}
 
 
 
-\section{matlab interface internals}
+\section{pylab interface internals}
 
 Let's look at the simplest matplotlib script and walk through what
 happens under the hood.  This section will be of interest mainly to
@@ -2798,23 +2873,23 @@ backends, eg GTKAgg and have are running this as a script
 (\rc{interactive : False})
 
 \begin{lstlisting}                    
-from matplotlib.matlab import *       
+from pylab import *       
 plot([1,2,3])
 show()
 \end{lstlisting}
 
-\subsection*{Line 1: \texttt{from matplotlib.matlab import *}}
+\subsection*{Line 1: \texttt{from pylab import *}}
 
 When any matplotlib code is imported the first time, the
 \fname{matplotlib.\_\_init\_\_.py} code is called.  The primary thing
 the init code does is find and parse your rc file, or if it fails fall
 back on a set of default parameters.  Once this is done,
-\mpldoc{matplotlib.matlab} proceeds to import all of the
+\mpldoc{pylab} proceeds to import all of the
 \mpldoc{matplotlib.numerix} and \mpldoc{matplotlib.mlab} symbols into
 the namespace, and loads the backend from
 \mpldoc{matplotlib.backends}, which use the rc information to load
 four functions from the backend module specified by the rc
-\rc{backend} parameter.  The matlab interface requires only four
+\rc{backend} parameter.  The pylab interface requires only four
 functions from the backend: \func{new\_figure\_manager},
 \func{error\_msg}, \func{draw\_if\_interactive}, and \func{show}
 
@@ -2831,7 +2906,7 @@ functions from the backend: \func{new\_figure\_manager},
   displayed in a GUI dialog box.
 
 \item \func{draw\_if\_interactive} is called after every
-  \mpldoc{matplotlib.matlab} drawing command (\func{plot}, \func{set},
+  \mpldoc{pylab} drawing command (\func{plot}, \func{set},
   \func{xlim}, \dots) and updates the figure window with the new
   information only if \rc{interactive} is \val{True}.
 
@@ -2840,9 +2915,9 @@ functions from the backend: \func{new\_figure\_manager},
 
 \end{itemize}
 
-\noindent The matlab interface also imports a \class{Gcf} instance from the
+\noindent The pylab interface also imports a \class{Gcf} instance from the
 \mpldoc{matplotlib.\_matlab\_helpers} module, which manages the
-current figure and current axes.  The matlab interface defines
+current figure and current axes.  The pylab interface defines
 \func{gcf} and \func{gca} to get a reference to the current figure and
 axes, which in turn are interfaces to the \class{Gcf} class that does
 the real lifting.
@@ -2850,7 +2925,7 @@ the real lifting.
 
 \subsection*{Line 2: \texttt{plot([1,2,3])}}
 
-All of the \mpldoc{matplotlib.matlab} functions are defined similarly:
+All of the \mpldoc{pylab} functions are defined similarly:
 they get the current axes and forward the call on to the corresponding
 \mpldoc{matplotlib.axes.Axes} method, which does the real work.  The
 \func{plot} command in the example below calls \func{gca} to get the
@@ -2870,7 +2945,7 @@ widget which can be drawn upon).  The figure canvas derives from
 \mpldoc{matplotlib.backend\_bases.FigureCanvasBase}, and contains the
 \mpldoc{matplotlib.figure.Figure} instance.
 
-\fig{3in}{figures/manager}{The matlab interface function
+\fig{3in}{figures/manager}{The pylab interface function
   \func{new\_figure\_manager} returns a backend dependent concrete
   implementation of
   \mpldoc{matplotlib.backend\_bases.FigureManagerBase}, which contains

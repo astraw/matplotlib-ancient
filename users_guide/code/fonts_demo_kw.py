@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 
 subplot(111, axisbg='w')
 alignment = {'horizontalalignment':'center', 'verticalalignment':'center'}

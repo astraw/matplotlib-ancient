@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 # use a custom axes to provide room for the large labels used below
 ax = axes([.2, .2, .7, .7], axisbg='y')
 

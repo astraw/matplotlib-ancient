@@ -1,6 +1,6 @@
 # Connect to the mouse move event and print the location of the mouse
 # in data coordinates if the mouse is over an axes
-from matplotlib.matlab import *
+from pylab import *
 
 plot(arange(10))
 

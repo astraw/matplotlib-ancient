@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 x1 = arange(0, 2, 0.01)
 y1 = sin(2*pi*x1)
 y2 = sin(4*pi*x1) + 2

@@ -1,130 +1,35 @@
-%!PS-Adobe-2.0 EPSF-2.0
-%% Created by matplotlib http://matplotlib.sourceforge.net
-%%BoundingBox:    18 180 594 612
+%!PS-Adobe-3.0 EPSF-3.0
+%%Title: ../figures/big_diamonds.eps
+%%Creator: matplotlib version 0.65a, http://matplotlib.sourceforge.net/
+%%CreationDate: Sat Dec 11 11:48:58 2004
+%%BoundingBox: 18 180 594 612
 %%EndComments
-
-%BeginProlog
-/inch {72 mul} def
-%%EndProlog
-
-
-/gsr {gsave stroke grestore} def
-
-/l { newpath moveto lineto } def
-
-% http://www.mactech.com/articles/mactech/Vol.09/09.04/PostscriptTutorial/
-
-/box %called as: leftx bottomy xdimension ydimension box
-{
-/yval exch def 
-/xval exch def
-newpath
-moveto
-0 yval rlineto
-xval 0 rlineto
-0 yval neg rlineto
+%%BeginProlog
+/mpldict 7 dict def
+mpldict begin
+/m { moveto } bind def
+/l { lineto } bind def
+/r { rlineto } bind def
+/box {
+m
+1 index 0 r
+0 exch r
+neg 0 r
 closepath
-}
-bind def
-
-/clipbox %called as: leftx bottomy xdimension ydimension box
-{
-/yval exch def
-/xval exch def
-newpath
-moveto
-0 yval rlineto
-xval 0 rlineto
-0 yval neg rlineto
-closepath
+} bind def
+/clipbox {
+box
 clip
-}
-bind def
-
-/make-polygon
-{
-3 dict
-begin
-  /a exch def
-  /n a length def
-  n 1 gt
-    {
-    a 0 get 0 get a 0 get 1 get moveto
-    1 1 n 1 sub     {
-     /i exch def
-     a i get 0 get   a i get 1 get lineto
-    }
-    for
-    }
-  if
- closepath
-end
-
-}
-def
-
-/mtrx matrix def                            % Allocate a matrix for the save
-					    % matrix operation below.
-/ellipse                                    % ellipse adds a counter-clockwise
-  { /endangle exch def                      % segment of an elliptical arc to
-    /startangle exch def                    % the current path. The ellipse
-    /yrad exch def                          % procedure takes six operands:
-    /xrad exch def                          % the x and y coordinates of the
-    /y exch def                             % center of the ellipse (the
-    /x exch def                             % center is defined as the point
-					    % of intersection of the major and
-					    % minor axes), the ``radius'' of
-					    % the ellipse in the x direction,
-					    % the ``radius'' of the ellipse in
-					    % the y direction, the starting
-					    % angle of the elliptical arc and
-					    % the ending angle of the
-					    % elliptical arc.
-							     
-					    % The basic strategy used in
-					    % drawing the ellipse is to
-					    % translate to the center of the
-					    % ellipse, scale the user
-					    % coordinate system by the x and y
-					    % radius values, and then add a
-					    % circular arc, centered at the
-					    % origin with a 1 unit radius to
-					    % the current path. We will be
-					    % transforming the user coordinate
-					    % system with the translate and
-					    % rotate operators to add the
-					    % elliptical arc segment but we
-					    % don't want these transformations
-					    % to affect other parts of the
-					    % program. In other words, we
-					    % would like to localize the
-					    % effect of the transformations.
-					    % Usually the gsave and grestore
-					    % operators would be ideal
-					    % candidates for this task.
-					    % Unfortunately gsave and grestore
-					    % are inappropriate for this
-					    % situation because we cannot save
-					    % the arc segment that we have
-					    % added to the path. Instead we
-					    % will localize the effect of the
-					    % transformations by saving the
-					    % current transformation matrix
-					    % and restoring it explicitly
-					    % after we have added the
-					    % elliptical arc to the path.
-									 
-    /savematrix mtrx currentmatrix def      % Save the current transformation.
-    x y translate                           % Translate to the center of the
-					    % ellipse.
-    xrad yrad scale                         % Scale by the x and y radius
-					    % values.
-    0 0 1 startangle endangle arc           % Add the arc segment to the path.
-    savematrix setmatrix                    % Restore the transformation.
-  } def
-
-
-%BeginFont: Vera.ttf
+newpath
+} bind def
+/ellipse {
+matrix currentmatrix 7 1 roll
+translate
+scale
+0 0 1 5 3 roll arc
+setmatrix
+} bind def
+%%BeginFont: BitstreamVeraSans-Roman
 %!PS-TrueType-1.0-2.0
 8 dict begin
 /FontName /BitstreamVeraSans-Roman def
@@ -2046,1684 +1951,1755 @@ FCDB0000E096E085E056DF6A00000000DE71DE5F0000DAEF05BF000100000038000000F4
 /c6467 265 def /c6468 266 def /c6469 267 def 
 end readonly def
 FontName currentdict end definefont pop
-%EndFont
-
-18.000 180.000 translate
-0 rotate
-/figure_clip {0 0 576.000 432.000 clipbox} def
-figure_clip
+%%EndFont
+%%EndProlog
+mpldict begin
 gsave
-
-newpath [ [ 0 0 ] [  0 432 ] [  576 432 ] [  576 0 ] ] make-polygon
-1.000 1.000 1.000 setrgbcolor
-1.00000 setlinewidth
+18 180 translate
+576 432 0 0 clipbox
+1 setgray
+1 setlinewidth
 0 setlinejoin
 2 setlinecap
-gsr
-1.000 1.000 1.000 setrgbcolor fill
-grestore
+[] 0 setdash
+0 0 m
+0 432 l
+576 432 l
+576 0 l
+closepath
 gsave
-
-newpath [ [ 72 47.520 ] [  72 388.800 ] [  518.400 388.800 ] [  518.400 47.520 ] ] make-polygon
-0.000 0.000 0.000 setrgbcolor
-2.00000 setlinewidth
-0 setlinejoin
-2 setlinecap
-gsr
-1.000 1.000 1.000 setrgbcolor fill
+fill
 grestore
+stroke
+0 setgray
+2 setlinewidth
+72 47.52 m
+72 388.8 l
+518.4 388.8 l
+518.4 47.52 l
+closepath
 gsave
+1 setgray
+fill
+grestore
+stroke
+0 setgray
 /BitstreamVeraSans-Roman findfont
-14.0 scalefont
+14 scalefont
 setfont
-68.344 33.520 rmoveto
-0.0 rotate
-(0)
-0.000 0.000 0.000 setrgbcolor
-show
-grestore
-gsave
-
-newpath 161.280 47.520 moveto
-161.280 47.520 lineto
-0.000 0.000 0.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
+68.344 33.52 m
+(0) show
+0.5 setlinewidth
+161.28 47.52 m
+161.28 47.52 l
+stroke
+1 setlinewidth
+0 setlinecap
+161.28 47.52 m
+161.28 51.52 l
+stroke
+161.28 47.52 m
+161.28 51.52 l
+stroke
+0.5 setlinewidth
 2 setlinecap
-gsr
-
-grestore
-gsave
-
-161.280 47.520 161.280 51.520 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
+161.28 388.8 m
+161.28 388.8 l
+stroke
+1 setlinewidth
 0 setlinecap
-gsr
-
-grestore
-gsave
-
-161.280 47.520 161.280 51.520 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-
-newpath 161.280 388.800 moveto
-161.280 388.800 lineto
-0.000 0.000 0.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
+161.28 384.8 m
+161.28 388.8 l
+stroke
+161.28 384.8 m
+161.28 388.8 l
+stroke
+158.28 33.52 m
+(1) show
+0.5 setlinewidth
 2 setlinecap
-gsr
-
-grestore
-gsave
-
-161.280 384.800 161.280 388.800 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
+250.56 47.52 m
+250.56 47.52 l
+stroke
+1 setlinewidth
 0 setlinecap
-gsr
-
-grestore
-gsave
-
-161.280 384.800 161.280 388.800 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-/BitstreamVeraSans-Roman findfont
-14.0 scalefont
-setfont
-158.280 33.520 rmoveto
-0.0 rotate
-(1)
-0.000 0.000 0.000 setrgbcolor
-show
-grestore
-gsave
-
-newpath 250.560 47.520 moveto
-250.560 47.520 lineto
-0.000 0.000 0.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
+250.56 47.52 m
+250.56 51.52 l
+stroke
+250.56 47.52 m
+250.56 51.52 l
+stroke
+0.5 setlinewidth
 2 setlinecap
-gsr
-
-grestore
-gsave
-
-250.560 47.520 250.560 51.520 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
+250.56 388.8 m
+250.56 388.8 l
+stroke
+1 setlinewidth
 0 setlinecap
-gsr
-
-grestore
-gsave
-
-250.560 47.520 250.560 51.520 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-
-newpath 250.560 388.800 moveto
-250.560 388.800 lineto
-0.000 0.000 0.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
+250.56 384.8 m
+250.56 388.8 l
+stroke
+250.56 384.8 m
+250.56 388.8 l
+stroke
+247.529 33.52 m
+(2) show
+0.5 setlinewidth
 2 setlinecap
-gsr
-
-grestore
-gsave
-
-250.560 384.800 250.560 388.800 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
+339.84 47.52 m
+339.84 47.52 l
+stroke
+1 setlinewidth
 0 setlinecap
-gsr
-
-grestore
-gsave
-
-250.560 384.800 250.560 388.800 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-/BitstreamVeraSans-Roman findfont
-14.0 scalefont
-setfont
-247.529 33.520 rmoveto
-0.0 rotate
-(2)
-0.000 0.000 0.000 setrgbcolor
-show
-grestore
-gsave
-
-newpath 339.840 47.520 moveto
-339.840 47.520 lineto
-0.000 0.000 0.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
+339.84 47.52 m
+339.84 51.52 l
+stroke
+339.84 47.52 m
+339.84 51.52 l
+stroke
+0.5 setlinewidth
 2 setlinecap
-gsr
-
-grestore
-gsave
-
-339.840 47.520 339.840 51.520 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
+339.84 388.8 m
+339.84 388.8 l
+stroke
+1 setlinewidth
 0 setlinecap
-gsr
-
-grestore
-gsave
-
-339.840 47.520 339.840 51.520 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-
-newpath 339.840 388.800 moveto
-339.840 388.800 lineto
-0.000 0.000 0.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
+339.84 384.8 m
+339.84 388.8 l
+stroke
+339.84 384.8 m
+339.84 388.8 l
+stroke
+336.504 33.52 m
+(3) show
+0.5 setlinewidth
 2 setlinecap
-gsr
-
-grestore
-gsave
-
-339.840 384.800 339.840 388.800 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
+429.12 47.52 m
+429.12 47.52 l
+stroke
+1 setlinewidth
 0 setlinecap
-gsr
-
-grestore
-gsave
-
-339.840 384.800 339.840 388.800 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-/BitstreamVeraSans-Roman findfont
-14.0 scalefont
-setfont
-336.504 33.520 rmoveto
-0.0 rotate
-(3)
-0.000 0.000 0.000 setrgbcolor
-show
-grestore
-gsave
-
-newpath 429.120 47.520 moveto
-429.120 47.520 lineto
-0.000 0.000 0.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
+429.12 47.52 m
+429.12 51.52 l
+stroke
+429.12 47.52 m
+429.12 51.52 l
+stroke
+0.5 setlinewidth
 2 setlinecap
-gsr
-
-grestore
-gsave
-
-429.120 47.520 429.120 51.520 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
+429.12 388.8 m
+429.12 388.8 l
+stroke
+1 setlinewidth
 0 setlinecap
-gsr
-
-grestore
-gsave
-
-429.120 47.520 429.120 51.520 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-
-newpath 429.120 388.800 moveto
-429.120 388.800 lineto
-0.000 0.000 0.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
+429.12 384.8 m
+429.12 388.8 l
+stroke
+429.12 384.8 m
+429.12 388.8 l
+stroke
+425.425 33.52 m
+(4) show
+515.244 33.52 m
+(5) show
+55 42.52 m
+(-1) show
+0.5 setlinewidth
 2 setlinecap
-gsr
-
-grestore
-gsave
-
-429.120 384.800 429.120 388.800 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
+72 132.84 m
+72 132.84 l
+stroke
+1 setlinewidth
 0 setlinecap
-gsr
-
-grestore
-gsave
-
-429.120 384.800 429.120 388.800 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-/BitstreamVeraSans-Roman findfont
-14.0 scalefont
-setfont
-425.425 33.520 rmoveto
-0.0 rotate
-(4)
-0.000 0.000 0.000 setrgbcolor
-show
-grestore
-gsave
-/BitstreamVeraSans-Roman findfont
-14.0 scalefont
-setfont
-515.244 33.520 rmoveto
-0.0 rotate
-(5)
-0.000 0.000 0.000 setrgbcolor
-show
-grestore
-gsave
-/BitstreamVeraSans-Roman findfont
-14.0 scalefont
-setfont
-55.000 42.520 rmoveto
-0.0 rotate
-(-1)
-0.000 0.000 0.000 setrgbcolor
-show
-grestore
-gsave
-
-newpath 72 132.840 moveto
-72 132.840 lineto
-0.000 0.000 0.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
+72 132.84 m
+76 132.84 l
+stroke
+72 132.84 m
+76 132.84 l
+stroke
+0.5 setlinewidth
 2 setlinecap
-gsr
-
-grestore
-gsave
-
-72 132.840 76 132.840 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
+518.4 132.84 m
+518.4 132.84 l
+stroke
+1 setlinewidth
 0 setlinecap
-gsr
-
-grestore
-gsave
-
-72 132.840 76 132.840 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-
-newpath 518.400 132.840 moveto
-518.400 132.840 lineto
-0.000 0.000 0.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
+514.4 132.84 m
+518.4 132.84 l
+stroke
+514.4 132.84 m
+518.4 132.84 l
+stroke
+41.938 127.84 m
+(-0.5) show
+0.5 setlinewidth
 2 setlinecap
-gsr
-
-grestore
-gsave
-
-514.400 132.840 518.400 132.840 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
+72 218.16 m
+72 218.16 l
+stroke
+1 setlinewidth
 0 setlinecap
-gsr
-
-grestore
-gsave
-
-514.400 132.840 518.400 132.840 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-/BitstreamVeraSans-Roman findfont
-14.0 scalefont
-setfont
-41.938 127.840 rmoveto
-0.0 rotate
-(-0.5)
-0.000 0.000 0.000 setrgbcolor
-show
-grestore
-gsave
-
-newpath 72 218.160 moveto
-72 218.160 lineto
-0.000 0.000 0.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
+72 218.16 m
+76 218.16 l
+stroke
+72 218.16 m
+76 218.16 l
+stroke
+0.5 setlinewidth
 2 setlinecap
-gsr
-
-grestore
-gsave
-
-72 218.160 76 218.160 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
+518.4 218.16 m
+518.4 218.16 l
+stroke
+1 setlinewidth
 0 setlinecap
-gsr
-
-grestore
-gsave
-
-72 218.160 76 218.160 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-
-newpath 518.400 218.160 moveto
-518.400 218.160 lineto
-0.000 0.000 0.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
+514.4 218.16 m
+518.4 218.16 l
+stroke
+514.4 218.16 m
+518.4 218.16 l
+stroke
+60.688 213.16 m
+(0) show
+0.5 setlinewidth
 2 setlinecap
-gsr
-
-grestore
-gsave
-
-514.400 218.160 518.400 218.160 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
+72 303.48 m
+72 303.48 l
+stroke
+1 setlinewidth
 0 setlinecap
-gsr
-
-grestore
-gsave
-
-514.400 218.160 518.400 218.160 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-/BitstreamVeraSans-Roman findfont
-14.0 scalefont
-setfont
-60.688 213.160 rmoveto
-0.0 rotate
-(0)
-0.000 0.000 0.000 setrgbcolor
-show
-grestore
-gsave
-
-newpath 72 303.480 moveto
-72 303.480 lineto
-0.000 0.000 0.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
+72 303.48 m
+76 303.48 l
+stroke
+72 303.48 m
+76 303.48 l
+stroke
+0.5 setlinewidth
 2 setlinecap
-gsr
-
-grestore
-gsave
-
-72 303.480 76 303.480 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
+518.4 303.48 m
+518.4 303.48 l
+stroke
+1 setlinewidth
 0 setlinecap
-gsr
-
-grestore
-gsave
-
-72 303.480 76 303.480 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-
-newpath 518.400 303.480 moveto
-518.400 303.480 lineto
-0.000 0.000 0.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
+514.4 303.48 m
+518.4 303.48 l
+stroke
+514.4 303.48 m
+518.4 303.48 l
+stroke
+47.688 298.48 m
+(0.5) show
+62 383.8 m
+(1) show
+0 0 1 setrgbcolor
+0.5 setlinewidth
 2 setlinecap
-gsr
+gsave
+446.4 341.28 72 47.52 clipbox
+72 218.16 m
+76.464 270.891 l
+80.928 318.46 l
+85.392 356.211 l
+89.856 380.448 l
+94.32 388.8 l
+98.784 380.448 l
+103.248 356.211 l
+107.712 318.46 l
+112.176 270.891 l
+116.64 218.16 l
+121.104 165.429 l
+125.568 117.86 l
+130.032 80.109 l
+134.496 55.872 l
+138.96 47.52 l
+143.424 55.872 l
+147.888 80.109 l
+152.352 117.86 l
+156.816 165.429 l
+161.28 218.16 l
+165.744 270.891 l
+170.208 318.46 l
+174.672 356.211 l
+179.136 380.448 l
+183.6 388.8 l
+188.064 380.448 l
+192.528 356.211 l
+196.992 318.46 l
+201.456 270.891 l
+205.92 218.16 l
+210.384 165.429 l
+214.848 117.86 l
+219.312 80.109 l
+223.776 55.872 l
+228.24 47.52 l
+232.704 55.872 l
+237.168 80.109 l
+241.632 117.86 l
+246.096 165.429 l
+250.56 218.16 l
+255.024 270.891 l
+259.488 318.46 l
+263.952 356.211 l
+268.416 380.448 l
+272.88 388.8 l
+277.344 380.448 l
+281.808 356.211 l
+286.272 318.46 l
+290.736 270.891 l
+295.2 218.16 l
+299.664 165.429 l
+304.128 117.86 l
+308.592 80.109 l
+313.056 55.872 l
+317.52 47.52 l
+321.984 55.872 l
+326.448 80.109 l
+330.912 117.86 l
+335.376 165.429 l
+339.84 218.16 l
+344.304 270.891 l
+348.768 318.46 l
+353.232 356.211 l
+357.696 380.448 l
+362.16 388.8 l
+366.624 380.448 l
+371.088 356.211 l
+375.552 318.46 l
+380.016 270.891 l
+384.48 218.16 l
+388.944 165.429 l
+393.408 117.86 l
+397.872 80.109 l
+402.336 55.872 l
+406.8 47.52 l
+411.264 55.872 l
+415.728 80.109 l
+420.192 117.86 l
+424.656 165.429 l
+429.12 218.16 l
+433.584 270.891 l
+438.048 318.46 l
+442.512 356.211 l
+446.976 380.448 l
+451.44 388.8 l
+455.904 380.448 l
+460.368 356.211 l
+464.832 318.46 l
+469.296 270.891 l
+473.76 218.16 l
+478.224 165.429 l
+482.688 117.86 l
+487.152 80.109 l
+491.616 55.872 l
+496.08 47.52 l
+500.544 55.872 l
+505.008 80.109 l
+509.472 117.86 l
+513.936 165.429 l
+stroke
+grestore
+1 0 0 setrgbcolor
+1 setlinewidth
+0 setlinecap
+gsave
+446.4 341.28 72 47.52 clipbox
+78.3 218.16 m
+72 207.66 l
+65.7 218.16 l
+72 228.66 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+82.764 270.891 m
+76.464 260.391 l
+70.164 270.891 l
+76.464 281.391 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+87.228 318.46 m
+80.928 307.96 l
+74.628 318.46 l
+80.928 328.96 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+91.692 356.211 m
+85.392 345.711 l
+79.092 356.211 l
+85.392 366.711 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+96.156 380.448 m
+89.856 369.948 l
+83.556 380.448 l
+89.856 390.948 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+100.62 388.8 m
+94.32 378.3 l
+88.02 388.8 l
+94.32 399.3 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+105.084 380.448 m
+98.784 369.948 l
+92.484 380.448 l
+98.784 390.948 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+109.548 356.211 m
+103.248 345.711 l
+96.948 356.211 l
+103.248 366.711 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+114.012 318.46 m
+107.712 307.96 l
+101.412 318.46 l
+107.712 328.96 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+118.476 270.891 m
+112.176 260.391 l
+105.876 270.891 l
+112.176 281.391 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+122.94 218.16 m
+116.64 207.66 l
+110.34 218.16 l
+116.64 228.66 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+127.404 165.429 m
+121.104 154.929 l
+114.804 165.429 l
+121.104 175.929 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+131.868 117.86 m
+125.568 107.36 l
+119.268 117.86 l
+125.568 128.36 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+136.332 80.109 m
+130.032 69.609 l
+123.732 80.109 l
+130.032 90.609 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+140.796 55.872 m
+134.496 45.372 l
+128.196 55.872 l
+134.496 66.372 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+145.26 47.52 m
+138.96 37.02 l
+132.66 47.52 l
+138.96 58.02 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+149.724 55.872 m
+143.424 45.372 l
+137.124 55.872 l
+143.424 66.372 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+154.188 80.109 m
+147.888 69.609 l
+141.588 80.109 l
+147.888 90.609 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+158.652 117.86 m
+152.352 107.36 l
+146.052 117.86 l
+152.352 128.36 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+163.116 165.429 m
+156.816 154.929 l
+150.516 165.429 l
+156.816 175.929 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+167.58 218.16 m
+161.28 207.66 l
+154.98 218.16 l
+161.28 228.66 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+172.044 270.891 m
+165.744 260.391 l
+159.444 270.891 l
+165.744 281.391 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+176.508 318.46 m
+170.208 307.96 l
+163.908 318.46 l
+170.208 328.96 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+180.972 356.211 m
+174.672 345.711 l
+168.372 356.211 l
+174.672 366.711 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+185.436 380.448 m
+179.136 369.948 l
+172.836 380.448 l
+179.136 390.948 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+189.9 388.8 m
+183.6 378.3 l
+177.3 388.8 l
+183.6 399.3 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+194.364 380.448 m
+188.064 369.948 l
+181.764 380.448 l
+188.064 390.948 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+198.828 356.211 m
+192.528 345.711 l
+186.228 356.211 l
+192.528 366.711 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+203.292 318.46 m
+196.992 307.96 l
+190.692 318.46 l
+196.992 328.96 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+207.756 270.891 m
+201.456 260.391 l
+195.156 270.891 l
+201.456 281.391 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+212.22 218.16 m
+205.92 207.66 l
+199.62 218.16 l
+205.92 228.66 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+216.684 165.429 m
+210.384 154.929 l
+204.084 165.429 l
+210.384 175.929 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+221.148 117.86 m
+214.848 107.36 l
+208.548 117.86 l
+214.848 128.36 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+225.612 80.109 m
+219.312 69.609 l
+213.012 80.109 l
+219.312 90.609 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+230.076 55.872 m
+223.776 45.372 l
+217.476 55.872 l
+223.776 66.372 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+234.54 47.52 m
+228.24 37.02 l
+221.94 47.52 l
+228.24 58.02 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+239.004 55.872 m
+232.704 45.372 l
+226.404 55.872 l
+232.704 66.372 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+243.468 80.109 m
+237.168 69.609 l
+230.868 80.109 l
+237.168 90.609 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+247.932 117.86 m
+241.632 107.36 l
+235.332 117.86 l
+241.632 128.36 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+252.396 165.429 m
+246.096 154.929 l
+239.796 165.429 l
+246.096 175.929 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+256.86 218.16 m
+250.56 207.66 l
+244.26 218.16 l
+250.56 228.66 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+261.324 270.891 m
+255.024 260.391 l
+248.724 270.891 l
+255.024 281.391 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+265.788 318.46 m
+259.488 307.96 l
+253.188 318.46 l
+259.488 328.96 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+270.252 356.211 m
+263.952 345.711 l
+257.652 356.211 l
+263.952 366.711 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+274.716 380.448 m
+268.416 369.948 l
+262.116 380.448 l
+268.416 390.948 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+279.18 388.8 m
+272.88 378.3 l
+266.58 388.8 l
+272.88 399.3 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+283.644 380.448 m
+277.344 369.948 l
+271.044 380.448 l
+277.344 390.948 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+288.108 356.211 m
+281.808 345.711 l
+275.508 356.211 l
+281.808 366.711 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+292.572 318.46 m
+286.272 307.96 l
+279.972 318.46 l
+286.272 328.96 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+297.036 270.891 m
+290.736 260.391 l
+284.436 270.891 l
+290.736 281.391 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+301.5 218.16 m
+295.2 207.66 l
+288.9 218.16 l
+295.2 228.66 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+305.964 165.429 m
+299.664 154.929 l
+293.364 165.429 l
+299.664 175.929 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+310.428 117.86 m
+304.128 107.36 l
+297.828 117.86 l
+304.128 128.36 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+314.892 80.109 m
+308.592 69.609 l
+302.292 80.109 l
+308.592 90.609 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+319.356 55.872 m
+313.056 45.372 l
+306.756 55.872 l
+313.056 66.372 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+323.82 47.52 m
+317.52 37.02 l
+311.22 47.52 l
+317.52 58.02 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+328.284 55.872 m
+321.984 45.372 l
+315.684 55.872 l
+321.984 66.372 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+332.748 80.109 m
+326.448 69.609 l
+320.148 80.109 l
+326.448 90.609 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+337.212 117.86 m
+330.912 107.36 l
+324.612 117.86 l
+330.912 128.36 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+341.676 165.429 m
+335.376 154.929 l
+329.076 165.429 l
+335.376 175.929 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+346.14 218.16 m
+339.84 207.66 l
+333.54 218.16 l
+339.84 228.66 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+350.604 270.891 m
+344.304 260.391 l
+338.004 270.891 l
+344.304 281.391 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+355.068 318.46 m
+348.768 307.96 l
+342.468 318.46 l
+348.768 328.96 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+359.532 356.211 m
+353.232 345.711 l
+346.932 356.211 l
+353.232 366.711 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+363.996 380.448 m
+357.696 369.948 l
+351.396 380.448 l
+357.696 390.948 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+368.46 388.8 m
+362.16 378.3 l
+355.86 388.8 l
+362.16 399.3 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+372.924 380.448 m
+366.624 369.948 l
+360.324 380.448 l
+366.624 390.948 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+377.388 356.211 m
+371.088 345.711 l
+364.788 356.211 l
+371.088 366.711 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+381.852 318.46 m
+375.552 307.96 l
+369.252 318.46 l
+375.552 328.96 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+386.316 270.891 m
+380.016 260.391 l
+373.716 270.891 l
+380.016 281.391 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+390.78 218.16 m
+384.48 207.66 l
+378.18 218.16 l
+384.48 228.66 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+395.244 165.429 m
+388.944 154.929 l
+382.644 165.429 l
+388.944 175.929 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+399.708 117.86 m
+393.408 107.36 l
+387.108 117.86 l
+393.408 128.36 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+404.172 80.109 m
+397.872 69.609 l
+391.572 80.109 l
+397.872 90.609 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+408.636 55.872 m
+402.336 45.372 l
+396.036 55.872 l
+402.336 66.372 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+413.1 47.52 m
+406.8 37.02 l
+400.5 47.52 l
+406.8 58.02 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+417.564 55.872 m
+411.264 45.372 l
+404.964 55.872 l
+411.264 66.372 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+422.028 80.109 m
+415.728 69.609 l
+409.428 80.109 l
+415.728 90.609 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+426.492 117.86 m
+420.192 107.36 l
+413.892 117.86 l
+420.192 128.36 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+430.956 165.429 m
+424.656 154.929 l
+418.356 165.429 l
+424.656 175.929 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+435.42 218.16 m
+429.12 207.66 l
+422.82 218.16 l
+429.12 228.66 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+439.884 270.891 m
+433.584 260.391 l
+427.284 270.891 l
+433.584 281.391 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+444.348 318.46 m
+438.048 307.96 l
+431.748 318.46 l
+438.048 328.96 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+448.812 356.211 m
+442.512 345.711 l
+436.212 356.211 l
+442.512 366.711 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+453.276 380.448 m
+446.976 369.948 l
+440.676 380.448 l
+446.976 390.948 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+457.74 388.8 m
+451.44 378.3 l
+445.14 388.8 l
+451.44 399.3 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+462.204 380.448 m
+455.904 369.948 l
+449.604 380.448 l
+455.904 390.948 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+466.668 356.211 m
+460.368 345.711 l
+454.068 356.211 l
+460.368 366.711 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+471.132 318.46 m
+464.832 307.96 l
+458.532 318.46 l
+464.832 328.96 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+475.596 270.891 m
+469.296 260.391 l
+462.996 270.891 l
+469.296 281.391 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+480.06 218.16 m
+473.76 207.66 l
+467.46 218.16 l
+473.76 228.66 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+484.524 165.429 m
+478.224 154.929 l
+471.924 165.429 l
+478.224 175.929 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+488.988 117.86 m
+482.688 107.36 l
+476.388 117.86 l
+482.688 128.36 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+493.452 80.109 m
+487.152 69.609 l
+480.852 80.109 l
+487.152 90.609 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+497.916 55.872 m
+491.616 45.372 l
+485.316 55.872 l
+491.616 66.372 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+502.38 47.52 m
+496.08 37.02 l
+489.78 47.52 l
+496.08 58.02 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+506.844 55.872 m
+500.544 45.372 l
+494.244 55.872 l
+500.544 66.372 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+511.308 80.109 m
+505.008 69.609 l
+498.708 80.109 l
+505.008 90.609 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+515.772 117.86 m
+509.472 107.36 l
+503.172 117.86 l
+509.472 128.36 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
+1 0 0 setrgbcolor
+gsave
+446.4 341.28 72 47.52 clipbox
+520.236 165.429 m
+513.936 154.929 l
+507.636 165.429 l
+513.936 175.929 l
+closepath
+gsave
+0 0.5 0 setrgbcolor
+fill
+grestore
+stroke
+grestore
 
 grestore
-gsave
-
-514.400 303.480 518.400 303.480 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-
-514.400 303.480 518.400 303.480 l
-0.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-
-grestore
-gsave
-/BitstreamVeraSans-Roman findfont
-14.0 scalefont
-setfont
-47.688 298.480 rmoveto
-0.0 rotate
-(0.5)
-0.000 0.000 0.000 setrgbcolor
-show
-grestore
-gsave
-/BitstreamVeraSans-Roman findfont
-14.0 scalefont
-setfont
-62.000 383.800 rmoveto
-0.0 rotate
-(1)
-0.000 0.000 0.000 setrgbcolor
-show
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath 72 218.160 moveto
-76.464 270.891 lineto
-80.928 318.460 lineto
-85.392 356.211 lineto
-89.856 380.448 lineto
-94.320 388.800 lineto
-98.784 380.448 lineto
-103.248 356.211 lineto
-107.712 318.460 lineto
-112.176 270.891 lineto
-116.640 218.160 lineto
-121.104 165.429 lineto
-125.568 117.860 lineto
-130.032 80.109 lineto
-134.496 55.872 lineto
-138.960 47.520 lineto
-143.424 55.872 lineto
-147.888 80.109 lineto
-152.352 117.860 lineto
-156.816 165.429 lineto
-161.280 218.160 lineto
-165.744 270.891 lineto
-170.208 318.460 lineto
-174.672 356.211 lineto
-179.136 380.448 lineto
-183.600 388.800 lineto
-188.064 380.448 lineto
-192.528 356.211 lineto
-196.992 318.460 lineto
-201.456 270.891 lineto
-205.920 218.160 lineto
-210.384 165.429 lineto
-214.848 117.860 lineto
-219.312 80.109 lineto
-223.776 55.872 lineto
-228.240 47.520 lineto
-232.704 55.872 lineto
-237.168 80.109 lineto
-241.632 117.860 lineto
-246.096 165.429 lineto
-250.560 218.160 lineto
-255.024 270.891 lineto
-259.488 318.460 lineto
-263.952 356.211 lineto
-268.416 380.448 lineto
-272.880 388.800 lineto
-277.344 380.448 lineto
-281.808 356.211 lineto
-286.272 318.460 lineto
-290.736 270.891 lineto
-295.200 218.160 lineto
-299.664 165.429 lineto
-304.128 117.860 lineto
-308.592 80.109 lineto
-313.056 55.872 lineto
-317.520 47.520 lineto
-321.984 55.872 lineto
-326.448 80.109 lineto
-330.912 117.860 lineto
-335.376 165.429 lineto
-339.840 218.160 lineto
-344.304 270.891 lineto
-348.768 318.460 lineto
-353.232 356.211 lineto
-357.696 380.448 lineto
-362.160 388.800 lineto
-366.624 380.448 lineto
-371.088 356.211 lineto
-375.552 318.460 lineto
-380.016 270.891 lineto
-384.480 218.160 lineto
-388.944 165.429 lineto
-393.408 117.860 lineto
-397.872 80.109 lineto
-402.336 55.872 lineto
-406.800 47.520 lineto
-411.264 55.872 lineto
-415.728 80.109 lineto
-420.192 117.860 lineto
-424.656 165.429 lineto
-429.120 218.160 lineto
-433.584 270.891 lineto
-438.048 318.460 lineto
-442.512 356.211 lineto
-446.976 380.448 lineto
-451.440 388.800 lineto
-455.904 380.448 lineto
-460.368 356.211 lineto
-464.832 318.460 lineto
-469.296 270.891 lineto
-473.760 218.160 lineto
-478.224 165.429 lineto
-482.688 117.860 lineto
-487.152 80.109 lineto
-491.616 55.872 lineto
-496.080 47.520 lineto
-500.544 55.872 lineto
-505.008 80.109 lineto
-509.472 117.860 lineto
-513.936 165.429 lineto
-0.000 0.000 1.000 setrgbcolor
-0.50000 setlinewidth
-0 setlinejoin
-2 setlinecap
-gsr
-
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 78.300 218.160 ] [  72 207.660 ] [  65.700 218.160 ] [  72 228.660 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 82.764 270.891 ] [  76.464 260.391 ] [  70.164 270.891 ] [  76.464 281.391 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 87.228 318.460 ] [  80.928 307.960 ] [  74.628 318.460 ] [  80.928 328.960 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 91.692 356.211 ] [  85.392 345.711 ] [  79.092 356.211 ] [  85.392 366.711 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 96.156 380.448 ] [  89.856 369.948 ] [  83.556 380.448 ] [  89.856 390.948 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 100.620 388.800 ] [  94.320 378.300 ] [  88.020 388.800 ] [  94.320 399.300 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 105.084 380.448 ] [  98.784 369.948 ] [  92.484 380.448 ] [  98.784 390.948 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 109.548 356.211 ] [  103.248 345.711 ] [  96.948 356.211 ] [  103.248 366.711 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 114.012 318.460 ] [  107.712 307.960 ] [  101.412 318.460 ] [  107.712 328.960 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 118.476 270.891 ] [  112.176 260.391 ] [  105.876 270.891 ] [  112.176 281.391 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 122.940 218.160 ] [  116.640 207.660 ] [  110.340 218.160 ] [  116.640 228.660 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 127.404 165.429 ] [  121.104 154.929 ] [  114.804 165.429 ] [  121.104 175.929 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 131.868 117.860 ] [  125.568 107.360 ] [  119.268 117.860 ] [  125.568 128.360 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 136.332 80.109 ] [  130.032 69.609 ] [  123.732 80.109 ] [  130.032 90.609 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 140.796 55.872 ] [  134.496 45.372 ] [  128.196 55.872 ] [  134.496 66.372 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 145.260 47.520 ] [  138.960 37.020 ] [  132.660 47.520 ] [  138.960 58.020 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 149.724 55.872 ] [  143.424 45.372 ] [  137.124 55.872 ] [  143.424 66.372 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 154.188 80.109 ] [  147.888 69.609 ] [  141.588 80.109 ] [  147.888 90.609 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 158.652 117.860 ] [  152.352 107.360 ] [  146.052 117.860 ] [  152.352 128.360 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 163.116 165.429 ] [  156.816 154.929 ] [  150.516 165.429 ] [  156.816 175.929 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 167.580 218.160 ] [  161.280 207.660 ] [  154.980 218.160 ] [  161.280 228.660 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 172.044 270.891 ] [  165.744 260.391 ] [  159.444 270.891 ] [  165.744 281.391 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 176.508 318.460 ] [  170.208 307.960 ] [  163.908 318.460 ] [  170.208 328.960 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 180.972 356.211 ] [  174.672 345.711 ] [  168.372 356.211 ] [  174.672 366.711 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 185.436 380.448 ] [  179.136 369.948 ] [  172.836 380.448 ] [  179.136 390.948 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 189.900 388.800 ] [  183.600 378.300 ] [  177.300 388.800 ] [  183.600 399.300 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 194.364 380.448 ] [  188.064 369.948 ] [  181.764 380.448 ] [  188.064 390.948 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 198.828 356.211 ] [  192.528 345.711 ] [  186.228 356.211 ] [  192.528 366.711 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 203.292 318.460 ] [  196.992 307.960 ] [  190.692 318.460 ] [  196.992 328.960 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 207.756 270.891 ] [  201.456 260.391 ] [  195.156 270.891 ] [  201.456 281.391 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 212.220 218.160 ] [  205.920 207.660 ] [  199.620 218.160 ] [  205.920 228.660 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 216.684 165.429 ] [  210.384 154.929 ] [  204.084 165.429 ] [  210.384 175.929 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 221.148 117.860 ] [  214.848 107.360 ] [  208.548 117.860 ] [  214.848 128.360 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 225.612 80.109 ] [  219.312 69.609 ] [  213.012 80.109 ] [  219.312 90.609 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 230.076 55.872 ] [  223.776 45.372 ] [  217.476 55.872 ] [  223.776 66.372 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 234.540 47.520 ] [  228.240 37.020 ] [  221.940 47.520 ] [  228.240 58.020 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 239.004 55.872 ] [  232.704 45.372 ] [  226.404 55.872 ] [  232.704 66.372 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 243.468 80.109 ] [  237.168 69.609 ] [  230.868 80.109 ] [  237.168 90.609 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 247.932 117.860 ] [  241.632 107.360 ] [  235.332 117.860 ] [  241.632 128.360 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 252.396 165.429 ] [  246.096 154.929 ] [  239.796 165.429 ] [  246.096 175.929 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 256.860 218.160 ] [  250.560 207.660 ] [  244.260 218.160 ] [  250.560 228.660 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 261.324 270.891 ] [  255.024 260.391 ] [  248.724 270.891 ] [  255.024 281.391 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 265.788 318.460 ] [  259.488 307.960 ] [  253.188 318.460 ] [  259.488 328.960 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 270.252 356.211 ] [  263.952 345.711 ] [  257.652 356.211 ] [  263.952 366.711 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 274.716 380.448 ] [  268.416 369.948 ] [  262.116 380.448 ] [  268.416 390.948 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 279.180 388.800 ] [  272.880 378.300 ] [  266.580 388.800 ] [  272.880 399.300 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 283.644 380.448 ] [  277.344 369.948 ] [  271.044 380.448 ] [  277.344 390.948 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 288.108 356.211 ] [  281.808 345.711 ] [  275.508 356.211 ] [  281.808 366.711 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 292.572 318.460 ] [  286.272 307.960 ] [  279.972 318.460 ] [  286.272 328.960 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 297.036 270.891 ] [  290.736 260.391 ] [  284.436 270.891 ] [  290.736 281.391 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 301.500 218.160 ] [  295.200 207.660 ] [  288.900 218.160 ] [  295.200 228.660 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 305.964 165.429 ] [  299.664 154.929 ] [  293.364 165.429 ] [  299.664 175.929 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 310.428 117.860 ] [  304.128 107.360 ] [  297.828 117.860 ] [  304.128 128.360 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 314.892 80.109 ] [  308.592 69.609 ] [  302.292 80.109 ] [  308.592 90.609 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 319.356 55.872 ] [  313.056 45.372 ] [  306.756 55.872 ] [  313.056 66.372 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 323.820 47.520 ] [  317.520 37.020 ] [  311.220 47.520 ] [  317.520 58.020 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 328.284 55.872 ] [  321.984 45.372 ] [  315.684 55.872 ] [  321.984 66.372 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 332.748 80.109 ] [  326.448 69.609 ] [  320.148 80.109 ] [  326.448 90.609 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 337.212 117.860 ] [  330.912 107.360 ] [  324.612 117.860 ] [  330.912 128.360 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 341.676 165.429 ] [  335.376 154.929 ] [  329.076 165.429 ] [  335.376 175.929 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 346.140 218.160 ] [  339.840 207.660 ] [  333.540 218.160 ] [  339.840 228.660 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 350.604 270.891 ] [  344.304 260.391 ] [  338.004 270.891 ] [  344.304 281.391 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 355.068 318.460 ] [  348.768 307.960 ] [  342.468 318.460 ] [  348.768 328.960 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 359.532 356.211 ] [  353.232 345.711 ] [  346.932 356.211 ] [  353.232 366.711 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 363.996 380.448 ] [  357.696 369.948 ] [  351.396 380.448 ] [  357.696 390.948 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 368.460 388.800 ] [  362.160 378.300 ] [  355.860 388.800 ] [  362.160 399.300 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 372.924 380.448 ] [  366.624 369.948 ] [  360.324 380.448 ] [  366.624 390.948 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 377.388 356.211 ] [  371.088 345.711 ] [  364.788 356.211 ] [  371.088 366.711 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 381.852 318.460 ] [  375.552 307.960 ] [  369.252 318.460 ] [  375.552 328.960 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 386.316 270.891 ] [  380.016 260.391 ] [  373.716 270.891 ] [  380.016 281.391 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 390.780 218.160 ] [  384.480 207.660 ] [  378.180 218.160 ] [  384.480 228.660 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 395.244 165.429 ] [  388.944 154.929 ] [  382.644 165.429 ] [  388.944 175.929 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 399.708 117.860 ] [  393.408 107.360 ] [  387.108 117.860 ] [  393.408 128.360 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 404.172 80.109 ] [  397.872 69.609 ] [  391.572 80.109 ] [  397.872 90.609 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 408.636 55.872 ] [  402.336 45.372 ] [  396.036 55.872 ] [  402.336 66.372 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 413.100 47.520 ] [  406.800 37.020 ] [  400.500 47.520 ] [  406.800 58.020 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 417.564 55.872 ] [  411.264 45.372 ] [  404.964 55.872 ] [  411.264 66.372 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 422.028 80.109 ] [  415.728 69.609 ] [  409.428 80.109 ] [  415.728 90.609 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 426.492 117.860 ] [  420.192 107.360 ] [  413.892 117.860 ] [  420.192 128.360 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 430.956 165.429 ] [  424.656 154.929 ] [  418.356 165.429 ] [  424.656 175.929 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 435.420 218.160 ] [  429.120 207.660 ] [  422.820 218.160 ] [  429.120 228.660 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 439.884 270.891 ] [  433.584 260.391 ] [  427.284 270.891 ] [  433.584 281.391 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 444.348 318.460 ] [  438.048 307.960 ] [  431.748 318.460 ] [  438.048 328.960 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 448.812 356.211 ] [  442.512 345.711 ] [  436.212 356.211 ] [  442.512 366.711 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 453.276 380.448 ] [  446.976 369.948 ] [  440.676 380.448 ] [  446.976 390.948 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 457.740 388.800 ] [  451.440 378.300 ] [  445.140 388.800 ] [  451.440 399.300 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 462.204 380.448 ] [  455.904 369.948 ] [  449.604 380.448 ] [  455.904 390.948 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 466.668 356.211 ] [  460.368 345.711 ] [  454.068 356.211 ] [  460.368 366.711 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 471.132 318.460 ] [  464.832 307.960 ] [  458.532 318.460 ] [  464.832 328.960 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 475.596 270.891 ] [  469.296 260.391 ] [  462.996 270.891 ] [  469.296 281.391 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 480.060 218.160 ] [  473.760 207.660 ] [  467.460 218.160 ] [  473.760 228.660 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 484.524 165.429 ] [  478.224 154.929 ] [  471.924 165.429 ] [  478.224 175.929 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 488.988 117.860 ] [  482.688 107.360 ] [  476.388 117.860 ] [  482.688 128.360 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 493.452 80.109 ] [  487.152 69.609 ] [  480.852 80.109 ] [  487.152 90.609 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 497.916 55.872 ] [  491.616 45.372 ] [  485.316 55.872 ] [  491.616 66.372 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 502.380 47.520 ] [  496.080 37.020 ] [  489.780 47.520 ] [  496.080 58.020 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 506.844 55.872 ] [  500.544 45.372 ] [  494.244 55.872 ] [  500.544 66.372 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 511.308 80.109 ] [  505.008 69.609 ] [  498.708 80.109 ] [  505.008 90.609 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 515.772 117.860 ] [  509.472 107.360 ] [  503.172 117.860 ] [  509.472 128.360 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
-gsave
-72.00000 47.52000 446.40000 341.28000 clipbox
-newpath [ [ 520.236 165.429 ] [  513.936 154.929 ] [  507.636 165.429 ] [  513.936 175.929 ] ] make-polygon
-1.000 0.000 0.000 setrgbcolor
-1.00000 setlinewidth
-0 setlinejoin
-0 setlinecap
-gsr
-0.000 0.500 0.000 setrgbcolor fill
-grestore
+end
 showpage
-

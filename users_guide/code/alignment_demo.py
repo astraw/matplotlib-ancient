@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 from matplotlib.patches import Rectangle
 
 # build a rectangle in axes coords

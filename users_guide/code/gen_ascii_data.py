@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 t = arange(0.0, 1.0, 0.05)
 s = sin(2*pi*t) + 0.5*rand(len(t))
 X = zeros((len(t),2), Float)

@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 
 dt = 0.01
 t = arange(0,10,dt)

@@ -23,7 +23,7 @@ To build the matplotlib users guide, you will need to
 
   * add the styles dir to your TEXINPUTS environment variable.  Eg,  
 
-      setenv TEXINPUTS .:styles:/usr/share/texmf//
+      setenv TEXINPUTS .:/home/jdhunter/matplotlib/users_guide/styles:/usr/share/texmf//
 
     Note the double slash at the end tells TeX to recusively search
     that dir.

@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 # import the tick locator and formatter classes
 from matplotlib.ticker import MultipleLocator, FormatStrFormatter
 

@@ -1,5 +1,5 @@
 # python                               % matlab
-from matplotlib.matlab import *        % no import necessary
+from pylab import *        % no import necessary
 
 dt = 0.01                              dt = 0.01;
 t = arange(0,10,dt)                    t = [0:dt:10];

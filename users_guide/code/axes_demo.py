@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 
 # create some data to use for the plot
 dt = 0.001

@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 
 # axis background in dark slate gray
 subplot(111, axisbg=(0.1843, 0.3098, 0.3098))

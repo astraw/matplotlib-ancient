@@ -1,4 +1,4 @@
-from matplotlib.matlab import *
+from pylab import *
 
 def f(t):
     'a damped oscillation'
