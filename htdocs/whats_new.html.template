@@ -4,6 +4,49 @@
 
 versioninfo = {}
 
+versioninfo['0.62'] = (
+
+    ('ipython support', """\
+Iteractive support in <a href=http://ipython.scipy.org>ipython</a>
+with <tt>ipython -pylab</tt>, which detects your backend and loads the
+appropriate interactive, threaded shell, as well as all of
+matplotlib.matlab and numerix.  Requires ipython-0.6.3.  Backend
+status summary: linux (all backends working), OSX (tkagg and gtk*
+work), win32 (tkagg only).  Thanks Fernando Perez!			   
+"""),
+
+    ('Log ticking and formatting', """\ Excellent improvements in log
+ticking and formatting.  You can now do log plots in any base with
+major and minor tick support.  You can easily customize the location
+of the minor ticks with the subs arguments.  See the new
+<a href=screenshots.html#log_shot>screenshot and example</a> and help for
+the log funcs, eg <a href=matplotlib.matlab.html#-loglog>loglog</a>.
+Mathtext exponential labeling for log plots.  Thanks Darren Dale and
+Gregory Lielens.
+
+<pre>
+  # base 16 semilog x plot with minor ticks on the 2s, 4s and 8s
+  semilogx(x,y, basex=16, subsx=[2,4,8])
+</pre>
+"""),
+
+    ('Mathtext optimizations', """\
+Mathtext now more than 5x faster.  Thanks to Paul Mcguire for
+optimizations in both pyparsing and the matplotlib grammar!
+"""),
+
+    ('FLTKAgg backend - alpha', """\
+Gregory Lielens submitted an fltkagg backend which requires CVS
+pyfltk.  Feedback please!
+"""),
+
+    ('Bug fixes', """\
+Fixed some image edge effects, a ttf read problem in backend_ps on
+win32, several errorbar problems, a HOME dir bug on win32, grid w/o
+args now toggle grid state
+"""),
+)
+
 versioninfo['0.61'] = (
 
     ('toolbar2', """\
@@ -160,7 +203,7 @@ screenshot at <a href=screenshots.html#finance_work2>finance_work2</a>"""),
 Andrew Straw submitted a dynamic_image example.  The wx version is
 still in progree and has some flicker problems, but the gtk version is
 pretty cool - <a
-href=http://matplotlib.sf.net/examples/dynamic_image_gtkagg.py>dynamic_image_gtkagg.py</a>"""),
+href=examples/dynamic_image_gtkagg.py>dynamic_image_gtkagg.py</a>"""),
 
     ('Bug fixes', 'dynamic_demo_wx, figure legends, memory leaks, axis scaling bug related to singleton plots'),
 

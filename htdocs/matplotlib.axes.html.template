@@ -145,7 +145,7 @@ Refs:<br>
 
 <dl><dt><a name="Axes-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt><dd><tt>Draw&nbsp;everything&nbsp;(plot&nbsp;lines,&nbsp;axes,&nbsp;labels)</tt></dd></dl>
 
-<dl><dt><a name="Axes-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">='k'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
+<dl><dt><a name="Axes-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
 Vertical&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;yerr&nbsp;is&nbsp;not&nbsp;None<br>
 Horizontal&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;xerr&nbsp;is&nbsp;not&nbsp;None<br>
 &nbsp;<br>
@@ -160,6 +160,9 @@ plots&nbsp;a&nbsp;single&nbsp;error&nbsp;bar&nbsp;at&nbsp;x,&nbsp;y.<br>
 fmt&nbsp;is&nbsp;the&nbsp;plot&nbsp;format&nbsp;symbol&nbsp;for&nbsp;y.&nbsp;&nbsp;if&nbsp;fmt&nbsp;is&nbsp;None,&nbsp;just<br>
 plot&nbsp;the&nbsp;errorbars&nbsp;with&nbsp;no&nbsp;line&nbsp;symbols.&nbsp;&nbsp;This&nbsp;can&nbsp;be&nbsp;useful<br>
 for&nbsp;creating&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;errorbars<br>
+&nbsp;<br>
+ecolor&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;which&nbsp;gives&nbsp;the&nbsp;color&nbsp;the<br>
+errobar&nbsp;lines;&nbsp;if&nbsp;None,&nbsp;use&nbsp;the&nbsp;marker&nbsp;color.<br>
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&nbsp;first&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
 y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.<br>
@@ -476,16 +479,75 @@ and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional<br>
 format&nbsp;string.&nbsp;&nbsp;For&nbsp;example,&nbsp;all&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;legal,<br>
 assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;Axis&nbsp;instance:<br>
-&nbsp;<br>
-&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x<br>
-&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x&nbsp;with&nbsp;blue&nbsp;circles<br>
-&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;as&nbsp;index&nbsp;array&nbsp;0..N-1<br>
-&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto&nbsp;with&nbsp;red&nbsp;plusses<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x&nbsp;with&nbsp;blue&nbsp;circles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;as&nbsp;index&nbsp;array&nbsp;0..N-1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto&nbsp;with&nbsp;red&nbsp;plusses<br>
 &nbsp;<br>
 An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
-&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x1,&nbsp;y1,&nbsp;'g^',&nbsp;x2,&nbsp;y2,&nbsp;'l-')&nbsp;&nbsp;<br>
 &nbsp;<br>
-Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x1,&nbsp;y1,&nbsp;'g^',&nbsp;x2,&nbsp;y2,&nbsp;'g-')&nbsp;&nbsp;<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;line&nbsp;styles&nbsp;are&nbsp;supported:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;:&nbsp;solid&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;:&nbsp;dashed&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-.&nbsp;:&nbsp;dash-dot&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;:&nbsp;dotted&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;:&nbsp;points<br>
+&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;:&nbsp;pixels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;:&nbsp;circle&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;^&nbsp;&nbsp;:&nbsp;triangle&nbsp;up&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;v&nbsp;&nbsp;:&nbsp;triangle&nbsp;down&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;&nbsp;&nbsp;:&nbsp;triangle&nbsp;left&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;:&nbsp;triangle&nbsp;right&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;&nbsp;:&nbsp;square&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;:&nbsp;plus&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;&nbsp;:&nbsp;cross&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;D&nbsp;&nbsp;:&nbsp;diamond&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;&nbsp;:&nbsp;thin&nbsp;diamond&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;:&nbsp;tripod&nbsp;down&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;:&nbsp;tripod&nbsp;up&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;:&nbsp;tripod&nbsp;left&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;:&nbsp;tripod&nbsp;right&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;h&nbsp;&nbsp;:&nbsp;hexagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;H&nbsp;&nbsp;:&nbsp;rotated&nbsp;hexagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;p&nbsp;&nbsp;:&nbsp;pentagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;:&nbsp;vertical&nbsp;line&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;:&nbsp;horizontal&nbsp;line&nbsp;symbols<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;color&nbsp;strings&nbsp;are&nbsp;supported<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;&nbsp;:&nbsp;blue<br>
+&nbsp;&nbsp;&nbsp;&nbsp;g&nbsp;&nbsp;:&nbsp;green<br>
+&nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;&nbsp;:&nbsp;red<br>
+&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;&nbsp;:&nbsp;cyan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;&nbsp;:&nbsp;magenta<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;&nbsp;:&nbsp;yellow<br>
+&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;&nbsp;:&nbsp;black&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;w&nbsp;&nbsp;:&nbsp;white<br>
+&nbsp;<br>
+Line&nbsp;styles&nbsp;and&nbsp;colors&nbsp;are&nbsp;combined&nbsp;in&nbsp;a&nbsp;single&nbsp;format&nbsp;string<br>
+&nbsp;<br>
+The&nbsp;kwargs&nbsp;that&nbsp;are&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;set&nbsp;line&nbsp;properties&nbsp;(any&nbsp;property<br>
+that&nbsp;has&nbsp;a&nbsp;set_*&nbsp;method).&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;to&nbsp;set&nbsp;a&nbsp;line&nbsp;label&nbsp;(for<br>
+auto&nbsp;legends),&nbsp;linewidth,&nbsp;anitialising,&nbsp;marker&nbsp;face&nbsp;color,&nbsp;etc.&nbsp;&nbsp;Here<br>
+is&nbsp;an&nbsp;example:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-plot">plot</a>([1,2,3],&nbsp;[1,2,3],&nbsp;'go-',&nbsp;label='line&nbsp;1',&nbsp;linewidth=2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-plot">plot</a>([1,2,3],&nbsp;[1,4,9],&nbsp;'rs',&nbsp;&nbsp;label='line&nbsp;2')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axis([0,&nbsp;4,&nbsp;0,&nbsp;10])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-legend">legend</a>()<br>
+&nbsp;<br>
+If&nbsp;you&nbsp;make&nbsp;multiple&nbsp;lines&nbsp;with&nbsp;one&nbsp;plot&nbsp;command,&nbsp;the&nbsp;kwargs&nbsp;apply<br>
+to&nbsp;all&nbsp;those&nbsp;lines,&nbsp;eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-plot">plot</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;antialising=False)<br>
+&nbsp;<br>
+Neither&nbsp;line&nbsp;will&nbsp;be&nbsp;antialiased.</tt></dd></dl>
 
 <dl><dt><a name="Axes-plot_date"><strong>plot_date</strong></a>(self, d, y, converter<font color="#909090">=None</font>, fmt<font color="#909090">='bo'</font>, **kwargs)</dt><dd><tt><a href="#Axes-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;**kwargs)<br>
 &nbsp;<br>
@@ -919,7 +981,7 @@ Refs:<br>
 
 <dl><dt><a name="Subplot-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt><dd><tt>Draw&nbsp;everything&nbsp;(plot&nbsp;lines,&nbsp;axes,&nbsp;labels)</tt></dd></dl>
 
-<dl><dt><a name="Subplot-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">='k'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
+<dl><dt><a name="Subplot-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
 Vertical&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;yerr&nbsp;is&nbsp;not&nbsp;None<br>
 Horizontal&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;xerr&nbsp;is&nbsp;not&nbsp;None<br>
 &nbsp;<br>
@@ -934,6 +996,9 @@ plots&nbsp;a&nbsp;single&nbsp;error&nbsp;bar&nbsp;at&nbsp;x,&nbsp;y.<br>
 fmt&nbsp;is&nbsp;the&nbsp;plot&nbsp;format&nbsp;symbol&nbsp;for&nbsp;y.&nbsp;&nbsp;if&nbsp;fmt&nbsp;is&nbsp;None,&nbsp;just<br>
 plot&nbsp;the&nbsp;errorbars&nbsp;with&nbsp;no&nbsp;line&nbsp;symbols.&nbsp;&nbsp;This&nbsp;can&nbsp;be&nbsp;useful<br>
 for&nbsp;creating&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;errorbars<br>
+&nbsp;<br>
+ecolor&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;which&nbsp;gives&nbsp;the&nbsp;color&nbsp;the<br>
+errobar&nbsp;lines;&nbsp;if&nbsp;None,&nbsp;use&nbsp;the&nbsp;marker&nbsp;color.<br>
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&nbsp;first&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
 y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.<br>
@@ -1250,16 +1315,75 @@ and&nbsp;numcols&nbsp;of&nbsp;Z</tt></dd></dl>
 argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional<br>
 format&nbsp;string.&nbsp;&nbsp;For&nbsp;example,&nbsp;all&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;legal,<br>
 assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;Axis&nbsp;instance:<br>
-&nbsp;<br>
-&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x<br>
-&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x&nbsp;with&nbsp;blue&nbsp;circles<br>
-&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;as&nbsp;index&nbsp;array&nbsp;0..N-1<br>
-&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto&nbsp;with&nbsp;red&nbsp;plusses<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x&nbsp;with&nbsp;blue&nbsp;circles<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;as&nbsp;index&nbsp;array&nbsp;0..N-1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto&nbsp;with&nbsp;red&nbsp;plusses<br>
 &nbsp;<br>
 An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
-&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x1,&nbsp;y1,&nbsp;'g^',&nbsp;x2,&nbsp;y2,&nbsp;'l-')&nbsp;&nbsp;<br>
 &nbsp;<br>
-Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x1,&nbsp;y1,&nbsp;'g^',&nbsp;x2,&nbsp;y2,&nbsp;'g-')&nbsp;&nbsp;<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;line&nbsp;styles&nbsp;are&nbsp;supported:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;:&nbsp;solid&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;:&nbsp;dashed&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-.&nbsp;:&nbsp;dash-dot&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;:&nbsp;dotted&nbsp;line<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;:&nbsp;points<br>
+&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;:&nbsp;pixels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;:&nbsp;circle&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;^&nbsp;&nbsp;:&nbsp;triangle&nbsp;up&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;v&nbsp;&nbsp;:&nbsp;triangle&nbsp;down&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;&nbsp;&nbsp;:&nbsp;triangle&nbsp;left&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;:&nbsp;triangle&nbsp;right&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;&nbsp;:&nbsp;square&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;:&nbsp;plus&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;&nbsp;:&nbsp;cross&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;D&nbsp;&nbsp;:&nbsp;diamond&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;&nbsp;:&nbsp;thin&nbsp;diamond&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;:&nbsp;tripod&nbsp;down&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;:&nbsp;tripod&nbsp;up&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3&nbsp;&nbsp;:&nbsp;tripod&nbsp;left&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;:&nbsp;tripod&nbsp;right&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;h&nbsp;&nbsp;:&nbsp;hexagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;H&nbsp;&nbsp;:&nbsp;rotated&nbsp;hexagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;p&nbsp;&nbsp;:&nbsp;pentagon&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;:&nbsp;vertical&nbsp;line&nbsp;symbols<br>
+&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;:&nbsp;horizontal&nbsp;line&nbsp;symbols<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;color&nbsp;strings&nbsp;are&nbsp;supported<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;&nbsp;:&nbsp;blue<br>
+&nbsp;&nbsp;&nbsp;&nbsp;g&nbsp;&nbsp;:&nbsp;green<br>
+&nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;&nbsp;:&nbsp;red<br>
+&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;&nbsp;:&nbsp;cyan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;&nbsp;:&nbsp;magenta<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;&nbsp;:&nbsp;yellow<br>
+&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;&nbsp;:&nbsp;black&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;w&nbsp;&nbsp;:&nbsp;white<br>
+&nbsp;<br>
+Line&nbsp;styles&nbsp;and&nbsp;colors&nbsp;are&nbsp;combined&nbsp;in&nbsp;a&nbsp;single&nbsp;format&nbsp;string<br>
+&nbsp;<br>
+The&nbsp;kwargs&nbsp;that&nbsp;are&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;set&nbsp;line&nbsp;properties&nbsp;(any&nbsp;property<br>
+that&nbsp;has&nbsp;a&nbsp;set_*&nbsp;method).&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;to&nbsp;set&nbsp;a&nbsp;line&nbsp;label&nbsp;(for<br>
+auto&nbsp;legends),&nbsp;linewidth,&nbsp;anitialising,&nbsp;marker&nbsp;face&nbsp;color,&nbsp;etc.&nbsp;&nbsp;Here<br>
+is&nbsp;an&nbsp;example:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-plot">plot</a>([1,2,3],&nbsp;[1,2,3],&nbsp;'go-',&nbsp;label='line&nbsp;1',&nbsp;linewidth=2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-plot">plot</a>([1,2,3],&nbsp;[1,4,9],&nbsp;'rs',&nbsp;&nbsp;label='line&nbsp;2')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axis([0,&nbsp;4,&nbsp;0,&nbsp;10])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-legend">legend</a>()<br>
+&nbsp;<br>
+If&nbsp;you&nbsp;make&nbsp;multiple&nbsp;lines&nbsp;with&nbsp;one&nbsp;plot&nbsp;command,&nbsp;the&nbsp;kwargs&nbsp;apply<br>
+to&nbsp;all&nbsp;those&nbsp;lines,&nbsp;eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-plot">plot</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;antialising=False)<br>
+&nbsp;<br>
+Neither&nbsp;line&nbsp;will&nbsp;be&nbsp;antialiased.</tt></dd></dl>
 
 <dl><dt><a name="Subplot-plot_date"><strong>plot_date</strong></a>(self, d, y, converter<font color="#909090">=None</font>, fmt<font color="#909090">='bo'</font>, **kwargs)</dt><dd><tt><a href="#Subplot-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;**kwargs)<br>
 &nbsp;<br>

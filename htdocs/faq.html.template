@@ -85,6 +85,39 @@ Notably, the windows installer <i>does not</i> come with the
 examples dirrectory.  You can also get all the examples from <a href=http://matplotlib.sourceforge.net/examples>examples</a>.
 """),
 
+
+    ('LARGEPS',
+    "My PS/EPS files are huge; what's wrong?",
+"""
+With matplotlib-0.61, Paul Barrett introduced truetype fonts in
+backend_ps, primarily in order to support mathtext.  Because he was
+unable to get the individual glyphs from freetype, he had to dump the
+entire font into the PS file.  A typical font takes about 300K of
+noncompressed space.  This, however, is a fixed cost and does not
+increase with the complexity of the figure or number of points
+plotted.  It would, however, increase if you use multiple fonts, eg in
+mathtext.<p>
+
+Before 0.61, we used the afm fonts that ship with matplotlib and
+matplotlib has its own <a href=matplotlib.afm.html>AFM parser</a>
+which handles character metrics, kerning, etc.  It would not be too
+much work to have an option (eg in the matplotlib rc file) which
+allows users to simply use AFM fonts when possible (eg when not using
+mathtext) in which case you wouldn't see these big eps files.  The
+other advantage to this approach is that they seem to render nicer in
+some viewers, eg xdvi.<p>
+
+One nice thing about dumping the truetype into the ps files is that
+the text is the same across backends.  The ideal solution would be
+able to dump just the glyphs needed, which presumably would be much
+smaller, but we haven't figured this out yet.<p>
+
+Given that the 300K is a fixed cost (118K gzipped), if you still find
+the size sufficiently troublesome that it justifies the extra work (on
+our end) to provide an option to revert to AFM fonts, please let us
+know on the mailing list.
+"""),
+
    ('PROMPT',
     "After my matplotlib script runs, I get a python shell prompt. What's going on?",
 """

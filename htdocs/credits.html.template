@@ -4,7 +4,8 @@
 
 matplotlib was written by John Hunter<p>
 
-<h4>Special thanks to those who have made valuable contributions</h4>
+<h4>Special thanks to those who have made valuable contributions
+(roughly in order of contribution by date)</h4>
 
 <ul> 
 
@@ -48,7 +49,15 @@ matplotlib was written by John Hunter<p>
 
   <li>Gregory Lielens provided the fltk backend and several patches
   for the frontend, including contributions to toolbar2, and support
-  for log ticking with alternate bases and major and minor log ticking</li>
+  for log ticking with alternate bases and major and minor log
+  ticking</li>
+
+  <li>Darren Dale did the work to do mathtext exponential labeling for
+  log plots.</li>
+
+  <li>Paul Mcguire provided the pyparsing module on which mathtext
+  relies, and made a number of optimizations to the matplotlib
+  mathtext grammar.</i>
 
 </ul>
 

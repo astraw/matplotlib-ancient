@@ -10,12 +10,10 @@ set(gca(), 'xticklabels', [])
 grid(True)
 
 subplot(212)
-loglog(t, exp(-t/10.0))
+loglog(t, 20*exp(-t/10.0), basey=4)
 grid(True)
+gca().xaxis.grid(True, which='minor')  # minor grid on too
 xlabel('time (s)')
 ylabel('loglog')
-
-#savefig('log_shot_small', dpi=60)
-#savefig('log_shot_large', dpi=120)
 show()
 

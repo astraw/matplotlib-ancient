@@ -113,9 +113,10 @@ USAGE:<br>
 BACKENDS<br>
 &nbsp;<br>
 &nbsp;&nbsp;mathtext&nbsp;currently&nbsp;works&nbsp;with&nbsp;GTK,&nbsp;Agg,&nbsp;GTKAgg,&nbsp;TkAgg&nbsp;and&nbsp;WxAgg&nbsp;and<br>
-&nbsp;&nbsp;PS.&nbsp;&nbsp;SVG&nbsp;support&nbsp;is&nbsp;planned.&nbsp;&nbsp;You&nbsp;can&nbsp;plot&nbsp;mathtext&nbsp;with&nbsp;arbitrary<br>
-&nbsp;&nbsp;rotation&nbsp;angles&nbsp;on&nbsp;postscript&nbsp;-&nbsp;on&nbsp;*Agg,&nbsp;only&nbsp;horizontal&nbsp;and<br>
-&nbsp;&nbsp;vertical&nbsp;mathtext&nbsp;are&nbsp;supported.<br>
+&nbsp;&nbsp;PS,&nbsp;though&nbsp;only&nbsp;horizontal&nbsp;and&nbsp;vertical&nbsp;rotations&nbsp;are&nbsp;supported.&nbsp;&nbsp;If<br>
+&nbsp;&nbsp;David&nbsp;incorporates&nbsp;ft2font&nbsp;into&nbsp;paint,&nbsp;it&nbsp;will&nbsp;be&nbsp;easy&nbsp;to&nbsp;add&nbsp;to<br>
+&nbsp;&nbsp;Paint.&nbsp;&nbsp;WX&nbsp;can&nbsp;follow&nbsp;the&nbsp;lead&nbsp;of&nbsp;GTK&nbsp;and&nbsp;use&nbsp;pixels&nbsp;API&nbsp;calls&nbsp;to<br>
+&nbsp;&nbsp;use&nbsp;mathtext.<br>
 &nbsp;<br>
 &nbsp;&nbsp;mathtext&nbsp;now&nbsp;embeds&nbsp;the&nbsp;TrueType&nbsp;computer&nbsp;modern&nbsp;fonts&nbsp;into&nbsp;the&nbsp;PS<br>
 &nbsp;&nbsp;file,&nbsp;so&nbsp;what&nbsp;you&nbsp;see&nbsp;on&nbsp;the&nbsp;screen&nbsp;should&nbsp;be&nbsp;what&nbsp;you&nbsp;get&nbsp;on&nbsp;paper.<br>
@@ -151,7 +152,8 @@ License&nbsp;&nbsp;&nbsp;:&nbsp;matplotlib&nbsp;license&nbsp;(PSF&nbsp;compatibl
     
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#Element">Element</a>
+<dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#DummyFonts">DummyFonts</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#Element">Element</a>
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#GroupElement">GroupElement</a>
@@ -224,6 +226,18 @@ Data and other attributes defined here:<br>
 <dl><dt><strong>fnames</strong> = ('cmmi10', 'cmsy10', 'cmex10', 'cmtt10', 'cmr10')</dl>
 
 <dl><dt><strong>fontmap</strong> = {None: 'cmmi10', 'cal': 'cmsy10', 'it': 'cmmi10', 'rm': 'cmr10', 'tt': 'cmtt10'}</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DummyFonts">class <strong>DummyFonts</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>dummy&nbsp;class&nbsp;for&nbsp;debugging&nbsp;parser<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="DummyFonts-get_metrics"><strong>get_metrics</strong></a>(self, font, sym, fontsize, dpi)</dt></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -659,6 +673,7 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 <strong>number</strong> = Combine:({{W:(0123...) ["."]} [W:(0123...)]})<br>
 <strong>nums</strong> = '0123456789'<br>
 <strong>over</strong> = "over"<br>
+<strong>overUnder</strong> = {"over" | "under"}<br>
 <strong>overunder</strong> = {r'\coprod': 1, r'\int': 1, r'\prod': 1, r'\sum': 1}<br>
 <strong>percent</strong> = "%"<br>
 <strong>period</strong> = "."<br>
@@ -675,8 +690,8 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 <strong>subscript</strong> = subscript<br>
 <strong>subsuperscript</strong> = subsuperscript<br>
 <strong>superscript</strong> = superscript<br>
-<strong>symbol</strong> = {{{{{{Combine:({{"\" W:(abcd...)} ~{Suppress:("{...@"} | "%"} | "&amp;"}} ^ {{{"[" | "]"} | "("} | ")"}}<br>
-<strong>symgroup</strong> = {{{{{{{Combine:({{"\" W:(abcd...)} ~{Suppress:("...} | "&amp;"}} ^ {{{"[" | "]"} | "("} | ")"}} ^ group}<br>
+<strong>symbol</strong> = {{{{{{Combine:({{"\" W:(abcd...)} ~{Suppress:("{...@"} | "%"} | "&amp;"}} | {{{"[" | "]"} | "("} | ")"}}<br>
+<strong>symgroup</strong> = {{{{{{{Combine:({{"\" W:(abcd...)} ~{Suppress:("...} | "&amp;"}} | {{{"[" | "]"} | "("} | ")"}} | group}<br>
 <strong>texsym</strong> = Combine:({{"\" W:(abcd...)} ~{Suppress:("{")}})<br>
 <strong>times</strong> = "*"<br>
 <strong>typewriter</strong> = "tt"<br>

@@ -63,8 +63,10 @@ efficiently plot a collection of lines over a colormap image.
 href=matplotlib.matlab.html#-semilogx>semilogx</a>, <a
 href=matplotlib.matlab.html#-semilogy>semilogy</a> and <a
 href=matplotlib.matlab.html#-loglog>loglog</a> commands generate log
-scaling on the respective axes.  Thanks to Andrew Straw for providing
-the log scaling infrastructure.""", 1),
+scaling on the respective axes.  The lower subplot uses a base10 log
+on the xaxis and a base 4 log on the y.  Thanks to Andrew Straw,
+Darren Dale and Gregory Lielens for contributions to the log scaling
+infrastructure.""", 1),
 
 ('legend_demo', """The <a
 href=matplotlib.matlab.html#-legend>legend</a> command automatically
@@ -77,7 +79,7 @@ mathematical expressions using freetype2 and the BaKoMa computer
 modern fonts.  See the <a href=matplotlib.mathtext.html>mathtext</a>
 module for usage, licensing and backend information.  matplotlib
 mathtext is an independent implementation, and does not required TeX
-or any external packages installed on your computer-.""", 1),
+or any external packages installed on your computer.""", 1),
 
 ('pcolor_demo', """The <a
 href=matplotlib.matlab.html#-pcolor>pcolor</a> command generates
