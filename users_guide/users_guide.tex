@@ -57,7 +57,7 @@
 \maketitle
 
 \chapter{Introduction}
-\label{sec:introduction}
+\label{cha:introduction}
 matplotlib is a library for making 2D plots of arrays in python.
 Although it has its origins in emulating the \matlab\ graphics
 commands, it does not require matlab, and can be used in a pythonic,
@@ -82,7 +82,7 @@ code to provide good performance even for large arrays.
 \label{sec:ides}
 
 \chapter{The \matlab\ interface}
-\label{sec:matlab_interface}
+\label{cha:matlab_interface}
 
 Although matplotlib has a full object oriented API, the primary way
 people create plots is via the matlab interface, which can be imported
@@ -685,7 +685,7 @@ interface
 \label{sec:text_props}
 
 There are many text properties that can be set.  See
-Chapter~\ref{sec:font_finding} for more discussion of the font finder
+Chapter~\ref{cha:font_finding} for more discussion of the font finder
 algorithm and the meaning of these properties.
 
 \begin{table}[htbp]
@@ -853,7 +853,7 @@ title(r'$\alpha_i > \beta^i$')
 You can also use a large number of the \TeX\ symbols, as in
 $\mathtt{\backslash infty}$, $\mathtt{\backslash leftarrow}$,
 $\mathtt{\backslash sum}$, $\mathtt{\backslash int}$; see
-Appendix~\ref{sec:math_symbols} for a complete list.  The over/under
+Appendix~\ref{cha:math_symbols} for a complete list.  The over/under
 subscript/superscript style is also supported.  To write the sum of
 $x_i$ from 0 to $\infty$ ($\sum_{i=0}^\infty x_i$), you could do 
 
@@ -1125,8 +1125,66 @@ pass \code{origin='lower'}, as shown in Figure~\ref{fig:image_origin}.
 \section{Legends and tables}
 \label{sec:legends_and_tables}
 
+\section{Event handling}
+\label{sec:events}
+
+When visualizing data, it's often helpful to get some interactive
+input from the user.  All graphical user interfaces (GUIs) provide
+event handling to determine things like key presses, mouse position,
+and button clicks.  matplotlib supports a number of GUIs, and provides
+an interface to the GUI event handling via the \func{mpl\_connect} and
+\func{mpl\_disconnect} methods of the matlab interface (API users will
+probably want to use their GUIs event handling directly, but do have
+the option of using their \mpldoc{FigureCanvas.mpl\_connect} method).
+
+matplotlib uses a callback event handling mechanism.  The basic idea
+is that you register an event that you want to listen for, and the
+figure canvas, will call a user defined function when that event
+occurs.  For example, if you want to know where the user clicks a
+mouse on your figure, you could define a function
+
+\begin{lstlisting}
+def click(event):
+    print 'you clicked', event.x, event.y
+\end{lstlisting}
+
+\noindent and register this function with the event handler
+\code{mpl\_connect('button\_press\_event', click)}.  Then
+whenever the user clicks anywhere on the figure canvas, your function
+will be called and passed a \mpldoc{matplotlib.backend\_bases.MplEvent}
+instance.  The event instance will have the following attributes
+defined.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}[t]{|l|l|}\hline
+    \carg{Property}  & \val{Meaning}\\\hline\hline
+    \carg{x}      & x position - pixels from left of canvas\\\hline
+    \carg{y}      & y position - pixels from bottom of canvas\\\hline
+    \carg{button} & button pressed None, 1, 2, 3\\\hline
+    \carg{inaxes} & the Axes instance if mouse is over axes (or None)\\\hline
+    \carg{xdata}  & x coord of mouse in data coords (None if mouse
+    isn't over axes)\\\hline
+    \carg{ydata}  & y coord of mouse in data coords (None if mouse
+    isn't over axes)\\\hline
+    \carg{name}  & The string name of the event\\\hline
+    \carg{canvas}  & The FigureCanvas instance the event
+    occured in)\\\hline
+  \end{tabular}
+  \caption{\label{tab:events}The event attributes}
+\end{table}
+
+\noindent You can connect to the following events: 'button\_press\_event',
+'button\_release\_event', 'motion\_notify\_event'.
+
+Here's an example to get the mouse location in data coordinates as the
+mouse moves
+
+\lstinputlisting{code/coords_demo.py}
+
+
 \chapter{Font finding and properties}
-\label{sec:font_finding}
+\label{cha:font_finding}
 
 \mpldoc{matplotlib.fonts.font\_manager} is module for finding,
 managing, and using fonts across-platforms.  This module provides a
@@ -1196,6 +1254,7 @@ different fonts
 
 
 \chapter{Collections}
+\label{cha:collections}
 
 
 
@@ -1203,6 +1262,7 @@ different fonts
 
 
 \chapter{Cookbook}
+\label{cha:cookbook}
 
 \section{Working with images}
 
@@ -1291,10 +1351,11 @@ changes to the matplotlib-devel mailing list.
 \appendix
 
 \chapter{A sample \fname{.matplotlibrc}}
+\label{cha:rc}
 \lstinputlisting{../.matplotlibrc}
 
 \chapter{mathtext symbols}
-\label{sec:math_symbols}
+\label{cha:math_symbols}
 
 
 \end{document}
