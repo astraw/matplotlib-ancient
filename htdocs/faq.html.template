@@ -426,8 +426,8 @@ of them.
 
 <h4>Image generation</h4>
 
-For pure image generation (no GUI) you can choose from the Agg, Paint,
-GD, or PS backends.  At this point, I advise people to use the <a
+For pure image generation (no GUI) you can choose from the Agg, Cairo, PS,
+SVG, Paint or GD backends.  At this point, I advise people to use the <a
 href=http://antigrain.com>agg</a> backend because:
 
 <ul>
@@ -448,16 +448,16 @@ backend is naturally a good choice.
 
 <h4>GUI</h4>
 
-Currently there are several choices for GUIs: GTK, Wx, TkAgg, and
-GTKAgg, with different advantages.
+Currently there are several choices for GUIs: GTK, GTKAgg, GTKCairo, WX,
+WXAgg, TkAgg and FltkAgg, with different advantages.
 
 <ul>
 
 <li>Speed: TkAgg and GTKAgg are likely to be the fastest since most of Agg is renderered in C extension code</li>
 
-<li>Stability: GTK was the first backend and thus has been most
-thoroughly vetted for bugs.  The GTKAgg backend reuses the GTK widget
-code, so should likewise be quite stable</li>
+<li>Stability: GTK was the first backend and thus has been most thoroughly
+vetted for bugs.  The GTKAgg and GTKCairo backends reuse the GTK widget code,
+so should likewise be quite stable</li>
 
 <li>Interactivity: All of the GUI backends can be used interactively
 from a python shell (see <a href=interactive.html>interactive</a>) but
@@ -465,8 +465,8 @@ TkAgg is the hands-down winner here since it can be use from any
 python shell whereas the GTK and Wx backends require a GUI specific
 shell </li>
 
-<li>Pretty widgets: If you want to embed matplotlib in an application
-and pretty GUIs are important to you, Wx, GTK, or GTKAgg are probably
+<li>Pretty widgets: If you want to embed matplotlib in an application and
+pretty GUIs are important to you, Wx, GTK, GTKAgg or GTKCairo are probably
 your best best.  Tk widgets are not visually stunning. </li>
 
 </ul>
@@ -502,7 +502,7 @@ requirements and backend information.
      'Can I just generate images without having a window popup?',
      """
 The easiest way to do this is use an image backend, either <a
-href=backends.html#Agg>Agg</a>, <a
+href=backends.html#Agg>Agg</a>, href=backends.html#Cairo>Cairo</a>, <a
 href=backends.html#GD>GD</a> or <a href=backends.html#Paint>Paint</a>
 if you want to generate PNG images, eg, for use in a web page, or PS
 if you want publication quality, scalable images.  All of these
@@ -519,7 +519,7 @@ Yes.  matplotlb can be used with any web application server that can
 call python.  It has been used with mod_python, xml_rpc, and other
 frameworks.  You'll want to use one of the image backends; <a
 href=faq.html#BATCHMODE>see image backends</a>.  Also to make small images
-appropriate for use on a web page, you may want to consider the Agg or GD
+appropriate for use on a web page, you may want to consider the Agg, Cairo or GD
 backends, since they render small font rasters using freetype2 better
 than Paint, which currently use freetype1.  You can work around
 the problem of small raster sizes by making your fonts appear larger
@@ -541,8 +541,8 @@ See <a href=fonts.html#TTFFONTS>ttf fonts</a> for more information.
      """
 
 
-You do not need this function with the image backends (Agg, Paint, GD,
-PS) but you do need it with the GUI (GTK, WX, TkAgg, GTKAgg) backends,
+You do not need this function with the image backends (Agg, Cairo, Paint, GD,
+PS) but you do need it with the GUI (GTK, WX, TkAgg, GTKAgg, GTKCairo) backends,
 unless you are running matplotlib in <a
 href=interactive.html>interactive mode</a>.  <p>
 
