@@ -55,8 +55,15 @@ PYTHONPATH when you compile matplotlib.<p>
 
 Note that if you install matplotlib anywhere other than the default
 location, you will need to set the <tt>MATPLOTLIBDATA</tt> environment
-variable to point to the install base dir.
- 
+variable to point to the install base dir.<p>
+
+Once you have everything above set to your liking, just do the usual
+thing
+
+<pre>
+      python setup.py build
+      python setup.py install
+</pre>
     
 <h2><a name=windows>Windows</a></h2>
 

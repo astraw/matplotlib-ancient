@@ -284,7 +284,7 @@ Data and other attributes defined here:<br>
 <td colspan=2><tt>Use&nbsp;the&nbsp;Bakoma&nbsp;true&nbsp;type&nbsp;fonts&nbsp;for&nbsp;rendering<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="BakomaTrueTypeFonts-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+<dl><dt><a name="BakomaTrueTypeFonts-__init__"><strong>__init__</strong></a>(self, useSVG<font color="#909090">=False</font>)</dt></dl>
 
 <dl><dt><a name="BakomaTrueTypeFonts-get_metrics"><strong>get_metrics</strong></a>(self, font, sym, fontsize, dpi)</dt></dl>
 
@@ -696,6 +696,12 @@ to&nbsp;render&nbsp;it.<br>
 fontsize&nbsp;must&nbsp;be&nbsp;in&nbsp;points<br>
 &nbsp;<br>
 return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
+ <dl><dt><a name="-math_parse_s_ft2font_svg"><strong>math_parse_s_ft2font_svg</strong></a>(s, dpi, fontsize, angle<font color="#909090">=0</font>)</dt><dd><tt>Parse&nbsp;the&nbsp;math&nbsp;expression&nbsp;s,&nbsp;return&nbsp;the&nbsp;(bbox,&nbsp;fonts)&nbsp;tuple&nbsp;needed<br>
+to&nbsp;render&nbsp;it.<br>
+&nbsp;<br>
+fontsize&nbsp;must&nbsp;be&nbsp;in&nbsp;points<br>
+&nbsp;<br>
+return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
  <dl><dt><a name="-math_parse_s_ps"><strong>math_parse_s_ps</strong></a>(s, dpi, fontsize)</dt><dd><tt>Parse&nbsp;the&nbsp;math&nbsp;expression&nbsp;s,&nbsp;return&nbsp;the&nbsp;(bbox,&nbsp;fonts)&nbsp;tuple&nbsp;needed<br>
 to&nbsp;render&nbsp;it.<br>
 &nbsp;<br>
@@ -768,7 +774,8 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 <strong>texsym</strong> = Combine:({{"\" W:(abcd...)} ~{Suppress:("{")}})<br>
 <strong>times</strong> = "*"<br>
 <strong>typewriter</strong> = "tt"<br>
-<strong>under</strong> = "under"</td></tr></table>
+<strong>under</strong> = "under"<br>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
     </td>
     </tr>
 </table>

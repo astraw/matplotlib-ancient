@@ -448,5 +448,6 @@ handle&nbsp;interactive&nbsp;versus&nbsp;batch&nbsp;mode</tt></dd></dl>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
-<strong>True</strong> = True</td></tr></table>
+<strong>True</strong> = True<br>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

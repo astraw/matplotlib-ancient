@@ -17,12 +17,8 @@ Because&nbsp;the&nbsp;.matplotlibrc&nbsp;always&nbsp;provides&nbsp;*some*&nbsp;v
 has&nbsp;it's&nbsp;own&nbsp;system&nbsp;of&nbsp;default&nbsp;values),&nbsp;this&nbsp;default&nbsp;is&nbsp;most&nbsp;likely<br>
 never&nbsp;used.<br>
 &nbsp;<br>
-3.&nbsp;Whichever&nbsp;numerical&nbsp;package&nbsp;is&nbsp;selected,&nbsp;if&nbsp;the&nbsp;import&nbsp;fails,&nbsp;the<br>
-other&nbsp;is&nbsp;tried.<br>
-&nbsp;<br>
 To&nbsp;summarize:&nbsp;the&nbsp;&nbsp;commandline&nbsp;is&nbsp;examined&nbsp;first,&nbsp;the&nbsp;&nbsp;rc&nbsp;file&nbsp;second,<br>
-and&nbsp;the&nbsp;default&nbsp;array&nbsp;package&nbsp;is&nbsp;Numeric.&nbsp;&nbsp;If&nbsp;the&nbsp;selected&nbsp;package<br>
-fails&nbsp;to&nbsp;import,&nbsp;the&nbsp;other&nbsp;is&nbsp;tried.</tt></p>
+and&nbsp;the&nbsp;default&nbsp;array&nbsp;package&nbsp;is&nbsp;Numeric.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -32,16 +28,17 @@ fails&nbsp;to&nbsp;import,&nbsp;the&nbsp;other&nbsp;is&nbsp;tried.</tt></p>
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="LinearAlgebra.html">LinearAlgebra</a><br>
 <a href="MLab.html">MLab</a><br>
+<a href="Numeric.html">Numeric</a><br>
 <a href="RandomArray.html">RandomArray</a><br>
 </td><td width="25%" valign=top><a href="copy.html">copy</a><br>
 <a href="copy_reg.html">copy_reg</a><br>
 <a href="math.html">math</a><br>
-</td><td width="25%" valign=top><a href="multiarray.html">multiarray</a><br>
-<a href="os.html">os</a><br>
+<a href="multiarray.html">multiarray</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
 <a href="pickle.html">pickle</a><br>
-</td><td width="25%" valign=top><a href="string.html">string</a><br>
+<a href="string.html">string</a><br>
 <a href="sys.html">sys</a><br>
-<a href="types.html">types</a><br>
+</td><td width="25%" valign=top><a href="types.html">types</a><br>
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -162,5 +159,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>tanh</strong> = &lt;ufunc 'tanh'&gt;<br>
 <strong>true_divide</strong> = &lt;ufunc 'true_divide'&gt;<br>
 <strong>typecodes</strong> = {'Character': 'c', 'Complex': 'FD', 'Float': 'fd', 'Integer': '1sil', 'UnsignedInteger': 'bwu'}<br>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;<br>
+<strong>version</strong> = 'Numeric 23.5'<br>
 <strong>which</strong> = ('numeric', 'rc')</td></tr></table>
 @footer@

@@ -232,6 +232,8 @@ avoid&nbsp;the&nbsp;performace&nbsp;hit&nbsp;of&nbsp;the&nbsp;conversion</tt></d
 <dl><dt><a name="RendererSVG-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
 point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
 
+<dl><dt><a name="RendererSVG-draw_mathtext"><strong>draw_mathtext</strong></a>(self, gc, x, y, s, prop, angle)</dt><dd><tt>Draw&nbsp;math&nbsp;text&nbsp;using&nbsp;matplotlib.mathtext</tt></dd></dl>
+
 <dl><dt><a name="RendererSVG-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt><dd><tt>Draw&nbsp;a&nbsp;point&nbsp;at&nbsp;x,y</tt></dd></dl>
 
 <dl><dt><a name="RendererSVG-draw_polygon"><strong>draw_polygon</strong></a>(self, gc, rgbFace, points)</dt></dl>
@@ -346,5 +348,7 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
 <strong>True</strong> = True<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>useMathText</strong> = True<br>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

@@ -15,14 +15,13 @@
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="FileDialog.html">FileDialog</a><br>
 <a href="Tkinter.html">Tkinter</a><br>
-<a href="math.html">math</a><br>
-</td><td width="25%" valign=top><a href="matplotlib.html">matplotlib</a><br>
-<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="math.html">math</a><br>
+<a href="matplotlib.html">matplotlib</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
 <a href="sys.html">sys</a><br>
 </td><td width="25%" valign=top><a href="matplotlib.backends.tkagg.html">matplotlib.backends.tkagg</a><br>
-<a href="warnings.html">warnings</a><br>
 <a href="matplotlib.windowing.html">matplotlib.windowing</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -1720,8 +1719,10 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
 <td width="100%"><strong>False</strong> = False<br>
 <strong>PIXELS_PER_INCH</strong> = 75<br>
 <strong>True</strong> = True<br>
+<strong>backend_version</strong> = 8.3000000000000007<br>
 <strong>cursord</strong> = {0: 'hand2', 1: 'arrow', 2: 'tcross', 3: 'fleur'}<br>
 <strong>cursors</strong> = &lt;matplotlib.backend_bases.Cursors instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

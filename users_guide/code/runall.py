@@ -16,6 +16,7 @@ files = (
     'major_minor_demo.py',
     'mathtext_demo.py',
     'poly_regression.py',
+    'renderer_agg.py',
     'simple_imshow.py',
     'simple_plot_tkagg.py',
     'specgram_demo.py',

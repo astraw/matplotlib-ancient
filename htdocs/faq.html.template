@@ -2,6 +2,20 @@
 FAQs = (
 
 
+    ('PYGTK24',
+    "I can't compile matplotlib with pygtk 2.4." , """\
+This is a <a
+href="http://bugzilla.gnome.org/show_bug.cgi?id=155304">pygtk
+bug</a>.  The patch is in pygtk CVS.  You basically need to add the
+    G_BEGIN_DECLS/G_END_DECLS macros, and rename typename parameter to
+    typename_
+
+<pre>
+-			  const char *typename,
++			  const char *typename_,
+</pre>
+"""),
+
     ('TOOLBAR2',
     'Nothing happens when I click the new toolbar buttons', """\
 The Home, Forward and back buttons on the new toolbar are used to

@@ -111,5 +111,6 @@ alpha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;bar&nbsp;transparency</tt>
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>TICKLEFT</strong> = 0<br>
 <strong>TICKRIGHT</strong> = 1<br>
-<strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;</td></tr></table>
+<strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

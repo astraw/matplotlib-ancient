@@ -12,8 +12,7 @@ This&nbsp;module&nbsp;contains&nbsp;classes&nbsp;to&nbsp;support&nbsp;completely
 locating&nbsp;and&nbsp;formatting.&nbsp;&nbsp;Although&nbsp;the&nbsp;locators&nbsp;know&nbsp;nothing&nbsp;about<br>
 major&nbsp;or&nbsp;minor&nbsp;ticks,&nbsp;they&nbsp;are&nbsp;used&nbsp;by&nbsp;the&nbsp;Axis&nbsp;class&nbsp;to&nbsp;support&nbsp;major<br>
 and&nbsp;minor&nbsp;tick&nbsp;locating&nbsp;and&nbsp;formatting.&nbsp;&nbsp;Generic&nbsp;tick&nbsp;locators&nbsp;and<br>
-formatters&nbsp;are&nbsp;provided,&nbsp;as&nbsp;well&nbsp;as&nbsp;domain&nbsp;specific&nbsp;custom&nbsp;locators&nbsp;an<br>
-formatters.<br>
+formatters&nbsp;are&nbsp;provided,&nbsp;as&nbsp;well&nbsp;as&nbsp;domain&nbsp;specific&nbsp;custom&nbsp;ones..<br>
 &nbsp;<br>
 &nbsp;<br>
 Tick&nbsp;locating<br>
@@ -21,7 +20,7 @@ Tick&nbsp;locating<br>
 &nbsp;<br>
 The&nbsp;<a href="#Locator">Locator</a>&nbsp;class&nbsp;is&nbsp;the&nbsp;base&nbsp;class&nbsp;for&nbsp;all&nbsp;tick&nbsp;locators.&nbsp;&nbsp;The<br>
 locators&nbsp;handle&nbsp;autoscaling&nbsp;of&nbsp;the&nbsp;view&nbsp;limits&nbsp;based&nbsp;on&nbsp;the&nbsp;data<br>
-limits,&nbsp;and&nbsp;choosing&nbsp;the&nbsp;tick&nbsp;locations.&nbsp;&nbsp;The&nbsp;most&nbsp;generally&nbsp;useful<br>
+limits,&nbsp;and&nbsp;the&nbsp;choosing&nbsp;of&nbsp;tick&nbsp;locations.&nbsp;&nbsp;The&nbsp;most&nbsp;generally&nbsp;useful<br>
 tick&nbsp;locator&nbsp;is&nbsp;<a href="#MultipleLocator">MultipleLocator</a>.&nbsp;&nbsp;You&nbsp;initialize&nbsp;this&nbsp;with&nbsp;a&nbsp;base,&nbsp;eg<br>
 10,&nbsp;and&nbsp;it&nbsp;picks&nbsp;axis&nbsp;limits&nbsp;and&nbsp;ticks&nbsp;that&nbsp;are&nbsp;multiples&nbsp;of&nbsp;your<br>
 base.&nbsp;&nbsp;The&nbsp;class&nbsp;<a href="#AutoLocator">AutoLocator</a>&nbsp;contains&nbsp;a&nbsp;<a href="#MultipleLocator">MultipleLocator</a>&nbsp;instance,&nbsp;and<br>
@@ -1032,5 +1031,6 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <td width="100%"><strong>Float</strong> = 'd'<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>log</strong> = &lt;ufunc 'log'&gt;<br>
-<strong>logical_and</strong> = &lt;ufunc 'logical_and'&gt;</td></tr></table>
+<strong>logical_and</strong> = &lt;ufunc 'logical_and'&gt;<br>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

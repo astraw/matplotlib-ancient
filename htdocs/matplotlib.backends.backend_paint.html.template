@@ -260,5 +260,6 @@ the&nbsp;figure&nbsp;in&nbsp;it.</tt></dd></dl>
 <strong>PIXELS_PER_INCH</strong> = 96<br>
 <strong>True</strong> = True<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;</td></tr></table>
+<strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

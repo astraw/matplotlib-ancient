@@ -41,7 +41,7 @@
 <a href="windows2c.html">windows2c</a><br>
 <a href="windows3c.html">windows3c</a><br>
 <a href="windowsc.html">windowsc</a><br>
-<a href="wxPython.wx.html">wxPython.wx</a><br>
+<a href="wx.html">wx</a><br>
 <a href="wxPython.wxc.html">wxPython.wxc</a><br>
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -4269,6 +4269,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>WXK_SUBTRACT</strong> = 339<br>
 <strong>WXK_TAB</strong> = 9<br>
 <strong>WXK_UP</strong> = 317<br>
+<strong>backend_version</strong> = '2.4.2.4u'<br>
 <strong>cursord</strong> = {0: 6, 1: 1, 2: 5, 3: 6}<br>
 <strong>cursors</strong> = &lt;matplotlib.backend_bases.Cursors instance&gt;<br>
 <strong>cvar</strong> = &lt;Global variables&gt;<br>
@@ -4277,6 +4278,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>false</strong> = False<br>
 <strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>true</strong> = True<br>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;<br>
 <strong>wxACCEL_ALT</strong> = 1<br>
 <strong>wxACCEL_CTRL</strong> = 2<br>
 <strong>wxACCEL_NORMAL</strong> = 0<br>
@@ -4373,11 +4375,11 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxBITMAP_TYPE_XPM</strong> = 9<br>
 <strong>wxBITMAP_TYPE_XPM_DATA</strong> = 10<br>
 <strong>wxBLACK</strong> = wxColour(0, 0, 0)<br>
-<strong>wxBLACK_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _833d900_wxBrush_p&gt;<br>
-<strong>wxBLACK_DASHED_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _82e7d18_wxPen_p&gt;<br>
-<strong>wxBLACK_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _833d7a8_wxPen_p&gt;<br>
+<strong>wxBLACK_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _83345f8_wxBrush_p&gt;<br>
+<strong>wxBLACK_DASHED_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8334528_wxPen_p&gt;<br>
+<strong>wxBLACK_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _83329a8_wxPen_p&gt;<br>
 <strong>wxBLUE</strong> = wxColour(0, 0, 255)<br>
-<strong>wxBLUE_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8332180_wxBrush_p&gt;<br>
+<strong>wxBLUE_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8333e38_wxBrush_p&gt;<br>
 <strong>wxBOLD</strong> = 92<br>
 <strong>wxBORDER</strong> = 33554432<br>
 <strong>wxBORDER_DEFAULT</strong> = 0<br>
@@ -4427,7 +4429,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxCONVERT_SUBSTITUTE</strong> = 1<br>
 <strong>wxCOPY</strong> = 5<br>
 <strong>wxCROSSDIAG_HATCH</strong> = 112<br>
-<strong>wxCROSS_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _82e7d98_wxCursor_p&gt;<br>
+<strong>wxCROSS_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _83329e8_wxCursor_p&gt;<br>
 <strong>wxCROSS_HATCH</strong> = 114<br>
 <strong>wxCURSOR_ARROW</strong> = 1<br>
 <strong>wxCURSOR_ARROWWAIT</strong> = 28<br>
@@ -4460,8 +4462,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxCURSOR_WAIT</strong> = 24<br>
 <strong>wxCURSOR_WATCH</strong> = 25<br>
 <strong>wxCYAN</strong> = wxColour(0, 255, 255)<br>
-<strong>wxCYAN_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8332238_wxBrush_p&gt;<br>
-<strong>wxCYAN_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8331860_wxPen_p&gt;<br>
+<strong>wxCYAN_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8334678_wxBrush_p&gt;<br>
+<strong>wxCYAN_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _82e8170_wxPen_p&gt;<br>
 <strong>wxCenter</strong> = 6<br>
 <strong>wxCentre</strong> = 6<br>
 <strong>wxCentreX</strong> = 7<br>
@@ -4807,16 +4809,16 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxGA_SMOOTH</strong> = 32<br>
 <strong>wxGA_VERTICAL</strong> = 8<br>
 <strong>wxGREEN</strong> = wxColour(0, 255, 0)<br>
-<strong>wxGREEN_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8332190_wxBrush_p&gt;<br>
-<strong>wxGREEN_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8331e10_wxPen_p&gt;<br>
-<strong>wxGREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8333b58_wxBrush_p&gt;<br>
-<strong>wxGREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _82e7d58_wxPen_p&gt;<br>
+<strong>wxGREEN_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _83329b8_wxBrush_p&gt;<br>
+<strong>wxGREEN_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8332968_wxPen_p&gt;<br>
+<strong>wxGREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8334718_wxBrush_p&gt;<br>
+<strong>wxGREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8334568_wxPen_p&gt;<br>
 <strong>wxGROW</strong> = 8192<br>
 <strong>wxHELP</strong> = 32768<br>
 <strong>wxHIDE_READONLY</strong> = 8<br>
 <strong>wxHORIZONTAL</strong> = 4<br>
 <strong>wxHORIZONTAL_HATCH</strong> = 115<br>
-<strong>wxHOURGLASS_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _8333e98_wxCursor_p&gt;<br>
+<strong>wxHOURGLASS_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _833e2b8_wxCursor_p&gt;<br>
 <strong>wxHSCROLL</strong> = 1073741824<br>
 <strong>wxHT_MAX</strong> = 14<br>
 <strong>wxHT_NOWHERE</strong> = 0<br>
@@ -4919,7 +4921,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxIMAGE_LIST_STATE</strong> = 2<br>
 <strong>wxINVERT</strong> = 2<br>
 <strong>wxITALIC</strong> = 93<br>
-<strong>wxITALIC_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _833c750_wxFont_p&gt;<br>
+<strong>wxITALIC_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _8333df8_wxFont_p&gt;<br>
 <strong>wxITEM_CHECK</strong> = 1<br>
 <strong>wxITEM_MAX</strong> = 3<br>
 <strong>wxITEM_NORMAL</strong> = 0<br>
@@ -5212,8 +5214,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxLEFT</strong> = 16<br>
 <strong>wxLIGHT</strong> = 91<br>
 <strong>wxLIGHT_GREY</strong> = wxColour(192, 192, 192)<br>
-<strong>wxLIGHT_GREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8333bc8_wxBrush_p&gt;<br>
-<strong>wxLIGHT_GREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8332170_wxPen_p&gt;<br>
+<strong>wxLIGHT_GREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _83326f8_wxBrush_p&gt;<br>
+<strong>wxLIGHT_GREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _83345e8_wxPen_p&gt;<br>
 <strong>wxLIST_ALIGN_DEFAULT</strong> = 0<br>
 <strong>wxLIST_ALIGN_LEFT</strong> = 1<br>
 <strong>wxLIST_ALIGN_SNAP_TO_GRID</strong> = 3<br>
@@ -5290,8 +5292,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxMAXIMIZE</strong> = 8192<br>
 <strong>wxMAXIMIZE_BOX</strong> = 512<br>
 <strong>wxMB_DOCKABLE</strong> = 1<br>
-<strong>wxMEDIUM_GREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8333b90_wxBrush_p&gt;<br>
-<strong>wxMEDIUM_GREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _82e7d68_wxPen_p&gt;<br>
+<strong>wxMEDIUM_GREY_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8334640_wxBrush_p&gt;<br>
+<strong>wxMEDIUM_GREY_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _83345a8_wxPen_p&gt;<br>
 <strong>wxMENU_TEAROFF</strong> = 1<br>
 <strong>wxMINIMIZE</strong> = 16384<br>
 <strong>wxMINIMIZE_BOX</strong> = 1024<br>
@@ -5324,7 +5326,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxNO</strong> = 8<br>
 <strong>wxNOR</strong> = 9<br>
 <strong>wxNORMAL</strong> = 90<br>
-<strong>wxNORMAL_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _83268a8_wxFont_p&gt;<br>
+<strong>wxNORMAL_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _8324108_wxFont_p&gt;<br>
 <strong>wxNORTH</strong> = 64<br>
 <strong>wxNOT_FOUND</strong> = -1<br>
 <strong>wxNO_3D</strong> = 8388608<br>
@@ -5468,8 +5470,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxRB_GROUP</strong> = 4<br>
 <strong>wxRB_SINGLE</strong> = 8<br>
 <strong>wxRED</strong> = wxColour(255, 0, 0)<br>
-<strong>wxRED_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8333b20_wxBrush_p&gt;<br>
-<strong>wxRED_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _833d798_wxPen_p&gt;<br>
+<strong>wxRED_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _83346e0_wxBrush_p&gt;<br>
+<strong>wxRED_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _82e8130_wxPen_p&gt;<br>
 <strong>wxRELEASE_NUMBER</strong> = 2<br>
 <strong>wxRELEASE_VERSION</strong> = 2<br>
 <strong>wxRESET</strong> = 16384<br>
@@ -5532,7 +5534,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxSL_SELRANGE</strong> = 2048<br>
 <strong>wxSL_TOP</strong> = 128<br>
 <strong>wxSL_VERTICAL</strong> = 8<br>
-<strong>wxSMALL_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _8331f68_wxFont_p&gt;<br>
+<strong>wxSMALL_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _833c940_wxFont_p&gt;<br>
 <strong>wxSOLID</strong> = 100<br>
 <strong>wxSOUTH</strong> = 128<br>
 <strong>wxSPLASH_CENTRE_ON_PARENT</strong> = 1<br>
@@ -5558,7 +5560,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxSP_VERTICAL</strong> = 8<br>
 <strong>wxSP_WRAP</strong> = 8192<br>
 <strong>wxSRC_INVERT</strong> = 11<br>
-<strong>wxSTANDARD_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _8333ca8_wxCursor_p&gt;<br>
+<strong>wxSTANDARD_CURSOR</strong> = &lt;wxPython.gdi.wxCursorPtr instance; proxy of C++ wxCursor instance at _833e0c8_wxCursor_p&gt;<br>
 <strong>wxSTATIC_BORDER</strong> = 16777216<br>
 <strong>wxSTAY_ON_TOP</strong> = 32768<br>
 <strong>wxSTIPPLE</strong> = 110<br>
@@ -5568,7 +5570,7 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxSUBREL_VERSION</strong> = 4<br>
 <strong>wxSUNKEN_BORDER</strong> = 134217728<br>
 <strong>wxSWISS</strong> = 74<br>
-<strong>wxSWISS_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _8332090_wxFont_p&gt;<br>
+<strong>wxSWISS_FONT</strong> = &lt;wxPython.fonts.wxFontPtr instance; proxy of C++ wxFont instance at _8333d78_wxFont_p&gt;<br>
 <strong>wxSW_3D</strong> = 192<br>
 <strong>wxSW_3DBORDER</strong> = 128<br>
 <strong>wxSW_3DSASH</strong> = 64<br>
@@ -5713,8 +5715,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxTRACE_RefCount</strong> = 'refcount'<br>
 <strong>wxTRACE_ResAlloc</strong> = 'resalloc'<br>
 <strong>wxTRANSPARENT</strong> = 106<br>
-<strong>wxTRANSPARENT_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8332200_wxBrush_p&gt;<br>
-<strong>wxTRANSPARENT_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8333408_wxPen_p&gt;<br>
+<strong>wxTRANSPARENT_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _8334608_wxBrush_p&gt;<br>
+<strong>wxTRANSPARENT_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8332a68_wxPen_p&gt;<br>
 <strong>wxTRANSPARENT_WINDOW</strong> = 1048576<br>
 <strong>wxTREE_HITTEST_ABOVE</strong> = 1<br>
 <strong>wxTREE_HITTEST_BELOW</strong> = 2<br>
@@ -5746,12 +5748,12 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxTR_ROW_LINES</strong> = 1024<br>
 <strong>wxTR_SINGLE</strong> = 0<br>
 <strong>wxTR_TWIST_BUTTONS</strong> = 2<br>
-<strong>wxTheBrushList</strong> = &lt;wxPython.gdi.wxBrushListPtr instance; proxy of C++ wxBrushList instance at _8326828_wxBrushList_p&gt;<br>
-<strong>wxTheClipboard</strong> = &lt;wxPython.clip_dnd.wxClipboardPtr instance; prox...+ wxClipboard instance at _833f4f8_wxClipboard_p&gt;<br>
-<strong>wxTheColourDatabase</strong> = &lt;wxPython.gdi.wxColourDatabasePtr instance; prox...Database instance at _8323ff0_wxColourDatabase_p&gt;<br>
-<strong>wxTheFontList</strong> = &lt;wxPython.fonts.wxFontListPtr instance; proxy of C++ wxFontList instance at _8326868_wxFontList_p&gt;<br>
+<strong>wxTheBrushList</strong> = &lt;wxPython.gdi.wxBrushListPtr instance; proxy of C++ wxBrushList instance at _83240e8_wxBrushList_p&gt;<br>
+<strong>wxTheClipboard</strong> = &lt;wxPython.clip_dnd.wxClipboardPtr instance; prox...+ wxClipboard instance at _833fd08_wxClipboard_p&gt;<br>
+<strong>wxTheColourDatabase</strong> = &lt;wxPython.gdi.wxColourDatabasePtr instance; prox...Database instance at _83243a0_wxColourDatabase_p&gt;<br>
+<strong>wxTheFontList</strong> = &lt;wxPython.fonts.wxFontListPtr instance; proxy of C++ wxFontList instance at _83251f0_wxFontList_p&gt;<br>
 <strong>wxTheMimeTypesManager</strong> = &lt;wxPython.misc2.wxMimeTypesManagerPtr instance; ...nager instance at _41a033a0_wxMimeTypesManager_p&gt;<br>
-<strong>wxThePenList</strong> = &lt;wxPython.gdi.wxPenListPtr instance; proxy of C++ wxPenList instance at _8326848_wxPenList_p&gt;<br>
+<strong>wxThePenList</strong> = &lt;wxPython.gdi.wxPenListPtr instance; proxy of C++ wxPenList instance at _83251d0_wxPenList_p&gt;<br>
 <strong>wxTop</strong> = 1<br>
 <strong>wxTraceMemAlloc</strong> = 1<br>
 <strong>wxTraceMessages</strong> = 2<br>
@@ -5776,8 +5778,8 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxWANTS_CHARS</strong> = 262144<br>
 <strong>wxWEST</strong> = 16<br>
 <strong>wxWHITE</strong> = wxColour(255, 255, 255)<br>
-<strong>wxWHITE_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _833d8f0_wxBrush_p&gt;<br>
-<strong>wxWHITE_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _83333c8_wxPen_p&gt;<br>
+<strong>wxWHITE_BRUSH</strong> = &lt;wxPython.gdi.wxBrushPtr instance; proxy of C++ wxBrush instance at _83329c8_wxBrush_p&gt;<br>
+<strong>wxWHITE_PEN</strong> = &lt;wxPython.gdi.wxPenPtr instance; proxy of C++ wxPen instance at _8332a28_wxPen_p&gt;<br>
 <strong>wxWINDING_RULE</strong> = 2<br>
 <strong>wxWS_EX_BLOCK_EVENTS</strong> = 2<br>
 <strong>wxWS_EX_TRANSIENT</strong> = 4<br>
@@ -5787,5 +5789,5 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxYES</strong> = 2<br>
 <strong>wxYES_DEFAULT</strong> = 0<br>
 <strong>wxYES_NO</strong> = 10<br>
-<strong>wxapp</strong> = &lt;wxPython.wx.wxPySimpleApp instance; proxy of C++ wxPyApp instance at _843d270_wxPyApp_p&gt;</td></tr></table>
+<strong>wxapp</strong> = &lt;wxPython.wx.wxPySimpleApp instance; proxy of C++ wxPyApp instance at _83fe4f0_wxPyApp_p&gt;</td></tr></table>
 @footer@

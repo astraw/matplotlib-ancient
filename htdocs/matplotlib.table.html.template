@@ -271,5 +271,6 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <strong>Float</strong> = 'd'<br>
 <strong>True</strong> = True<br>
 <strong>add</strong> = &lt;ufunc 'add'&gt;<br>
-<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

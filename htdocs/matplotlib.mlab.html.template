@@ -65,17 +65,18 @@ Credits:<br>
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="LinearAlgebra.html">LinearAlgebra</a><br>
 <a href="MLab.html">MLab</a><br>
+<a href="Numeric.html">Numeric</a><br>
 <a href="RandomArray.html">RandomArray</a><br>
-<a href="copy.html">copy</a><br>
-</td><td width="25%" valign=top><a href="copy_reg.html">copy_reg</a><br>
+</td><td width="25%" valign=top><a href="copy.html">copy</a><br>
+<a href="copy_reg.html">copy_reg</a><br>
 <a href="math.html">math</a><br>
 <a href="multiarray.html">multiarray</a><br>
-<a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
-</td><td width="25%" valign=top><a href="operator.html">operator</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
+<a href="operator.html">operator</a><br>
 <a href="os.html">os</a><br>
 <a href="pickle.html">pickle</a><br>
-<a href="string.html">string</a><br>
-</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="string.html">string</a><br>
+<a href="sys.html">sys</a><br>
 <a href="types.html">types</a><br>
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -609,5 +610,7 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
 <strong>tanh</strong> = &lt;ufunc 'tanh'&gt;<br>
 <strong>true_divide</strong> = &lt;ufunc 'true_divide'&gt;<br>
 <strong>typecodes</strong> = {'Character': 'c', 'Complex': 'FD', 'Float': 'fd', 'Integer': '1sil', 'UnsignedInteger': 'bwu'}<br>
+<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;<br>
+<strong>version</strong> = 'Numeric 23.5'<br>
 <strong>which</strong> = ('numeric', 'rc')</td></tr></table>
 @footer@

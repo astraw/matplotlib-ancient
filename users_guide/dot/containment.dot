@@ -25,7 +25,7 @@ digraph G {
     AxesTables[label="tables\n[Table]"]    
 
     Axes->Legend;
-    Legend[label="legend\nLegend"]    
+    Legend[label="legend_\nLegend"]    
 
 
     Axes->AxesImages[label="0..n"];
