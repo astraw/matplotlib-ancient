@@ -12,7 +12,7 @@ class Proj:
  __call__ method compute transformations.
  See docstrings for __init__ and __call__ for details.
 
- Version: 20050130
+ Version: 0.1 (20050203)
  Contact: Jeff Whitaker <jeffrey.s.whitaker@noaa.gov>
     """
 
@@ -178,7 +178,6 @@ class Proj:
         x = self.llcrnrx+dx*N.indices((ny,nx))[1,:,:]
         y = self.llcrnry+dy*N.indices((ny,nx))[0,:,:]
         lons, lats = self(x, y, inverse=True)
-        lons = N.where(lons < 0, lons+360, lons)
         # mercator coordinate is plain longitude in x.
         if self.projparams['proj'] == 'merc':
             dx = (self.urcrnrlon-self.llcrnrlon)/(nx-1)

@@ -3,7 +3,7 @@ from matplotlib.patches import Polygon
 from matplotlib.lines import Line2D
 import numarray as N
 from numarray import nd_image
-import sys, os, MLab
+import sys, os, pylab, bisect
 from proj import Proj
 
 _datadir = os.path.join(sys.prefix,'share/basemap')
@@ -32,9 +32,9 @@ class Basemap:
  Example Usage:
  (this example plus others can be run by running test.py in the examples dir)
 
->>> from basemap import *
+>>> from matplotlib.toolkits.basemap import Basemap
 >>> import cPickle
->>> from pylab import *
+>>> from import *
 >>> # read in topo data from pickle (on a regular lat/lon grid)
 >>> topodict = cPickle.load(open('etopo20.pickle','rb'))
 >>> etopo = topodict['data']; lons = topodict['lons']; lats = topodict['lats']
@@ -58,7 +58,7 @@ class Basemap:
 >>> title('Cylindrical Equidistant')
 >>> show()
 
- Version: 20050130
+ Version: 0.2 (20050404)
  Contact: Jeff Whitaker <jeffrey.s.whitaker@noaa.gov>
     """
 
@@ -150,9 +150,14 @@ class Basemap:
 
         # extend longitudes around the earth a second time
         # (in case projection region straddles Greenwich meridian).
+        # also include negative longitudes, so valid longitudes
+        # can range from -360 to 720.
         coastlons2 = [lon+360. for lon in coastlons]
         cntrylons2 = [lon+360. for lon in cntrylons]
         statelons2 = [lon+360. for lon in statelons]
+        coastlons3 = [lon-360. for lon in coastlons]
+        cntrylons3 = [lon-360. for lon in cntrylons]
+        statelons3 = [lon-360. for lon in statelons]
 
         # set up projections using Proj class.
         self.projection = projection
@@ -221,27 +226,33 @@ class Basemap:
         # transform coastline polygons to native map coordinates.
         xc,yc = proj(N.array(coastlons,'f'),N.array(coastlats,'f'))
         xc2,yc2 = proj(N.array(coastlons2,'f'),N.array(coastlats,'f'))
+        xc3,yc3 = proj(N.array(coastlons3,'f'),N.array(coastlats,'f'))
         if projection == 'merc': yc2=yc
         # set up segments in form needed for LineCollection,
         # ignoring 'inf' values that are off the map, and skipping
         # polygons that have an area > area_thresh..
         segments = [zip(xc[i0:i1],yc[i0:i1]) for a,i0,i1 in zip(coastsegarea[:-1],coastsegind[:-1],coastsegind[1:]) if a > area_thresh]
         segments2 = [zip(xc2[i0:i1],yc2[i0:i1]) for a,i0,i1 in zip(coastsegarea[:-1],coastsegind[:-1],coastsegind[1:]) if a > area_thresh and max(xc2[i0:i1]) < 1.e20 and max(yc2[i0:i1]) < 1.e20]
-        self.coastsegs = segments+segments2
+        segments3 = [zip(xc3[i0:i1],yc3[i0:i1]) for a,i0,i1 in zip(coastsegarea[:-1],coastsegind[:-1],coastsegind[1:]) if a > area_thresh and max(xc3[i0:i1]) < 1.e20 and max(yc3[i0:i1]) < 1.e20]
+        self.coastsegs = segments+segments2+segments3
 
         # same as above for country polygons.
         xc,yc = proj(N.array(cntrylons,'f'),N.array(cntrylats,'f'))
         xc2,yc2 = proj(N.array(cntrylons2,'f'),N.array(cntrylats,'f'))
+        xc3,yc3 = proj(N.array(cntrylons2,'f'),N.array(cntrylats,'f'))
         segments = [zip(xc[i0:i1],yc[i0:i1]) for i0,i1 in zip(cntrysegind[:-1],cntrysegind[1:])]
         segments2 = [zip(xc2[i0:i1],yc2[i0:i1]) for i0,i1 in zip(cntrysegind[:-1],cntrysegind[1:]) if max(xc2[i0:i1]) < 1.e20 and max(yc2[i0:i1]) < 1.e20]
-        self.cntrysegs = segments+segments2
+        segments3 = [zip(xc3[i0:i1],yc3[i0:i1]) for i0,i1 in zip(cntrysegind[:-1],cntrysegind[1:]) if max(xc3[i0:i1]) < 1.e20 and max(yc3[i0:i1]) < 1.e20]
+        self.cntrysegs = segments+segments2+segments3
 
         # same as above for state polygons.
         xc,yc = proj(N.array(statelons,'f'),N.array(statelats,'f'))
         xc2,yc2 = proj(N.array(statelons2,'f'),N.array(statelats,'f'))
+        xc3,yc3 = proj(N.array(statelons3,'f'),N.array(statelats,'f'))
         segments = [zip(xc[i0:i1],yc[i0:i1]) for i0,i1 in zip(statesegind[:-1],statesegind[1:])]
         segments2 = [zip(xc2[i0:i1],yc2[i0:i1]) for i0,i1 in zip(statesegind[:-1],statesegind[1:]) if max(xc2[i0:i1]) < 1.e20 and max(yc2[i0:i1]) < 1.e20]
-        self.statesegs = segments+segments2
+        segments3 = [zip(xc3[i0:i1],yc3[i0:i1]) for i0,i1 in zip(statesegind[:-1],statesegind[1:]) if max(xc3[i0:i1]) < 1.e20 and max(yc3[i0:i1]) < 1.e20]
+        self.statesegs = segments+segments2+segments3
 
         # store coast polygons for filling.
         # special treatment (kludge) for Antarctica.
@@ -266,6 +277,11 @@ class Basemap:
                     y.append(-90)
                     x.insert(0,720.)
                     y.insert(0,-90)
+                if x[-1] == -360.000 and y[-1] < -68.: 
+                    x.append(-360.)
+                    y.append(-90)
+                    x.insert(0,0.)
+                    y.insert(0,-90)
             elif projection == 'merc':
                 if x[-1] == 0.000 and y[-1] < ya: # close antarctica
                     x.append(0.)
@@ -276,6 +292,11 @@ class Basemap:
                     x.append(360.)
                     y.append(ysp)
                     x.insert(0,720.)
+                    y.insert(0,ysp)
+                if x[-1] == -360.000 and y[-1] < ya: 
+                    x.append(-360.)
+                    y.append(ysp)
+                    x.insert(0,0.)
                     y.insert(0,ysp)
             self.coastpolygons.append((x,y))
 
@@ -345,7 +366,10 @@ class Basemap:
  antialiased - antialiasing switch for coastlines (default True).
         """
         coastlines = LineCollection(self.coastsegs,antialiaseds=(antialiased,))
-        coastlines.color(color)
+        try:
+            coastlines.set_color(color)
+        except: # this was a typo that existed in matplotlib-0.71 and earlier
+            coastlines.color(color)
         coastlines.set_linewidth(linewidth)
         ax.add_collection(coastlines)
 
@@ -359,7 +383,10 @@ class Basemap:
  antialiased - antialiasing switch for country boundaries (default True).
         """
         coastlines = LineCollection(self.cntrysegs,antialiaseds=(antialiased,))
-        coastlines.color(color)
+        try:
+            coastlines.set_color(color)
+        except: # this was a typo that existed in matplotlib-0.71 and earlier
+            coastlines.color(color)
         coastlines.set_linewidth(linewidth)
         ax.add_collection(coastlines)
 
@@ -373,12 +400,16 @@ class Basemap:
  antialiased - antialiasing switch for state boundaries (default True).
         """
         coastlines = LineCollection(self.statesegs,antialiaseds=(antialiased,))
-        coastlines.color(color)
+        try:
+            coastlines.set_color(color)
+        except: # this was a typo that existed in matplotlib-0.71 and earlier
+            coastlines.color(color)
         coastlines.set_linewidth(linewidth)
         ax.add_collection(coastlines)
 
     def drawparallels(self,ax,circles,color='k',linewidth=1., \
-                      linestyle='--',dashes=[1,1]):
+                      linestyle='--',dashes=[1,1],labels=[0,0,0,0], \
+                      font='rm',fontsize=12):
         """
  draw parallels (latitude lines).
 
@@ -389,18 +420,35 @@ class Basemap:
  linestyle - line style for parallels (default '--', i.e. dashed).
  dashes - dash pattern for parallels (default [1,1], i.e. 1 pixel on,
   1 pixel off).
+ labels - list of 4 values (default [0,0,0,0]) that control whether
+  parallels are labelled where they intersect the left, right, top or 
+  bottom of the plot. For example labels=[1,0,0,1] will cause parallels
+  to be labelled where they intersect the left and bottom of the plot,
+  but not the right and top. Labels are located with a precision of 0.1
+  degrees and are drawn using mathtext.
+ font - mathtext font used for labels ('rm','tt','it' or 'cal', default 'rm'.
+ fontsize - font size in points for labels (default 12).
         """
+        # don't draw meridians past latmax, always draw parallel at latmax.
+        latmax = 80.
+        # offset for labels.
+	yoffset = (self.urcrnry-self.llcrnry)/100./self.aspect
+	xoffset = (self.urcrnrx-self.llcrnrx)/100.
+
         if self.projection in ['merc','cyl']:
             lons = N.arange(self.llcrnrlon,self.urcrnrlon,1).astype('f')
         else:
             lons = N.arange(0,362,1).astype('f')
-        # make sure 80 degree parallel is drawn if projection not merc or cyl
+        # make sure latmax degree parallel is drawn if projection not merc or cyl
         try:
             circlesl = circles.tolist()
         except:
             circlesl = circles
-        if self.projection not in ['merc','cyl'] and 80. not in circlesl: 
-            circlesl.append(80.)
+        if self.projection not in ['merc','cyl']:
+            if max(circlesl) > 0 and latmax not in circlesl: 
+                circlesl.append(latmax)
+            if min(circlesl) < 0 and -latmax not in circlesl: 
+                circlesl.append(-latmax)
         xdelta = 0.1*(self.xmax-self.xmin)
         ydelta = 0.1*(self.ymax-self.ymin)
         for circ in circlesl:
@@ -421,7 +469,7 @@ class Basemap:
                 dist = N.sqrt(xd+yd)
                 split = dist > 500000.
                 if N.sum(split) and self.projection not in ['merc','cyl']:
-                   ind = (N.compress(split,MLab.squeeze(split*N.indices(xd.shape)))+1).tolist()
+                   ind = (N.compress(split,pylab.squeeze(split*N.indices(xd.shape)))+1).tolist()
                    xl = []
                    yl = []
                    iprev = 0
@@ -441,9 +489,83 @@ class Basemap:
                         l.set_color(color)
                         l.set_dashes(dashes)
                         ax.add_line(l)
+        # draw labels for parallels
+        # search along edges of map to see if parallels intersect.
+        # if so, find x,y location of intersection and draw a label there.
+        if self.projection == 'cyl':
+            dx = 0.01; dy = 0.01
+        elif self.projection == 'merc':
+            dx = 0.01; dy = 1000
+        else:
+            dx = 1000; dy = 1000
+        for dolab,side in zip(labels,['l','r','t','b']):
+            if not dolab: continue
+            # for cyl or merc, don't draw parallels on top or bottom.
+            if self.projection in ['cyl','merc'] and side in ['t','b']: continue
+            if side in ['l','r']:
+	        nmax = int((self.ymax-self.ymin)/dy+1)
+                if self.urcrnry < self.llcrnry:
+	            yy = self.llcrnry-dy*N.arange(nmax)
+                else:
+	            yy = self.llcrnry+dy*N.arange(nmax)
+                if side == 'l':
+	            lons,lats = self(self.llcrnrx*N.ones(yy.shape,'f'),yy,inverse=True)
+                else:
+	            lons,lats = self(self.urcrnrx*N.ones(yy.shape,'f'),yy,inverse=True)
+                lons = N.where(lons < 0, lons+360, lons)
+                lons = [int(lon*10) for lon in lons.tolist()]
+                lats = [int(lat*10) for lat in lats.tolist()]
+            else:
+	        nmax = int((self.xmax-self.xmin)/dx+1)
+                if self.urcrnrx < self.llcrnrx:
+	            xx = self.llcrnrx-dx*N.arange(nmax)
+                else:
+	            xx = self.llcrnrx+dx*N.arange(nmax)
+                if side == 'b':
+	            lons,lats = self(xx,self.llcrnry*N.ones(xx.shape,'f'),inverse=True)
+                else:
+	            lons,lats = self(xx,self.urcrnry*N.ones(xx.shape,'f'),inverse=True)
+                lons = N.where(lons < 0, lons+360, lons)
+                lons = [int(lon*10) for lon in lons.tolist()]
+                lats = [int(lat*10) for lat in lats.tolist()]
+	    for lat in circles:
+                # find index of parallel (there may be two, so
+                # search from left and right).
+                try:
+                    nl = lats.index(int(lat*10))
+                except:
+                    nl = -1
+                try:
+                    nr = len(lats)-lats[::-1].index(int(lat*10))-1
+                except:
+                    nr = -1
+                if lat<0:
+        	    latlab = r'$\%s{%g\/^{\circ}\/S}$'%(font,N.fabs(lat))
+        	elif lat>0:
+        	    latlab = r'$\%s{%g\/^{\circ}\/N}$'%(font,lat)
+        	else:
+        	    latlab = r'$\%s{%g\/^{\circ}}$'%(font,lat)
+                # parallels can intersect each map edge twice.
+                for i,n in enumerate([nl,nr]):
+                    # don't bother if close to the first label.
+                    if i and abs(nr-nl) < 100: continue
+                    if n > 0:
+                        if side == 'l':
+        	            pylab.text(self.llcrnrx-xoffset,yy[n],latlab,horizontalalignment='right',verticalalignment='center',fontsize=fontsize)
+                        elif side == 'r':
+        	            pylab.text(self.urcrnrx+xoffset,yy[n],latlab,horizontalalignment='left',verticalalignment='center',fontsize=fontsize)
+                        elif side == 'b':
+        	            pylab.text(xx[n],self.llcrnry-yoffset,latlab,horizontalalignment='center',verticalalignment='top',fontsize=fontsize)
+                        else:
+        	            pylab.text(xx[n],self.urcrnry+yoffset,latlab,horizontalalignment='center',verticalalignment='bottom',fontsize=fontsize)
+
+        # make sure axis ticks are turned off
+        ax.set_xticks([]) 
+        ax.set_yticks([])
 
     def drawmeridians(self,ax,meridians,color='k',linewidth=1., \
-                      linestyle='--',dashes=[1,1]):
+                      linestyle='--',dashes=[1,1],labels=[0,0,0,0],\
+                      font='rm',fontsize=12):
         """
  draw meridians (longitude lines).
 
@@ -454,9 +576,23 @@ class Basemap:
  linestyle - line style for meridians (default '--', i.e. dashed).
  dashes - dash pattern for meridians (default [1,1], i.e. 1 pixel on,
   1 pixel off).
+ labels - list of 4 values (default [0,0,0,0]) that control whether
+  meridians are labelled where they intersect the left, right, top or 
+  bottom of the plot. For example labels=[1,0,0,1] will cause meridians
+  to be labelled where they intersect the left and bottom of the plot,
+  but not the right and top. Labels are located with a precision of 0.1
+  degrees and are drawn using mathtext.
+ font - mathtext font used for labels ('rm','tt','it' or 'cal', default 'rm'.
+ fontsize - font size in points for labels (default 12).
         """
+        # don't draw meridians past latmax, always draw parallel at latmax.
+        latmax = 80. # not used for cyl, merc projections.
+        # offset for labels.
+	yoffset = (self.urcrnry-self.llcrnry)/100./self.aspect
+	xoffset = (self.urcrnrx-self.llcrnrx)/100.
+
         if self.projection not in ['merc','cyl']:
-            lats = N.arange(-80,81).astype('f')
+            lats = N.arange(-latmax,latmax+1).astype('f')
         else:
             lats = N.arange(-90,91).astype('f')
         xdelta = 0.1*(self.xmax-self.xmin)
@@ -479,7 +615,7 @@ class Basemap:
                 dist = N.sqrt(xd+yd)
                 split = dist > 500000.
                 if N.sum(split) and self.projection not in ['merc','cyl']:
-                   ind = (N.compress(split,MLab.squeeze(split*N.indices(xd.shape)))+1).tolist()
+                   ind = (N.compress(split,pylab.squeeze(split*N.indices(xd.shape)))+1).tolist()
                    xl = []
                    yl = []
                    iprev = 0
@@ -499,12 +635,89 @@ class Basemap:
                         l.set_color(color)
                         l.set_dashes(dashes)
                         ax.add_line(l)
+        # draw labels for meridians.
+        # search along edges of map to see if parallels intersect.
+        # if so, find x,y location of intersection and draw a label there.
+        if self.projection == 'cyl':
+            dx = 0.01; dy = 0.01
+        elif self.projection == 'merc':
+            dx = 0.01; dy = 1000
+        else:
+            dx = 1000; dy = 1000
+        for dolab,side in zip(labels,['l','r','t','b']):
+            if not dolab: continue
+            # for cyl or merc, don't draw meridians on left or right.
+            if self.projection in ['cyl','merc'] and side in ['l','r']: continue
+            if side in ['l','r']:
+	        nmax = int((self.ymax-self.ymin)/dy+1)
+                if self.urcrnry < self.llcrnry:
+	            yy = self.llcrnry-dy*N.arange(nmax)
+                else:
+	            yy = self.llcrnry+dy*N.arange(nmax)
+                if side == 'l':
+	            lons,lats = self(self.llcrnrx*N.ones(yy.shape,'f'),yy,inverse=True)
+                else:
+	            lons,lats = self(self.urcrnrx*N.ones(yy.shape,'f'),yy,inverse=True)
+                lons = N.where(lons < 0, lons+360, lons)
+                lons = [int(lon*10) for lon in lons.tolist()]
+                lats = [int(lat*10) for lat in lats.tolist()]
+            else:
+	        nmax = int((self.xmax-self.xmin)/dx+1)
+                if self.urcrnrx < self.llcrnrx:
+	            xx = self.llcrnrx-dx*N.arange(nmax)
+                else:
+	            xx = self.llcrnrx+dx*N.arange(nmax)
+                if side == 'b':
+	            lons,lats = self(xx,self.llcrnry*N.ones(xx.shape,'f'),inverse=True)
+                else:
+	            lons,lats = self(xx,self.urcrnry*N.ones(xx.shape,'f'),inverse=True)
+                lons = N.where(lons < 0, lons+360, lons)
+                lons = [int(lon*10) for lon in lons.tolist()]
+                lats = [int(lat*10) for lat in lats.tolist()]
+            for lon in meridians:
+                if lon<0: lon=lon+360.
+                # find index of meridian (there may be two, so
+                # search from left and right).
+                try:
+                    nl = lons.index(int(lon*10))
+                except:
+                    nl = -1
+                try:
+                    nr = len(lons)-lons[::-1].index(int(lon*10))-1
+                except:
+                    nr = -1
+        	if lon>180:
+        	    lonlab = r'$\%s{%g\/^{\circ}\/W}$'%(font,N.fabs(lon-360))
+        	elif lon<180 and lon != 0:
+        	    lonlab = r'$\%s{%g\/^{\circ}\/E}$'%(font,lon)
+        	else:
+        	    lonlab = r'$\%s{%g\/^{\circ}}$'%(font,lon)
+                # meridians can intersect each map edge twice.
+                for i,n in enumerate([nl,nr]):
+                    lat = lats[n]/10.
+                    # no meridians > latmax for projections other than merc,cyl.
+                    if self.projection not in ['merc','cyl'] and lat > latmax: continue
+                    # don't bother if close to the first label.
+                    if i and abs(nr-nl) < 100: continue
+                    if n > 0:
+                        if side == 'l':
+        	            pylab.text(self.llcrnrx-xoffset,yy[n],lonlab,horizontalalignment='right',verticalalignment='center',fontsize=fontsize)
+                        elif side == 'r':
+        	            pylab.text(self.urcrnrx+xoffset,yy[n],lonlab,horizontalalignment='left',verticalalignment='center',fontsize=fontsize)
+                        elif side == 'b':
+        	            pylab.text(xx[n],self.llcrnry-yoffset,lonlab,horizontalalignment='center',verticalalignment='top',fontsize=fontsize)
+                        else:
+        	            pylab.text(xx[n],self.urcrnry+yoffset,lonlab,horizontalalignment='center',verticalalignment='bottom',fontsize=fontsize)
+
+        # make sure axis ticks are turned off
+        ax.set_xticks([]) 
+        ax.set_yticks([])
 
 def interp(datain,lonsin,latsin,lonsout,latsout,checkbounds=False,mode='nearest',cval=0.0,order=3):
     """
  dataout = interp(datain,lonsin,latsin,lonsout,latsout,mode='constant',cval=0.0,order=3)
 
- interpolate data (datain) on a regularly spaced lat/lon grid (with lons=lonsin
+ interpolate data (datain) on a rectilinear lat/lon grid (with lons=lonsin
  lats=latsin) to a grid with lons=lonsout, lats=latsout.
 
  datain is a rank-2 array with 1st dimension corresponding to longitude,
@@ -529,28 +742,52 @@ def interp(datain,lonsin,latsin,lonsout,latsout,checkbounds=False,mode='nearest'
  for nearest neighbor interpolation (nd_image only allows 1-6) - if
  order=0 bounds checking is done even if checkbounds=False.
     """
-    # lons and lats must be monotonically increasing.
-    # lonsin, latsin assumed equally spaced.
-    # make sure lonsin, latsin increasing.
+    # lonsin and latsin must be monotonically increasing.
     if lonsin[-1]-lonsin[0] < 0 or latsin[-1]-latsin[0] < 0:
         raise ValueError, 'lonsin and latsin must be increasing!'
-    # make sure lonsin, latsin are regularly spaced.
-    delon = lonsin[1:]-lonsin[0:-1]
-    delat = latsin[1:]-latsin[0:-1]
-    if max(delat)-min(delat) > 1.e-4 or max(delon)-min(delon) > 1.e-4:
-        raise ValueError, 'lat/lon grid must be uniform!'
     # optionally, check that lonsout,latsout are 
     # within region defined by lonsin,latsin.
+    # (this check is always done if nearest neighbor 
+    # interpolation (order=0) requested).
     if checkbounds or order == 0:
         if min(N.ravel(lonsout)) < min(lonsin) or \
            max(N.ravel(lonsout)) > max(lonsin) or \
            min(N.ravel(latsout)) < min(latsin) or \
            max(N.ravel(latsout)) > max(latsin):
             raise ValueError, 'latsout or lonsout outside range of latsin or lonsin'
-    xcoords = (len(lonsin)-1)*(lonsout-lonsin[0])/(lonsin[-1]-lonsin[0])
-    ycoords = (len(latsin)-1)*(latsout-latsin[0])/(latsin[-1]-latsin[0])
+    # compute grid coordinates of output grid.
+    delon = lonsin[1:]-lonsin[0:-1]
+    delat = latsin[1:]-latsin[0:-1]
+    if max(delat)-min(delat) < 1.e-4 and max(delon)-min(delon) < 1.e-4:
+        # regular input grid.
+        xcoords = (len(lonsin)-1)*(lonsout-lonsin[0])/(lonsin[-1]-lonsin[0])
+        ycoords = (len(latsin)-1)*(latsout-latsin[0])/(latsin[-1]-latsin[0])
+    else:
+        # irregular (but still rectilinear) input grid.
+        lonsoutflat = N.ravel(lonsout)
+        latsoutflat = N.ravel(latsout)
+        ix = N.searchsorted(lonsin,lonsoutflat)-1
+        iy = N.searchsorted(latsin,latsoutflat)-1
+        xcoords = N.zeros(ix.shape,'f')
+        ycoords = N.zeros(iy.shape,'f')
+        for n,i in enumerate(ix):
+            if i < 0:
+                xcoords[n] = -1 # outside of range on lonsin (lower end)
+            elif i >= len(lonsin)-1:
+                xcoords[n] = len(lonsin) # outside range on upper end.
+            else:
+                xcoords[n] = float(i)+(lonsoutflat[n]-lonsin[i])/(lonsin[i+1]-lonsin[i])
+        xcoords = N.reshape(xcoords,lonsout.shape)
+        for m,j in enumerate(iy):
+            if j < 0:
+                ycoords[m] = -1 # outside of range of latsin (on lower end)
+            elif j >= len(latsin)-1:
+                ycoords[m] = len(latsin) # outside range on upper end
+            else:
+                ycoords[m] = float(j)+(latsoutflat[m]-latsin[j])/(latsin[j+1]-latsin[j])
+        ycoords = N.reshape(ycoords,latsout.shape)
     coords = [ycoords,xcoords]
-    # interpolate to projection grid using numarray.nd_image spline filter.
+    # interpolate to output grid using numarray.nd_image spline filter.
     if order:
         return nd_image.map_coordinates(datain,coords,mode=mode,cval=cval,order=order)
     else:
