@@ -25,5 +25,430 @@
 
 \layout Standard
 
-ipython tour
+One of Python's most useful features is its interactive interpreter.
+ This system allows very fast testing of ideas without the overhead of creating
+ test files as is typical in most programming languages.
+ In scientific computing, one of the reasons behind the popularity of systems
+ like Matlab\SpecialChar ~
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+texttrademark
+\end_inset 
+
+, IDL\SpecialChar ~
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+texttrademark
+\end_inset 
+
+ or Mathematica\SpecialChar ~
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+texttrademark
+\end_inset 
+
+, is precisely their interactive nature.
+ Scientific computing is an inherently exploratory problem domain, where
+ one is rarely faced with writing a program against a set of well-defined
+ explicit constraints.
+ Being able to load data, process it with different algorithms or test parameter
+s, visualize it, save results, and do all of this in a fluid and efficient
+ way, can make a big productivity difference in day to day scientific work.
+ Even for the development of large codes, a good interactive interpreter
+ can be a major asset, though this is a less commonly held view; later in
+ this document we will discuss this aspect of the problem.
+\layout Standard
+
+However, the interpreter supplied with the standard Python distribution
+ is somewhat limited for extended interactive use.
+ The IPython project 
+\begin_inset LatexCommand \cite{IPython}
+
+\end_inset 
+
+ was born out of a desire to have a better Python interactive environment,
+ which could combine the advantages of the Python language with some of
+ the best ideas found in systems like IDL or Mathematica, along with many
+ more enhancements.
+ IPython is a free software project (released under the BSD license) which
+ tries to:
+\layout Enumerate
+
+Provide an interactive shell superior to Python's default.
+ IPython has many features for object introspection, system shell access,
+ and its own special command system for adding functionality when working
+ interactively.
+ It tries to be a very efficient environment both for Python code development
+ and for exploration of problems using Python objects (in situations like
+ data analysis).
+\layout Enumerate
+
+Serve as an embeddable, ready to use interpreter for your own programs.
+ IPython can be started with a single call from inside another program,
+ providing access to the current namespace.
+ This can be very useful both for debugging purposes and for situations
+ where a blend of batch-processing and interactive exploration are needed.
+\layout Enumerate
+
+Offer a flexible framework which can be used as the base environment for
+ other systems with Python as the underlying language.
+ Specifically scientific environments like Mathematica, IDL and Matlab inspired
+ its design, but similar ideas can be useful in many fields.
+\layout Standard
+
+This document is not meant to replace the comprehensive IPython manual,
+ which ships with the IPython distribution and is also available online
+ at 
+\begin_inset LatexCommand \htmlurl{http://ipython.scipy.org/doc/manual}
+
+\end_inset 
+
+.
+ Instead, we will present here some relevant parts of it for everyday use,
+ and refer readers to the full manual for in-depth details.
+ The following article by Jeremy Jones provides an introductory tutorial
+ about IPython:
+\newline 
+
+\begin_inset LatexCommand \htmlurl{http://www.onlamp.com/pub/a/python/2005/01/27/ipython.html}
+
+\end_inset 
+
+.
+\layout Section
+
+Main IPython features
+\layout Standard
+
+This section summarizes the most important user-visible features of IPython,
+ which are not a part of the default Python shell or other interactive Python
+ systems.
+ While you can use IPython as a straight replacement for the normal Python
+ shell, a quick read of these will allow you to take advantage of many enhanceme
+nts which can be very useful in everyday work.
+\layout Standard
+
+A bird's eye view of IPython's feature set:
+\layout Itemize
+
+Dynamic object introspection.
+ You can access docstrings, function definition prototypes, source code,
+ source files and other details of any object accessible to the interpreter
+ with a single keystroke (`
+\family typewriter 
+?
+\family default 
+').
+ Adding a second 
+\family typewriter 
+?
+\family default 
+ produces more details when possible.
+\layout Itemize
+
+Completion in the local namespace, via the TAB key.
+ This works for keywords, methods, variables and files in the current directory.
+ TAB-completion, especially for attributes, is a convenient way to explore
+ the structure of any object you're dealing with.
+ Simply type object_name.<TAB> and a list of the object's attributes will
+ be printed.
+\layout Itemize
+
+Numbered input/output prompts with command history (persistent across sessions
+ and tied to each profile), full searching in this history and caching of
+ all input and output.
+\layout Itemize
+
+User-extensible `magic' commands.
+ A set of commands prefixed with 
+\family typewriter 
+%
+\family default 
+ is available for controlling IPython itself and provides directory control,
+ namespace information and many aliases to common system shell commands.
+\layout Itemize
+
+Alias facility for defining your own system aliases.
+\layout Itemize
+
+Complete system shell access.
+ Lines starting with ! are passed directly to the system shell, and using
+ !! captures shell output into python variables for further use.
+\layout Itemize
+
+The ability to expand python variables when calling the system shell.
+ In a shell command, any python variable prefixed with 
+\family typewriter 
+$
+\family default 
+ is expanded.
+ A double 
+\family typewriter 
+$$
+\family default 
+ allows passing a literal 
+\family typewriter 
+$
+\family default 
+ to the shell (for access to shell and environment variables like 
+\family typewriter 
+$PATH
+\family default 
+).
+\layout Itemize
+
+Filesystem navigation, via a magic 
+\family typewriter 
+%cd
+\family default 
+ command, along with a persistent bookmark system (using 
+\family typewriter 
+%bookmark
+\family default 
+) for fast access to frequently visited directories.
+\layout Itemize
+
+A macro system for quickly re-executing multiple lines of previous input
+ with a single name, implemented via the 
+\family typewriter 
+%macro
+\family default 
+ magic command.
+\layout Itemize
+
+Session logging and restoring via the 
+\family typewriter 
+%logstart
+\family default 
+, 
+\family typewriter 
+%logon/off
+\family default 
+ and 
+\family typewriter 
+%logstate
+\family default 
+ magics.
+ You can then later use these log files as code in your programs.
+\layout Itemize
+
+Verbose and colored exception traceback printouts.
+ Easier to parse visually, and in verbose mode they produce a lot of useful
+ debugging information.
+\layout Itemize
+
+Auto-parentheses: callable objects can be executed without parentheses:
+ 
+\family typewriter 
+`sin 3'
+\family default 
+ is automatically converted to 
+\family typewriter 
+`sin(3)
+\family default 
+'.
+\layout Itemize
+
+Auto-quoting: using `
+\family typewriter 
+,
+\family default 
+' as the first character forces auto-quoting of the rest of the line: 
+\family typewriter 
+`,my_function a b'
+\family default 
+ becomes automatically 
+\family typewriter 
+`my_function("a","b")'.
+\layout Itemize
+
+Flexible configuration system.
+ It uses a configuration file which allows permanent setting of all command-line
+ options, module loading, code and file execution.
+ The system allows recursive file inclusion, so you can have a base file
+ with defaults and layers which load other customizations for particular
+ projects.
+\layout Itemize
+
+Embeddable.
+ You can call IPython as a python shell inside your own python programs.
+ This can be used both for debugging code or for providing interactive abilities
+ to your programs with knowledge about the local namespaces (very useful
+ in debugging and data analysis situations).
+\layout Itemize
+
+Easy debugger access.
+ You can set IPython to call up the Python debugger (pdb) every time there
+ is an uncaught exception.
+ This drops you inside the code which triggered the exception with all the
+ data live and it is possible to navigate the stack to rapidly isolate the
+ source of a bug.
+ The 
+\family typewriter 
+%run
+\family default 
+ magic command --with the 
+\family typewriter 
+-d
+\family default 
+ option-- can run any script under 
+\family typewriter 
+pdb
+\family default 
+'s control, automatically setting initial breakpoints for you.
+\layout Itemize
+
+Profiler support.
+ You can run single statements (similar to 
+\family typewriter 
+profile.run()
+\family default 
+) or complete programs under the profiler's control.
+ While this is possible with the standard 
+\family typewriter 
+profile
+\family default 
+ module, IPython wraps this functionality with magic commands (see 
+\family typewriter 
+`%prun'
+\family default 
+ and 
+\family typewriter 
+`%run -p
+\family default 
+') convenient for rapid interactive work.
+\layout Section
+
+Effective interactive work
+\layout Subsection
+
+Magic functions
+\layout Subsection
+
+Object exploration
+\layout Standard
+
+The first screenshot in Fig.\SpecialChar ~
+
+\begin_inset LatexCommand \ref{fig:ipscr_code}
+
+\end_inset 
+
+ was generated by typing at the IPython prompt: 
+\layout LyX-Code
+
+In [1]: import code
+\layout LyX-Code
+
+In [2]: code??
+\layout Standard
+
+It shows the source for the 
+\family typewriter 
+code
+\family default 
+ module from the Python standard library.
+ This is an excellent way to explore modules or objects which you are not
+ familiar with.
+ As long as Python's 
+\family typewriter 
+inspect
+\family default 
+ system is capable of finding the source code for an object, IPython will
+ show it to you, with nice syntax highlights.
+ 
+\layout Standard
+
+This can be done for entire modules, as in the example given, or for individual
+ functions or even methods of object instances.
+ The second screenshot in the same figure shows source for the 
+\family typewriter 
+timeit
+\family default 
+ method of a 
+\family typewriter 
+timeit.Timer
+\family default 
+ object.
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename fig/ipscr_code.png
+	lyxscale 40
+	width 2.9in
+
+\end_inset 
+
+\SpecialChar ~
+
+\begin_inset Graphics
+	filename fig/ipscr_meth_src.png
+	lyxscale 40
+	width 2.9in
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:ipscr_code}
+
+\end_inset 
+
+IPython can show syntax-highlighted source code for objects whose source
+ is available.
+\end_inset 
+
+
+\layout Subsection
+
+I/O prompts
+\layout Subsection
+
+Running code
+\layout Subsection
+
+Access to the underlying Operating System
+\layout Section
+
+Customizing IPython
+\layout Subsection
+
+Basics
+\layout Subsection
+
+Profiles
+\layout Section
+
+Debugging and profiling with IPython 
+\layout Section
+
+Embedding IPython into your programs 
+\layout Section
+
+Integration with Matplotlib
 \the_end
