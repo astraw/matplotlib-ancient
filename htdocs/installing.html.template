@@ -16,12 +16,16 @@ platforms; it should run anywhere that python and Numeric run.
 To get the most out of matplotlib, you will probably want to install
 one or more of the additional backends, which provide output to
 various GUI and image rendering libraries.  Each of these has
-different prerequistes.  Note that if you install matplotlib anywhere
-other than the default location, you will need to set the
-MATPLOTLIBDATA environment variable to point to the install base dir.
-For more specific information regarding a particular output device
-(GTK, PS, GD, WX, Paint), see <a href=backends.html>matplotlib
-outputs</a>.
+different prerequistes. <p>
+
+With the windows installer, the postscript and Agg backends should
+work out of the box if you have Numeric already installed.  For other
+backends and operating systems, follow the instructions below and on
+<a href=backends.html>matplotlib outputs</a>.<p>
+
+Note that if you install matplotlib anywhere other than the default
+location, you will need to set the MATPLOTLIBDATA environment variable
+to point to the install base dir. 
 
 <h2> GTK Quickstart </h2>
 
@@ -34,7 +38,7 @@ running with the GTK backend.
 If you don't already have python installed, you may want to consider
 using the <a href=http://www.enthought.com/python/>enthought
 edition</a> of python, which has scipy, Numeric, and wxpython, plus a
-lot of other goodies, preinstalled.  
+lot of other goodies, preinstalled.
 
 
 <ul> 
@@ -72,10 +76,27 @@ installed.  Don't assume that because you are running redhat 9 that
 you have the latest libs.  Redhat 8 and 9 come with the GNOME2, but
 you will still need to upgrade to at least pygtk-1.99.16.  The latest
 version (currently 2.0.0) is recommended.  I don't have specific
-information about the other linux distributions.  Debian users consult
-<a href=backends.html#Debian>matplotlib outputs</a>
+information about the other linux distributions. 
 
 </ul> 
+
+
+<h2><a name=Debian>Debian Users</a></h3>
+
+Vittorio Palmisano <redclay@email.it> posted this message to matplotlib-devel
+
+<pre>
+  Hello,
+
+  I've made a Debian package for matplotlib and I've put it at:
+  http://anakonda.altervista.org/debian/
+
+  I've read some specification for dependencies from
+  http://bugs.debian.org/206691, this is my first package and so there
+  are some (many?) things to fix.  I think that the package may also
+  include the api documentation generated with pydoc.  
+</pre>
+
 
 
 @footer@

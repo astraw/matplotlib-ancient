@@ -147,7 +147,14 @@ linux, win32 and OSX.
 The GD module can be used to create images with no X11 server, and is
 particularly useful for web application developers who want dynamic
 graphing capabilities.  There are a number of prerequisites but they
-are easy to install.
+are easy to install (Windows users should skip ahead to the win32
+section).<p>
+
+The GD backend depends on Numeric, gdmodule, gd, TTFQuery and
+fonttools.  To ease installation, the latter two packages now ship
+with matplotlib.  Set the flag <tt>BUILD_FONTTOOLS</tt> in setup.py to
+build both TTFQuery and fonttools with matplotlib.  Below are
+instructions for building gdmoule.
 	
   <ul>
 
@@ -166,11 +173,7 @@ are easy to install.
   <li><a href="http://fonttools.sourceforge.net/">font tools</a> -- Base
   library for handling TTF fonts -- required by TTF query.</li>  
 
-  <li><a href=http://sourceforge.net/projects/ttfquery/>TTF Query</a> -- A
-  python package for finding the best True Type font match for your
-  desired font.  You must use version 0.2.6 or later</li>
-
-   <h4>Quick install guide for GD output: linux and friends</h4>
+   <h4>Quick install guide for GD module: linux and friends</h4>
  
    The latest snapshot of matplotlib requires a patch to
    gdmodule-0.52.  
@@ -187,48 +190,36 @@ are easy to install.
     cd gdmodule-0.52
     sudo python2.3 Setup.py install
 
-    cd /var/tmp
-    tar xvfz ~/python/src/fonttools-2.0b1.tgz
-    cd fonttools/
-    sudo python2.3 setup.py install
-
-    cd /var/tmp
-    tar xvfz ~/python/src/TTFQuery-1.0.0a1.tar.gz
-    cd TTFQuery-1.0.0a1
-    sudo python2.3 setup.py install
    </pre>
 </ul>
 
 
-<h4>Quick install guide for GD output: linux and friends</h4>
+<h4>Quick install guide for GD output: Windows</h4>
 
-<ul> 
+The windows installer for matplotlib comes with fonttools and TTFQuery
+built in.  In addition to that package and Numeric, you'll need
 
-<li> You'll need to <a href=gd/bgd.dll>bgd.dll</a> somewhere in your
+<ul>
+
+<li> The GD DLL <a href=gd/bgd.dll>bgd.dll</a> somewhere in your
 PATH</li>
 
 <li> gdmodule for win32 and python2.3 <a href=gd/gdmodule-0.52a.win32-py2.3.exe >gdmodule-0.52a</a>.</li>
 
-<li> fonttools for win32 and python2.3 <a href=
-gd/FontTools-1.0.win32-py2.3.exe>FontTools-1.0</a>.</li>
-
-<li>There are windows packages for all the required modules TTFQuery
-provides a windows installer on the <a
-href=http://sourceforge.net/projects/ttfquery/>download site<a>.</li>
-
 </ul>
 
-See the <a href=fonts.html>fonts</a> for more information about
-getting the GD backend setup for proper font rendering.  Note the
-formerly named <tt>GDFONTPATH</tt> is now called <tt>TTFPATH</tt>.<p>
+See the <a href=fonts.html#TTFFONTS>fonts</a> for more information
+about getting the GD backend setup for proper font rendering.  Note
+the formerly named <tt>GDFONTPATH</tt> is now called
+<tt>TTFPATH</tt>.<p>
 
 <a name=PS><h3>Postscript</h3></a>
 
 The only requirement is <a
 href=http://sourceforge.net/projects/numpy>Numeric</a>
 
-See the <a href=fonts.html>fonts page</a> for more information about
-getting the postscript backend setup for proper font rendering;
+See the <a href=fonts.html#PSFONTS>fonts page</a> for more information
+about getting the postscript backend setup for proper font rendering;
 notably, you must make sure there are some '*.afm' files in your
 <tt>AFMPATH</tt> if you want to use fonts other than the ones that
 ship with matplotlib.
@@ -246,28 +237,13 @@ The paint backend requires <a
 href=http://sourceforge.net/projects/numpy>Numeric</a>, <a
 href=http://pypaint.sourceforge.net>pypaint</a> version 0.3.  If you
 want cross-platform freetype font selection support, you'll also need
-TTFQuery and fonttools.  See <a href=backends.html#GD>the GD
-backend</a> for instructions on how to obtain and install these
-modules.  Otherwise the default font is <a
-href=http://www.bitstream.com/categories/products/fonts/vera>Vera
-Bitstream</a>, which ships with matplotib.
+TTFQuery and fonttools - these now ship with matplotlib in both the
+src and windows binary distributions.  See <a
+href=fonts.html#TTFFONTS> for more information.
 
 libart is highly portable, and the paint backend has been confirmed to
 work on win32 and linux.
 
-<a name=Debian><h3>Debian Users</h3></a>
-
-  Nelson Miner provided this information for debian.  Debian has many
-  of the dependencies prepackaged
-
-<pre>
-    > apt-get install python-numeric python-numeric-ext  
-    > apt-get install fonttools libgd2-dev python-gtk2 
-</pre>
-
- If you want to use the GD module, you'll still need to install
- gdmodule and TTFQuery from src, as described in <a
- href=backends.html#GD>the GD backend<a> above. 
 
 @footer@
 

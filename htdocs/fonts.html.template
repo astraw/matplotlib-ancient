@@ -6,7 +6,42 @@ good.  This has been a limitation of many pre-exisiting python
 graphing solutions, but with the rise of freetype and anti-aliased
 rendering for linux, it is now possible to have great looking fonts.
 
-<h3>GTK</h3>
+<h3><a name=TTFFONTS>Freetype fonts: GD, Agg, Paint</a></h3>
+
+The GD, Agg, and Paint backends all support freetype fonts, which
+provide high quality, anti-aliased font rendering to PNG and JPEG
+output without X support.  This is particularly useful for batch
+processing over terminal, or for web application servers. <p> 
+
+You need to have '*.ttf' files on your system to use this backend.
+Set the environment variable <tt>TTFFONTPATH</tt> to point to your TTF
+fonts.  A typical windows dir is <tt>C:\windows\fonts</tt>. matplotlib
+distributes the 'Vera' fonts from bitstream, which were released under
+a permissive license, and these are the defaults.  If you want more,
+set the environment variable to point to them.  Note, if you are on
+linux but have access to a licensed copy of windows ttf fonts, the
+same <tt>*.ttf</t>fonts in <tt>C:\windows\fonts</tt> will work with
+matplotlib on linux if you place them in your TTFPATH.  Consult your
+Windows EULA.<p>
+
+Currently paint and Agg both use freetype1, which look great at high
+resolutions but render poorly for lower resolutions.  If you are using
+matplotlib to generate images for html, you may want to consider using
+the gd backend, which supports freetype2.  freetype 2 tends to render
+fonts better at very small raster sizes.  Look for freetype2 font
+support in Paint and Agg in the near future.
+
+For platform independent font finding, matplotlib uses fonttools and
+TTFQuery.  Since several of the matplotlib backends now depend on
+those packages, they are distributed with the src distribution and
+will be installed automatically by the matplotlib windows installer.
+If you want to build them with matplotlib yourself from src, set the
+<tt>BUILD_TONTTOOLS</tt> flag in the matplotlib setup.py file.
+
+If you are aware of other freely distributable ttf fonts, please
+contact me -  @myemail@.
+
+<h3><a name=GTKFONTS>GTK</a></h3>
 
 The most recent versions of GTK (2.2.4.1 and later) and pygtk-2.0.0
 and later on linux have freetype font support built-in by default.  If
@@ -27,7 +62,7 @@ If you are using GTK under windows, see <a
 href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.011.htp>the
 pygtk FAQ</a>.
 
-<h3>PS</h3>
+<h3><a name=PSFONTS>Postscript</a></h3>
 
 <a
 href="http://www.adobe.com/products/postscript/main.html">Postscript</a>,
@@ -48,22 +83,5 @@ files.  matplotlib willl recursively search any directory in
 <tt>AFMPATH</tt>, so you only need to specify a base directory if
 multiple subdirectories contaning '*.afm' files.<p>
 
-<h3><a href="http://newcenturycomputers.net/projects/gdmodule.html">GD
-module</a></h3>
-
-The python interface to the GD library provides high quality,
-anti-aliased font rendering to PNG and JPEG output without X support.
-This is particularly useful for batch processing over a dumb terminal,
-or for web application servers.  All of the font rendering using GD
-module is with true type.  Thus you need to have '*.ttf' files on your
-system to use this backend.  Set the environment variable
-<tt>TTFFONTPATH</tt> to point to your TTF fonts.  A typical windows
-dir is <tt>C:\windows\fonts</tt>. matplotlib distributes the 'Vera'
-fonts from bitstream, which were released under a permissive license,
-and these are the defaults.  If you want more, set the environment
-variable to point to them.<p>
-
-If you are aware of other freely distributable ttf fonts, please
-contact me -  @myemail@.
 
 @footer@
