@@ -151,7 +151,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137142880)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137129048)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -172,6 +172,8 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 <dl><dt><a name="Dialog_MeasureTool-begin_resize_drag"><strong>begin_resize_drag</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="Dialog_MeasureTool-deiconify"><strong>deiconify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Dialog_MeasureTool-fullscreen"><strong>fullscreen</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="Dialog_MeasureTool-get_decorated"><strong>get_decorated</strong></a>(...)</dt></dl>
 
@@ -201,7 +203,13 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 
 <dl><dt><a name="Dialog_MeasureTool-get_role"><strong>get_role</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="Dialog_MeasureTool-get_screen"><strong>get_screen</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="Dialog_MeasureTool-get_size"><strong>get_size</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Dialog_MeasureTool-get_skip_pager_hint"><strong>get_skip_pager_hint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Dialog_MeasureTool-get_skip_taskbar_hint"><strong>get_skip_taskbar_hint</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="Dialog_MeasureTool-get_title"><strong>get_title</strong></a>(...)</dt></dl>
 
@@ -249,6 +257,8 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 
 <dl><dt><a name="Dialog_MeasureTool-set_icon"><strong>set_icon</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="Dialog_MeasureTool-set_icon_from_file"><strong>set_icon_from_file</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="Dialog_MeasureTool-set_icon_list"><strong>set_icon_list</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="Dialog_MeasureTool-set_mnemonic_modifier"><strong>set_mnemonic_modifier</strong></a>(...)</dt></dl>
@@ -263,6 +273,12 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 
 <dl><dt><a name="Dialog_MeasureTool-set_role"><strong>set_role</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="Dialog_MeasureTool-set_screen"><strong>set_screen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Dialog_MeasureTool-set_skip_pager_hint"><strong>set_skip_pager_hint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Dialog_MeasureTool-set_skip_taskbar_hint"><strong>set_skip_taskbar_hint</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="Dialog_MeasureTool-set_title"><strong>set_title</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="Dialog_MeasureTool-set_transient_for"><strong>set_transient_for</strong></a>(...)</dt></dl>
@@ -272,6 +288,8 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 <dl><dt><a name="Dialog_MeasureTool-set_wmclass"><strong>set_wmclass</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="Dialog_MeasureTool-stick"><strong>stick</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Dialog_MeasureTool-unfullscreen"><strong>unfullscreen</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="Dialog_MeasureTool-unmaximize"><strong>unmaximize</strong></a>(...)</dt></dl>
 
@@ -497,11 +515,15 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="Dialog_MeasureTool-get_child_visible"><strong>get_child_visible</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="Dialog_MeasureTool-get_clipboard"><strong>get_clipboard</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="Dialog_MeasureTool-get_colormap"><strong>get_colormap</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="Dialog_MeasureTool-get_composite_name"><strong>get_composite_name</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="Dialog_MeasureTool-get_direction"><strong>get_direction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Dialog_MeasureTool-get_display"><strong>get_display</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="Dialog_MeasureTool-get_events"><strong>get_events</strong></a>(...)</dt></dl>
 
@@ -518,6 +540,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="Dialog_MeasureTool-get_parent_window"><strong>get_parent_window</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="Dialog_MeasureTool-get_pointer"><strong>get_pointer</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Dialog_MeasureTool-get_root_window"><strong>get_root_window</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="Dialog_MeasureTool-get_settings"><strong>get_settings</strong></a>(...)</dt></dl>
 
@@ -536,6 +560,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="Dialog_MeasureTool-grab_focus"><strong>grab_focus</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="Dialog_MeasureTool-grab_remove"><strong>grab_remove</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="Dialog_MeasureTool-has_screen"><strong>has_screen</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="Dialog_MeasureTool-hide"><strong>hide</strong></a>(...)</dt></dl>
 
@@ -797,7 +823,7 @@ Methods defined here:<br>
 
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>keyvald</strong> = {65505: 'shift', 65507: 'control', 65513: 'alt'}</dl>
+<dl><dt><strong>keyvald</strong> = {65505: 'shift', 65506: 'shift', 65507: 'control', 65508: 'control', 65513: 'alt', 65514: 'alt'}</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
@@ -805,7 +831,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137105824)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137092016)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -875,11 +901,15 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="FigureCanvasGTK-get_child_visible"><strong>get_child_visible</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FigureCanvasGTK-get_clipboard"><strong>get_clipboard</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FigureCanvasGTK-get_colormap"><strong>get_colormap</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-get_composite_name"><strong>get_composite_name</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-get_direction"><strong>get_direction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTK-get_display"><strong>get_display</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-get_events"><strong>get_events</strong></a>(...)</dt></dl>
 
@@ -896,6 +926,10 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="FigureCanvasGTK-get_parent_window"><strong>get_parent_window</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-get_pointer"><strong>get_pointer</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTK-get_root_window"><strong>get_root_window</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTK-get_screen"><strong>get_screen</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-get_settings"><strong>get_settings</strong></a>(...)</dt></dl>
 
@@ -914,6 +948,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="FigureCanvasGTK-grab_focus"><strong>grab_focus</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-grab_remove"><strong>grab_remove</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTK-has_screen"><strong>has_screen</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-hide"><strong>hide</strong></a>(...)</dt></dl>
 
@@ -1250,7 +1286,7 @@ Methods inherited from <a href="gtk.html#FileSelection">gtk.FileSelection</a>:<b
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#FileSelection">gtk.FileSelection</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileSelection (137150680)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileSelection (137137832)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.FileSelection' objects&gt;</dl>
 
@@ -1328,6 +1364,8 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 
 <dl><dt><a name="FileSelection-deiconify"><strong>deiconify</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FileSelection-fullscreen"><strong>fullscreen</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FileSelection-get_decorated"><strong>get_decorated</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-get_default_size"><strong>get_default_size</strong></a>(...)</dt></dl>
@@ -1356,7 +1394,13 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 
 <dl><dt><a name="FileSelection-get_role"><strong>get_role</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FileSelection-get_screen"><strong>get_screen</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FileSelection-get_size"><strong>get_size</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_skip_pager_hint"><strong>get_skip_pager_hint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_skip_taskbar_hint"><strong>get_skip_taskbar_hint</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-get_title"><strong>get_title</strong></a>(...)</dt></dl>
 
@@ -1404,6 +1448,8 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 
 <dl><dt><a name="FileSelection-set_icon"><strong>set_icon</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FileSelection-set_icon_from_file"><strong>set_icon_from_file</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FileSelection-set_icon_list"><strong>set_icon_list</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-set_mnemonic_modifier"><strong>set_mnemonic_modifier</strong></a>(...)</dt></dl>
@@ -1418,6 +1464,12 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 
 <dl><dt><a name="FileSelection-set_role"><strong>set_role</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FileSelection-set_screen"><strong>set_screen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_skip_pager_hint"><strong>set_skip_pager_hint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_skip_taskbar_hint"><strong>set_skip_taskbar_hint</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FileSelection-set_title"><strong>set_title</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-set_transient_for"><strong>set_transient_for</strong></a>(...)</dt></dl>
@@ -1427,6 +1479,8 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 <dl><dt><a name="FileSelection-set_wmclass"><strong>set_wmclass</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-stick"><strong>stick</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-unfullscreen"><strong>unfullscreen</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-unmaximize"><strong>unmaximize</strong></a>(...)</dt></dl>
 
@@ -1652,11 +1706,15 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="FileSelection-get_child_visible"><strong>get_child_visible</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FileSelection-get_clipboard"><strong>get_clipboard</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FileSelection-get_colormap"><strong>get_colormap</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-get_composite_name"><strong>get_composite_name</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-get_direction"><strong>get_direction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_display"><strong>get_display</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-get_events"><strong>get_events</strong></a>(...)</dt></dl>
 
@@ -1673,6 +1731,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="FileSelection-get_parent_window"><strong>get_parent_window</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-get_pointer"><strong>get_pointer</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_root_window"><strong>get_root_window</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-get_settings"><strong>get_settings</strong></a>(...)</dt></dl>
 
@@ -1691,6 +1751,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="FileSelection-grab_focus"><strong>grab_focus</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-grab_remove"><strong>grab_remove</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-has_screen"><strong>has_screen</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-hide"><strong>hide</strong></a>(...)</dt></dl>
 
@@ -2060,7 +2122,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137108560)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137094752)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -2204,11 +2266,15 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="NavigationToolbar-get_child_visible"><strong>get_child_visible</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="NavigationToolbar-get_clipboard"><strong>get_clipboard</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="NavigationToolbar-get_colormap"><strong>get_colormap</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-get_composite_name"><strong>get_composite_name</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-get_direction"><strong>get_direction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar-get_display"><strong>get_display</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-get_events"><strong>get_events</strong></a>(...)</dt></dl>
 
@@ -2226,6 +2292,10 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="NavigationToolbar-get_pointer"><strong>get_pointer</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="NavigationToolbar-get_root_window"><strong>get_root_window</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar-get_screen"><strong>get_screen</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="NavigationToolbar-get_settings"><strong>get_settings</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-get_size_request"><strong>get_size_request</strong></a>(...)</dt></dl>
@@ -2241,6 +2311,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="NavigationToolbar-grab_focus"><strong>grab_focus</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-grab_remove"><strong>grab_remove</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar-has_screen"><strong>has_screen</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-hide"><strong>hide</strong></a>(...)</dt></dl>
 
@@ -2573,7 +2645,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137108560)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137094752)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -2715,11 +2787,15 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="NavigationToolbar2GTK-get_child_visible"><strong>get_child_visible</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="NavigationToolbar2GTK-get_clipboard"><strong>get_clipboard</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="NavigationToolbar2GTK-get_colormap"><strong>get_colormap</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-get_composite_name"><strong>get_composite_name</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-get_direction"><strong>get_direction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_display"><strong>get_display</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-get_events"><strong>get_events</strong></a>(...)</dt></dl>
 
@@ -2737,6 +2813,10 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="NavigationToolbar2GTK-get_pointer"><strong>get_pointer</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="NavigationToolbar2GTK-get_root_window"><strong>get_root_window</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-get_screen"><strong>get_screen</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="NavigationToolbar2GTK-get_settings"><strong>get_settings</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-get_size_request"><strong>get_size_request</strong></a>(...)</dt></dl>
@@ -2752,6 +2832,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="NavigationToolbar2GTK-grab_focus"><strong>grab_focus</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-grab_remove"><strong>grab_remove</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-has_screen"><strong>has_screen</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-hide"><strong>hide</strong></a>(...)</dt></dl>
 
@@ -3129,10 +3211,12 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
 <strong>PIXELS_PER_INCH</strong> = 96<br>
 <strong>True</strong> = True<br>
 <strong>UInt8</strong> = 'b'<br>
+<strong>basedir</strong> = '/usr/local/share/matplotlib'<br>
 <strong>colorManager</strong> = &lt;matplotlib.backends.backend_gtk.ColorManagerGTK instance&gt;<br>
 <strong>cursord</strong> = {0: 60, 1: 2, 2: 130, 3: 52}<br>
 <strong>cursors</strong> = &lt;matplotlib.backend_bases.Cursors instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>fname</strong> = '/usr/local/share/matplotlib/matplotlib.svg'<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
 <strong>nx</strong> = &lt;matplotlib.nc_imports._TypeNamespace instance&gt;<br>
 <strong>useMathText</strong> = True<br>

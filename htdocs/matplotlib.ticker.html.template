@@ -53,9 +53,11 @@ There&nbsp;are&nbsp;a&nbsp;number&nbsp;of&nbsp;locators&nbsp;specialized&nbsp;fo
 &nbsp;&nbsp;*&nbsp;<a href="#HourLocator">HourLocator</a>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;locate&nbsp;hours&nbsp;that&nbsp;are&nbsp;a&nbsp;multiple&nbsp;of&nbsp;base<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;<a href="#DayLocator">DayLocator</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;locate&nbsp;a&nbsp;given&nbsp;hour&nbsp;each&nbsp;day<br>
-&nbsp;<br>
+&nbsp;&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;<a href="#DayMultiLocator">DayMultiLocator</a>&nbsp;-&nbsp;Make&nbsp;ticks&nbsp;on&nbsp;day&nbsp;which&nbsp;are&nbsp;multiples&nbsp;of&nbsp;base<br>
 &nbsp;<br>
+&nbsp;&nbsp;*&nbsp;<a href="#WeekMultiLocator">WeekMultiLocator</a>&nbsp;-&nbsp;Make&nbsp;ticks&nbsp;on&nbsp;weeks&nbsp;which&nbsp;are&nbsp;multiples&nbsp;of&nbsp;base<br>
+&nbsp;&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;<a href="#WeekdayLocator">WeekdayLocator</a>&nbsp;-&nbsp;locate&nbsp;a&nbsp;given&nbsp;weekday&nbsp;each&nbsp;week<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;<a href="#MonthLocator">MonthLocator</a>&nbsp;&nbsp;&nbsp;-&nbsp;locate&nbsp;months&nbsp;that&nbsp;are&nbsp;multiples&nbsp;of&nbsp;base<br>
@@ -180,6 +182,7 @@ multiple&nbsp;axes&nbsp;can&nbsp;share&nbsp;the&nbsp;same&nbsp;locator&nbsp;w/o&
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#DayMultiLocator">DayMultiLocator</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#HourLocator">HourLocator</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#MinuteLocator">MinuteLocator</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#WeekMultiLocator">WeekMultiLocator</a>
 </font></dt></dl>
 </dd>
 <dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#NullLocator">NullLocator</a>
@@ -1152,6 +1155,56 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 
 <hr>
 Data and other attributes defined here:<br>
+<dl><dt><strong>dataInterval</strong> = None</dl>
+
+<dl><dt><strong>viewInterval</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="WeekMultiLocator">class <strong>WeekMultiLocator</strong></a>(<a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Make&nbsp;ticks&nbsp;on&nbsp;weeks&nbsp;which&nbsp;are&nbsp;multiples&nbsp;of&nbsp;base<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.ticker.html#WeekMultiLocator">WeekMultiLocator</a></dd>
+<dd><a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a></dd>
+<dd><a href="matplotlib.ticker.html#Locator">Locator</a></dd>
+<dd><a href="matplotlib.ticker.html#TickHelper">TickHelper</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="WeekMultiLocator-__init__"><strong>__init__</strong></a>(self, base)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.ticker.html#MultipleLocator">MultipleLocator</a>:<br>
+<dl><dt><a name="WeekMultiLocator-__call__"><strong>__call__</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;ticks</tt></dd></dl>
+
+<dl><dt><a name="WeekMultiLocator-autoscale"><strong>autoscale</strong></a>(self)</dt><dd><tt>Set&nbsp;the&nbsp;view&nbsp;limits&nbsp;to&nbsp;the&nbsp;nearest&nbsp;multiples&nbsp;of&nbsp;base&nbsp;that<br>
+contain&nbsp;the&nbsp;data</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.ticker.html#Locator">Locator</a>:<br>
+<dl><dt><a name="WeekMultiLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
+
+<dl><dt><a name="WeekMultiLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
+
+<dl><dt><a name="WeekMultiLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
+
+<dl><dt><a name="WeekMultiLocator-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
+<dl><dt><a name="WeekMultiLocator-set_data_interval"><strong>set_data_interval</strong></a>(self, interval)</dt></dl>
+
+<dl><dt><a name="WeekMultiLocator-set_view_interval"><strong>set_view_interval</strong></a>(self, interval)</dt></dl>
+
+<dl><dt><a name="WeekMultiLocator-verify_intervals"><strong>verify_intervals</strong></a>(self)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
 <dl><dt><strong>dataInterval</strong> = None</dl>
 
 <dl><dt><strong>viewInterval</strong> = None</dl>

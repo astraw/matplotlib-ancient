@@ -12,6 +12,8 @@ commands&nbsp;with&nbsp;the&nbsp;same&nbsp;names.&nbsp;&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;cohere&nbsp;-&nbsp;Coherence&nbsp;(normalized&nbsp;cross&nbsp;spectral&nbsp;density)<br>
 &nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;conv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;convolution<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;corrcoef&nbsp;-&nbsp;The&nbsp;matrix&nbsp;of&nbsp;correlation&nbsp;coefficients<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;csd&nbsp;-&nbsp;Cross&nbsp;spectral&nbsp;density&nbsp;uing&nbsp;Welch's&nbsp;average&nbsp;periodogram<br>
@@ -169,6 +171,7 @@ cohere.<br>
 See&nbsp;test/cohere_pairs_test.py&nbsp;in&nbsp;the&nbsp;src&nbsp;tree&nbsp;for&nbsp;an&nbsp;example<br>
 script&nbsp;that&nbsp;shows&nbsp;that&nbsp;this&nbsp;cohere_pairs&nbsp;and&nbsp;cohere&nbsp;give&nbsp;the&nbsp;same<br>
 results&nbsp;for&nbsp;a&nbsp;given&nbsp;pair.</tt></dd></dl>
+ <dl><dt><a name="-conv"><strong>conv</strong></a>(x, y, mode<font color="#909090">=2</font>)</dt><dd><tt>convolve&nbsp;x&nbsp;with&nbsp;y</tt></dd></dl>
  <dl><dt><a name="-corrcoef"><strong>corrcoef</strong></a>(*args)</dt><dd><tt><a href="#-corrcoef">corrcoef</a>(X)&nbsp;where&nbsp;X&nbsp;is&nbsp;a&nbsp;matrix&nbsp;returns&nbsp;a&nbsp;matrix&nbsp;of&nbsp;correlation<br>
 coefficients&nbsp;for&nbsp;each&nbsp;row&nbsp;of&nbsp;X.<br>
 &nbsp;<br>

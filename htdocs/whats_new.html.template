@@ -20,7 +20,7 @@ you can still uses <tt>toolbar : classic</tt>."""),
 
     ('Mathtext for PS!!!',   """\
 Also, PS now embeds TrueType fonts so the same fonts you use in the
-*Agg GUIs should be displayed in PS output. Thanks Paul Barret!"""),
+*Agg GUIs should be displayed in PS output. Thanks Paul Barrett!"""),
 
     ('imread', """\
 The <a href=matplotlib.matlab.html#-imread>imread</a> function is used

@@ -7,7 +7,7 @@
 \usepackage{fullpage}
 \usepackage{amssymb}
 \usepackage{verbatimfiles}
-\usepackage{hyperref}
+\usepackage[dvips]{hyperref}
 \title{The Matplotlib User's Guide}
 \author{John Hunter}
 \begin{document}
@@ -56,6 +56,8 @@
 
 
 \maketitle
+
+\tableofcontents
 
 \chapter{Introduction}
 \label{cha:introduction}
@@ -115,8 +117,6 @@ get up to steam plotting in python.  From a developer's perspective,
 having a fixed user interface (the matplotlib.matlab interface) has
 been very useful, because the guts of the code base can be redesigned
 without affecting user code.
-
-
 
 The matplotlib code is conceptually divided into three parts: the
 \textit{matlab interface} is the set of functions provided by
@@ -1334,9 +1334,10 @@ axes exactly where you want them, including to overlaying one axes on
 top of another, as in this example
 
 \fig{4in}{figures/axes_demo}{Using the \func{axes} command to create
-  inset axes over another axes.}{fig:axes_demo}
+  inset axes over another axes; see Listing~\ref{lst:axes_demo}}{fig:axes_demo}
 
-\lstinputlisting{code/axes_demo.py}
+\lstinputlisting[caption={Custom axes;
+  see Figure~\ref{fig:axes_demo}}, label=lst:axes_demo]{code/axes_demo.py}
 
 
       
@@ -1468,9 +1469,11 @@ upper right.
 
 \fig{6in}{figures/alignment_demo}{Aligning text with
   \carg{horizontalalignment}, \carg{verticalalignment}, and
-  \carg{multialignment} options to the \func{text} command.}{fig:align_text}
+  \carg{multialignment} options to the \func{text} command; see
+  Listing~\ref{lst:align_text}}{fig:align_text}
 
-\lstinputlisting{code/alignment_demo.py}
+\lstinputlisting[caption={Aligning text;  see Figure~\ref{fig:align_text}},
+label=lst:align_text]{code/alignment_demo.py}
 
 
 
@@ -1581,9 +1584,11 @@ Figure~\ref{fig:mathtext_demo}.
 \end{equation}
 
 \fig{4in}{figures/mathtext_demo}{Incorpating \TeX\ expressions into
-  your figure.}{fig:mathtext_demo}
+  your figure; see Listing~\ref{lst:mathtext_demo}}{fig:mathtext_demo}
 
-\lstinputlisting{code/mathtext_demo.py}
+\lstinputlisting[caption={Using mathtext; see
+  Figure~\ref{fig:mathtext_demo}},
+label=lst:mathtext_demo]{code/mathtext_demo.py}
 
 
 
@@ -1648,11 +1653,10 @@ norm, vmin, vmax, and origin} will be explained in sections below.
 The following shows a simple command which creates an image using
 bilinear interpolation, shown in Figure~\ref{fig:image_demo}.
 
-\fig{4in}{figures/image_demo}{Simple axes image}{fig:image_demo}
+\fig{4in}{figures/image_demo}{Simple axes image; code in Listing~\ref{lst:image_demo}}{fig:image_demo}
 
-\lstinputlisting{code/image_demo.py}
-
-
+\lstinputlisting[caption={Axes images; see Figure~\ref{fig:image_demo}},
+label=lst:image_demo]{code/image_demo.py}
 
 You can create an arbitrary number of axes images inside a single
 axes, and these will be composed via alpha blending.  However, if you
@@ -1819,9 +1823,10 @@ pass \code{origin='lower'}, as shown in Figure~\ref{fig:image_origin}.
 
 \fig{4in}{figures/image_origin}{Controlling the image origin with the
   \carg{origin} keyword argument to \func{imshow} and
-  \func{figimage}.}{fig:image_origin}
+  \func{figimage}; see Listing~\ref{lst:image_origin}.}{fig:image_origin}
 
-\lstinputlisting{code/image_origin.py}
+\lstinputlisting[caption={Setting the image origin;
+  see Figure~\ref{fig:image_origin}},label=lst:image_origin]{code/image_origin.py}
 
 
 
@@ -1834,6 +1839,51 @@ pass \code{origin='lower'}, as shown in Figure~\ref{fig:image_origin}.
 
 \section{Spectral analysis}
 \label{sec:spectral}
+
+matplotlib provides a number of matlab compatible functions for
+computing and plotting spectral analysis results.  All of them are
+based on Welch's Averaged Periodogram Method \citep{BendatPiersol1986}
+using the numerix \code{fft} method for the fast fourier transforms.
+The spectral plotting functions are \func{psd} for the power spectral
+density, \func{csd} for the cross spectral density, and func{cohere}
+for the coherence (normalized cross spectral density).  
+
+\begin{lstlisting}  
+# signature and defaults for arguments to a typical
+# spectral analysis function
+def psd(x, NFFT=256, Fs=2, detrend=mlab.detrend_none, 
+        window=mlab.window_hanning, noverlap=0):
+\end{lstlisting}
+
+In addition to the time series arguments x/y, these functions take a
+number of optional parameters.  The averaged periodogram method chops
+the time series into \carg{NFFT} length segments which overlap by
+\carg{noverlap} samples.  The default values are \code{NFFT=256} and
+\code{noverlap=0}.  Each of the functions will compute the spectral
+analysis and then generate a plot window with frequency on the x-axis
+- if you want the frequency axis to be properly scaled, you should
+provide the sampling frequency \carg{Fs}.
+
+Each of the segments will be detrended and windowed before the fft,
+according to the values of \carg{detrend} and \carg{window}.  Unlike
+matlab, in which these arguments are strings, in matplotlib they are
+functions.  Several helper functions are provided in matplotlib.mlab
+for detrending and windowing: 
+
+\begin{itemize}
+\item \func{mlab.detrend\_none} - no detrending
+\item \func{mlab.detrend\_mean} - remove the mean of each segment before fft
+\item \func{mlab.detrend\_linear} - remove the best fit line of each segment
+  before fft
+\item \func{mlab.window\_none} - Do not apply any windowing
+\item \func{mlab.window\_hanning} - Multiply each segment by a Hanning window
+
+\end{itemize}
+
+\noindent An example power spectra calculation is shown in
+Listing~\ref{lst:versus_matlab} and the output in
+Figure~\ref{fig:psd_py}.
+
 
 \section{Axis properties}
 \label{sec:axis_props}
@@ -2246,9 +2296,12 @@ control the grid of the minor ticks for a given axis, use for example
 Figure~\ref{fig:major_minor_demo}.
 
 \fig{4in}{figures/major_minor_demo}{Creating custom major and minor
-  tick locators and formatters}{fig:major_minor_demo}
+  tick locators and formatters; see
+  Listing~\ref{lst:major_minor_demo}}{fig:major_minor_demo}
 
-\lstinputlisting{code/major_minor_demo.py}
+\lstinputlisting[caption={Custom tickers and formatters;
+  see Figure~\ref{fig:major_minor_demo}},
+label=lst:major_minor_demo]{code/major_minor_demo.py}
 
 
 \section{Example 2: date ticking}
@@ -2271,9 +2324,12 @@ Finally since the y axis is a stock price, a string formatter
 tick labels.
 
 \fig{4in}{figures/date_ticker_demo}{Providing custom tick locators and
-  formatters for financial/date plots}{fig:date_ticker_demo}
+  formatters for financial/date plots; see
+  Listing~\ref{lst:date_ticker_demo}.}{fig:date_ticker_demo}
 
-\lstinputlisting{code/date_ticker_demo.py}
+\lstinputlisting[caption={Custom date tick locators and formatters;
+  see Figure~\ref{lst:date_ticker_demo}},
+label=lst:date_ticker_demo]{code/date_ticker_demo.py}
 
 
 
@@ -2293,9 +2349,12 @@ of one variable on another.  matplotlib provides \func{polyfit} in the
 \mpldoc{matplotlib.mlab} module for general polynomial regression.
 
 \fig{4in}{figures/linear_regression}{Estimating a best fit line for
-  some random data}{fig:linear_regression}
+  some random data; see
+  Listing~\ref{lst:linear_regression}.}{fig:linear_regression}
 
-\lstinputlisting{code/linear_regression.py}
+\lstinputlisting[caption={Best fit line;
+  see Figure~\ref{fig:linear_regression}},
+label=lst:linear_regression]{code/linear_regression.py}
 
 
 \subsection{Polynomial regression}
@@ -2309,11 +2368,11 @@ coefficients and the x data using \code{best = polyval(x, coeefs)}.
 \dots, p_1, p_0$.
 
 \fig{4in}{figures/poly_regression}{Estimating a best fit cubic for
-  some random data}{fig:poly_regression}
+  some random data; see Listing~\ref{lst:poly_regression}}{fig:poly_regression}
 
 The algorithm for polyfit is taken from Mathworld's \textit{Least
   Squares Fitting Polynomial} and \textit{Vandermonde Matrix} entries
-\footnote{\url{http://mathworld.wolfram.com/LeastSquaresFittingPolynomial.html}}.
+\citep{Weisstein2002}.
 To do a best fit polynomial regression of order $N$ of $y$ onto $x$.
 We must solve an $N$-dimensional system of equations; eg, for $N=2$
 
@@ -2336,13 +2395,14 @@ $y$ is a len($x$) by 1 vector.  This equation can be solved as
 \end{equation}
       
 \noindent where $\bar{X}$ is the transpose of X and the -1 superscript
-denotes the inverse.  For more info, see Mathworld, but note that the
-$k$'s and $n$'s in the superscripts and subscripts on that page are
-problematic.  The linear algebra is correct, however.
+denotes the inverse.  For more info, see
+Mathworld\footnote{\url{http://mathworld.wolfram.com/LeastSquaresFittingPolynomial.html}},
+but note that the $k$'s and $n$'s in the superscripts and subscripts
+on that page are problematic.  The linear algebra is correct, however.
 
-
-
-\lstinputlisting{code/poly_regression.py}
+\lstinputlisting[caption={est fit polynomial; see
+  Figure~\ref{fig:poly_regression}},
+label=lst:poly_regression]{code/poly_regression.py}
 
 
 
@@ -2375,10 +2435,13 @@ creates a black and white checkboard using a grayscale colormap and
 then blends a color image over it, as shown in
 Figure~\ref{fig:layer_images}.
 
-\fig{4in}{figures/layer_images}{Layering axes images using alpha blending.}
+\fig{4in}{figures/layer_images}{Layering axes images using alpha
+  blending; see Listing~\ref{lst:layer_images}.}
 {fig:layer_images}
 
-\lstinputlisting{code/layer_images.py}
+\lstinputlisting[caption={Alpha-blending multiple images;
+  see Figure~\ref{fig:layer_images}},
+label=lst:layer_images]{code/layer_images.py}
 
 
 \subsection{Creating a mosaic of images}
@@ -2396,10 +2459,13 @@ different kinds of arrays (luminance, RGB, RGBA) and different
 colormaps when creating figure mosaics.  See
 Figure~\ref{fig:figure_mosaic}.
 
-\fig{4in}{figures/figure_mosaic}{Creating a mosaic using \func{figimage}}
+\fig{4in}{figures/figure_mosaic}{Creating a mosaic using
+  \func{figimage}; see Listing~\ref{lst:figure_mosaic}.}
 {fig:figure_mosaic}
 
-\lstinputlisting{code/figure_mosaic.py}
+\lstinputlisting[caption={Creating figure mosaics;
+  see Figure~\ref{fig:figure_mosaic}},
+label=lst:figure_mosaic]{code/figure_mosaic.py}
 
 
 \subsection{Defining your own colormap}
@@ -2440,6 +2506,9 @@ changes to the matplotlib-devel mailing list.
 
 \chapter{mathtext symbols}
 \label{cha:math_symbols}
+
+\bibliographystyle{plainnat}
+\bibliography{matplotlib}
 
 
 \end{document}

@@ -119,6 +119,8 @@ Methods inherited from <a href="matplotlib.patches.html#Rectangle">matplotlib.pa
 Methods inherited from <a href="matplotlib.patches.html#Patch">matplotlib.patches.Patch</a>:<br>
 <dl><dt><a name="Cell-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
 
+<dl><dt><a name="Cell-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="Cell-get_edgecolor"><strong>get_edgecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Cell-get_facecolor"><strong>get_facecolor</strong></a>(self)</dt></dl>
@@ -126,6 +128,8 @@ Methods inherited from <a href="matplotlib.patches.html#Patch">matplotlib.patche
 <dl><dt><a name="Cell-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Cell-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Cell-set_antialiased"><strong>set_antialiased</strong></a>(self, aa)</dt></dl>
 
 <dl><dt><a name="Cell-set_edgecolor"><strong>set_edgecolor</strong></a>(self, color)</dt></dl>
 

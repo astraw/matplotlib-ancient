@@ -62,6 +62,8 @@ Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 
 <dl><dt><a name="Circle-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
+<dl><dt><a name="Circle-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="Circle-get_edgecolor"><strong>get_edgecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Circle-get_facecolor"><strong>get_facecolor</strong></a>(self)</dt></dl>
@@ -69,6 +71,8 @@ Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 <dl><dt><a name="Circle-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Circle-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Circle-set_antialiased"><strong>set_antialiased</strong></a>(self, aa)</dt></dl>
 
 <dl><dt><a name="Circle-set_edgecolor"><strong>set_edgecolor</strong></a>(self, color)</dt></dl>
 
@@ -133,6 +137,8 @@ None,&nbsp;they&nbsp;default&nbsp;to&nbsp;their&nbsp;rc&nbsp;params&nbsp;setting
 
 <dl><dt><a name="Patch-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
+<dl><dt><a name="Patch-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="Patch-get_edgecolor"><strong>get_edgecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Patch-get_facecolor"><strong>get_facecolor</strong></a>(self)</dt></dl>
@@ -142,6 +148,8 @@ None,&nbsp;they&nbsp;default&nbsp;to&nbsp;their&nbsp;rc&nbsp;params&nbsp;setting
 <dl><dt><a name="Patch-get_verts"><strong>get_verts</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the&nbsp;patch</tt></dd></dl>
 
 <dl><dt><a name="Patch-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Patch-set_antialiased"><strong>set_antialiased</strong></a>(self, aa)</dt></dl>
 
 <dl><dt><a name="Patch-set_edgecolor"><strong>set_edgecolor</strong></a>(self, color)</dt></dl>
 
@@ -213,6 +221,8 @@ Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 
 <dl><dt><a name="Polygon-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
+<dl><dt><a name="Polygon-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="Polygon-get_edgecolor"><strong>get_edgecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Polygon-get_facecolor"><strong>get_facecolor</strong></a>(self)</dt></dl>
@@ -220,6 +230,8 @@ Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 <dl><dt><a name="Polygon-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Polygon-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Polygon-set_antialiased"><strong>set_antialiased</strong></a>(self, aa)</dt></dl>
 
 <dl><dt><a name="Polygon-set_edgecolor"><strong>set_edgecolor</strong></a>(self, color)</dt></dl>
 
@@ -314,6 +326,8 @@ Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 
 <dl><dt><a name="Rectangle-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
+<dl><dt><a name="Rectangle-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="Rectangle-get_edgecolor"><strong>get_edgecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Rectangle-get_facecolor"><strong>get_facecolor</strong></a>(self)</dt></dl>
@@ -321,6 +335,8 @@ Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 <dl><dt><a name="Rectangle-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Rectangle-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Rectangle-set_antialiased"><strong>set_antialiased</strong></a>(self, aa)</dt></dl>
 
 <dl><dt><a name="Rectangle-set_edgecolor"><strong>set_edgecolor</strong></a>(self, color)</dt></dl>
 
@@ -395,6 +411,8 @@ Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 
 <dl><dt><a name="RegularPolygon-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
 
+<dl><dt><a name="RegularPolygon-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="RegularPolygon-get_edgecolor"><strong>get_edgecolor</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="RegularPolygon-get_facecolor"><strong>get_facecolor</strong></a>(self)</dt></dl>
@@ -402,6 +420,8 @@ Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
 <dl><dt><a name="RegularPolygon-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="RegularPolygon-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="RegularPolygon-set_antialiased"><strong>set_antialiased</strong></a>(self, aa)</dt></dl>
 
 <dl><dt><a name="RegularPolygon-set_edgecolor"><strong>set_edgecolor</strong></a>(self, color)</dt></dl>
 

@@ -1,4 +1,3 @@
 from matplotlib.matlab import *
-
-plot(arange(10), 'ok', markerfacecolor=None)
+plot(range(10), 'ro', mew=2, aa=False, mec='g')
 show()

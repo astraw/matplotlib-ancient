@@ -1,6 +1,17 @@
 
 FAQs = (
 
+    ('TOOLBAR2',
+    'Nothing happens when I click the new toolbar buttons', """\
+The Home, Forward and back buttons on the new toolbar are used to
+navigate between previously defined views.  If you haven't navigated
+anywhere, these buttons will have no effect.  The Pan/Zoom, and zoom
+to rect buttons activate a navigation mode, but by themselves do
+nothing.  After clicking one of them, you need to put your mouse over
+and axes and click/drag.  Then the navigation tools take effect - see
+the <a href=tutorial.html#toolbar2>toolbar2 tutorial</a>.
+"""),
+
     ('FREEZE',
     'My matplotlib window is freezing',
 

@@ -204,7 +204,7 @@ x&nbsp;and&nbsp;y&nbsp;axis&nbsp;limits<br>
  <dl><dt><a name="-bar"><strong>bar</strong></a>(*args, **kwargs)</dt><dd><tt>BAR(left,&nbsp;height)<br>
 &nbsp;<br>
 Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at<br>
-&nbsp;&nbsp;left,&nbsp;left+width,&nbsp;0,&nbsp;height<br>
+&nbsp;&nbsp;left,&nbsp;left,&nbsp;0,&nbsp;height<br>
 left&nbsp;and&nbsp;height&nbsp;are&nbsp;Numeric&nbsp;arrays<br>
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>

@@ -12,12 +12,18 @@ X,Y = meshgrid(x, y)
 
 
 Z1 = array(([0,1]*4 + [1,0]*4)*4); Z1.shape = 8,8  # chessboard
-im1 = imshow(Z1, cmap=cm.gray)
-im1.set_interpolation('nearest')
-hold(True)  # set the hold state so the next images will overlay
+
+xmin, xmax, ymin, ymax = min(x), max(x), min(y), max(y)
+extent = xmin, xmax, ymin, ymax
+Z1 = array(([0,1]*4 + [1,0]*4)*4); Z1.shape = 8,8  # chessboard
+im1 = imshow(Z1, cmap=cm.gray, interpolation='nearest',
+             extent=extent)
+hold(True)
 
 Z2 = func3(X, Y)
-im2 = imshow(Z2, cmap=cm.jet, alpha=.9)
+im2 = imshow(Z2, cmap=cm.jet, alpha=.9, interpolation='bilinear',
+             extent=extent)
+axis([xmin, xmax, ymin, ymax])
 savefig('../figures/layer_images.eps')
 savefig('../figures/layer_images.png')
 show()
