@@ -7,7 +7,7 @@ for pathname in glob.glob(os.path.join(MPL_SRC, 'examples', '*.py')):
     path, fname = os.path.split(pathname)
     newname = os.path.join('examples', fname)
     print 'copying %s to %s' % (pathname, newname)
-    shutil.copy(pathname, fname)
+    shutil.copy(pathname, newname)
 
 filenames = ( '.matplotlibrc', 'INSTALL', 'CHANGELOG',
               'NUMARRAY_ISSUES', 'API_CHANGES',)
