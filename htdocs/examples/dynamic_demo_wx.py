@@ -19,8 +19,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.17  2004/03/02 20:47:51  jdh2358
-update htdocs - lots of small fixes
+Revision 1.18  2004/03/03 19:27:43  jdh2358
+fixed gtk vert text bug
 
 Revision 1.2  2004/02/26 20:22:58  jaytmiller
 Added the "numerix" Numeric/numarray selector module enabling matplotlib
