@@ -1,3 +1,11 @@
+Software required to build the users guide
+
+  matplotlib - http://matplotlib.sourceforge.net
+  latex - http://www.latex-project.org
+  ImageMagick - http://www.imagemagick.org
+  graphviz    - http://www.research.att.com/sw/tools/graphviz
+  PIL - http://www.pythonware.com/products/pil
+
 To build the matplotlib users guide, you will need to 
 
   * PIL - some of the examples use it to show how to interact with
@@ -33,6 +41,9 @@ To build the matplotlib users guide, you will need to
     suite.  To generate the dot graphs
 
     > make dot
+
+    You will also need the ImageMagick convert tool to conver the dot
+    ps output to PNG
 
   * build the docs
 
