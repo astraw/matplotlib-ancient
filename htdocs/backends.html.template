@@ -4,11 +4,11 @@
 
 The matplotlib core graphics routines interact with an abstract
 renderer and graphics context to allow device independent ouput.
-Currently, output to pygtk, wxpython, postscript and gdmodule are
-supported.  With not too much effort, you can port matplotlib to your
-favorite display; high on my list of priorities are SVG, PDF, Tkinter
-and PIL.  If you are interested in porting to one of these platforms,
-please contact me!<p>
+Currently, output to pygtk, wxpython, postscript, gdmodule and
+libart/paint are supported.  With not too much effort, you can port
+matplotlib to your favorite display; high on my list of priorities are
+SVG, PDF, Tkinter and PIL.  If you are interested in porting to one of
+these platforms, please contact me!<p>
  
 You can choose your backend renderer from the command line prompt.
 Most if not all matplotlib scripts can generate output to any of the
@@ -17,26 +17,20 @@ backends without any alterations.  Following the lead of the matlab
 line with the <tt>-d</tt> flag, as in
 
 <pre>
-> python subplot_demo.py -dGTK  # the GTK backend
-> python subplot_demo.py -dPS   # the postscript backend
-> python subplot_demo.py -dGD   # the GD backend
-> python subplot_demo.py -dWX   # the WX backend
+> python subplot_demo.py -dGTK     # the GTK backend
+> python subplot_demo.py -dPS      # the postscript backend
+> python subplot_demo.py -dGD      # the GD backend
+> python subplot_demo.py -dWX      # the WX backend
+> python subplot_demo.py -dPaint   # the Paint backend
 </pre>
 
 For backends that do not have a GUI, no output will be produced unless
-a call to <a href=matplotlib.matlab.html#savefig>savefig</a> is made (
-<i> this is a design decision that I am not committed too.  The
-primary alternative is to print to stdout.  This would enable you to
-use the postscript backend with, eg, <tt>python subplot_demo.py -dPS |
-lpr</tt> but for unsuspecting users could result in a lot of ASCII
-dumped to the screen.  If you have a preference, weigh in </i>).  I
-have made a minor change to <a
-href=matplotlib.matlab.html#savefig>savefig</a> -- the recommended way
-to use this function is to not give an extension.  The backends will
-choose the proper extension.  This allows you to write a single script
-and select the output format from the command line.  So a script
-containing <tt>savefig('somefile')</tt> will create
-<tt>somefile.ps</tt> if called with <tt>-dPS</tt> and
+a call to <a href=matplotlib.matlab.html#savefig>savefig</a> is made.
+The recommended way to use the savefig function is to not give an
+extension.  The backends will choose the proper extension.  This
+allows you to write a single script and select the output format from
+the command line.  So a script containing <tt>savefig('somefile')</tt>
+will create <tt>somefile.ps</tt> if called with <tt>-dPS</tt> and
 <tt>somefile.png</tt> if called with <tt>-dGD</tt>, and so on.<p>
 
 Alternatively, you can select the backend renderer in your script by
@@ -53,10 +47,12 @@ The current backend strings that are supported are <a
 href=backends.backend_gd.html>GD</a>, <a
 href=backends.backend_gtk.html>GTK</a>, <a
 href=backends.backend_ps.html>PS</a> <a
-href=backends.backend_ps.html>WX</a> and <a
-href=backends.backend_template.html>Template</a>.  The default is GTK.
-Template is a do nothing backend that serves as a template for backend
-writers (volunteers welcome!).<p>
+href=backends.backend_ps.html>WX</a> <a
+href=backends.backend_template.html>Template</a> and <a
+href=backends.backend_paint.html>Paint</a>.
+
+The default is GTK.  Template is a do nothing backend that serves as a
+template for backend writers (volunteers welcome!).<p>
 
 To get the most of your backend of choice, you may need to set an
 environment variable controlling the fonts; see <a
@@ -199,6 +195,28 @@ getting the postscript backend setup for proper font rendering;
 notably, you must make sure there are some '*.afm' files in your
 <tt>AFMPATH</tt> if you want to use fonts other than the ones that
 ship with matplotlib.
+
+
+<a name=Paint><h3>Paint</h3></a>
+
+David Moore has written a paint backend for matplotlib.  paint is a <a
+href=http://www.levien.com/libart>libart</a> wrapper</a>. In a
+nutshell, libart is a svg oriented, high performance, 2D graphics
+engine that supports lots of nifty features.  The paint backend
+exposes some of them, and David has been extending it to expose more.
+
+The paint backend requires <a
+href=http://sourceforge.net/projects/numpy>Numeric</a>, <a
+href=http://pypaint.sourceforge.net>pypaint</a> version 0.3.  If you
+want cross-platform freetype font selection support, you'll also need
+TTFQuery and fonttools.  See <a href=backends.html#GD>the GD
+backend</a> for instructions on how to obtain and install these
+modules.  Otherwise the default font is <a
+href=http://www.bitstream.com/categories/products/fonts/vera>Vera
+Bitstream</a>, which ships with matplotib.
+
+libart is highly portable, and the paint backend has been confirmed to
+work on win32 and linux.
 
 <a name=Debian><h3>Debian Users</h3></a>
 

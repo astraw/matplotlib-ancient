@@ -57,10 +57,10 @@ This is particularly useful for batch processing over a dumb terminal,
 or for web application servers.  All of the font rendering using GD
 module is with true type.  Thus you need to have '*.ttf' files on your
 system to use this backend.  Set the environment variable
-<tt>GDFONTPATH</tt> to point to your TTF fonts.  A typical windows dir
-is <tt>C:\windows\fonts</tt>. matplotlib distributes the 'Vera' fonts
-from bitstream, which were released under a permissive license, and
-these are the defaults.  If you want more, set the environment
+<tt>TTFFONTPATH</tt> to point to your TTF fonts.  A typical windows
+dir is <tt>C:\windows\fonts</tt>. matplotlib distributes the 'Vera'
+fonts from bitstream, which were released under a permissive license,
+and these are the defaults.  If you want more, set the environment
 variable to point to them.<p>
 
 If you are aware of other freely distributable ttf fonts, please

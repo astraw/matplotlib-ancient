@@ -1,0 +1,83 @@
+
+FAQs = (
+    (
+    'Does matplotlib work with numarray?',
+    """\
+matplotlib can work with numarray.  Currently, there is no conditional
+import of numarray versus numeric.  But if you recursivele replace all
+occurances of 'from Numeric' with 'from numarray', and all occurances
+of 'typecode' with 'type', matplotlib will work.  In the not too
+distant future, I hope to automatically detect numarray or Numeric.
+"""),
+	
+    (
+    'I cannot import gtk / gdk / gobject',
+    """\
+95 times out of 100 this is a PATH issue.  Follow the instructions on
+this <a
+href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.012.htp>pygtk
+FAQ entry</a>.  There is a long thread on the pygtk mailing list where
+Cousing Stanley got his gtk corrupted by installing glade, which
+writes some older libgtk versions into the windows system dir.  Do a
+file search for libgtk and make sure nothing shows up outside of your
+GTK install tree.  Read <a
+href=http://www.mail-archive.com/pygtk@daa.com.au/msg07324.html>this
+thread</a>, which is filled with good advice.  """
+    ),
+    
+    ('Can I just generate images without having a window popup?',
+     """\
+The easiest way to do this is use an image backend, either <a
+href=backends.html#GD>GD</a> or <a href=backends.html#Paint>Paint</a>
+if you want to generate PNG images, eg, for use in a web page, or PS
+if you want publication quality, scalable images.  All of these
+backends run on all of the major platforms.  One additional option on
+an X windows platform is to run the GTK backend under an Xvfb, which
+works nicely and is not too hard to setup.  Contact
+jdhunter@ace.bsd.uchicago.edu for more information if you are
+interested setting this up."""),
+
+    ("What's up with 'show'?  Do I have to use it?",
+     """\
+
+The use of show is probably the biggest source of confusion and
+vexastion among new users of matplotlib.  First of all, you do not
+need this function with the image backends (Paint, GD, PS) but you do
+need it with the GUI (GTK, WX) backends (unless you are running
+matplotlib in <a href=interactive.html>interactive mode</a>).  Clear
+now.  No, I didn't think so.
+
+The GUIs have 'mainloops' which need to be entered to do event
+handling.  Unless you have threading enabled ala gui_thread (on the
+TODO list), entering the mainloop is the last command you execute.
+Because it is expensive to draw, I want to avoid redrawing the figure
+many times in a batch script such as the following
+
+<pre>
+  plot([1,2,3])            # draw here ?
+  xlabel('time')           # and here ?
+  ylabel('volts')          # and here ?
+  title(''a simple plot')  # and here ?
+  show()            
+</pre>
+
+It is possible to force matplotlib to draw after every command, which
+is what you want in <a href=interactive.html>interactive mode</a>, but
+in a script you want to defer all drawing until the script has
+executed.  This is especially important for complex figures that take
+some time to draw.  'show' is designed to tell matplotlib that you're
+all done issuing commands and you want to draw the figure now.  """),
+
+
+
+)
+@header@
+<h2> matplotlib FAQ </h2>
+
+ + for q,a, in FAQs:
+   <h4>@q@</h4>
+     @a@
+   <p>
+ -
+
+@footer@

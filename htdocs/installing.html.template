@@ -10,56 +10,61 @@ If these dependencies are satisfied, just do the usual thing:<p>
   </pre>
 
 Matplotlib is known to work on several linux, win32 and OS X
-platforms; it should run anywhere that python and Numeric run.  The
-different output devices have different requirements.  Note that if
-you install matplotlib anywhere other than the default locatio, you
-will need to set the MATPLOTLIBDATA environment variable to point to
-the install base dir.
+platforms; it should run anywhere that python and Numeric run.  
 
+
+To get the most out of matplotlib, you will probably want to install
+one or more of the additional backends, which provide output to
+various GUI and image rendering libraries.  Each of these has
+different prerequistes.  Note that if you install matplotlib anywhere
+other than the default location, you will need to set the
+MATPLOTLIBDATA environment variable to point to the install base dir.
+For more specific information regarding a particular output device
+(GTK, PS, GD, WX, Paint), see <a href=backends.html>matplotlib
+outputs</a>.
+
+<h2> GTK Quickstart </h2>
+
+The GTK backend was the first and thus arguably most mature backend.
 Below is a quickguide to what you'll need to get matplotlib up and
-running with the GTK backend.  For more specific information regarding
-a particular output device (GTK, PS, GD or WX), see <a
-href=backends.html>matplotlib outputs</a>.
+running with the GTK backend.
 
-<h2> Win 32 Quickstart</h2>
+<h2> Windows GTK Quickstart</h2>
 
 If you don't already have python installed, you may want to consider
 using the <a href=http://www.enthought.com/python/>enthought
 edition</a> of python, which has scipy, Numeric, and wxpython, plus a
 lot of other goodies, preinstalled.  
 
-The following quickstart instructions are for the GTK backend -- note
-if you use the enthought python you won't need Numeric.
 
 <ul> 
 
 <li>Install <a
 href=http://sourceforge.net/project/showfiles.php?group_id=1369&release_id=176455>
 Numeric</a> (currently version 23.1).  Note, you'll want the "numpy",
-not "numarray" files.</li>
+not "numarray" files.  If you are using the enthougt edition of
+python, you can skip this step.</li>
 
 <li>Install the <a href=http://prdownloads.sourceforge.net/gtk-win>
-GTK runtime</a> (currently version 2.2.4.1).</li>
+GTK runtime</a> (currently version 2.2.4.1). <i>I recommend not using
+the default install location as it makes it difficult to set your
+path; use C:\GTk instead</i></li>
 
 <li>Install <a
 href=http://www.pcpm.ucl.ac.be/~gustin/win32_ports/binaries/pygtk-2.0.0.win32-py2.3.exe>pygtk-2.0.0</a></li>
 
 <li>Modify your path.  Check <a
-href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.012.htp>the
-pygtk FAQ</a> for information on how to do this right.  In a nutshell,
-for GTK, add the <tt>bin</tt> and <tt>lib</tt> subdirs of your GTK
-runtime install directory to the PATH environment variable.  For
-Windows 2000, NT or XP, right click My
-Computer->Properties->Advanced->Environment variables.  For older
-versions of windows, edit <tt>c:\autoexec.bat</tt></li>
+href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.012.htp>this
+FAQ entry</a> for information on how to do this right.
 
 <li> Install matplotlib using the windows installer on the <a
 ref=http://sourceforge.net/projects/matplotlib>download page<a></li>
 
 </ul> 
 
-<h2>Linux quickstart</h2>
-<ul> 
+<h2>Linux GTK quickstart</h2> 
+
+<ul>
 
 <li><b>Important:</b> To generate plots in the graphical user
 interface GTK, you need to have GNOME 2 and at least pygtk-1.99.16
@@ -69,7 +74,6 @@ you will still need to upgrade to at least pygtk-1.99.16.  The latest
 version (currently 2.0.0) is recommended.  I don't have specific
 information about the other linux distributions.  Debian users consult
 <a href=backends.html#Debian>matplotlib outputs</a>
-
 
 </ul> 
 
