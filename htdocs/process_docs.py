@@ -2,12 +2,14 @@ import os, sys
 
 from hthelpers import modules
 os.system('rm -rf docs matplotlib; mkdir docs')
-os.system('cd docs; /usr/local/bin/pydoc -w %s' % ' '.join(modules))
+for m in modules:
+    os.system('cd docs; /usr/local/bin/pydoc -w %s' % m)
 
 devTree, thisDir = os.path.split( os.getcwd() )
 for modname in modules:
     print '\tConverting %s to template' % modname
-    s = file('docs/' + modname + '.html').read()
+    try: s = file('docs/' + modname + '.html').read()
+    except IOError: continue
     s = s.replace('file:%s' % devTree, '')
     s = s.replace(devTree, '')
     lines = s.split('\n')

@@ -516,6 +516,9 @@ Eg<br>
 <a href="#-hold">hold</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;toggle&nbsp;hold<br>
 <a href="#-hold">hold</a>(True)&nbsp;&nbsp;#&nbsp;hold&nbsp;is&nbsp;on<br>
 <a href="#-hold">hold</a>(False)&nbsp;#&nbsp;hold&nbsp;is&nbsp;off</tt></dd></dl>
+ <dl><dt><a name="-imread"><strong>imread</strong></a>(*args, **kwargs)</dt><dd><tt>return&nbsp;image&nbsp;file&nbsp;in&nbsp;fname&nbsp;as&nbsp;numerix&nbsp;array<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;MxNx4&nbsp;array&nbsp;of&nbsp;0-1&nbsp;normalized&nbsp;floats</tt></dd></dl>
  <dl><dt><a name="-imshow"><strong>imshow</strong></a>(*args, **kwargs)</dt><dd><tt>IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;axes&nbsp;size<br>
 &nbsp;<br>
@@ -630,8 +633,25 @@ x&nbsp;=&nbsp;<a href="#-load">load</a>('test.dat')&nbsp;&nbsp;&nbsp;&nbsp;#&nbs
  <dl><dt><a name="-loglog"><strong>loglog</strong></a>(*args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
 to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
 more&nbsp;info</tt></dd></dl>
- <dl><dt><a name="-mpl_connect"><strong>mpl_connect</strong></a>(s, func)</dt></dl>
- <dl><dt><a name="-mpl_disconnect"><strong>mpl_disconnect</strong></a>(cid)</dt></dl>
+ <dl><dt><a name="-mpl_connect"><strong>mpl_connect</strong></a>(s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
+&nbsp;<br>
+&nbsp;&nbsp;def&nbsp;func(event)<br>
+&nbsp;<br>
+where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbsp;events&nbsp;are&nbsp;recognized<br>
+&nbsp;<br>
+&nbsp;'button_press_event'&nbsp;<br>
+&nbsp;'button_release_event'&nbsp;<br>
+&nbsp;'motion_notify_event'&nbsp;<br>
+&nbsp;<br>
+&nbsp;For&nbsp;the&nbsp;three&nbsp;events&nbsp;above,&nbsp;if&nbsp;the&nbsp;mouse&nbsp;is&nbsp;over&nbsp;the&nbsp;axes,<br>
+&nbsp;the&nbsp;variable&nbsp;event.inaxes&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;the&nbsp;axes&nbsp;it&nbsp;is&nbsp;over,<br>
+&nbsp;and&nbsp;additionally,&nbsp;the&nbsp;variables&nbsp;event.xdata&nbsp;and&nbsp;event.ydata<br>
+&nbsp;will&nbsp;be&nbsp;defined.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;mouse&nbsp;location&nbsp;in&nbsp;data&nbsp;coords.<br>
+&nbsp;See&nbsp;backend_bases.MplEvent.<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;a&nbsp;connection&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with<br>
+mpl_disconnect</tt></dd></dl>
+ <dl><dt><a name="-mpl_disconnect"><strong>mpl_disconnect</strong></a>(cid)</dt><dd><tt>Connect&nbsp;s&nbsp;to&nbsp;func.&nbsp;return&nbsp;an&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect</tt></dd></dl>
  <dl><dt><a name="-pcolor"><strong>pcolor</strong></a>(*args, **kwargs)</dt><dd><tt>PCOLOR(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
 &nbsp;<br>
 PCOLOR(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y<br>
@@ -1236,7 +1256,7 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>UnsignedInt32</strong> = 'u'<br>
 <strong>UnsignedInt8</strong> = 'b'<br>
 <strong>UnsignedInteger</strong> = 'u'<br>
-<strong>a</strong> = 'matplotlib.transforms'<br>
+<strong>a</strong> = 'matplotlib.matlab'<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>add</strong> = &lt;ufunc 'add'&gt;<br>
 <strong>arccos</strong> = &lt;ufunc 'arccos'&gt;<br>

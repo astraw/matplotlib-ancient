@@ -671,8 +671,8 @@ input from the user.  All graphical user interfaces (GUIs) provide
 event handling to determine things like key presses, mouse position,
 and button clicks.  matplotlib supports a number of GUIs, and provides
 an interface to the GUI event handling via the <a
-href=matplotlib.matlab.html#mpl_connect>mpl_connect</a> and <a
-href=matplotlib.matlab.html#mpl_connect>mpl_disconnect</a> methods of
+href=matplotlib.matlab.html#-mpl_connect>mpl_connect</a> and <a
+href=matplotlib.matlab.html#-mpl_disconnect>mpl_disconnect</a> methods of
 the matlab interface (API users will probably want to use their GUIs
 event handling directly, but do have the option of using their
 <tt>FigureCanvas.mpl_connect</tt> method.<p>

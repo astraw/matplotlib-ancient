@@ -100,7 +100,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137127280)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137105824)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -170,15 +170,11 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="FigureCanvasGTKAgg-get_child_visible"><strong>get_child_visible</strong></a>(...)</dt></dl>
 
-<dl><dt><a name="FigureCanvasGTKAgg-get_clipboard"><strong>get_clipboard</strong></a>(...)</dt></dl>
-
 <dl><dt><a name="FigureCanvasGTKAgg-get_colormap"><strong>get_colormap</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTKAgg-get_composite_name"><strong>get_composite_name</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTKAgg-get_direction"><strong>get_direction</strong></a>(...)</dt></dl>
-
-<dl><dt><a name="FigureCanvasGTKAgg-get_display"><strong>get_display</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTKAgg-get_events"><strong>get_events</strong></a>(...)</dt></dl>
 
@@ -195,10 +191,6 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="FigureCanvasGTKAgg-get_parent_window"><strong>get_parent_window</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTKAgg-get_pointer"><strong>get_pointer</strong></a>(...)</dt></dl>
-
-<dl><dt><a name="FigureCanvasGTKAgg-get_root_window"><strong>get_root_window</strong></a>(...)</dt></dl>
-
-<dl><dt><a name="FigureCanvasGTKAgg-get_screen"><strong>get_screen</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTKAgg-get_settings"><strong>get_settings</strong></a>(...)</dt></dl>
 
@@ -217,8 +209,6 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="FigureCanvasGTKAgg-grab_focus"><strong>grab_focus</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTKAgg-grab_remove"><strong>grab_remove</strong></a>(...)</dt></dl>
-
-<dl><dt><a name="FigureCanvasGTKAgg-has_screen"><strong>has_screen</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTKAgg-hide"><strong>hide</strong></a>(...)</dt></dl>
 
