@@ -40,9 +40,9 @@ default line width.  See <a href=.matplotlibrc>.matplotlibrc</a> for a
 sample config file and information on how to use it.  """),
 
     ('CUSTOM',
-    'How do I customize the default behavior of a single figure?',
+    'How do I customize the default behavior of a single session?',
     r"""
-If you want to customize a single figure, eg, the default font,
+If you want to customize a session of matplotlib, eg, the default font,
 linewidth, fontsize, etc, you can import and customize the rcParams
 determined by the matplotlibrc file (see above).  For example, if you
 are using mathtext you may want your default axes labels, tick labels
@@ -85,10 +85,13 @@ likelihood in parentheses):
    GTK-Runtime (1% of the time).  <it>Solution:</it> install the
    runtime as described at <a
    href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.012.htp>pygtk
-   FAQ entry</a></li> </ul> There is a long thread on the pygtk
-   mailing list where Cousing Stanley got his gtk corrupted; read <a
+   FAQ entry</a>.  There is a long thread on the pygtk mailing list
+   where Cousing Stanley got his gtk corrupted; read <a
    href=http://www.mail-archive.com/pygtk@daa.com.au/msg07324.html>this
-   thread</a>, which is filled with good advice.  """ ),
+   thread</a>, which is filled with good advice.  
+  </ul>
+
+""" ),
 	
 
     ('WHICHBACKEND',
@@ -175,7 +178,6 @@ Just use raw strings and enclose the strings with dollar signs, as in
 href=screenshots.html#mathtext_demo>screenshot</a> and the <a
 href=matplotlib.mathtext.html>mathtext</a> documentation for usage,
 requirements and backend information.
-
 """),
     
     ('BATCHMODE',
