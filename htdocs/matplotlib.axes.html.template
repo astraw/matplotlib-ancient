@@ -1163,5 +1163,5 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>lineMarkers</strong> = {'+': 1, ',': 1, '.': 1, '&lt;': 1, '&gt;': 1, '^': 1, 'o': 1, 's': 1, 'v': 1, 'x': 1}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1}<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTK', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
 @footer@

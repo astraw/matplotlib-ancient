@@ -7,6 +7,7 @@ commands = (
     ('close', 'close the current figure window'),
     ('cohere', 'make a plot of coherence'),
     ('csd', 'make a plot of cross spectral density'),
+    ('date_plot', 'plot date data'),
     ('errorbar', 'make an errorbar graph'),
     ('figure', 'create or change active figure'),
     ('fill', 'draw filled polygons'),

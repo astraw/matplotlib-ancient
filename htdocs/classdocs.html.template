@@ -6,7 +6,10 @@ modfiles = (
     ('backend_bases', 'The base classed for all the classes the backend must override'),
     ('cbook', 'Some cookbook utility functions'), 
     ('colors', 'Color parsers, maps'),
+    ('dates', 'Support for date plots and converters'),    
     ('figure', 'The Figure classes'),
+    ('finance', 'Classes for obtaining and plotting financial data'),    
+    ('ft2font', 'Freetype2 interface'),   
     ('image', 'The Image class'),   
     ('legend', 'The Legend class'), 
     ('lines', 'The Line2D classes'), 
@@ -16,7 +19,8 @@ modfiles = (
     ('numerix', 'Choose Numeric or numarray'),
     ('patches', 'Rectangles, polygons, circles, etc...'),
     ('table', 'Table class'), 
-    ('text', 'Text class'), 
+    ('text', 'Text class'),
+    ('ticker', 'Support for tick locating and formatting'),     
     ('transforms', 'Bounding boxes, transformations'),
     ('backends.backend_agg', 'The Agg backend'), 
     ('backends.backend_gd', 'The GD module backend'),
@@ -26,7 +30,8 @@ modfiles = (
     ('backends.backend_ps', 'The Postscript backend'),
     ('backends.backend_template', 'A template for backend writers'),
     ('backends.backend_tkagg', 'Tk GUI with agg renderering'),    
-    ('backends.backend_wx', 'Development version of wx backend'),
+    ('backends.backend_wx', 'wx backend'),
+    ('backends.backend_wxagg', 'wx GUI with antigrain rendering'),    
     )
 
 @header@

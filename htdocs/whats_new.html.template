@@ -38,7 +38,7 @@ locations.
      ),
 
     ('Date plot', """
-A new command a href=matplotlib.matlab.html#-plot_date>plot_date</a>
+A new command <a href=matplotlib.matlab.html#-plot_date>plot_date</a>
 command for plotting date dependent data; see <a
 href=screenshots.html#date_demo>date demo</a>.  Converters supplied in
 the <a href=matplotlib.dates.html>dates</a> module allow you to work
@@ -49,12 +49,21 @@ the ticks.  See examples <a
 href=examples/date_demo1.py>date_demo1.py</a> and <a
 href=examples/date_demo2.py>date_demo2.py</a>.  The <a
 href=matplotlib.dates.html>dates documentation</a> provides an
-overview anf guide to with dates."""),
+overview and guide to with dates."""),
 
     
     ('Ported image support to numarray and postscript backend', """
 The image module now works with Numeric or numarray, and now works in
 the postscript backend as well as GTKAgg, TkAgg, WXAgg, Agg, and GTK.
+"""),
+
+    ('Changes to matplotlibrc', """
+Many features added to the default config file for font support, tkagg
+windowing in win32, and more.  Please use the new file at <a
+href=.matplotlibrc>.matplotlibrc</a>.  By default, the installer will
+overwrite the existing file in the install path, so if you want to
+preserve your's, please move it to your HOME dir and set the
+environment variable if necessary.
 """),
 
     ('load and save commands', """
