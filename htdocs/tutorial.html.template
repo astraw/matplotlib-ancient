@@ -34,9 +34,9 @@ line_props = (
 <h2>Using matplotlib</h2> 
 
 If you are new to python, I recommend reading as much of the <a
-href=http://lists.sourceforge.net/mailman/listinfo/matplotlib-users>python
+href=http://docs.python.org/tut/tut.html>python
 tutorial</a> and <a
-href=http://lists.sourceforge.net/mailman/listinfo/matplotlib-users>numeric
+href=http://www.pfdubois.com/numpy/html2/numpy.html>numeric
 python manual</a> as possible before working with matplotlib.
 Otherwise you may get frustrated.  When you feel comfortable with
 both, you'll find matplotlib easy.<p>
