@@ -1,3 +1,6 @@
+*.toc
+*.bbl
+*.blg
 *.ps
 *.eps
 *.dvi

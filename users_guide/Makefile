@@ -6,7 +6,7 @@ all:
 
 clean: 	
 	find . \( -name "*~" -o -name "*.pyc" -o -name "#*" \) | xargs rm -f;\
-	rm -f *.log *.pdf *.aux *.dvi *.ps
+	rm -f *.log *.pdf *.aux *.dvi *.ps *.bbl *.blg *.toc
 
 
 pdf: 	
