@@ -176,7 +176,7 @@ def isNewEntry(line):
         return 0
 
 news = NewsBox("""\
-matlab interface now named pylab.  See <a href=matlab_to_pylab.py>matlab_to_pylab.py</a> for conversion details</a>
+matlab interface now named pylab.  See <a href=matlab_to_pylab.py>matlab_to_pylab.py</a> for conversion details</a>.  If you upgrading from a version older than 0.64, you must remove site-packages/matplotlib before installing.
 """)
 
 table1 =  LinkBox(header='Matplotlib', links=(

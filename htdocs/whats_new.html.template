@@ -120,7 +120,6 @@ interface for control of interactive mode.  See updated discussion at
 <ul>
   <li>Fixed colorbar bug with scatter</li>
   <li>SVG clipping problem - Thanks Norm Peterson</li>
-  <li>tk now supports multiple events and disconnects</li>
   <li>numerous small legend bugs fixed</li>
   <li>zoom to rect works with reversed axis limits - thanks Gregory</li>
   <li>fontsizing problem fixes, ps plots correctly sized, landscape
