@@ -261,7 +261,7 @@ status Collapsed
 \layout Standard
 
 \backslash 
-lstinputlisting{code/weave_examples.py}
+lstinputlisting{examples/weave_examples.py}
 \end_inset 
 
 
@@ -303,7 +303,7 @@ Somebody's head
 \layout Standard
 
 
-\begin_inset LatexCommand \BibTeX[plain]{,/home/jdhunter/python/projects/course/python}
+\begin_inset LatexCommand \BibTeX[plain]{python}
 
 \end_inset 
 

@@ -76,17 +76,17 @@ We'll start with a minimal example that creates and displays a cube.
  The example below creates a cube.
  The src for this example is 
 \family typewriter 
-code/vtk_hello.py
+examples/vtk_hello.py
 \layout Standard
 
 
 \begin_inset ERT
-status Collapsed
+status Open
 
 \layout Standard
 
 \backslash 
-lstinputlisting[caption={A minimal VTK example to display a cube}]{code/vtk_hello.py}
+lstinputlisting[caption={A minimal VTK example to display a cube}]{examples/vtk_hello.py}
 \end_inset 
 
 
@@ -101,7 +101,7 @@ And we can also have a figure of a person's head, as shown in Fig.\SpecialChar ~
 .
 \begin_inset Float figure
 wide false
-collapsed false
+collapsed true
 
 \layout Standard
 \align center 
@@ -122,6 +122,38 @@ collapsed false
 \end_inset 
 
 A Cube, brought to you by VTK
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset  Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features>
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="0">
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Exercise: setting actor properties
+\end_inset 
+</cell>
+</row>
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\layout Standard
+
+Modify the code in the cube listing above to make the cube translucent
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
 \end_inset 
 
 
