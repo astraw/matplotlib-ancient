@@ -1,0 +1,428 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.collections</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/collections.py">/usr/local/lib/python2.3/site-packages/matplotlib/collections.py</a></font></td></tr></table>
+    <p><tt>Classes&nbsp;for&nbsp;the&nbsp;efficient&nbsp;drawing&nbsp;of&nbsp;large&nbsp;collections&nbsp;of&nbsp;objects&nbsp;that<br>
+share&nbsp;most&nbsp;properties,&nbsp;eg&nbsp;a&nbsp;large&nbsp;number&nbsp;of&nbsp;line&nbsp;segments&nbsp;or&nbsp;polygons<br>
+&nbsp;<br>
+The&nbsp;classes&nbsp;are&nbsp;not&nbsp;meant&nbsp;to&nbsp;be&nbsp;as&nbsp;flexible&nbsp;as&nbsp;their&nbsp;single&nbsp;element<br>
+counterparts&nbsp;(eg&nbsp;you&nbsp;may&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;select&nbsp;all&nbsp;line&nbsp;styles)&nbsp;but<br>
+they&nbsp;are&nbsp;meant&nbsp;to&nbsp;be&nbsp;fast&nbsp;for&nbsp;common&nbsp;use&nbsp;cases&nbsp;(eg&nbsp;a&nbsp;bunch&nbsp;of&nbsp;solid<br>
+line&nbsp;segemnts)</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.collections.html#Collection">Collection</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.collections.html#LineCollection">LineCollection</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.collections.html#PatchCollection">PatchCollection</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.collections.html#PolyCollection">PolyCollection</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.collections.html#RegularPolyCollection">RegularPolyCollection</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Collection">class <strong>Collection</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>All&nbsp;properties&nbsp;in&nbsp;a&nbsp;collection&nbsp;must&nbsp;be&nbsp;sequences.&nbsp;&nbsp;The<br>
+property&nbsp;of&nbsp;the&nbsp;ith&nbsp;element&nbsp;of&nbsp;the&nbsp;collection&nbsp;is&nbsp;the<br>
+&nbsp;<br>
+&nbsp;&nbsp;prop[i&nbsp;%&nbsp;len(props)].<br>
+&nbsp;<br>
+This&nbsp;implies&nbsp;that&nbsp;the&nbsp;properties&nbsp;cycle&nbsp;if&nbsp;the&nbsp;len&nbsp;of&nbsp;props&nbsp;is<br>
+less&nbsp;than&nbsp;the&nbsp;number&nbsp;of&nbsp;elements&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;A&nbsp;length<br>
+1&nbsp;property&nbsp;is&nbsp;shared&nbsp;by&nbsp;all&nbsp;the&nbsp;elements&nbsp;of&nbsp;the&nbsp;collection<br>
+&nbsp;<br>
+All&nbsp;color&nbsp;args&nbsp;to&nbsp;a&nbsp;collection&nbsp;are&nbsp;sequences&nbsp;of&nbsp;rgba&nbsp;tuples<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Collection-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="Collection-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="Collection-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
+<dl><dt><a name="Collection-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Collection-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="Collection-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="Collection-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Collection-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
+
+<dl><dt><a name="Collection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
+<dl><dt><a name="Collection-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+
+<dl><dt><a name="Collection-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="Collection-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+
+<dl><dt><a name="Collection-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Collection-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="Collection-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="LineCollection">class <strong>LineCollection</strong></a>(<a href="matplotlib.collections.html#Collection">Collection</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>All&nbsp;parameters&nbsp;must&nbsp;be&nbsp;sequences.&nbsp;&nbsp;The&nbsp;property&nbsp;of&nbsp;the&nbsp;ith&nbsp;line<br>
+segment&nbsp;is&nbsp;the&nbsp;prop[i&nbsp;%&nbsp;len(props)],&nbsp;ie&nbsp;the&nbsp;properties&nbsp;cycle&nbsp;if<br>
+the&nbsp;len&nbsp;of&nbsp;props&nbsp;is&nbsp;less&nbsp;than&nbsp;the&nbsp;number&nbsp;of&nbsp;sements<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.collections.html#LineCollection">LineCollection</a></dd>
+<dd><a href="matplotlib.collections.html#Collection">Collection</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="LineCollection-__init__"><strong>__init__</strong></a>(self, segments, linewidths<font color="#909090">=(0.5,)</font>, colors<font color="#909090">=((1, 1, 1, 0),)</font>, antialiaseds<font color="#909090">=(True,)</font>, offsets<font color="#909090">=None</font>, transOffset<font color="#909090">=&lt;Affine object&gt;</font>)</dt><dd><tt>sements&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;(x00,&nbsp;y00,&nbsp;x01,&nbsp;y01),&nbsp;(x10,&nbsp;y10,<br>
+y11,&nbsp;y11),&nbsp;)&nbsp;tuples<br>
+&nbsp;<br>
+colors&nbsp;must&nbsp;be&nbsp;a&nbsp;tuple&nbsp;of&nbsp;RGBA&nbsp;tuples&nbsp;(eg&nbsp;arbitrary&nbsp;color<br>
+strings,&nbsp;etc,&nbsp;not&nbsp;allowed).<br>
+&nbsp;<br>
+antialiaseds&nbsp;must&nbsp;be&nbsp;a&nbsp;sequence&nbsp;of&nbsp;ones&nbsp;or&nbsp;zeros</tt></dd></dl>
+
+<dl><dt><a name="LineCollection-color"><strong>color</strong></a>(self, c)</dt><dd><tt>c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),<br>
+or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the<br>
+patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence</tt></dd></dl>
+
+<dl><dt><a name="LineCollection-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
+
+<dl><dt><a name="LineCollection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt></dl>
+
+<dl><dt><a name="LineCollection-set_linewidth"><strong>set_linewidth</strong></a>(self, lw)</dt><dd><tt>lw&nbsp;can&nbsp;be&nbsp;a&nbsp;scalar&nbsp;or&nbsp;a&nbsp;sequence;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the<br>
+patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="LineCollection-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
+<dl><dt><a name="LineCollection-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="LineCollection-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="LineCollection-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="LineCollection-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LineCollection-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
+
+<dl><dt><a name="LineCollection-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+
+<dl><dt><a name="LineCollection-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="LineCollection-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+
+<dl><dt><a name="LineCollection-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="LineCollection-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="LineCollection-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PatchCollection">class <strong>PatchCollection</strong></a>(<a href="matplotlib.collections.html#Collection">Collection</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>and&nbsp;transOffset&nbsp;are&nbsp;used&nbsp;to&nbsp;translate&nbsp;the&nbsp;patch&nbsp;after<br>
+rendering&nbsp;(default&nbsp;no&nbsp;offsets)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.collections.html#PatchCollection">PatchCollection</a></dd>
+<dd><a href="matplotlib.collections.html#Collection">Collection</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PatchCollection-__init__"><strong>__init__</strong></a>(self, edgecolors<font color="#909090">=((0, 0, 0, 1),)</font>, facecolors<font color="#909090">=((1, 1, 1, 0),)</font>, linewidths<font color="#909090">=(1.0,)</font>, antialiaseds<font color="#909090">=(1,)</font>, offsets<font color="#909090">=None</font>, transOffset<font color="#909090">=&lt;Affine object&gt;</font>)</dt></dl>
+
+<dl><dt><a name="PatchCollection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt></dl>
+
+<dl><dt><a name="PatchCollection-set_edgecolor"><strong>set_edgecolor</strong></a>(self, c)</dt><dd><tt>c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),<br>
+or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the<br>
+patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence</tt></dd></dl>
+
+<dl><dt><a name="PatchCollection-set_facecolor"><strong>set_facecolor</strong></a>(self, c)</dt><dd><tt>c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),<br>
+or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the<br>
+patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence</tt></dd></dl>
+
+<dl><dt><a name="PatchCollection-set_linewidth"><strong>set_linewidth</strong></a>(self, lw)</dt><dd><tt>lw&nbsp;can&nbsp;be&nbsp;a&nbsp;scalar&nbsp;or&nbsp;a&nbsp;sequence;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the<br>
+patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="PatchCollection-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="PatchCollection-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
+<dl><dt><a name="PatchCollection-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="PatchCollection-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="PatchCollection-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="PatchCollection-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PatchCollection-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
+
+<dl><dt><a name="PatchCollection-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+
+<dl><dt><a name="PatchCollection-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="PatchCollection-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+
+<dl><dt><a name="PatchCollection-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="PatchCollection-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="PatchCollection-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PolyCollection">class <strong>PolyCollection</strong></a>(<a href="matplotlib.collections.html#PatchCollection">PatchCollection</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.collections.html#PolyCollection">PolyCollection</a></dd>
+<dd><a href="matplotlib.collections.html#PatchCollection">PatchCollection</a></dd>
+<dd><a href="matplotlib.collections.html#Collection">Collection</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PolyCollection-__init__"><strong>__init__</strong></a>(self, verts, **kwargs)</dt><dd><tt>verts&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;verts0,&nbsp;verts1,&nbsp;...)&nbsp;where&nbsp;verts_i&nbsp;is<br>
+a&nbsp;sequence&nbsp;of&nbsp;xy&nbsp;tuples&nbsp;of&nbsp;vertices.<br>
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;<br>
+Optional&nbsp;kwargs&nbsp;from&nbsp;Patch&nbsp;collection&nbsp;include<br>
+&nbsp;<br>
+&nbsp;&nbsp;edgecolors&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;(&nbsp;(0,0,0,1),&nbsp;),<br>
+&nbsp;&nbsp;facecolors&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;(&nbsp;(1,1,1,0),&nbsp;),<br>
+&nbsp;&nbsp;linewidths&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;(&nbsp;1.0,&nbsp;),<br>
+&nbsp;&nbsp;antialiaseds&nbsp;&nbsp;=&nbsp;(1,),<br>
+&nbsp;&nbsp;offsets&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None<br>
+&nbsp;&nbsp;transOffset&nbsp;&nbsp;&nbsp;=&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="PolyCollection-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.collections.html#PatchCollection">PatchCollection</a>:<br>
+<dl><dt><a name="PolyCollection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt></dl>
+
+<dl><dt><a name="PolyCollection-set_edgecolor"><strong>set_edgecolor</strong></a>(self, c)</dt><dd><tt>c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),<br>
+or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the<br>
+patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence</tt></dd></dl>
+
+<dl><dt><a name="PolyCollection-set_facecolor"><strong>set_facecolor</strong></a>(self, c)</dt><dd><tt>c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),<br>
+or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the<br>
+patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence</tt></dd></dl>
+
+<dl><dt><a name="PolyCollection-set_linewidth"><strong>set_linewidth</strong></a>(self, lw)</dt><dd><tt>lw&nbsp;can&nbsp;be&nbsp;a&nbsp;scalar&nbsp;or&nbsp;a&nbsp;sequence;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the<br>
+patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="PolyCollection-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
+<dl><dt><a name="PolyCollection-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="PolyCollection-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="PolyCollection-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="PolyCollection-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PolyCollection-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
+
+<dl><dt><a name="PolyCollection-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+
+<dl><dt><a name="PolyCollection-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="PolyCollection-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+
+<dl><dt><a name="PolyCollection-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="PolyCollection-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="PolyCollection-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RegularPolyCollection">class <strong>RegularPolyCollection</strong></a>(<a href="matplotlib.collections.html#PatchCollection">PatchCollection</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.collections.html#RegularPolyCollection">RegularPolyCollection</a></dd>
+<dd><a href="matplotlib.collections.html#PatchCollection">PatchCollection</a></dd>
+<dd><a href="matplotlib.collections.html#Collection">Collection</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="RegularPolyCollection-__init__"><strong>__init__</strong></a>(self, dpi, numsides, rotation<font color="#909090">=0</font>, sizes<font color="#909090">=(1,)</font>, **kwargs)</dt><dd><tt>Draw&nbsp;a&nbsp;regular&nbsp;polygon&nbsp;with&nbsp;numsides.&nbsp;&nbsp;sizes&nbsp;gives&nbsp;the&nbsp;area&nbsp;of<br>
+the&nbsp;circle&nbsp;circumscribing&nbsp;the&nbsp;regular&nbsp;polygon&nbsp;and&nbsp;rotation&nbsp;is<br>
+the&nbsp;rotation&nbsp;of&nbsp;the&nbsp;polygon&nbsp;in&nbsp;radians.&nbsp;&nbsp;<br>
+&nbsp;<br>
+offsets&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;x,y&nbsp;tuples&nbsp;that&nbsp;give&nbsp;the&nbsp;centers&nbsp;of<br>
+the&nbsp;polygon&nbsp;in&nbsp;data&nbsp;coordinates,&nbsp;and&nbsp;transOffset&nbsp;is&nbsp;the<br>
+Transformation&nbsp;instance&nbsp;used&nbsp;to&nbsp;transform&nbsp;the&nbsp;centers&nbsp;onto&nbsp;the<br>
+canvas.<br>
+&nbsp;<br>
+dpi&nbsp;is&nbsp;the&nbsp;figure&nbsp;dpi&nbsp;instance,&nbsp;and&nbsp;is&nbsp;required&nbsp;to&nbsp;do&nbsp;the&nbsp;area<br>
+scaling.</tt></dd></dl>
+
+<dl><dt><a name="RegularPolyCollection-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.collections.html#PatchCollection">PatchCollection</a>:<br>
+<dl><dt><a name="RegularPolyCollection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt></dl>
+
+<dl><dt><a name="RegularPolyCollection-set_edgecolor"><strong>set_edgecolor</strong></a>(self, c)</dt><dd><tt>c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),<br>
+or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the<br>
+patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence</tt></dd></dl>
+
+<dl><dt><a name="RegularPolyCollection-set_facecolor"><strong>set_facecolor</strong></a>(self, c)</dt><dd><tt>c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),<br>
+or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the<br>
+patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence</tt></dd></dl>
+
+<dl><dt><a name="RegularPolyCollection-set_linewidth"><strong>set_linewidth</strong></a>(self, lw)</dt><dd><tt>lw&nbsp;can&nbsp;be&nbsp;a&nbsp;scalar&nbsp;or&nbsp;a&nbsp;sequence;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the<br>
+patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="RegularPolyCollection-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
+<dl><dt><a name="RegularPolyCollection-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="RegularPolyCollection-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="RegularPolyCollection-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="RegularPolyCollection-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RegularPolyCollection-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
+
+<dl><dt><a name="RegularPolyCollection-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+
+<dl><dt><a name="RegularPolyCollection-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="RegularPolyCollection-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+
+<dl><dt><a name="RegularPolyCollection-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="RegularPolyCollection-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="RegularPolyCollection-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
+&nbsp;<br>
+&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
+specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>False</strong> = False<br>
+<strong>True</strong> = True<br>
+<strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
+<strong>cos</strong> = &lt;ufunc 'cos'&gt;<br>
+<strong>pi</strong> = 3.1415926535897931<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
+<strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;</td></tr></table>
+@footer@
