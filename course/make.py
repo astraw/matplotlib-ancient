@@ -9,7 +9,8 @@ def clean():
 
 def pdf():
     print 'making pdf'
-    os.system('lyx -e pdf main.lyx')
+    #os.system('lyx -e pdf main.lyx')
+    os.system('./lyxport2 --pdf main')
     
 for arg in sys.argv[1:]:
     if arg=='clean': clean()
