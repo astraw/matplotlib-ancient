@@ -2,8 +2,7 @@
 
 <h2>Credits</h2>
 
-matplotlib was written by John D. Hunter @myemail@, and would not exist 
-without python, Numeric and pygtk.<p>
+matplotlib was written by John D. Hunter<p>
 
 Special thanks to those who have made valuable contributions to
 matplotlib 
@@ -23,5 +22,7 @@ matplotlib
   </li>
 
   <li>John Gill wrote the table class and examples</li>
+
+  <li>David Moore wrote the paint backend</li>
 </ul>
 @footer@
