@@ -13,8 +13,9 @@
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="matplotlib._image.html">matplotlib._image</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -59,6 +60,8 @@ The&nbsp;Axes&nbsp;instance&nbsp;will&nbsp;be&nbsp;returned</tt></dd></dl>
 
 <dl><dt><a name="Figure-draw"><strong>draw</strong></a>(self, renderer)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;using&nbsp;RendererGD&nbsp;instance&nbsp;renderer</tt></dd></dl>
 
+<dl><dt><a name="Figure-figimage"><strong>figimage</strong></a>(self, A, xo<font color="#909090">=0</font>, yo<font color="#909090">=0</font>, norm<font color="#909090">=None</font>, cmap<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>Add&nbsp;a&nbsp;nonresampled&nbsp;figure&nbsp;to&nbsp;the&nbsp;figure</tt></dd></dl>
+
 <dl><dt><a name="Figure-get_axes"><strong>get_axes</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Figure-get_edgecolor"><strong>get_edgecolor</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;edge&nbsp;color&nbsp;of&nbsp;the&nbsp;<a href="#Figure">Figure</a>&nbsp;rectangle</tt></dd></dl>
@@ -68,6 +71,14 @@ The&nbsp;Axes&nbsp;instance&nbsp;will&nbsp;be&nbsp;returned</tt></dd></dl>
 <dl><dt><a name="Figure-get_size_inches"><strong>get_size_inches</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Figure-get_width_height"><strong>get_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;pixels</tt></dd></dl>
+
+<dl><dt><a name="Figure-hold"><strong>hold</strong></a>(self, b<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;hold&nbsp;state.&nbsp;&nbsp;If&nbsp;hold&nbsp;is&nbsp;None&nbsp;(default),&nbsp;toggle&nbsp;the<br>
+hold&nbsp;state.&nbsp;&nbsp;Else&nbsp;set&nbsp;the&nbsp;hold&nbsp;state&nbsp;to&nbsp;boolean&nbsp;value&nbsp;b.<br>
+&nbsp;<br>
+Eg<br>
+<a href="#Figure-hold">hold</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;toggle&nbsp;hold<br>
+<a href="#Figure-hold">hold</a>(True)&nbsp;&nbsp;#&nbsp;hold&nbsp;is&nbsp;on<br>
+<a href="#Figure-hold">hold</a>(False)&nbsp;#&nbsp;hold&nbsp;is&nbsp;off</tt></dd></dl>
 
 <dl><dt><a name="Figure-legend"><strong>legend</strong></a>(self, handles, labels, loc)</dt><dd><tt>Place&nbsp;a&nbsp;legend&nbsp;in&nbsp;the&nbsp;figure.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of<br>
 strings,&nbsp;handles&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;line&nbsp;or&nbsp;patch&nbsp;instances,&nbsp;and<br>

@@ -254,7 +254,9 @@ v&nbsp;defaults&nbsp;to&nbsp;None.</tt></dl>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-enumerate"><strong>enumerate</strong></a>(seq)</dt><dd><tt>#&nbsp;until&nbsp;2.3</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-allequal"><strong>allequal</strong></a>(seq)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;all&nbsp;elements&nbsp;of&nbsp;seq&nbsp;compare&nbsp;equal.&nbsp;&nbsp;If&nbsp;seq&nbsp;is&nbsp;0&nbsp;or<br>
+1&nbsp;length,&nbsp;return&nbsp;True</tt></dd></dl>
+ <dl><dt><a name="-enumerate"><strong>enumerate</strong></a>(seq)</dt><dd><tt>#&nbsp;until&nbsp;2.3</tt></dd></dl>
  <dl><dt><a name="-exception_to_str"><strong>exception_to_str</strong></a>(s<font color="#909090">=None</font>)</dt></dl>
  <dl><dt><a name="-flatten"><strong>flatten</strong></a>(seq, scalarp<font color="#909090">=&lt;function is_scalar&gt;</font>)</dt><dd><tt>this&nbsp;generator&nbsp;flattens&nbsp;nested&nbsp;containers&nbsp;such&nbsp;as<br>
 &nbsp;<br>

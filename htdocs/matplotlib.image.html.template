@@ -15,7 +15,8 @@ operations.</tt></p>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="matplotlib._image.html">matplotlib._image</a><br>
-</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top><a href="matplotlib.cm.html">matplotlib.cm</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -26,51 +27,56 @@ operations.</tt></p>
 <dt><font face="helvetica, arial"><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.image.html#Image">Image</a>
+<dt><font face="helvetica, arial"><a href="matplotlib.image.html#ImageBase">ImageBase</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.image.html#AxesImage">AxesImage</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.image.html#FigureImage">FigureImage</a>
 </font></dt></dl>
 </dd>
 </dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.image.html#ITransform">ITransform</a>
+</font></dt></dl>
  <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Image">class <strong>Image</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="AxesImage">class <strong>AxesImage</strong></a>(<a href="matplotlib.image.html#ImageBase">ImageBase</a>)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="Image-__init__"><strong>__init__</strong></a>(self, viewlim, datalim, displaylim)</dt><dd><tt>The&nbsp;viewlim&nbsp;instance&nbsp;that&nbsp;give&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;viewlimits&nbsp;so&nbsp;that<br>
-the&nbsp;image&nbsp;can&nbsp;respond&nbsp;to&nbsp;changes&nbsp;in&nbsp;pan/zoom&nbsp;etc...<br>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.image.html#AxesImage">AxesImage</a></dd>
+<dd><a href="matplotlib.image.html#ImageBase">ImageBase</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="AxesImage-__init__"><strong>__init__</strong></a>(self, ax, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, aspect<font color="#909090">=None</font>, interpolation<font color="#909090">=None</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>aspect,&nbsp;interpolation&nbsp;and&nbsp;cmap&nbsp;default&nbsp;to&nbsp;their&nbsp;rc&nbsp;setting<br>
 &nbsp;<br>
-The&nbsp;x&nbsp;and&nbsp;y&nbsp;datalim&nbsp;give&nbsp;the&nbsp;data&nbsp;range&nbsp;of&nbsp;the&nbsp;image.&nbsp;&nbsp;Eg&nbsp;if<br>
-datalim.interalx()&nbsp;=&nbsp;(xmin,&nbsp;xmax),&nbsp;then&nbsp;the&nbsp;0th&nbsp;column&nbsp;is&nbsp;at<br>
-point&nbsp;x&nbsp;=&nbsp;xmin&nbsp;and&nbsp;the&nbsp;last&nbsp;image&nbsp;column&nbsp;is&nbsp;at&nbsp;point&nbsp;x&nbsp;=&nbsp;xmax;<br>
-likewise&nbsp;for&nbsp;y.&nbsp;&nbsp;The&nbsp;default&nbsp;data&nbsp;lim&nbsp;are&nbsp;0,&nbsp;width-1&nbsp;and&nbsp;0,<br>
-height-1<br>
-&nbsp;<br>
-A&nbsp;linear&nbsp;scaling&nbsp;between&nbsp;datalim&nbsp;and&nbsp;viewlim&nbsp;is&nbsp;assumed</tt></dd></dl>
+cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance<br>
+norm&nbsp;is&nbsp;a&nbsp;colors.Norm&nbsp;instance&nbsp;to&nbsp;map&nbsp;luminance&nbsp;to&nbsp;0-1</tt></dd></dl>
 
-<dl><dt><a name="Image-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt></dl>
+<dl><dt><a name="AxesImage-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt></dl>
 
-<dl><dt><a name="Image-fromarray"><strong>fromarray</strong></a>(self, A)</dt><dd><tt>Load&nbsp;the&nbsp;image&nbsp;from&nbsp;numeric/numarray&nbsp;A</tt></dd></dl>
-
-<dl><dt><a name="Image-fromfile"><strong>fromfile</strong></a>(self, fname)</dt><dd><tt>Load&nbsp;the&nbsp;image&nbsp;from&nbsp;file&nbsp;fname</tt></dd></dl>
-
-<dl><dt><a name="Image-get_aspect"><strong>get_aspect</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;method&nbsp;used&nbsp;to&nbsp;constrain&nbsp;the&nbsp;aspoect&nbsp;ratio&nbsp;of&nbsp;the<br>
+<dl><dt><a name="AxesImage-get_aspect"><strong>get_aspect</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;method&nbsp;used&nbsp;to&nbsp;constrain&nbsp;the&nbsp;aspoect&nbsp;ratio&nbsp;of&nbsp;the<br>
 One&nbsp;of<br>
 &nbsp;<br>
 'free'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;aspect&nbsp;ratio&nbsp;not&nbsp;constrained<br>
 'preserve'&nbsp;:&nbsp;preserve&nbsp;aspect&nbsp;ration&nbsp;when&nbsp;resizing</tt></dd></dl>
 
-<dl><dt><a name="Image-get_interpolation"><strong>get_interpolation</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;interpolation&nbsp;method&nbsp;the&nbsp;image&nbsp;uses&nbsp;when&nbsp;resizing.<br>
+<dl><dt><a name="AxesImage-get_interpolation"><strong>get_interpolation</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;interpolation&nbsp;method&nbsp;the&nbsp;image&nbsp;uses&nbsp;when&nbsp;resizing.<br>
 &nbsp;<br>
 One&nbsp;of<br>
 &nbsp;<br>
 'bicubic',&nbsp;'bilinear',&nbsp;'blackman100',&nbsp;'blackman256',&nbsp;'blackman64',<br>
 'nearest',&nbsp;'sinc144',&nbsp;'sinc256',&nbsp;'sinc64',&nbsp;'spline16',&nbsp;'spline36'</tt></dd></dl>
 
-<dl><dt><a name="Image-get_size"><strong>get_size</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;width,&nbsp;height&nbsp;of&nbsp;the&nbsp;input&nbsp;image</tt></dd></dl>
+<dl><dt><a name="AxesImage-make_image"><strong>make_image</strong></a>(self, renderer)</dt></dl>
 
-<dl><dt><a name="Image-set_aspect"><strong>set_aspect</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;method&nbsp;used&nbsp;to&nbsp;constrain&nbsp;the&nbsp;aspoect&nbsp;ratio&nbsp;of&nbsp;the<br>
+<dl><dt><a name="AxesImage-set_array"><strong>set_array</strong></a>(self, A)</dt><dd><tt>Set&nbsp;the&nbsp;image&nbsp;array&nbsp;from&nbsp;numeric/numarray&nbsp;A</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-set_aspect"><strong>set_aspect</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;method&nbsp;used&nbsp;to&nbsp;constrain&nbsp;the&nbsp;aspoect&nbsp;ratio&nbsp;of&nbsp;the<br>
 image&nbsp;ehen&nbsp;resizing,<br>
 &nbsp;<br>
 One&nbsp;of<br>
@@ -78,11 +84,11 @@ One&nbsp;of<br>
 'free'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;aspect&nbsp;ratio&nbsp;not&nbsp;constrained<br>
 'preserve'&nbsp;:&nbsp;preserve&nbsp;aspect&nbsp;ration&nbsp;when&nbsp;resizing</tt></dd></dl>
 
-<dl><dt><a name="Image-set_data_extent"><strong>set_data_extent</strong></a>(self, xmin, xmax, ymin, ymax)</dt><dd><tt>Set&nbsp;the&nbsp;data&nbsp;extent&nbsp;that&nbsp;the&nbsp;image&nbsp;pixels&nbsp;represent.&nbsp;&nbsp;If&nbsp;you<br>
+<dl><dt><a name="AxesImage-set_data_extent"><strong>set_data_extent</strong></a>(self, xmin, xmax, ymin, ymax)</dt><dd><tt>Set&nbsp;the&nbsp;data&nbsp;extent&nbsp;that&nbsp;the&nbsp;image&nbsp;pixels&nbsp;represent.&nbsp;&nbsp;If&nbsp;you<br>
 are&nbsp;using&nbsp;the&nbsp;matlab&nbsp;interface,&nbsp;use&nbsp;Axes.set_image_extent<br>
 instead</tt></dd></dl>
 
-<dl><dt><a name="Image-set_interpolation"><strong>set_interpolation</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;interpolation&nbsp;method&nbsp;the&nbsp;image&nbsp;uses&nbsp;when&nbsp;resizing.<br>
+<dl><dt><a name="AxesImage-set_interpolation"><strong>set_interpolation</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;interpolation&nbsp;method&nbsp;the&nbsp;image&nbsp;uses&nbsp;when&nbsp;resizing.<br>
 &nbsp;<br>
 One&nbsp;of<br>
 &nbsp;<br>
@@ -90,36 +96,186 @@ One&nbsp;of<br>
 'nearest',&nbsp;'sinc144',&nbsp;'sinc256',&nbsp;'sinc64',&nbsp;'spline16',&nbsp;'spline36'</tt></dd></dl>
 
 <hr>
+Methods inherited from <a href="matplotlib.image.html#ImageBase">ImageBase</a>:<br>
+<dl><dt><a name="AxesImage-get_size"><strong>get_size</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;numrows,&nbsp;numcols&nbsp;of&nbsp;the&nbsp;input&nbsp;image</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-set_clim"><strong>set_clim</strong></a>(self, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>)</dt><dd><tt>set&nbsp;the&nbsp;norm&nbsp;limits&nbsp;for&nbsp;image&nbsp;scaling</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-set_cmap"><strong>set_cmap</strong></a>(self, cmap)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
+
+<hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
-<dl><dt><a name="Image-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+<dl><dt><a name="AxesImage-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="Image-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+<dl><dt><a name="AxesImage-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
-<dl><dt><a name="Image-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+<dl><dt><a name="AxesImage-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
-<dl><dt><a name="Image-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="AxesImage-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
-<dl><dt><a name="Image-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+<dl><dt><a name="AxesImage-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Image-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
+<dl><dt><a name="AxesImage-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
 
-<dl><dt><a name="Image-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+<dl><dt><a name="AxesImage-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
-<dl><dt><a name="Image-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+<dl><dt><a name="AxesImage-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
 
-<dl><dt><a name="Image-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+<dl><dt><a name="AxesImage-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
-<dl><dt><a name="Image-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+<dl><dt><a name="AxesImage-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
 
-<dl><dt><a name="Image-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+<dl><dt><a name="AxesImage-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
 
-<dl><dt><a name="Image-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+<dl><dt><a name="AxesImage-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
 
-<dl><dt><a name="Image-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="AxesImage-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FigureImage">class <strong>FigureImage</strong></a>(<a href="matplotlib.image.html#ImageBase">ImageBase</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.image.html#FigureImage">FigureImage</a></dd>
+<dd><a href="matplotlib.image.html#ImageBase">ImageBase</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="FigureImage-__init__"><strong>__init__</strong></a>(self, fig, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, offsetx<font color="#909090">=0</font>, offsety<font color="#909090">=0</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance<br>
+norm&nbsp;is&nbsp;a&nbsp;colors.Norm&nbsp;instance&nbsp;to&nbsp;map&nbsp;luminance&nbsp;to&nbsp;0-1</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="FigureImage-make_image"><strong>make_image</strong></a>(self, renderer)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.image.html#ImageBase">ImageBase</a>:<br>
+<dl><dt><a name="FigureImage-get_size"><strong>get_size</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;numrows,&nbsp;numcols&nbsp;of&nbsp;the&nbsp;input&nbsp;image</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-set_array"><strong>set_array</strong></a>(self, A)</dt><dd><tt>Set&nbsp;the&nbsp;image&nbsp;array&nbsp;from&nbsp;numeric/numarray&nbsp;A</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-set_clim"><strong>set_clim</strong></a>(self, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>)</dt><dd><tt>set&nbsp;the&nbsp;norm&nbsp;limits&nbsp;for&nbsp;image&nbsp;scaling</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-set_cmap"><strong>set_cmap</strong></a>(self, cmap)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="FigureImage-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureImage-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ITransform">class <strong>ITransform</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Map&nbsp;an&nbsp;MxN&nbsp;luminance&nbsp;array&nbsp;-&gt;&nbsp;unit&nbsp;normalized&nbsp;RGBA<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ITransform-__call__"><strong>__call__</strong></a>(self, x, alpha<font color="#909090">=1.0</font>)</dt></dl>
+
+<dl><dt><a name="ITransform-__init__"><strong>__init__</strong></a>(self, norm, cmap)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ImageBase">class <strong>ImageBase</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ImageBase-__init__"><strong>__init__</strong></a>(self, cmap<font color="#909090">=None</font>, norm<font color="#909090">=None</font>, origin<font color="#909090">=None</font>)</dt><dd><tt>aspect,&nbsp;interpolation&nbsp;and&nbsp;cmap&nbsp;default&nbsp;to&nbsp;their&nbsp;rc&nbsp;setting<br>
+&nbsp;<br>
+norm&nbsp;is&nbsp;a&nbsp;colors.Norm&nbsp;instance&nbsp;to&nbsp;map&nbsp;luminance&nbsp;to&nbsp;0-1<br>
+cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="ImageBase-get_size"><strong>get_size</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;numrows,&nbsp;numcols&nbsp;of&nbsp;the&nbsp;input&nbsp;image</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-make_image"><strong>make_image</strong></a>(self, renderer)</dt></dl>
+
+<dl><dt><a name="ImageBase-set_array"><strong>set_array</strong></a>(self, A)</dt><dd><tt>Set&nbsp;the&nbsp;image&nbsp;array&nbsp;from&nbsp;numeric/numarray&nbsp;A</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-set_clim"><strong>set_clim</strong></a>(self, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>)</dt><dd><tt>set&nbsp;the&nbsp;norm&nbsp;limits&nbsp;for&nbsp;image&nbsp;scaling</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-set_cmap"><strong>set_cmap</strong></a>(self, cmap)</dt><dd><tt>set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;luminance&nbsp;data</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="ImageBase-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ImageBase-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="ImageBase-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
@@ -127,10 +283,22 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
+&nbsp;<br>
+&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
+specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
+<td width="100%"><strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
 @footer@

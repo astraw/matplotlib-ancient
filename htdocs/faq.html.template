@@ -4,16 +4,22 @@ FAQs = (
     ('FREEZE',
     'My matplotlib window is freezing',
 
-""" Often times this is caused by running matplotlib inside an IDE, eg
-Idle, PythonWin, Scintilla, etc, with an incompatible backend.  There
-are known incompatiblities with some of the backends with some of the
-IDEs, because they use different GUI event handlers. If you want to
-use matplotlib from an IDE, please consult the backends documentation
-for compatibility information. You will have the greatest likelihood
-of success if you run the examples from the command shell or by double
-clicking on them, rather than from an IDE. If you are interactively
-generating plots, your best bet is TkAgg from the standard python
-shell.<p>
+""" Often times this is caused by running matplotlib with a backend
+that is not compatible with your shell or IDE.<p>
+
+There are known incompatiblities with some of the backends with some
+of the IDEs, because they use different GUI event handlers. If you
+want to use matplotlib from an IDE, please consult the backends
+documentation for compatibility information. You will have the
+greatest likelihood of success if you run the examples from the
+command shell or by double clicking on them, rather than from an
+IDE.<p>
+
+If you are trying to generate plots interactively from the shell, you
+need a shell that is compatible with your backend.  Currently, your
+best bet is TkAgg from the standard python shell or ipython.  There
+are a couple of custom GTK shells you can use, described <a
+href=http://matplotlib.sourceforge.net/interactive.html>here</a>.<p>
 
 To find out which IDEs are compatible with your backend, see <a
 href=http://matplotlib.sourceforge.net/backends.html>backend</a>.<p>
@@ -27,8 +33,8 @@ users); Eg,
   c:\matplotlib\examples> python simple_plot.py
 </pre>
 
-If this works fine, then you likely have an IDE problem and not a
-matplotlib specific problem.  Unfortunately, this problem tends to
+If this works fine, then you likely have an IDE/shell problem and not
+a matplotlib specific problem.  Unfortunately, this problem tends to
 crop up a lot.  See for example <a
 href=http://sourceforge.net/mailarchive/message.php?msg_id=8610351>this
 thread</a> and the responses to that post for more information.

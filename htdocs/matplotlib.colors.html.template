@@ -38,7 +38,7 @@ or&nbsp;you&nbsp;can&nbsp;pass&nbsp;an&nbsp;R,G,B&nbsp;tuple,&nbsp;where&nbsp;ea
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numarray.linear_algebra.mlab.html">numarray.linear_algebra.mlab</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="MLab.html">MLab</a><br>
 </td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
@@ -51,8 +51,13 @@ or&nbsp;you&nbsp;can&nbsp;pass&nbsp;an&nbsp;R,G,B&nbsp;tuple,&nbsp;where&nbsp;ea
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.colors.html#Colormap">Colormap</a>
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.colors.html#ColormapJet">ColormapJet</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.colors.html#Grayscale">Grayscale</a>
+<dt><font face="helvetica, arial"><a href="matplotlib.colors.html#LinearSegmentedColormap">LinearSegmentedColormap</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.colors.html#Norm">Norm</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.colors.html#normalize">normalize</a>
 </font></dt></dl>
 </dd>
 </dl>
@@ -84,76 +89,78 @@ Data and other attributes defined here:<br>
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="Colormap">class <strong>Colormap</strong></a></font></td></tr>
     
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Basis&nbsp;abstract&nbsp;class&nbsp;for&nbsp;all&nbsp;scalar&nbsp;to&nbsp;rgb&nbsp;mappings<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Colormap-__init__"><strong>__init__</strong></a>(self, N<font color="#909090">=256</font>, color<font color="#909090">='jet'</font>)</dt></dl>
+<dl><dt><a name="Colormap-__call__"><strong>__call__</strong></a>(self, X, alpha<font color="#909090">=1.0</font>)</dt></dl>
 
-<dl><dt><a name="Colormap-array_as_rgba"><strong>array_as_rgba</strong></a>(self, X, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>X&nbsp;is&nbsp;an&nbsp;MxN&nbsp;array&nbsp;of&nbsp;floats.&nbsp;&nbsp;Set&nbsp;the&nbsp;clim&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
-control&nbsp;the&nbsp;color&nbsp;range&nbsp;(default&nbsp;min&nbsp;t&nbsp;max)</tt></dd></dl>
-
-<dl><dt><a name="Colormap-auto_clim"><strong>auto_clim</strong></a>(self, X)</dt><dd><tt>auto&nbsp;set&nbsp;the&nbsp;clim&nbsp;with&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;X</tt></dd></dl>
-
-<dl><dt><a name="Colormap-get_color"><strong>get_color</strong></a>(self, val)</dt></dl>
-
-<dl><dt><a name="Colormap-get_color_alpha"><strong>get_color_alpha</strong></a>(self, val, alpha<font color="#909090">=1.0</font>)</dt></dl>
-
-<dl><dt><a name="Colormap-get_colors"><strong>get_colors</strong></a>(self, vals, alpha<font color="#909090">=1.0</font>)</dt></dl>
-
-<dl><dt><a name="Colormap-get_colors_alpha"><strong>get_colors_alpha</strong></a>(self, vals, alpha<font color="#909090">=1.0</font>)</dt></dl>
-
-<dl><dt><a name="Colormap-set_clim"><strong>set_clim</strong></a>(self, cmin, cmax)</dt><dd><tt>Set&nbsp;the&nbsp;color&nbsp;limits&nbsp;for&nbsp;mapping&nbsp;scalar&nbsp;data&nbsp;to&nbsp;colormap</tt></dd></dl>
+<dl><dt><a name="Colormap-__init__"><strong>__init__</strong></a>(self, name, N<font color="#909090">=256</font>)</dt><dd><tt>Public&nbsp;class&nbsp;attributes:<br>
+self.<strong>N</strong>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;rgb&nbsp;quantization&nbsp;levels<br>
+self.<strong>name</strong>:&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;of&nbsp;colormap</tt></dd></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="ColormapJet">class <strong>ColormapJet</strong></a>(<a href="matplotlib.colors.html#Colormap">Colormap</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="LinearSegmentedColormap">class <strong>LinearSegmentedColormap</strong></a>(<a href="matplotlib.colors.html#Colormap">Colormap</a>)</font></td></tr>
     
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%">Methods inherited from <a href="matplotlib.colors.html#Colormap">Colormap</a>:<br>
-<dl><dt><a name="ColormapJet-__init__"><strong>__init__</strong></a>(self, N<font color="#909090">=256</font>, color<font color="#909090">='jet'</font>)</dt></dl>
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Colormap">Colormap</a>&nbsp;objects&nbsp;based&nbsp;on&nbsp;lookup&nbsp;tables&nbsp;using&nbsp;linear&nbsp;segments.<br>
+&nbsp;<br>
+The&nbsp;lookup&nbsp;transfer&nbsp;function&nbsp;is&nbsp;a&nbsp;simple&nbsp;linear&nbsp;function&nbsp;between&nbsp;<br>
+defined&nbsp;intensities.&nbsp;There&nbsp;is&nbsp;no&nbsp;limit&nbsp;to&nbsp;the&nbsp;number&nbsp;of&nbsp;segments<br>
+that&nbsp;may&nbsp;be&nbsp;defined.&nbsp;Though&nbsp;as&nbsp;the&nbsp;segment&nbsp;intervals&nbsp;start&nbsp;containing<br>
+fewer&nbsp;and&nbsp;fewer&nbsp;array&nbsp;locations,&nbsp;there&nbsp;will&nbsp;be&nbsp;inevitable&nbsp;quantization<br>
+errors<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="LinearSegmentedColormap-__call__"><strong>__call__</strong></a>(self, X, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>X&nbsp;is&nbsp;either&nbsp;a&nbsp;scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;(of&nbsp;any&nbsp;dimension).<br>
+If&nbsp;scalar,&nbsp;a&nbsp;tuple&nbsp;of&nbsp;rgba&nbsp;values&nbsp;is&nbsp;returned,&nbsp;otherwise<br>
+an&nbsp;array&nbsp;with&nbsp;the&nbsp;new&nbsp;shape&nbsp;=&nbsp;oldshape+(4,).&nbsp;&nbsp;Any&nbsp;values<br>
+that&nbsp;are&nbsp;outside&nbsp;the&nbsp;0,1&nbsp;interval&nbsp;are&nbsp;clipped&nbsp;to&nbsp;that<br>
+interval&nbsp;before&nbsp;generating&nbsp;rgb&nbsp;values.&nbsp;&nbsp;<br>
+Alpha&nbsp;must&nbsp;be&nbsp;a&nbsp;scalar</tt></dd></dl>
 
-<dl><dt><a name="ColormapJet-array_as_rgba"><strong>array_as_rgba</strong></a>(self, X, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>X&nbsp;is&nbsp;an&nbsp;MxN&nbsp;array&nbsp;of&nbsp;floats.&nbsp;&nbsp;Set&nbsp;the&nbsp;clim&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
-control&nbsp;the&nbsp;color&nbsp;range&nbsp;(default&nbsp;min&nbsp;t&nbsp;max)</tt></dd></dl>
-
-<dl><dt><a name="ColormapJet-auto_clim"><strong>auto_clim</strong></a>(self, X)</dt><dd><tt>auto&nbsp;set&nbsp;the&nbsp;clim&nbsp;with&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;X</tt></dd></dl>
-
-<dl><dt><a name="ColormapJet-get_color"><strong>get_color</strong></a>(self, val)</dt></dl>
-
-<dl><dt><a name="ColormapJet-get_color_alpha"><strong>get_color_alpha</strong></a>(self, val, alpha<font color="#909090">=1.0</font>)</dt></dl>
-
-<dl><dt><a name="ColormapJet-get_colors"><strong>get_colors</strong></a>(self, vals, alpha<font color="#909090">=1.0</font>)</dt></dl>
-
-<dl><dt><a name="ColormapJet-get_colors_alpha"><strong>get_colors_alpha</strong></a>(self, vals, alpha<font color="#909090">=1.0</font>)</dt></dl>
-
-<dl><dt><a name="ColormapJet-set_clim"><strong>set_clim</strong></a>(self, cmin, cmax)</dt><dd><tt>Set&nbsp;the&nbsp;color&nbsp;limits&nbsp;for&nbsp;mapping&nbsp;scalar&nbsp;data&nbsp;to&nbsp;colormap</tt></dd></dl>
+<dl><dt><a name="LinearSegmentedColormap-__init__"><strong>__init__</strong></a>(self, name, segmentdata, N<font color="#909090">=256</font>)</dt><dd><tt>Create&nbsp;color&nbsp;map&nbsp;from&nbsp;linear&nbsp;mapping&nbsp;segments<br>
+&nbsp;<br>
+segmentdata&nbsp;argument&nbsp;is&nbsp;a&nbsp;dictionary&nbsp;with&nbsp;a&nbsp;red,&nbsp;green&nbsp;and&nbsp;blue<br>
+entries.&nbsp;Each&nbsp;entry&nbsp;should&nbsp;be&nbsp;a&nbsp;list&nbsp;of&nbsp;x,&nbsp;y0,&nbsp;y1&nbsp;tuples.<br>
+See&nbsp;makeMappingArray&nbsp;for&nbsp;details</tt></dd></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Grayscale">class <strong>Grayscale</strong></a>(<a href="matplotlib.colors.html#Colormap">Colormap</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="Norm">class <strong>Norm</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Normalize&nbsp;a&nbsp;given&nbsp;value&nbsp;to&nbsp;the&nbsp;0-1&nbsp;range<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Norm-__call__"><strong>__call__</strong></a>(self, value)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="normalize">class <strong>normalize</strong></a>(<a href="matplotlib.colors.html#Norm">Norm</a>)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Grayscale-__init__"><strong>__init__</strong></a>(self, N<font color="#909090">=256</font>)</dt></dl>
+<dl><dt><a name="normalize-__call__"><strong>__call__</strong></a>(self, value)</dt></dl>
 
-<hr>
-Methods inherited from <a href="matplotlib.colors.html#Colormap">Colormap</a>:<br>
-<dl><dt><a name="Grayscale-array_as_rgba"><strong>array_as_rgba</strong></a>(self, X, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>X&nbsp;is&nbsp;an&nbsp;MxN&nbsp;array&nbsp;of&nbsp;floats.&nbsp;&nbsp;Set&nbsp;the&nbsp;clim&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
-control&nbsp;the&nbsp;color&nbsp;range&nbsp;(default&nbsp;min&nbsp;t&nbsp;max)</tt></dd></dl>
+<dl><dt><a name="normalize-__init__"><strong>__init__</strong></a>(self, vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>)</dt><dd><tt>Normalize&nbsp;a&nbsp;given&nbsp;value&nbsp;to&nbsp;the&nbsp;0-1&nbsp;range<br>
+&nbsp;<br>
+If&nbsp;vmin&nbsp;or&nbsp;vmax&nbsp;is&nbsp;not&nbsp;given,&nbsp;they&nbsp;are&nbsp;taken&nbsp;from&nbsp;the&nbsp;input's<br>
+minimum&nbsp;and&nbsp;maximum&nbsp;value&nbsp;respectively.&nbsp;&nbsp;If&nbsp;the&nbsp;given&nbsp;value<br>
+falls&nbsp;outside&nbsp;the&nbsp;range,&nbsp;the&nbsp;returned&nbsp;value&nbsp;will&nbsp;be&nbsp;0&nbsp;or&nbsp;1,<br>
+whichever&nbsp;is&nbsp;closest.&nbsp;Returns&nbsp;0&nbsp;if&nbsp;vmin==vmax.&nbsp;Works&nbsp;with<br>
+scalars&nbsp;or&nbsp;arrays.</tt></dd></dl>
 
-<dl><dt><a name="Grayscale-auto_clim"><strong>auto_clim</strong></a>(self, X)</dt><dd><tt>auto&nbsp;set&nbsp;the&nbsp;clim&nbsp;with&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;X</tt></dd></dl>
+<dl><dt><a name="normalize-autoscale"><strong>autoscale</strong></a>(self, A)</dt></dl>
 
-<dl><dt><a name="Grayscale-get_color"><strong>get_color</strong></a>(self, val)</dt></dl>
-
-<dl><dt><a name="Grayscale-get_color_alpha"><strong>get_color_alpha</strong></a>(self, val, alpha<font color="#909090">=1.0</font>)</dt></dl>
-
-<dl><dt><a name="Grayscale-get_colors"><strong>get_colors</strong></a>(self, vals, alpha<font color="#909090">=1.0</font>)</dt></dl>
-
-<dl><dt><a name="Grayscale-get_colors_alpha"><strong>get_colors_alpha</strong></a>(self, vals, alpha<font color="#909090">=1.0</font>)</dt></dl>
-
-<dl><dt><a name="Grayscale-set_clim"><strong>set_clim</strong></a>(self, cmin, cmax)</dt><dd><tt>Set&nbsp;the&nbsp;color&nbsp;limits&nbsp;for&nbsp;mapping&nbsp;scalar&nbsp;data&nbsp;to&nbsp;colormap</tt></dd></dl>
+<dl><dt><a name="normalize-scaled"><strong>scaled</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;set</tt></dd></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -162,8 +169,31 @@ control&nbsp;the&nbsp;color&nbsp;range&nbsp;(default&nbsp;min&nbsp;t&nbsp;max)</
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-hex2color"><strong>hex2color</strong></a>(s)</dt><dd><tt>Convert&nbsp;hex&nbsp;string&nbsp;(like&nbsp;html&nbsp;uses,&nbsp;eg,&nbsp;#efefef)&nbsp;to&nbsp;a&nbsp;r,g,b&nbsp;tuple</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
+&nbsp;<br>
+&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
+specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
+ <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
+ <dl><dt><a name="-hex2color"><strong>hex2color</strong></a>(s)</dt><dd><tt>Convert&nbsp;hex&nbsp;string&nbsp;(like&nbsp;html&nbsp;uses,&nbsp;eg,&nbsp;#efefef)&nbsp;to&nbsp;a&nbsp;r,g,b&nbsp;tuple</tt></dd></dl>
  <dl><dt><a name="-looks_like_color"><strong>looks_like_color</strong></a>(c)</dt></dl>
+ <dl><dt><a name="-makeMappingArray"><strong>makeMappingArray</strong></a>(N, data)</dt><dd><tt>Create&nbsp;an&nbsp;N-element&nbsp;1-d&nbsp;lookup&nbsp;table<br>
+&nbsp;<br>
+data&nbsp;represented&nbsp;by&nbsp;a&nbsp;list&nbsp;of&nbsp;x,y0,y1&nbsp;mapping&nbsp;correspondences.<br>
+Each&nbsp;element&nbsp;in&nbsp;this&nbsp;list&nbsp;represents&nbsp;how&nbsp;a&nbsp;value&nbsp;between&nbsp;0&nbsp;and&nbsp;1<br>
+(inclusive)&nbsp;represented&nbsp;by&nbsp;x&nbsp;is&nbsp;mapped&nbsp;to&nbsp;a&nbsp;corresponding&nbsp;value<br>
+between&nbsp;0&nbsp;and&nbsp;1&nbsp;(inclusive).&nbsp;The&nbsp;two&nbsp;values&nbsp;of&nbsp;y&nbsp;are&nbsp;to&nbsp;allow&nbsp;<br>
+for&nbsp;discontinuous&nbsp;mapping&nbsp;functions&nbsp;(say&nbsp;as&nbsp;might&nbsp;be&nbsp;found&nbsp;in&nbsp;a<br>
+sawtooth)&nbsp;where&nbsp;y0&nbsp;represents&nbsp;the&nbsp;value&nbsp;of&nbsp;y&nbsp;for&nbsp;values&nbsp;of&nbsp;x<br>
+&lt;=&nbsp;to&nbsp;that&nbsp;given,&nbsp;and&nbsp;y1&nbsp;is&nbsp;the&nbsp;value&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;x&nbsp;&gt;&nbsp;than<br>
+that&nbsp;given).&nbsp;The&nbsp;list&nbsp;must&nbsp;start&nbsp;with&nbsp;x=0,&nbsp;end&nbsp;with&nbsp;x=1,&nbsp;and&nbsp;<br>
+all&nbsp;values&nbsp;of&nbsp;x&nbsp;must&nbsp;be&nbsp;in&nbsp;increasing&nbsp;order.&nbsp;Values&nbsp;between<br>
+the&nbsp;given&nbsp;mapping&nbsp;points&nbsp;are&nbsp;determined&nbsp;by&nbsp;simple&nbsp;linear&nbsp;interpolation.<br>
+&nbsp;<br>
+The&nbsp;function&nbsp;returns&nbsp;an&nbsp;array&nbsp;"result"&nbsp;where&nbsp;result[x*(N-1)]<br>
+gives&nbsp;the&nbsp;closest&nbsp;value&nbsp;for&nbsp;values&nbsp;of&nbsp;x&nbsp;between&nbsp;0&nbsp;and&nbsp;1.</tt></dd></dl>
+ <dl><dt><a name="-searchsorted"><strong>searchsorted</strong></a> = binarysearch(...)</dt><dd><tt>binarysearch(a,v)</tt></dd></dl>
+ <dl><dt><a name="-take"><strong>take</strong></a>(...)</dt><dd><tt><a href="#-take">take</a>(a,&nbsp;indices,&nbsp;axis=0).&nbsp;&nbsp;Selects&nbsp;the&nbsp;elements&nbsp;in&nbsp;indices&nbsp;from&nbsp;array&nbsp;a&nbsp;along&nbsp;the&nbsp;given&nbsp;axis.</tt></dd></dl>
+ <dl><dt><a name="-zeros"><strong>zeros</strong></a>(...)</dt><dd><tt><a href="#-zeros">zeros</a>((d1,...,dn),typecode='l',savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;of&nbsp;shape&nbsp;(d1,...,dn)&nbsp;and&nbsp;type&nbsp;typecode&nbsp;with&nbsp;all&nbsp;it's&nbsp;entries&nbsp;initialized&nbsp;to&nbsp;zero.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero&nbsp;the&nbsp;array&nbsp;will&nbsp;be&nbsp;a&nbsp;spacesaver&nbsp;array.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -172,8 +202,8 @@ control&nbsp;the&nbsp;color&nbsp;range&nbsp;(default&nbsp;min&nbsp;t&nbsp;max)</
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
-<strong>Float</strong> = Float64<br>
-<strong>Int</strong> = Int32<br>
+<strong>Float</strong> = 'd'<br>
+<strong>Int</strong> = 'l'<br>
 <strong>True</strong> = True<br>
 <strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
