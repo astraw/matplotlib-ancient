@@ -1522,4 +1522,499 @@ vals
 \layout Section
 
 The basic python data structures
+\layout Standard
+
+Strings, covered in the last section, are sequences of characters.
+ python has two additional built-in sequence types which can hold arbitrary
+ elements: tuples and lists.
+ tuples are created using parentheses, and lists are created using square
+ brackets
+\layout LyX-Code
+
+
+\color blue
+# a tuple and a list of elements of the same type
+\layout LyX-Code
+
+
+\color blue
+# (homogeneous)
+\layout LyX-Code
+
+>>> t = (1,2,3,4)  # tuple
+\layout LyX-Code
+
+>>> l = [1,2,3,4]  # list
+\layout Standard
+
+Both tuples and lists can also be used to hold elements of different types
+\layout LyX-Code
+
+
+\color blue
+# a tuple and list of int, string, float
+\layout LyX-Code
+
+>>> t = (1,'john', 3.0)
+\layout LyX-Code
+
+>>> l = [1,'john', 3.0]
+\layout Standard
+
+Tuples and lists have the same indexing and slicing rules as each other,
+ and as string discussed above, because both implement the python sequence
+ protocol, with the only difference being that tuple slices return tuples
+ (indicated by the parentheses below) and list slices return lists (indicated
+ by the square brackets)
+\layout LyX-Code
+
+# indexing and slicing tuples and lists
+\layout LyX-Code
+
+>>> t[0]
+\layout LyX-Code
+
+1
+\layout LyX-Code
+
+>>> l[0]
+\layout LyX-Code
+
+1
+\layout LyX-Code
+
+>>> t[:-1]
+\layout LyX-Code
+
+(1, 'john')
+\layout LyX-Code
+
+>>> l[:-1]
+\layout LyX-Code
+
+[1, 'john']
+\layout Standard
+
+So why the difference between tuples and lists? A number of explanations
+ have been offered on the mailing lists, but the only one that makes a differenc
+e to me is that tuples are immutable, like strings, and hence can be used
+ as keys to python dictionaries and included as elements of sets, and lists
+ are mutable, and cannot.
+ So a tuple, once created, can never be changed, but a list can.
+ For example, if we try to reassign the first element of the tuple above,
+ we get an error
+\layout LyX-Code
+
+>>> t[0] = 'why not?'
+\layout LyX-Code
+
+Traceback (most recent call last):
+\layout LyX-Code
+
+ File "<stdin>", line 1, in ?
+\layout LyX-Code
+
+TypeError: object doesn't support item assignment
+\layout Standard
+
+But the same operation is perfectly accetable for lists
+\layout LyX-Code
+
+>>> l[0] = 'why not?'
+\layout LyX-Code
+
+>>> l
+\layout LyX-Code
+
+['why not?', 'john', 3.0]
+\layout Standard
+
+lists also have a lot of methods, tuple have none, save the special double
+ underscore methods that are required for python objects and sequences
+\layout LyX-Code
+
+
+\color blue
+# tuples contain only 
+\begin_inset Quotes eld
+\end_inset 
+
+hidden
+\begin_inset Quotes erd
+\end_inset 
+
+ double underscore methods
+\layout LyX-Code
+
+>>> dir(t)
+\layout LyX-Code
+
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__',
+ '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__',
+ '__gt__', '__hash__', '__init__', '__iter__', '__le__', '__len__', '__lt__',
+ '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__',
+ '__rmul__', '__setattr__', '__str__']
+\layout LyX-Code
+
+\layout LyX-Code
+
+
+\color blue
+# but lists contain other methods, eg append, extend and
+\layout LyX-Code
+
+
+\color blue
+# reverse
+\layout LyX-Code
+
+>>> dir(l)['__add__', '__class__', '__contains__', '__delattr__', '__delitem__',
+ '__delslice__', '__doc__', '__eq__', '__ge__', '__getattribute__', '__getitem__
+', '__getslice__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__',
+ '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__',
+ '__reduce__', '__reduce_ex__', '__repr__', '__rmul__', '__setattr__', '__setite
+m__', '__setslice__', '__str__', 'append', 'count', 'extend', 'index', 'insert',
+ 'pop', 'remove', 'reverse', 'sort']
+\layout Standard
+
+Many of these list methods change, or mutate, the list, eg append adds an
+ element to the list, 
+\family typewriter 
+extend
+\family default 
+ extends the list with a sequence of elements, 
+\family typewriter 
+sort
+\family default 
+ sorts the list in place, 
+\family typewriter 
+reverse
+\family default 
+ reverses it in place, 
+\family typewriter 
+pop
+\family default 
+ takes an element off the list and returns it.
+\layout Standard
+
+We've seen a couple of examples of creating a list above -- let's look at
+ some more using list methods
+\layout LyX-Code
+
+>>> x = []                   
+\color blue
+# create the empty list
+\layout LyX-Code
+
+>>> x.append(1)              
+\color blue
+# add the integer one to it
+\layout LyX-Code
+
+>>> x.extend(['hi', 'mom'])  
+\color blue
+# append two strings to it
+\layout LyX-Code
+
+>>> x
+\layout LyX-Code
+
+[1, 'hi', 'mom']
+\layout LyX-Code
+
+>>> x.reverse()              
+\color blue
+# reverse the list, in place
+\layout LyX-Code
+
+>>> x
+\layout LyX-Code
+
+['mom', 'hi', 1]
+\layout Standard
+
+We mentioned list comprehensions in the last section when discussing string
+ methods.
+  List comprehensions are a way of creating a list using a for loop in a
+ single line of python.
+ Let's create a list of the perfect cubes from 1 to 10, first with a for
+ loop and then with a list comprehension.
+ The list comprehension code will not only be shorter and more elegant,
+ it can be much faster (the dots are the indentation block indicator from
+ the python shell and should not be typed)
+\layout LyX-Code
+
+
+\color blue
+# a list of perfect cubes using a for-loop
+\layout LyX-Code
+
+>>> cubes = []
+\layout LyX-Code
+
+>>> for i in range(1,10):
+\layout LyX-Code
+
+...
+     cubes.append(i**3)
+\layout LyX-Code
+
+...
+ 
+\layout LyX-Code
+
+>>> cubes
+\layout LyX-Code
+
+[1, 8, 27, 64, 125, 216, 343, 512, 729]
+\layout LyX-Code
+
+\layout LyX-Code
+
+
+\color blue
+# functionally equivalent code using list comprehensions
+\layout LyX-Code
+
+>>> cubes = [i**3 for i in range(1,10)]
+\layout LyX-Code
+
+>>> cubes
+\layout LyX-Code
+
+[1, 8, 27, 64, 125, 216, 343, 512, 729]
+\layout Standard
+
+The list comprehension code is faster because it all happens at the C level.
+  In the simple for-loop version, the python expression which appends the
+ cube of 
+\family typewriter 
+i
+\family default 
+ has to be evaluated by the python interpreter for each element of the loop.
+ In the list comprehension example, the single line is parsed once and executed
+ at the C level.
+  The difference in speed can be considerable, and the list comprehension
+ example is shorter and more elegant to boot.
+\layout Standard
+
+The remaining essential built-in data strucuture in python is the dictionary,
+ which is an associative array that maps arbitrary immutable objects to
+ arbitrary objects.
+ int, long, float, string and tuple are all immutable and can be used as
+ keys; to a dictionary list and dict are mutable and cannot.
+ A dictionary takes one kind of object as the key, and this key points to
+ another object which is the value.
+ In a contrived but easy to comprehent examples, one might map names to
+ ages
+\layout LyX-Code
+
+>>> ages = {}            
+\color blue
+# create an empty dict
+\layout LyX-Code
+
+>>> ages['john'] = 36
+\layout LyX-Code
+
+>>> ages['fernando'] = 33
+\layout LyX-Code
+
+>>> ages                 
+\color blue
+# view the whole dict
+\layout LyX-Code
+
+{'john': 36, 'fernando': 33}
+\layout LyX-Code
+
+>>> ages['john']
+\layout LyX-Code
+
+36
+\layout LyX-Code
+
+>>> ages['john'] = 37    
+\color blue
+# reassign john's age
+\layout LyX-Code
+
+>>> ages['john']
+\layout LyX-Code
+
+37
+\layout Standard
+
+Dictionary lookup is very fast; Tim Peter's once joked that any python program
+ which uses a dictionary is automatically 10 times faster than any C program,
+ which is of course false, but makes two worthy points in jest: dictionary
+ lookup is fast, and dictionaries can be used for important optimizations,
+ eg, creating a cache of frequently used values.
+ As a simple eaxample, suppose you needed to compute the product of two
+ numbers between 1 and 100 in an inner loop -- you could use a dictionary
+ to cache the product of all possible pairs of numbers < 100 .
+\layout LyX-Code
+
+\layout LyX-Code
+
+>>> prod = dict([ ( (i,j), i*j ) for i in range(100) 
+\layout LyX-Code
+
+                                 for j in range(i,100)] )
+\layout LyX-Code
+
+>>> prod[(8,12)]
+\layout LyX-Code
+
+96
+\layout Standard
+
+The last example is syntactically a bit challenging, but bears careful study.
+  We are initializing a dictionary with a list comprehension.
+  The list comprehension is made up of length 2 tuples 
+\family typewriter 
+( (i,j), i*j)
+\family default 
+ ).
+  When a dictionary is initialized with a sequence of length 2 tuples, it
+ assumes the first element of the tuple
+\family typewriter 
+ (i,j)
+\family default 
+ is the key and the second element i*j is the value.
+  Thus we have a lookup table from pairs of numbers 
+\family typewriter 
+i,j
+\family default 
+ to their product.
+  Creating dictionaries from list comprehensions as in this example is something
+ that hard-core python programmers do almost every day, and you should too.
+\layout Exercise
+
+Create a dictionary mapping integers from 0-1000 to their cube using list
+ comprehensions.
+\layout Section
+
+The Zen of Python
+\layout Exercise
+
+
+\family typewriter 
+>>> import this
+\layout Section
+
+Functions and classes
+\layout Standard
+
+You can define functions just about anywhere in python code.
+ The typical function definition takes zero or more arguments, zero or more
+ keyword arguments, and is followed by a documentation string and the function
+ definition, optionally returing a value.
+ Here is a function to compute the hypoteneuse of a right triange
+\layout LyX-Code
+
+def hypot(base, height):
+\layout LyX-Code
+
+   'compute the hypoteneuse of a right triangle'
+\layout LyX-Code
+
+   import math
+\layout LyX-Code
+
+   return math.sqrt(base**2 + height**2)
+\layout Standard
+
+As in the case of the for-loop, leading white space is significant and is
+ used to delimt the start and end of the function.
+ In the example below, x = 1 is not in the function, because it is not indented
+\layout LyX-Code
+
+def growone(l):
+\layout LyX-Code
+
+   'append 1 to a list l'
+\layout LyX-Code
+
+   l.append(1)
+\layout LyX-Code
+
+x = 1
+\layout Standard
+
+Note that this function does not return anything, because the append method
+ modifies the list that was passed in.
+ python is pretty flexible with functions: you can define functions within
+ function definitions (just be mindful of your indentation), you can attach
+ attributes to functions (like other objects), you can pass functions as
+ arguments to other functions.
+\layout Standard
+
+A function keyword argument defines a default value for a function that
+ can be overridden.
+ Here is an example which provides a normalize keyword argument.
+ The default argument is 
+\family typewriter 
+normalize=None
+\family default 
+; the value None is a standard python idiom which usually means either do
+ the default thing or do nothing.
+ If 
+\family typewriter 
+normalize
+\family default 
+ is not 
+\family typewriter 
+None
+\family default 
+, we assume it is a function that can be called to normalize our data
+\layout LyX-Code
+
+def psd(x, normalize=None):
+\layout LyX-Code
+
+    'compute the power spectral density of x'
+\layout LyX-Code
+
+    if normalize is not None: x = normalize(x)
+\layout LyX-Code
+
+   
+\color blue
+ # compute the power spectra of x and return it
+\layout Standard
+
+This function could be called with or without a 
+\family typewriter 
+normalize
+\family default 
+ keyword argument, since if the argument is not passed, the dcefault of
+ 
+\family typewriter 
+None
+\family default 
+ is assumed
+\layout LyX-Code
+
+\layout LyX-Code
+
+
+\color blue
+# no normalize argument do the default thing
+\layout LyX-Code
+
+>>> psd(x)   
+\layout LyX-Code
+
+\layout LyX-Code
+
+
+\color blue
+# define a custom normalize function as pass it to psd
+\layout LyX-Code
+
+>>> def unitstd(x): return x/std(x)
+\layout LyX-Code
+
+>>> psd(x, normalize=unitstd)
 \the_end
