@@ -9,10 +9,10 @@ versioninfo['0.74'] = (
 
     ('unicode', """
 See <a href=examples/unicode_demo.py>unicode_demo.py</a>.  Unicode
-font file names are now accepted and unicode strings are rendered in
-the agg and postscript backends.  Currently, all the symbols in the
-unicode string have to be in the active font file.  In later releases
-we'll try and support symbols from multiple ttf files in one string."""),
+strings are rendered in the agg and postscript backends.  Currently,
+all the symbols in the unicode string have to be in the active font
+file.  In later releases we'll try and support symbols from multiple
+ttf files in one string.  No support yet for unicode ttf filenames"""),
 
     ('Auto-legends',"""
 The automatic placement of legends is now supported with loc='best' --

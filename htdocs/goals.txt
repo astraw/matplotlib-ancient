@@ -110,14 +110,16 @@ support only horizontal and vertical).  Added in <a href="whats_new.html#0.54-Ne
 *******************
 International / unicode support
 
-mostly done
+partly done
 
 Via mathtext, you can use accented western characters, eg \"o and \'e.
 Unicode support for the *Agg and PS backends was added in <a
 href="whats_new.html#0.74-unicode">matplotlib-0.74</a>, and previously
 existed in the GTK and WX backends.  This has only been lightly tested
 with western fonts, and I expect there will be issues with other fonts
-and encodings so please post problems to the users list.
+and encodings so please post problems to the users list.  Still to be
+done is supporting multiple font files per string and handling unicode
+ttf filenames.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Plot types
