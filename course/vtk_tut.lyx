@@ -84,7 +84,7 @@ examples/vtk_hello.py
 
 
 \begin_inset ERT
-status Open
+status Collapsed
 
 \layout Standard
 
@@ -183,4 +183,64 @@ t image segmentation and registration algorithms
 .
  Liek VTK, ITK is a large, sophisticated C++ library which comes with wrappers
  for a number of interpreted languages: Java, Tcl and Python.
+ The first step in the pipeline to work with image/volume data is to create
+ a reader, and VTK ships with readers and writers for all popular formats
+ for medical image data, eg 
+\family typewriter 
+vtkDICOMImageReader
+\family default 
+, to read the ubiquitous DICOM format, and 
+\family typewriter 
+vtkVolumeReader
+\family default 
+, to work with raw binary images.
+ Once the image is loaded, you can pass it to various filters or viewers.
+ In the example below, we create an MRI viewer
+\layout Standard
+
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+lstinputlisting[caption={A simple 3D image viewer in VTK }]{examples/vtk_slice_viewer.py}
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset LatexCommand \ref{fig:vtkslicer}
+
+\end_inset 
+
+
+\begin_inset Float figure
+wide false
+collapsed true
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename fig/vtk_slicer.png
+	lyxscale 50
+	width 3in
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:vtkslicer}
+
+\end_inset 
+
+A simple slice viewer, in 30 lines of python
+\end_inset 
+
+
 \the_end

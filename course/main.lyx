@@ -102,15 +102,6 @@ preview false
 \end_inset 
 
 
-\layout Exercise
-
-Exercise title
-\layout Exercise
-
-this is an exercise
-\layout Exercise
-
-more exercise...
 \layout Chapter
 
 A whirlwind tour of python and the standard library
