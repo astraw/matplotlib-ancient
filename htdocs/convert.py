@@ -46,6 +46,7 @@ table1 =  LinkBox(header='Matplotlib', links=(
 
 table2 =  LinkBox(header='Documentation', links=(
     ('Tutorial', 'tutorial.html'),
+    ('FAQ', 'faq.html'),    
     ('Matlab&nbsp;interface', 'matlab_commands.html'),
     ('Class&nbsp;library', 'classdocs.html'),
     ('Output formats', 'backends.html'),
@@ -106,6 +107,7 @@ files = [
     'backends.html.template',
     'classdocs.html.template',
     'credits.html.template',
+    'faq.html.template',
     'fonts.html.template',
     'goals.html.template',
     'index.html.template',

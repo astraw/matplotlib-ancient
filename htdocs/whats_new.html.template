@@ -5,14 +5,16 @@ new_to_50 = (
 href=http://www.levien.com/libart>libart</a> wrapper.  libart is a
 high quality, cross platform image renderer that supports antialiased
 lines, freetype fonts, and other capabilities to soon be exploited.
-Thanks David!  """ )
+Thanks David!  """ ),
 
+        ('The Matplotlib <a href=faq.html>FAQ</a>', ''),
+        
 	('Added x linesyle', """Matt MacMahon submitted a patch for an
-'x' linestyle.  Thanks Matt! """ )
+'x' linestyle.  Thanks Matt! """ ),
 
 	('gd module on win32', """With much weeping and gnashing of teeth and help from half the people
 on this globe, built a gdmodule win32 installer.  Sepcial thanks to
-Stefan Kuzminski for putting up with my endless windows confusions.""" )
+Stefan Kuzminski for putting up with my endless windows confusions.""" ),
 
 	('GD supports clipping and antialiased line drawing', """See
 instructions about upgrading gd and gdmodule at <a

@@ -137,7 +137,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (136647296)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (136651064)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -1730,7 +1730,7 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="RendererGTK-__init__"><strong>__init__</strong></a>(self, gtkDA, gdkDrawable, dpi)</dt></dl>
 
-<dl><dt><a name="RendererGTK-compute_text_offsets"><strong>compute_text_offsets</strong></a>(self, t)</dt><dd><tt>Return&nbsp;the&nbsp;(x,y)&nbsp;offsets&nbsp;to&nbsp;adjust&nbsp;for&nbsp;the&nbsp;alignment<br>
+<dl><dt><a name="RendererGTK-compute_text_offsets"><strong>compute_text_offsets</strong></a>(self, t, props<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;(x,y)&nbsp;offsets&nbsp;to&nbsp;adjust&nbsp;for&nbsp;the&nbsp;alignment<br>
 specifications</tt></dd></dl>
 
 <dl><dt><a name="RendererGTK-draw_arc"><strong>draw_arc</strong></a>(self, gc, faceColor, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height</tt></dd></dl>
@@ -1767,9 +1767,17 @@ inch&nbsp;into&nbsp;account</tt></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
+<dl><dt><strong>extentd</strong> = {}</dl>
+
 <dl><dt><strong>fontangles</strong> = {'italic': 2, 'normal': 0, 'oblique': 1}</dl>
 
 <dl><dt><strong>fontweights</strong> = {'bold': 700, 'heavy': 900, 'light': 300, 'normal': 400, 'ultrabold': 800, 'ultralight': 200}</dl>
+
+<dl><dt><strong>layoutd</strong> = {}</dl>
+
+<dl><dt><strong>offsetd</strong> = {}</dl>
+
+<dl><dt><strong>rotated</strong> = {}</dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

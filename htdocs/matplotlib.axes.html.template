@@ -961,7 +961,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>generators</strong> = _Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 4096)<br>
-<strong>lineMarkers</strong> = {'+': 1, ',': 1, '.': 1, '&lt;': 1, '&gt;': 1, '^': 1, 'o': 1, 's': 1, 'v': 1}<br>
+<strong>lineMarkers</strong> = {'+': 1, ',': 1, '.': 1, '&lt;': 1, '&gt;': 1, '^': 1, 'o': 1, 's': 1, 'v': 1, 'x': 1}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1}<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;</td></tr></table>
 @footer@

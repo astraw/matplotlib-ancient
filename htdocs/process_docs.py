@@ -35,5 +35,4 @@ for fname in files:
     outLines.extend(lines[5:-1])
     outLines.append('@footer@')
     outFile = file(fname + '.template', 'w')
-    outFile.write('\n'.join(outLines))
-    
+    outFile.write('\n'.join(outLines))    

@@ -4,7 +4,7 @@ FAQs = (
     'Does matplotlib work with numarray?',
     """\
 matplotlib can work with numarray.  Currently, there is no conditional
-import of numarray versus numeric.  But if you recursivele replace all
+import of numarray versus numeric.  But if you recursively replace all
 occurances of 'from Numeric' with 'from numarray', and all occurances
 of 'typecode' with 'type', matplotlib will work.  In the not too
 distant future, I hope to automatically detect numarray or Numeric.
@@ -45,13 +45,13 @@ vexastion among new users of matplotlib.  First of all, you do not
 need this function with the image backends (Paint, GD, PS) but you do
 need it with the GUI (GTK, WX) backends (unless you are running
 matplotlib in <a href=interactive.html>interactive mode</a>).  Clear
-now.  No, I didn't think so.
+now?  No, I didn't think so.<p>
 
 The GUIs have 'mainloops' which need to be entered to do event
 handling.  Unless you have threading enabled ala gui_thread (on the
 TODO list), entering the mainloop is the last command you execute.
 Because it is expensive to draw, I want to avoid redrawing the figure
-many times in a batch script such as the following
+many times in a batch script such as the following<p>
 
 <pre>
   plot([1,2,3])            # draw here ?
@@ -67,6 +67,64 @@ in a script you want to defer all drawing until the script has
 executed.  This is especially important for complex figures that take
 some time to draw.  'show' is designed to tell matplotlib that you're
 all done issuing commands and you want to draw the figure now.  """),
+ 
+    ('Can I save PS/EPS from a GUI backend?',
+     """\
+Yep.  Just choose a filename that contains ps in the extension, eg
+<tt>somefile.ps</tt> or <tt>somefile.eps</tt> and matplotlib will try
+and do the right thing.  That is, if it's an eps file, it will include
+a bounding box, if it's a ps file it will output plain postscript.  It
+is recommended you use matplotlib-0.50 or later for this feature to
+work properly."""),
+
+  ('My title or ticklabel or whatever is overlapping some other figure
+  element, what should I do?',
+   """\
+
+The default subplots take up a lot of room.  If you need extra space
+for particularly large labels and titles, consider using custom <a
+href=matplotlib.matlab#-axes>axes</a>, eg, <tt>axes([0.3, 0.3, 0.6,
+0.6])</tt> gives you more room to the left and at the bottom than the
+standard axes.</p>
+
+Other things to consider.  With multiple subplots, eg, multiple rows,
+turn off the xticklabels for all but the lowest subplot if they are
+the same in all subplots <tt>set(gca(), 'xticklabels', [])</tt>.  You
+can make the fontsizes smaller, as in <tt>xlabel('time (s)',
+fontsize=8)</tt> or, for the tick labels
+
+<pre>
+t = gca().get_xticklabels()
+set(t, 'fontsize', 8)
+</pre>
+ """),
+
+    ('Can matplotlib do dynamic plots, like digital oscilloscopes or animations?', 
+    """\
+Absolutely.  See for example, <a href=examples/anim.py>anim.py</a> and <a
+href=examples/system_monitor.py>system_monitor.py</a>"""),
+
+    ('Is matplotlib fast enough for very large data sets?',
+     """\
+The answer, of course, is "it depends".  I've worked hard to make
+matplotlib work well with very large data sets (100s of MB), because
+these are the kinds of data I need to handle at work.  It is very good
+at handling data sets where the x axis is contiguous (eg, time) and
+only a small portion of data in displayed in the viewport; see for
+example <a href=examples/stock_demo.py>stock_demo.py<a/> where you can
+scroll through 2 months of minute-by-minute stock quote data.  The
+performance with higher dimensional data, eg, pseudocolor plots with
+x, y, and intensity parameters, leaves sometime to be desired.  I'm
+looking into ways to improve these cases.  Several people with high
+bandwidth requirements have reported being happy with matplotlib's
+performance.  If you find areas that need improvement, let me know.
+"""),
+
+    ('Can matplotlib handle image data?',
+     """\
+Not currently, except as pcolor data.  This is something I'd like to
+add, but it's not clear to me how to do this efficiently across
+backends.  Stay tuned."""),
 
 
 

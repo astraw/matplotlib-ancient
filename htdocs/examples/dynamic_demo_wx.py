@@ -19,8 +19,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.8  2004/02/04 14:09:01  jdh2358
-factored out ttf font manager to ttf_font_manager
+Revision 1.9  2004/02/09 15:35:44  jdh2358
+*** empty log message ***
 
 Revision 1.1  2003/12/30 17:22:09  jodonoghue
 First version of dynamic_demo for backend_wx
