@@ -119,6 +119,13 @@ tick&nbsp;locators&nbsp;and&nbsp;formatters.</tt></p>
 <dt><font face="helvetica, arial"><a href="matplotlib.dates.html#EpochConverter">EpochConverter</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.dates.html#MxDatetimeConverter">MxDatetimeConverter</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.dates.html#PyDatetimeConverter">PyDatetimeConverter</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.dates.html#intdate">intdate</a>(<a href="__builtin__.html#int">__builtin__.int</a>, <a href="matplotlib.dates.html#DateConverter">DateConverter</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#int">__builtin__.int</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.dates.html#intdate">intdate</a>(<a href="__builtin__.html#int">__builtin__.int</a>, <a href="matplotlib.dates.html#DateConverter">DateConverter</a>)
 </font></dt></dl>
 </dd>
 <dt><font face="helvetica, arial"><a href="datetime.html#tzinfo">datetime.tzinfo</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
@@ -510,6 +517,191 @@ Methods inherited from <a href="datetime.html#tzinfo">datetime.tzinfo</a>:<br>
 <hr>
 Data and other attributes inherited from <a href="datetime.html#tzinfo">datetime.tzinfo</a>:<br>
 <dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#UTC-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="intdate">class <strong>intdate</strong></a>(<a href="__builtin__.html#int">__builtin__.int</a>, <a href="matplotlib.dates.html#DateConverter">DateConverter</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Subclasses&nbsp;<a href="__builtin__.html#int">int</a>&nbsp;for&nbsp;use&nbsp;as&nbsp;dates.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.dates.html#intdate">intdate</a></dd>
+<dd><a href="__builtin__.html#int">__builtin__.int</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+<dd><a href="matplotlib.dates.html#DateConverter">DateConverter</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="intdate-__init__"><strong>__init__</strong></a>(self, ordinal)</dt></dl>
+
+<dl><dt><a name="intdate-date"><strong>date</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="intdate-epoch"><strong>epoch</strong></a>(self, x)</dt><dd><tt>convert&nbsp;userland&nbsp;datetime&nbsp;instance&nbsp;x&nbsp;to&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="intdate-from_epoch"><strong>from_epoch</strong></a>(self, e)</dt><dd><tt>return&nbsp;an&nbsp;instance&nbsp;of&nbsp;your&nbsp;date&nbsp;from&nbsp;the&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="intdate-isoformat"><strong>isoformat</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="intdate-timetuple"><strong>timetuple</strong></a>(self)</dt></dl>
+
+<hr>
+Properties defined here:<br>
+<dl><dt><strong>day</strong></dt>
+<dd><dl><dt><strong><em>get</em></strong> <em>lambda</em> self</dt></dl>
+</dd>
+</dl>
+<dl><dt><strong>month</strong></dt>
+<dd><dl><dt><strong><em>get</em></strong> <em>lambda</em> self</dt></dl>
+</dd>
+</dl>
+<dl><dt><strong>year</strong></dt>
+<dd><dl><dt><strong><em>get</em></strong> <em>lambda</em> self</dt></dl>
+</dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__dict__</strong> = &lt;dictproxy object&gt;<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dl>
+
+<dl><dt><strong>__weakref__</strong> = &lt;attribute '__weakref__' of 'intdate' objects&gt;<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dl>
+
+<hr>
+Methods inherited from <a href="__builtin__.html#int">__builtin__.int</a>:<br>
+<dl><dt><a name="intdate-__abs__"><strong>__abs__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__abs__">__abs__</a>()&nbsp;&lt;==&gt;&nbsp;abs(x)</tt></dd></dl>
+
+<dl><dt><a name="intdate-__add__"><strong>__add__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__add__">__add__</a>(y)&nbsp;&lt;==&gt;&nbsp;x+y</tt></dd></dl>
+
+<dl><dt><a name="intdate-__and__"><strong>__and__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__and__">__and__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&amp;y</tt></dd></dl>
+
+<dl><dt><a name="intdate-__cmp__"><strong>__cmp__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__cmp__">__cmp__</a>(y)&nbsp;&lt;==&gt;&nbsp;cmp(x,y)</tt></dd></dl>
+
+<dl><dt><a name="intdate-__coerce__"><strong>__coerce__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__coerce__">__coerce__</a>(y)&nbsp;&lt;==&gt;&nbsp;coerce(x,&nbsp;y)</tt></dd></dl>
+
+<dl><dt><a name="intdate-__div__"><strong>__div__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__div__">__div__</a>(y)&nbsp;&lt;==&gt;&nbsp;x/y</tt></dd></dl>
+
+<dl><dt><a name="intdate-__divmod__"><strong>__divmod__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__divmod__">__divmod__</a>(y)&nbsp;&lt;==&gt;&nbsp;xdivmod(x,&nbsp;y)y</tt></dd></dl>
+
+<dl><dt><a name="intdate-__float__"><strong>__float__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__float__">__float__</a>()&nbsp;&lt;==&gt;&nbsp;float(x)</tt></dd></dl>
+
+<dl><dt><a name="intdate-__floordiv__"><strong>__floordiv__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__floordiv__">__floordiv__</a>(y)&nbsp;&lt;==&gt;&nbsp;x//y</tt></dd></dl>
+
+<dl><dt><a name="intdate-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="intdate-__getnewargs__"><strong>__getnewargs__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="intdate-__hash__"><strong>__hash__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__hash__">__hash__</a>()&nbsp;&lt;==&gt;&nbsp;hash(x)</tt></dd></dl>
+
+<dl><dt><a name="intdate-__hex__"><strong>__hex__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__hex__">__hex__</a>()&nbsp;&lt;==&gt;&nbsp;hex(x)</tt></dd></dl>
+
+<dl><dt><a name="intdate-__int__"><strong>__int__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__int__">__int__</a>()&nbsp;&lt;==&gt;&nbsp;<a href="__builtin__.html#int">int</a>(x)</tt></dd></dl>
+
+<dl><dt><a name="intdate-__invert__"><strong>__invert__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__invert__">__invert__</a>()&nbsp;&lt;==&gt;&nbsp;~x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__long__"><strong>__long__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__long__">__long__</a>()&nbsp;&lt;==&gt;&nbsp;long(x)</tt></dd></dl>
+
+<dl><dt><a name="intdate-__lshift__"><strong>__lshift__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__lshift__">__lshift__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&lt;&lt;y</tt></dd></dl>
+
+<dl><dt><a name="intdate-__mod__"><strong>__mod__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__mod__">__mod__</a>(y)&nbsp;&lt;==&gt;&nbsp;x%y</tt></dd></dl>
+
+<dl><dt><a name="intdate-__mul__"><strong>__mul__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__mul__">__mul__</a>(y)&nbsp;&lt;==&gt;&nbsp;x*y</tt></dd></dl>
+
+<dl><dt><a name="intdate-__neg__"><strong>__neg__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__neg__">__neg__</a>()&nbsp;&lt;==&gt;&nbsp;-x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__nonzero__"><strong>__nonzero__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__nonzero__">__nonzero__</a>()&nbsp;&lt;==&gt;&nbsp;x&nbsp;!=&nbsp;0</tt></dd></dl>
+
+<dl><dt><a name="intdate-__oct__"><strong>__oct__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__oct__">__oct__</a>()&nbsp;&lt;==&gt;&nbsp;oct(x)</tt></dd></dl>
+
+<dl><dt><a name="intdate-__or__"><strong>__or__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__or__">__or__</a>(y)&nbsp;&lt;==&gt;&nbsp;x|y</tt></dd></dl>
+
+<dl><dt><a name="intdate-__pos__"><strong>__pos__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__pos__">__pos__</a>()&nbsp;&lt;==&gt;&nbsp;+x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__pow__"><strong>__pow__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__pow__">__pow__</a>(y[,&nbsp;z])&nbsp;&lt;==&gt;&nbsp;pow(x,&nbsp;y[,&nbsp;z])</tt></dd></dl>
+
+<dl><dt><a name="intdate-__radd__"><strong>__radd__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__radd__">__radd__</a>(y)&nbsp;&lt;==&gt;&nbsp;y+x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__rand__"><strong>__rand__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__rand__">__rand__</a>(y)&nbsp;&lt;==&gt;&nbsp;y&amp;x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__rdiv__"><strong>__rdiv__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__rdiv__">__rdiv__</a>(y)&nbsp;&lt;==&gt;&nbsp;y/x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__rdivmod__"><strong>__rdivmod__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__rdivmod__">__rdivmod__</a>(y)&nbsp;&lt;==&gt;&nbsp;ydivmod(y,&nbsp;x)x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="intdate-__rfloordiv__"><strong>__rfloordiv__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__rfloordiv__">__rfloordiv__</a>(y)&nbsp;&lt;==&gt;&nbsp;y//x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__rlshift__"><strong>__rlshift__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__rlshift__">__rlshift__</a>(y)&nbsp;&lt;==&gt;&nbsp;y&lt;&lt;x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__rmod__"><strong>__rmod__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__rmod__">__rmod__</a>(y)&nbsp;&lt;==&gt;&nbsp;y%x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__rmul__"><strong>__rmul__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__rmul__">__rmul__</a>(y)&nbsp;&lt;==&gt;&nbsp;y*x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__ror__"><strong>__ror__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__ror__">__ror__</a>(y)&nbsp;&lt;==&gt;&nbsp;y|x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__rpow__"><strong>__rpow__</strong></a>(...)</dt><dd><tt>y.<a href="#intdate-__rpow__">__rpow__</a>(x[,&nbsp;z])&nbsp;&lt;==&gt;&nbsp;pow(x,&nbsp;y[,&nbsp;z])</tt></dd></dl>
+
+<dl><dt><a name="intdate-__rrshift__"><strong>__rrshift__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__rrshift__">__rrshift__</a>(y)&nbsp;&lt;==&gt;&nbsp;y&gt;&gt;x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__rshift__"><strong>__rshift__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__rshift__">__rshift__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&gt;&gt;y</tt></dd></dl>
+
+<dl><dt><a name="intdate-__rsub__"><strong>__rsub__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__rsub__">__rsub__</a>(y)&nbsp;&lt;==&gt;&nbsp;y-x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__rtruediv__"><strong>__rtruediv__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__rtruediv__">__rtruediv__</a>(y)&nbsp;&lt;==&gt;&nbsp;y/x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__rxor__"><strong>__rxor__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__rxor__">__rxor__</a>(y)&nbsp;&lt;==&gt;&nbsp;y^x</tt></dd></dl>
+
+<dl><dt><a name="intdate-__str__"><strong>__str__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__str__">__str__</a>()&nbsp;&lt;==&gt;&nbsp;str(x)</tt></dd></dl>
+
+<dl><dt><a name="intdate-__sub__"><strong>__sub__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__sub__">__sub__</a>(y)&nbsp;&lt;==&gt;&nbsp;x-y</tt></dd></dl>
+
+<dl><dt><a name="intdate-__truediv__"><strong>__truediv__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__truediv__">__truediv__</a>(y)&nbsp;&lt;==&gt;&nbsp;x/y</tt></dd></dl>
+
+<dl><dt><a name="intdate-__xor__"><strong>__xor__</strong></a>(...)</dt><dd><tt>x.<a href="#intdate-__xor__">__xor__</a>(y)&nbsp;&lt;==&gt;&nbsp;x^y</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="__builtin__.html#int">__builtin__.int</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#intdate-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.dates.html#DateConverter">DateConverter</a>:<br>
+<dl><dt><a name="intdate-__call__"><strong>__call__</strong></a>(self, x)</dt><dd><tt>convert&nbsp;userland&nbsp;datetime&nbsp;instance&nbsp;x&nbsp;to&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="intdate-add_month"><strong>add_month</strong></a>(self, x, direction<font color="#909090">=1</font>)</dt><dd><tt>return&nbsp;now&nbsp;plus&nbsp;one&nbsp;month&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="intdate-add_year"><strong>add_year</strong></a>(self, x, direction<font color="#909090">=1</font>)</dt><dd><tt>return&nbsp;now&nbsp;plus&nbsp;one&nbsp;year&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="intdate-ceil_day"><strong>ceil_day</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;day</tt></dd></dl>
+
+<dl><dt><a name="intdate-ceil_hour"><strong>ceil_hour</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;hour&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="intdate-ceil_minute"><strong>ceil_minute</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;minute</tt></dd></dl>
+
+<dl><dt><a name="intdate-ceil_month"><strong>ceil_month</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;month</tt></dd></dl>
+
+<dl><dt><a name="intdate-ceil_year"><strong>ceil_year</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;ceiled&nbsp;year</tt></dd></dl>
+
+<dl><dt><a name="intdate-day_of_week"><strong>day_of_week</strong></a>(self, x)</dt><dd><tt>return&nbsp;day&nbsp;of&nbsp;week;&nbsp;monday&nbsp;is&nbsp;0</tt></dd></dl>
+
+<dl><dt><a name="intdate-floor_day"><strong>floor_day</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;day</tt></dd></dl>
+
+<dl><dt><a name="intdate-floor_hour"><strong>floor_hour</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;hour&nbsp;as&nbsp;epoch</tt></dd></dl>
+
+<dl><dt><a name="intdate-floor_minute"><strong>floor_minute</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;minute</tt></dd></dl>
+
+<dl><dt><a name="intdate-floor_month"><strong>floor_month</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;month</tt></dd></dl>
+
+<dl><dt><a name="intdate-floor_year"><strong>floor_year</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;floored&nbsp;year</tt></dd></dl>
+
+<dl><dt><a name="intdate-hms"><strong>hms</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;hour,&nbsp;minute,&nbsp;second</tt></dd></dl>
+
+<dl><dt><a name="intdate-strftime"><strong>strftime</strong></a>(self, fmt, x)</dt><dd><tt>format&nbsp;x&nbsp;using&nbsp;strftime&nbsp;format&nbsp;string&nbsp;fmt</tt></dd></dl>
+
+<dl><dt><a name="intdate-strptime"><strong>strptime</strong></a>(self, datestr, fmt)</dt><dd><tt>return&nbsp;an&nbsp;instance&nbsp;of&nbsp;your&nbsp;date&nbsp;from&nbsp;a&nbsp;date&nbsp;string&nbsp;and&nbsp;fouermat</tt></dd></dl>
+
+<dl><dt><a name="intdate-ymd"><strong>ymd</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;year&nbsp;month&nbsp;day.&nbsp;month&nbsp;and&nbsp;day&nbsp;are&nbsp;indexed&nbsp;from&nbsp;1</tt></dd></dl>
+
+<dl><dt><a name="intdate-ymdhms_to_epoch"><strong>ymdhms_to_epoch</strong></a>(self, year, month, day, hour, minute, second)</dt></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

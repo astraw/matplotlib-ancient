@@ -19,8 +19,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.26  2004/04/26 17:44:08  jdh2358
-sync to 0.53.1
+Revision 1.27  2004/04/28 20:52:47  jdh2358
+fixed ps scaling and centering bug
 
 Revision 1.3  2004/03/08 22:17:20  jdh2358
 

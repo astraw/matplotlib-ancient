@@ -42,9 +42,18 @@ but <a href=backends.html#TkAgg>TkAgg</a> is probably the best one to
 use since it requires no other libraries and has the best support for
 interactive use with the standard python shell.  If you are using the
 enthought edition of python, the <a href=backends.html#WXAgg>WXAgg
-backend</a> will also work out of the box.
+backend</a> will also work out of the box.<p>
 
-<h2>Linux</h2> 
+<i>Important: There are known conflicts with some of the backends
+with some python IDEs such as pycrust, idle.  If you want to use
+matplotlib from an IDE, please consult the <a
+href=backends.html>backends documentation</a> for compatibility
+information.  You will have the greatest likelihood of success if you
+run the examples from the command shell or by double clicking on them,
+rather than from an IDE.  If you are interactively generating plots,
+your best bet is TkAgg from the standard python shell.</i>
+
+<h2>Linux</h2>
 
 The GTK backend was the first and thus arguably most mature backend
 and is a great choice for linux.  All of the backends, however, run on

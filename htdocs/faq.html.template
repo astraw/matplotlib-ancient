@@ -4,16 +4,21 @@ FAQs = (
     ('VERSIONS',
     'What do the version numbers mean?',
 
-    """My system has been evolving a bit over the years, but here is what
-I am currently using.
+    """
+The system has been evolving a bit, but here is what I am currently
+using
 
-0.50, 0.60, etc.: major releases to wider community.  Should be thoroughly
-                  bug tested and vetted,
+<ul>
 
-0.51, 0.52, etc.: new features released to matplotlib-users for
-                  bug-vetting,
+<li>0.50, 0.60, etc.: major releases to wider community.  Should be
+thoroughly bug tested and vetted</li>
 
-0.51.1, 0.51.2, etc.: bug fix releases.
+<li>0.51, 0.52, etc.: new features released to matplotlib-users for
+bug-vetting</li>
+
+<li>0.51.1, 0.51.2, etc.: bug fix releases.</li>
+
+</ul>
 """),
 
     ('NUMARRAY',
@@ -330,10 +335,55 @@ You can set the rotation of any text instance to vertical
      ('WINFONTS',
       "On windows with GTK, I'm getting lots of messages about not finding the  Times font",
     r"""
-Apparently GTK changed the default pango font file, because this is a new problem.  You can set font aliases in C:\GTK\etc\pango\pango.aliases.  Add a line like<pre>
+
+Apparently GTK changed the default pango font file, because this is a
+new problem.  You can set font aliases in
+C:\GTK\etc\pango\pango.aliases.  Add a line like
+
+<pre>
 times = "times new roman,angsana new,mingliu,simsun,gulimche,ms gothic,latha,mangal,code2000"
 </pre>
-""" ),
+
+Another alternative is suggested by Gary Ruben <gazzar@email.com>
+
+<pre>
+I just installed Gimp 2 for windows along with the latest GTK+ runtime
+and noticed that it exhibited the same font problem I've been
+experiencing for ages with matplotlib. I was getting WARNING **:
+
+  Couldn't load font "MS Sans Serif 8" falling back to "Sans 8"
+  errors. 
+
+It's addressed in their FAQ,
+http://www2.arnes.si/~sopjsimo/gimp/faq.html>, reproduced here:
+
+  # I installed Gimp 2.0 on Windows 9x/ME or NT 4, and I'm getting a
+  lot of messages saying ** (gimp-2.0.exe:4294830849): WARNING **:
+  Couldn't load font "MS Sans Serif 8" falling back to "Sans 8". What
+  should I do?
+
+  # You have two options:
+
+  * Go to Control Panel->Display properties->Apperance tab, and set
+  all fonts to Tahoma (or any other TrueType font).
+
+  * Uninstall GTK+ 2.2.4, then re-install it without the GTK-Wimp
+  component.
+
+I took option B and now all is well with both Gimp and Matplotlib.
+I'm running Win98 and the Gimp FAQ entry hints that it may be a
+problem in Win98,ME and NT installations. It might be worth adding
+this to the Matplotlib faq page next to the "On windows with
+GTK, I'm getting lots of messages about not finding the Times
+font" entry.
+
+Gary
+<pre>
+
+
+""" 
+
+),
 
      ('FONTCACHE',
       "On windows with GD/Agg/Paint, the first time I ran my script I got a bunch or error messages but don't anymore",
