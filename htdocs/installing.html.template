@@ -1,17 +1,10 @@
-@header@
-<h2>Installing matplotlib</h2>
-matplotlib requires <a href=http://python.org>python 2.2+</a> and <a
+@header@ <h2>Installing matplotlib</h2> matplotlib requires <a
+href=http://python.org>python 2.2+</a> and <a
 href=http://www.pfdubois.com/numpy>Numeric</a> or <a
-href=http://www.stsci.edu/resources/software_hardware/numarray>numarray</a>.
-
-If these dependencies are satisfied, just do the usual thing:<p>
-
-  <pre>
-  > python setup.py install
-  </pre>
-
-Matplotlib is known to work on several linux, win32 and OS X
-platforms; it should run anywhere that python and Numeric run.  
+href=http://www.stsci.edu/resources/software_hardware/numarray>numarray</a>
+and <a href=http://www.freetype.org/freetype>freetype</a>.
+Matplotlib is known to work on several linux, unix, win32 and OS X
+platforms.<p>
 
 To get the most out of matplotlib, you will probably want to install
 one or more of the additional backends, which provide output to
