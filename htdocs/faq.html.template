@@ -60,6 +60,23 @@ the additional benefit that you can issue additional python commands
 to customize your figure interactively, if you want.
 """),
 
+   ('USE',
+    "matplotlib seems to be ignoring the <tt>use</tt> command",
+"""
+You must use the use command before importing matplotlib.matlab, as
+described on <a href=backends.html>backends</a>
+
+<pre>
+  >>> import matplotlib
+  >>> matplotlib.use('Agg')
+  >>> from matplotlib.matlab import *
+</pre>
+
+Note that if you are using an IDE like pycrust, pythonwin, or IDLE,
+matplotlib.matlab may have already been loaded, and subsequent calls
+to <tt>use</tt> or <tt>from matplotlib.matlab import *</tt> will have
+no effect unless you explicitly force a module reload.  """),
+
     ('VERSIONS',
     'What do the version numbers mean?',
 
