@@ -152,6 +152,8 @@ capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;cap
 
 <dl><dt><a name="Axes-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="Axes-get_frame"><strong>get_frame</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axes&nbsp;Rectangle&nbsp;frame</tt></dd></dl>
+
 <dl><dt><a name="Axes-get_legend"><strong>get_legend</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;Legend&nbsp;instance,&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;legend&nbsp;is&nbsp;defined</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_lines"><strong>get_lines</strong></a>(self)</dt></dl>
@@ -621,6 +623,8 @@ capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;cap
 
 <dl><dt><a name="Subplot-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="Subplot-get_frame"><strong>get_frame</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axes&nbsp;Rectangle&nbsp;frame</tt></dd></dl>
+
 <dl><dt><a name="Subplot-get_legend"><strong>get_legend</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;Legend&nbsp;instance,&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;legend&nbsp;is&nbsp;defined</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_lines"><strong>get_lines</strong></a>(self)</dt></dl>
@@ -983,5 +987,6 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>generators</strong> = _Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 4096)<br>
 <strong>lineMarkers</strong> = {'+': 1, ',': 1, '.': 1, '&lt;': 1, '&gt;': 1, '^': 1, 'o': 1, 's': 1, 'v': 1, 'x': 1}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1}<br>
-<strong>log10</strong> = &lt;ufunc 'log10'&gt;</td></tr></table>
+<strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'Agg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
 @footer@

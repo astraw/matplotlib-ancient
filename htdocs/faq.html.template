@@ -3,11 +3,21 @@ FAQs = (
     ('NUMARRAY',
     'Does matplotlib work with numarray?',
     """\
-matplotlib can work with numarray.  Currently, there is no conditional
-import of numarray versus numeric.  But if you recursively replace all
-occurances of 'from Numeric' with 'from numarray', and all occurances
-of 'typecode' with 'type', matplotlib will work.  In the not too
-distant future, I hope to automatically detect numarray or Numeric.
+Yes.  Todd Miller has added a numeric module which allows you to
+choose between Numeric or numarray at the prompt, in a config file, or
+using an environment variable.  For the most part, this works
+seamlessly.  See <a href=NUMARRAY_ISSUES>NUMARRAY_ISSUES</a> and the
+<a href=matplotlib.numerix.html>numerix</a> module for information.
+</a> </a>
+"""),
+
+    ('MATPLOTLIBRC',
+    'How do I customize the default behavior of matplotib?',
+    """\
+Recent versions of matplotlib use a configuration file to set
+everything from the default font, to the figure size, to the default
+line width.  See <a href=.matplotlibrc>.matplotlibrc</a> for a sample
+config file and information on how to use it.
 """),
 	
     ('GTKPATH',
@@ -193,6 +203,14 @@ remove font.cache and rerun your script, capturing them to a file.
 @header@
 <h2> matplotlib FAQ </h2>
 
+<h3> Questions </h3>
+ <ul>
+ + for name,q,a, in FAQs:
+   <li><a href=faq.html#@name@>@q@</a></li>
+ -
+ </ul>
+
+<h3> Answers </h3>
  + for name,q,a, in FAQs:
    <h4><a name=@name@>@q@</a></h4>
      @a@

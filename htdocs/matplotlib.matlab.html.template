@@ -125,17 +125,18 @@ the&nbsp;exception&nbsp;of&nbsp;those&nbsp;in&nbsp;mlab.py&nbsp;provided&nbsp;by
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="LinearAlgebra.html">LinearAlgebra</a><br>
 <a href="MLab.html">MLab</a><br>
-<a href="Numeric.html">Numeric</a><br>
 <a href="RandomArray.html">RandomArray</a><br>
-</td><td width="25%" valign=top><a href="matplotlib._matlab_helpers.html">matplotlib._matlab_helpers</a><br>
-<a href="copy.html">copy</a><br>
+<a href="matplotlib._matlab_helpers.html">matplotlib._matlab_helpers</a><br>
+</td><td width="25%" valign=top><a href="copy.html">copy</a><br>
 <a href="copy_reg.html">copy_reg</a><br>
 <a href="math.html">math</a><br>
-</td><td width="25%" valign=top><a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
-<a href="multiarray.html">multiarray</a><br>
+<a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
+</td><td width="25%" valign=top><a href="multiarray.html">multiarray</a><br>
+<a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
+<a href="os.html">os</a><br>
 <a href="pickle.html">pickle</a><br>
-<a href="string.html">string</a><br>
-</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="string.html">string</a><br>
+<a href="sys.html">sys</a><br>
 <a href="types.html">types</a><br>
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -298,12 +299,22 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&n
 y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.<br>
 &nbsp;<br>
 capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps&nbsp;in&nbsp;points</tt></dd></dl>
- <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=1</font>, figsize<font color="#909090">=(8, 6)</font>, dpi<font color="#909090">=72</font>, facecolor<font color="#909090">=0.75</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;and&nbsp;return&nbsp;a&nbsp;handle&nbsp;to&nbsp;it<br>
+ <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=1</font>, figsize<font color="#909090">=[8.0, 6.0]</font>, dpi<font color="#909090">=80.0</font>, facecolor<font color="#909090">=0.75</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt><a href="#-figure">figure</a>(num&nbsp;=&nbsp;1figsize=(8,&nbsp;6),&nbsp;dpi=80,&nbsp;facecolor='w',&nbsp;edgecolor='k')<br>
+&nbsp;<br>
+&nbsp;<br>
+Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;and&nbsp;return&nbsp;a&nbsp;handle&nbsp;to&nbsp;it<br>
 &nbsp;<br>
 If&nbsp;<a href="#-figure">figure</a>(num)&nbsp;already&nbsp;exists,&nbsp;make&nbsp;it&nbsp;active&nbsp;and&nbsp;return&nbsp;the<br>
 handle&nbsp;to&nbsp;it.<br>
 &nbsp;<br>
-&nbsp;&nbsp;<a href="#-figure">figure</a>(1)</tt></dd></dl>
+&nbsp;&nbsp;<a href="#-figure">figure</a>(1)<br>
+&nbsp;<br>
+figsize&nbsp;-&nbsp;width&nbsp;in&nbsp;height&nbsp;x&nbsp;inches<br>
+dpi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;resolution<br>
+facecolor&nbsp;-&nbsp;the&nbsp;background&nbsp;color&nbsp;&nbsp;&nbsp;&nbsp;<br>
+edgecolor&nbsp;-&nbsp;the&nbsp;border&nbsp;color<br>
+&nbsp;<br>
+rcParams&nbsp;gives&nbsp;the&nbsp;default&nbsp;values&nbsp;from&nbsp;the&nbsp;.matplotlibrc&nbsp;file</tt></dd></dl>
  <dl><dt><a name="-fromstring"><strong>fromstring</strong></a>(...)</dt><dd><tt><a href="#-fromstring">fromstring</a>(string,&nbsp;typecode='l',&nbsp;count=-1)&nbsp;returns&nbsp;a&nbsp;new&nbsp;1d&nbsp;array&nbsp;initialized&nbsp;from&nbsp;the&nbsp;raw&nbsp;binary&nbsp;data&nbsp;in&nbsp;string.&nbsp;&nbsp;If&nbsp;count&nbsp;is&nbsp;positive,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;have&nbsp;count&nbsp;elements,&nbsp;otherwise&nbsp;it's&nbsp;size&nbsp;is&nbsp;determined&nbsp;by&nbsp;the&nbsp;size&nbsp;of&nbsp;string.</tt></dd></dl>
  <dl><dt><a name="-gca"><strong>gca</strong></a>()</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axis&nbsp;instance.&nbsp;&nbsp;This&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;control<br>
 axis&nbsp;properties&nbsp;either&nbsp;using&nbsp;set&nbsp;or&nbsp;the&nbsp;Axes&nbsp;methods.<br>
@@ -717,6 +728,7 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>Complex32</strong> = 'F'<br>
 <strong>Complex64</strong> = 'D'<br>
 <strong>Complex8</strong> = 'F'<br>
+<strong>FILE</strong> = '.numerix'<br>
 <strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
 <strong>Float0</strong> = 'f'<br>
@@ -724,6 +736,7 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>Float32</strong> = 'f'<br>
 <strong>Float64</strong> = 'd'<br>
 <strong>Float8</strong> = 'f'<br>
+<strong>HOME</strong> = '/home/jdhunter'<br>
 <strong>Int</strong> = 'l'<br>
 <strong>Int0</strong> = '1'<br>
 <strong>Int16</strong> = 's'<br>
@@ -742,6 +755,7 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>UnsignedInt32</strong> = 'u'<br>
 <strong>UnsignedInt8</strong> = 'b'<br>
 <strong>UnsignedInteger</strong> = 'u'<br>
+<strong>a</strong> = 'matplotlib.transforms'<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>add</strong> = &lt;ufunc 'add'&gt;<br>
 <strong>arccos</strong> = &lt;ufunc 'arccos'&gt;<br>
@@ -788,6 +802,7 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>not_equal</strong> = &lt;ufunc 'not_equal'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'Agg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}<br>
 <strong>readme</strong> = '<font color="#c040c0">\n</font>MLab2.py, release 1<font color="#c040c0">\n\n</font>Created on February 2003 b...<font color="#c040c0">\n</font>Look at: http://pdilib.sf.net for new releases.<font color="#c040c0">\n</font>'<br>
 <strong>remainder</strong> = &lt;ufunc 'remainder'&gt;<br>
 <strong>right_shift</strong> = &lt;ufunc 'right_shift'&gt;<br>
@@ -798,5 +813,6 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>tan</strong> = &lt;ufunc 'tan'&gt;<br>
 <strong>tanh</strong> = &lt;ufunc 'tanh'&gt;<br>
 <strong>true_divide</strong> = &lt;ufunc 'true_divide'&gt;<br>
-<strong>typecodes</strong> = {'Character': 'c', 'Complex': 'FD', 'Float': 'fd', 'Integer': '1sil', 'UnsignedInteger': 'bwu'}</td></tr></table>
+<strong>typecodes</strong> = {'Character': 'c', 'Complex': 'FD', 'Float': 'fd', 'Integer': '1sil', 'UnsignedInteger': 'bwu'}<br>
+<strong>which</strong> = ('numeric', 'defaulted')</td></tr></table>
 @footer@

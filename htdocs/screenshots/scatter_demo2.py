@@ -8,16 +8,15 @@ delta1 = diff(intc.open)/intc.open[0]
 
 volume = 0.003*intc.volume[:-2]/intc.volume[0]
 close = 0.003*intc.close[:-2]/0.003*intc.open[:-2]
-circs = scatter(delta1[:-1], delta1[1:], c=close, s=volume)
-set(circs, 'alpha', 0.75)
+p = scatter(delta1[:-1], delta1[1:], c=close, s=volume)
+set(p, 'alpha', 0.75)
 set(gca(), 'xticks', arange(-0.06, 0.061, 0.02))
 set(gca(), 'yticks', arange(-0.06, 0.061, 0.02))
-xlabel('Delta day i')
-ylabel('Delta day i+1')
-title('Delta price as a function of volume and percent change')
+xlabel(r'$\Delta_i$', fontsize=20)
+ylabel(r'$\Delta_{i+1}$', fontsize=20)
+title(r'Volume and percent change')
 grid(True)
-savefig('scatter_demo2_small', dpi=60)
-savefig('scatter_demo2_large', dpi=120)
-
+savefig('scatter_demo2')
 show()
+
 

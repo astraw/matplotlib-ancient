@@ -18,13 +18,17 @@ Features&nbsp;that&nbsp;are&nbsp;implemented<br>
 &nbsp;*&nbsp;alpha&nbsp;blending<br>
 &nbsp;*&nbsp;DPI&nbsp;scaling&nbsp;properly&nbsp;-&nbsp;everything&nbsp;scales&nbsp;properly&nbsp;(dashes,&nbsp;linewidths,&nbsp;etc)<br>
 &nbsp;*&nbsp;draw&nbsp;polygon&nbsp;<br>
-&nbsp;*&nbsp;freetype1<br>
+&nbsp;*&nbsp;freetype2&nbsp;w/&nbsp;ft2font<br>
+&nbsp;*&nbsp;using&nbsp;ttf_manager&nbsp;to&nbsp;get&nbsp;font<br>
 &nbsp;<br>
 TODO:<br>
 &nbsp;<br>
-&nbsp;*&nbsp;use&nbsp;ttf&nbsp;manager&nbsp;to&nbsp;get&nbsp;font&nbsp;-&nbsp;right&nbsp;now&nbsp;I&nbsp;just&nbsp;use&nbsp;Vera<br>
-&nbsp;*&nbsp;freetype2<br>
+&nbsp;&nbsp;*&nbsp;allow&nbsp;save&nbsp;to&nbsp;file&nbsp;handle<br>
 &nbsp;<br>
+&nbsp;&nbsp;*&nbsp;allow&nbsp;load&nbsp;from&nbsp;png<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;integrate&nbsp;screen&nbsp;dpi&nbsp;w/&nbsp;ppi&nbsp;and&nbsp;text<br>
+&nbsp;&nbsp;<br>
 INSTALLING&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;REQUIREMENTs<br>
@@ -32,7 +36,7 @@ INSTALLING&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;python2.2+<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Numeric&nbsp;22+<br>
 &nbsp;&nbsp;&nbsp;&nbsp;agg2&nbsp;(see&nbsp;below)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;freetype&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;freetype&nbsp;2<br>
 &nbsp;&nbsp;&nbsp;&nbsp;libpng<br>
 &nbsp;&nbsp;&nbsp;&nbsp;libz<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<br>
@@ -49,10 +53,6 @@ INSTALLING&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;Installing&nbsp;backend_agg<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;Grab&nbsp;the&nbsp;latest&nbsp;CVS:<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cvs&nbsp;-d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/matplotlib&nbsp;login&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cvs&nbsp;-z3&nbsp;-d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/matplotlib&nbsp;co&nbsp;matplotlib<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;&nbsp;&nbsp;Edit&nbsp;setup.py:&nbsp;change&nbsp;aggsrc&nbsp;to&nbsp;point&nbsp;to&nbsp;the&nbsp;agg2&nbsp;src&nbsp;tree&nbsp;and<br>
 &nbsp;&nbsp;&nbsp;replace&nbsp;if&nbsp;0:&nbsp;with&nbsp;if&nbsp;1:&nbsp;in&nbsp;the&nbsp;backend_agg&nbsp;section<br>
@@ -71,21 +71,7 @@ INSTALLING&nbsp;<br>
 &nbsp;&nbsp;or<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;import&nbsp;matplotlib<br>
-&nbsp;&nbsp;&nbsp;&nbsp;matplotlib.use('Agg')<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
-TODO:<br>
-&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;implement&nbsp;ttf&nbsp;font&nbsp;manager<br>
-&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;allow&nbsp;save&nbsp;to&nbsp;file&nbsp;handle<br>
-&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;allow&nbsp;load&nbsp;from&nbsp;png<br>
-&nbsp;<br>
-&nbsp;<br>
-Errors:&nbsp;running&nbsp;python2.2&nbsp;on&nbsp;bace.bsd<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;_backend_agg&nbsp;import&nbsp;<a href="#RendererAgg">RendererAgg</a>&nbsp;as&nbsp;_RendererAgg,&nbsp;Font<br>
-ImportError:&nbsp;/usr/lib/python2.2/site-packages/matplotlib/backends/_backend_agg.so:&nbsp;undefined&nbsp;symbol:&nbsp;__gxx_personality_v0</tt></p>
+&nbsp;&nbsp;&nbsp;&nbsp;matplotlib.use('Agg')</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -181,11 +167,11 @@ ignored</tt></dd></dl>
 <dl><dt><a name="RendererAgg-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
 point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
 
+<dl><dt><a name="RendererAgg-draw_mathtext"><strong>draw_mathtext</strong></a>(self, gc, x, y, t)</dt><dd><tt>Draw&nbsp;the&nbsp;math&nbsp;text&nbsp;using&nbsp;matplotlib.mathtext</tt></dd></dl>
+
 <dl><dt><a name="RendererAgg-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;point&nbsp;at&nbsp;x,y</tt></dd></dl>
 
 <dl><dt><a name="RendererAgg-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, t)</dt><dd><tt>Render&nbsp;the&nbsp;text&nbsp;using&nbsp;the&nbsp;RendererPaint&nbsp;instance</tt></dd></dl>
-
-<dl><dt><a name="RendererAgg-get_agg_color"><strong>get_agg_color</strong></a>(self, rgb)</dt><dd><tt>returns&nbsp;an&nbsp;agg&nbsp;color&nbsp;object&nbsp;based&nbsp;on&nbsp;the&nbsp;given&nbsp;rgb&nbsp;tuple</tt></dd></dl>
 
 <dl><dt><a name="RendererAgg-get_text_extent"><strong>get_text_extent</strong></a>(self, t)</dt><dd><tt>Return&nbsp;the&nbsp;ink&nbsp;extent&nbsp;of&nbsp;the&nbsp;text&nbsp;as&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
 
@@ -198,6 +184,8 @@ inch&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>fontd</strong> = {}</dl>
+
+<dl><dt><strong>mathfonts</strong> = {}</dl>
 
 <dl><dt><strong>offsetd</strong> = {}</dl>
 
@@ -226,9 +214,29 @@ is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-Font"><strong>Font</strong></a>(...)</dt><dd><tt><a href="#-Font">Font</a>(filename,&nbsp;size&nbsp;=&nbsp;12,&nbsp;rotate&nbsp;=&nbsp;0)<br>
+<td width="100%"><dl><dt><a name="-FT2Font"><strong>FT2Font</strong></a>(...)</dt><dd><tt><a href="#-FT2Font">FT2Font</a>(ttffile)<br>
 &nbsp;<br>
-Load&nbsp;the&nbsp;named&nbsp;font&nbsp;and&nbsp;return&nbsp;the&nbsp;font&nbsp;object</tt></dd></dl>
+Create&nbsp;a&nbsp;new&nbsp;FT2Font&nbsp;object;&nbsp;the&nbsp;following&nbsp;global&nbsp;font&nbsp;attributes<br>
+are&nbsp;defined<br>
+num_faces&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;number&nbsp;of&nbsp;faces&nbsp;in&nbsp;file<br>
+face_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;face&nbsp;flags&nbsp;as&nbsp;python&nbsp;int<br>
+style_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;style&nbsp;flags&nbsp;as&nbsp;python&nbsp;int<br>
+num_glyphs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;number&nbsp;of&nbsp;glyphs&nbsp;in&nbsp;the&nbsp;face<br>
+family_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;face&nbsp;family&nbsp;name<br>
+style_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;face&nbsp;syle&nbsp;name<br>
+num_fixed_sizes&nbsp;&nbsp;#&nbsp;the&nbsp;number&nbsp;of&nbsp;embedded&nbsp;bitmap&nbsp;strikes&nbsp;in&nbsp;the&nbsp;current&nbsp;face<br>
+&nbsp;<br>
+#&nbsp;the&nbsp;following&nbsp;are&nbsp;only&nbsp;available&nbsp;if&nbsp;face.scalable<br>
+bbox&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;face&nbsp;global&nbsp;bounding&nbsp;box&nbsp;(xmin,&nbsp;ymin,&nbsp;xmax,&nbsp;ymax)<br>
+units_per_EM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;number&nbsp;of&nbsp;font&nbsp;units&nbsp;covered&nbsp;by&nbsp;the&nbsp;EM<br>
+ascender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;ascender&nbsp;in&nbsp;26.6&nbsp;units<br>
+descender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;descender&nbsp;in&nbsp;26.6&nbsp;units<br>
+height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;height&nbsp;in&nbsp;26.6&nbsp;units;&nbsp;used&nbsp;to&nbsp;compute&nbsp;a&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line&nbsp;spacing&nbsp;(i.e.,&nbsp;the&nbsp;baseline-to-baseline&nbsp;distance)&nbsp;&nbsp;<br>
+max_advance_width&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;maximum&nbsp;horizontal&nbsp;cursor&nbsp;advance&nbsp;for&nbsp;all&nbsp;glyphs<br>
+max_advance_height&nbsp;&nbsp;&nbsp;#&nbsp;same&nbsp;for&nbsp;vertical&nbsp;layout<br>
+underline_position&nbsp;&nbsp;&nbsp;#&nbsp;vertical&nbsp;position&nbsp;of&nbsp;the&nbsp;underline&nbsp;bar<br>
+underline_thickness&nbsp;&nbsp;#&nbsp;vertical&nbsp;thickness&nbsp;of&nbsp;the&nbsp;underline</tt></dd></dl>
  <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
  <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
 </td></tr></table><p>

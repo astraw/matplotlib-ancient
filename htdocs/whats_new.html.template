@@ -1,18 +1,56 @@
 
 new_to_51 = ( 
 
-    ('freetype2 suuport added for agg backend', """\
-With freetype2, agg now renders fonts nicely even at very small raster
-sizes.""" ),
-
     ('Tkinter backend', """\
 Todd Miller has written a Tkinter backend.  This is a significant step
 forward, because now matplotlib works out of the box with any python +
 numeric.  The Tkinter backend works interactively from any python
-shell.  Also, because TkAgg uses the agg backend for rendering, it has
-all of the features of agg, including fast antialiased rendering,
-freetype2, alpha blending, and so on.  See <a
-href=backends.html#TkAgg>The TkAgg Backend</a>.""" ),
+shell - see the <a href=interactive.html>interactive
+documentation</a>.  Also, because TkAgg uses the agg backend for
+rendering, it has all of the features of agg, including fast
+antialiased rendering, freetype2, alpha blending, mathtext, and so on.
+See the <a href=backends.html#TkAgg>TkAgg backend</a>.""" ),
+    
+    ('freetype2 suuport added for agg backend', """\
+With freetype2, agg now renders fonts nicely even at very small raster
+sizes.""" ),
+
+    ('math text', """\
+matplotlib now ships with the <a
+href=http://www.math.utah.edu/~beebe/fonts/bakoma.html>BaKoMa</a> TeX
+Computer Modern fonts, and displays math text using TeX expressions.
+See <a href=screenshots.html#mathtext_demo>screenshot</a> and the <a
+href=matplotlib.mathtext.html>mathtext</a> documentation for usage
+information.  Not available (yet) on all backends.
+"""),
+
+    ('configuration file', """\
+A configuration file is placed in your install path
+(distutils.sysconfig.PREFIX + 'share/matplotlib').  This determines
+many of the default figure properties: the default backend, line
+properties, text properties, colors, and more.  See <a
+href=.matplotlibrc>.matplotlibrc</a> for an example configuration
+file.  Place this in your home dir (linux and friends), or edit in the
+install path (windows),
+"""),
+
+    ('numarray support', """\
+Todd Miller has provided a numerix module which allows you to choose
+between Numeric of numarray.  You can set Numeric or numarray in your
+matplotlibrc file, with an environment variable, or from the prompt.
+See the <a href=matplotlib.numerix.html>numerix module</a> for more
+information and <a href=NUMARRAY_ISSUES>numarray issues</a> for a
+summary of known issues in using numarray.
+"""),
+
+	('Bugfixes', """\
+
+<ul>
+
+  <li> GTK : fixed a subplot selection GUI bug specific to python2.2</li>
+
+</ul>
+
 
 )
 

@@ -63,16 +63,17 @@ Credits:<br>
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="LinearAlgebra.html">LinearAlgebra</a><br>
 <a href="MLab.html">MLab</a><br>
-<a href="Numeric.html">Numeric</a><br>
-</td><td width="25%" valign=top><a href="RandomArray.html">RandomArray</a><br>
+<a href="RandomArray.html">RandomArray</a><br>
 <a href="copy.html">copy</a><br>
-<a href="copy_reg.html">copy_reg</a><br>
-</td><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="copy_reg.html">copy_reg</a><br>
+<a href="math.html">math</a><br>
 <a href="multiarray.html">multiarray</a><br>
+<a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
 <a href="pickle.html">pickle</a><br>
-</td><td width="25%" valign=top><a href="string.html">string</a><br>
+<a href="string.html">string</a><br>
 <a href="sys.html">sys</a><br>
-<a href="types.html">types</a><br>
+</td><td width="25%" valign=top><a href="types.html">types</a><br>
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -424,6 +425,7 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
 <strong>Complex32</strong> = 'F'<br>
 <strong>Complex64</strong> = 'D'<br>
 <strong>Complex8</strong> = 'F'<br>
+<strong>FILE</strong> = '.numerix'<br>
 <strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
 <strong>Float0</strong> = 'f'<br>
@@ -431,6 +433,7 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
 <strong>Float32</strong> = 'f'<br>
 <strong>Float64</strong> = 'd'<br>
 <strong>Float8</strong> = 'f'<br>
+<strong>HOME</strong> = '/home/jdhunter'<br>
 <strong>Int</strong> = 'l'<br>
 <strong>Int0</strong> = '1'<br>
 <strong>Int16</strong> = 's'<br>
@@ -449,6 +452,7 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
 <strong>UnsignedInt32</strong> = 'u'<br>
 <strong>UnsignedInt8</strong> = 'b'<br>
 <strong>UnsignedInteger</strong> = 'u'<br>
+<strong>a</strong> = 'matplotlib.transforms'<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>add</strong> = &lt;ufunc 'add'&gt;<br>
 <strong>arccos</strong> = &lt;ufunc 'arccos'&gt;<br>
@@ -505,5 +509,6 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
 <strong>tan</strong> = &lt;ufunc 'tan'&gt;<br>
 <strong>tanh</strong> = &lt;ufunc 'tanh'&gt;<br>
 <strong>true_divide</strong> = &lt;ufunc 'true_divide'&gt;<br>
-<strong>typecodes</strong> = {'Character': 'c', 'Complex': 'FD', 'Float': 'fd', 'Integer': '1sil', 'UnsignedInteger': 'bwu'}</td></tr></table>
+<strong>typecodes</strong> = {'Character': 'c', 'Complex': 'FD', 'Float': 'fd', 'Integer': '1sil', 'UnsignedInteger': 'bwu'}<br>
+<strong>which</strong> = ('numeric', 'defaulted')</td></tr></table>
 @footer@

@@ -12,17 +12,18 @@ files = {'simple_plot.py'    : default,
          'mri_with_eeg.py'   : default, 
          'barchart_demo.py'  : default,
          'table_demo.py'     : default, 
-         'legend_demo.py'    : default, 
+         'legend_demo.py'    : default,
+         'mathtext_demo.py'    : default, 
          'pcolor_demo.py'    : default, 
-         'text_themes.py'    : default,
+         'text_themes.py'    : default,  # font path
          'log_shot.py'       : default,
          'align_text.py'     : default,          
          'scatter_demo2.py'  : default,    # use alpha
          }
 
-figsize = 'figsize=(6,4)'
-dpi1 = 65
-dpi2 = 130
+figsize = 'figsize=(8,6)'
+dpi1 = 60
+dpi2 = 120
 def make_shot(fname, backend):
     lines = [
         'from __future__ import division\n',

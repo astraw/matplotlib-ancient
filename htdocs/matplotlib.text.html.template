@@ -37,7 +37,7 @@ Publicly&nbsp;accessible&nbsp;attributes<br>
 &nbsp;&nbsp;transy&nbsp;:&nbsp;the&nbsp;transform&nbsp;of&nbsp;the&nbsp;y&nbsp;data<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Text-__init__"><strong>__init__</strong></a>(self, dpi, bbox, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, text<font color="#909090">=''</font>, color<font color="#909090">='k'</font>, verticalalignment<font color="#909090">='bottom'</font>, horizontalalignment<font color="#909090">='left'</font>, fontname<font color="#909090">='Times'</font>, fontsize<font color="#909090">=10</font>, fontweight<font color="#909090">='normal'</font>, fontangle<font color="#909090">='normal'</font>, rotation<font color="#909090">=None</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt></dl>
+<dl><dt><a name="Text-__init__"><strong>__init__</strong></a>(self, dpi, bbox, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, text<font color="#909090">=''</font>, color<font color="#909090">='k'</font>, verticalalignment<font color="#909090">='bottom'</font>, horizontalalignment<font color="#909090">='left'</font>, fontname<font color="#909090">='Times'</font>, fontsize<font color="#909090">=10.0</font>, fontweight<font color="#909090">='normal'</font>, fontangle<font color="#909090">='normal'</font>, rotation<font color="#909090">=None</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt></dl>
 
 <dl><dt><a name="Text-copy_properties"><strong>copy_properties</strong></a>(self, text)</dt></dl>
 
@@ -71,6 +71,8 @@ need&nbsp;to&nbsp;know&nbsp;if&nbsp;the&nbsp;text&nbsp;has&nbsp;changed</tt></dd
 Bound2D&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Text-get_xy_display"><strong>get_xy_display</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Text-is_math_text"><strong>is_math_text</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Text-set_backgroundcolor"><strong>set_backgroundcolor</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;background&nbsp;color&nbsp;of&nbsp;the&nbsp;text</tt></dd></dl>
 
@@ -144,5 +146,6 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
 <strong>True</strong> = True<br>
-<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'Agg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
 @footer@

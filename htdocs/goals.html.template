@@ -46,17 +46,15 @@ mailing list</a>.<p>
         under full control
     </td>
 
-    <td @td_done@>
-
-	Almost done.  You can specify the linewidth and color of the
-	tick lines, axis lines and grid lines.  You now have full
-	control of the line attributes for the axes lines.  
-    </td>
-</tr>
+    <td @td_done@> You can specify the linewidth and color of the tick
+	lines, axis lines and grid lines.  You now have full control
+	of the line attributes for the axes lines.  These can be
+	customized in the <a href=.matplotlibrc>matplotlibrc</a> file.
+	</td> </tr>
 
 <tr> <td> Support arbitrary location, rotation and fonts for axis text
    </td> <td @td_partial@> Partially done.  This is backend dependent.
-   The GD and PS backends support arbitrary rotations.  The GTK and WX
+   The Agg, GD and PS backends support arbitrary rotations.  The GTK and WX
    backends still support only 'horizontal' and 'vertical'.  Full font
    support (font family, font angle, font weight, font size) is
    available for all backends; see <a href=fonts.html>fonts</a>.</td>
@@ -79,19 +77,16 @@ mailing list</a>.<p>
     </td>
 
     <td @td_done@>matplotlib supports multiple backend renders,
-      including GTK, GD and postscript with arbitrary resolutions--
+      including and postscript with arbitrary resolutions--
       see <a href="backends.html">output devices</a> </td> </tr>
 
 <tr> <td> Allow interactive control of plot </td>
 
-    <td @td_partial@> An improved interactive command line environment
-        for the GTK backend is provided interactive2.py, which allows
-        you to use matplotlib interactively from the prompt, though
-        there are still some problems with this interpreter in the way
-        it handles cutting and pasting of text directly into the
-        interpreter.  Also, it would be nicer if there were a way to
-        do this w/o forcing users to use a custom interpreter - note
-        to self, look into gui_thread.  See also interactive.py.</td>
+    <td @td_done@> 
+	With the tkagg backend, you can use matplotlib from an
+	arbitrary python shell.  For other backends, see the <a
+	href=interactive.html>interactive documentation</a>
+	</td>
         </tr>
 
 <tr>
@@ -101,11 +96,13 @@ mailing list</a>.<p>
       well as sub and superscripts
     </td>
 
-    <td @td_remaining@>
-      No progress here yet.  It would be nice to support a large
-      subset of LaTeX commands, as matlab does.
-    </td>
-</tr>
+    <td @td_partial@> A lot of progress here using the BaKoMa computer
+      modern fonts and a TeX parser.  See <a
+      href=screenshots.html#mathtext_demo>screenshot</a> and the <a
+      href=matplotlib.mathtext.html>mathtext</a> documentation for
+      backend and usage information - not available yet on all
+      backends.  
+  </td> </tr>
 
 <tr>
     <td>
@@ -131,6 +128,22 @@ mailing list</a>.<p>
 	screenshots and <a
 	href=examples/pcolor_demo.py>pcolor_demo.py</a> for some
 	example code.  On the list to do: contour.  </td> </tr>
+
+
+    <td>
+	Add image support
+    </td>
+    <td @td_remaining@> 
+      Near the top of the list of things to do
+   </td> </tr>
+
+
+    <td>
+	Add more efficient data handling for large scatter, pcolor, etc.
+    </td>
+    <td @td_remaining@> 
+      Near the top of the list of things to do
+   </td> </tr>
 
 
 <tr>

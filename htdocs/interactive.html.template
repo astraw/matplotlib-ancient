@@ -2,14 +2,40 @@
 <h2>Using matplotlib interactively</h2>
 
 
-Matplotlib defers drawing until the end of the script by default
+By default, matplotlib defers drawing until the end of the script
 because drawing can be an expensive opertation, and in often you don't
 want to update the plot every time a single property is changed, only
-once after all the properties have changed.  But in interactive mode,
-you usually do want to update the plot with every command, eg, after
-changing the x label or the marker style of a line.  To do that, you
-need to put matplotlib in interactive mode.  If you are in a GUI
-shell, such as WX's PyCrust, all you need to do is
+once after all the properties have changed.
+
+But in interactive mode, eg from the python shell, you usually do want
+to update the plot with every command, eg, after changing the xlabel
+or the marker style of a line.  With the <a
+href=backends.html#TkAgg>TkAgg</a> backend, you can use matplotlib
+from an arbitrary python shell.  Just set TkAgg to be your default
+backend and interactive to be True in your <a
+href=.matplotlibrc>matplotlibrc</a> file and fire up python.  Then
+
+<pre>
+>>> from matplotlib.matlab import *
+>>> plot([1,2,3])
+>>> xlabel('hi mom')
+</pre>
+
+should work out of the box.  Note, in batch mode, ie when making
+figures from scripts, interactive mode can be slow since it redraws
+the figure with each command.  So you may want to thingk carefully
+before making this the default behavior.<p>
+
+Unfortunately, due to the 'mainloop' cycle of GUI toolkits, it is not
+yet possible to use matplotlib from an arbitrary python shell with the
+other GUI backends.  Instead, there are custom solutions depending on
+the GUI environment in which you use matplotlib.<p>
+
+
+<h3>WX</h3> 
+
+With a WX shell, such as pycrust, you need to put matplotlib in
+interactive mode.  
 
 <pre>
   >>> import matplotlib
@@ -20,21 +46,20 @@ shell, such as WX's PyCrust, all you need to do is
   >>> xlabel('time (s)')
 </pre>
 
-Unfortunately, due to the 'mainloop' cycle of GUI toolkits, it is not
-yet possible to use matplotlib from an arbitrary python shell.
-Instead, there are custom solutions depending on the GUI environment
-in which you use matplotlib.<p>
+If you primarily want to use matplotlib interactively in a wx shell,
+set the following in your <a href=.matplotlibrc>.matplotlibrc</a> file
 
+<pre>
+backend      : Wx
+interactive  : True     
+</pre>
 
-<h3>WX</h3>
+<h3>GTK</h3> 
 
-With a WX shell, such as pycrust, the example above should work out of
-the box.
-
-<h3>GTK</h3> In the examples dir of the src distribution, there is an
-interactive shell for pygtk.  It sets the interactive property for
-you, and imports all the commands from matplotlib.matlab, so you can
-just start plotting away <a
+In the examples dir of the src distribution, there is an interactive
+shell for pygtk.  It sets the interactive property for you, and
+imports all the commands from matplotlib.matlab, so you can just start
+plotting away <a
 href=examples/interactive2.py>interactive2.py</a>).<p>
 
 <pre>
