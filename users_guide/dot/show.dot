@@ -1,0 +1,12 @@
+//dot -Tps -o ../figures/show.ps show.dot
+digraph G{
+    graph [rankdir="LR"
+           ];
+
+show->expose->FigureCanvasDraw->NewRenderer->FigureDraw->CanvasUpdated;
+expose[label="expose event\nfor all figures"];
+FigureCanvasDraw[label="FigureCanvas.draw()"];
+NewRenderer[label="creates a backend dependent\n renderer instance"];
+FigureDraw[label="canvas.figure.draw(renderer)"];
+CanvasUpdated[label="backend canvas updated"];
+}

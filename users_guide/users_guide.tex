@@ -702,7 +702,7 @@ matplotlib uses a verbose setting, defined in the matplotlibrc file,
 to determine how much information to report. 
 
 \begin{verbatim}
-verbose.level  : error     # one of silent, error, helpful, debug, debug-annoying
+verbose.level  : error       # one of silent, error, helpful, debug, debug-annoying
 verbose.fileo  : sys.stdout  # a log filename, sys.stdout or sys.stderr
 verbose.erro   : sys.stderr  # a log filename, sys.stdout or sys.stderr
 
@@ -2176,7 +2176,8 @@ buffer, or calling the gtk drawing code.
   and so on. }{fig:containment}
 
 
-\subsection{A peak under the hood}
+\chapter{A peak under the hood of the matlab interface}
+
 Let's look at the simplest matplotlib script and walk through what
 happens under the hood.  This section will be of interest mainly to
 developers or those curious about matplotlib internals - it can be
@@ -2190,7 +2191,7 @@ plot([1,2,3])
 show()
 \end{lstlisting}
 
-\subsubsection*{Line 1: \texttt{from matplotlib.matlab import *}}
+\section*{Line 1: \texttt{from matplotlib.matlab import *}}
 
 When any matplotlib code is imported the first time, the
 \fname{matplotlib.\_\_init\_\_.py} code is called.  The primary thing
@@ -2231,7 +2232,7 @@ axes, which in turn are interfaces to the \class{Gcf} class that does
 the real lifting.
 
 
-\subsubsection*{Line 2: \texttt{plot([1,2,3])}}
+\section*{Line 2: \texttt{plot([1,2,3])}}
 
 All of the \mpldoc{matplotlib.matlab} functions are defined similarly:
 they get the current axes and forward the call on to the corresponding
@@ -2242,13 +2243,19 @@ this call, the are created one on the fly using default parameters
 from the rc file; ultimately the \func{new\_figure\_manager} backend
 method is called to provide new figures when needed, and the default
 \code{subplot(111)} is added to the figure if no other axes has been
-defined.  Once the current axes is obtained by \func{gca}, \func{plot}
-forwards the call to \func{Axes.plot}.  If an exception is raise, the
-backend \func{error\_msg} method is called with the traceback to
-display it.  If the code is successful, the backend
-\func{draw\_if\_interactive} method is called which will update the
-plot if the rc parameter \rc{interactive} is \val{True}, and finally
-the return value is returned.
+defined.  
+
+The \func{new\_figure\_manager} method deserves a bit more attention, 
+because this creates the central object that contains all the other
+objects relevant to the creation of a single figure.
+
+Once the current axes is obtained by \func{gca}, \func{plot} forwards
+the call to \func{Axes.plot}.  If an exception is raise, the backend
+\func{error\_msg} method is called with the traceback to display it.
+If the code is successful, the backend \func{draw\_if\_interactive}
+method is called which will update the plot if the rc parameter
+\rc{interactive} is \val{True}, and finally the return value is
+returned.
 
 \begin{lstlisting}                    
 def plot(*args, **kwargs):
@@ -2270,11 +2277,59 @@ y data range and use these to update the data limits of the axes,
 which is turn will be used to autoscale the view limits.  No drawing
 code is actually issued, but is deferred until later.
 
-\subsubsection*{Line 3: \texttt{show()}}
+\section*{Line 3: \texttt{show()}}
+
+\func{show} is an interface to realize and show the GUI windows.  For
+image backends, eg Agg, PS or SVG, it is superfluous.  The image
+backends will draw the figure on a call to savefig, and ignore a
+\func{show} call.  Each GUI backend defines \func{show} to realize all
+of the GUI windows, and start the GUI mainloop.  For this reason, the
+call to \func{show} is blocking, and should be the last line of the
+script.  Here is a representative show method from
+\mpldoc{matplotlib.backends.backend\_gtk}
+
+\begin{lstlisting}
+def show(mainloop=True):
+    """
+    Show all the figures and enter the gtk main loop
+
+    This should be the last line of your script
+    """
+
+    for manager in Gcf.get_all_fig_managers():
+        manager.window.show()
+        
+    if gtk.main_level() == 0 and mainloop:
+        if gtk.pygtk_version >= (2,4,0):  gtk.main()
+        else:                             gtk.mainloop()
 
 
+\end{lstlisting}
 
+Typically, the GUI backends binds the realize or expose event of the
+GUI window to ultimately trigger the \func{Figure.draw} method of the
+Figure instance contained by the \class{FigureCanvas}.  In the show
+function above, \code{manager.window.show()} will trigger an expose
+event in pygtk.  The gtk backend binds the expose event to the
+\func{FigureCanvasGTK.expose\_event} method.  If the canvas has not yet
+been drawn, the \func{expose\_event} method will create a RendererGTK
+instance (which derives from the common drawing API in
+\mpldoc{matplotlib.backends.RendererBase}) and then call
+\func{Figure.draw(renderer)}, which in turn passes the draw command on
+to each \class{Artist} instance it contains; see
+Figure~\ref{fig:containment} for the \class{Artist} containment
+hierarchy.  Each \class{Artist} instance defines the draw method, and
+contains a transform to transform itself to display coordinates.  For
+example, the Line2D instance will transform its x and y data to
+display coordinates, and then call the appropriate renderer method, eg
+\func{RendererGTK.draw\_lines}, which expects x and y data in display
+coordinates.  In this case, the GTK renderer \func{draw\_lines} method makes
+the appropriate calls to the GTK drawing API, and the screen is
+updated; see Figure~\ref{fig:show}.
 
+\fig{6in}{figures/show}{The typical sequence of steps triggered in the
+  backend code by the call to \func{show} that ultimately gets the ink
+  on the canvas.}{fig:show}
 
 
 \chapter{Font finding and properties}
@@ -2734,6 +2789,69 @@ changes to the matplotlib-devel mailing list.
 
 \chapter{mathtext symbols}
 \label{cha:math_symbols}
+
+\chapter{matplotlib source code license}
+\label{cha:license}
+
+All of the matplotlib src code is distributed under the Python
+Software Foundation (PSF) license, which permits commercial and
+noncommercial free use and redistribution as long as the conditions
+below are met.  The VERSION string below is replaced by the current
+matplotlib version number with each release.
+
+\begin{verbatim}
+LICENSE AGREEMENT FOR MATPLOTLIB VERSION
+--------------------------------------
+
+1. This LICENSE AGREEMENT is between the John D. Hunter ("JDH"), and the
+Individual or Organization ("Licensee") accessing and otherwise using
+matplotlib software in source or binary form and its associated
+documentation.
+
+2. Subject to the terms and conditions of this License Agreement, JDH
+hereby grants Licensee a nonexclusive, royalty-free, world-wide license
+to reproduce, analyze, test, perform and/or display publicly, prepare
+derivative works, distribute, and otherwise use matplotlib VERSION
+alone or in any derivative version, provided, however, that JDH's
+License Agreement and JDH's notice of copyright, i.e., "Copyright (c)
+2002-2004 John D. Hunter; All Rights Reserved" are retained in
+matplotlib VERSION alone or in any derivative version prepared by
+Licensee.
+
+3. In the event Licensee prepares a derivative work that is based on or
+incorporates matplotlib VERSION or any part thereof, and wants to
+make the derivative work available to others as provided herein, then
+Licensee hereby agrees to include in any such work a brief summary of
+the changes made to matplotlib VERSION.
+
+4. JDH is making matplotlib VERSION available to Licensee on an "AS
+IS" basis.  JDH MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR
+IMPLIED.  BY WAY OF EXAMPLE, BUT NOT LIMITATION, JDH MAKES NO AND
+DISCLAIMS ANY REPRESENTATION OR WARRANTY OF MERCHANTABILITY OR FITNESS
+FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF MATPLOTLIB VERSION
+WILL NOT INFRINGE ANY THIRD PARTY RIGHTS.
+
+5. JDH SHALL NOT BE LIABLE TO LICENSEE OR ANY OTHER USERS OF MATPLOTLIB
+VERSION FOR ANY INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES OR
+LOSS AS A RESULT OF MODIFYING, DISTRIBUTING, OR OTHERWISE USING
+MATPLOTLIB VERSION, OR ANY DERIVATIVE THEREOF, EVEN IF ADVISED OF
+THE POSSIBILITY THEREOF.
+
+6. This License Agreement will automatically terminate upon a material
+breach of its terms and conditions.
+
+7. Nothing in this License Agreement shall be deemed to create any
+relationship of agency, partnership, or joint venture between JDH and
+Licensee.  This License Agreement does not grant permission to use JDH
+trademarks or trade name in a trademark sense to endorse or promote
+products or services of Licensee, or any third party.
+
+8. By copying, installing or otherwise using matplotlib VERSION,
+Licensee agrees to be bound by the terms and conditions of this License
+Agreement.
+
+\end{verbatim}
+
 
 \bibliographystyle{plainnat}
 \bibliography{matplotlib}
