@@ -73,7 +73,7 @@ axisbg&nbsp;is&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;axis&nbsp;background<br
 <dl><dt><a name="Axes-bar"><strong>bar</strong></a>(self, left, height, width<font color="#909090">=0.80000000000000004</font>, bottom<font color="#909090">=0</font>, color<font color="#909090">='b'</font>, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, ecolor<font color="#909090">='k'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>BAR(left,&nbsp;height)<br>
 &nbsp;<br>
 Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at<br>
-&nbsp;&nbsp;left,&nbsp;left,&nbsp;0,&nbsp;height<br>
+&nbsp;&nbsp;left,&nbsp;left+width,&nbsp;0,&nbsp;height<br>
 left&nbsp;and&nbsp;height&nbsp;are&nbsp;Numeric&nbsp;arrays<br>
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>
@@ -817,7 +817,7 @@ Methods inherited from <a href="matplotlib.axes.html#Axes">Axes</a>:<br>
 <dl><dt><a name="Subplot-bar"><strong>bar</strong></a>(self, left, height, width<font color="#909090">=0.80000000000000004</font>, bottom<font color="#909090">=0</font>, color<font color="#909090">='b'</font>, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, ecolor<font color="#909090">='k'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>BAR(left,&nbsp;height)<br>
 &nbsp;<br>
 Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at<br>
-&nbsp;&nbsp;left,&nbsp;left,&nbsp;0,&nbsp;height<br>
+&nbsp;&nbsp;left,&nbsp;left+width,&nbsp;0,&nbsp;height<br>
 left&nbsp;and&nbsp;height&nbsp;are&nbsp;Numeric&nbsp;arrays<br>
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>
@@ -1548,5 +1548,5 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>lineMarkers</strong> = {0: 1, 1: 1, 2: 1, 3: 1, '+': 1, ',': 1, '.': 1, '1': 1, '2': 1, '3': 1, ...}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1, 'None': 1}<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
 @footer@

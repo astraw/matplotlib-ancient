@@ -697,9 +697,9 @@ which supports the GTK, TkAgg, GTKAgg, PS, WX, WXAgg and Agg backends
 \chapter{The \matlab\ interface}
 \label{cha:matlab_interface}
 
-Although matplotlib has a full object oriented API, the primary way
-people create plots is via the matlab interface, which can be imported
-with
+Although matplotlib has a full object oriented API (see
+Chapter~\ref{cha:api}), the primary way people create plots is via the
+matlab interface, which can be imported with
 
 \begin{lstlisting}
 from matplotlib.matlab import *
@@ -1901,8 +1901,9 @@ Listing~\ref{lst:versus_matlab} and the output in
 Figure~\ref{fig:psd_py}.
 
 
-\section{Axis properties}
-\label{sec:axis_props}
+\section{Axes properties}
+\label{sec:axes_props}
+
 
 \section{Legends and tables}
 \label{sec:legends_and_tables}
@@ -2065,8 +2066,30 @@ mouse moves
 
 \lstinputlisting{code/coords_demo.py}
 
-\section{Dynamic customizations}
+\section{Customizing plot defaults}
 \label{sec:rc_command}
+
+\chapter{Matplotlib API}
+\label{cha:api}
+
+
+The matlab interface does a lot of work for you under the hood,
+creating and managing multiple figure windows, directing your plotting
+commands to the current axes and figure, managing the interactive
+state, and so on.  But that is all it does: all of the plotting is
+handled by a set of classes that the user can instantiate directly.
+If you are developing a GUI application, or simply don't want any
+hidden magic in your plots, you can create any plots using pure OO
+code that you could create with the matlab interface.
+
+From a developer standpoint, the matlab interface has been a blessing
+in disguise.  
+
+was fixed by the Mathworks before the start of
+matplotlib provided considerable freedom to redesign the guts of the
+plotting library -- the object model can be totally revamped and the
+user interface remains fixed.
+
 
 \chapter{Font finding and properties}
 \label{cha:font_finding}

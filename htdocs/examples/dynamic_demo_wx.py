@@ -20,8 +20,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.57  2004/08/15 17:27:03  jdh2358
-fixed cursor demos
+Revision 1.58  2004/08/16 21:20:54  jdh2358
+updated datetime docstring
 
 Revision 1.5  2004/06/26 06:37:20  astraw
 Trivial bugfix to eliminate IndexError
