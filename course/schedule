@@ -1,0 +1,76 @@
+Intro 1 hour talk.
+
+
+Why Python (30 minutes)
+
+  *Strengths and weaknesses of other languages: 
+
+    VB, C, C++, Perl, Matlab, Java
+
+  * Interpreted (cross-platform, insulates you from the machine)
+
+  * Fits your brain (hello world in 4 languages)
+  
+  * Plays well with other languages (intro automated wrapper building)
+
+  * Suite of excellent libraries for scientific computing
+
+  * Free and open source -- fits the educational and research model
+
+Overview of scientifc computing in python (30 minutes)
+
+  * Provide a rapid fire tour of the many libraries for analysis,
+    visualization and high performance computing in python: 
+
+Intro to python (2 hours)
+
+  * the python shell 
+
+  * the ipython shell
+
+  * the fundamental data types: int, float, string, list, tuple, dict
+
+  * functions
+
+  * modules - code reuse
+
+  * objects (data + methods together, writing a class, attributes and methods)
+
+  * flow control : loops, conditionals, try/except
+
+  * the standard library (os, sys, math, re, urllib)
+
+
+Lunch
+
+
+Introduction to scientific computing in python (1.5 hours)
+
+  * Numeric/numarray - array processing (look ma, no loops!)
+
+  * making plots with matplotlib, using pylab
+
+  * semi-advanced examples
+
+
+IPython  (1 hour)
+
+  * overview of scipy algorithms
+
+
+3-D (1 hour)
+
+  * Cube
+
+  * Working with medical image data / VTK
+
+  * 3D with mayavi
+
+
+
+Introduction to mixed language programming (1 hour)
+
+  * overview of f2py, swig, boost, pycxx, weave
+
+  * example of wrapping a simple header with swig
+
