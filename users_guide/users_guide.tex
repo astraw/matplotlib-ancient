@@ -673,15 +673,15 @@ following instructions
 \begin{itemize}
 \item       add these lines to your /etc/apt/sources.list:
 \begin{verbatim}
-deb  http://mentors.debian.net/debian unstable main contrib non-free 
-deb-src http://mentors.debian.net/debian unstable main contrib non-free
+  deb http://anakonda.altervista.org/debian packages/
+  deb-src http://anakonda.altervista.org/debian sources/
 \end{verbatim}
 
 \item then run
 
 \begin{verbatim}
-> apt-get update
-> apt-get install python-matplotlib python-matplotlib-doc
+  > apt-get update
+  > apt-get install python-matplotlib python-matplotlib-doc
 \end{verbatim}
 \end{itemize}
 
@@ -1833,6 +1833,22 @@ pass \code{origin='lower'}, as shown in Figure~\ref{fig:image_origin}.
 
 \section{Bar charts, histograms and errorbar plots}
 \label{sec:barcharts}
+
+Use the \func{bar} function to create simple bar plots.  The simplest
+form of this function is simply \code{bar(x,y)} which creates bars
+with their left edge at \val{x} and height \val{y}.  There are a
+number of options to support more sophisticated bar plots, including
+stacked bar plots and bar plots with errorbars.  The signature of the
+bar method is
+
+\begin{lstlisting}
+    def bar(left, height, width=0.8, bottom=0,
+            color='b', yerr=None, xerr=None, 
+            ecolor='k', capsize=3
+            ):
+\end{lstlisting}
+
+
 
 \section{Pseudocolor and scatter plots}
 \label{sec:pcolor_scatter}

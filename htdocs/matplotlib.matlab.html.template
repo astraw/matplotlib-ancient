@@ -823,7 +823,7 @@ to&nbsp;all&nbsp;those&nbsp;lines,&nbsp;eg<br>
 &nbsp;&nbsp;<a href="#-plot">plot</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;antialising=False)<br>
 &nbsp;<br>
 Neither&nbsp;line&nbsp;will&nbsp;be&nbsp;antialiased.</tt></dd></dl>
- <dl><dt><a name="-plot_date"><strong>plot_date</strong></a>(*args, **kwargs)</dt><dd><tt>PLOT_DATE(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;**kwargs)<br>
+ <dl><dt><a name="-plot_date"><strong>plot_date</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;**kwargs)<br>
 &nbsp;<br>
 d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates;&nbsp;converter&nbsp;is&nbsp;a&nbsp;dates.DateConverter<br>
 instance&nbsp;that&nbsp;converts&nbsp;your&nbsp;dates&nbsp;to&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;for<br>
@@ -1304,8 +1304,8 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>nx</strong> = &lt;matplotlib.nc_imports._TypeNamespace instance&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
-<strong>rcParamsDefault</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParamsDefault</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>readme</strong> = '<font color="#c040c0">\n</font>MLab2.py, release 1<font color="#c040c0">\n\n</font>Created on February 2003 b...<font color="#c040c0">\n</font>Look at: http://pdilib.sf.net for new releases.<font color="#c040c0">\n</font>'<br>
 <strong>remainder</strong> = &lt;ufunc 'remainder'&gt;<br>
 <strong>right_shift</strong> = &lt;ufunc 'right_shift'&gt;<br>

@@ -478,7 +478,7 @@ An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;
 &nbsp;<br>
 Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
 
-<dl><dt><a name="Axes-plot_date"><strong>plot_date</strong></a>(self, d, y, converter, fmt<font color="#909090">='bo'</font>, **kwargs)</dt><dd><tt><a href="#Axes-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;**kwargs)<br>
+<dl><dt><a name="Axes-plot_date"><strong>plot_date</strong></a>(self, d, y, converter<font color="#909090">=None</font>, fmt<font color="#909090">='bo'</font>, **kwargs)</dt><dd><tt><a href="#Axes-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;**kwargs)<br>
 &nbsp;<br>
 d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates;&nbsp;converter&nbsp;is&nbsp;a&nbsp;dates.DateConverter<br>
 instance&nbsp;that&nbsp;converts&nbsp;your&nbsp;dates&nbsp;to&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;for<br>
@@ -1222,7 +1222,7 @@ An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;
 &nbsp;<br>
 Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
 
-<dl><dt><a name="Subplot-plot_date"><strong>plot_date</strong></a>(self, d, y, converter, fmt<font color="#909090">='bo'</font>, **kwargs)</dt><dd><tt><a href="#Subplot-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;**kwargs)<br>
+<dl><dt><a name="Subplot-plot_date"><strong>plot_date</strong></a>(self, d, y, converter<font color="#909090">=None</font>, fmt<font color="#909090">='bo'</font>, **kwargs)</dt><dd><tt><a href="#Subplot-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;**kwargs)<br>
 &nbsp;<br>
 d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates;&nbsp;converter&nbsp;is&nbsp;a&nbsp;dates.DateConverter<br>
 instance&nbsp;that&nbsp;converts&nbsp;your&nbsp;dates&nbsp;to&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;for<br>
@@ -1548,5 +1548,5 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>lineMarkers</strong> = {0: 1, 1: 1, 2: 1, 3: 1, '+': 1, ',': 1, '.': 1, '1': 1, '2': 1, '3': 1, ...}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1, 'None': 1}<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
 @footer@

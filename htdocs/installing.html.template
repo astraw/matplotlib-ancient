@@ -148,18 +148,19 @@ they require), I suggest
 Vittorio Palmisano <redclay@email.it> maintails the debian
 packages at http://mentors.debian.net
 
+
 <ul>
     <li> add these lines to your /etc/apt/sources.list: 
 <pre>
-      deb http://mentors.debian.net/debian unstable main contrib non-free
-      deb-src http://mentors.debian.net/debian unstable main contrib non-free
+  deb http://anakonda.altervista.org/debian packages/
+  deb-src http://anakonda.altervista.org/debian sources/
 </pre> 
     </li>
    
       <li> then run:
 <pre>   
-        > apt-get update
-        > apt-get install python-matplotlib python-matplotlib-doc
+  # apt-get update
+  # apt-get install python-matplotlib python-matplotlib-doc
 </pre>         
   </li>
 </ul>
