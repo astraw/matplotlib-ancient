@@ -566,16 +566,13 @@ docs</a> for details.
        'matplotlib appears to be leaking memory, what should I do?',
 """\
 A number of severe memory leaks were fixed in the 0.54 and 0.60
-matplotlib releases, but there are known memory leaks.  For example,
-there is a small leak in freetype2 that was fixed in freetype CVS but
-may not be released yet.  There appears to be a leak in _backend_agg's
-write_png method, but I haven't traced this sufficiently to find if it
-is in my code or in libpng or in zlib.<p>
-
-The whole memory leak situation has continued to improve as I've
-migrated almost all of the extension code to pycxx, and I have a
-number of unit tests to test leaks in various components.  For
-example, there are no detectable leaks in the transforms module.<p>
+matplotlib releases.  These have been fixed, and here are no known
+severe leaks in matplotlib, though we continue to track down small
+leaks.  There is a leak in freetype 2.1.7 and earlier that was fixed
+in freetype 2.1.9.  The memory leak situation has continued to improve
+significantly as I've migrated almost all of the extension code to
+pycxx, and I use a number of unit tests to test leaks of various
+extension code components. <p
 
 Below is a prototypical script that I use to diagnose and report
 memory leaks.  Please use something like it when reporting leaks so I
@@ -585,15 +582,11 @@ much information about the versions of the libraries you are using:
 freetype, png and zlib.  It would also help if you posted code so I
 could look for any obvious coding errors vis-a-vis matplotlib.<p>
 
-Running the code below, I'm getting about 400 bytes / per / figure
-(matplotlib-0.60.2 / agg on linux with freetype 2.17, libpng1.2 and
-libz 1.1.4).  I know leaks of this size can cause troubles on an
-application server, and in animated figures, and will continue to try
-and track them down.  As I noted above, some of this results from the
-libraries on which matplotlib depends, and so may be system and
-version dependent.  If your numbers are much worse, it may be that you
-are doing something wrong, ie, not properly closing, reusing figure,
-etc, so please post some code to the list.<p>
+Running the code below, I'm getting about 7 bytes / per figure
+(matplotlib-0.60.2 / agg backend on linux with freetype 2.1.9,
+libpng1.2 and libz 1.1.4).  If your numbers are much worse, it may be
+that you are doing something wrong, ie, not properly closing, reusing
+figure, etc, so please post some code to the list.<p>
 
 <pre>
 # Script to diagnose and report leaks
@@ -609,13 +602,19 @@ def report_memory(i):
     print i, '  ', a2[1],
     return int(a2[1].split()[1])
 
-N = 100
+
+
+N = 200
 for i in range(N):
     ind = arange(100)
-    xx = rand(len(ind), 1)
+    xx = rand(len(ind))
     figure(1)
-    plot(ind, xx[:,0])
-    savefig('tmp%d.png' % i, dpi = 75)
+    subplot(211)
+    plot(ind, xx)
+    subplot(212)
+    X = rand(50,50)
+    imshow(X)
+    savefig('tmp%d' % i, dpi = 75)
     close(1)
 
     val = report_memory(i)
