@@ -121,6 +121,14 @@ href=whats_new.html#0.54>matplotlib-0.54</a>.  See <a
 href=examples/dash_control.py>dash_control.py</a>.
 
 *******************
+Date plots
+
+not started
+
+Fix the date code to not use epoch since the time window is too
+narrow.
+
+*******************
 Bezier curves, paths
 
 not started

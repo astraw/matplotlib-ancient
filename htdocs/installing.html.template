@@ -69,6 +69,27 @@ GNOME2, but you will still need to upgrade to at least pygtk-1.99.16.
 The latest version (currently 2.0.0) is recommended.  I don't have
 specific information about the other linux distributions.</p>
 
+To build all the backends on a binary linux distro such as redhat, you
+need to install a number of the devel libs (and whatever dependencies
+they require), I suggest 
+
+<table> 
+
+<tr><td>matplotlib core</td><td> zlib, zlib-devel, libpng,
+libpng-devel, freetype, freetype-devel, freetype-utils</td>
+
+<tr><td>gtk backend</td><td>gtk2-devel, gtk+-devel, pygtk2,
+glib-devel, pygtk2-devel, gnome-libs-devel, pygtk2-libglade</td>
+
+<tr><td>tk backend</td><td>tcl, tk, tkinter </td>
+
+
+</table>
+
+     
+
+
+
 Edit setup.py to configure the backends you want to build and then do
 <tt>python setup.py build</tt>.
 

@@ -69,13 +69,15 @@ AUTHOR:<br>
 
 <dl><dt><a name="AFM-get_angle"><strong>get_angle</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;fontangle&nbsp;as&nbsp;float</tt></dd></dl>
 
+<dl><dt><a name="AFM-get_bbox_char"><strong>get_bbox_char</strong></a>(self, c, isord<font color="#909090">=0</font>)</dt></dl>
+
 <dl><dt><a name="AFM-get_familyname"><strong>get_familyname</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;family&nbsp;name,&nbsp;eg,&nbsp;Times</tt></dd></dl>
 
 <dl><dt><a name="AFM-get_fontname"><strong>get_fontname</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;name,&nbsp;eg,&nbsp;Times-Roman</tt></dd></dl>
 
 <dl><dt><a name="AFM-get_fullname"><strong>get_fullname</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;full&nbsp;name,&nbsp;eg,&nbsp;Times-Roman</tt></dd></dl>
 
-<dl><dt><a name="AFM-get_height_char"><strong>get_height_char</strong></a>(self, c)</dt><dd><tt>Get&nbsp;the&nbsp;height&nbsp;of&nbsp;character&nbsp;c&nbsp;from&nbsp;the&nbsp;bounding&nbsp;box.&nbsp;&nbsp;This&nbsp;is<br>
+<dl><dt><a name="AFM-get_height_char"><strong>get_height_char</strong></a>(self, c, isord<font color="#909090">=0</font>)</dt><dd><tt>Get&nbsp;the&nbsp;height&nbsp;of&nbsp;character&nbsp;c&nbsp;from&nbsp;the&nbsp;bounding&nbsp;box.&nbsp;&nbsp;This&nbsp;is<br>
 the&nbsp;ink&nbsp;height&nbsp;(space&nbsp;is&nbsp;0)</tt></dd></dl>
 
 <dl><dt><a name="AFM-get_kern_dist"><strong>get_kern_dist</strong></a>(self, c1, c2)</dt><dd><tt>Return&nbsp;the&nbsp;kerning&nbsp;pair&nbsp;distance&nbsp;(possibly&nbsp;0)&nbsp;for&nbsp;chars&nbsp;c1&nbsp;and<br>
@@ -87,7 +89,7 @@ c2</tt></dd></dl>
 
 <dl><dt><a name="AFM-get_weight"><strong>get_weight</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;weight,&nbsp;eg,&nbsp;'Bold'&nbsp;or&nbsp;'Roman'</tt></dd></dl>
 
-<dl><dt><a name="AFM-get_width_char"><strong>get_width_char</strong></a>(self, c)</dt><dd><tt>Get&nbsp;the&nbsp;width&nbsp;of&nbsp;the&nbsp;character&nbsp;from&nbsp;the&nbsp;character&nbsp;metric&nbsp;WX<br>
+<dl><dt><a name="AFM-get_width_char"><strong>get_width_char</strong></a>(self, c, isord<font color="#909090">=0</font>)</dt><dd><tt>Get&nbsp;the&nbsp;width&nbsp;of&nbsp;the&nbsp;character&nbsp;from&nbsp;the&nbsp;character&nbsp;metric&nbsp;WX<br>
 field</tt></dd></dl>
 
 <dl><dt><a name="AFM-string_width_height"><strong>string_width_height</strong></a>(self, s)</dt><dd><tt>Return&nbsp;the&nbsp;string&nbsp;width&nbsp;(including&nbsp;kerning)&nbsp;and&nbsp;string&nbsp;height<br>

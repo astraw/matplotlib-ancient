@@ -10,6 +10,7 @@ plotcommands = (
     ('cohere', 'make a plot of coherence'),
     ('csd', 'make a plot of cross spectral density'),
     ('errorbar', 'make an errorbar graph'),
+    ('figlegend', 'add a legend to the figure'),
     ('figure', 'create or change active figure'),
     ('fill', 'draw filled polygons'),
     ('gca', 'return the current axes'),

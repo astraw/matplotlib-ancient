@@ -20,8 +20,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.32  2004/05/04 20:39:27  jdh2358
-fixed makefile and some text bugs
+Revision 1.33  2004/05/14 18:23:33  jdh2358
+new transformation / artist constructors
 
 Revision 1.4  2004/05/03 12:12:26  jdh2358
 added bang header to examples
