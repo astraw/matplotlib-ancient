@@ -356,6 +356,19 @@ API.  Or if you prefer matlab handle graphics commands, you can use
 the <a href=matplotlib.matlab.html#-set>set</a> to control axis
 properties.<p>
 
+
+<pre>
+subplot(111)
+plot([1,2,3])
+glines = get(gca(), 'gridlines')
+set(glines, 'color', 'b', 'linewidth', 2)  # make the gridlines blue
+                                           # and thicker
+frame = gca(gca(), 'frame')  # get the patches.Rectangle instance
+set(frame, 'linewidth', 2)   # increase the linewidth of the rectangular
+                             # axis frame
+</pre>
+
+
 One thing that comes up a lot in my plots when I have multiple
 subplots is that I often want to turn off the xticklabels on all
 except the lowest subplot, if the scaling is the same.  Here's how to
