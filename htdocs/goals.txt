@@ -50,12 +50,13 @@ kerning
 
 not started
 *******************
-vertical rotation
+rotation
 
-partialy done
+mostly done
 
 Jim Benson contributed a patch for vertical mathtext for *Agg, which
-was ported to backend_gtk.  porting of this to backend_ps remains.
+was ported to backend_gtk.  Paul Barrett provided arbitrary rotation
+of mathtext for PS
 
 *******************
 sqrt overlines
@@ -69,6 +70,16 @@ done
 added \/ the small space command and \hspace{frac} where frac is a
 space determined by a fraction of the point size; added in <a
 href="whats_new.html#0.54-Enhanced_mathtext">matplotlib-0.54</a>
+
+*******************
+embedded mathtext
+
+not started
+
+Currently a string is all mathtext or None.  To get roman fonts in a
+mathtext string you can use \rm.  Ideally, we could embed mathtext
+expressions in a regular string, ie, strings like <tt>r"Rate constant
+$5\lambda$"</tt>
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Regular text
