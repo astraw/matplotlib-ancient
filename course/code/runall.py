@@ -5,7 +5,9 @@ all = (
     'weave_callback.py',
     'weave_cplx.py',
     'weave_examples.py',
-    'marching_cubes.py',
+    'vtk_hello.py',
+    'vtk_marching_cubes.py',
+    'vtk_slice_viewer.py',
     )
 
 for fname in all:
