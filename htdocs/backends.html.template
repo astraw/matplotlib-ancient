@@ -244,7 +244,7 @@ href=http://www.python.org/topics/tkinter/trouble.html>tkinter
 trouble</a>.<p>
 
 I also looked into SciTE a little and discovered that it is related to
-Scintilla which in turn was derived from Pythonwin.  <
+Scintilla which in turn was derived from Pythonwin.  <a
 href=http://www.scintilla.org>scintilla</a> This indicates to me that
 the same problem with Tkinter may be affecting both (SciTE and
 Pythonwin)... but I am out on a limb.<p>
