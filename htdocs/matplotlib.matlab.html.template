@@ -724,6 +724,17 @@ bins&nbsp;are&nbsp;the&nbsp;time&nbsp;points&nbsp;the&nbsp;spectrogram&nbsp;is&n
 freqs&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;frequencies<br>
 Pxx&nbsp;is&nbsp;a&nbsp;len(times)&nbsp;x&nbsp;len(freqs)&nbsp;array&nbsp;of&nbsp;power<br>
 im&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;image</tt></dd></dl>
+ <dl><dt><a name="-stem"><strong>stem</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-stem">stem</a>(x,&nbsp;y,&nbsp;linefmt='b-',&nbsp;markerfmt='bo',&nbsp;basefmt='r-')<br>
+&nbsp;<br>
+A&nbsp;stem&nbsp;plot&nbsp;plots&nbsp;vertical&nbsp;lines&nbsp;(using&nbsp;linefmt)&nbsp;at&nbsp;each&nbsp;x<br>
+location&nbsp;from&nbsp;the&nbsp;baseline&nbsp;to&nbsp;y,&nbsp;and&nbsp;places&nbsp;a&nbsp;marker&nbsp;there&nbsp;using<br>
+markerfmt.&nbsp;&nbsp;A&nbsp;horizontal&nbsp;line&nbsp;at&nbsp;0&nbsp;is&nbsp;is&nbsp;plotted&nbsp;using&nbsp;basefmt<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;markerline,&nbsp;stemlines,&nbsp;baseline<br>
+&nbsp;<br>
+See<br>
+<a href="http://www.mathworks.com/access/helpdesk/help/techdoc/ref/stem.html">http://www.mathworks.com/access/helpdesk/help/techdoc/ref/stem.html</a><br>
+for&nbsp;details&nbsp;and&nbsp;examples/stem_plot.py&nbsp;for&nbsp;a&nbsp;demo.</tt></dd></dl>
  <dl><dt><a name="-subplot"><strong>subplot</strong></a>(*args, **kwargs)</dt><dd><tt>Create&nbsp;a&nbsp;subplot&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
 &nbsp;<br>
 &nbsp;&nbsp;<a href="#-subplot">subplot</a>(numRows,&nbsp;numCols,&nbsp;plotNum)<br>

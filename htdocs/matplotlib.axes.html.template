@@ -482,6 +482,16 @@ freqs&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;frequencies<br>
 Pxx&nbsp;is&nbsp;a&nbsp;len(times)&nbsp;x&nbsp;len(freqs)&nbsp;array&nbsp;of&nbsp;power<br>
 im&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;image</tt></dd></dl>
 
+<dl><dt><a name="Axes-stem"><strong>stem</strong></a>(self, x, y, linefmt<font color="#909090">='b-'</font>, markerfmt<font color="#909090">='bo'</font>, basefmt<font color="#909090">='r-'</font>)</dt><dd><tt>A&nbsp;stem&nbsp;plot&nbsp;plots&nbsp;vertical&nbsp;lines&nbsp;(using&nbsp;linefmt)&nbsp;at&nbsp;each&nbsp;x<br>
+location&nbsp;from&nbsp;the&nbsp;baseline&nbsp;to&nbsp;y,&nbsp;and&nbsp;places&nbsp;a&nbsp;marker&nbsp;there&nbsp;using<br>
+markerfmt.&nbsp;&nbsp;A&nbsp;horizontal&nbsp;line&nbsp;at&nbsp;0&nbsp;is&nbsp;is&nbsp;plotted&nbsp;using&nbsp;basefmt<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;markerline,&nbsp;stemlines,&nbsp;baseline<br>
+&nbsp;<br>
+See<br>
+<a href="http://www.mathworks.com/access/helpdesk/help/techdoc/ref/stem.html">http://www.mathworks.com/access/helpdesk/help/techdoc/ref/stem.html</a><br>
+for&nbsp;details&nbsp;and&nbsp;examples/stem_plot.py&nbsp;for&nbsp;a&nbsp;demo.</tt></dd></dl>
+
 <dl><dt><a name="Axes-table"><strong>table</strong></a>(self, cellText<font color="#909090">=None</font>, cellColours<font color="#909090">=None</font>, cellLoc<font color="#909090">='right'</font>, colWidths<font color="#909090">=None</font>, rowLabels<font color="#909090">=None</font>, rowColours<font color="#909090">=None</font>, rowLoc<font color="#909090">='left'</font>, colLabels<font color="#909090">=None</font>, colColours<font color="#909090">=None</font>, colLoc<font color="#909090">='center'</font>, loc<font color="#909090">='bottom'</font>, bbox<font color="#909090">=None</font>)</dt><dd><tt>Create&nbsp;a&nbsp;table&nbsp;and&nbsp;add&nbsp;it&nbsp;to&nbsp;the&nbsp;axes.&nbsp;&nbsp;Returns&nbsp;a&nbsp;table<br>
 instance.&nbsp;&nbsp;For&nbsp;finer&nbsp;grained&nbsp;control&nbsp;over&nbsp;tables,&nbsp;use&nbsp;the<br>
 Table&nbsp;class&nbsp;and&nbsp;add&nbsp;it&nbsp;to&nbsp;the&nbsp;axes&nbsp;with&nbsp;add_table.<br>
@@ -1038,6 +1048,16 @@ bins&nbsp;are&nbsp;the&nbsp;time&nbsp;points&nbsp;the&nbsp;spectrogram&nbsp;is&n
 freqs&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;frequencies<br>
 Pxx&nbsp;is&nbsp;a&nbsp;len(times)&nbsp;x&nbsp;len(freqs)&nbsp;array&nbsp;of&nbsp;power<br>
 im&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;image</tt></dd></dl>
+
+<dl><dt><a name="Subplot-stem"><strong>stem</strong></a>(self, x, y, linefmt<font color="#909090">='b-'</font>, markerfmt<font color="#909090">='bo'</font>, basefmt<font color="#909090">='r-'</font>)</dt><dd><tt>A&nbsp;stem&nbsp;plot&nbsp;plots&nbsp;vertical&nbsp;lines&nbsp;(using&nbsp;linefmt)&nbsp;at&nbsp;each&nbsp;x<br>
+location&nbsp;from&nbsp;the&nbsp;baseline&nbsp;to&nbsp;y,&nbsp;and&nbsp;places&nbsp;a&nbsp;marker&nbsp;there&nbsp;using<br>
+markerfmt.&nbsp;&nbsp;A&nbsp;horizontal&nbsp;line&nbsp;at&nbsp;0&nbsp;is&nbsp;is&nbsp;plotted&nbsp;using&nbsp;basefmt<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;markerline,&nbsp;stemlines,&nbsp;baseline<br>
+&nbsp;<br>
+See<br>
+<a href="http://www.mathworks.com/access/helpdesk/help/techdoc/ref/stem.html">http://www.mathworks.com/access/helpdesk/help/techdoc/ref/stem.html</a><br>
+for&nbsp;details&nbsp;and&nbsp;examples/stem_plot.py&nbsp;for&nbsp;a&nbsp;demo.</tt></dd></dl>
 
 <dl><dt><a name="Subplot-table"><strong>table</strong></a>(self, cellText<font color="#909090">=None</font>, cellColours<font color="#909090">=None</font>, cellLoc<font color="#909090">='right'</font>, colWidths<font color="#909090">=None</font>, rowLabels<font color="#909090">=None</font>, rowColours<font color="#909090">=None</font>, rowLoc<font color="#909090">='left'</font>, colLabels<font color="#909090">=None</font>, colColours<font color="#909090">=None</font>, colLoc<font color="#909090">='center'</font>, loc<font color="#909090">='bottom'</font>, bbox<font color="#909090">=None</font>)</dt><dd><tt>Create&nbsp;a&nbsp;table&nbsp;and&nbsp;add&nbsp;it&nbsp;to&nbsp;the&nbsp;axes.&nbsp;&nbsp;Returns&nbsp;a&nbsp;table<br>
 instance.&nbsp;&nbsp;For&nbsp;finer&nbsp;grained&nbsp;control&nbsp;over&nbsp;tables,&nbsp;use&nbsp;the<br>

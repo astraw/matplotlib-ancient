@@ -30,6 +30,7 @@ plotcommands = (
     ('set', 'set a handle graphics property'),
     ('show', 'show the figures'),
     ('specgram', 'a spectrogram'),
+    ('stem', 'a stem plot'),
     ('subplot', 'make a subplot (numrows, numcols, axesnum)'),
     ('table', 'add a table to the axes'),
     ('text', 'add some text at location x,y to the current axes'),
@@ -142,7 +143,12 @@ it a requirement for matplotlib.<p>
           </caption>
           <tr><th>Function</th><th>Description</th></tr>
           + for command, desc in commands:
+              + if summary=='Plotting commands':
+              <tr><td><a href=matplotlib.matlab.html#-@command@>@command@</a></td><td>@desc@</td></tr>
+              = else:
               <tr><td>@command@</td><td>@desc@</td></tr>
+              -
+
           -
        </table>
        <br><br>
