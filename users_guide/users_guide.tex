@@ -152,9 +152,10 @@ you use?
 
 Most of this chapter will explain these options and how to configure
 them.  Before diving into these details, let's take a detour comparing
-a typical matplotlib script with it's analog in matlab
+a typical matplotlib script with it's analog in matlab.
 
 \section{Migrating from matlab}
+\label{sec:migrating}
 
 Using matplotlib should come naturally if you have ever plotted with
 matlab, and should be fairly straightforward if you haven't.  Like all
@@ -166,14 +167,14 @@ code below shows two complete scripts: on the left hand side is python
 with matplotlib, and on the right is matlab.  
 
 \fig{4in}{figures/psd_matlab}{Colored noise signal and power spectrum
-  generated with matlab.  Compare with matplotlib in
-  Figure~\ref{fig:psd_py}.}{fig:psd_matlab}
+  generated with matlab as shown in Listing~\ref{lst:versus_matlab}.
+  Compare with matplotlib in Figure~\ref{fig:psd_py}.}{fig:psd_matlab}
 
 Both scripts do the same thing: generate a white noise vector,
-convolve it with an exponential function and add it to a sine wave,
-and plot the signal in one subplot and the power spectrum in another.
+convolve it with an exponential function, add it to a sine wave, plot
+the signal in one subplot and plot the power spectrum in another.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption={matplotlib and matlab}, label=lst:versus_matlab]
 # python                               % matlab
 from matplotlib.matlab import *        % no import necessary
 
@@ -207,19 +208,21 @@ Figures~\ref{fig:psd_matlab}).
 
 
 \fig{4in}{figures/psd_py}{Colored noise signal and power spectrum
-  generated with python matplotlib.  Compare with matlab in
+  generated with python matplotlib as shown in
+  Listing~\ref{lst:versus_matlab}.  Compare with matlab in
   Figure~\ref{fig:psd_matlab}.  Note that the waveforms are not
-  identical because they were generated from random signals!}{fig:psd_py}
+  identical because they were generated from random
+  signals!}{fig:psd_py}
 
 
 \section{Numerix}
 \label{sec:numerix}
 
 Numeric is a python module for efficiently processing arrays of
-numeric data.  While highly optimized for performance and stable, some
-limitations in the design made it inefficient for very large arrays,
-and developers decided it was better to start with a new array package
-to solve some of these design problems and numarray was born.
+numeric data.  While highly optimized for performance and very stable,
+some limitations in the design made it inefficient for very large
+arrays, and developers decided it was better to start with a new array
+package to solve some of these design problems and numarray was born.
 matplotlib requires one of Numeric or numarray to operate.  If you
 have no experience with either, you are strongly advised to install
 one of the packages and read through some of the documentation before
@@ -386,9 +389,9 @@ their matplotlib compatibility.\footnote{If you have experience with
   \centering
   \begin{tabular}[t]{|l|l|l|}\hline
   IDE & GUI & Backends and Options\\\hline
-  idle & Tkinter & Works best with TkAgg if idle is launched with -n\\\hline
-  pycrust & WX & Works best with WX/WXAgg\\\hline
-  Scintilla and SciTE & GTK & Should work with GTK/GTKAgg backends but untested\\\hline
+  idle & Tkinter & Works best with TkAgg if idle is launched with -n\\
+  pycrust & WX & Works best with WX/WXAgg\\
+  Scintilla and SciTE & GTK & Should work with GTK/GTKAgg backends but untested\\
   pythonwin & MFC & Unknown\\\hline
 
   \end{tabular}
@@ -847,6 +850,12 @@ Figure~\ref{fig:plot_styles},
   automatically create a legend for all the lines in the plot.
 }{fig:plot_styles}
 
+\noindent The color part of the format string applies only to the
+facecolor of 2D plot markers like circles, triangles, and squares.
+The edgecolor of these markers will be determined by the default rc
+parameter \rc{lines.markeredgecolor} and can be defined for individual
+lines using the methods discussed below.
+
 \subsection{Controlling line properties}
 \label{sec:plot_line_props}
 
@@ -855,24 +864,23 @@ properties using plot format strings.  For finer grained control, you
 can set any of the attributes of a \mpldoc{matplotlib.lines.Line2D}
 instance.  There are three ways to do this: using keyword arguments,
 calling the line methods directly, or using the \func{set} command.
-
-The following properties can be set
+The line properties are shown in Table~\ref{tab:line_props}.
 
 \begin{table}[htbp]
   \centering
   \begin{tabular}[t]{|l|l|}\hline
-    \carg{Property}  & \val{Value}\\\hline\hline
-    \carg{alpha}           & The alpha transparency on 0-1 scale\\\hline
-    \carg{antialiased}     & \val{True} or \val{False} -  use antialised rendering\\\hline
-    \carg{color}           & A matplotlib color arg\\\hline
-    \carg{data\_clipping}  & Whether to use numeric to clip data\\\hline
-    \carg{label}           & A string optionally used for legend\\\hline
-    \carg{linestyle}       & One of \code{-- :  -.  -} \\\hline
-    \carg{linewidth}       & A float, the line width in points\\\hline
-    \carg{marker}          & One of \code{$+$ ,  o . s v x $>$ $<$, etc }\\\hline
-    \carg{markeredgewidth} & The line width around the marker symbol\\\hline
-    \carg{markeredgecolor} & The edge color if a marker is used\\\hline
-    \carg{markerfacecolor} & The face color if a marker is used\\\hline
+    \carg{Property}  & \val{Value}\\\hline
+    \carg{alpha}           & The alpha transparency on 0-1 scale\\
+    \carg{antialiased}     & \val{True} or \val{False} -  use antialised rendering\\
+    \carg{color}           & A matplotlib color arg\\
+    \carg{data\_clipping}  & Whether to use numeric to clip data\\
+    \carg{label}           & A string optionally used for legend\\
+    \carg{linestyle}       & One of \code{-- :  -.  -} \\
+    \carg{linewidth}       & A float, the line width in points\\
+    \carg{marker}          & One of \code{$+$ ,  o . s v x $>$ $<$, etc }\\
+    \carg{markeredgewidth} & The line width around the marker symbol\\
+    \carg{markeredgecolor} & The edge color if a marker is used\\
+    \carg{markerfacecolor} & The face color if a marker is used\\
     \carg{markersize}      & The size of the marker in points\\\hline
   \end{tabular}
   \caption{\label{tab:line_props}Line properties; see
@@ -946,6 +954,79 @@ are shown in Figure~\ref{fig:big_diamonds}.
   created with three different recipes.}{fig:big_diamonds}
 
 
+
+\subsubsection{Abbreviated method names}
+\label{sec:line_abbrevs}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}[t]{|l|l|}\hline
+    \carg{Abbreviation}  & \val{Fullname}\\\hline
+        aa  & antialiased\\
+        c   & color\\
+        ls  & linestyle\\
+        lw  & linewidth\\
+        mec & markeredgecolor\\
+        mew & markeredgewidth\\
+        mfc & markerfacecolor\\
+        ms  & markersize\\\hline
+  \end{tabular}
+  \caption{\label{tab:line_abbrevs}Abbreviated names for line
+        properties.  You can use any of the line customization methods
+        above with abbreviated names.}
+\end{table}
+
+When working from an interactive python shell, typing
+'markerfacecolor' can be a pain -- too many keystrokes.  The
+\mpldoc{matplotlib.lines.Line2D} class provides a number of
+abbreviated method names, listed in Table~\ref{tab:line_abbrevs}.
+
+
+\noindent Thus you can, for example, call
+
+\begin{lstlisting}
+# no antialiasing, thick green markeredge lines
+>>> plot(range(10), 'ro', aa=False, mew=2, mec='g')
+\end{lstlisting}
+
+
+\section{Color arguments}
+\label{sec:colors}
+
+
+matplotlib is fairly tolerant of a number of formats for passing color
+information.  As discussed above, you can use and of the single
+character color strings listed in Table~\ref{tab:color_strings}.
+Additionally, anywhere a color character string is accepted, you can
+also use a grayscale, hex or RGB color argument.
+
+\fig{4in}{figures/color_demo}{Lots of different ways to specify colors
+  generated from Listing~\ref{lst:color_demo}-- not necessarily
+  recommended for aesthetic quality!}{fig:color_demo}
+\lstinputlisting[caption={Wild and wonderful ways to specify colors;
+  see Figure~\ref{fig:color_demo}},
+label=lst:color_demo]{code/color_demo.py}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}[t]{|l|l|}\hline
+      b  & blue\\
+      g  & green\\
+      r  & red\\
+      c  & cyan\\
+      m  & magenta\\
+      y  & yellow\\
+      k  & black\\
+      w  & white\\
+      0.75  & a grayscale intensity (any float in [0,1]\\
+      \#2F4F4F & an RGB hex color string, eg, this example is dark slate
+      gray\\
+      (0.18, 0.31, 0.31)  & an RGB tuple; this is also dark slate gray\\\hline
+  \end{tabular}
+  \caption{\label{tab:color_strings}Color format strings, which can be
+      used to set the line or text properties, eg the line, the marker
+      edgecolor or marker facecolor.  }
+\end{table}
 
 \section{Loading and saving data}
 \label{sec:loading_data}
@@ -1158,10 +1239,12 @@ For example, to create two rows and one column of axes, you would use
 \code{subplot(211)} to create the upper axes and \code{subplot(212)}
 to create the lower axes.  The last digit counts across the rows.
 
-\lstinputlisting{code/subplot_demo.py}
-
 \fig{4in}{figures/subplot_demo}{Multiple rows of axes created with the
-  subplot command}{fig:subplot_demo}
+  subplot command, as shown in
+  Listing~\ref{lst:subplot_demo}}{fig:subplot_demo}
+
+\lstinputlisting[caption={Generating multiple axes with subplot; see Figure~\ref{fig:subplot_demo}}, label=lst:subplot_demo]{code/subplot_demo.py}
+
 
 \noindent Likewise, to create two columns and one row of axes, you would use
 \code{subplot(121)} to create the left axes and \code{subplot(122)} to
@@ -1250,10 +1333,11 @@ clears the current axes.  You can use the \func{axes} command lay the
 axes exactly where you want them, including to overlaying one axes on
 top of another, as in this example
 
-\lstinputlisting{code/axes_demo.py}
-
 \fig{4in}{figures/axes_demo}{Using the \func{axes} command to create
   inset axes over another axes.}{fig:axes_demo}
+
+\lstinputlisting{code/axes_demo.py}
+
 
       
 \section{Text}
@@ -1294,56 +1378,11 @@ interface
 \subsection{Text properties}
 \label{sec:text_props}
 
-There are many text properties that can be set.  See
-Chapter~\ref{cha:font_finding} for more discussion of the font finder
-algorithm and the meaning of these properties.
-
-\begin{table}[htbp]
-  \centering
-  \begin{tabular}[t]{|l|l|}\hline
-    \carg{Property}           & Value\\ \hline \hline 
-    \carg{alpha}           & The alpha transparency on 0-1 scale\\ \hline 
-
-    \carg{color}           & A matplotlib color arg\\ \hline 
-    
-    \carg{family}           & set the font family, eg 'sans-serif', 'cursive', 'fantasy'\\ \hline 
-    
-    \carg{fontangle} & the font slant, one of 'normal', 'italic', 'oblique'\\ \hline 
-
-    \carg{horizontalalignment}  & 'left', 'right' or 'center'\\ \hline 
-
-    \carg{multialignment}  & 'left', 'right' or 'center'
-    only for multiline strings\\ \hline 
-
-    \carg{name} & the font name, eg, 'Sans', 'Courier', 'Helvetica'\\ \hline 
-
-    \carg{position} & the x,y location\\ \hline 
-
-    \carg{variant} & the font variant, eg 'normal', 'small-caps'\\ \hline 
-
-    \carg{rotation} & the angle in degrees for rotated text\\ \hline 
-
-    \carg{size} & the fontsize in points, eg, 8, 10, 12\\ \hline 
-
-    \carg{style} & the font style, one of 'normal', 'italic',
-    'oblique'\\ \hline 
-
-    \carg{text} & set the text string itself\\ \hline 
-
-    \carg{verticalalignment}  & 'top', 'bottom' or 'center'\\ \hline
-
-    \carg{weight} & the font weight, eg 'normal', 'bold', 'heavy',
-    'light'\\\hline
-
-  \end{tabular}
-  \caption{\label{tab:text_props}Properties of
-    \mpldoc{matplotlib.text.Text}}
-\end{table}
-
-\noindent As with lines, there are three ways to set text properties:
-using keyword arguments to a text command, calling \func{set} on a
-text instance or a sequence of text instances, or calling an instance
-method on a text instance.  These three are illustrated below
+The text properties are listed in Table~\ref{tab:text_props}.  As with
+lines, there are three ways to set text properties: using keyword
+arguments to a text command, calling \func{set} on a text instance or
+a sequence of text instances, or calling an instance method on a text
+instance.  These three are illustrated below
 
 \begin{lstlisting}
 # keyword args
@@ -1359,9 +1398,55 @@ method on a text instance.  These three are illustrated below
 >>> l.set_weight('bold')
 \end{lstlisting}
 
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}[t]{|l|l|}\hline
+    \carg{Property}           & Value\\\hline 
+    \carg{alpha}           & The alpha transparency on 0-1 scale\\ 
+
+    \carg{color}           & A matplotlib color arg\\ 
+    
+    \carg{family}           & set the font family, eg 'sans-serif', 'cursive', 'fantasy'\\ 
+    
+    \carg{fontangle} & the font slant, one of 'normal', 'italic', 'oblique'\\ 
+
+    \carg{horizontalalignment}  & 'left', 'right' or 'center'\\ 
+
+    \carg{multialignment}  & 'left', 'right' or 'center'
+    only for multiline strings\\ 
+
+    \carg{name} & the font name, eg, 'Sans', 'Courier', 'Helvetica'\\ 
+
+    \carg{position} & the x,y location\\ 
+
+    \carg{variant} & the font variant, eg 'normal', 'small-caps'\\ 
+
+    \carg{rotation} & the angle in degrees for rotated text\\ 
+
+    \carg{size} & the fontsize in points, eg, 8, 10, 12\\ 
+
+    \carg{style} & the font style, one of 'normal', 'italic',
+    'oblique'\\ 
+
+    \carg{text} & set the text string itself\\ 
+
+    \carg{verticalalignment}  & 'top', 'bottom' or 'center'\\
+
+    \carg{weight} & the font weight, eg 'normal', 'bold', 'heavy',
+    'light'\\\hline
+
+  \end{tabular}
+  \caption{\label{tab:text_props}Properties of
+    \mpldoc{matplotlib.text.Text}}
+\end{table}
+
+
 \noindent See the example
 \url{http://matplotlib.sourceforge.net/examples/fonts_demo_kw.py}
 which makes extensive use of font properties for more information.
+See also Chapter~\ref{cha:font_finding} for more discussion of the
+font finder algorithm and the meaning of these properties.
 
 \subsection{Text layout}
 \label{sec:text_layout}
@@ -1381,11 +1466,12 @@ the code indicates that the coordinates are given relative to the axes
 bounding box, with 0,0 being the lower left of the axes and 1,1 the
 upper right.
 
-\lstinputlisting{code/alignment_demo.py}
-
 \fig{6in}{figures/alignment_demo}{Aligning text with
   \carg{horizontalalignment}, \carg{verticalalignment}, and
   \carg{multialignment} options to the \func{text} command.}{fig:align_text}
+
+\lstinputlisting{code/alignment_demo.py}
+
 
 
 
@@ -1494,10 +1580,11 @@ Figure~\ref{fig:mathtext_demo}.
     \mathcal{R}\prod_{i=\alpha}^\infty a_i\mathrm{sin}(2 \pi f x_i)
 \end{equation}
 
-\lstinputlisting{code/mathtext_demo.py}
-
 \fig{4in}{figures/mathtext_demo}{Incorpating \TeX\ expressions into
   your figure.}{fig:mathtext_demo}
+
+\lstinputlisting{code/mathtext_demo.py}
+
 
 
 \section{Images}
@@ -1561,9 +1648,11 @@ norm, vmin, vmax, and origin} will be explained in sections below.
 The following shows a simple command which creates an image using
 bilinear interpolation, shown in Figure~\ref{fig:image_demo}.
 
+\fig{4in}{figures/image_demo}{Simple axes image}{fig:image_demo}
+
 \lstinputlisting{code/image_demo.py}
 
-\fig{4in}{figures/image_demo}{Simple axes image}{fig:image_demo}
+
 
 You can create an arbitrary number of axes images inside a single
 axes, and these will be composed via alpha blending.  However, if you
@@ -1727,11 +1816,13 @@ keyword argument to the image commands \func{imshow} and
 left, pass \code{origin='upper'} and with the image in the lower left,
 pass \code{origin='lower'}, as shown in Figure~\ref{fig:image_origin}.
 
-\lstinputlisting{code/image_origin.py}
 
 \fig{4in}{figures/image_origin}{Controlling the image origin with the
   \carg{origin} keyword argument to \func{imshow} and
   \func{figimage}.}{fig:image_origin}
+
+\lstinputlisting{code/image_origin.py}
+
 
 
 
@@ -1749,6 +1840,8 @@ pass \code{origin='lower'}, as shown in Figure~\ref{fig:image_origin}.
 
 \section{Legends and tables}
 \label{sec:legends_and_tables}
+
+
 \section{Navigation}
 \label{sec:navigation}
 
@@ -1880,17 +1973,17 @@ defined.
 \begin{table}[htbp]
   \centering
   \begin{tabular}[t]{|l|l|}\hline
-    \carg{Property}  & \val{Meaning}\\\hline\hline
-    \carg{x}      & x position - pixels from left of canvas\\\hline
-    \carg{y}      & y position - pixels from bottom of canvas\\\hline
-    \carg{button} & button pressed None, 1, 2, 3\\\hline
-    \carg{inaxes} & the Axes instance if mouse is over axes (or None)\\\hline
+    \carg{Property}  & \val{Meaning}\\\hline
+    \carg{x}      & x position - pixels from left of canvas\\
+    \carg{y}      & y position - pixels from bottom of canvas\\
+    \carg{button} & button pressed None, 1, 2, 3\\
+    \carg{inaxes} & the Axes instance if mouse is over axes (or None)\\
     \carg{xdata}  & x coord of mouse in data coords (None if mouse
-    isn't over axes)\\\hline
+    isn't over axes)\\
     \carg{ydata}  & y coord of mouse in data coords (None if mouse
-    isn't over axes)\\\hline
-    \carg{name}  & The string name of the event\\\hline
-    \carg{canvas}  & The FigureCanvas instance the event occured in\\\hline
+    isn't over axes)\\
+    \carg{name}  & The string name of the event\\
+    \carg{canvas}  & The FigureCanvas instance the event occured in\\
     \carg{key}  & The key press if any, eg 'a', 'b', '1'.  Also
     records 'control and 'shift'\\\hline
     
@@ -1983,12 +2076,275 @@ different fonts
 \label{cha:collections}
 
 
+\chapter{Tick locators and formatters}
+\label{cha:tickers}
+
+The \mpldoc{matplotlib.ticker} module contains classes to support
+completely configurable tick locating and formatting.  Although the
+locators know nothing about major or minor ticks, they are used by the
+Axis class to support major and minor tick locating and formatting.
+Generic tick locators and formatters are provided, as well as domain
+specific custom locators an formatters.
+
+
+\section{Tick locating}
+\label{sec:ticklocs}
+
+Choosing tick locations and formats is a difficult and essential part
+of making nice looking graphs.  The \mpldoc{matplotlib.ticker} module
+divides the workload between two bases classes: the locators and the
+formatters.  Each axis (eg the xaxis and yaxis) has a major and minor
+tick locator and a major and minor tick formatter.  The default minor
+tick locators always return the empty list, ie, there are no minor
+ticks.  Each of these can be set independently, and it is easy for the
+user to create and plug-in a custom tick locator or formatter.
+
+The \mpldoc{matplotlib.ticker.Locator} class is the base class for all
+tick locators.  The locators handle autoscaling of the view limits
+based on the data limits, and choosing the tick locations.  The most
+generally useful tick locator is \mpldoc{MultipleLocator}.  You
+initialize this with a base, eg 10, and it picks axis limits and ticks
+that are multiples of your base.  The class \mpldoc{AutoLocator}
+contains a \mpldoc{MultipleLocator} instance, and dynamically updates
+it based upon the data and zoom limits.  This should provide much more
+intelligent automatic tick locations both in figure creation and in
+navigation than in prior versions of matplotlib.  See
+Tables~\ref{tab:locators} and \ref{tab:date_locators} for a summary of
+the basic and date tick locators.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}[t]{|l|l|}\hline
+    \carg{Class}  & \val{Summary}\\\hline
+
+   NullLocator     & No ticks\\
+
+   IndexLocator    & locator for index plots (eg where \code{x = range(len(y))}\\
+  
+   LinearLocator   & evenly spaced ticks from min to max\\
+
+   LogLocator      & logarithmically ticks from min to max\\
+
+   MultipleLocator & ticks and range are a multiple of base;
+                      either integer or float \\
+  
+   AutoLocator     & choose a MultipleLocator and dynamically reassign\\\hline
+    
+  \end{tabular}
+  \caption{\label{tab:locators}The basic tick locators}
+\end{table}
+
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}[t]{|l|l|}\hline
+    \carg{Class}  & \val{Summary}\\\hline
+
+
+   MinuteLocator  & locate minutes that are a multiple of base\\
+
+   HourLocator    & locate hours that are a multiple of base\\
+
+   DayLocator     & locate a given hour each day\\
+
+   DayMultiLocator & ticks on day which are multiples of base\\
+
+   WeekdayLocator & locate a given weekday each week\\
+
+   WeekMultiLocator & ticks on weeks which are multiples of base\\
+
+   MonthLocator   & locate months that are multiples of base\\
+
+   YearLocator    & locate years that are multiples of base\\\hline
+    
+  \end{tabular}
+  \caption{\label{tab:date_locators}The tick locators specialized for date plots}
+\end{table}
+  
+
+You can define your own locator by deriving from Locator.  You must
+override the \code{\_\_call\_\_} method, which returns a sequence of
+locations, and you will probably want to override the autoscale method
+to set the view limits from the data limits.  If you want to override
+the default locator, use one of the above or a custom locator and pass
+it to the x or y axis instance.  The relevant methods are
+
+\begin{lstlisting}
+  ax.xaxis.set_major_locator( xmajorLocator )
+  ax.xaxis.set_minor_locator( xminorLocator )
+  ax.yaxis.set_major_locator( ymajorLocator )
+  ax.yaxis.set_minor_locator( yminorLocator )
+\end{lstlisting}
+
+
+\noindent The default minor locator is the NullLocator, eg no minor ticks on by
+default.  
+
+\section{Tick formatting}
+
+Tick formatting is the process of converting the numeric tick location
+into a suitable string, and is controlled by classes derived from
+\mpldoc{matplotlib.ticker.Formatter}.  The formatter operates on a
+single tick value (and its tick position) and returns a string to the
+axis.  The tick formatters are summarized in
+Table~\ref{tab:formatters}.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}[t]{|l|l|}\hline
+    \carg{Class}  & \val{Summary}\\\hline
+   NullFormatter      & no labels on the ticks\\
+
+   FixedFormatter     & set the strings manually for the labels\\
+
+   FuncFormatter      & user defined function sets the labels\\
+
+   FormatStrFormatter & use a sprintf format string\\
+
+   IndexFormatter     & cycle through fixed strings by tick position\\
+  
+   ScalarFormatter    & default formatter for scalars; autopick the fmt string\\
+
+   LogFormatter       & formatter for log axes\\
+
+   DateFormatter      & use an strftime string to format the date\\\hline
+    
+  \end{tabular}
+  \caption{\label{tab:formatters}The tick formatting classes}
+\end{table}
+
+You can derive your own formatter from the Formatter base class by
+simply overriding the \_\_call\_\_ method.  The formatter class has
+access to the axis view and data limits.
+
+To control the major and minor tick label formats, use one of the
+following methods::
+
+\begin{lstlisting}
+  ax.xaxis.set_major_formatter( xmajorFormatter )
+  ax.xaxis.set_minor_formatter( xminorFormatter )
+  ax.yaxis.set_major_formatter( ymajorFormatter )
+  ax.yaxis.set_minor_formatter( yminorFormatter )
+
+\end{lstlisting}
+
+\section{Example 1: major and minor ticks}
+
+In this example, the xaxis has major ticks that are multiples of 20
+and minor ticks that are multiples of 5.  The ticks are formatted with
+an integer format string formatter '\%d'.  The minor ticks are
+unlabelled (\code{NullFormatter}).
+
+The \code{MultipleLocator} ticker class is used to place ticks on
+multiples of some base.  The \code{FormatStrFormatter} uses a string format
+string (eg'\%d' or '\%1.2f' or '\%1.1f cm' ) to format the tick.
+
+Note that the matlab interface grid command changes the grid settings
+of the major ticks of the y and y axis together.  If you want to
+control the grid of the minor ticks for a given axis, use for example
+\code{ax.xaxis.grid(True, which='minor')}.  See
+Figure~\ref{fig:major_minor_demo}.
+
+\fig{4in}{figures/major_minor_demo}{Creating custom major and minor
+  tick locators and formatters}{fig:major_minor_demo}
+
+\lstinputlisting{code/major_minor_demo.py}
+
+
+\section{Example 2: date ticking}
+
+Making nice date/time plots requires custom tick locating and
+formatting.  matplotlib converts all datetimes to seconds since the
+epoch, and supports a number of datetime converters to provide a
+unified interface to popular datetime modules like python's datetime
+module and the mx datetime module.
+
+The example below uses the \mpldoc{matplotlib.finance} module to get
+some historical quotes from yahoo's historical quotes server.  The
+datetime start and end points are specified using a python's datetime
+module, so a PyDatetimeConverter is used to convert those into epoch
+data.  Major ticks are on the months (\code{MonthLocator}) and minor
+ticks are on Mondays (\code{WeekdayLocator}).  Only the major ticks
+are labelled, using a strftime format string (\code{DateFormatter}).
+Finally since the y axis is a stock price, a string formatter
+(\code{FormatStrFormatter}) is used to place dollar signs on the y
+tick labels.
+
+\fig{4in}{figures/date_ticker_demo}{Providing custom tick locators and
+  formatters for financial/date plots}{fig:date_ticker_demo}
+
+\lstinputlisting{code/date_ticker_demo.py}
+
+
 
 
 
 
 \chapter{Cookbook}
 \label{cha:cookbook}
+
+\section{Data analysis}
+
+\subsection{Linear regression}
+\label{cbook:linear_regression}
+
+One of the most common tasks in analyzing data is a linear regression
+of one variable on another.  matplotlib provides \func{polyfit} in the
+\mpldoc{matplotlib.mlab} module for general polynomial regression.
+
+\fig{4in}{figures/linear_regression}{Estimating a best fit line for
+  some random data}{fig:linear_regression}
+
+\lstinputlisting{code/linear_regression.py}
+
+
+\subsection{Polynomial regression}
+\label{cbook:polynomial_regression}
+
+polyfit can also be used for general polynomial fitting.  The
+signature of polyfit is \code{coeffs = polyfit(x, y, N)} where $N$ is
+the order of the polynomial.  The best fit can be obtained from the
+coefficients and the x data using \code{best = polyval(x, coeefs)}.
+\code{coeffs} are the coefficients of the polynomial $coeffs = p_k,
+\dots, p_1, p_0$.
+
+\fig{4in}{figures/poly_regression}{Estimating a best fit cubic for
+  some random data}{fig:poly_regression}
+
+The algorithm for polyfit is taken from Mathworld's \textit{Least
+  Squares Fitting Polynomial} and \textit{Vandermonde Matrix} entries
+\footnote{\url{http://mathworld.wolfram.com/LeastSquaresFittingPolynomial.html}}.
+To do a best fit polynomial regression of order $N$ of $y$ onto $x$.
+We must solve an $N$-dimensional system of equations; eg, for $N=2$
+
+\begin{eqnarray}
+  \label{eq:polysys}
+      p_2*x_0^2 +  p_1*x_0 + p_0 &=& y_1\nonumber\\
+      p_2*x_1^2 +  p_1*x_1 + p_0 &=& y_1\nonumber\\
+      p_2*x_2^2 +  p_1*x_2 + p_0 &=& y_2\nonumber\\
+      \dots & \nonumber\\
+      p_2*x_k^2 +  p_1*x_k + p_0 &=& y_k\nonumber
+\end{eqnarray}
+
+\noindent If $X$ is a the Vandermonde Matrix computed from $x$, then the
+polynomial least squares solution is given by the $p$ in $X*p = y$
+where $X$ is a $x$ by $N+1$ matrix, $p$ is a $N+1$ length vector, and
+$y$ is a len($x$) by 1 vector.  This equation can be solved as
+
+\begin{equation}
+  p = (\bar{X} X)^{-1} * \bar{X} * y
+\end{equation}
+      
+\noindent where $\bar{X}$ is the transpose of X and the -1 superscript
+denotes the inverse.  For more info, see Mathworld, but note that the
+$k$'s and $n$'s in the superscripts and subscripts on that page are
+problematic.  The linear algebra is correct, however.
+
+
+
+\lstinputlisting{code/poly_regression.py}
+
+
 
 \section{Working with images}
 
@@ -2019,10 +2375,11 @@ creates a black and white checkboard using a grayscale colormap and
 then blends a color image over it, as shown in
 Figure~\ref{fig:layer_images}.
 
-\lstinputlisting{code/layer_images.py}
-
 \fig{4in}{figures/layer_images}{Layering axes images using alpha blending.}
 {fig:layer_images}
+
+\lstinputlisting{code/layer_images.py}
+
 
 \subsection{Creating a mosaic of images}
 \label{cbook:figure_mosaic}
@@ -2039,10 +2396,11 @@ different kinds of arrays (luminance, RGB, RGBA) and different
 colormaps when creating figure mosaics.  See
 Figure~\ref{fig:figure_mosaic}.
 
-\lstinputlisting{code/figure_mosaic.py}
-
 \fig{4in}{figures/figure_mosaic}{Creating a mosaic using \func{figimage}}
 {fig:figure_mosaic}
+
+\lstinputlisting{code/figure_mosaic.py}
+
 
 \subsection{Defining your own colormap}
 

@@ -11,7 +11,12 @@ files = (
     'simple_imshow.py',
     'simple_plot_tkagg.py',
     'subplot_demo.py',
-    'mathtext_demo.py',    
+    'mathtext_demo.py',
+    'major_minor_demo.py',
+    'date_ticker_demo.py',
+    'linear_regression.py',
+    'poly_regression.py',
+    'color_demo.py',            
     )
 
 for fname in files:

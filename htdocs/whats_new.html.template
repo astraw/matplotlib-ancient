@@ -55,6 +55,39 @@ Vertical mathtext in backend_agg (ylabels now work properly!).
 mathtext with arbitrary rotations in PS.  Thanks Jim Benson and Paul
 Barrett!"""),
 
+    ('Abbreviated line props', """\
+Added some abbrev functions in matplotlib.lines, mainly for
+interactive users trying to save key strokes.  markerfacecolor is a
+lot of keys!  For lines, these abbrevs were added
+
+<pre>
+    aa  : antialiased
+    c   : color
+    ls  : linestyle
+    lw  : linewidth
+    mec : markeredgecolor
+    mew : markeredgewidth
+    mfc : markerfacecolor
+    ms  : markersize
+</pre>
+
+Thus you can type --not necessarily recommended for readability in
+scripts or apps but great for throwaway use in interactive shells
+<pre>    
+    # no antialiasing, thick green markeredge lines
+    >>> plot(range(10), 'ro', aa=False, mew=2, mec='g')
+</pre>
+
+Analogs in matplotlib.patches
+
+<pre>    
+    aa  : antialiased
+    lw  : linewidth
+    ec  : edgecolor
+    fc  : facecolor
+</pre>    
+"""),
+    
     ('local rc files', """\
 You can put a .matplotlibrc file in a dir to override the one in your
 HOME dir.  If you have a project, say a book, and you want to make a
