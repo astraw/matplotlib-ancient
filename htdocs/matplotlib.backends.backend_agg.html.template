@@ -121,6 +121,8 @@ Public&nbsp;attribute<br>
 
 <dl><dt><a name="FigureCanvasAgg-draw"><strong>draw</strong></a>(self)</dt><dd><tt>Draw&nbsp;the&nbsp;figure&nbsp;using&nbsp;the&nbsp;renderer</tt></dd></dl>
 
+<dl><dt><a name="FigureCanvasAgg-get_renderer"><strong>get_renderer</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="FigureCanvasAgg-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy.&nbsp;&nbsp;Set&nbsp;the&nbsp;figure&nbsp;patch&nbsp;face&nbsp;and<br>
 edge&nbsp;colors.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;because&nbsp;some&nbsp;of&nbsp;the&nbsp;GUIs&nbsp;have&nbsp;a<br>
 gray&nbsp;figure&nbsp;face&nbsp;color&nbsp;background&nbsp;and&nbsp;you'll&nbsp;probably&nbsp;want&nbsp;to<br>
@@ -141,19 +143,19 @@ you&nbsp;can,&nbsp;for&nbsp;example,&nbsp;write&nbsp;the&nbsp;png&nbsp;to&nbsp;s
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
 <dl><dt><a name="FigureCanvasAgg-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
 
-<dl><dt><a name="FigureCanvasAgg-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasAgg-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;press.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasAgg-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasAgg-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasAgg-key_press_event"><strong>key_press_event</strong></a>(self, key)</dt></dl>
+<dl><dt><a name="FigureCanvasAgg-key_press_event"><strong>key_press_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
-<dl><dt><a name="FigureCanvasAgg-key_release_event"><strong>key_release_event</strong></a>(self, key)</dt></dl>
+<dl><dt><a name="FigureCanvasAgg-key_release_event"><strong>key_release_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
-<dl><dt><a name="FigureCanvasAgg-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasAgg-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
@@ -258,15 +260,14 @@ origin&nbsp;is&nbsp;'upper'&nbsp;or&nbsp;'lower'<br>
 bbox&nbsp;is&nbsp;a&nbsp;matplotlib.transforms.BBox&nbsp;instance&nbsp;for&nbsp;clipping,&nbsp;or<br>
 None</tt></dd></dl>
 
-<dl><dt><a name="RendererAgg-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, transform, clipbox, colors, linewidths, linestyle, antialiaseds, offsets, transOffset)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;&nbsp;If&nbsp;you&nbsp;need&nbsp;to<br>
-draw&nbsp;many&nbsp;line&nbsp;segments&nbsp;with&nbsp;similar&nbsp;properties,&nbsp;it&nbsp;is&nbsp;faster<br>
-to&nbsp;avoid&nbsp;the&nbsp;overhead&nbsp;of&nbsp;all&nbsp;the&nbsp;object&nbsp;creation&nbsp;etc.&nbsp;&nbsp;The<br>
-lack&nbsp;of&nbsp;total&nbsp;configurability&nbsp;is&nbsp;compensated&nbsp;for&nbsp;with<br>
-efficiency.&nbsp;&nbsp;Hence&nbsp;we&nbsp;don't&nbsp;use&nbsp;a&nbsp;GC&nbsp;and&nbsp;many&nbsp;of&nbsp;the&nbsp;line<br>
-props&nbsp;it&nbsp;supports.&nbsp;&nbsp;See&nbsp;matplotlib.collections&nbsp;for&nbsp;more<br>
-details<br>
+<dl><dt><a name="RendererAgg-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, transform, clipbox, colors, linewidths, linestyle, antialiaseds, offsets, transOffset)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;If&nbsp;you&nbsp;need&nbsp;to&nbsp;draw<br>
+many&nbsp;line&nbsp;segments&nbsp;with&nbsp;similar&nbsp;properties,&nbsp;it&nbsp;is&nbsp;faster&nbsp;to&nbsp;avoid&nbsp;the<br>
+overhead&nbsp;of&nbsp;all&nbsp;the&nbsp;object&nbsp;creation&nbsp;etc.&nbsp;The&nbsp;lack&nbsp;of&nbsp;total<br>
+configurability&nbsp;is&nbsp;compensated&nbsp;for&nbsp;with&nbsp;efficiency.&nbsp;Hence&nbsp;we&nbsp;don't&nbsp;use<br>
+a&nbsp;GC&nbsp;and&nbsp;many&nbsp;of&nbsp;the&nbsp;line&nbsp;props&nbsp;it&nbsp;supports.&nbsp;See<br>
+matplotlib.collections&nbsp;for&nbsp;more&nbsp;details.<br>
 &nbsp;<br>
-sements&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;line0,&nbsp;line1,&nbsp;line2),&nbsp;where&nbsp;linen&nbsp;=<br>
+segments&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;line0,&nbsp;line1,&nbsp;line2),&nbsp;where&nbsp;linen&nbsp;=<br>
 (x0,&nbsp;y0),&nbsp;(x1,&nbsp;y1),&nbsp;...&nbsp;(xm,&nbsp;ym).&nbsp;&nbsp;Each&nbsp;line&nbsp;can&nbsp;be&nbsp;a<br>
 different&nbsp;length<br>
 &nbsp;<br>
@@ -277,20 +278,20 @@ clipbox&nbsp;is&nbsp;a&nbsp;&nbsp;xmin,&nbsp;ymin,&nbsp;width,&nbsp;height&nbsp;
 colors&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;RGBA&nbsp;tuples<br>
 &nbsp;<br>
 linewidths&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;linewidths<br>
+***&nbsp;really&nbsp;should&nbsp;be&nbsp;called&nbsp;'dashes'&nbsp;not&nbsp;'linestyle',&nbsp;since<br>
+we&nbsp;call&nbsp;gc.set_dashes()&nbsp;not&nbsp;gc.set_linestyle()&nbsp;***<br>
 &nbsp;<br>
 linestyle&nbsp;is&nbsp;an&nbsp;(offset,&nbsp;onoffseq)&nbsp;tuple&nbsp;or&nbsp;None,None&nbsp;for&nbsp;solid<br>
 &nbsp;<br>
 antialiseds&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;ones&nbsp;or&nbsp;zeros&nbsp;indicating&nbsp;whether&nbsp;the<br>
 segment&nbsp;should&nbsp;be&nbsp;aa&nbsp;or&nbsp;not<br>
 &nbsp;<br>
-offsets,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;x,y&nbsp;offsets&nbsp;to&nbsp;translate<br>
-the&nbsp;lines&nbsp;by&nbsp;after&nbsp;transoff&nbsp;is&nbsp;used&nbsp;to&nbsp;transform&nbsp;the&nbsp;offset<br>
-coords<br>
+offsets,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;x,y&nbsp;offsets&nbsp;to&nbsp;translate&nbsp;the&nbsp;lines<br>
+by&nbsp;after&nbsp;transform&nbsp;is&nbsp;used&nbsp;to&nbsp;transform&nbsp;the&nbsp;offset&nbsp;coords<br>
 &nbsp;<br>
-This&nbsp;function&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;overridden&nbsp;by&nbsp;the&nbsp;backend<br>
-level&nbsp;in&nbsp;extension&nbsp;code&nbsp;for&nbsp;backends&nbsp;that&nbsp;want&nbsp;fast&nbsp;line<br>
-collection&nbsp;drawing.&nbsp;&nbsp;Here&nbsp;is&nbsp;is&nbsp;implemented&nbsp;using&nbsp;native<br>
-backend&nbsp;calls&nbsp;and&nbsp;may&nbsp;be&nbsp;slow</tt></dd></dl>
+This&nbsp;function&nbsp;could&nbsp;be&nbsp;overridden&nbsp;in&nbsp;the&nbsp;backend&nbsp;to&nbsp;possibly&nbsp;implement<br>
+faster&nbsp;drawing,&nbsp;but&nbsp;it&nbsp;is&nbsp;already&nbsp;much&nbsp;faster&nbsp;than&nbsp;using&nbsp;<a href="#RendererAgg-draw_lines">draw_lines</a>()<br>
+by&nbsp;itself.</tt></dd></dl>
 
 <dl><dt><a name="RendererAgg-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
 point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
@@ -317,10 +318,10 @@ If&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nb
 
 <dl><dt><a name="RendererAgg-draw_regpoly_collection"><strong>draw_regpoly_collection</strong></a>(self, clipbox, offsets, transOffset, verts, sizes, facecolors, edgecolors, linewidths, antialiaseds)</dt><dd><tt>Draw&nbsp;a&nbsp;regular&nbsp;poly&nbsp;collection<br>
 &nbsp;<br>
-offsets&nbsp;is&nbsp;a&nbsp;sequence&nbsp;is&nbsp;x,y&nbsp;tuples&nbsp;and&nbsp;transOffset&nbsp;maps&nbsp;this<br>
-to&nbsp;display&nbsp;coords<br>
+offsets&nbsp;&nbsp;&nbsp;-&nbsp;is&nbsp;a&nbsp;sequence&nbsp;is&nbsp;x,y&nbsp;tuples<br>
+transOffset&nbsp;-&nbsp;maps&nbsp;this&nbsp;to&nbsp;display&nbsp;coords<br>
 &nbsp;<br>
-verts&nbsp;are&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the&nbsp;regular&nbsp;polygon&nbsp;at&nbsp;the&nbsp;origin<br>
+verts&nbsp;-&nbsp;are&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the&nbsp;regular&nbsp;polygon&nbsp;at&nbsp;the&nbsp;origin<br>
 &nbsp;<br>
 sizes&nbsp;are&nbsp;the&nbsp;area&nbsp;of&nbsp;the&nbsp;circle&nbsp;that&nbsp;circumscribes&nbsp;the<br>
 polygon&nbsp;in&nbsp;points^2<br>
@@ -329,7 +330,8 @@ facecolors&nbsp;and&nbsp;edgecolors&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;R
 linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
 antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
 
-<dl><dt><a name="RendererAgg-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer</tt></dd></dl>
+<dl><dt><a name="RendererAgg-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer<br>
+Is&nbsp;used&nbsp;for&nbsp;drawing&nbsp;text&nbsp;(text.py)&nbsp;and&nbsp;images&nbsp;(image.py)&nbsp;only</tt></dd></dl>
 
 <dl><dt><a name="RendererAgg-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
 

@@ -38,7 +38,7 @@ matplotlib was written by John Hunter<p>
   mathtext to PS</li>
 
   <li>Perry Greenfield overhauled and modernized the goals and
-  priorities page, implemented an imporved colormap framework, and has
+  priorities page, implemented an improved colormap framework, and has
   provided many suggestions and a lot of insight to the overall design
   and organization of matplotlib.</li>
 
@@ -49,7 +49,7 @@ matplotlib was written by John Hunter<p>
 
   <li>Jim Benson provided the patch to handle vertical mathttext</li>
 
-  <li>Gregory Lielens provided the fltk backend and several patches
+  <li>Gregory Lielens provided the FltkAgg backend and several patches
   for the frontend, including contributions to toolbar2, and support
   for log ticking with alternate bases and major and minor log
   ticking</li>
@@ -74,13 +74,19 @@ matplotlib was written by John Hunter<p>
   <li>Jochen Voss maintains the PS backend and has contributed several
   bugfixes.</li>
 
-  <li>Nadia Dencheva <dencheva@stsci.edu> of <a
-  href=http://www.stsci.edu/>STSci</a> provided the contouring code</li>
+  <li>Nadia Dencheva  of <a
+  href=http://www.stsci.edu/>STSci</a> provided the contouring and
+  contour labeling code</li>
 
   <li>Baptiste Carvello provided the key ideas in a patch for proper
   shared axes support that underlies ganged plots and multiscale
-  plots<</li>
+  plots</li>
 
+  <li>Sigve Tjoraand Ted Drain and colleagues at the
+  <a href=http://www.jpl.nasa.gov>JPL</a> collaborated on the QtAgg
+  backend</li>
+
+  <li>Eric Firing added the contourf function and general contour refactoring</li>
 </ul>
   
 

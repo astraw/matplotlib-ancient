@@ -64,19 +64,19 @@ renderer&nbsp;if&nbsp;neccessary</tt></dd></dl>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
 <dl><dt><a name="FigureCanvasPaint-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
 
-<dl><dt><a name="FigureCanvasPaint-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasPaint-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;press.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasPaint-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasPaint-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasPaint-key_press_event"><strong>key_press_event</strong></a>(self, key)</dt></dl>
+<dl><dt><a name="FigureCanvasPaint-key_press_event"><strong>key_press_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
-<dl><dt><a name="FigureCanvasPaint-key_release_event"><strong>key_release_event</strong></a>(self, key)</dt></dl>
+<dl><dt><a name="FigureCanvasPaint-key_release_event"><strong>key_release_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
-<dl><dt><a name="FigureCanvasPaint-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasPaint-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
@@ -189,15 +189,14 @@ origin&nbsp;is&nbsp;'upper'&nbsp;or&nbsp;'lower'<br>
 bbox&nbsp;is&nbsp;a&nbsp;matplotlib.transforms.BBox&nbsp;instance&nbsp;for&nbsp;clipping,&nbsp;or<br>
 None</tt></dd></dl>
 
-<dl><dt><a name="RendererPaint-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, transform, clipbox, colors, linewidths, linestyle, antialiaseds, offsets, transOffset)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;&nbsp;If&nbsp;you&nbsp;need&nbsp;to<br>
-draw&nbsp;many&nbsp;line&nbsp;segments&nbsp;with&nbsp;similar&nbsp;properties,&nbsp;it&nbsp;is&nbsp;faster<br>
-to&nbsp;avoid&nbsp;the&nbsp;overhead&nbsp;of&nbsp;all&nbsp;the&nbsp;object&nbsp;creation&nbsp;etc.&nbsp;&nbsp;The<br>
-lack&nbsp;of&nbsp;total&nbsp;configurability&nbsp;is&nbsp;compensated&nbsp;for&nbsp;with<br>
-efficiency.&nbsp;&nbsp;Hence&nbsp;we&nbsp;don't&nbsp;use&nbsp;a&nbsp;GC&nbsp;and&nbsp;many&nbsp;of&nbsp;the&nbsp;line<br>
-props&nbsp;it&nbsp;supports.&nbsp;&nbsp;See&nbsp;matplotlib.collections&nbsp;for&nbsp;more<br>
-details<br>
+<dl><dt><a name="RendererPaint-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, transform, clipbox, colors, linewidths, linestyle, antialiaseds, offsets, transOffset)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;If&nbsp;you&nbsp;need&nbsp;to&nbsp;draw<br>
+many&nbsp;line&nbsp;segments&nbsp;with&nbsp;similar&nbsp;properties,&nbsp;it&nbsp;is&nbsp;faster&nbsp;to&nbsp;avoid&nbsp;the<br>
+overhead&nbsp;of&nbsp;all&nbsp;the&nbsp;object&nbsp;creation&nbsp;etc.&nbsp;The&nbsp;lack&nbsp;of&nbsp;total<br>
+configurability&nbsp;is&nbsp;compensated&nbsp;for&nbsp;with&nbsp;efficiency.&nbsp;Hence&nbsp;we&nbsp;don't&nbsp;use<br>
+a&nbsp;GC&nbsp;and&nbsp;many&nbsp;of&nbsp;the&nbsp;line&nbsp;props&nbsp;it&nbsp;supports.&nbsp;See<br>
+matplotlib.collections&nbsp;for&nbsp;more&nbsp;details.<br>
 &nbsp;<br>
-sements&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;line0,&nbsp;line1,&nbsp;line2),&nbsp;where&nbsp;linen&nbsp;=<br>
+segments&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;line0,&nbsp;line1,&nbsp;line2),&nbsp;where&nbsp;linen&nbsp;=<br>
 (x0,&nbsp;y0),&nbsp;(x1,&nbsp;y1),&nbsp;...&nbsp;(xm,&nbsp;ym).&nbsp;&nbsp;Each&nbsp;line&nbsp;can&nbsp;be&nbsp;a<br>
 different&nbsp;length<br>
 &nbsp;<br>
@@ -208,20 +207,20 @@ clipbox&nbsp;is&nbsp;a&nbsp;&nbsp;xmin,&nbsp;ymin,&nbsp;width,&nbsp;height&nbsp;
 colors&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;RGBA&nbsp;tuples<br>
 &nbsp;<br>
 linewidths&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;linewidths<br>
+***&nbsp;really&nbsp;should&nbsp;be&nbsp;called&nbsp;'dashes'&nbsp;not&nbsp;'linestyle',&nbsp;since<br>
+we&nbsp;call&nbsp;gc.set_dashes()&nbsp;not&nbsp;gc.set_linestyle()&nbsp;***<br>
 &nbsp;<br>
 linestyle&nbsp;is&nbsp;an&nbsp;(offset,&nbsp;onoffseq)&nbsp;tuple&nbsp;or&nbsp;None,None&nbsp;for&nbsp;solid<br>
 &nbsp;<br>
 antialiseds&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;ones&nbsp;or&nbsp;zeros&nbsp;indicating&nbsp;whether&nbsp;the<br>
 segment&nbsp;should&nbsp;be&nbsp;aa&nbsp;or&nbsp;not<br>
 &nbsp;<br>
-offsets,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;x,y&nbsp;offsets&nbsp;to&nbsp;translate<br>
-the&nbsp;lines&nbsp;by&nbsp;after&nbsp;transoff&nbsp;is&nbsp;used&nbsp;to&nbsp;transform&nbsp;the&nbsp;offset<br>
-coords<br>
+offsets,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;x,y&nbsp;offsets&nbsp;to&nbsp;translate&nbsp;the&nbsp;lines<br>
+by&nbsp;after&nbsp;transform&nbsp;is&nbsp;used&nbsp;to&nbsp;transform&nbsp;the&nbsp;offset&nbsp;coords<br>
 &nbsp;<br>
-This&nbsp;function&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;overridden&nbsp;by&nbsp;the&nbsp;backend<br>
-level&nbsp;in&nbsp;extension&nbsp;code&nbsp;for&nbsp;backends&nbsp;that&nbsp;want&nbsp;fast&nbsp;line<br>
-collection&nbsp;drawing.&nbsp;&nbsp;Here&nbsp;is&nbsp;is&nbsp;implemented&nbsp;using&nbsp;native<br>
-backend&nbsp;calls&nbsp;and&nbsp;may&nbsp;be&nbsp;slow</tt></dd></dl>
+This&nbsp;function&nbsp;could&nbsp;be&nbsp;overridden&nbsp;in&nbsp;the&nbsp;backend&nbsp;to&nbsp;possibly&nbsp;implement<br>
+faster&nbsp;drawing,&nbsp;but&nbsp;it&nbsp;is&nbsp;already&nbsp;much&nbsp;faster&nbsp;than&nbsp;using&nbsp;<a href="#RendererPaint-draw_lines">draw_lines</a>()<br>
+by&nbsp;itself.</tt></dd></dl>
 
 <dl><dt><a name="RendererPaint-draw_poly_collection"><strong>draw_poly_collection</strong></a>(self, verts, transform, clipbox, facecolors, edgecolors, linewidths, antialiaseds, offsets, transOffset)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon&nbsp;collection<br>
 &nbsp;<br>
@@ -234,10 +233,10 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
 
 <dl><dt><a name="RendererPaint-draw_regpoly_collection"><strong>draw_regpoly_collection</strong></a>(self, clipbox, offsets, transOffset, verts, sizes, facecolors, edgecolors, linewidths, antialiaseds)</dt><dd><tt>Draw&nbsp;a&nbsp;regular&nbsp;poly&nbsp;collection<br>
 &nbsp;<br>
-offsets&nbsp;is&nbsp;a&nbsp;sequence&nbsp;is&nbsp;x,y&nbsp;tuples&nbsp;and&nbsp;transOffset&nbsp;maps&nbsp;this<br>
-to&nbsp;display&nbsp;coords<br>
+offsets&nbsp;&nbsp;&nbsp;-&nbsp;is&nbsp;a&nbsp;sequence&nbsp;is&nbsp;x,y&nbsp;tuples<br>
+transOffset&nbsp;-&nbsp;maps&nbsp;this&nbsp;to&nbsp;display&nbsp;coords<br>
 &nbsp;<br>
-verts&nbsp;are&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the&nbsp;regular&nbsp;polygon&nbsp;at&nbsp;the&nbsp;origin<br>
+verts&nbsp;-&nbsp;are&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the&nbsp;regular&nbsp;polygon&nbsp;at&nbsp;the&nbsp;origin<br>
 &nbsp;<br>
 sizes&nbsp;are&nbsp;the&nbsp;area&nbsp;of&nbsp;the&nbsp;circle&nbsp;that&nbsp;circumscribes&nbsp;the<br>
 polygon&nbsp;in&nbsp;points^2<br>
@@ -262,9 +261,7 @@ Is&nbsp;only&nbsp;currently&nbsp;used&nbsp;by&nbsp;backend_svg</tt></dd></dl>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-error_msg"><strong>error_msg</strong></a> = error_msg_paint(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
- <dl><dt><a name="-error_msg_paint"><strong>error_msg_paint</strong></a>(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
- <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a> = new_figure_manager_paint(num, *args, **kwargs)</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;figure&nbsp;num&nbsp;(default&nbsp;autoincrement).&nbsp;&nbsp;For&nbsp;GUI<br>
+<td width="100%"><dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a> = new_figure_manager_paint(num, *args, **kwargs)</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;figure&nbsp;num&nbsp;(default&nbsp;autoincrement).&nbsp;&nbsp;For&nbsp;GUI<br>
 backends,&nbsp;you'll&nbsp;need&nbsp;to&nbsp;instantiate&nbsp;a&nbsp;new&nbsp;window&nbsp;and&nbsp;embed<br>
 the&nbsp;figure&nbsp;in&nbsp;it.</tt></dd></dl>
  <dl><dt><a name="-new_figure_manager_paint"><strong>new_figure_manager_paint</strong></a>(num, *args, **kwargs)</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;figure&nbsp;num&nbsp;(default&nbsp;autoincrement).&nbsp;&nbsp;For&nbsp;GUI<br>

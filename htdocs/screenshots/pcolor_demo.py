@@ -10,10 +10,24 @@ y = arange(-3.0, 3.0, dy)
 X,Y = meshgrid(x, y)
 
 Z = func3(X, Y)
-#pcolor(X, Y, Z, shading='flat')       # slow
-title('Some like it hot')
-im = imshow(Z, cmap=cm.hot, extent=(-3, 3, -3, 3))  # fast
-axis('off')
-colorbar()
 
+im = imshow(Z, interpolation='bilinear', origin='lower',
+            cmap=cm.gray, extent=(-3,3,-3,3))
+
+
+levels, colls = contour(Z, arange(-1.2,1.6,0.2),
+                        origin='lower',
+                        linewidths=2,
+                        extent=(-3,3,-3,3))
+
+clabel(colls, levels,
+       inline=1,
+       fmt='%1.1f',
+       fontsize=10)
+
+
+axis('off')
+hot()
+colorbar()
+title('Some like it hot')
 show()

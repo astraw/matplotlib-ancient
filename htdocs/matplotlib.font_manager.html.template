@@ -50,7 +50,8 @@ License&nbsp;&nbsp;&nbsp;:&nbsp;matplotlib&nbsp;license&nbsp;(PSF&nbsp;compatibl
 <a href="matplotlib.html">matplotlib</a><br>
 </td><td width="25%" valign=top><a href="os.html">os</a><br>
 <a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top><a href="warnings.html">warnings</a><br>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -275,10 +276,12 @@ returned&nbsp;by&nbsp;default&nbsp;with&nbsp;AFM&nbsp;fonts&nbsp;as&nbsp;an&nbsp
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>MSFolders</strong> = r'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'<br>
 <strong>MSFontDirectories</strong> = [r'SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts', r'SOFTWARE\Microsoft\Windows\CurrentVersion\Fonts']<br>
-<strong>X11FontDirectories</strong> = ['/usr/X11R6/lib/X11/fonts/TTF/', '/usr/lib/openoffice/share/fonts/truetype/', '/usr/share/fonts/', '~/Library/Fonts/', '/Library/Fonts/', '/Network/Library/Fonts/', '/System/Library/Fonts/', 'System Folder:Fonts:']<br>
+<strong>X11FontDirectories</strong> = ['/usr/X11R6/lib/X11/fonts/TTF/', '/usr/lib/openoffice/share/fonts/truetype/', '/usr/share/fonts/', '~/Library/Fonts/', '/Library/Fonts/', '/Network/Library/Fonts/', '/System/Library/Fonts/', 'System Folder:Fonts:', '/home/jdhunter/Library/Fonts']<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
 <strong>font_scalings</strong> = {'large': 1.2, 'medium': 1.0, 'small': 0.83299999999999996, 'x-large': 1.4399999999999999, 'x-small': 0.69399999999999995, 'xx-large': 1.728, 'xx-small': 0.57899999999999996}<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>home</strong> = '/home/jdhunter'<br>
+<strong>path</strong> = '/home/jdhunter/Library/Fonts'<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;<br>
 <strong>weight_dict</strong> = {'black': 900, 'bold': 700, 'book': 400, 'demi': 600, 'demibold': 600, 'extra bold': 800, 'heavy': 800, 'light': 200, 'medium': 500, 'normal': 400, ...}</td></tr></table>
 @footer@

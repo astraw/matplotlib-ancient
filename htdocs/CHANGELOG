@@ -1,5 +1,102 @@
 New entries should be added at the top
 
+2005-03-16 Fixed tick on horiz colorbar
+
+2005-03-16 Added Japanses winreg patch - JDH
+
+2005-03-15 backend_gtkagg.py: changed to use double buffering, this fixes
+           the problem reported Joachim Berdal Haga - "Parts of plot lagging 
+	   from previous frame in animation". Tested with anim.py and it makes
+           no noticable difference to performance (23.7 before, 23.6 after) 
+	   - SC
+
+2005-03-14 add src/_backend_gdk.c extension to provide a substitute function
+	   for pixbuf.get_pixels_array(). Currently pixbuf.get_pixels_array()
+           only works with Numeric, and then only works if pygtk has been
+	   compiled with Numeric support. The change provides a function
+	   pixbuf_get_pixels_array() which works with Numeric and numarray and
+	   is always available. It means that backend_gtk should be able to
+	   display images and mathtext in all circumstances. - SC
+
+2005-03-11 Upgraded CXX to 5.3.1
+
+2005-03-10 remove GraphicsContextPS.set_linestyle()
+	   and GraphicsContextSVG.set_linestyle() since they do no more than 
+           the base class GraphicsContext.set_linestyle() - SC
+
+2005-03-09 Refactored contour functionality into dedicated module
+
+2005-03-09 Added Eric's contourf updates and Nadia's clabel functionality
+
+2005-03-09 Moved colorbar to figure.Figure to expose it for API developers
+          - JDH
+
+2005-03-09 backend_cairo.py: implemented draw_markers() - SC
+
+2005-03-09 cbook.py: only use enumerate() (the python version) if the builtin
+	   version is not available.
+           Add new function 'izip' which is set to itertools.izip if available
+           and the python equivalent if not available. - SC
+
+2005-03-07 backend_gdk.py: remove PIXELS_PER_INCH from points_to_pixels(), but
+	   still use it to adjust font sizes. This allows the GTK version of
+           line_styles.py to more closely match GTKAgg, previously the markers
+           were being drawn too large. - SC
+
+2005-03-01 Added Eric's contourf routines
+
+2005-03-01 Added start of proper agg SWIG wrapper.  I would like to
+           expose agg functionality directly a the user level and this
+           module will serve that purpose eventually, and will
+           hopefully take over most of the functionality of the
+           current _image and _backend_agg modules.  - JDH
+
+2005-02-28 Fixed polyfit / polyval to convert input args to float
+           arrays - JDH
+
+
+2005-02-25 Add experimental feature to backend_gtk.py to enable/disable
+           double buffering (DBL_BUFFER=True/False) - SC
+
+2005-02-24 colors.py change ColorConverter.to_rgb() so it always returns rgb 
+           (and not rgba), allow cnames keys to be cached, change the exception
+           raised from RuntimeError to ValueError (like hex2color())
+	   hex2color() use a regular expression to check the color string is
+           valid  - SC
+
+
+2005-02-23 Added rc param ps.useafm so backend ps can use native afm
+           fonts or truetype.  afme breaks mathtext but causes much
+           smaller font sizes and may result in images that display
+           better in some contexts (eg pdfs incorporated into latex
+           docs viewed in acrobat reader).  I would like to extend
+           this approach to allow the user to use truetype only for
+           mathtext, which should be easy.
+
+2005-02-23 Used sequence protocol rather than tuple in agg collection
+           drawing routines for greater flexibility - JDH
+
+
+===========================================================
+2005-02-22 0.72.1 released
+
+2005-02-21 fixed linestyles for collections -- contour now dashes for
+           levels <0
+
+2005-02-21 fixed ps color bug - JDH
+
+2005-02-15 fixed missing qt file
+
+2005-02-15 banished error_msg and report_error.  Internal backend
+           methods like error_msg_gtk are preserved.  backend writers,
+           check your backends, and diff against 0.72 to make sure I
+           did the right thing! - JDH
+
+
+2005-02-14 Added enthought traits to matplotlib tree - JDH
+
+===========================================================
+
 2005-02-14 0.72 released
 
 2005-02-14 fix bug in cbook alltrue() and onetrue() - SC

@@ -4,6 +4,30 @@
 
 versioninfo = {}
 
+versioninfo['0.73'] = (
+  ('new contour functionality', """\
+Filled contours (polygons) with <a
+href=matplotlib.pylab.html#-contourf>contourf</a> and <a
+href=matplotlib.pylab.html#-clabel>clabel</a> .  See <a
+href=examples/contour_demo.py>contour_demo.py</a>, <a
+href=examples/contour_image.py>contour_image.py</a> and this <a
+href=screenshots.html#pcolor_demo>screenshot</a>.  Thanks Nadia and
+Eric for lots of hard work.  This code is not perfect, so please let
+us know if you find bugs or problems.
+"""),
+  ('native font support back in PS', """\
+Added new rc param param ps.useafm so ps backend can use native fonts; this currently breaks mathtext but makes for smaller files"""),
+  ('colorbar now a figure method', """\
+Refactored colorbar code out of pylab into <a
+href=matplotlib.figure.html#Figure-add_subplot>Figure API</a> for API
+developers.  < a
+href=matplotlib.pylab.html#-colorbar>pylab.colorbar</a> is now a thin
+wrapper to this function."""),
+
+    ('minor enhancements and bug-fixes', """\
+Experimental support for GTK w/o double buffering, added double buffering to gtkagg, exposed some core agg functionality in matplotlib.agg, upgraded wrapper generator to CXX 5.3.1, added a custom pixel transfer function for GTK which works for Numeric and numarray, added patch for problem with Japanse fonts in windows registry, fixed ticks for horizontal colorbars"""),
+  )
+
 
 versioninfo['0.72'] = (
 

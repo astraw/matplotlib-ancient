@@ -15,12 +15,14 @@ from&nbsp;the&nbsp;Python&nbsp;Cookbook&nbsp;--&nbsp;hence&nbsp;the&nbsp;name&nb
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="StringIO.html">StringIO</a><br>
-<a href="errno.html">errno</a><br>
+<a href="__builtin__.html">__builtin__</a><br>
+</td><td width="25%" valign=top><a href="errno.html">errno</a><br>
+<a href="itertools.html">itertools</a><br>
 </td><td width="25%" valign=top><a href="os.html">os</a><br>
 <a href="re.html">re</a><br>
 </td><td width="25%" valign=top><a href="sys.html">sys</a><br>
 <a href="traceback.html">traceback</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -406,8 +408,9 @@ Condensed&nbsp;by&nbsp;Alex&nbsp;Martelli&nbsp;from&nbsp;this&nbsp;thread&nbsp;o
 <a href="http://groups.google.com/groups?q=all+pairs+group:*python*&amp;hl=en&amp;lr=&amp;ie=UTF-8&amp;selm=mailman.4028.1096403649.5135.python-list%40python.org&amp;rnum=1">http://groups.google.com/groups?q=all+pairs+group:*python*&amp;hl=en&amp;lr=&amp;ie=UTF-8&amp;selm=mailman.4028.1096403649.5135.python-list%40python.org&amp;rnum=1</a></tt></dd></dl>
  <dl><dt><a name="-alltrue"><strong>alltrue</strong></a>(seq)</dt></dl>
  <dl><dt><a name="-dict_delall"><strong>dict_delall</strong></a>(d, keys)</dt><dd><tt>delete&nbsp;all&nbsp;of&nbsp;the&nbsp;keys&nbsp;from&nbsp;the&nbsp;<a href="__builtin__.html#dict">dict</a>&nbsp;d</tt></dd></dl>
- <dl><dt><a name="-enumerate"><strong>enumerate</strong></a>(seq)</dt><dd><tt>#&nbsp;until&nbsp;2.3</tt></dd></dl>
  <dl><dt><a name="-exception_to_str"><strong>exception_to_str</strong></a>(s<font color="#909090">=None</font>)</dt></dl>
+ <dl><dt><a name="-finddir"><strong>finddir</strong></a>(o, match, case<font color="#909090">=False</font>)</dt><dd><tt>return&nbsp;all&nbsp;attributes&nbsp;of&nbsp;o&nbsp;which&nbsp;match&nbsp;string&nbsp;in&nbsp;match.&nbsp;&nbsp;if&nbsp;case<br>
+is&nbsp;True&nbsp;require&nbsp;an&nbsp;exact&nbsp;case&nbsp;match.</tt></dd></dl>
  <dl><dt><a name="-flatten"><strong>flatten</strong></a>(seq, scalarp<font color="#909090">=&lt;function is_scalar&gt;</font>)</dt><dd><tt>this&nbsp;generator&nbsp;flattens&nbsp;nested&nbsp;containers&nbsp;such&nbsp;as<br>
 &nbsp;<br>
 &gt;&gt;&gt;&nbsp;l=(&nbsp;('John',&nbsp;'Hunter'),&nbsp;(1,23),&nbsp;[[[[42,(5,23)]]]])<br>

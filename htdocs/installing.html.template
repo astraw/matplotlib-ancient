@@ -114,8 +114,22 @@ shell or ipython.</i>
 
 <h3><a name=osx>OS X</a></h3>
 
-All of the backends run on OS X.  fink users consult the fink section
-below.  Another option is <a
+All of the backends run on OS X.  Chris Barker has built a binary
+package (fink users see below) for matplotlib which is hosted on <a
+href=http://pythonmac.org/packages>pythonmac</a>, and works with Agg,
+Wx and Tk.  It does not included the GTK* backends, because pygtk is
+usually provided through fink and/or darwinport.  This version should
+work on an stock OS-X 10.3.*, and you need Numeric or numarray
+(available on the same site), and TK or wxPython, if you want to use
+those back ends.<p>
+
+
+
+There are a couple of other binary packages to look at.  Charlie Moad
+has bundled matplotlib for OS X which includes freetype, png, wx,
+numarray, numeric and doesn't rely on fink or darwinports; available
+in the <a href=http://sda.iu.edu/projects.html>Tools Section</a>.
+Another bundle is <a
 href=http://www.stecf.org/macosxscisoft>scisoft</a> which packages
 many scientific packages for python on OS X, including matplotlib,
 although it is designed for astronomical analysis.</p>

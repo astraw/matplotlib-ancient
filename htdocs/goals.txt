@@ -162,9 +162,9 @@ Contour plots
 mostly done
 
 A <a href=matplotlib.pylab.html#-contour>contour</a> routine was
-provided in <a href="whats_new.html#0.65-contour">matplotlib-0.65</a> .
-Work on automatic labeling of contours and contour linestyles is
-underway.  
+provided in <a href="whats_new.html#0.65-contour">matplotlib-0.65</a>
+.  Work on automatic labeling of contours is underway.  linestyles
+added in matplotlib-0.72.1.  polyfilled contours are planned.
 
 ******************* 
 Log histogram
@@ -242,7 +242,7 @@ href=screenshots.html#pie_demo>pie screenshot</a>.
 *******************
 Map Projections
 
-some preliminary work
+mostly done
 
 Support standard map projections (e.g., Mercator) as well as allowing
 user-defined 2-D coordinate mappings. Jeffrey Whittaker has released a
@@ -263,7 +263,7 @@ href="whats_new.html#0.54-Bug_fix_roundup">matplotlib-0.54</a>.
 *******************
 Detachable axis from main axes box and customizable tickline locations
 
-not started
+work beginning
 
 Currently the axis line, the and the tick lines that abut it are fixed
 to the edge of the axes rectangular frame.  For some plots, it is nice
@@ -273,7 +273,7 @@ axis line either centered, with the tick inside the frame, or outside,
 Currently, the only supported mode is inside, though there are hacks
 to work around this, eg as described in <a
 href=http://sourceforge.net/mailarchive/forum.php?thread_id=6348033&forum_id=33405>this
-thread</a> from matplotlib-users.
+thread</a> from matplotlib-users.  Andrew Straw is looking at this.
 
 ===========================================================================
 GUI Functionality

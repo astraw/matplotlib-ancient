@@ -85,7 +85,7 @@ the <a href=tutorial.html#toolbar2>toolbar2 tutorial</a>.
     ('LOG',
      "I'm getting a log of zero error even though I know all of my data are positive",
      """\
-This is definitely a gotcha that matplotlib needs to be smarter about.
+This was a problem that occurs in versions of matplotlib < 0.72.
 The log zero error is occurring when the transformation is made on the
 <i>axes limits</i> and not on the data.  The autoscaler picks the best
 min/max for the data coordinates, and will round down or up to
@@ -94,7 +94,8 @@ the autoscaler makes its pick according to linear scaling, and if when
 you change scales the old scaling is in effect and the log transform
 fails when converting the viewport.
 
-Solution: rescale the axes after changing coords, 
+Solution: The best solution is to upgrade your matplotlib to >= 0.72.
+If this is not a good option, rescale the axes after changing coords,
 either manually
 
 <pre>
@@ -188,9 +189,9 @@ thread</a> and the responses to that post for more information.
 
 """),
 
-    ('MOVIE', 'How do I make a movie with matplotlib?', """\ 
-If you want to take an animated plot and turn it into a movie, the
-best approach is to save a series of image files (eg PNG) and use an
+    ('MOVIE', 'How do I make a movie with matplotlib?', """If you
+want to take an animated plot and turn it into a movie, the best
+approach is to save a series of image files (eg PNG) and use an
 external tool to convert them to a movie.  There is a matplotlib
 tutorial on this subject <a
 href=http://web.media.mit.edu/~lifton/code/GraphMovies>here</a>.  You
@@ -482,15 +483,14 @@ I'm working on some additional documentation but it is not ready yet.
 
 """),
 
-    ('PY2EXE', 
-     'Can I freeze matplotlib with py2exe', 
-"""
+    ('PY2EXE', 'Can I freeze matplotlib with py2exe', """\
+
 Yes.  I have successfully frozen example scripts using the TkAgg,
 GTKAgg and WxAgg backends.  One trick is to make sure that py2exe can
 find all the matplotlib data files.  Recent versions of matplotlib
 (0.54.3 and later) support py2exe by looking in the py2exe dist dir
-for a <tt>matplotlibdata</tt> subdir.  Thus if you're setup.py script looks
-like
+for a <tt>matplotlibdata</tt> subdir.  Thus if your <tt>setup.py</tt>
+script looks like
 
 <pre>
 from distutils.core import setup

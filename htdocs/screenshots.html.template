@@ -99,7 +99,8 @@ or any external packages installed on your computer.""", 1),
 ('pcolor_demo', """The <a
 href=matplotlib.pylab.html#-pcolor>pcolor</a> command generates
 pseudo color plots.  matplotlib has 14 built-in colormaps.  The <a
-href=matplotlib.pylab.html#-hot>hot</a> colormap is shown here.""", 1),
+href=matplotlib.pylab.html#-hot>hot</a> colormap is shown here with
+contours overaying a grayscale image.""", 1),
 
 ('layer_images', """You can layer multiple images of different shapes and colormaps with
 alpha blending using the <a

@@ -15,8 +15,7 @@
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="gtk.html">gtk</a><br>
 </td><td width="25%" valign=top><a href="os.html">os</a><br>
-</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -57,14 +56,7 @@
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="FigureCanvasGTKAgg-blit"><strong>blit</strong></a>(self)</dt></dl>
-
 <dl><dt><a name="FigureCanvasGTKAgg-configure_event"><strong>configure_event</strong></a>(self, widget, event<font color="#909090">=None</font>)</dt></dl>
-
-<dl><dt><a name="FigureCanvasGTKAgg-draw"><strong>draw</strong></a>(self)</dt><dd><tt>Draw&nbsp;to&nbsp;the&nbsp;Agg&nbsp;backend&nbsp;and&nbsp;then&nbsp;copy&nbsp;the&nbsp;image&nbsp;to&nbsp;the<br>
-gtk.gdk.drawable.</tt></dd></dl>
-
-<dl><dt><a name="FigureCanvasGTKAgg-expose_event"><strong>expose_event</strong></a>(self, widget, event)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTKAgg-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt></dl>
 
@@ -75,6 +67,11 @@ Methods inherited from <a href="matplotlib.backends.backend_gtk.html#FigureCanva
 <dl><dt><a name="FigureCanvasGTKAgg-button_press_event"><strong>button_press_event</strong></a>(self, widget, event)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTKAgg-button_release_event"><strong>button_release_event</strong></a>(self, widget, event)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTKAgg-draw"><strong>draw</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTKAgg-expose_event"><strong>expose_event</strong></a>(self, widget, event)</dt><dd><tt>Expose_event&nbsp;for&nbsp;all&nbsp;GTK&nbsp;backends<br>
+Should&nbsp;not&nbsp;be&nbsp;overridden.</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasGTKAgg-key_press_event"><strong>key_press_event</strong></a>(self, widget, event)</dt></dl>
 
@@ -92,7 +89,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137237544)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137343216)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -430,6 +427,8 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 Methods inherited from <a href="matplotlib.backends.backend_agg.html#FigureCanvasAgg">matplotlib.backends.backend_agg.FigureCanvasAgg</a>:<br>
 <dl><dt><a name="FigureCanvasGTKAgg-buffer_rgba"><strong>buffer_rgba</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="FigureCanvasGTKAgg-get_renderer"><strong>get_renderer</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="FigureCanvasGTKAgg-tostring_argb"><strong>tostring_argb</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTKAgg-tostring_rgb"><strong>tostring_rgb</strong></a>(self)</dt></dl>
@@ -486,9 +485,8 @@ Data and other attributes inherited from <a href="matplotlib.backend_bases.html#
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>DEBUG</strong> = 0<br>
+<td width="100%"><strong>DEBUG</strong> = False<br>
 <strong>PIXELS_PER_INCH</strong> = 96<br>
 <strong>backend_version</strong> = '2.2.0'<br>
-<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
 @footer@

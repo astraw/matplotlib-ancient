@@ -75,6 +75,18 @@ simply&nbsp;make&nbsp;that&nbsp;subplot&nbsp;current&nbsp;and&nbsp;return&nbsp;i
 
 <dl><dt><a name="Figure-clf"><strong>clf</strong></a>(self)</dt><dd><tt>Clear&nbsp;the&nbsp;figure</tt></dd></dl>
 
+<dl><dt><a name="Figure-colorbar"><strong>colorbar</strong></a>(self, mappable, tickfmt<font color="#909090">='%1.1f'</font>, cax<font color="#909090">=None</font>, orientation<font color="#909090">='vertical'</font>)</dt><dd><tt>Create&nbsp;a&nbsp;colorbar&nbsp;for&nbsp;mappable&nbsp;image<br>
+&nbsp;<br>
+tickfmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;to&nbsp;format&nbsp;the&nbsp;colorbar&nbsp;ticks<br>
+&nbsp;<br>
+cax&nbsp;is&nbsp;a&nbsp;colorbar&nbsp;axes&nbsp;instance&nbsp;in&nbsp;which&nbsp;the&nbsp;colorbar&nbsp;will&nbsp;be<br>
+placed.&nbsp;&nbsp;If&nbsp;None,&nbsp;as&nbsp;default&nbsp;axesd&nbsp;will&nbsp;be&nbsp;created&nbsp;resizing&nbsp;the<br>
+current&nbsp;aqxes&nbsp;to&nbsp;make&nbsp;room&nbsp;for&nbsp;it.&nbsp;&nbsp;If&nbsp;not&nbsp;None,&nbsp;the&nbsp;supplied&nbsp;axes<br>
+will&nbsp;be&nbsp;used&nbsp;and&nbsp;the&nbsp;other&nbsp;axes&nbsp;positions&nbsp;will&nbsp;be&nbsp;unchanged.<br>
+&nbsp;<br>
+orientation&nbsp;is&nbsp;the&nbsp;colorbar&nbsp;orientation:&nbsp;one&nbsp;of&nbsp;'vertical'&nbsp;|&nbsp;'horizontal'<br>
+return&nbsp;value&nbsp;is&nbsp;the&nbsp;colorbar&nbsp;axes&nbsp;instance</tt></dd></dl>
+
 <dl><dt><a name="Figure-delaxes"><strong>delaxes</strong></a>(self, a)</dt><dd><tt>remove&nbsp;a&nbsp;from&nbsp;the&nbsp;figure&nbsp;and&nbsp;update&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
 
 <dl><dt><a name="Figure-draw"><strong>draw</strong></a>(self, renderer)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;using&nbsp;RendererGD&nbsp;instance&nbsp;renderer</tt></dd></dl>
@@ -299,5 +311,5 @@ Thanks&nbsp;to&nbsp;Fernando&nbsp;Perez&nbsp;for&nbsp;this&nbsp;function</tt></d
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
+<td width="100%"><strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
 @footer@

@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.3
+#!/usr/bin/env python
 """
 A simple example of an animated plot in matplotlib.  You can test the
 speed of animation of various backends by running the script with the
@@ -28,5 +28,5 @@ line, = plot(x,sin(x))
 for i in arange(1,200):
     line.set_ydata(sin(x+i/10.0))  # update the data
     draw()                         # redraw the canvas
-                   
+
 print 'FPS:' , 200/(time.time()-tstart)

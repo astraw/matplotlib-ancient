@@ -1,3 +1,11 @@
+API CHANGES in matplotlib-0.73
+
+  Removed deprecated ColormapJet and friends
+
+  Removed all error handling from the verbose object
+
+  figure num of zero is now allowed
+
 API CHANGES in matplotlib-0.72
 
   Line2D, Text, and Patch copy_properties renamed update_from and

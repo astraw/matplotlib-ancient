@@ -17,18 +17,20 @@ _Plotting&nbsp;commands<br>
 &nbsp;&nbsp;axhline&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;horizontal&nbsp;line&nbsp;across&nbsp;axes<br>
 &nbsp;&nbsp;axvline&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;vertical&nbsp;line&nbsp;across&nbsp;axes<br>
 &nbsp;&nbsp;axhspan&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;horizontal&nbsp;bar&nbsp;across&nbsp;axes<br>
-&nbsp;&nbsp;axvspan&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;vertical&nbsp;bar&nbsp;across&nbsp;axes&nbsp;<br>
+&nbsp;&nbsp;axvspan&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;vertical&nbsp;bar&nbsp;across&nbsp;axes<br>
 &nbsp;&nbsp;axis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Set&nbsp;or&nbsp;return&nbsp;the&nbsp;current&nbsp;axis&nbsp;limits<br>
 &nbsp;&nbsp;bar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;bar&nbsp;chart<br>
-&nbsp;&nbsp;barh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;horizontal&nbsp;bar&nbsp;chart&nbsp;&nbsp;<br>
+&nbsp;&nbsp;barh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;horizontal&nbsp;bar&nbsp;chart<br>
 &nbsp;&nbsp;cla&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;current&nbsp;axes<br>
+&nbsp;&nbsp;clabel&nbsp;&nbsp;&nbsp;-&nbsp;label&nbsp;a&nbsp;contour&nbsp;plot<br>
 &nbsp;&nbsp;clf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;a&nbsp;figure&nbsp;window<br>
 &nbsp;&nbsp;clim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;adjust&nbsp;the&nbsp;color&nbsp;limits&nbsp;of&nbsp;the&nbsp;current&nbsp;image<br>
 &nbsp;&nbsp;close&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;close&nbsp;a&nbsp;figure&nbsp;window<br>
 &nbsp;&nbsp;colorbar&nbsp;-&nbsp;add&nbsp;a&nbsp;colorbar&nbsp;to&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;cohere&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;coherence<br>
 &nbsp;&nbsp;contour&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;contour&nbsp;plot<br>
-&nbsp;&nbsp;csd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;&nbsp;<br>
+&nbsp;&nbsp;contourf&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;filled&nbsp;contour&nbsp;plot<br>
+&nbsp;&nbsp;csd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;cross&nbsp;spectral&nbsp;density<br>
 &nbsp;&nbsp;delaxes&nbsp;&nbsp;-&nbsp;delete&nbsp;an&nbsp;axes&nbsp;from&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;draw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Force&nbsp;a&nbsp;redraw&nbsp;of&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;errorbar&nbsp;-&nbsp;make&nbsp;an&nbsp;errorbar&nbsp;graph<br>
@@ -60,7 +62,7 @@ _Plotting&nbsp;commands<br>
 &nbsp;&nbsp;polar&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;polar&nbsp;plot&nbsp;on&nbsp;a&nbsp;PolarAxes<br>
 &nbsp;&nbsp;psd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;power&nbsp;spectral&nbsp;density<br>
 &nbsp;&nbsp;rc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;control&nbsp;the&nbsp;default&nbsp;params<br>
-&nbsp;&nbsp;rgrids&nbsp;&nbsp;&nbsp;-&nbsp;customize&nbsp;the&nbsp;radial&nbsp;grids&nbsp;and&nbsp;labels&nbsp;for&nbsp;polar&nbsp;<br>
+&nbsp;&nbsp;rgrids&nbsp;&nbsp;&nbsp;-&nbsp;customize&nbsp;the&nbsp;radial&nbsp;grids&nbsp;and&nbsp;labels&nbsp;for&nbsp;polar<br>
 &nbsp;&nbsp;savefig&nbsp;&nbsp;-&nbsp;save&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;scatter&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot<br>
 &nbsp;&nbsp;set&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;a&nbsp;handle&nbsp;graphics&nbsp;property<br>
@@ -74,7 +76,7 @@ _Plotting&nbsp;commands<br>
 &nbsp;&nbsp;subplot&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;subplot&nbsp;(numrows,&nbsp;numcols,&nbsp;axesnum)<br>
 &nbsp;&nbsp;table&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;table&nbsp;to&nbsp;the&nbsp;plot<br>
 &nbsp;&nbsp;text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;some&nbsp;text&nbsp;at&nbsp;location&nbsp;x,y&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
-&nbsp;&nbsp;thetagrids&nbsp;-&nbsp;customize&nbsp;the&nbsp;radial&nbsp;theta&nbsp;grids&nbsp;and&nbsp;labels&nbsp;for&nbsp;polar&nbsp;<br>
+&nbsp;&nbsp;thetagrids&nbsp;-&nbsp;customize&nbsp;the&nbsp;radial&nbsp;theta&nbsp;grids&nbsp;and&nbsp;labels&nbsp;for&nbsp;polar<br>
 &nbsp;&nbsp;title&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;title&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
 &nbsp;&nbsp;xlim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set/get&nbsp;the&nbsp;xlimits<br>
 &nbsp;&nbsp;ylim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set/get&nbsp;the&nbsp;ylimits<br>
@@ -84,16 +86,16 @@ _Plotting&nbsp;commands<br>
 &nbsp;&nbsp;ylabel&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;ylabel&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
 &nbsp;<br>
 &nbsp;&nbsp;autumn&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;autumn<br>
-&nbsp;&nbsp;bone&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;bone&nbsp;&nbsp;<br>
-&nbsp;&nbsp;cool&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;cool&nbsp;&nbsp;<br>
+&nbsp;&nbsp;bone&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;bone<br>
+&nbsp;&nbsp;cool&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;cool<br>
 &nbsp;&nbsp;copper&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;copper<br>
-&nbsp;&nbsp;flag&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;flag&nbsp;&nbsp;<br>
-&nbsp;&nbsp;gray&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;gray&nbsp;&nbsp;<br>
-&nbsp;&nbsp;hot&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;hot&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;hsv&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;hsv&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;jet&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;jet&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;pink&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;pink&nbsp;&nbsp;<br>
-&nbsp;&nbsp;prism&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;prism&nbsp;<br>
+&nbsp;&nbsp;flag&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;flag<br>
+&nbsp;&nbsp;gray&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;gray<br>
+&nbsp;&nbsp;hot&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;hot<br>
+&nbsp;&nbsp;hsv&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;hsv<br>
+&nbsp;&nbsp;jet&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;jet<br>
+&nbsp;&nbsp;pink&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;pink<br>
+&nbsp;&nbsp;prism&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;prism<br>
 &nbsp;&nbsp;spring&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;spring<br>
 &nbsp;&nbsp;summer&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;summer<br>
 &nbsp;&nbsp;winter&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;winter<br>
@@ -102,17 +104,17 @@ _Event&nbsp;handling<br>
 &nbsp;<br>
 &nbsp;&nbsp;connect&nbsp;-&nbsp;register&nbsp;an&nbsp;event&nbsp;handler<br>
 &nbsp;&nbsp;disconnect&nbsp;-&nbsp;remove&nbsp;a&nbsp;connected&nbsp;event&nbsp;handler<br>
-&nbsp;&nbsp;<br>
+&nbsp;<br>
 _Matrix&nbsp;commands<br>
 &nbsp;<br>
 &nbsp;&nbsp;cumprod&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;cumulative&nbsp;product&nbsp;along&nbsp;a&nbsp;dimension<br>
 &nbsp;&nbsp;cumsum&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;cumulative&nbsp;sum&nbsp;along&nbsp;a&nbsp;dimension<br>
 &nbsp;&nbsp;detrend&nbsp;&nbsp;&nbsp;-&nbsp;remove&nbsp;the&nbsp;mean&nbsp;or&nbsp;besdt&nbsp;fit&nbsp;line&nbsp;from&nbsp;an&nbsp;array<br>
-&nbsp;&nbsp;diag&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;k-th&nbsp;diagonal&nbsp;of&nbsp;matrix&nbsp;<br>
+&nbsp;&nbsp;diag&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;k-th&nbsp;diagonal&nbsp;of&nbsp;matrix<br>
 &nbsp;&nbsp;diff&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;n-th&nbsp;differnce&nbsp;of&nbsp;an&nbsp;array<br>
 &nbsp;&nbsp;eig&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;eigenvalues&nbsp;and&nbsp;eigen&nbsp;vectors&nbsp;of&nbsp;v<br>
-&nbsp;&nbsp;eye&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;matrix&nbsp;where&nbsp;the&nbsp;k-th&nbsp;diagonal&nbsp;is&nbsp;ones,&nbsp;else&nbsp;zero&nbsp;<br>
-&nbsp;&nbsp;find&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;indices&nbsp;where&nbsp;a&nbsp;condition&nbsp;is&nbsp;nonzero&nbsp;&nbsp;<br>
+&nbsp;&nbsp;eye&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;matrix&nbsp;where&nbsp;the&nbsp;k-th&nbsp;diagonal&nbsp;is&nbsp;ones,&nbsp;else&nbsp;zero<br>
+&nbsp;&nbsp;find&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;indices&nbsp;where&nbsp;a&nbsp;condition&nbsp;is&nbsp;nonzero<br>
 &nbsp;&nbsp;fliplr&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;flip&nbsp;the&nbsp;rows&nbsp;of&nbsp;a&nbsp;matrix&nbsp;up/down<br>
 &nbsp;&nbsp;flipud&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;flip&nbsp;the&nbsp;columns&nbsp;of&nbsp;a&nbsp;matrix&nbsp;left/right<br>
 &nbsp;&nbsp;linspace&nbsp;&nbsp;-&nbsp;a&nbsp;linear&nbsp;spaced&nbsp;vector&nbsp;of&nbsp;N&nbsp;values&nbsp;from&nbsp;min&nbsp;to&nbsp;max&nbsp;inclusive<br>
@@ -128,7 +130,7 @@ _Matrix&nbsp;commands<br>
 &nbsp;&nbsp;vander&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;Vandermonde&nbsp;matrix&nbsp;of&nbsp;vector&nbsp;x<br>
 &nbsp;&nbsp;svd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;singular&nbsp;value&nbsp;decomposition<br>
 &nbsp;&nbsp;zeros&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;matrix&nbsp;of&nbsp;zeros<br>
-&nbsp;&nbsp;<br>
+&nbsp;<br>
 _Probability<br>
 &nbsp;<br>
 &nbsp;&nbsp;levypdf&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;levy&nbsp;probability&nbsp;density&nbsp;function&nbsp;from&nbsp;the&nbsp;char.&nbsp;func.<br>
@@ -169,7 +171,7 @@ _Dates<br>
 &nbsp;&nbsp;date2num&nbsp;&nbsp;-&nbsp;convert&nbsp;python&nbsp;datetimes&nbsp;to&nbsp;numeric&nbsp;representation<br>
 &nbsp;&nbsp;drange&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;create&nbsp;an&nbsp;array&nbsp;of&nbsp;numbers&nbsp;for&nbsp;date&nbsp;plots<br>
 &nbsp;&nbsp;num2date&nbsp;&nbsp;-&nbsp;convert&nbsp;numeric&nbsp;type&nbsp;(float&nbsp;days&nbsp;since&nbsp;0001)&nbsp;to&nbsp;datetime<br>
-&nbsp;&nbsp;<br>
+&nbsp;<br>
 _Other<br>
 &nbsp;<br>
 &nbsp;&nbsp;angle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;angle&nbsp;of&nbsp;a&nbsp;complex&nbsp;array<br>
@@ -243,187 +245,156 @@ Examples<br>
 &nbsp;&nbsp;examples/axes_demo.py&nbsp;places&nbsp;custom&nbsp;axes.<br>
 &nbsp;&nbsp;examples/shared_axis_demo.py&nbsp;uses&nbsp;sharex&nbsp;and&nbsp;sharey</tt></dd></dl>
  <dl><dt><a name="-axhline"><strong>axhline</strong></a>(*args, **kwargs)</dt><dd><tt>AXHLINE(y=0,&nbsp;xmin=0,&nbsp;xmax=1,&nbsp;**kwargs)<br>
-&nbsp;<br>
 Axis&nbsp;Horizontal&nbsp;Line<br>
-&nbsp;<br>
 Draw&nbsp;a&nbsp;horizontal&nbsp;line&nbsp;at&nbsp;y&nbsp;from&nbsp;xmin&nbsp;to&nbsp;xmax.&nbsp;&nbsp;With&nbsp;the&nbsp;default<br>
 values&nbsp;of&nbsp;xmin=0&nbsp;and&nbsp;xmax=1,&nbsp;this&nbsp;line&nbsp;will&nbsp;always&nbsp;span&nbsp;the&nbsp;horizontal<br>
 extent&nbsp;of&nbsp;the&nbsp;axes,&nbsp;regardless&nbsp;of&nbsp;the&nbsp;xlim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you<br>
 change&nbsp;them,&nbsp;eg&nbsp;with&nbsp;the&nbsp;xlim&nbsp;command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;horizontal&nbsp;extent<br>
 is&nbsp;in&nbsp;axes&nbsp;coords:&nbsp;0=left,&nbsp;0.5=middle,&nbsp;1.0=right&nbsp;but&nbsp;the&nbsp;y&nbsp;location&nbsp;is<br>
 in&nbsp;data&nbsp;coordinates.<br>
-&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;the&nbsp;Line2D&nbsp;instance.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;kwargs&nbsp;to<br>
 plot,&nbsp;and&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;control&nbsp;the&nbsp;line&nbsp;properties.&nbsp;&nbsp;Eg<br>
-&nbsp;<br>
 &nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;thick&nbsp;red&nbsp;hline&nbsp;at&nbsp;y=0&nbsp;that&nbsp;spans&nbsp;the&nbsp;xrange<br>
 &nbsp;&nbsp;<a href="#-axhline">axhline</a>(linewidth=4,&nbsp;color='r')<br>
-&nbsp;<br>
 &nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;default&nbsp;hline&nbsp;at&nbsp;y=1&nbsp;that&nbsp;spans&nbsp;the&nbsp;xrange<br>
 &nbsp;&nbsp;<a href="#-axhline">axhline</a>(y=1)<br>
-&nbsp;<br>
 &nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;default&nbsp;hline&nbsp;at&nbsp;y=.5&nbsp;that&nbsp;spans&nbsp;the&nbsp;the&nbsp;middle&nbsp;half&nbsp;of<br>
 &nbsp;&nbsp;#&nbsp;the&nbsp;xrange<br>
 &nbsp;&nbsp;<a href="#-axhline">axhline</a>(y=.5,&nbsp;xmin=0.25,&nbsp;xmax=0.75)<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-axhspan"><strong>axhspan</strong></a>(*args, **kwargs)</dt><dd><tt>AXHSPAN(ymin,&nbsp;ymax,&nbsp;xmin=0,&nbsp;xmax=1,&nbsp;**kwargs)<br>
-&nbsp;<br>
 Axis&nbsp;Horizontal&nbsp;Span.&nbsp;&nbsp;ycoords&nbsp;are&nbsp;in&nbsp;data&nbsp;units&nbsp;and&nbsp;x<br>
 coords&nbsp;are&nbsp;in&nbsp;axes&nbsp;(relative&nbsp;0-1)&nbsp;units<br>
-&nbsp;<br>
 Draw&nbsp;a&nbsp;horizontal&nbsp;span&nbsp;(regtangle)&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;With&nbsp;the<br>
 default&nbsp;values&nbsp;of&nbsp;xmin=0&nbsp;and&nbsp;xmax=1,&nbsp;this&nbsp;always&nbsp;span&nbsp;the&nbsp;xrange,<br>
 regardless&nbsp;of&nbsp;the&nbsp;xlim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you&nbsp;change&nbsp;them,&nbsp;eg&nbsp;with&nbsp;the<br>
 xlim&nbsp;command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;horizontal&nbsp;extent&nbsp;is&nbsp;in&nbsp;axes&nbsp;coords:<br>
 0=left,&nbsp;0.5=middle,&nbsp;1.0=right&nbsp;but&nbsp;the&nbsp;y&nbsp;location&nbsp;is&nbsp;in&nbsp;data<br>
 coordinates.<br>
-&nbsp;<br>
 kwargs&nbsp;are&nbsp;the&nbsp;kwargs&nbsp;to&nbsp;Patch,&nbsp;eg<br>
-&nbsp;<br>
 &nbsp;&nbsp;antialiased,&nbsp;aa<br>
 &nbsp;&nbsp;linewidth,&nbsp;&nbsp;&nbsp;lw<br>
 &nbsp;&nbsp;edgecolor,&nbsp;&nbsp;&nbsp;ec<br>
 &nbsp;&nbsp;facecolor,&nbsp;&nbsp;&nbsp;fc<br>
-&nbsp;<br>
 the&nbsp;terms&nbsp;on&nbsp;the&nbsp;right&nbsp;are&nbsp;aliases<br>
-&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;the&nbsp;patches.Polygon&nbsp;instance.<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#draws&nbsp;a&nbsp;gray&nbsp;rectangle&nbsp;from&nbsp;y=0.25-0.75&nbsp;that&nbsp;spans&nbsp;the&nbsp;horizontal<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#extent&nbsp;of&nbsp;the&nbsp;axes<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-axhspan">axhspan</a>(0.25,&nbsp;0.75,&nbsp;facecolor=0.5,&nbsp;alpha=0.5)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-axis"><strong>axis</strong></a>(*v)</dt><dd><tt>Set/Get&nbsp;the&nbsp;axis&nbsp;properties::<br>
 &nbsp;<br>
-<a href="#-axis">axis</a>()&nbsp;&nbsp;returns&nbsp;the&nbsp;current&nbsp;axis&nbsp;as&nbsp;a&nbsp;length&nbsp;a&nbsp;length&nbsp;4&nbsp;vector<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-axis">axis</a>()&nbsp;&nbsp;returns&nbsp;the&nbsp;current&nbsp;axis&nbsp;as&nbsp;a&nbsp;length&nbsp;a&nbsp;length&nbsp;4&nbsp;vector<br>
 &nbsp;<br>
-<a href="#-axis">axis</a>(v)&nbsp;where&nbsp;v&nbsp;=&nbsp;[xmin,&nbsp;xmax,&nbsp;ymin,&nbsp;ymax]&nbsp;sets&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;x<br>
-&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;y&nbsp;axis&nbsp;limits<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-axis">axis</a>(v)&nbsp;where&nbsp;v&nbsp;=&nbsp;[xmin,&nbsp;xmax,&nbsp;ymin,&nbsp;ymax]&nbsp;sets&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;y&nbsp;axis&nbsp;limits<br>
 &nbsp;<br>
-<a href="#-axis">axis</a>('off')&nbsp;turns&nbsp;off&nbsp;the&nbsp;axis&nbsp;lines&nbsp;and&nbsp;labels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-axis">axis</a>('off')&nbsp;turns&nbsp;off&nbsp;the&nbsp;axis&nbsp;lines&nbsp;and&nbsp;labels<br>
 &nbsp;<br>
-<a href="#-axis">axis</a>('equal')&nbsp;sets&nbsp;the&nbsp;xlim&nbsp;width&nbsp;and&nbsp;ylim&nbsp;height&nbsp;to&nbsp;be&nbsp;to&nbsp;be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;identical.&nbsp;&nbsp;The&nbsp;longer&nbsp;of&nbsp;the&nbsp;two&nbsp;intervals&nbsp;is&nbsp;chosen</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-axis">axis</a>('equal')&nbsp;sets&nbsp;the&nbsp;xlim&nbsp;width&nbsp;and&nbsp;ylim&nbsp;height&nbsp;to&nbsp;be&nbsp;to&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;identical.&nbsp;&nbsp;The&nbsp;longer&nbsp;of&nbsp;the&nbsp;two&nbsp;intervals&nbsp;is&nbsp;chosen</tt></dd></dl>
  <dl><dt><a name="-axvline"><strong>axvline</strong></a>(*args, **kwargs)</dt><dd><tt>AXVLINE(x=0,&nbsp;ymin=0,&nbsp;ymax=1,&nbsp;**kwargs)<br>
-&nbsp;<br>
 Axis&nbsp;Vertical&nbsp;Line<br>
-&nbsp;<br>
 Draw&nbsp;a&nbsp;vertical&nbsp;line&nbsp;at&nbsp;x&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;With&nbsp;the&nbsp;default&nbsp;values<br>
 of&nbsp;ymin=0&nbsp;and&nbsp;ymax=1,&nbsp;this&nbsp;line&nbsp;will&nbsp;always&nbsp;span&nbsp;the&nbsp;vertical&nbsp;extent<br>
 of&nbsp;the&nbsp;axes,&nbsp;regardless&nbsp;of&nbsp;the&nbsp;xlim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you&nbsp;change&nbsp;them,<br>
 eg&nbsp;with&nbsp;the&nbsp;xlim&nbsp;command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;vertical&nbsp;extent&nbsp;is&nbsp;in&nbsp;axes<br>
 coords:&nbsp;0=bottom,&nbsp;0.5=middle,&nbsp;1.0=top&nbsp;but&nbsp;the&nbsp;x&nbsp;location&nbsp;is&nbsp;in&nbsp;data<br>
 coordinates.<br>
-&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;the&nbsp;Line2D&nbsp;instance.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;the&nbsp;same&nbsp;as<br>
 kwargs&nbsp;to&nbsp;plot,&nbsp;and&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;control&nbsp;the&nbsp;line&nbsp;properties.&nbsp;&nbsp;Eg<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;thick&nbsp;red&nbsp;vline&nbsp;at&nbsp;x=0&nbsp;that&nbsp;spans&nbsp;the&nbsp;yrange<br>
 &nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;<a href="#-axvline">axvline</a>(linewidth=4,&nbsp;color='r')<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;default&nbsp;vline&nbsp;at&nbsp;x=1&nbsp;that&nbsp;spans&nbsp;the&nbsp;yrange<br>
 &nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;<a href="#-axvline">axvline</a>(x=1)<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;default&nbsp;vline&nbsp;at&nbsp;x=.5&nbsp;that&nbsp;spans&nbsp;the&nbsp;the&nbsp;middle&nbsp;half&nbsp;of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;yrange<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-axvline">axvline</a>(x=.5,&nbsp;ymin=0.25,&nbsp;ymax=0.75)<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
- <dl><dt><a name="-axvspan"><strong>axvspan</strong></a>(*args, **kwargs)</dt><dd><tt>AXVSPAN(xmin,&nbsp;xmax,&nbsp;ymin=0,&nbsp;ymax=1,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;<br>
+ <dl><dt><a name="-axvspan"><strong>axvspan</strong></a>(*args, **kwargs)</dt><dd><tt>AXVSPAN(xmin,&nbsp;xmax,&nbsp;ymin=0,&nbsp;ymax=1,&nbsp;**kwargs)<br>
 axvspan&nbsp;:&nbsp;Axis&nbsp;Vertical&nbsp;Span.&nbsp;&nbsp;xcoords&nbsp;are&nbsp;in&nbsp;data&nbsp;units&nbsp;and&nbsp;y&nbsp;coords<br>
 are&nbsp;in&nbsp;axes&nbsp;(relative&nbsp;0-1)&nbsp;units<br>
-&nbsp;<br>
 Draw&nbsp;a&nbsp;vertical&nbsp;span&nbsp;(regtangle)&nbsp;from&nbsp;xmin&nbsp;to&nbsp;xmax.&nbsp;&nbsp;With&nbsp;the&nbsp;default<br>
 values&nbsp;of&nbsp;ymin=0&nbsp;and&nbsp;ymax=1,&nbsp;this&nbsp;always&nbsp;span&nbsp;the&nbsp;yrange,&nbsp;regardless<br>
 of&nbsp;the&nbsp;ylim&nbsp;settings,&nbsp;even&nbsp;if&nbsp;you&nbsp;change&nbsp;them,&nbsp;eg&nbsp;with&nbsp;the&nbsp;ylim<br>
 command.&nbsp;&nbsp;That&nbsp;is,&nbsp;the&nbsp;vertical&nbsp;extent&nbsp;is&nbsp;in&nbsp;axes&nbsp;coords:&nbsp;0=bottom,<br>
 0.5=middle,&nbsp;1.0=top&nbsp;but&nbsp;the&nbsp;y&nbsp;location&nbsp;is&nbsp;in&nbsp;data&nbsp;coordinates.<br>
-&nbsp;<br>
 kwargs&nbsp;are&nbsp;the&nbsp;kwargs&nbsp;to&nbsp;Patch,&nbsp;eg<br>
-&nbsp;<br>
 &nbsp;&nbsp;antialiased,&nbsp;aa<br>
 &nbsp;&nbsp;linewidth,&nbsp;&nbsp;&nbsp;lw<br>
 &nbsp;&nbsp;edgecolor,&nbsp;&nbsp;&nbsp;ec<br>
 &nbsp;&nbsp;facecolor,&nbsp;&nbsp;&nbsp;fc<br>
-&nbsp;<br>
 the&nbsp;terms&nbsp;on&nbsp;the&nbsp;right&nbsp;are&nbsp;aliases<br>
-&nbsp;<br>
 return&nbsp;value&nbsp;is&nbsp;the&nbsp;patches.Polygon&nbsp;instance.<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;draw&nbsp;a&nbsp;vertical&nbsp;green&nbsp;translucent&nbsp;rectangle&nbsp;from&nbsp;x=1.25&nbsp;to&nbsp;1.55&nbsp;that<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;spans&nbsp;the&nbsp;yrange&nbsp;of&nbsp;the&nbsp;axes<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-axvspan">axvspan</a>(1.25,&nbsp;1.55,&nbsp;facecolor='g',&nbsp;alpha=0.5)<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-bar"><strong>bar</strong></a>(*args, **kwargs)</dt><dd><tt>BAR(left,&nbsp;height,&nbsp;width=0.8,&nbsp;bottom=0,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;color='b',&nbsp;yerr=None,&nbsp;xerr=None,&nbsp;ecolor='k',&nbsp;capsize=3)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at<br>
-&nbsp;<br>
 &nbsp;&nbsp;left,&nbsp;left+width,&nbsp;0,&nbsp;height<br>
-&nbsp;<br>
 left&nbsp;and&nbsp;height&nbsp;are&nbsp;Numeric&nbsp;arrays.<br>
-&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>
-&nbsp;<br>
 BAR(left,&nbsp;height,&nbsp;width,&nbsp;bottom,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;color,&nbsp;yerr,&nbsp;xerr,&nbsp;capsize,&nbsp;yoff)<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;the&nbsp;bar&nbsp;chart<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;bar<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ecolor&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;any&nbsp;errorbar<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;capsize&nbsp;determines&nbsp;the&nbsp;length&nbsp;in&nbsp;points&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps<br>
-&nbsp;<br>
-&nbsp;<br>
 The&nbsp;optional&nbsp;arguments&nbsp;color,&nbsp;width&nbsp;and&nbsp;bottom&nbsp;can&nbsp;be&nbsp;either<br>
 scalars&nbsp;or&nbsp;len(x)&nbsp;sequences<br>
-&nbsp;<br>
 This&nbsp;enables&nbsp;you&nbsp;to&nbsp;use&nbsp;bar&nbsp;as&nbsp;the&nbsp;basis&nbsp;for&nbsp;stacked&nbsp;bar<br>
 charts,&nbsp;or&nbsp;candlestick&nbsp;plots<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-barh"><strong>barh</strong></a>(*args, **kwargs)</dt><dd><tt>BARH(x,&nbsp;y,&nbsp;height=0.8,&nbsp;left=0,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color='b',&nbsp;yerr=None,&nbsp;xerr=None,&nbsp;ecolor='k',&nbsp;capsize=3)<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;BARH(x,&nbsp;y)<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;y&nbsp;values&nbsp;give&nbsp;the&nbsp;heights&nbsp;of&nbsp;the&nbsp;center&nbsp;of&nbsp;the&nbsp;bars.&nbsp;&nbsp;The<br>
 &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;values&nbsp;give&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;bars.<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>
-&nbsp;<br>
 Optional&nbsp;arguments<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;-&nbsp;the&nbsp;height&nbsp;(thickness)&nbsp;&nbsp;of&nbsp;the&nbsp;bar<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;left&nbsp;&nbsp;-&nbsp;the&nbsp;x&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;left&nbsp;side&nbsp;of&nbsp;the&nbsp;bar<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;bar<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
 &nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;the&nbsp;bar&nbsp;chart<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ecolor&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;any&nbsp;errorbar<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;capsize&nbsp;determines&nbsp;the&nbsp;length&nbsp;in&nbsp;points&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps<br>
-&nbsp;<br>
 The&nbsp;optional&nbsp;arguments&nbsp;color,&nbsp;height&nbsp;and&nbsp;left&nbsp;can&nbsp;be&nbsp;either<br>
 scalars&nbsp;or&nbsp;len(x)&nbsp;sequences<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-bone"><strong>bone</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;bone&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-choose"><strong>choose</strong></a>(...)</dt><dd><tt><a href="#-choose">choose</a>(a,&nbsp;(b1,b2,...))</tt></dd></dl>
  <dl><dt><a name="-cla"><strong>cla</strong></a>(*args, **kwargs)</dt><dd><tt>Clear&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+ <dl><dt><a name="-clabel"><strong>clabel</strong></a>(*args, **kwargs)</dt><dd><tt>CLABEL(*args,&nbsp;**kwargs)<br>
+Function&nbsp;signatures<br>
+CLABEL(C)&nbsp;-&nbsp;plots&nbsp;contour&nbsp;labels,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C&nbsp;is&nbsp;the&nbsp;output&nbsp;of&nbsp;contour&nbsp;or&nbsp;a&nbsp;list&nbsp;of&nbsp;contours<br>
+CLABEL(C,V)&nbsp;-&nbsp;creates&nbsp;labels&nbsp;only&nbsp;for&nbsp;those&nbsp;contours,&nbsp;given&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;list&nbsp;V<br>
+CLABEL(C,&nbsp;**kwargs)&nbsp;-&nbsp;keyword&nbsp;args&nbsp;are&nbsp;explained&nbsp;below:<br>
+*&nbsp;fontsize&nbsp;=&nbsp;None:&nbsp;as&nbsp;described&nbsp;in&nbsp;<a href="http://matplotlib.sf.net/fonts.html">http://matplotlib.sf.net/fonts.html</a><br>
+*&nbsp;colors&nbsp;=&nbsp;None:<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;(string,&nbsp;float,&nbsp;rgb,&nbsp;etc),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;different&nbsp;labels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;different&nbsp;colors&nbsp;in&nbsp;the&nbsp;order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;one&nbsp;string&nbsp;color,&nbsp;e.g.&nbsp;colors&nbsp;=&nbsp;'r'&nbsp;or&nbsp;colors&nbsp;=&nbsp;'red',&nbsp;all&nbsp;labels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;this&nbsp;color<br>
+&nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;color&nbsp;of&nbsp;each&nbsp;label&nbsp;matches&nbsp;the&nbsp;color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;corresponding&nbsp;contour<br>
+*&nbsp;inline&nbsp;=&nbsp;0:&nbsp;controls&nbsp;whether&nbsp;the&nbsp;underlying&nbsp;contour&nbsp;is&nbsp;removed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(inline&nbsp;=&nbsp;1)&nbsp;or&nbsp;not<br>
+*&nbsp;fmt&nbsp;=&nbsp;'%1.3f':&nbsp;a&nbsp;format&nbsp;string&nbsp;for&nbsp;the&nbsp;label<br>
+&nbsp;<br>
+Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-clf"><strong>clf</strong></a>()</dt><dd><tt>Clear&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
  <dl><dt><a name="-clim"><strong>clim</strong></a>(vmin<font color="#909090">=None</font>, vmax<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;color&nbsp;limits&nbsp;of&nbsp;the&nbsp;current&nbsp;image<br>
 &nbsp;<br>
@@ -448,24 +419,18 @@ use,&nbsp;for&nbsp;example&nbsp;for&nbsp;im&nbsp;in&nbsp;<a href="#-gca">gca</a>
 <a href="#-close">close</a>('all')&nbsp;closes&nbsp;all&nbsp;the&nbsp;figure&nbsp;windows</tt></dd></dl>
  <dl><dt><a name="-cohere"><strong>cohere</strong></a>(*args, **kwargs)</dt><dd><tt>COHERE(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)<br>
-&nbsp;<br>
 cohere&nbsp;the&nbsp;coherence&nbsp;between&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;Coherence&nbsp;is&nbsp;the&nbsp;normalized<br>
 cross&nbsp;spectral&nbsp;density<br>
-&nbsp;<br>
 &nbsp;&nbsp;Cxy&nbsp;=&nbsp;|Pxy|^2/(Pxx*Pyy)<br>
-&nbsp;<br>
 The&nbsp;return&nbsp;value&nbsp;is&nbsp;(Cxy,&nbsp;f),&nbsp;where&nbsp;f&nbsp;are&nbsp;the&nbsp;frequencies&nbsp;of&nbsp;the<br>
 coherence&nbsp;vector.<br>
-&nbsp;<br>
 See&nbsp;the&nbsp;PSD&nbsp;help&nbsp;for&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;optional&nbsp;parameters.<br>
-&nbsp;<br>
 Returns&nbsp;the&nbsp;tuple&nbsp;Cxy,&nbsp;freqs<br>
-&nbsp;<br>
 Refs:&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
- <dl><dt><a name="-colorbar"><strong>colorbar</strong></a>(tickfmt<font color="#909090">='%1.1f'</font>, cax<font color="#909090">=None</font>, orientation<font color="#909090">='vertical'</font>)</dt><dd><tt>Create&nbsp;a&nbsp;colorbar&nbsp;for&nbsp;current&nbsp;mappable&nbsp;image&nbsp;(see&nbsp;gci)<br>
+ <dl><dt><a name="-colorbar"><strong>colorbar</strong></a>(tickfmt<font color="#909090">='%1.1f'</font>, cax<font color="#909090">=None</font>, orientation<font color="#909090">='vertical'</font>)</dt><dd><tt>Create&nbsp;a&nbsp;colorbar&nbsp;for&nbsp;current&nbsp;image<br>
 &nbsp;<br>
 tickfmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;to&nbsp;format&nbsp;the&nbsp;colorbar&nbsp;ticks<br>
 &nbsp;<br>
@@ -476,13 +441,13 @@ will&nbsp;be&nbsp;used&nbsp;and&nbsp;the&nbsp;other&nbsp;axes&nbsp;positions&nbs
 &nbsp;<br>
 orientation&nbsp;is&nbsp;the&nbsp;colorbar&nbsp;orientation:&nbsp;one&nbsp;of&nbsp;'vertical'&nbsp;|&nbsp;'horizontal'<br>
 return&nbsp;value&nbsp;is&nbsp;the&nbsp;colorbar&nbsp;axes&nbsp;instance</tt></dd></dl>
- <dl><dt><a name="-colormaps"><strong>colormaps</strong></a>()</dt><dd><tt>matplotlib&nbsp;provides&nbsp;the&nbsp;following&nbsp;colormaps.&nbsp;&nbsp;<br>
+ <dl><dt><a name="-colormaps"><strong>colormaps</strong></a>()</dt><dd><tt>matplotlib&nbsp;provides&nbsp;the&nbsp;following&nbsp;colormaps.<br>
 &nbsp;<br>
 &nbsp;&nbsp;autumn&nbsp;bone&nbsp;cool&nbsp;copper&nbsp;flag&nbsp;gray&nbsp;hot&nbsp;hsv&nbsp;jet&nbsp;pink&nbsp;prism<br>
 &nbsp;&nbsp;spring&nbsp;summer&nbsp;winter<br>
 &nbsp;<br>
 You&nbsp;can&nbsp;set&nbsp;the&nbsp;colormap&nbsp;for&nbsp;an&nbsp;image,&nbsp;pcolor,&nbsp;scatter,&nbsp;etc,<br>
-either&nbsp;as&nbsp;a&nbsp;keyword&nbsp;argument<br>
+either&nbsp;as&nbsp;a&nbsp;keyword&nbsp;argumentdef&nbsp;con<br>
 &nbsp;<br>
 &gt;&gt;&gt;&nbsp;<a href="#-imshow">imshow</a>(X,&nbsp;cmap=cm.hot)<br>
 &nbsp;<br>
@@ -507,7 +472,7 @@ single&nbsp;letter<br>
 &nbsp;&nbsp;c&nbsp;&nbsp;:&nbsp;cyan<br>
 &nbsp;&nbsp;m&nbsp;&nbsp;:&nbsp;magenta<br>
 &nbsp;&nbsp;y&nbsp;&nbsp;:&nbsp;yellow<br>
-&nbsp;&nbsp;k&nbsp;&nbsp;:&nbsp;black&nbsp;<br>
+&nbsp;&nbsp;k&nbsp;&nbsp;:&nbsp;black<br>
 &nbsp;&nbsp;w&nbsp;&nbsp;:&nbsp;white<br>
 &nbsp;<br>
 &nbsp;<br>
@@ -549,89 +514,126 @@ where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbs
 &nbsp;<br>
 return&nbsp;value&nbsp;is&nbsp;a&nbsp;connection&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with<br>
 mpl_disconnect</tt></dd></dl>
- <dl><dt><a name="-contour"><strong>contour</strong></a>(*args, **kwargs)</dt><dd><tt>CONTOUR(self,&nbsp;*args,&nbsp;**kwargs)<br>
-&nbsp;<br>
+ <dl><dt><a name="-contour"><strong>contour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-contour">contour</a>(self,&nbsp;*args,&nbsp;**kwargs)<br>
 Function&nbsp;signatures<br>
-&nbsp;<br>
-CONTOUR(Z)&nbsp;-&nbsp;make&nbsp;a&nbsp;contour&nbsp;plot&nbsp;of&nbsp;an&nbsp;array&nbsp;Z.&nbsp;The&nbsp;level<br>
+<a href="#-contour">contour</a>(Z)&nbsp;-&nbsp;make&nbsp;a&nbsp;contour&nbsp;plot&nbsp;of&nbsp;an&nbsp;array&nbsp;Z.&nbsp;The&nbsp;level<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;values&nbsp;are&nbsp;chosen&nbsp;automatically.<br>
-&nbsp;<br>
-CONTOUR(X,Y,Z)&nbsp;-&nbsp;X,Y&nbsp;specify&nbsp;the&nbsp;(x,y)&nbsp;coordinates&nbsp;of&nbsp;the&nbsp;surface<br>
-&nbsp;<br>
-CONTOUR(Z,N)&nbsp;and&nbsp;CONTOUR(X,Y,Z,N)&nbsp;-&nbsp;draw&nbsp;N&nbsp;contour&nbsp;lines&nbsp;overriding<br>
+<a href="#-contour">contour</a>(X,Y,Z)&nbsp;-&nbsp;X,Y&nbsp;specify&nbsp;the&nbsp;(x,y)&nbsp;coordinates&nbsp;of&nbsp;the&nbsp;surface<br>
+<a href="#-contour">contour</a>(Z,N)&nbsp;and&nbsp;<a href="#-contour">contour</a>(X,Y,Z,N)&nbsp;-&nbsp;draw&nbsp;N&nbsp;contour&nbsp;lines&nbsp;overriding<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;automatic&nbsp;value<br>
-&nbsp;<br>
-CONTOUR(Z,V)&nbsp;and&nbsp;CONTOUR(X,Y,Z,V)&nbsp;-&nbsp;draw&nbsp;len(V)&nbsp;contour&nbsp;lines,<br>
+<a href="#-contour">contour</a>(Z,V)&nbsp;and&nbsp;<a href="#-contour">contour</a>(X,Y,Z,V)&nbsp;-&nbsp;draw&nbsp;len(V)&nbsp;contour&nbsp;lines,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;the&nbsp;values&nbsp;specified&nbsp;in&nbsp;V&nbsp;(array,&nbsp;list,&nbsp;tuple)<br>
-&nbsp;<br>
-CONTOUR(Z,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;colors,&nbsp;linewidth,<br>
+<a href="#-contour">contour</a>(Z,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;colors,&nbsp;linewidth,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;origin,&nbsp;cmap&nbsp;...&nbsp;see&nbsp;below<br>
-&nbsp;<br>
+[L,C]&nbsp;=&nbsp;<a href="#-contour">contour</a>(...)&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;levels&nbsp;and&nbsp;a&nbsp;silent_list&nbsp;of&nbsp;LineCollections<br>
 Optional&nbsp;keywork&nbsp;args&nbsp;are&nbsp;shown&nbsp;with&nbsp;their&nbsp;defaults&nbsp;below&nbsp;(you&nbsp;must<br>
 use&nbsp;kwargs&nbsp;for&nbsp;these):<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;colors&nbsp;=&nbsp;None:&nbsp;one&nbsp;of&nbsp;these:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;(string,&nbsp;float,&nbsp;rgb,&nbsp;etc),<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;different&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;different&nbsp;colors&nbsp;in&nbsp;the&nbsp;order<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;one&nbsp;string&nbsp;color,&nbsp;e.g.&nbsp;colors&nbsp;=&nbsp;'r'&nbsp;or&nbsp;colors&nbsp;=&nbsp;'red',&nbsp;all&nbsp;levels<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;this&nbsp;color<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;colormap&nbsp;will&nbsp;be&nbsp;used<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;alpha=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;None:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;fmt&nbsp;=&nbsp;'1.3f':&nbsp;a&nbsp;format&nbsp;string&nbsp;for&nbsp;adding&nbsp;a&nbsp;label&nbsp;to&nbsp;each&nbsp;collection.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Useful&nbsp;for&nbsp;auto-legending&nbsp;.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;origin&nbsp;=&nbsp;None:&nbsp;'upper'|'lower'|None.&nbsp;&nbsp;If&nbsp;None,&nbsp;the&nbsp;rc&nbsp;value&nbsp;for&nbsp;image.origin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;used<br>
-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;origin&nbsp;=&nbsp;None:&nbsp;'upper'|'lower'|'image'|None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;'image',&nbsp;the&nbsp;rc&nbsp;value&nbsp;for&nbsp;image.origin&nbsp;will&nbsp;be&nbsp;used.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;None&nbsp;(default),&nbsp;the&nbsp;first&nbsp;value&nbsp;of&nbsp;Z&nbsp;will&nbsp;correspond<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;lower&nbsp;left&nbsp;corner,&nbsp;location&nbsp;(0,0).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;keyword&nbsp;is&nbsp;active&nbsp;only&nbsp;if&nbsp;contourf&nbsp;is&nbsp;called&nbsp;with<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;one&nbsp;or&nbsp;two&nbsp;arguments,&nbsp;that&nbsp;is,&nbsp;without&nbsp;explicitly<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specifying&nbsp;X&nbsp;and&nbsp;Y.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;extent&nbsp;=&nbsp;None:&nbsp;(x0,x1,y0,y1);&nbsp;also&nbsp;active&nbsp;only&nbsp;if&nbsp;X&nbsp;and&nbsp;Y<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;not&nbsp;specified.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;badmask&nbsp;=&nbsp;None:&nbsp;array&nbsp;with&nbsp;dimensions&nbsp;of&nbsp;Z,&nbsp;and&nbsp;with&nbsp;values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;zero&nbsp;at&nbsp;locations&nbsp;corresponding&nbsp;to&nbsp;valid&nbsp;data,&nbsp;and&nbsp;one<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;locations&nbsp;where&nbsp;the&nbsp;value&nbsp;of&nbsp;Z&nbsp;should&nbsp;be&nbsp;ignored.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;experimental.&nbsp;&nbsp;It&nbsp;presently&nbsp;works&nbsp;for&nbsp;edge&nbsp;regions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;line&nbsp;and&nbsp;filled&nbsp;contours,&nbsp;but&nbsp;for&nbsp;interior&nbsp;regions&nbsp;it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;works&nbsp;correctly&nbsp;only&nbsp;for&nbsp;line&nbsp;contours.&nbsp;&nbsp;The&nbsp;badmask&nbsp;kwarg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;may&nbsp;go&nbsp;away&nbsp;in&nbsp;the&nbsp;future,&nbsp;to&nbsp;be&nbsp;replaced&nbsp;by&nbsp;the&nbsp;use&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NaN&nbsp;value&nbsp;in&nbsp;Z&nbsp;and/or&nbsp;the&nbsp;use&nbsp;of&nbsp;a&nbsp;masked&nbsp;array&nbsp;in&nbsp;Z.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;linewidths&nbsp;=&nbsp;None:&nbsp;or&nbsp;one&nbsp;of&nbsp;these:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;number&nbsp;-&nbsp;all&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;with&nbsp;this&nbsp;linewidth,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.&nbsp;linewidths&nbsp;=&nbsp;0.6<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;numbers,&nbsp;e.g.&nbsp;linewidths&nbsp;=&nbsp;(0.4,&nbsp;0.8,&nbsp;1.2)&nbsp;different<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;with&nbsp;different&nbsp;linewidths&nbsp;in&nbsp;the&nbsp;order<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;fmt&nbsp;=&nbsp;'1.3f':&nbsp;a&nbsp;format&nbsp;string&nbsp;for&nbsp;adding&nbsp;a&nbsp;label&nbsp;to&nbsp;each&nbsp;collection.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Useful&nbsp;for&nbsp;auto-legending.<br>
 &nbsp;<br>
+Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
+ <dl><dt><a name="-contourf"><strong>contourf</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-contourf">contourf</a>(self,&nbsp;*args,&nbsp;**kwargs)<br>
+Function&nbsp;signatures<br>
+<a href="#-contourf">contourf</a>(Z)&nbsp;-&nbsp;make&nbsp;a&nbsp;filled&nbsp;contour&nbsp;plot&nbsp;of&nbsp;an&nbsp;array&nbsp;Z.&nbsp;The&nbsp;level<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;values&nbsp;are&nbsp;chosen&nbsp;automatically.<br>
+<a href="#-contourf">contourf</a>(X,Y,Z)&nbsp;-&nbsp;X,Y&nbsp;specify&nbsp;the&nbsp;(x,y)&nbsp;coordinates&nbsp;of&nbsp;the&nbsp;surface<br>
+<a href="#-contourf">contourf</a>(Z,N)&nbsp;and&nbsp;<a href="#-contourf">contourf</a>(X,Y,Z,N)&nbsp;-&nbsp;make&nbsp;a&nbsp;filled&nbsp;contour&nbsp;plot<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;to&nbsp;N&nbsp;contour&nbsp;levels<br>
+<a href="#-contourf">contourf</a>(Z,V)&nbsp;and&nbsp;<a href="#-contourf">contourf</a>(X,Y,Z,V)&nbsp;-&nbsp;fill&nbsp;len(V)&nbsp;regions,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;between&nbsp;the&nbsp;levels&nbsp;specified&nbsp;in&nbsp;sequence&nbsp;V,&nbsp;and&nbsp;a&nbsp;final&nbsp;region<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;values&nbsp;of&nbsp;Z&nbsp;greater&nbsp;than&nbsp;the&nbsp;last&nbsp;element&nbsp;in&nbsp;V<br>
+<a href="#-contourf">contourf</a>(Z,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;colors,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;origin,&nbsp;cmap&nbsp;...&nbsp;see&nbsp;below<br>
+[L,C]&nbsp;=&nbsp;<a href="#-contourf">contourf</a>(...)&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;levels&nbsp;and&nbsp;a&nbsp;silent_list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;PolyCollections<br>
+Optional&nbsp;keywork&nbsp;args&nbsp;are&nbsp;shown&nbsp;with&nbsp;their&nbsp;defaults&nbsp;below&nbsp;(you&nbsp;must<br>
+use&nbsp;kwargs&nbsp;for&nbsp;these):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;colors&nbsp;=&nbsp;None:&nbsp;one&nbsp;of&nbsp;these:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;tuple&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;(string,&nbsp;float,&nbsp;rgb,&nbsp;etc),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;different&nbsp;levels&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;different&nbsp;colors&nbsp;in&nbsp;the&nbsp;order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;one&nbsp;string&nbsp;color,&nbsp;e.g.&nbsp;colors&nbsp;=&nbsp;'r'&nbsp;or&nbsp;colors&nbsp;=&nbsp;'red',&nbsp;all&nbsp;levels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;plotted&nbsp;in&nbsp;this&nbsp;color<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;colors&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;colormap&nbsp;will&nbsp;be&nbsp;used<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;alpha=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;None:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;origin&nbsp;=&nbsp;None:&nbsp;'upper'|'lower'|'image'|None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;'image',&nbsp;the&nbsp;rc&nbsp;value&nbsp;for&nbsp;image.origin&nbsp;will&nbsp;be&nbsp;used.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;None&nbsp;(default),&nbsp;the&nbsp;first&nbsp;value&nbsp;of&nbsp;Z&nbsp;will&nbsp;correspond<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;lower&nbsp;left&nbsp;corner,&nbsp;location&nbsp;(0,0).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;keyword&nbsp;is&nbsp;active&nbsp;only&nbsp;if&nbsp;contourf&nbsp;is&nbsp;called&nbsp;with<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;one&nbsp;or&nbsp;two&nbsp;arguments,&nbsp;that&nbsp;is,&nbsp;without&nbsp;explicitly<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specifying&nbsp;X&nbsp;and&nbsp;Y.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;badmask&nbsp;=&nbsp;None:&nbsp;array&nbsp;with&nbsp;dimensions&nbsp;of&nbsp;Z,&nbsp;and&nbsp;with&nbsp;values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;zero&nbsp;at&nbsp;locations&nbsp;corresponding&nbsp;to&nbsp;valid&nbsp;data,&nbsp;and&nbsp;one<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at&nbsp;locations&nbsp;where&nbsp;the&nbsp;value&nbsp;of&nbsp;Z&nbsp;should&nbsp;be&nbsp;ignored.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;experimental.&nbsp;&nbsp;It&nbsp;presently&nbsp;works&nbsp;for&nbsp;edge&nbsp;regions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;line&nbsp;and&nbsp;filled&nbsp;contours,&nbsp;but&nbsp;for&nbsp;interior&nbsp;regions&nbsp;it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;works&nbsp;correctly&nbsp;only&nbsp;for&nbsp;line&nbsp;contours.&nbsp;&nbsp;The&nbsp;badmask&nbsp;kwarg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;may&nbsp;go&nbsp;away&nbsp;in&nbsp;the&nbsp;future,&nbsp;to&nbsp;be&nbsp;replaced&nbsp;by&nbsp;the&nbsp;use&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NaN&nbsp;value&nbsp;in&nbsp;Z&nbsp;and/or&nbsp;the&nbsp;use&nbsp;of&nbsp;a&nbsp;masked&nbsp;array&nbsp;in&nbsp;Z.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;reg&nbsp;is&nbsp;a&nbsp;1D&nbsp;region&nbsp;number&nbsp;array&nbsp;with&nbsp;of&nbsp;imax*(jmax+1)+1&nbsp;size<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;values&nbsp;of&nbsp;reg&nbsp;should&nbsp;be&nbsp;positive&nbsp;region&nbsp;numbers,&nbsp;and&nbsp;zero&nbsp;fro<br>
 &nbsp;&nbsp;&nbsp;&nbsp;zones&nbsp;wich&nbsp;do&nbsp;not&nbsp;exist.<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;triangle&nbsp;-&nbsp;triangulation&nbsp;array&nbsp;-&nbsp;must&nbsp;be&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;reg<br>
+&nbsp;&nbsp;&nbsp;&nbsp;contourf&nbsp;differs&nbsp;from&nbsp;the&nbsp;Matlab&nbsp;(TM)&nbsp;version&nbsp;in&nbsp;that&nbsp;it&nbsp;does&nbsp;not<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;draw&nbsp;the&nbsp;polygon&nbsp;edges&nbsp;(because&nbsp;the&nbsp;contouring&nbsp;engine&nbsp;yields<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;simply&nbsp;connected&nbsp;regions&nbsp;with&nbsp;branch&nbsp;cuts.)&nbsp;&nbsp;To&nbsp;draw&nbsp;the&nbsp;edges,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add&nbsp;line&nbsp;contours&nbsp;with&nbsp;calls&nbsp;to&nbsp;contour.<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;[L,C]&nbsp;=&nbsp;CONTOUR(...)&nbsp;returns&nbsp;a&nbsp;list&nbsp;of&nbsp;levels&nbsp;and&nbsp;a&nbsp;silent_list&nbsp;of&nbsp;LineCollections<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-cool"><strong>cool</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;cool&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-copper"><strong>copper</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;copper&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-cross_correlate"><strong>cross_correlate</strong></a>(...)</dt><dd><tt><a href="#-cross_correlate">cross_correlate</a>(a,v,&nbsp;mode=0)</tt></dd></dl>
  <dl><dt><a name="-csd"><strong>csd</strong></a>(*args, **kwargs)</dt><dd><tt>CSD(x,&nbsp;y,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)<br>
-&nbsp;<br>
 The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
 The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each<br>
 segment&nbsp;is&nbsp;detrended&nbsp;by&nbsp;function&nbsp;detrend&nbsp;and&nbsp;windowed&nbsp;by&nbsp;function<br>
 window.&nbsp;&nbsp;The&nbsp;product&nbsp;of&nbsp;the&nbsp;direct&nbsp;FFTs&nbsp;of&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;averaged&nbsp;over<br>
 each&nbsp;segment&nbsp;to&nbsp;compute&nbsp;Pxy,&nbsp;with&nbsp;a&nbsp;scaling&nbsp;to&nbsp;correct&nbsp;for&nbsp;power&nbsp;loss<br>
 due&nbsp;to&nbsp;windowing.<br>
-&nbsp;<br>
 See&nbsp;the&nbsp;PSD&nbsp;help&nbsp;for&nbsp;a&nbsp;description&nbsp;of&nbsp;the&nbsp;optional&nbsp;parameters.<br>
-&nbsp;<br>
 Returns&nbsp;the&nbsp;tuple&nbsp;Pxy,&nbsp;freqs.&nbsp;&nbsp;Pxy&nbsp;is&nbsp;the&nbsp;cross&nbsp;spectrum&nbsp;(complex<br>
 valued),&nbsp;and&nbsp;10*log10(|Pxy|)&nbsp;is&nbsp;plotted<br>
-&nbsp;<br>
 Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-delaxes"><strong>delaxes</strong></a>(*args)</dt><dd><tt><a href="#-delaxes">delaxes</a>(ax)&nbsp;-&nbsp;remove&nbsp;ax&nbsp;from&nbsp;the&nbsp;current&nbsp;figure.&nbsp;&nbsp;If&nbsp;ax&nbsp;doesn't<br>
 exist&nbsp;an&nbsp;error&nbsp;will&nbsp;be&nbsp;raised.<br>
@@ -642,39 +644,27 @@ Method&nbsp;should&nbsp;return&nbsp;None</tt></dd></dl>
  <dl><dt><a name="-draw"><strong>draw</strong></a>()</dt><dd><tt>redraw&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
  <dl><dt><a name="-errorbar"><strong>errorbar</strong></a>(*args, **kwargs)</dt><dd><tt>ERRORBAR(x,&nbsp;y,&nbsp;yerr=None,&nbsp;xerr=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmt='b-',&nbsp;ecolor=None,&nbsp;capsize=3,&nbsp;barsabove=False)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
 Vertical&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;yerr&nbsp;is&nbsp;not&nbsp;None<br>
 Horizontal&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;xerr&nbsp;is&nbsp;not&nbsp;None<br>
-&nbsp;<br>
 xerr&nbsp;and&nbsp;yerr&nbsp;may&nbsp;be&nbsp;any&nbsp;of:<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;rank-0,&nbsp;Nx1&nbsp;Numpy&nbsp;array&nbsp;&nbsp;-&nbsp;symmetric&nbsp;errorbars&nbsp;+/-&nbsp;value<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;an&nbsp;N-element&nbsp;list&nbsp;or&nbsp;tuple&nbsp;-&nbsp;symmetric&nbsp;errorbars&nbsp;+/-&nbsp;value<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;rank-1,&nbsp;Nx2&nbsp;Numpy&nbsp;array&nbsp;&nbsp;-&nbsp;asymmetric&nbsp;errorbars&nbsp;-column1/+column2<br>
-&nbsp;<br>
 Alternatively,&nbsp;x,&nbsp;y,&nbsp;xerr,&nbsp;and&nbsp;yerr&nbsp;can&nbsp;all&nbsp;be&nbsp;scalars,&nbsp;which<br>
 plots&nbsp;a&nbsp;single&nbsp;error&nbsp;bar&nbsp;at&nbsp;x,&nbsp;y.<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;fmt&nbsp;is&nbsp;the&nbsp;plot&nbsp;format&nbsp;symbol&nbsp;for&nbsp;y.&nbsp;&nbsp;if&nbsp;fmt&nbsp;is&nbsp;None,&nbsp;just<br>
 &nbsp;&nbsp;&nbsp;&nbsp;plot&nbsp;the&nbsp;errorbars&nbsp;with&nbsp;no&nbsp;line&nbsp;symbols.&nbsp;&nbsp;This&nbsp;can&nbsp;be&nbsp;useful<br>
 &nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;creating&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;errorbars<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ecolor&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;which&nbsp;gives&nbsp;the&nbsp;color&nbsp;the<br>
 &nbsp;&nbsp;&nbsp;&nbsp;errorbar&nbsp;lines;&nbsp;if&nbsp;None,&nbsp;use&nbsp;the&nbsp;marker&nbsp;color.<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps&nbsp;in&nbsp;points<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;barsabove,&nbsp;if&nbsp;True,&nbsp;will&nbsp;plot&nbsp;the&nbsp;errorbars&nbsp;above&nbsp;the&nbsp;plot&nbsp;symbols<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;default&nbsp;is&nbsp;below<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;the&nbsp;plot&nbsp;command&nbsp;for&nbsp;the&nbsp;markers<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&nbsp;first&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
 y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-figimage"><strong>figimage</strong></a>(*args, **kwargs)</dt><dd><tt>FIGIMAGE(X)&nbsp;#&nbsp;add&nbsp;non-resampled&nbsp;array&nbsp;to&nbsp;figure<br>
 &nbsp;<br>
@@ -722,7 +712,7 @@ strings,&nbsp;handles&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;line&nbsp;or&nbs
 loc&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;r&nbsp;an&nbsp;integer&nbsp;specifying&nbsp;the&nbsp;legend<br>
 location<br>
 &nbsp;<br>
-USAGE:&nbsp;<br>
+USAGE:<br>
 &nbsp;&nbsp;<a href="#-legend">legend</a>(&nbsp;(line1,&nbsp;line2,&nbsp;line3),<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'upper&nbsp;right')<br>
@@ -756,27 +746,21 @@ kwargs:<br>
 &nbsp;<br>
 rcParams&nbsp;gives&nbsp;the&nbsp;default&nbsp;values&nbsp;from&nbsp;the&nbsp;.matplotlibrc&nbsp;file</tt></dd></dl>
  <dl><dt><a name="-fill"><strong>fill</strong></a>(*args, **kwargs)</dt><dd><tt>FILL(*args,&nbsp;**kwargs)<br>
-&nbsp;<br>
 plot&nbsp;filled&nbsp;polygons.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length&nbsp;argument,&nbsp;allowing<br>
 for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional&nbsp;color&nbsp;format&nbsp;string;&nbsp;see&nbsp;plot<br>
 for&nbsp;details&nbsp;on&nbsp;the&nbsp;argument&nbsp;parsing.&nbsp;&nbsp;For&nbsp;example,&nbsp;all&nbsp;of&nbsp;the<br>
 following&nbsp;are&nbsp;legal,&nbsp;assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;Axis&nbsp;instance:<br>
-&nbsp;<br>
 &nbsp;&nbsp;ax.<a href="#-fill">fill</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;polygon&nbsp;with&nbsp;vertices&nbsp;at&nbsp;x,y<br>
 &nbsp;&nbsp;ax.<a href="#-fill">fill</a>(x,y,&nbsp;'b'&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;polygon&nbsp;with&nbsp;vertices&nbsp;at&nbsp;x,y&nbsp;in&nbsp;blue<br>
-&nbsp;<br>
-An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;color&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
-&nbsp;&nbsp;ax.<a href="#-fill">fill</a>(x1,&nbsp;y1,&nbsp;'g',&nbsp;x2,&nbsp;y2,&nbsp;'r')&nbsp;&nbsp;<br>
-&nbsp;<br>
+An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;color&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in<br>
+&nbsp;&nbsp;ax.<a href="#-fill">fill</a>(x1,&nbsp;y1,&nbsp;'g',&nbsp;x2,&nbsp;y2,&nbsp;'r')<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;patches&nbsp;that&nbsp;were&nbsp;added<br>
-&nbsp;<br>
 The&nbsp;same&nbsp;color&nbsp;strings&nbsp;that&nbsp;plot&nbsp;supports&nbsp;are&nbsp;supported&nbsp;by&nbsp;the&nbsp;fill<br>
 format&nbsp;string.<br>
-&nbsp;<br>
 The&nbsp;kwargs&nbsp;that&nbsp;are&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;set&nbsp;line&nbsp;properties&nbsp;(any<br>
 property&nbsp;that&nbsp;has&nbsp;a&nbsp;set_*&nbsp;method).&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;to&nbsp;set&nbsp;edge<br>
 color,&nbsp;face&nbsp;color,&nbsp;etc.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-flag"><strong>flag</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;flag&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-fromstring"><strong>fromstring</strong></a>(...)</dt><dd><tt><a href="#-fromstring">fromstring</a>(string,&nbsp;typecode='l',&nbsp;count=-1)&nbsp;returns&nbsp;a&nbsp;new&nbsp;1d&nbsp;array&nbsp;initialized&nbsp;from&nbsp;the&nbsp;raw&nbsp;binary&nbsp;data&nbsp;in&nbsp;string.&nbsp;&nbsp;If&nbsp;count&nbsp;is&nbsp;positive,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;have&nbsp;count&nbsp;elements,&nbsp;otherwise&nbsp;it's&nbsp;size&nbsp;is&nbsp;determined&nbsp;by&nbsp;the&nbsp;size&nbsp;of&nbsp;string.</tt></dd></dl>
@@ -821,27 +805,22 @@ eg<br>
  <dl><dt><a name="-gray"><strong>gray</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;gray&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-grid"><strong>grid</strong></a>(*args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;grids&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean<br>
 if&nbsp;b&nbsp;is&nbsp;None,&nbsp;toggle&nbsp;the&nbsp;grid&nbsp;state</tt></dd></dl>
- <dl><dt><a name="-hist"><strong>hist</strong></a>(*args, **kwargs)</dt><dd><tt>HIST(x,&nbsp;bins=10,&nbsp;normed=0,&nbsp;bottom=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;<br>
+ <dl><dt><a name="-hist"><strong>hist</strong></a>(*args, **kwargs)</dt><dd><tt>HIST(x,&nbsp;bins=10,&nbsp;normed=0,&nbsp;bottom=0)<br>
 Compute&nbsp;the&nbsp;histogram&nbsp;of&nbsp;x.&nbsp;&nbsp;bins&nbsp;is&nbsp;either&nbsp;an&nbsp;integer&nbsp;number&nbsp;of<br>
 bins&nbsp;or&nbsp;a&nbsp;sequence&nbsp;giving&nbsp;the&nbsp;bins.&nbsp;&nbsp;x&nbsp;are&nbsp;the&nbsp;data&nbsp;to&nbsp;be&nbsp;binned.<br>
-&nbsp;<br>
 The&nbsp;return&nbsp;values&nbsp;is&nbsp;(n,&nbsp;bins,&nbsp;patches)<br>
-&nbsp;<br>
 If&nbsp;normed&nbsp;is&nbsp;true,&nbsp;the&nbsp;first&nbsp;element&nbsp;of&nbsp;the&nbsp;return&nbsp;tuple&nbsp;will&nbsp;be&nbsp;the<br>
 counts&nbsp;normalized&nbsp;to&nbsp;form&nbsp;a&nbsp;probability&nbsp;distribtion,&nbsp;ie,<br>
 n/(len(x)*dbin)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-hlines"><strong>hlines</strong></a>(*args, **kwargs)</dt><dd><tt>HLINES(y,&nbsp;xmin,&nbsp;xmax,&nbsp;fmt='k-')<br>
-&nbsp;<br>
 plot&nbsp;horizontal&nbsp;lines&nbsp;at&nbsp;each&nbsp;y&nbsp;from&nbsp;xmin&nbsp;to&nbsp;xmax.&nbsp;&nbsp;xmin&nbsp;or&nbsp;xmax&nbsp;can<br>
 be&nbsp;scalars&nbsp;or&nbsp;len(x)&nbsp;numpy&nbsp;arrays.&nbsp;&nbsp;If&nbsp;they&nbsp;are&nbsp;scalars,&nbsp;then&nbsp;the<br>
 respective&nbsp;values&nbsp;are&nbsp;constant,&nbsp;else&nbsp;the&nbsp;widths&nbsp;of&nbsp;the&nbsp;lines&nbsp;are<br>
 determined&nbsp;by&nbsp;xmin&nbsp;and&nbsp;xmax<br>
-&nbsp;<br>
 Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;line&nbsp;instances&nbsp;that&nbsp;were&nbsp;added<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-hold"><strong>hold</strong></a>(b<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;hold&nbsp;state.&nbsp;&nbsp;If&nbsp;hold&nbsp;is&nbsp;None&nbsp;(default),&nbsp;toggle&nbsp;the<br>
 hold&nbsp;state.&nbsp;&nbsp;Else&nbsp;set&nbsp;the&nbsp;hold&nbsp;state&nbsp;to&nbsp;boolean&nbsp;value&nbsp;b.<br>
@@ -857,57 +836,39 @@ Eg<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;MxNx4&nbsp;array&nbsp;of&nbsp;0-1&nbsp;normalized&nbsp;floats</tt></dd></dl>
  <dl><dt><a name="-imshow"><strong>imshow</strong></a>(*args, **kwargs)</dt><dd><tt>IMSHOW(X,&nbsp;cmap=None,&nbsp;norm=None,&nbsp;aspect=None,&nbsp;interpolation=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha=1.0,&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;origin=None,&nbsp;extent=None)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 IMSHOW(X)&nbsp;-&nbsp;plot&nbsp;image&nbsp;X&nbsp;to&nbsp;current&nbsp;axes,&nbsp;resampling&nbsp;to&nbsp;scale&nbsp;to&nbsp;axes<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size&nbsp;(X&nbsp;may&nbsp;be&nbsp;numarray/Numeric&nbsp;array&nbsp;or&nbsp;PIL&nbsp;image)<br>
-&nbsp;<br>
 IMSHOW(X,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keyword&nbsp;args&nbsp;to&nbsp;control&nbsp;image&nbsp;scaling,<br>
 colormapping&nbsp;etc.&nbsp;See&nbsp;below&nbsp;for&nbsp;details<br>
-&nbsp;<br>
-&nbsp;<br>
 Display&nbsp;the&nbsp;image&nbsp;in&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;may&nbsp;be&nbsp;a&nbsp;float&nbsp;array&nbsp;or&nbsp;a<br>
 PIL&nbsp;image.&nbsp;If&nbsp;X&nbsp;is&nbsp;a&nbsp;float&nbsp;array,&nbsp;X&nbsp;can&nbsp;have&nbsp;the&nbsp;following&nbsp;shapes<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;MxN&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;luminance&nbsp;(grayscale)<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;MxNx3&nbsp;&nbsp;:&nbsp;RGB<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;MxNx4&nbsp;&nbsp;:&nbsp;RGBA<br>
-&nbsp;<br>
 A&nbsp;matplotlib.image.AxesImage&nbsp;instance&nbsp;is&nbsp;returned<br>
-&nbsp;<br>
-The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
-&nbsp;<br>
+The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:<br>
 &nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
 &nbsp;&nbsp;&nbsp;&nbsp;image.cmap&nbsp;value&nbsp;(Ignored&nbsp;when&nbsp;X&nbsp;has&nbsp;RGB(A)&nbsp;information)<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;aspect&nbsp;is&nbsp;one&nbsp;of:&nbsp;free&nbsp;or&nbsp;preserve.&nbsp;&nbsp;if&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc<br>
 &nbsp;&nbsp;&nbsp;&nbsp;image.aspect&nbsp;value<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;interpolation&nbsp;is&nbsp;one&nbsp;of:&nbsp;bicubic&nbsp;bilinear&nbsp;blackman100&nbsp;blackman256<br>
 &nbsp;&nbsp;&nbsp;&nbsp;blackman64&nbsp;nearest&nbsp;sinc144&nbsp;sinc256&nbsp;sinc64&nbsp;spline16&nbsp;or&nbsp;spline36.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.interpolation<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.normalize&nbsp;instance;&nbsp;default&nbsp;is<br>
 &nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1&nbsp;(Ignored&nbsp;when&nbsp;X&nbsp;is<br>
 &nbsp;&nbsp;&nbsp;&nbsp;PIL&nbsp;image).<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;to&nbsp;scale&nbsp;a&nbsp;luminance&nbsp;image&nbsp;to&nbsp;0-1.&nbsp;&nbsp;If<br>
 &nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;is&nbsp;None,&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;luminance&nbsp;values&nbsp;will&nbsp;be<br>
 &nbsp;&nbsp;&nbsp;&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm&nbsp;instance,&nbsp;the&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and<br>
 &nbsp;&nbsp;&nbsp;&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored.<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;alpha&nbsp;=&nbsp;1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;origin&nbsp;is&nbsp;either&nbsp;upper&nbsp;or&nbsp;lower,&nbsp;which&nbsp;indicates&nbsp;where&nbsp;the&nbsp;[0,0]<br>
 &nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axes.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to&nbsp;rc&nbsp;image.origin<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;extent&nbsp;is&nbsp;a&nbsp;data&nbsp;xmin,&nbsp;xmax,&nbsp;ymin,&nbsp;ymax&nbsp;for&nbsp;making&nbsp;image&nbsp;plots<br>
 &nbsp;&nbsp;&nbsp;&nbsp;registered&nbsp;with&nbsp;data&nbsp;plots.&nbsp;&nbsp;Default&nbsp;is&nbsp;the&nbsp;image&nbsp;dimensions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;pixels<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-ioff"><strong>ioff</strong></a>()</dt><dd><tt>turn&nbsp;interactive&nbsp;mode&nbsp;off</tt></dd></dl>
  <dl><dt><a name="-ion"><strong>ion</strong></a>()</dt><dd><tt>turn&nbsp;interactive&nbsp;mode&nbsp;on</tt></dd></dl>
@@ -915,36 +876,26 @@ Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;def
  <dl><dt><a name="-isinteractive"><strong>isinteractive</strong></a>()</dt><dd><tt>Return&nbsp;the&nbsp;interactive&nbsp;status</tt></dd></dl>
  <dl><dt><a name="-jet"><strong>jet</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;jet&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-legend"><strong>legend</strong></a>(*args, **kwargs)</dt><dd><tt>LEGEND(*args,&nbsp;**kwargs)<br>
-&nbsp;<br>
 Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;current&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
 sequence&nbsp;of&nbsp;strings&nbsp;and&nbsp;loc&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;or&nbsp;an&nbsp;integer&nbsp;specifying<br>
 the&nbsp;legend&nbsp;location<br>
-&nbsp;<br>
-USAGE:&nbsp;<br>
-&nbsp;<br>
+USAGE:<br>
 &nbsp;&nbsp;Make&nbsp;a&nbsp;legend&nbsp;with&nbsp;existing&nbsp;lines<br>
-&nbsp;<br>
 &nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-legend">legend</a>()<br>
-&nbsp;<br>
 &nbsp;&nbsp;legend&nbsp;by&nbsp;itself&nbsp;will&nbsp;try&nbsp;and&nbsp;build&nbsp;a&nbsp;legend&nbsp;using&nbsp;the&nbsp;label<br>
 &nbsp;&nbsp;property&nbsp;of&nbsp;the&nbsp;lines/patches/collections.&nbsp;&nbsp;You&nbsp;can&nbsp;set&nbsp;the&nbsp;label&nbsp;of<br>
 &nbsp;&nbsp;a&nbsp;line&nbsp;by&nbsp;doing&nbsp;<a href="#-plot">plot</a>(x,&nbsp;y,&nbsp;label='my&nbsp;data')&nbsp;or&nbsp;line.set_label('my<br>
 &nbsp;&nbsp;data')<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;automatically&nbsp;generate&nbsp;the&nbsp;legend&nbsp;from&nbsp;labels<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)&nbsp;<br>
-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Make&nbsp;a&nbsp;legend&nbsp;for&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;and&nbsp;labels<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-legend">legend</a>(&nbsp;(line1,&nbsp;line2,&nbsp;line3),&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Make&nbsp;a&nbsp;legend&nbsp;at&nbsp;a&nbsp;given&nbsp;location,&nbsp;using&nbsp;a&nbsp;location&nbsp;argument<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;<a href="#-legend">legend</a>(&nbsp;LABELS,&nbsp;LOC&nbsp;)&nbsp;&nbsp;or<br>
 &nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;<a href="#-legend">legend</a>(&nbsp;LINES,&nbsp;LABELS,&nbsp;LOC&nbsp;)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),&nbsp;loc='upper&nbsp;left')<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-legend">legend</a>(&nbsp;(line1,&nbsp;line2,&nbsp;line3),&nbsp;&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),&nbsp;loc=2)<br>
-&nbsp;<br>
 The&nbsp;location&nbsp;codes&nbsp;are<br>
-&nbsp;<br>
 &nbsp;&nbsp;'best'&nbsp;:&nbsp;0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(currently&nbsp;not&nbsp;supported,&nbsp;defaults&nbsp;to&nbsp;upper&nbsp;right)<br>
 &nbsp;&nbsp;'upper&nbsp;right'&nbsp;&nbsp;:&nbsp;1,&nbsp;&nbsp;(default)<br>
 &nbsp;&nbsp;'upper&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;2,<br>
@@ -956,19 +907,14 @@ The&nbsp;location&nbsp;codes&nbsp;are<br>
 &nbsp;&nbsp;'lower&nbsp;center'&nbsp;:&nbsp;8,<br>
 &nbsp;&nbsp;'upper&nbsp;center'&nbsp;:&nbsp;9,<br>
 &nbsp;&nbsp;'center'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
-&nbsp;<br>
 If&nbsp;none&nbsp;of&nbsp;these&nbsp;are&nbsp;suitable,&nbsp;loc&nbsp;can&nbsp;be&nbsp;a&nbsp;2-tuple&nbsp;giving&nbsp;x,y<br>
 in&nbsp;axes&nbsp;coords,&nbsp;ie,<br>
-&nbsp;<br>
 &nbsp;&nbsp;loc&nbsp;=&nbsp;0,&nbsp;1&nbsp;is&nbsp;left&nbsp;top<br>
 &nbsp;&nbsp;loc&nbsp;=&nbsp;0.5,&nbsp;0.5&nbsp;is&nbsp;center,&nbsp;center<br>
-&nbsp;<br>
 and&nbsp;so&nbsp;on.&nbsp;&nbsp;The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;supported<br>
-&nbsp;<br>
 &nbsp;&nbsp;numpoints&nbsp;=&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;number&nbsp;of&nbsp;points&nbsp;in&nbsp;the&nbsp;legend&nbsp;line<br>
 &nbsp;&nbsp;prop&nbsp;=&nbsp;FontProperties('smaller')&nbsp;&nbsp;#&nbsp;the&nbsp;font&nbsp;properties<br>
 &nbsp;&nbsp;pad&nbsp;=&nbsp;0.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;fractional&nbsp;whitespace&nbsp;inside&nbsp;the&nbsp;legend&nbsp;border<br>
-&nbsp;<br>
 &nbsp;&nbsp;#&nbsp;The&nbsp;kwarg&nbsp;dimensions&nbsp;are&nbsp;in&nbsp;axes&nbsp;coords<br>
 &nbsp;&nbsp;labelsep&nbsp;=&nbsp;0.005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;vertical&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;entries<br>
 &nbsp;&nbsp;handlelen&nbsp;=&nbsp;0.05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;legend&nbsp;lines<br>
@@ -1002,26 +948,20 @@ x&nbsp;=&nbsp;<a href="#-load">load</a>('test.dat')&nbsp;&nbsp;&nbsp;&nbsp;#&nbs
 &nbsp;<br>
 comments&nbsp;is&nbsp;the&nbsp;character&nbsp;used&nbsp;to&nbsp;indicate&nbsp;the&nbsp;start&nbsp;of&nbsp;a&nbsp;comment<br>
 in&nbsp;the&nbsp;file</tt></dd></dl>
- <dl><dt><a name="-loglog"><strong>loglog</strong></a>(*args, **kwargs)</dt><dd><tt>LOGLOG(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;<br>
+ <dl><dt><a name="-loglog"><strong>loglog</strong></a>(*args, **kwargs)</dt><dd><tt>LOGLOG(*args,&nbsp;**kwargs)<br>
 Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
 to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
 more&nbsp;info.<br>
-&nbsp;<br>
 Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs<br>
 supported&nbsp;by&nbsp;plot&nbsp;or&nbsp;set_xscale&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for<br>
 log&nbsp;scaling:<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;x&nbsp;logarithm<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;autosubs,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;depend&nbsp;on&nbsp;the&nbsp;number&nbsp;of&nbsp;decades&nbsp;in&nbsp;the&nbsp;plot<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;y&nbsp;logarithm<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;yticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;autosubs,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;depend&nbsp;on&nbsp;the&nbsp;number&nbsp;of&nbsp;decades&nbsp;in&nbsp;the&nbsp;plot<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-matshow"><strong>matshow</strong></a>(*args, **kw)</dt><dd><tt>Display&nbsp;an&nbsp;array&nbsp;as&nbsp;a&nbsp;matrix&nbsp;in&nbsp;a&nbsp;new&nbsp;figure&nbsp;window.<br>
 &nbsp;<br>
@@ -1063,173 +1003,118 @@ for&nbsp;d&nbsp;in&nbsp;dimlist:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;fig,&nbsp;ax,&nbsp;im&nbsp;=&nbsp;<a href="#-matshow">matshow</a>(samplemat(d))<br>
 show()</tt></dd></dl>
  <dl><dt><a name="-over"><strong>over</strong></a>(func, *args, **kwargs)</dt><dd><tt>Call&nbsp;func(*args,&nbsp;**kwargs)&nbsp;with&nbsp;<a href="#-hold">hold</a>(True)&nbsp;and&nbsp;then&nbsp;restore&nbsp;the&nbsp;hold&nbsp;state</tt></dd></dl>
- <dl><dt><a name="-pcolor"><strong>pcolor</strong></a>(*args, **kwargs)</dt><dd><tt>PCOLOR(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;<br>
+ <dl><dt><a name="-pcolor"><strong>pcolor</strong></a>(*args, **kwargs)</dt><dd><tt>PCOLOR(*args,&nbsp;**kwargs)<br>
 Function&nbsp;signatures<br>
-&nbsp;<br>
 &nbsp;&nbsp;PCOLOR(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
-&nbsp;<br>
 &nbsp;&nbsp;PCOLOR(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y<br>
-&nbsp;<br>
 &nbsp;&nbsp;PCOLOR(C,&nbsp;**kwargs)&nbsp;-&nbsp;Use&nbsp;keywork&nbsp;args&nbsp;to&nbsp;control&nbsp;colormapping&nbsp;and<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scaling;&nbsp;see&nbsp;below<br>
-&nbsp;<br>
 Optional&nbsp;keywork&nbsp;args&nbsp;are&nbsp;shown&nbsp;with&nbsp;their&nbsp;defaults&nbsp;below&nbsp;(you&nbsp;must<br>
 use&nbsp;kwargs&nbsp;for&nbsp;these):<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;cm.jet&nbsp;:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;cm.jet<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;norm&nbsp;=&nbsp;normalize()&nbsp;:&nbsp;matplotlib.colors.normalize&nbsp;is&nbsp;used&nbsp;to&nbsp;scale<br>
 &nbsp;&nbsp;&nbsp;&nbsp;luminance&nbsp;data&nbsp;to&nbsp;0,1.<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;vmin=None&nbsp;and&nbsp;vmax=None&nbsp;:&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;in&nbsp;conjunction<br>
 &nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;norm&nbsp;to&nbsp;normalize&nbsp;luminance&nbsp;data.&nbsp;&nbsp;If&nbsp;either&nbsp;are&nbsp;None,&nbsp;the<br>
 &nbsp;&nbsp;&nbsp;&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;color&nbsp;array&nbsp;C&nbsp;is&nbsp;used.&nbsp;&nbsp;If&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm<br>
 &nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;will&nbsp;be&nbsp;None<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;shading&nbsp;=&nbsp;'flat'&nbsp;:&nbsp;or&nbsp;'faceted'.&nbsp;&nbsp;If&nbsp;'faceted',&nbsp;a&nbsp;black&nbsp;grid&nbsp;is<br>
 &nbsp;&nbsp;&nbsp;&nbsp;drawn&nbsp;around&nbsp;each&nbsp;rectangle;&nbsp;if&nbsp;'flat',&nbsp;edge&nbsp;colors&nbsp;are&nbsp;same&nbsp;as<br>
 &nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;colors<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;alpha=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
-&nbsp;&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;matplotlib.collections.PatchCollection<br>
 object<br>
-&nbsp;<br>
 Grid&nbsp;Orientation<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab(TM)&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for<br>
 &nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;pylab.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
 &nbsp;&nbsp;&nbsp;&nbsp;happy&nbsp;with<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(transpose(Z))<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows&nbsp;and<br>
 &nbsp;&nbsp;&nbsp;&nbsp;numcols&nbsp;of&nbsp;Z<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-pcolor_classic"><strong>pcolor_classic</strong></a>(*args, **kwargs)</dt><dd><tt>PCOLOR_CLASSIC(self,&nbsp;*args,&nbsp;**kwargs)<br>
-&nbsp;<br>
 Function&nbsp;signatures<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y&nbsp;&nbsp;<br>
-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(C,&nbsp;cmap=cm.jet)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C&nbsp;using<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rectangle&nbsp;patches&nbsp;using&nbsp;a&nbsp;colormap&nbsp;jet.&nbsp;&nbsp;Colormaps&nbsp;are&nbsp;avalible<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;matplotlib.cm.&nbsp;&nbsp;You&nbsp;must&nbsp;pass&nbsp;this&nbsp;as&nbsp;a&nbsp;kwarg.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(C,&nbsp;norm=normalize())&nbsp;-&nbsp;the&nbsp;normalization&nbsp;function&nbsp;used<br>
 `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;scale&nbsp;your&nbsp;color&nbsp;data&nbsp;to&nbsp;0-1.&nbsp;&nbsp;must&nbsp;be&nbsp;passed&nbsp;as&nbsp;a&nbsp;kwarg.<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(C,&nbsp;alpha=0.5)&nbsp;-&nbsp;set&nbsp;the&nbsp;alpha&nbsp;of&nbsp;the&nbsp;pseudocolor&nbsp;plot.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Must&nbsp;be&nbsp;used&nbsp;as&nbsp;a&nbsp;kwarg<br>
-&nbsp;<br>
 Shading:<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;optional&nbsp;keyword&nbsp;arg&nbsp;shading&nbsp;('flat'&nbsp;or&nbsp;'faceted')&nbsp;will<br>
 &nbsp;&nbsp;&nbsp;&nbsp;determine&nbsp;whether&nbsp;a&nbsp;black&nbsp;grid&nbsp;is&nbsp;drawn&nbsp;around&nbsp;each&nbsp;pcolor&nbsp;square.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;'faceteted'&nbsp;e.g.,&nbsp;<a href="#-pcolor">pcolor</a>(C,&nbsp;shading='flat')&nbsp;<a href="#-pcolor">pcolor</a>(X,&nbsp;Y,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;C,&nbsp;shading='faceted')<br>
-&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects.<br>
-&nbsp;<br>
 Grid&nbsp;orientation<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;behavior&nbsp;of&nbsp;meshgrid&nbsp;in&nbsp;matlab(TM)&nbsp;is&nbsp;a&nbsp;bit&nbsp;counterintuitive&nbsp;for&nbsp;x<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;y&nbsp;arrays.&nbsp;&nbsp;For&nbsp;example,<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(7)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;<a href="#-arange">arange</a>(5)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X,&nbsp;Y&nbsp;=&nbsp;meshgrid(x,y)<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z&nbsp;=&nbsp;rand(&nbsp;len(x),&nbsp;len(y))<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;Z)<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;fail&nbsp;in&nbsp;matlab&nbsp;and&nbsp;matplotlib.&nbsp;&nbsp;You&nbsp;will&nbsp;probably&nbsp;be<br>
 &nbsp;&nbsp;&nbsp;&nbsp;happy&nbsp;with<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;transpose(Z))<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Likewise,&nbsp;for&nbsp;nonsquare&nbsp;Z,<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pcolor">pcolor</a>(transpose(Z))<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;make&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes&nbsp;in&nbsp;the&nbsp;plot&nbsp;agree&nbsp;with&nbsp;the&nbsp;numrows<br>
 &nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;numcols&nbsp;of&nbsp;Z<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-pie"><strong>pie</strong></a>(*args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;pie&nbsp;chart&nbsp;of&nbsp;array&nbsp;x.&nbsp;&nbsp;The&nbsp;fractional&nbsp;area&nbsp;of&nbsp;each&nbsp;wedge&nbsp;is<br>
 given&nbsp;by&nbsp;x/sum(x).&nbsp;&nbsp;If&nbsp;sum(x)&lt;=1,&nbsp;then&nbsp;the&nbsp;values&nbsp;of&nbsp;x&nbsp;give&nbsp;the<br>
 fractional&nbsp;area&nbsp;directly&nbsp;and&nbsp;the&nbsp;array&nbsp;will&nbsp;not&nbsp;be&nbsp;normalized.<br>
-&nbsp;<br>
 &nbsp;&nbsp;-&nbsp;explode,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(x)&nbsp;array&nbsp;which&nbsp;specifies&nbsp;the<br>
 &nbsp;&nbsp;&nbsp;&nbsp;fraction&nbsp;of&nbsp;the&nbsp;radius&nbsp;to&nbsp;offset&nbsp;that&nbsp;wedge.<br>
-&nbsp;<br>
 &nbsp;&nbsp;-&nbsp;colors&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;args&nbsp;that&nbsp;the&nbsp;pie&nbsp;chart<br>
 &nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;cycle.<br>
-&nbsp;<br>
 &nbsp;&nbsp;-&nbsp;labels,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(x)&nbsp;list&nbsp;of&nbsp;labels.<br>
-&nbsp;<br>
 &nbsp;&nbsp;-&nbsp;autopct,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;string&nbsp;or&nbsp;function&nbsp;used&nbsp;to&nbsp;label&nbsp;the<br>
 &nbsp;&nbsp;&nbsp;&nbsp;wedges&nbsp;with&nbsp;their&nbsp;numeric&nbsp;value.&nbsp;&nbsp;The&nbsp;label&nbsp;will&nbsp;be&nbsp;placed&nbsp;inside<br>
 &nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;wedge.&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a&nbsp;format&nbsp;string,&nbsp;the&nbsp;label&nbsp;will&nbsp;be&nbsp;fmt%pct.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a&nbsp;function,&nbsp;it&nbsp;will&nbsp;be&nbsp;called<br>
-&nbsp;<br>
 &nbsp;&nbsp;-&nbsp;shadow,&nbsp;if&nbsp;True,&nbsp;will&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;beneath&nbsp;the&nbsp;pie.<br>
-&nbsp;&nbsp;<br>
 The&nbsp;pie&nbsp;chart&nbsp;will&nbsp;probably&nbsp;look&nbsp;best&nbsp;if&nbsp;the&nbsp;figure&nbsp;and&nbsp;axes&nbsp;are<br>
 square.&nbsp;&nbsp;Eg,<br>
-&nbsp;<br>
 &nbsp;&nbsp;<a href="#-figure">figure</a>(figsize=(8,8))<br>
 &nbsp;&nbsp;ax&nbsp;=&nbsp;<a href="#-axes">axes</a>([0.1,&nbsp;0.1,&nbsp;0.8,&nbsp;0.8])<br>
-&nbsp;<br>
 Return&nbsp;value:<br>
-&nbsp;<br>
 &nbsp;&nbsp;If&nbsp;autopct&nbsp;is&nbsp;None,&nbsp;return&nbsp;a&nbsp;list&nbsp;of&nbsp;(patches,&nbsp;texts),&nbsp;where&nbsp;patches<br>
 &nbsp;&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;matplotlib.patches.Wedge&nbsp;instances&nbsp;and&nbsp;texts&nbsp;is&nbsp;a<br>
 &nbsp;&nbsp;list&nbsp;of&nbsp;the&nbsp;label&nbsp;Text&nbsp;instnaces<br>
-&nbsp;<br>
 &nbsp;&nbsp;If&nbsp;autopct&nbsp;is&nbsp;not&nbsp;None,&nbsp;return&nbsp;(patches,&nbsp;texts,&nbsp;autotexts),&nbsp;where<br>
 &nbsp;&nbsp;patches&nbsp;and&nbsp;texts&nbsp;are&nbsp;as&nbsp;above,&nbsp;and&nbsp;autotexts&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;text<br>
 &nbsp;&nbsp;instances&nbsp;for&nbsp;the&nbsp;numeric&nbsp;labels<br>
-&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-pink"><strong>pink</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;pink&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
- <dl><dt><a name="-plot"><strong>plot</strong></a>(*args, **kwargs)</dt><dd><tt>PLOT(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;<br>
+ <dl><dt><a name="-plot"><strong>plot</strong></a>(*args, **kwargs)</dt><dd><tt>PLOT(*args,&nbsp;**kwargs)<br>
 Plot&nbsp;lines&nbsp;and/or&nbsp;markers&nbsp;to&nbsp;the&nbsp;Axes.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
 argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional&nbsp;format<br>
 string.&nbsp;&nbsp;For&nbsp;example,&nbsp;each&nbsp;of&nbsp;the&nbsp;following&nbsp;is&nbsp;legal<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;x&nbsp;and&nbsp;y&nbsp;using&nbsp;the&nbsp;default&nbsp;line&nbsp;style&nbsp;and&nbsp;color<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;x&nbsp;and&nbsp;y&nbsp;using&nbsp;blue&nbsp;circle&nbsp;markers<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;as&nbsp;index&nbsp;array&nbsp;0..N-1<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto,&nbsp;but&nbsp;with&nbsp;red&nbsp;plusses<br>
-&nbsp;<br>
-An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;a.<a href="#-plot">plot</a>(x1,&nbsp;y1,&nbsp;'g^',&nbsp;x2,&nbsp;y2,&nbsp;'g-')&nbsp;&nbsp;<br>
-&nbsp;<br>
+An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a.<a href="#-plot">plot</a>(x1,&nbsp;y1,&nbsp;'g^',&nbsp;x2,&nbsp;y2,&nbsp;'g-')<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added.<br>
-&nbsp;<br>
 The&nbsp;following&nbsp;line&nbsp;styles&nbsp;are&nbsp;supported:<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;solid&nbsp;line<br>
 &nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;dashed&nbsp;line<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-.&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;dash-dot&nbsp;line<br>
@@ -1256,62 +1141,53 @@ The&nbsp;following&nbsp;line&nbsp;styles&nbsp;are&nbsp;supported:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;vertical&nbsp;line&nbsp;symbols<br>
 &nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;horizontal&nbsp;line&nbsp;symbols<br>
 &nbsp;&nbsp;&nbsp;&nbsp;steps&nbsp;:&nbsp;use&nbsp;gnuplot&nbsp;style&nbsp;'steps'&nbsp;#&nbsp;kwarg&nbsp;only<br>
-&nbsp;<br>
 The&nbsp;following&nbsp;color&nbsp;strings&nbsp;are&nbsp;supported<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;&nbsp;:&nbsp;blue<br>
 &nbsp;&nbsp;&nbsp;&nbsp;g&nbsp;&nbsp;:&nbsp;green<br>
 &nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;&nbsp;:&nbsp;red<br>
 &nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;&nbsp;:&nbsp;cyan<br>
 &nbsp;&nbsp;&nbsp;&nbsp;m&nbsp;&nbsp;:&nbsp;magenta<br>
 &nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;&nbsp;:&nbsp;yellow<br>
-&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;&nbsp;:&nbsp;black&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;k&nbsp;&nbsp;:&nbsp;black<br>
 &nbsp;&nbsp;&nbsp;&nbsp;w&nbsp;&nbsp;:&nbsp;white<br>
-&nbsp;<br>
 Line&nbsp;styles&nbsp;and&nbsp;colors&nbsp;are&nbsp;combined&nbsp;in&nbsp;a&nbsp;single&nbsp;format&nbsp;string,&nbsp;as&nbsp;in<br>
 'bo'&nbsp;for&nbsp;blue&nbsp;circles.<br>
-&nbsp;<br>
 The&nbsp;**kwargs&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;set&nbsp;line&nbsp;properties&nbsp;(any&nbsp;property&nbsp;that&nbsp;has<br>
 a&nbsp;set_*&nbsp;method).&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;to&nbsp;set&nbsp;a&nbsp;line&nbsp;label&nbsp;(for&nbsp;auto<br>
 legends),&nbsp;linewidth,&nbsp;anitialising,&nbsp;marker&nbsp;face&nbsp;color,&nbsp;etc.&nbsp;&nbsp;Here&nbsp;is&nbsp;an<br>
 example:<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-plot">plot</a>([1,2,3],&nbsp;[1,2,3],&nbsp;'go-',&nbsp;label='line&nbsp;1',&nbsp;linewidth=2)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-plot">plot</a>([1,2,3],&nbsp;[1,4,9],&nbsp;'rs',&nbsp;&nbsp;label='line&nbsp;2')<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-axis">axis</a>([0,&nbsp;4,&nbsp;0,&nbsp;10])<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-legend">legend</a>()<br>
-&nbsp;<br>
 If&nbsp;you&nbsp;make&nbsp;multiple&nbsp;lines&nbsp;with&nbsp;one&nbsp;plot&nbsp;command,&nbsp;the&nbsp;kwargs&nbsp;apply<br>
 to&nbsp;all&nbsp;those&nbsp;lines,&nbsp;eg<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-plot">plot</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;antialising=False)<br>
-&nbsp;<br>
 Neither&nbsp;line&nbsp;will&nbsp;be&nbsp;antialiased.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-plot_date"><strong>plot_date</strong></a>(*args, **kwargs)</dt><dd><tt>PLOT_DATE(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;tz=None,&nbsp;**kwargs)<br>
-&nbsp;<br>
 d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates&nbsp;represented&nbsp;as&nbsp;float&nbsp;days&nbsp;since<br>
 0001-01-01&nbsp;UTC&nbsp;and&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is<br>
 a&nbsp;plot&nbsp;format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot<br>
 for&nbsp;more&nbsp;information.<br>
-&nbsp;<br>
 See&nbsp;matplotlib.dates&nbsp;for&nbsp;helper&nbsp;functions&nbsp;date2num,&nbsp;num2date<br>
 and&nbsp;drange&nbsp;for&nbsp;help&nbsp;on&nbsp;creating&nbsp;the&nbsp;required&nbsp;floating&nbsp;point&nbsp;dates<br>
-&nbsp;<br>
 tz&nbsp;is&nbsp;the&nbsp;timezone&nbsp;-&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;value<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-plotting"><strong>plotting</strong></a>()</dt><dd><tt>Plotting&nbsp;commands<br>
 axes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Create&nbsp;a&nbsp;new&nbsp;axes<br>
 axis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Set&nbsp;or&nbsp;return&nbsp;the&nbsp;current&nbsp;axis&nbsp;limits<br>
 bar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;bar&nbsp;chart<br>
 cla&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;current&nbsp;axes<br>
+clabel&nbsp;&nbsp;&nbsp;-&nbsp;label&nbsp;a&nbsp;contour&nbsp;plot<br>
 clf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;a&nbsp;figure&nbsp;window<br>
 close&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;close&nbsp;a&nbsp;figure&nbsp;window<br>
 colorbar&nbsp;-&nbsp;add&nbsp;a&nbsp;colorbar&nbsp;to&nbsp;the&nbsp;current&nbsp;figure<br>
 cohere&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;coherence<br>
 contour&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;contour&nbsp;plot<br>
+contourf&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;filled&nbsp;contour&nbsp;plot<br>
 csd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;cross&nbsp;spectral&nbsp;density<br>
 draw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;force&nbsp;a&nbsp;redraw&nbsp;of&nbsp;the&nbsp;current&nbsp;figure<br>
 errorbar&nbsp;-&nbsp;make&nbsp;an&nbsp;errorbar&nbsp;graph<br>
@@ -1351,16 +1227,16 @@ xlabel&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;an&nbsp;xlabel&nbsp;to&nbsp;the&nbsp;cur
 ylabel&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;ylabel&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
 &nbsp;<br>
 autumn&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;autumn<br>
-bone&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;bone&nbsp;&nbsp;<br>
-cool&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;cool&nbsp;&nbsp;<br>
+bone&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;bone<br>
+cool&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;cool<br>
 copper&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;copper<br>
-flag&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;flag&nbsp;&nbsp;<br>
-gray&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;gray&nbsp;&nbsp;<br>
-hot&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;hot&nbsp;&nbsp;&nbsp;<br>
-hsv&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;hsv&nbsp;&nbsp;&nbsp;<br>
-jet&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;jet&nbsp;&nbsp;&nbsp;<br>
-pink&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;pink&nbsp;&nbsp;<br>
-prism&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;prism&nbsp;<br>
+flag&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;flag<br>
+gray&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;gray<br>
+hot&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;hot<br>
+hsv&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;hsv<br>
+jet&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;jet<br>
+pink&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;pink<br>
+prism&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;prism<br>
 spring&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;spring<br>
 summer&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;summer<br>
 winter&nbsp;-&nbsp;set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;winter</tt></dd></dl>
@@ -1370,8 +1246,7 @@ Make&nbsp;a&nbsp;polar&nbsp;plot.&nbsp;&nbsp;Multiple&nbsp;theta,&nbsp;r&nbsp;ar
 with&nbsp;format&nbsp;strings,&nbsp;as&nbsp;in&nbsp;plot.</tt></dd></dl>
  <dl><dt><a name="-prism"><strong>prism</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;prism&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-psd"><strong>psd</strong></a>(*args, **kwargs)</dt><dd><tt>PSD(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=0)<br>
 The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.&nbsp;&nbsp;The<br>
 vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment&nbsp;is<br>
 detrended&nbsp;by&nbsp;function&nbsp;detrend&nbsp;and&nbsp;windowed&nbsp;by&nbsp;function&nbsp;window.<br>
@@ -1379,35 +1254,25 @@ noperlap&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;overlap&nbsp;betw
 absolute(fft(segment))**2&nbsp;of&nbsp;each&nbsp;segment&nbsp;are&nbsp;averaged&nbsp;to&nbsp;compute&nbsp;Pxx,<br>
 with&nbsp;a&nbsp;scaling&nbsp;to&nbsp;correct&nbsp;for&nbsp;power&nbsp;loss&nbsp;due&nbsp;to&nbsp;windowing.&nbsp;&nbsp;Fs&nbsp;is&nbsp;the<br>
 sampling&nbsp;frequency.<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;NFFT&nbsp;is&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;fft&nbsp;segment;&nbsp;must&nbsp;be&nbsp;a&nbsp;power&nbsp;of&nbsp;2<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Fs&nbsp;is&nbsp;the&nbsp;sampling&nbsp;frequency.<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;detrend&nbsp;-&nbsp;the&nbsp;function&nbsp;applied&nbsp;to&nbsp;each&nbsp;segment&nbsp;before&nbsp;fft-ing,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;designed&nbsp;to&nbsp;remove&nbsp;the&nbsp;mean&nbsp;or&nbsp;linear&nbsp;trend.&nbsp;&nbsp;Unlike&nbsp;in&nbsp;matlab,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;the&nbsp;detrend&nbsp;parameter&nbsp;is&nbsp;a&nbsp;vector,&nbsp;in&nbsp;matplotlib&nbsp;is&nbsp;it&nbsp;a<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function.&nbsp;&nbsp;The&nbsp;mlab&nbsp;module&nbsp;defines&nbsp;detrend_none,&nbsp;detrend_mean,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detrend_linear,&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;custom&nbsp;function&nbsp;as&nbsp;well.<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;window&nbsp;-&nbsp;the&nbsp;function&nbsp;used&nbsp;to&nbsp;window&nbsp;the&nbsp;segments.&nbsp;&nbsp;window&nbsp;is&nbsp;a<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function,&nbsp;unlike&nbsp;in&nbsp;matlab(TM)&nbsp;where&nbsp;it&nbsp;is&nbsp;a&nbsp;vector.&nbsp;&nbsp;mlab&nbsp;defines<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window_none,&nbsp;window_hanning,&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;a&nbsp;custom&nbsp;function<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;well.<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;noverlap&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;overlap&nbsp;between&nbsp;segments.<br>
-&nbsp;<br>
 Returns&nbsp;the&nbsp;tuple&nbsp;Pxx,&nbsp;freqs<br>
-&nbsp;<br>
 For&nbsp;plotting,&nbsp;the&nbsp;power&nbsp;is&nbsp;plotted&nbsp;as&nbsp;10*log10(pxx))&nbsp;for&nbsp;decibels,<br>
 though&nbsp;pxx&nbsp;itself&nbsp;is&nbsp;returned<br>
-&nbsp;<br>
 Refs:<br>
-&nbsp;<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-raise_msg_to_str"><strong>raise_msg_to_str</strong></a>(msg)</dt><dd><tt>msg&nbsp;is&nbsp;a&nbsp;return&nbsp;arg&nbsp;from&nbsp;a&nbsp;raise.&nbsp;&nbsp;Join&nbsp;with&nbsp;new&nbsp;lines</tt></dd></dl>
  <dl><dt><a name="-rc"><strong>rc</strong></a>(*args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;rc&nbsp;params.&nbsp;&nbsp;Group&nbsp;is&nbsp;the&nbsp;grouping&nbsp;for&nbsp;the&nbsp;rc,&nbsp;eg<br>
@@ -1466,7 +1331,7 @@ With&nbsp;no&nbsp;args,&nbsp;simply&nbsp;return&nbsp;lines,&nbsp;labels&nbsp;whe
 array&nbsp;of&nbsp;radial&nbsp;gridlines&nbsp;(Line2D&nbsp;instances)&nbsp;and&nbsp;labels&nbsp;is&nbsp;an<br>
 array&nbsp;of&nbsp;tick&nbsp;labels&nbsp;(Text&nbsp;instances).<br>
 &nbsp;<br>
-&nbsp;&nbsp;lines,&nbsp;labels&nbsp;=&nbsp;<a href="#-rgrids">rgrids</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;lines,&nbsp;labels&nbsp;=&nbsp;<a href="#-rgrids">rgrids</a>()<br>
 &nbsp;<br>
 With&nbsp;arguments,&nbsp;the&nbsp;syntax&nbsp;is<br>
 &nbsp;<br>
@@ -1477,7 +1342,7 @@ The&nbsp;labels&nbsp;will&nbsp;appear&nbsp;at&nbsp;radial&nbsp;distances&nbsp;ra
 &nbsp;&nbsp;labels,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;len(radii)&nbsp;list&nbsp;of&nbsp;strings&nbsp;of&nbsp;the<br>
 &nbsp;&nbsp;labels&nbsp;to&nbsp;use&nbsp;at&nbsp;each&nbsp;angle.<br>
 &nbsp;<br>
-&nbsp;&nbsp;if&nbsp;labels&nbsp;is&nbsp;None,&nbsp;the&nbsp;self.<strong>rformatter</strong>&nbsp;will&nbsp;be&nbsp;used&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;if&nbsp;labels&nbsp;is&nbsp;None,&nbsp;the&nbsp;self.<strong>rformatter</strong>&nbsp;will&nbsp;be&nbsp;used<br>
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines,&nbsp;labels&nbsp;where&nbsp;the&nbsp;lines&nbsp;are<br>
 matplotlib.Line2D&nbsp;instances&nbsp;and&nbsp;the&nbsp;labels&nbsp;are&nbsp;matplotlib.Text<br>
@@ -1518,27 +1383,19 @@ orientation&nbsp;is&nbsp;either&nbsp;'landscape'&nbsp;or&nbsp;'portrait'&nbsp;-&
 all&nbsp;backends;&nbsp;currently&nbsp;only&nbsp;on&nbsp;postscript&nbsp;output.</tt></dd></dl>
  <dl><dt><a name="-scatter"><strong>scatter</strong></a>(*args, **kwargs)</dt><dd><tt>SCATTER(x,&nbsp;y,&nbsp;s=20,&nbsp;c='b',&nbsp;marker='o',&nbsp;cmap=None,&nbsp;norm=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;alpha=1.0)<br>
-&nbsp;<br>
 Supported&nbsp;function&nbsp;signatures:<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s&nbsp;and&nbsp;colors&nbsp;given&nbsp;by&nbsp;c<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c,&nbsp;**kwargs)&nbsp;-&nbsp;control&nbsp;colormapping&nbsp;and&nbsp;scaling<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;keyword&nbsp;args;&nbsp;see&nbsp;below<br>
-&nbsp;<br>
 Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a&nbsp;scalar<br>
 or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a<br>
 single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array&nbsp;of&nbsp;intensities&nbsp;which<br>
 will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;matplotlib.colors.colormap&nbsp;instance&nbsp;cmap<br>
-&nbsp;<br>
 The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'s'&nbsp;:&nbsp;square<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'o'&nbsp;:&nbsp;circle<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'^'&nbsp;:&nbsp;triangle&nbsp;up<br>
@@ -1549,68 +1406,50 @@ The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'p'&nbsp;:&nbsp;pentagram<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;:&nbsp;hexagon<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'8'&nbsp;:&nbsp;octagon<br>
-&nbsp;<br>
 s&nbsp;is&nbsp;a&nbsp;size&nbsp;argument&nbsp;in&nbsp;points&nbsp;squared.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Other&nbsp;keyword&nbsp;args;&nbsp;the&nbsp;color&nbsp;mapping&nbsp;and&nbsp;normalization&nbsp;arguments&nbsp;will<br>
 on&nbsp;be&nbsp;used&nbsp;if&nbsp;c&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;floats<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;cm.jet&nbsp;:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;image.cmap<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;norm&nbsp;=&nbsp;normalize()&nbsp;:&nbsp;matplotlib.colors.normalize&nbsp;is&nbsp;used&nbsp;to<br>
 &nbsp;&nbsp;&nbsp;&nbsp;scale&nbsp;luminance&nbsp;data&nbsp;to&nbsp;0,1.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;vmin=None&nbsp;and&nbsp;vmax=None&nbsp;:&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;in&nbsp;conjunction<br>
 &nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;norm&nbsp;to&nbsp;normalize&nbsp;luminance&nbsp;data.&nbsp;&nbsp;If&nbsp;either&nbsp;are&nbsp;None,&nbsp;the<br>
 &nbsp;&nbsp;&nbsp;&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;color&nbsp;array&nbsp;C&nbsp;is&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm<br>
 &nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;your&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored<br>
+&nbsp;&nbsp;*&nbsp;alpha&nbsp;=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;value&nbsp;for&nbsp;the&nbsp;patches<br>
 &nbsp;<br>
-&nbsp;&nbsp;*&nbsp;alpha&nbsp;=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;value&nbsp;for&nbsp;the&nbsp;patches&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
- <dl><dt><a name="-scatter_classic"><strong>scatter_classic</strong></a>(*args, **kwargs)</dt><dd><tt>SCATTER_CLASSIC(x,&nbsp;y,&nbsp;s=None,&nbsp;c='b')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;<br>
+ <dl><dt><a name="-scatter_classic"><strong>scatter_classic</strong></a>(*args, **kwargs)</dt><dd><tt>SCATTER_CLASSIC(x,&nbsp;y,&nbsp;s=None,&nbsp;c='b')<br>
 Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data&nbsp;coords)&nbsp;and<br>
 can&nbsp;be&nbsp;either&nbsp;a&nbsp;scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is<br>
 a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array<br>
 of&nbsp;intensities&nbsp;which&nbsp;will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;colormap&nbsp;jet.<br>
-&nbsp;<br>
 If&nbsp;size&nbsp;is&nbsp;None&nbsp;a&nbsp;default&nbsp;size&nbsp;will&nbsp;be&nbsp;used<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-searchsorted"><strong>searchsorted</strong></a> = binarysearch(...)</dt><dd><tt>binarysearch(a,v)</tt></dd></dl>
- <dl><dt><a name="-semilogx"><strong>semilogx</strong></a>(*args, **kwargs)</dt><dd><tt>SEMILOGX(*args,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;<br>
+ <dl><dt><a name="-semilogx"><strong>semilogx</strong></a>(*args, **kwargs)</dt><dd><tt>SEMILOGX(*args,&nbsp;**kwargs)<br>
 Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;x&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
 semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for&nbsp;more<br>
 info.<br>
-&nbsp;<br>
 Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs&nbsp;supported&nbsp;by<br>
 plot&nbsp;or&nbsp;set_xscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling:<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;autosubs,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;depend&nbsp;on&nbsp;the&nbsp;number&nbsp;of&nbsp;decades&nbsp;in&nbsp;the&nbsp;plot<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
- <dl><dt><a name="-semilogy"><strong>semilogy</strong></a>(*args, **kwargs)</dt><dd><tt>SEMILOGY(*args,&nbsp;**kwargs):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;<br>
+ <dl><dt><a name="-semilogy"><strong>semilogy</strong></a>(*args, **kwargs)</dt><dd><tt>SEMILOGY(*args,&nbsp;**kwargs):<br>
 Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
 semilogy&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for&nbsp;more<br>
 info.<br>
-&nbsp;<br>
 Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs&nbsp;supported&nbsp;by<br>
 plot&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling:<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;autosubs,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;depend&nbsp;on&nbsp;the&nbsp;number&nbsp;of&nbsp;decades&nbsp;in&nbsp;the&nbsp;plot<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-set"><strong>set</strong></a>(h, *args, **kwargs)</dt><dd><tt>matlab(TM)&nbsp;and&nbsp;pylab&nbsp;allow&nbsp;you&nbsp;to&nbsp;use&nbsp;set&nbsp;and&nbsp;get&nbsp;to&nbsp;set&nbsp;and&nbsp;get<br>
 object&nbsp;properties,&nbsp;as&nbsp;well&nbsp;as&nbsp;to&nbsp;do&nbsp;introspection&nbsp;on&nbsp;the&nbsp;object<br>
@@ -1652,58 +1491,43 @@ kwargs.&nbsp;&nbsp;For&nbsp;example,&nbsp;the&nbsp;following&nbsp;are&nbsp;equiv
  <dl><dt><a name="-specgram"><strong>specgram</strong></a>(*args, **kwargs)</dt><dd><tt>SPECGRAM(x,&nbsp;NFFT=256,&nbsp;Fs=2,&nbsp;detrend=detrend_none,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window=window_hanning,&nbsp;noverlap=128,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmap=None,&nbsp;xextent=None)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Compute&nbsp;a&nbsp;spectrogram&nbsp;of&nbsp;data&nbsp;in&nbsp;x.&nbsp;&nbsp;Data&nbsp;are&nbsp;split&nbsp;into&nbsp;NFFT&nbsp;length<br>
 segements&nbsp;and&nbsp;the&nbsp;PSD&nbsp;of&nbsp;each&nbsp;section&nbsp;is&nbsp;computed.&nbsp;&nbsp;The&nbsp;windowing<br>
 function&nbsp;window&nbsp;is&nbsp;applied&nbsp;to&nbsp;each&nbsp;segment,&nbsp;and&nbsp;the&nbsp;amount&nbsp;of&nbsp;overlap<br>
-of&nbsp;each&nbsp;segment&nbsp;is&nbsp;specified&nbsp;with&nbsp;noverlap.&nbsp;&nbsp;<br>
-&nbsp;<br>
+of&nbsp;each&nbsp;segment&nbsp;is&nbsp;specified&nbsp;with&nbsp;noverlap.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;colormap;&nbsp;if&nbsp;None&nbsp;use&nbsp;default&nbsp;determined&nbsp;by&nbsp;rc<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;xextent&nbsp;is&nbsp;the&nbsp;image&nbsp;extent&nbsp;in&nbsp;the&nbsp;xaxes&nbsp;xextent=xmin,&nbsp;xmax&nbsp;-<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;0,&nbsp;max(bins),&nbsp;0,&nbsp;max(freqs)&nbsp;where&nbsp;bins&nbsp;is&nbsp;the&nbsp;return<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;from&nbsp;matplotlib.matplotlib.mlab.specgram<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;See&nbsp;help(psd)&nbsp;for&nbsp;information&nbsp;on&nbsp;the&nbsp;other&nbsp;keyword&nbsp;arguments.<br>
-&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;(Pxx,&nbsp;freqs,&nbsp;bins,&nbsp;im),&nbsp;where<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;bins&nbsp;are&nbsp;the&nbsp;time&nbsp;points&nbsp;the&nbsp;spectrogram&nbsp;is&nbsp;calculated&nbsp;over<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;freqs&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;frequencies<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Pxx&nbsp;is&nbsp;a&nbsp;len(times)&nbsp;x&nbsp;len(freqs)&nbsp;array&nbsp;of&nbsp;power<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;im&nbsp;is&nbsp;a&nbsp;matplotlib.image.AxesImage.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-spring"><strong>spring</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;spring&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
- <dl><dt><a name="-spy"><strong>spy</strong></a>(*args, **kwargs)</dt><dd><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPY(Z,&nbsp;**kwrags)&nbsp;plots&nbsp;the&nbsp;sparsity&nbsp;pattern&nbsp;of&nbsp;the&nbsp;matrix&nbsp;S<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;using&nbsp;plot&nbsp;markers.<br>
+ <dl><dt><a name="-spy"><strong>spy</strong></a>(*args, **kwargs)</dt><dd><tt>SPY(Z,&nbsp;**kwrags)&nbsp;plots&nbsp;the&nbsp;sparsity&nbsp;pattern&nbsp;of&nbsp;the&nbsp;matrix&nbsp;S<br>
+using&nbsp;plot&nbsp;markers.<br>
+kwargs&nbsp;give&nbsp;the&nbsp;marker&nbsp;properties&nbsp;-&nbsp;see&nbsp;help(plot)&nbsp;for&nbsp;more<br>
+information&nbsp;on&nbsp;marker&nbsp;properties<br>
+The&nbsp;line&nbsp;handles&nbsp;are&nbsp;returned<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kwargs&nbsp;give&nbsp;the&nbsp;marker&nbsp;properties&nbsp;-&nbsp;see&nbsp;help(plot)&nbsp;for&nbsp;more<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;on&nbsp;marker&nbsp;properties<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;line&nbsp;handles&nbsp;are&nbsp;returned<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-spy2"><strong>spy2</strong></a>(*args, **kwargs)</dt><dd><tt>SPY2(Z)&nbsp;plots&nbsp;the&nbsp;sparsity&nbsp;pattern&nbsp;of&nbsp;the&nbsp;matrix&nbsp;S&nbsp;as&nbsp;an&nbsp;image<br>
-&nbsp;<br>
 The&nbsp;image&nbsp;instance&nbsp;is&nbsp;returned<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-stem"><strong>stem</strong></a>(*args, **kwargs)</dt><dd><tt>STEM(x,&nbsp;y,&nbsp;linefmt='b-',&nbsp;markerfmt='bo',&nbsp;basefmt='r-')<br>
-&nbsp;<br>
 A&nbsp;stem&nbsp;plot&nbsp;plots&nbsp;vertical&nbsp;lines&nbsp;(using&nbsp;linefmt)&nbsp;at&nbsp;each&nbsp;x&nbsp;location<br>
 from&nbsp;the&nbsp;baseline&nbsp;to&nbsp;y,&nbsp;and&nbsp;places&nbsp;a&nbsp;marker&nbsp;there&nbsp;using&nbsp;markerfmt.&nbsp;&nbsp;A<br>
 horizontal&nbsp;line&nbsp;at&nbsp;0&nbsp;is&nbsp;is&nbsp;plotted&nbsp;using&nbsp;basefmt<br>
-&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;(markerline,&nbsp;stemlines,&nbsp;baseline)&nbsp;.<br>
-&nbsp;<br>
 See<br>
 <a href="http://www.mathworks.com/access/helpdesk/help/techdoc/ref/stem.html">http://www.mathworks.com/access/helpdesk/help/techdoc/ref/stem.html</a><br>
 for&nbsp;details&nbsp;and&nbsp;examples/stem_plot.py&nbsp;for&nbsp;a&nbsp;demo.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-subplot"><strong>subplot</strong></a>(*args, **kwargs)</dt><dd><tt>Create&nbsp;a&nbsp;subplot&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
 &nbsp;<br>
@@ -1735,38 +1559,38 @@ not&nbsp;want&nbsp;this&nbsp;behavior,&nbsp;use&nbsp;fig.add_subplot&nbsp;or&nbs
 &nbsp;&nbsp;<a href="#-subplot">subplot</a>(211)&nbsp;&nbsp;&nbsp;#&nbsp;overlaps,&nbsp;<a href="#-subplot">subplot</a>(111)&nbsp;is&nbsp;killed<br>
 &nbsp;&nbsp;<a href="#-plot">plot</a>(rand(12),&nbsp;rand(12))</tt></dd></dl>
  <dl><dt><a name="-summer"><strong>summer</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;summer&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
- <dl><dt><a name="-switch_backend"><strong>switch_backend</strong></a>(newbackend)</dt></dl>
+ <dl><dt><a name="-switch_backend"><strong>switch_backend</strong></a>(newbackend)</dt><dd><tt>Swtich&nbsp;the&nbsp;default&nbsp;backend&nbsp;to&nbsp;newbackend.&nbsp;&nbsp;This&nbsp;feature&nbsp;is<br>
+EXPERIMENTAL,&nbsp;and&nbsp;is&nbsp;only&nbsp;expected&nbsp;to&nbsp;work&nbsp;switching&nbsp;to&nbsp;an&nbsp;image<br>
+backend.&nbsp;&nbsp;Eg,&nbsp;if&nbsp;you&nbsp;have&nbsp;a&nbsp;bunch&nbsp;of&nbsp;PS&nbsp;scripts&nbsp;that&nbsp;you&nbsp;want&nbsp;to<br>
+run&nbsp;from&nbsp;an&nbsp;interactive&nbsp;ipython&nbsp;session,&nbsp;yuo&nbsp;may&nbsp;want&nbsp;to&nbsp;switch&nbsp;to<br>
+the&nbsp;PS&nbsp;backend&nbsp;before&nbsp;running&nbsp;them&nbsp;to&nbsp;avoid&nbsp;having&nbsp;a&nbsp;bunch&nbsp;of&nbsp;GUI<br>
+windows&nbsp;popup.&nbsp;&nbsp;If&nbsp;you&nbsp;try&nbsp;to&nbsp;interactively&nbsp;switch&nbsp;from&nbsp;one&nbsp;GUI<br>
+backend&nbsp;to&nbsp;another,&nbsp;you&nbsp;will&nbsp;explode.<br>
+&nbsp;<br>
+Calling&nbsp;this&nbsp;command&nbsp;will&nbsp;close&nbsp;all&nbsp;open&nbsp;windows.</tt></dd></dl>
  <dl><dt><a name="-table"><strong>table</strong></a>(*args, **kwargs)</dt><dd><tt>TABLE(cellText=None,&nbsp;cellColours=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cellLoc='right',&nbsp;colWidths=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rowLabels=None,&nbsp;rowColours=None,&nbsp;rowLoc='left',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colLabels=None,&nbsp;colColours=None,&nbsp;colLoc='center',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loc='bottom',&nbsp;bbox=None):<br>
-&nbsp;<br>
 Add&nbsp;a&nbsp;table&nbsp;to&nbsp;the&nbsp;current&nbsp;axes.&nbsp;&nbsp;Returns&nbsp;a&nbsp;table&nbsp;instance.&nbsp;&nbsp;For<br>
 finer&nbsp;grained&nbsp;control&nbsp;over&nbsp;tables,&nbsp;use&nbsp;the&nbsp;Table&nbsp;class&nbsp;and&nbsp;add&nbsp;it<br>
 to&nbsp;the&nbsp;axes&nbsp;with&nbsp;add_table.<br>
-&nbsp;<br>
 Thanks&nbsp;to&nbsp;John&nbsp;Gill&nbsp;for&nbsp;providing&nbsp;the&nbsp;class&nbsp;and&nbsp;table.</tt></dd></dl>
  <dl><dt><a name="-take"><strong>take</strong></a>(...)</dt><dd><tt><a href="#-take">take</a>(a,&nbsp;indices,&nbsp;axis=0).&nbsp;&nbsp;Selects&nbsp;the&nbsp;elements&nbsp;in&nbsp;indices&nbsp;from&nbsp;array&nbsp;a&nbsp;along&nbsp;the&nbsp;given&nbsp;axis.</tt></dd></dl>
  <dl><dt><a name="-text"><strong>text</strong></a>(*args, **kwargs)</dt><dd><tt>TEXT(x,&nbsp;y,&nbsp;s,&nbsp;fontdict=None,&nbsp;**kwargs)<br>
-&nbsp;<br>
 Add&nbsp;text&nbsp;in&nbsp;string&nbsp;s&nbsp;to&nbsp;axis&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(data&nbsp;coords)<br>
-&nbsp;<br>
 &nbsp;&nbsp;fontdict&nbsp;is&nbsp;a&nbsp;dictionary&nbsp;to&nbsp;override&nbsp;the&nbsp;default&nbsp;text&nbsp;properties.<br>
 &nbsp;&nbsp;If&nbsp;fontdict&nbsp;is&nbsp;None,&nbsp;the&nbsp;defaults&nbsp;are&nbsp;determined&nbsp;by&nbsp;your&nbsp;rc<br>
 &nbsp;&nbsp;parameters.<br>
-&nbsp;<br>
 Individual&nbsp;keyword&nbsp;arguemnts&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;override&nbsp;any&nbsp;given<br>
 parameter<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-text">text</a>(x,&nbsp;y,&nbsp;s,&nbsp;fontsize=12)<br>
-&nbsp;<br>
 The&nbsp;default&nbsp;transform&nbsp;specifies&nbsp;that&nbsp;text&nbsp;is&nbsp;in&nbsp;data&nbsp;coords,<br>
 alternatively,&nbsp;you&nbsp;can&nbsp;specify&nbsp;text&nbsp;in&nbsp;axis&nbsp;coords&nbsp;(0,0&nbsp;lower&nbsp;left&nbsp;and<br>
 1,1&nbsp;upper&nbsp;right).&nbsp;&nbsp;The&nbsp;example&nbsp;below&nbsp;places&nbsp;text&nbsp;in&nbsp;the&nbsp;center&nbsp;of&nbsp;the<br>
 axes<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-text">text</a>(0.5,&nbsp;0.5,'matplotlib',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-text">text</a>(0.5,&nbsp;0.5,'matplotlib',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;horizontalalignment='center',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verticalalignment='center',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform&nbsp;=&nbsp;ax.transAxes,<br>
@@ -1777,7 +1601,7 @@ If&nbsp;no&nbsp;arguments&nbsp;are&nbsp;passed,&nbsp;return&nbsp;lines,&nbsp;lab
 array&nbsp;of&nbsp;radial&nbsp;gridlines&nbsp;(Line2D&nbsp;instances)&nbsp;and&nbsp;labels&nbsp;is&nbsp;an<br>
 array&nbsp;of&nbsp;tick&nbsp;labels&nbsp;(Text&nbsp;instances).<br>
 &nbsp;<br>
-&nbsp;&nbsp;lines,&nbsp;labels&nbsp;=&nbsp;<a href="#-thetagrids">thetagrids</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;lines,&nbsp;labels&nbsp;=&nbsp;<a href="#-thetagrids">thetagrids</a>()<br>
 &nbsp;<br>
 Otherwise&nbsp;the&nbsp;syntax&nbsp;is<br>
 &nbsp;<br>
@@ -1822,14 +1646,12 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 sharing&nbsp;the&nbsp;xaxis.&nbsp;&nbsp;The&nbsp;ticks&nbsp;for&nbsp;ax2&nbsp;will&nbsp;be&nbsp;placed&nbsp;on&nbsp;the&nbsp;right,<br>
 and&nbsp;the&nbsp;ax2&nbsp;instance&nbsp;is&nbsp;returned.&nbsp;&nbsp;See&nbsp;examples/two_scales.py</tt></dd></dl>
  <dl><dt><a name="-vlines"><strong>vlines</strong></a>(*args, **kwargs)</dt><dd><tt>VLINES(x,&nbsp;ymin,&nbsp;ymax,&nbsp;color='k')<br>
-&nbsp;<br>
 Plot&nbsp;vertical&nbsp;lines&nbsp;at&nbsp;each&nbsp;x&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;ymin&nbsp;or&nbsp;ymax&nbsp;can&nbsp;be<br>
 scalars&nbsp;or&nbsp;len(x)&nbsp;numpy&nbsp;arrays.&nbsp;&nbsp;If&nbsp;they&nbsp;are&nbsp;scalars,&nbsp;then&nbsp;the<br>
 respective&nbsp;values&nbsp;are&nbsp;constant,&nbsp;else&nbsp;the&nbsp;heights&nbsp;of&nbsp;the&nbsp;lines&nbsp;are<br>
 determined&nbsp;by&nbsp;ymin&nbsp;and&nbsp;ymax<br>
-&nbsp;<br>
 Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-winter"><strong>winter</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;winter&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-xlabel"><strong>xlabel</strong></a>(s, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;axis&nbsp;label&nbsp;of&nbsp;the&nbsp;current&nbsp;axis&nbsp;to&nbsp;s<br>
@@ -1853,7 +1675,7 @@ xmin,&nbsp;xmax&nbsp;=&nbsp;<a href="#-xlim">xlim</a>()&nbsp;&nbsp;&nbsp;:&nbsp;
 &nbsp;<br>
 #&nbsp;return&nbsp;locs,&nbsp;labels&nbsp;where&nbsp;locs&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;tick&nbsp;locations&nbsp;and<br>
 #&nbsp;labels&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;tick&nbsp;labels.<br>
-locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-xticks">xticks</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-xticks">xticks</a>()<br>
 &nbsp;<br>
 #&nbsp;set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;xticks<br>
 <a href="#-xticks">xticks</a>(&nbsp;<a href="#-arange">arange</a>(6)&nbsp;)<br>
@@ -1884,7 +1706,7 @@ ymin,&nbsp;ymax&nbsp;=&nbsp;<a href="#-ylim">ylim</a>()&nbsp;&nbsp;&nbsp;:&nbsp;
 &nbsp;<br>
 #&nbsp;return&nbsp;locs,&nbsp;labels&nbsp;where&nbsp;locs&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;tick&nbsp;locations&nbsp;and<br>
 #&nbsp;labels&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;tick&nbsp;labels.<br>
-locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-yticks">yticks</a>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+locs,&nbsp;labels&nbsp;=&nbsp;<a href="#-yticks">yticks</a>()<br>
 &nbsp;<br>
 #&nbsp;set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;yticks<br>
 <a href="#-yticks">yticks</a>(&nbsp;<a href="#-arange">arange</a>(6)&nbsp;)<br>
@@ -1929,10 +1751,7 @@ information&nbsp;on&nbsp;text&nbsp;properties.</tt></dd></dl>
 <strong>WE</strong> = WE<br>
 <strong>WEEKLY</strong> = 2<br>
 <strong>YEARLY</strong> = 0<br>
-<strong>__all__</strong> = ('date2num', 'num2date', 'drange', 'epoch2num', 'num2epoch', 'mx2num', 'DateFormatter', 'IndexDateFormatter', 'DateLocator', 'RRuleLocator', 'YearLocator', 'MonthLocator', 'WeekdayLocator', 'DayLocator', 'HourLocator', 'MinuteLocator', 'SecondLocator', 'rrule', 'MO', 'TU', ...)<br>
 <strong>__dates_all__</strong> = ('date2num', 'num2date', 'drange', 'epoch2num', 'num2epoch', 'mx2num', 'DateFormatter', 'IndexDateFormatter', 'DateLocator', 'RRuleLocator', 'YearLocator', 'MonthLocator', 'WeekdayLocator', 'DayLocator', 'HourLocator', 'MinuteLocator', 'SecondLocator', 'rrule', 'MO', 'TU', ...)<br>
-<strong>__nxall__</strong> = ['array', 'zeros', 'shape', 'rank', 'size', 'fromstring', 'take', 'put', 'putmask', 'reshape', 'repeat', 'choose', 'searchsorted', 'asum', 'cumsum', 'product', 'cumproduct', 'alltrue', 'sometrue', 'allclose', ...]<br>
-<strong>__plotting_all__</strong> = ['plotting', 'colormaps', 'get_current_fig_manager', 'connect', 'disconnect', 'get_plot_commands', 'raise_msg_to_str', 'axis', 'axes', 'delaxes', 'clim', 'close', 'clf', 'colorbar', 'draw', 'figtext', 'figimage', 'figlegend', 'figure', 'gca', ...]<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>add</strong> = &lt;ufunc 'add'&gt;<br>
 <strong>arccos</strong> = &lt;ufunc 'arccos'&gt;<br>
@@ -1973,8 +1792,8 @@ information&nbsp;on&nbsp;text&nbsp;properties.</tt></dd></dl>
 <strong>not_equal</strong> = &lt;ufunc 'not_equal'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
-<strong>rcParamsDefault</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParamsDefault</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
 <strong>sinh</strong> = &lt;ufunc 'sinh'&gt;<br>
 <strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>

@@ -5,7 +5,7 @@
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.backend_bases</strong></big></big></font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/backend_bases.py">/usr/local/lib/python2.3/site-packages/matplotlib/backend_bases.py</a></font></td></tr></table>
-    <p><tt>Abstract&nbsp;base&nbsp;classes&nbsp;definine&nbsp;the&nbsp;primitives&nbsp;that&nbsp;renderers&nbsp;and<br>
+    <p><tt>Abstract&nbsp;base&nbsp;classes&nbsp;define&nbsp;the&nbsp;primitives&nbsp;that&nbsp;renderers&nbsp;and<br>
 graphics&nbsp;contexts&nbsp;must&nbsp;implement&nbsp;to&nbsp;serve&nbsp;as&nbsp;a&nbsp;matplotlib&nbsp;backend</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -74,7 +74,7 @@ name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs
 canvas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;FigureCanvas&nbsp;instance&nbsp;generating&nbsp;the&nbsp;event<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Event-__init__"><strong>__init__</strong></a>(self, name, canvas)</dt></dl>
+<dl><dt><a name="Event-__init__"><strong>__init__</strong></a>(self, name, canvas, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -92,21 +92,21 @@ Public&nbsp;attribute<br>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="FigureCanvasBase-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
 
-<dl><dt><a name="FigureCanvasBase-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasBase-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;press.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;<a href="#MouseEvent">MouseEvent</a></tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasBase-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasBase-button_release_event"><strong>button_release_event</strong></a>(self, x, y, button, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;<a href="#MouseEvent">MouseEvent</a></tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasBase-draw"><strong>draw</strong></a>(self)</dt><dd><tt>Render&nbsp;the&nbsp;figure</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasBase-key_press_event"><strong>key_press_event</strong></a>(self, key)</dt></dl>
+<dl><dt><a name="FigureCanvasBase-key_press_event"><strong>key_press_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
-<dl><dt><a name="FigureCanvasBase-key_release_event"><strong>key_release_event</strong></a>(self, key)</dt></dl>
+<dl><dt><a name="FigureCanvasBase-key_release_event"><strong>key_release_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
-<dl><dt><a name="FigureCanvasBase-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
+<dl><dt><a name="FigureCanvasBase-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;<a href="#MouseEvent">MouseEvent</a></tt></dd></dl>
 
@@ -168,11 +168,11 @@ num&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;figure&nbsp;number<br>&nbsp;</tt></td
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="FigureManagerBase-__init__"><strong>__init__</strong></a>(self, canvas, num)</dt></dl>
 
-<dl><dt><a name="FigureManagerBase-clf"><strong>clf</strong></a>(self)</dt><dd><tt>clear&nbsp;the&nbsp;figure</tt></dd></dl>
-
 <dl><dt><a name="FigureManagerBase-destroy"><strong>destroy</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="FigureManagerBase-key_press"><strong>key_press</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="FigureManagerBase-show_popup"><strong>show_popup</strong></a>(self, msg)</dt><dd><tt>Display&nbsp;message&nbsp;in&nbsp;a&nbsp;popup&nbsp;--&nbsp;GUI&nbsp;only</tt></dd></dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -222,9 +222,10 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextBase-set_clip_rectangle"><strong>set_clip_rectangle</strong></a>(self, rectangle)</dt><dd><tt>Set&nbsp;the&nbsp;clip&nbsp;rectangle&nbsp;with&nbsp;sequence&nbsp;(left,&nbsp;bottom,&nbsp;width,&nbsp;height)</tt></dd></dl>
 
-<dl><dt><a name="GraphicsContextBase-set_dashes"><strong>set_dashes</strong></a>(self, dash_offset, dash_list)</dt><dd><tt>Set&nbsp;the&nbsp;dash&nbsp;style&nbsp;for&nbsp;the&nbsp;gc.&nbsp;&nbsp;dash&nbsp;offset&nbsp;is&nbsp;the&nbsp;offset<br>
-(usually&nbsp;0).&nbsp;&nbsp;Dash&nbsp;list&nbsp;specifies&nbsp;the&nbsp;on-off&nbsp;sequence&nbsp;as<br>
-points</tt></dd></dl>
+<dl><dt><a name="GraphicsContextBase-set_dashes"><strong>set_dashes</strong></a>(self, dash_offset, dash_list)</dt><dd><tt>Set&nbsp;the&nbsp;dash&nbsp;style&nbsp;for&nbsp;the&nbsp;gc.<br>
+dash_offset&nbsp;is&nbsp;the&nbsp;offset&nbsp;(usually&nbsp;0).<br>
+dash_list&nbsp;specifies&nbsp;the&nbsp;on-off&nbsp;sequence&nbsp;as&nbsp;points<br>
+(None,&nbsp;None)&nbsp;specifies&nbsp;a&nbsp;solid&nbsp;line</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextBase-set_foreground"><strong>set_foreground</strong></a>(self, fg, isRGB<font color="#909090">=False</font>)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color.&nbsp;&nbsp;fg&nbsp;can&nbsp;be&nbsp;a&nbsp;matlab&nbsp;format&nbsp;string,&nbsp;a<br>
 html&nbsp;hex&nbsp;color&nbsp;string,&nbsp;an&nbsp;rgb&nbsp;unit&nbsp;tuple,&nbsp;or&nbsp;a&nbsp;float&nbsp;between&nbsp;0<br>
@@ -279,7 +280,7 @@ modifier&nbsp;keys&nbsp;is&nbsp;included<br>&nbsp;</tt></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="KeyEvent-__init__"><strong>__init__</strong></a>(self, name, canvas, key, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>)</dt></dl>
+<dl><dt><a name="KeyEvent-__init__"><strong>__init__</strong></a>(self, name, canvas, key, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.backend_bases.html#LocationEvent">LocationEvent</a>:<br>
@@ -314,7 +315,7 @@ xdata&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;x&n
 ydata&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;y&nbsp;coord&nbsp;of&nbsp;mouse&nbsp;in&nbsp;data&nbsp;coords<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="LocationEvent-__init__"><strong>__init__</strong></a>(self, name, canvas, x, y)</dt><dd><tt>x,&nbsp;y&nbsp;in&nbsp;figure&nbsp;coords,&nbsp;0,0&nbsp;=&nbsp;bottom,&nbsp;left<br>
+<dl><dt><a name="LocationEvent-__init__"><strong>__init__</strong></a>(self, name, canvas, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>x,&nbsp;y&nbsp;in&nbsp;figure&nbsp;coords,&nbsp;0,0&nbsp;=&nbsp;bottom,&nbsp;left<br>
 button&nbsp;pressed&nbsp;None,&nbsp;1,&nbsp;2,&nbsp;3</tt></dd></dl>
 
 <hr>
@@ -359,7 +360,7 @@ ydata&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;y&n
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="MouseEvent-__init__"><strong>__init__</strong></a>(self, name, canvas, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>)</dt><dd><tt>x,&nbsp;y&nbsp;in&nbsp;figure&nbsp;coords,&nbsp;0,0&nbsp;=&nbsp;bottom,&nbsp;left<br>
+<dl><dt><a name="MouseEvent-__init__"><strong>__init__</strong></a>(self, name, canvas, x, y, button<font color="#909090">=None</font>, key<font color="#909090">=None</font>, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>x,&nbsp;y&nbsp;in&nbsp;figure&nbsp;coords,&nbsp;0,0&nbsp;=&nbsp;bottom,&nbsp;left<br>
 button&nbsp;pressed&nbsp;None,&nbsp;1,&nbsp;2,&nbsp;3</tt></dd></dl>
 
 <hr>
@@ -475,6 +476,8 @@ Is&nbsp;only&nbsp;currently&nbsp;used&nbsp;by&nbsp;backend_svg</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, rgbFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;using&nbsp;GraphicsContext&nbsp;instance&nbsp;gcEdge,&nbsp;centered&nbsp;at&nbsp;x,y,<br>
 with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles&nbsp;from&nbsp;0.0&nbsp;to&nbsp;360.0<br>
+0&nbsp;degrees&nbsp;is&nbsp;at&nbsp;3-o'clock<br>
+positive&nbsp;angles&nbsp;are&nbsp;anti-clockwise<br>
 &nbsp;<br>
 If&nbsp;the&nbsp;color&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;arc&nbsp;with&nbsp;it.</tt></dd></dl>
 
@@ -491,15 +494,14 @@ None</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;line&nbsp;from&nbsp;x1,y1&nbsp;to&nbsp;x2,y2</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, transform, clipbox, colors, linewidths, linestyle, antialiaseds, offsets, transOffset)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;&nbsp;If&nbsp;you&nbsp;need&nbsp;to<br>
-draw&nbsp;many&nbsp;line&nbsp;segments&nbsp;with&nbsp;similar&nbsp;properties,&nbsp;it&nbsp;is&nbsp;faster<br>
-to&nbsp;avoid&nbsp;the&nbsp;overhead&nbsp;of&nbsp;all&nbsp;the&nbsp;object&nbsp;creation&nbsp;etc.&nbsp;&nbsp;The<br>
-lack&nbsp;of&nbsp;total&nbsp;configurability&nbsp;is&nbsp;compensated&nbsp;for&nbsp;with<br>
-efficiency.&nbsp;&nbsp;Hence&nbsp;we&nbsp;don't&nbsp;use&nbsp;a&nbsp;GC&nbsp;and&nbsp;many&nbsp;of&nbsp;the&nbsp;line<br>
-props&nbsp;it&nbsp;supports.&nbsp;&nbsp;See&nbsp;matplotlib.collections&nbsp;for&nbsp;more<br>
-details<br>
+<dl><dt><a name="RendererBase-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, transform, clipbox, colors, linewidths, linestyle, antialiaseds, offsets, transOffset)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;If&nbsp;you&nbsp;need&nbsp;to&nbsp;draw<br>
+many&nbsp;line&nbsp;segments&nbsp;with&nbsp;similar&nbsp;properties,&nbsp;it&nbsp;is&nbsp;faster&nbsp;to&nbsp;avoid&nbsp;the<br>
+overhead&nbsp;of&nbsp;all&nbsp;the&nbsp;object&nbsp;creation&nbsp;etc.&nbsp;The&nbsp;lack&nbsp;of&nbsp;total<br>
+configurability&nbsp;is&nbsp;compensated&nbsp;for&nbsp;with&nbsp;efficiency.&nbsp;Hence&nbsp;we&nbsp;don't&nbsp;use<br>
+a&nbsp;GC&nbsp;and&nbsp;many&nbsp;of&nbsp;the&nbsp;line&nbsp;props&nbsp;it&nbsp;supports.&nbsp;See<br>
+matplotlib.collections&nbsp;for&nbsp;more&nbsp;details.<br>
 &nbsp;<br>
-sements&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;line0,&nbsp;line1,&nbsp;line2),&nbsp;where&nbsp;linen&nbsp;=<br>
+segments&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;(&nbsp;line0,&nbsp;line1,&nbsp;line2),&nbsp;where&nbsp;linen&nbsp;=<br>
 (x0,&nbsp;y0),&nbsp;(x1,&nbsp;y1),&nbsp;...&nbsp;(xm,&nbsp;ym).&nbsp;&nbsp;Each&nbsp;line&nbsp;can&nbsp;be&nbsp;a<br>
 different&nbsp;length<br>
 &nbsp;<br>
@@ -510,25 +512,26 @@ clipbox&nbsp;is&nbsp;a&nbsp;&nbsp;xmin,&nbsp;ymin,&nbsp;width,&nbsp;height&nbsp;
 colors&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;RGBA&nbsp;tuples<br>
 &nbsp;<br>
 linewidths&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;linewidths<br>
+***&nbsp;really&nbsp;should&nbsp;be&nbsp;called&nbsp;'dashes'&nbsp;not&nbsp;'linestyle',&nbsp;since<br>
+we&nbsp;call&nbsp;gc.set_dashes()&nbsp;not&nbsp;gc.set_linestyle()&nbsp;***<br>
 &nbsp;<br>
 linestyle&nbsp;is&nbsp;an&nbsp;(offset,&nbsp;onoffseq)&nbsp;tuple&nbsp;or&nbsp;None,None&nbsp;for&nbsp;solid<br>
 &nbsp;<br>
 antialiseds&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;ones&nbsp;or&nbsp;zeros&nbsp;indicating&nbsp;whether&nbsp;the<br>
 segment&nbsp;should&nbsp;be&nbsp;aa&nbsp;or&nbsp;not<br>
 &nbsp;<br>
-offsets,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;x,y&nbsp;offsets&nbsp;to&nbsp;translate<br>
-the&nbsp;lines&nbsp;by&nbsp;after&nbsp;transoff&nbsp;is&nbsp;used&nbsp;to&nbsp;transform&nbsp;the&nbsp;offset<br>
-coords<br>
+offsets,&nbsp;if&nbsp;not&nbsp;None,&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;x,y&nbsp;offsets&nbsp;to&nbsp;translate&nbsp;the&nbsp;lines<br>
+by&nbsp;after&nbsp;transform&nbsp;is&nbsp;used&nbsp;to&nbsp;transform&nbsp;the&nbsp;offset&nbsp;coords<br>
 &nbsp;<br>
-This&nbsp;function&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;overridden&nbsp;by&nbsp;the&nbsp;backend<br>
-level&nbsp;in&nbsp;extension&nbsp;code&nbsp;for&nbsp;backends&nbsp;that&nbsp;want&nbsp;fast&nbsp;line<br>
-collection&nbsp;drawing.&nbsp;&nbsp;Here&nbsp;is&nbsp;is&nbsp;implemented&nbsp;using&nbsp;native<br>
-backend&nbsp;calls&nbsp;and&nbsp;may&nbsp;be&nbsp;slow</tt></dd></dl>
+This&nbsp;function&nbsp;could&nbsp;be&nbsp;overridden&nbsp;in&nbsp;the&nbsp;backend&nbsp;to&nbsp;possibly&nbsp;implement<br>
+faster&nbsp;drawing,&nbsp;but&nbsp;it&nbsp;is&nbsp;already&nbsp;much&nbsp;faster&nbsp;than&nbsp;using&nbsp;<a href="#RendererBase-draw_lines">draw_lines</a>()<br>
+by&nbsp;itself.</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
 point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;point&nbsp;at&nbsp;x,y</tt></dd></dl>
+<dl><dt><a name="RendererBase-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;point&nbsp;at&nbsp;x,y<br>
+Where&nbsp;'point'&nbsp;is&nbsp;a&nbsp;device-unit&nbsp;point&nbsp;(or&nbsp;pixel),&nbsp;not&nbsp;a&nbsp;matplotlib&nbsp;point</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-draw_poly_collection"><strong>draw_poly_collection</strong></a>(self, verts, transform, clipbox, facecolors, edgecolors, linewidths, antialiaseds, offsets, transOffset)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon&nbsp;collection<br>
 &nbsp;<br>
@@ -552,10 +555,10 @@ If&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nb
 
 <dl><dt><a name="RendererBase-draw_regpoly_collection"><strong>draw_regpoly_collection</strong></a>(self, clipbox, offsets, transOffset, verts, sizes, facecolors, edgecolors, linewidths, antialiaseds)</dt><dd><tt>Draw&nbsp;a&nbsp;regular&nbsp;poly&nbsp;collection<br>
 &nbsp;<br>
-offsets&nbsp;is&nbsp;a&nbsp;sequence&nbsp;is&nbsp;x,y&nbsp;tuples&nbsp;and&nbsp;transOffset&nbsp;maps&nbsp;this<br>
-to&nbsp;display&nbsp;coords<br>
+offsets&nbsp;&nbsp;&nbsp;-&nbsp;is&nbsp;a&nbsp;sequence&nbsp;is&nbsp;x,y&nbsp;tuples<br>
+transOffset&nbsp;-&nbsp;maps&nbsp;this&nbsp;to&nbsp;display&nbsp;coords<br>
 &nbsp;<br>
-verts&nbsp;are&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the&nbsp;regular&nbsp;polygon&nbsp;at&nbsp;the&nbsp;origin<br>
+verts&nbsp;-&nbsp;are&nbsp;the&nbsp;vertices&nbsp;of&nbsp;the&nbsp;regular&nbsp;polygon&nbsp;at&nbsp;the&nbsp;origin<br>
 &nbsp;<br>
 sizes&nbsp;are&nbsp;the&nbsp;area&nbsp;of&nbsp;the&nbsp;circle&nbsp;that&nbsp;circumscribes&nbsp;the<br>
 polygon&nbsp;in&nbsp;points^2<br>
@@ -565,9 +568,21 @@ linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
 antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, s, prop, angle, ismath<font color="#909090">=False</font>)</dt><dd><tt>Draw&nbsp;the&nbsp;text.Text&nbsp;instance&nbsp;s&nbsp;at&nbsp;x,y&nbsp;(display&nbsp;coords)&nbsp;with&nbsp;font<br>
-properties&nbsp;instance&nbsp;prop&nbsp;at&nbsp;angle&nbsp;in&nbsp;degrees</tt></dd></dl>
+properties&nbsp;instance&nbsp;prop&nbsp;at&nbsp;angle&nbsp;in&nbsp;degrees,&nbsp;using&nbsp;GraphicsContext&nbsp;gc<br>
+&nbsp;<br>
+**backend&nbsp;implementers&nbsp;note**<br>
+&nbsp;<br>
+When&nbsp;you&nbsp;are&nbsp;trying&nbsp;to&nbsp;determine&nbsp;if&nbsp;you&nbsp;have&nbsp;gotten&nbsp;your&nbsp;bounding&nbsp;box<br>
+right&nbsp;(which&nbsp;is&nbsp;what&nbsp;enables&nbsp;the&nbsp;text&nbsp;layout/alignment&nbsp;to&nbsp;work<br>
+properly),&nbsp;it&nbsp;helps&nbsp;to&nbsp;change&nbsp;the&nbsp;line&nbsp;in&nbsp;text.py<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;0:&nbsp;bbox_artist(self,&nbsp;renderer)<br>
+&nbsp;<br>
+to&nbsp;if&nbsp;1,&nbsp;and&nbsp;then&nbsp;the&nbsp;actual&nbsp;bounding&nbsp;box&nbsp;will&nbsp;be&nbsp;blotted&nbsp;along&nbsp;with<br>
+your&nbsp;text.</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer</tt></dd></dl>
+<dl><dt><a name="RendererBase-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer<br>
+Is&nbsp;used&nbsp;for&nbsp;drawing&nbsp;text&nbsp;(text.py)&nbsp;and&nbsp;images&nbsp;(image.py)&nbsp;only</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-get_canvas_width_height"><strong>get_canvas_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;canvas&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords</tt></dd></dl>
 
@@ -581,10 +596,13 @@ with&nbsp;FontPropertry&nbsp;prop</tt></dd></dl>
 <dl><dt><a name="RendererBase-open_group"><strong>open_group</strong></a>(self, s)</dt><dd><tt>open&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s<br>
 Is&nbsp;only&nbsp;currently&nbsp;used&nbsp;by&nbsp;backend_svg</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>Convert&nbsp;points&nbsp;to&nbsp;display&nbsp;units&nbsp;(as&nbsp;a&nbsp;float).<br>
-You&nbsp;need&nbsp;to&nbsp;override&nbsp;this&nbsp;function&nbsp;(unless&nbsp;your&nbsp;backend&nbsp;doesn't&nbsp;have<br>
+<dl><dt><a name="RendererBase-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>Convert&nbsp;points&nbsp;to&nbsp;display&nbsp;units<br>
+points&nbsp;-&nbsp;a&nbsp;float&nbsp;or&nbsp;a&nbsp;numerix&nbsp;array&nbsp;of&nbsp;float<br>
+return&nbsp;points&nbsp;converted&nbsp;to&nbsp;pixels<br>
+&nbsp;<br>
+You&nbsp;need&nbsp;to&nbsp;override&nbsp;this&nbsp;function&nbsp;(unless&nbsp;your&nbsp;backend&nbsp;doesn't&nbsp;have&nbsp;a<br>
 dpi,&nbsp;eg,&nbsp;postscript&nbsp;or&nbsp;svg).<br>
-Many&nbsp;imaging&nbsp;systems&nbsp;assume&nbsp;some&nbsp;value&nbsp;for&nbsp;pixels&nbsp;per&nbsp;inch.<br>
+Some&nbsp;imaging&nbsp;systems&nbsp;assume&nbsp;some&nbsp;value&nbsp;for&nbsp;pixels&nbsp;per&nbsp;inch.<br>
 points&nbsp;to&nbsp;pixels&nbsp;=&nbsp;points&nbsp;*&nbsp;pixels_per_inch/72.0&nbsp;*&nbsp;dpi/72.0</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-strip_math"><strong>strip_math</strong></a>(self, s)</dt></dl>
@@ -597,7 +615,6 @@ points&nbsp;to&nbsp;pixels&nbsp;=&nbsp;points&nbsp;*&nbsp;pixels_per_inch/72.0&n
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
- <dl><dt><a name="-error_msg"><strong>error_msg</strong></a>(msg, *args, **kwargs)</dt><dd><tt>Alert&nbsp;an&nbsp;error&nbsp;condition&nbsp;with&nbsp;message</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -611,6 +628,5 @@ points&nbsp;to&nbsp;pixels&nbsp;=&nbsp;points&nbsp;*&nbsp;pixels_per_inch/72.0&n
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>log</strong> = &lt;ufunc 'log'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
-<strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>
-<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
+<strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;</td></tr></table>
 @footer@
