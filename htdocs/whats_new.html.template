@@ -8,12 +8,17 @@ lines, freetype fonts, and other capabilities to soon be exploited.
 Thanks David!  """ ),
 
         ('The Matplotlib <a href=faq.html>FAQ</a>', ''),
-        
+
+        ('Alpha channel attribute', """\
+All the figure elements now have an alpha attribute to allow blending
+and translucency.  Not all backends are currenly capable of supporting
+alpha"""),
+
 	('Added x linesyle', """Matt MacMahon submitted a patch for an
 'x' linestyle.  Thanks Matt! """ ),
 
 	('gd module on win32', """With much weeping and gnashing of teeth and help from half the people
-on this globe, built a gdmodule win32 installer.  Sepcial thanks to
+on this globe, built a gdmodule win32 installer.  Special thanks to
 Stefan Kuzminski for putting up with my endless windows confusions.""" ),
 
 	('GD supports clipping and antialiased line drawing', """See
