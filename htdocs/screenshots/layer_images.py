@@ -16,17 +16,25 @@ x = arange(-3.0, 3.0, dx)
 y = arange(-3.0, 3.0, dy)
 X,Y = meshgrid(x, y)
 
+# when layering multiple images, the images need to have the same
+# extent.  This does not mean they need to have the same shape, but
+# they both need to render to the same coordinate system determined by
+# xmin, xmax, ymin, ymax
 
+xmin, xmax, ymin, ymax = min(x), max(x), min(y), max(y)
+extent = xmin, xmax, ymin, ymax
 Z1 = array(([0,1]*4 + [1,0]*4)*4); Z1.shape = 8,8  # chessboard
-im1 = imshow(Z1, cmap=cm.gray)
-im1.set_interpolation('nearest')
+im1 = imshow(Z1, cmap=cm.gray, interpolation='nearest',
+             extent=extent)
 hold(True)
 
 Z2 = func3(X, Y)
-im2 = imshow(Z2, cmap=cm.jet, alpha=.9)
-#im2.set_interpolation('nearest')
+im2 = imshow(Z2, cmap=cm.jet, alpha=.9, interpolation='bilinear',
+             extent=extent)
+axis([xmin, xmax, ymin, ymax])
 
-savefig('layer_images')
+
+#savefig('layer_images')
 
 show()
 
