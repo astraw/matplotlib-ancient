@@ -17,12 +17,12 @@ from matplotlib import rcParams
 
 
 from matplotlib.ticker import  IndexLocator, FuncFormatter, NullFormatter, MultipleLocator
-from matplotlib.dates import IndexDateFormatter, Eastern
+from matplotlib.dates import IndexDateFormatter
 from matplotlib.finance import candlestick2, plot_day_summary2, \
      volume_overlay, index_bar
 from matplotlib.matlab import *
 
-
+rcParams['timezone'] = 'US/Eastern'
 rc('grid', color=0.75, linestyle='-', linewidth=0.5)
 
 
@@ -67,7 +67,7 @@ def get_locator():
     return IndexLocator(10, 1)
 
 
-formatter =  IndexDateFormatter(times, '%b %d %y', tz=Eastern)
+formatter =  IndexDateFormatter(times, '%b %d %y')
 
 nullfmt   = NullFormatter()         # no labels
 
