@@ -122,7 +122,7 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Legend-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
-<dl><dt><a name="Legend-get_visible"><strong>get_visible</strong></a>(self, b)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="Legend-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <dl><dt><a name="Legend-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>

@@ -19,7 +19,6 @@ Features&nbsp;that&nbsp;are&nbsp;implemented<br>
 &nbsp;*&nbsp;DPI&nbsp;scaling&nbsp;properly&nbsp;-&nbsp;everything&nbsp;scales&nbsp;properly&nbsp;(dashes,&nbsp;linewidths,&nbsp;etc)<br>
 &nbsp;*&nbsp;draw&nbsp;polygon&nbsp;<br>
 &nbsp;*&nbsp;freetype2&nbsp;w/&nbsp;ft2font<br>
-&nbsp;*&nbsp;using&nbsp;ttf_manager&nbsp;to&nbsp;get&nbsp;font<br>
 &nbsp;<br>
 TODO:<br>
 &nbsp;<br>
@@ -221,27 +220,28 @@ is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-FT2Font"><strong>FT2Font</strong></a>(...)</dt><dd><tt><a href="#-FT2Font">FT2Font</a>(ttffile)<br>
 &nbsp;<br>
-Create&nbsp;a&nbsp;new&nbsp;FT2Font&nbsp;object;&nbsp;the&nbsp;following&nbsp;global&nbsp;font&nbsp;attributes<br>
-are&nbsp;defined<br>
-num_faces&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;number&nbsp;of&nbsp;faces&nbsp;in&nbsp;file<br>
-face_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;face&nbsp;flags&nbsp;as&nbsp;python&nbsp;int<br>
-style_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;style&nbsp;flags&nbsp;as&nbsp;python&nbsp;int<br>
-num_glyphs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;number&nbsp;of&nbsp;glyphs&nbsp;in&nbsp;the&nbsp;face<br>
-family_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;face&nbsp;family&nbsp;name<br>
-style_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;face&nbsp;syle&nbsp;name<br>
-num_fixed_sizes&nbsp;&nbsp;#&nbsp;the&nbsp;number&nbsp;of&nbsp;embedded&nbsp;bitmap&nbsp;strikes&nbsp;in&nbsp;the&nbsp;current&nbsp;face<br>
+Create&nbsp;a&nbsp;new&nbsp;FT2Font&nbsp;object<br>
+The&nbsp;following&nbsp;global&nbsp;font&nbsp;attributes&nbsp;are&nbsp;defined:<br>
+&nbsp;&nbsp;num_faces&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;faces&nbsp;in&nbsp;file<br>
+&nbsp;&nbsp;face_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;flags&nbsp;&nbsp;(int&nbsp;type);&nbsp;see&nbsp;the&nbsp;ft2font&nbsp;constants<br>
+&nbsp;&nbsp;style_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style&nbsp;flags&nbsp;&nbsp;(int&nbsp;type);&nbsp;see&nbsp;the&nbsp;ft2font&nbsp;constants<br>
+&nbsp;&nbsp;num_glyphs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;glyphs&nbsp;in&nbsp;the&nbsp;face<br>
+&nbsp;&nbsp;family_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;family&nbsp;name<br>
+&nbsp;&nbsp;style_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;syle&nbsp;name<br>
+&nbsp;&nbsp;num_fixed_sizes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;bitmap&nbsp;in&nbsp;the&nbsp;face<br>
+&nbsp;&nbsp;scalable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;is&nbsp;scalable<br>
 &nbsp;<br>
-#&nbsp;the&nbsp;following&nbsp;are&nbsp;only&nbsp;available&nbsp;if&nbsp;face.scalable<br>
-bbox&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;face&nbsp;global&nbsp;bounding&nbsp;box&nbsp;(xmin,&nbsp;ymin,&nbsp;xmax,&nbsp;ymax)<br>
-units_per_EM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;number&nbsp;of&nbsp;font&nbsp;units&nbsp;covered&nbsp;by&nbsp;the&nbsp;EM<br>
-ascender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;ascender&nbsp;in&nbsp;26.6&nbsp;units<br>
-descender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;descender&nbsp;in&nbsp;26.6&nbsp;units<br>
-height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;height&nbsp;in&nbsp;26.6&nbsp;units;&nbsp;used&nbsp;to&nbsp;compute&nbsp;a&nbsp;default<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line&nbsp;spacing&nbsp;(i.e.,&nbsp;the&nbsp;baseline-to-baseline&nbsp;distance)&nbsp;&nbsp;<br>
-max_advance_width&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;maximum&nbsp;horizontal&nbsp;cursor&nbsp;advance&nbsp;for&nbsp;all&nbsp;glyphs<br>
-max_advance_height&nbsp;&nbsp;&nbsp;#&nbsp;same&nbsp;for&nbsp;vertical&nbsp;layout<br>
-underline_position&nbsp;&nbsp;&nbsp;#&nbsp;vertical&nbsp;position&nbsp;of&nbsp;the&nbsp;underline&nbsp;bar<br>
-underline_thickness&nbsp;&nbsp;#&nbsp;vertical&nbsp;thickness&nbsp;of&nbsp;the&nbsp;underline</tt></dd></dl>
+The&nbsp;following&nbsp;are&nbsp;available,&nbsp;if&nbsp;scalable&nbsp;is&nbsp;true:<br>
+&nbsp;&nbsp;bbox&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;global&nbsp;bounding&nbsp;box&nbsp;(xmin,&nbsp;ymin,&nbsp;xmax,&nbsp;ymax)<br>
+&nbsp;&nbsp;units_per_EM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;font&nbsp;units&nbsp;covered&nbsp;by&nbsp;the&nbsp;EM<br>
+&nbsp;&nbsp;ascender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ascender&nbsp;in&nbsp;26.6&nbsp;units<br>
+&nbsp;&nbsp;descender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;descender&nbsp;in&nbsp;26.6&nbsp;units<br>
+&nbsp;&nbsp;height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;in&nbsp;26.6&nbsp;units;&nbsp;used&nbsp;to&nbsp;compute&nbsp;a&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line&nbsp;spacing&nbsp;(baseline-to-baseline&nbsp;distance)<br>
+&nbsp;&nbsp;max_advance_width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maximum&nbsp;horizontal&nbsp;cursor&nbsp;advance&nbsp;for&nbsp;all&nbsp;glyphs<br>
+&nbsp;&nbsp;max_advance_height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;same&nbsp;for&nbsp;vertical&nbsp;layout<br>
+&nbsp;&nbsp;underline_position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;position&nbsp;of&nbsp;the&nbsp;underline&nbsp;bar<br>
+&nbsp;&nbsp;underline_thickness&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;thickness&nbsp;of&nbsp;the&nbsp;underline</tt></dd></dl>
  <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
  <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
 </td></tr></table><p>
@@ -256,5 +256,5 @@ underline_thickness&nbsp;&nbsp;#&nbsp;vertical&nbsp;thickness&nbsp;of&nbsp;the&n
 <strong>PIXELS_PER_INCH</strong> = 96<br>
 <strong>True</strong> = True<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>fontManager</strong> = &lt;matplotlib.backends.ttf_font_manager.FontManager instance&gt;</td></tr></table>
+<strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;</td></tr></table>
 @footer@

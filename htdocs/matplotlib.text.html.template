@@ -37,11 +37,13 @@ Publicly&nbsp;accessible&nbsp;attributes<br>
 &nbsp;&nbsp;transy&nbsp;:&nbsp;the&nbsp;transform&nbsp;of&nbsp;the&nbsp;y&nbsp;data<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Text-__init__"><strong>__init__</strong></a>(self, dpi, bbox, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, text<font color="#909090">=''</font>, color<font color="#909090">='k'</font>, verticalalignment<font color="#909090">='bottom'</font>, horizontalalignment<font color="#909090">='left'</font>, fontname<font color="#909090">='Vera'</font>, fontsize<font color="#909090">=10.0</font>, fontweight<font color="#909090">='normal'</font>, fontangle<font color="#909090">='normal'</font>, rotation<font color="#909090">=None</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt></dl>
+<dl><dt><a name="Text-__init__"><strong>__init__</strong></a>(self, dpi, bbox, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, text<font color="#909090">=''</font>, color<font color="#909090">='k'</font>, verticalalignment<font color="#909090">='bottom'</font>, horizontalalignment<font color="#909090">='left'</font>, fontproperties<font color="#909090">=&lt;matplotlib.font_manager.FontProperties instance&gt;</font>, fontname<font color="#909090">='sans-serif'</font>, fontstyle<font color="#909090">='normal'</font>, fontangle<font color="#909090">='normal'</font>, fontvariant<font color="#909090">='normal'</font>, fontweight<font color="#909090">='normal'</font>, fontsize<font color="#909090">='small'</font>, rotation<font color="#909090">=None</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt></dl>
 
 <dl><dt><a name="Text-copy_properties"><strong>copy_properties</strong></a>(self, text)</dt></dl>
 
 <dl><dt><a name="Text-get_color"><strong>get_color</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;text</tt></dd></dl>
+
+<dl><dt><a name="Text-get_font_properties"><strong>get_font_properties</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;object</tt></dd></dl>
 
 <dl><dt><a name="Text-get_fontangle"><strong>get_fontangle</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;font&nbsp;angle&nbsp;as&nbsp;string</tt></dd></dl>
 
@@ -78,7 +80,7 @@ Bound2D&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Text-set_color"><strong>set_color</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color&nbsp;of&nbsp;the&nbsp;text</tt></dd></dl>
 
-<dl><dt><a name="Text-set_fontangle"><strong>set_fontangle</strong></a>(self, angle)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;angle,&nbsp;one&nbsp;of&nbsp;'normal',&nbsp;'italic',&nbsp;'oblique'</tt></dd></dl>
+<dl><dt><a name="Text-set_fontangle"><strong>set_fontangle</strong></a>(self, style)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;angle,&nbsp;one&nbsp;of&nbsp;'normal',&nbsp;'italic',&nbsp;'oblique'</tt></dd></dl>
 
 <dl><dt><a name="Text-set_fontname"><strong>set_fontname</strong></a>(self, fontname)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;name,&nbsp;eg,&nbsp;'Sans',&nbsp;'Courier',&nbsp;'Helvetica'</tt></dd></dl>
 
@@ -122,7 +124,7 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Text-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
-<dl><dt><a name="Text-get_visible"><strong>get_visible</strong></a>(self, b)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="Text-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <dl><dt><a name="Text-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
@@ -151,5 +153,5 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <td width="100%"><strong>False</strong> = False<br>
 <strong>True</strong> = True<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTK', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
 @footer@

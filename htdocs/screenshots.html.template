@@ -85,13 +85,15 @@ distribution for a handle graphics demo.""", 1),
 href=matplotlib.matlab.html#-axes>axes</a> command.  Here, two inset axes are
 placed over a <a href=matplotlib.matlab.html#-subplot>subplot</a>.""", 1), 
 
-('eeg', """ You can embed matplotlib into a pygtk or wxpython
-application.  Here is a screenshot of an eeg viewer written in pygtk
-using matplotlib.  The code demo linked above is a much simpler
-example of embedding matplotlib in pygtk.  For an example of how to
-use the navigation toolbar in your applications, see <a
-href=examples/embedding_in_gtk2.py>embedding_in_gtk2.py</a>.  If you
-want to use matplotlib in a wx application, see <a
+('eeg', """ You can embed matplotlib into a pygtk, wxpython or Tk
+applications.  Here is a screenshot of an eeg viewer written in pygtk
+using matplotlib; the lower axes is using <a
+href=matplotlib.matlab.html#-specgram>specgram</a> to plot the
+spectrogram of one of the EEG channels.  The code demo linked above is
+a much simpler example of embedding matplotlib in pygtk.  For an
+example of how to use the navigation toolbar in your applications, see
+<a href=examples/embedding_in_gtk2.py>embedding_in_gtk2.py</a>.  If
+you want to use matplotlib in a wx application, see <a
 href=examples/embedding_in_wx.py>embedding_in_wx.py</a>.  If you want
 to work with <a href=http://glade.gnome.org>glade</a>, see <a
 href=examples/mpl_with_glade.py>mpl_with_glade.py</a> """, 0),

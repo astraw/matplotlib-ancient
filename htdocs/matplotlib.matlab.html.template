@@ -422,7 +422,7 @@ Usage:&nbsp;<br>
 &nbsp;If&nbsp;X&nbsp;is&nbsp;MxNx4,&nbsp;assume&nbsp;RGBA<br>
 &nbsp;<br>
 &nbsp;IMSHOW(X,&nbsp;cmap)<br>
-&nbsp;cmap&nbsp;is&nbsp;a&nbsp;ColorMap&nbsp;instance&nbsp;used&nbsp;to&nbsp;make&nbsp;a&nbsp;pseudo-color&nbsp;plot<br>
+&nbsp;cmap&nbsp;is&nbsp;a&nbsp;colors.Colormap&nbsp;instance&nbsp;used&nbsp;to&nbsp;make&nbsp;a&nbsp;pseudo-color&nbsp;plot<br>
 &nbsp;<br>
 An&nbsp;Image&nbsp;instance&nbsp;is&nbsp;returned</tt></dd></dl>
  <dl><dt><a name="-legend"><strong>legend</strong></a>(*args, **kwargs)</dt><dd><tt>Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;current&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
@@ -906,7 +906,7 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>not_equal</strong> = &lt;ufunc 'not_equal'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTK', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}<br>
 <strong>readme</strong> = '<font color="#c040c0">\n</font>MLab2.py, release 1<font color="#c040c0">\n\n</font>Created on February 2003 b...<font color="#c040c0">\n</font>Look at: http://pdilib.sf.net for new releases.<font color="#c040c0">\n</font>'<br>
 <strong>remainder</strong> = &lt;ufunc 'remainder'&gt;<br>
 <strong>right_shift</strong> = &lt;ufunc 'right_shift'&gt;<br>

@@ -281,5 +281,5 @@ the&nbsp;figure&nbsp;in&nbsp;it.</tt></dd></dl>
 <strong>True</strong> = True<br>
 <strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>fontManager</strong> = &lt;matplotlib.backends.ttf_font_manager.FontManager instance&gt;</td></tr></table>
+<strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;</td></tr></table>
 @footer@

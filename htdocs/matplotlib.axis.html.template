@@ -133,7 +133,7 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Axis-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
-<dl><dt><a name="Axis-get_visible"><strong>get_visible</strong></a>(self, b)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="Axis-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <dl><dt><a name="Axis-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
 
@@ -202,7 +202,7 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Tick-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
-<dl><dt><a name="Tick-get_visible"><strong>get_visible</strong></a>(self, b)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="Tick-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <dl><dt><a name="Tick-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
 
@@ -318,7 +318,7 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="XAxis-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
-<dl><dt><a name="XAxis-get_visible"><strong>get_visible</strong></a>(self, b)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="XAxis-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <dl><dt><a name="XAxis-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
 
@@ -381,7 +381,7 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="XTick-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
-<dl><dt><a name="XTick-get_visible"><strong>get_visible</strong></a>(self, b)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="XTick-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <dl><dt><a name="XTick-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
 
@@ -497,7 +497,7 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="YAxis-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
-<dl><dt><a name="YAxis-get_visible"><strong>get_visible</strong></a>(self, b)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="YAxis-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <dl><dt><a name="YAxis-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
 
@@ -560,7 +560,7 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="YTick-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
-<dl><dt><a name="YTick-get_visible"><strong>get_visible</strong></a>(self, b)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+<dl><dt><a name="YTick-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <dl><dt><a name="YTick-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
 
@@ -609,5 +609,5 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>True</strong> = True<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTK', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
 @footer@
