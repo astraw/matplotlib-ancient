@@ -1,5 +1,31 @@
 New entries should be added at the top
 
+2004-07-21 Applied backend_agg memory leak patch from hayden
+           - jocallo@online.no.  Found and fixed a leak in binary
+	   operations on transforms.  Moral of the story:  never incref
+	   where you meant to decref!- JDH
+
+2004-07-21 Fixed a to string memory allocation bug in agg and image
+           modules - JDH
+
+2004-07-21 Added mpl_connect and mpl_disconnect to matlab interface -
+           JDH
+
+2004-07-21 Added beginnings of users_guide to CVS - JDH
+
+2004-07-20 ported toolbar2 to wx
+
+2004-07-20 upgraded to agg21 - JDH
+
+2004-07-20 Added new icons for toolbar2 - JDH
+
+2004-07-19 Added vertical mathtext for *Agg and GTK - thanks Jim
+           Benson! - JDH
+
+2004-07-16 Added ps/eps/svg savefig options to wx and gtk JDH
+
+2004-07-15 Fixed python framework tk finder in setupext.py - JDH
+
 2004-07-14 Fixed layer images demo which was broken by the 07/12 image
            extent fixes - JDH
 
@@ -29,6 +55,10 @@ New entries should be added at the top
 
 2004-07-09 added default arg None to matplotlib.matlab grid command to
            toggle current grid state
+
+============================
+
+2004-07-08 0.60.2 released
 
 2004-07-08 fixed a mathtext bug for '6'
 

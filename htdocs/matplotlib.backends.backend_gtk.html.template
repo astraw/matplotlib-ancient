@@ -144,7 +144,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137150472)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137154136)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -810,7 +810,7 @@ Methods defined here:<br>
 
 <dl><dt><a name="FigureCanvasGTK-mpl_disconnect"><strong>mpl_disconnect</strong></a>(self, cid)</dt></dl>
 
-<dl><dt><a name="FigureCanvasGTK-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt></dl>
+<dl><dt><a name="FigureCanvasGTK-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-realize"><strong>realize</strong></a>(self, widget)</dt></dl>
 
@@ -822,7 +822,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137113392)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137117104)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -1381,7 +1381,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137116128)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137119840)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -1804,7 +1804,7 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="NavigationToolbar2GTK-__init__"><strong>__init__</strong></a>(self, canvas)</dt></dl>
+<dl><dt><a name="NavigationToolbar2GTK-__init__"><strong>__init__</strong></a>(self, canvas, *args)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-save_figure"><strong>save_figure</strong></a>(self, button)</dt></dl>
 
@@ -1815,6 +1815,8 @@ Methods inherited from <a href="matplotlib.backend_bases.html#NavigationToolbar2
 <dl><dt><a name="NavigationToolbar2GTK-back"><strong>back</strong></a>(self, button, *args)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-forward"><strong>forward</strong></a>(self, button, *args)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-home"><strong>home</strong></a>(self, *args)</dt><dd><tt>restore&nbsp;the&nbsp;original&nbsp;view</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-pan"><strong>pan</strong></a>(self, button, *args)</dt></dl>
 
@@ -1882,7 +1884,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137116128)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137119840)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -2301,7 +2303,7 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 <dl><dt><a name="RendererGTK-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin, bbox)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes;&nbsp;x&nbsp;is&nbsp;the<br>
 distance&nbsp;in&nbsp;pixels&nbsp;from&nbsp;the&nbsp;left&nbsp;hand&nbsp;side&nbsp;of&nbsp;the&nbsp;canvas.&nbsp;y&nbsp;is<br>
 the&nbsp;distance&nbsp;from&nbsp;the&nbsp;origin.&nbsp;&nbsp;That&nbsp;is,&nbsp;if&nbsp;origin&nbsp;is&nbsp;upper,&nbsp;y<br>
-is&nbsp;the&nbsp;distance&nbsp;from&nbsp;top.&nbsp;&nbsp;If&nbsp;oriing&nbsp;is&nbsp;lower,&nbsp;y&nbsp;is&nbsp;the<br>
+is&nbsp;the&nbsp;distance&nbsp;from&nbsp;top.&nbsp;&nbsp;If&nbsp;origin&nbsp;is&nbsp;lower,&nbsp;y&nbsp;is&nbsp;the<br>
 distance&nbsp;from&nbsp;bottom</tt></dd></dl>
 
 <dl><dt><a name="RendererGTK-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;line&nbsp;from&nbsp;x1,y1&nbsp;to&nbsp;x2,y2</tt></dd></dl>

@@ -20,8 +20,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.47  2004/07/15 19:41:19  jdh2358
-fixed tk framework for os x
+Revision 1.48  2004/07/22 14:13:26  jdh2358
+more memory leak fixes
 
 Revision 1.5  2004/06/26 06:37:20  astraw
 Trivial bugfix to eliminate IndexError

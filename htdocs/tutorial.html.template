@@ -451,25 +451,13 @@ show()
 </a>
 
 All figure windows come with a navigation toolbar, which can be used
-to navigate through the data set.  You can pan and zoom on the X and Y
-axis for any combination of the axes that are plotted.  If you have a
-wheel mouse, you can move bidirectionally by scrolling the wheel over
-the controls.  For examples, the wheel mouse can be used to pan left
-or right by scrolling over <i>either</i> of the left arrow or right
-arrow buttons, so you never have to move the mouse to pan the x-axis
-left and right.  If you don't have a wheel mouse, buy one!<p>
+to navigate through the data set.  You can select either the "classic"
+or newfangled toolbar "toolbar2" in your <a
+href=.matplotlibrc>.matplotlibrc</a> file using the <tt>toolbar</tt>
+setting. 
 
-<table> <tr><td><img src=tut/navcontrols.png></td></tr> <tr><td
-width=400> <i>The left widget that says 'All' on the controls on the
-bottom of the figure is a drop down menu used to select which axes the
-controls affect.  You can select all, none, single, or combinations of
-axes.  The first set of 4 controls are used to pan left, pan right,
-zoom in and zoom out on the x axes.  The second set are used to pan
-up, pan down, zoom in and zoom out on the y axes.  The remaining
-buttons are used to redraw the figure, save (PNG or JPEG) the figure,
-or to close the figure window.</i> </td></tr> </table><br>
-
-matplotlib uses Numeric to clip (very fast) the data before they are
+If you want to interact with very large data sets, matplotlib supports
+data clipping where the data is clipped with numerix before they are
 plotted to the active viewport, so you can have a very large data set,
 plot the whole thing, set the view limits to a narrow range, and
 interactively scroll through the data with good interactive refersh
@@ -479,8 +467,113 @@ a 800 MHz PC.  See the <a
 href=examples/stock_demo.py>stock_demo.py</a> that comes with the
 matplotlib src for an example of a longish data set with a limited
 data view -- only the first 3 of 60 days worth of minute by minute
-stock quotes for Intel and Apple are initially shown in the view
-port.<p>
+stock quotes for Intel and Apple are initially shown in the view port.
+As in this example, data clipping is a feature that must be explicitly
+turned on.<p>
+
+<a name=classic><h4>Classic toolbar</h4></a>
+
+You can pan and zoom on the X and Y axis for any combination of the
+axes that are plotted.  If you have a wheel mouse, you can move
+bidirectionally by scrolling the wheel over the controls.  For
+examples, the wheel mouse can be used to pan left or right by
+scrolling over <i>either</i> of the left arrow or right arrow buttons,
+so you never have to move the mouse to pan the x-axis left and right.
+If you don't have a wheel mouse, buy one!<p>
+
+<table> 
+<tr><td><img src=tut/navcontrols.png></td></tr> <tr><td
+width=400> <i>The left widget that says 'All' on the controls on the
+bottom of the figure is a drop down menu used to select which axes the
+controls affect.  You can select all, none, single, or combinations of
+axes.  The first set of 4 controls are used to pan left, pan right,
+zoom in and zoom out on the x axes.  The second set are used to pan
+up, pan down, zoom in and zoom out on the y axes.  The remaining
+buttons are used to redraw the figure, save (PNG or JPEG) the figure,
+or to close the figure window.</i> </td></tr> </table><br>
+
+<a name=toolbar2><h4>toolbar2</h4></a>
+
+These buttons behave very differently from the classic the classic
+matplotlib toolbar (else why introduce a new one!) despite the visual
+similarity of the forward and back buttons<p>
+
+<table>
+
+The Forward and Back buttons are akin to the web browser forward and
+back buttons.  They are used to navigate back and forth between
+previously defined views.  They have no meaning unless you have
+already navigated somewhere else using the pan and zoom buttons.  This
+is analogous to trying to click 'back' on your web browser before
+visiting a new page.  Nothing happens.  'Home' always takes you to the
+first view.  For Home, Forward and Back, think web browser where data
+views are web pages.  Use the pan and zoom to rectangle to define new
+views.<p>
+
+The "Pan" button has two modes: pan and zoom.  Click this toolbar
+button to activate this mode.  Then put your mouse somewhere over an
+axes.  Mode 1: Press the left mouse button and hold it, dragging it to
+a new position.  When you release it, the data under the point where
+you pressed will be moved to the point where you released.  Mode 2:
+Press the right mouse button, dragging it to a new position.  The x
+axis will be zoomed in proportionate to the rightward movement and
+zoomed out proportionate to the leftward movement.  Ditto for the
+yaxis and up/down motions.<p>
+
+The Zoom to rectangle button: Click this toolbar button to activate
+this mode.  Put your mouse somewhere over and axes and press the left
+mouse button.  Drag the mouse while holding the button to a new
+location and release.  The axes view limits will be zoomed to the
+rectangle you have defined.<p>
+
+Save: click this button to launch a file save dialog.  All the *Agg
+backends know how to save the following image types: PNG, PS, EPS,
+SVG.  There is no support currently in Agg for writing to JPEG, TIFF
+(the regular wx and gtk backends handle these types).  It is possible
+to use matplotlib/agg + PIL to convert agg images to one of these
+other formats if required.  I can provide a recipe for you.  I prefer
+PNG over JPG and TIFF, which is why I haven't worked too hard to
+include these other image formats in agg.<p>
+
+<table> 
+<tr><td><img src=tut/navcontrols2.png></td></tr> <tr><td
+width=400> <i>The new toolbar2</i> </td></tr> </table><br>
+
+
+<a name="rc">
+<h3>Customizing matplotlib</h3>
+</a>
+
+matplotlib uses an rc configuration file <a
+href=.matplotlibrc>.matplotlibrc</a>.  At installation time, this is
+placed in a standard distutils path, eg
+<tt>C:\Python23\share\matplotlib\.matplotlibrc</tt> on windows or
+<tt>/usr/local/share/matplotlib/.matplotlibrc</tt> on linux and
+friends.  Every time you install matplotlib, this file will be
+overwritten, so if you want your customizations to be saved, please
+move this file to your HOME directory and make sure the HOME
+environment variable is set.<p>
+
+You can control the defaults of almost every property in matplotlib:
+figure size and dpi, line width, color and style, axes, axis and grid
+properties, text and font properties and so on.  The format of the
+file is documented within in, so please see <a
+href=.matplotlibrc>.matplotlibrc</a> for more information.<p>
+
+You can also dynamically change the defaults in a python script or
+interactively from the python shell using the <a
+href=matplotlib.matlab.html#-rc>rc</a> command.  For example to change
+the default line properties, you could do
+
+
+<pre>
+  >>> rc('lines', linewidth=2, color='r')
+</pre>
+
+And the default lines would be thicker and red.  All rc parameters
+except <tt>backend, numerix, interactive and toolbar</tt> can be
+customized this way dyanmically.  See <a
+href=matplotlib.matlab.html#-rc>rc</a> for more information.
 
 
 
@@ -542,26 +635,31 @@ plot([1,2,3], [1,4,9])
 <h3>Using the interactive shell</h3>
 </a>
 
-The interactive shell <a
-href=examples/interactive2.py>interactive2.py</a> in the src
-distribution automatically imports all the symbols matplotlib.matlab,
-which include those from from Numeric, MLab, and matplotlib.mlab, so
-you can start plotting right out of the starting gate<p>
-
-<pre>
-examples> ./interactive2.py
-Welcome to matplotlib.
-
-    help(matlab)   -- shows a list of all matlab compatible commands provided
-    help(plotting) -- shows a list of plot specific commands
-
->> plot([1,2,3])
-</pre>
+You can work with matplotlib interactively from the python shell.
+There are known incompatiblities with some of the backends with some
+of the IDEs, because they use different GUI event handlers. If you
+want to use matplotlib from an IDE, please consult the backends
+documentation for compatibility information. You will have the
+greatest likelihood of success if you work interactively from the
+standard python shell or using <a
+href=http://ipython.scipy.org>ipython</a>.  You must use the TkAgg
+backend to work interactively from either of these two shells.<p>
 
 As described <a href=tutorial.html#figs_and_axes>above</a> in working
 with multiple figures and axes, you can create an arbitrary number of
-figures and use the <a href=matplotlib.matlab.html#-figure>figure</a>
-command to switch back and forth between them.<p>
+figures and use the <a href=matplotlib.matlab.html#-figure>figure</a>,
+<a href=matplotlib.matlab.html#-subplot>subplot</a>, <a
+href=matplotlib.matlab.html#-axes>axes</a>, <a
+href=matplotlib.matlab.html#-clf>clf</a>, <a
+href=matplotlib.matlab.html#-cla>cla</a>, and <a
+href=matplotlib.matlab.html#-close>close</a> command to switch back
+and forth, clear and control the figures and axes. <p>
+
+To work interactively with other backends, shells or IDEs, please
+consult <a href=backends.html>backends</a> and <a
+href=interactive.html>interactive</a>.
+
+
 
 
 

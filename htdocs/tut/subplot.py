@@ -14,5 +14,5 @@ plot(t1, f(t1), 'bo', t2, f(t2), 'k')
 
 subplot(212)
 plot(t2, cos(2*pi*t2), 'r--')
-savefig('subplot', dpi=50)
+savefig('subplot')
 show()

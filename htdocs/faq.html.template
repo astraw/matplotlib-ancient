@@ -449,27 +449,22 @@ href=faq.html#CUSTOM>rcParams</a>."""),
 Absolutely.  See for example, <a href=examples/anim.py>anim.py</a> and <a
 href=examples/system_monitor.py>system_monitor.py</a>"""),
 
-    ('PERFORMANCE',
-     'Is matplotlib fast enough for very large data sets?',
+    ('DYNAMIC',
+     'Can matplotlib do dynamic plots, like digital oscilloscopes or animations?', 
+    """
+Absolutely.  See for example, <a href=examples/anim.py>anim.py</a> and <a
+href=examples/system_monitor.py>system_monitor.py</a>"""),
+
+    ('AXES',
+     'Can I change the size of the subplots',
      """
-The answer, of course, is "it depends".  I've worked hard to make
-matplotlib work well with very large data sets (100s of MB), because
-these are the kinds of data I need to handle at work.  It is very good
-at handling data sets where the x axis is contiguous (eg, time) and
-only a small portion of data in displayed in the viewport; see for
-example <a href=examples/stock_demo.py>stock_demo.py<a/> where you can
-scroll through 2 months of minute-by-minute stock quote data.<br>
 
-The performance with higher dimensional data, eg, pseudocolor plots
-with x, y, and intensity parameters, is now dramatically better with
-the image module.  Use imshow with a colormap in place of pcolor for
-fast image drawing.  See, for example, <a
-href=examples/specgram_demo.py>specgram_demo.py</a> and <a
-href=examples/image_demo.py>image_demo.py</a>.<br>
-
-Several people with high bandwidth requirements have reported being
-happy with matplotlib's performance.  If you find areas that need
-improvement, let me know.  """),
+subplot is just a helper function to generate regularly spaced axes.
+For more fine-grained control, you can position axes anywhere you want
+in any size using the axes command.  See
+the <a href=matplotlib.matlab.html#-axes>axes command</a> and the example
+<a href=examples/axes_demo.py>axes_demo.py<a/>.
+"""),
 
     ('IMAGES',
     'Can matplotlib handle image data?',
@@ -558,7 +553,7 @@ remove font.cache and rerun your script, capturing them to a file.
       "Why are my fonts not being rendered properly?",
     """
 This is probably due to an outdated freetype2 library.  The latest
-version is 2.1.8.  See <a href=matplotlib.font_manager.html>font manager
+version is 2.1.9.  See <a href=matplotlib.font_manager.html>font manager
 docs</a> for details.
 """ ),
 
@@ -572,7 +567,7 @@ leaks.  There is a leak in freetype 2.1.7 and earlier that was fixed
 in freetype 2.1.9.  The memory leak situation has continued to improve
 significantly as I've migrated almost all of the extension code to
 pycxx, and I use a number of unit tests to test leaks of various
-extension code components. <p
+extension code components. <p>
 
 Below is a prototypical script that I use to diagnose and report
 memory leaks.  Please use something like it when reporting leaks so I

@@ -96,10 +96,10 @@
 &nbsp;<br>
 &nbsp;&nbsp;The&nbsp;fonts&nbsp;\cal,&nbsp;\rm,&nbsp;\it,&nbsp;and&nbsp;\tt&nbsp;are&nbsp;allowed.<br>
 &nbsp;<br>
-&nbsp;&nbsp;The&nbsp;spacing&nbsp;elements&nbsp;\/&nbsp;and&nbsp;\hspace{num}&nbsp;are&nbsp;provided.&nbsp;&nbsp;\/&nbsp;inserts&nbsp;a<br>
-&nbsp;&nbsp;small&nbsp;space,&nbsp;and&nbsp;\hspace{num}&nbsp;inserts&nbsp;a&nbsp;fraction&nbsp;of&nbsp;the&nbsp;current<br>
-&nbsp;&nbsp;fontsize.&nbsp;&nbsp;Eg,&nbsp;if&nbsp;num=0.5&nbsp;and&nbsp;the&nbsp;fontsize&nbsp;is&nbsp;12.0,&nbsp;hspace{0.5}<br>
-&nbsp;&nbsp;inserts&nbsp;6&nbsp;points&nbsp;of&nbsp;space<br>
+&nbsp;&nbsp;The&nbsp;spacing&nbsp;elements&nbsp;\&nbsp;,&nbsp;\/&nbsp;and&nbsp;\hspace{num}&nbsp;are&nbsp;provided.&nbsp;&nbsp;\/<br>
+&nbsp;&nbsp;inserts&nbsp;a&nbsp;small&nbsp;space,&nbsp;and&nbsp;\hspace{num}&nbsp;inserts&nbsp;a&nbsp;fraction&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;current&nbsp;fontsize.&nbsp;&nbsp;Eg,&nbsp;if&nbsp;num=0.5&nbsp;and&nbsp;the&nbsp;fontsize&nbsp;is&nbsp;12.0,<br>
+&nbsp;&nbsp;hspace{0.5}&nbsp;inserts&nbsp;6&nbsp;points&nbsp;of&nbsp;space<br>
 &nbsp;<br>
 &nbsp;&nbsp;<br>
 &nbsp;&nbsp;If&nbsp;you&nbsp;find&nbsp;TeX&nbsp;expressions&nbsp;that&nbsp;don't&nbsp;parse&nbsp;or&nbsp;render&nbsp;properly,<br>
@@ -143,9 +143,9 @@ USAGE:<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;r'My&nbsp;label&nbsp;$x_i$'.&nbsp;&nbsp;<br>
 &nbsp;<br>
-&nbsp;&nbsp;But&nbsp;you&nbsp;can&nbsp;change&nbsp;fonts,&nbsp;as&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;but&nbsp;you&nbsp;can&nbsp;change&nbsp;fonts,&nbsp;as&nbsp;in&nbsp;<br>
 &nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;r'\rm{My&nbsp;label}&nbsp;x_i'&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;r'$\rm{My&nbsp;label}&nbsp;x_i$'&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;to&nbsp;achieve&nbsp;the&nbsp;same&nbsp;effect.<br>
 &nbsp;<br>
@@ -185,7 +185,8 @@ USAGE:<br>
 &nbsp;&nbsp;<br>
 BACKENDS<br>
 &nbsp;<br>
-&nbsp;&nbsp;mathtext&nbsp;currently&nbsp;works&nbsp;with&nbsp;GTK,&nbsp;Agg,&nbsp;GTKAgg,&nbsp;TkAgg&nbsp;and&nbsp;WxAgg.&nbsp;&nbsp;If<br>
+&nbsp;&nbsp;mathtext&nbsp;currently&nbsp;works&nbsp;with&nbsp;GTK,&nbsp;Agg,&nbsp;GTKAgg,&nbsp;TkAgg&nbsp;and&nbsp;WxAgg&nbsp;and<br>
+&nbsp;&nbsp;PS,&nbsp;though&nbsp;only&nbsp;horizontal&nbsp;and&nbsp;vertical&nbsp;rotations&nbsp;are&nbsp;supported.&nbsp;&nbsp;If<br>
 &nbsp;&nbsp;David&nbsp;incorporates&nbsp;ft2font&nbsp;into&nbsp;paint,&nbsp;it&nbsp;will&nbsp;be&nbsp;easy&nbsp;to&nbsp;add&nbsp;to<br>
 &nbsp;&nbsp;Paint.&nbsp;&nbsp;WX&nbsp;can&nbsp;follow&nbsp;the&nbsp;lead&nbsp;of&nbsp;GTK&nbsp;and&nbsp;use&nbsp;pixels&nbsp;API&nbsp;calls&nbsp;to<br>
 &nbsp;&nbsp;use&nbsp;mathtext.<br>
@@ -676,7 +677,7 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#Eleme
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-FT2Font"><strong>FT2Font</strong></a>(...)</dt><dd><tt>FT2Font</tt></dd></dl>
  <dl><dt><a name="-StringIO"><strong>StringIO</strong></a>(...)</dt><dd><tt><a href="#-StringIO">StringIO</a>([s])&nbsp;--&nbsp;Return&nbsp;a&nbsp;StringIO-like&nbsp;stream&nbsp;for&nbsp;reading&nbsp;or&nbsp;writing</tt></dd></dl>
- <dl><dt><a name="-math_parse_s_ft2font"><strong>math_parse_s_ft2font</strong></a>(s, dpi, fontsize)</dt><dd><tt>Parse&nbsp;the&nbsp;math&nbsp;expression&nbsp;s,&nbsp;return&nbsp;the&nbsp;(bbox,&nbsp;fonts)&nbsp;tuple&nbsp;needed<br>
+ <dl><dt><a name="-math_parse_s_ft2font"><strong>math_parse_s_ft2font</strong></a>(s, dpi, fontsize, angle<font color="#909090">=0</font>)</dt><dd><tt>Parse&nbsp;the&nbsp;math&nbsp;expression&nbsp;s,&nbsp;return&nbsp;the&nbsp;(bbox,&nbsp;fonts)&nbsp;tuple&nbsp;needed<br>
 to&nbsp;render&nbsp;it.<br>
 &nbsp;<br>
 fontsize&nbsp;must&nbsp;be&nbsp;in&nbsp;points<br>

@@ -81,8 +81,14 @@ where&nbsp;event&nbsp;is&nbsp;a&nbsp;<a href="#MplEvent">MplEvent</a>.&nbsp;&nbs
 &nbsp;&nbsp;&nbsp;is&nbsp;lower,&nbsp;left&nbsp;of&nbsp;canvas&nbsp;in&nbsp;pixel&nbsp;coords.&nbsp;&nbsp;Event.button&nbsp;is<br>
 &nbsp;&nbsp;&nbsp;optionally&nbsp;defined<br>
 &nbsp;<br>
+&nbsp;For&nbsp;the&nbsp;three&nbsp;events&nbsp;above,&nbsp;if&nbsp;the&nbsp;mouse&nbsp;is&nbsp;over&nbsp;the&nbsp;axes,<br>
+&nbsp;the&nbsp;variable&nbsp;event.inaxes&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;the&nbsp;axes&nbsp;it&nbsp;is&nbsp;over,<br>
+&nbsp;and&nbsp;additionally,&nbsp;the&nbsp;variables&nbsp;event.xdata&nbsp;and&nbsp;event.ydata<br>
+&nbsp;will&nbsp;be&nbsp;defined.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;mouse&nbsp;location&nbsp;in&nbsp;data&nbsp;coords.<br>
+&nbsp;See&nbsp;<a href="#MplEvent">MplEvent</a>.<br>
 &nbsp;<br>
-return&nbsp;a&nbsp;connection&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect</tt></dd></dl>
+return&nbsp;value&nbsp;is&nbsp;a&nbsp;connection&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with<br>
+mpl_disconnect</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasBase-mpl_disconnect"><strong>mpl_disconnect</strong></a>(self, cid)</dt><dd><tt>Connect&nbsp;s&nbsp;to&nbsp;func.&nbsp;return&nbsp;an&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect</tt></dd></dl>
 
@@ -205,18 +211,33 @@ avoid&nbsp;the&nbsp;performace&nbsp;hit&nbsp;of&nbsp;the&nbsp;conversion</tt></d
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>A&nbsp;matplotlib&nbsp;event.&nbsp;&nbsp;Attach&nbsp;additional&nbsp;attributes&nbsp;as&nbsp;defined&nbsp;in<br>
-FigureCanvas.connect<br>&nbsp;</tt></td></tr>
+FigureCanvas.connect.&nbsp;&nbsp;The&nbsp;following&nbsp;attributes&nbsp;are&nbsp;defined&nbsp;and<br>
+shown&nbsp;with&nbsp;their&nbsp;default&nbsp;values<br>
+name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;event&nbsp;name<br>
+canvas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;FigureCanvas&nbsp;instance&nbsp;generating&nbsp;the&nbsp;event<br>
+x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;x&nbsp;position&nbsp;-&nbsp;pixels&nbsp;from&nbsp;left&nbsp;of&nbsp;canvas<br>
+y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;y&nbsp;position&nbsp;-&nbsp;pixels&nbsp;from&nbsp;bottom&nbsp;of&nbsp;canvas<br>
+button&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;button&nbsp;pressed&nbsp;None,&nbsp;1,&nbsp;2,&nbsp;3<br>
+inaxes&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;Axes&nbsp;instance&nbsp;if&nbsp;mouse&nbsp;us&nbsp;over&nbsp;axes<br>
+xdata&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;x&nbsp;coord&nbsp;of&nbsp;mouse&nbsp;in&nbsp;data&nbsp;coords<br>
+ydata&nbsp;&nbsp;=&nbsp;None&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;y&nbsp;coord&nbsp;of&nbsp;mouse&nbsp;in&nbsp;data&nbsp;coords<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="MplEvent-__init__"><strong>__init__</strong></a>(self, name)</dt></dl>
+<dl><dt><a name="MplEvent-__init__"><strong>__init__</strong></a>(self, name, canvas)</dt></dl>
 
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>button</strong> = None</dl>
 
+<dl><dt><strong>inaxes</strong> = None</dl>
+
 <dl><dt><strong>x</strong> = None</dl>
 
+<dl><dt><strong>xdata</strong> = None</dl>
+
 <dl><dt><strong>y</strong> = None</dl>
+
+<dl><dt><strong>ydata</strong> = None</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -249,6 +270,8 @@ That's&nbsp;it,&nbsp;we'll&nbsp;do&nbsp;the&nbsp;rest!<br>&nbsp;</tt></td></tr>
 
 <dl><dt><a name="NavigationToolbar2-forward"><strong>forward</strong></a>(self, button, *args)</dt></dl>
 
+<dl><dt><a name="NavigationToolbar2-home"><strong>home</strong></a>(self, *args)</dt><dd><tt>restore&nbsp;the&nbsp;original&nbsp;view</tt></dd></dl>
+
 <dl><dt><a name="NavigationToolbar2-pan"><strong>pan</strong></a>(self, button, *args)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2-press_pan"><strong>press_pan</strong></a>(self, event)</dt></dl>
@@ -259,9 +282,10 @@ That's&nbsp;it,&nbsp;we'll&nbsp;do&nbsp;the&nbsp;rest!<br>&nbsp;</tt></td></tr>
 
 <dl><dt><a name="NavigationToolbar2-release_zoom"><strong>release_zoom</strong></a>(self, event)</dt></dl>
 
-<dl><dt><a name="NavigationToolbar2-save_figure"><strong>save_figure</strong></a>(self, button)</dt><dd><tt>save&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
+<dl><dt><a name="NavigationToolbar2-save_figure"><strong>save_figure</strong></a>(self, *args)</dt><dd><tt>save&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbar2-set_cursor"><strong>set_cursor</strong></a>(self, cursor)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;cursor&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;cursors&nbsp;values</tt></dd></dl>
+<dl><dt><a name="NavigationToolbar2-set_cursor"><strong>set_cursor</strong></a>(self, cursor)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;cursor&nbsp;to&nbsp;one&nbsp;of&nbsp;the&nbsp;backend_bases.<a href="#Cursors">Cursors</a><br>
+enums&nbsp;values</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbar2-update"><strong>update</strong></a>(self)</dt></dl>
 
