@@ -156,7 +156,7 @@ A tour of scipy
 \layout Standard
 
 
-\begin_inset Include \input{scipy_tour.py.lyx}
+\begin_inset Include \input{scipy_tour.lyx}
 preview false
 
 \end_inset 
