@@ -103,6 +103,24 @@ clicking on them, rather than from an IDE.  If you are interactively
 generating plots, your best bet is TkAgg from the standard python
 shell or ipython.</i>
 
+<h3><a name=osx>OS X</a></h3>
+
+All of the backends run on OS X.  fink users consult the fink section
+below.  Another option is <a
+href=http://www.stecf.org/macosxscisoft>scisoft</a> which packages
+many scientific packages for python on OS X, including matplotlib,
+although it is designed for astronomical analysis.</p>
+
+If you want to compile yourself on OS X, make sure you read the
+compiling instructions above.  You will need to install freetype2,
+libpng and zlib via fink or from src.  You will also need the base
+libraries for a given backend.  Eg, if you want to run TkAgg, you will
+need a python with Tkinter; if you want to use WxAgg, install
+wxpython.  See <a href=backends.html>backends</a> for a more
+comprehensive discussion of the various backend requirements.  Edit
+setup.py to configure the backends you want to build as described
+above.
+
 <h2>Package Managers: (rpms, apt, fink)</h2>
 
 <h3><a name=rpms>RPMS</a></h3>
@@ -121,7 +139,7 @@ they require), I suggest
   <li>tk backend: tcl, tk, tkinter</li>
 
   <li>wx/wxagg backends - the wxpython rpms from <a
-  href=http://wxpython.org</a> from wxpython</a></li>
+  href=http://wxpython.org</a>wxpython</a></li>
 
 </ul>
 
@@ -139,24 +157,12 @@ packages at http://mentors.debian.net
     </li>
    
       <li> then run:
-<pre>         
+<pre>   
         > apt-get update
         > apt-get install python-matplotlib python-matplotlib-doc
 </pre>         
   </li>
-
-<h3><a name=osx>OS X</a></h3>
-
-All of the backends run on OS X.  You will need to install freetype2,
-libpng and zlib via fink or from src.  You will also need the base
-libraries for a given backend.  Eg, if you want to run TkAgg, you will
-need a python with Tkinter; if you want to use WxAgg, install
-wxpython.  See <a href=backends.html>backends</a> for a more comprehensive
-discussion of the various backend requirements.  Edit setup.py to
-configure the backends you want to build as described above.  You may
-want to look at <a href=http://www.stecf.org/macosxscisoft>scisoft</a>
-which packages many scientific packages for python on OS X, including
-matplotlib, although it is designed for astronomical analysis.
+</ul>
 
 
 <h3><a name=fink>Fink</a></h3>
