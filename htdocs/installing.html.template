@@ -13,8 +13,9 @@ href=http://antigrain.com>antigrain</a> (agg) backend.  This is a high
 quality 2D library that supports fast antialiasing, alpha blending and
 much more.  If you want to produce PNGs or GUI images that support all
 of matplotlib's features, you should compile matplotlib with agg
-support and use one of the GUI agg backends: GTKAgg, WXAgg, TkAgg or
-FLTKAgg.<p>
+support and use one of the GUI agg backends as described below:
+GTKAgg, WXAgg, TkAgg or FLTKAgg.  All of these features are included
+in the windows installer<p>
 
 <h2><a name=compiling>Compiling</a></h2>
 
@@ -78,10 +79,11 @@ make sure this setting corresponds to your preferred array package.<p>
 
 With a standard python + Numeric/numarray + matplotlib, the following
 backends should work on windows: agg, tkagg, ps, svg.  If you want
-others, eg a wx, wxarr, gtk or gtkagg, you'll need to install the
-requisite GUI toolkits.  This is fairly easy, as both wxpython and
-pygtk come with windows friendly installers.  The latter includes an
-additional requirement of the GTK runtime.<p>
+others, eg a wx, wxagg, gtk or gtkagg, you'll need to install the
+requisite GUI toolkits, as described on <a
+href=backends.html>backends</a>.  This is fairly easy, as both
+wxpython and pygtk come with windows friendly installers.  The latter
+includes an additional requirement of the GTK runtime.<p>
 
 All of the GUI backends run on windows, but TkAgg is probably the best
 for interactive use from the standard python shell or ipython.  The
@@ -89,12 +91,12 @@ windows installer (*.exe) on the download page contains all the code
 you need to get up and running.  However, there are many examples that
 are not included in the windows installer.  If you want to try the
 many demos that come in the matplotlib src distribution, download the
-zip file and look in the examples subdir.
+zip file and look in the examples subdir.<p>
 
 <i>Important: There are known conflicts with some of the backends with
 some python IDEs such as pycrust, idle.  If you want to use matplotlib
 from an IDE, please consult <a
-href=http://matplotlib.sf.net/backends.html>backends</a> for
+href=backends.html>backends</a> for
 compatibility information.  You will have the greatest likelihood of
 success if you run the examples from the command shell or by double
 clicking on them, rather than from an IDE.  If you are interactively
@@ -103,7 +105,7 @@ shell or ipython.</i>
 
 <h2>Package Managers: (rpms, apt, fink)</h2>
 
-<h3><a name=rpms>RPMS</a>/h2>
+<h3><a name=rpms>RPMS</a></h3>
 
 To build all the backends on a binary linux distro such as redhat, you
 need to install a number of the devel libs (and whatever dependencies
@@ -119,7 +121,7 @@ they require), I suggest
   <li>tk backend: tcl, tk, tkinter</li>
 
   <li>wx/wxagg backends - the wxpython rpms from <a
-  href=http://wxpython.org</a> from wxpython</a>
+  href=http://wxpython.org</a> from wxpython</a></li>
 
 </ul>
 
@@ -149,13 +151,12 @@ All of the backends run on OS X.  You will need to install freetype2,
 libpng and zlib via fink or from src.  You will also need the base
 libraries for a given backend.  Eg, if you want to run TkAgg, you will
 need a python with Tkinter; if you want to use WxAgg, install
-wxpython.  See <a href=http://matplotlib.sf.net/backends.html</a> for
-a more comprehensive discussion of the various backend requirements.
-Edit setup.py to configure the backends you want to build as described
-above.  You may want to look at <a
-href=http://www.stecf.org/macosxscisoft>scisoft</a> which packages
-many scientific packages for python on OS X, including matplotlib,
-although it is designed for astronomical analysis.
+wxpython.  See <a href=backends.html>backends</a> for a more comprehensive
+discussion of the various backend requirements.  Edit setup.py to
+configure the backends you want to build as described above.  You may
+want to look at <a href=http://www.stecf.org/macosxscisoft>scisoft</a>
+which packages many scientific packages for python on OS X, including
+matplotlib, although it is designed for astronomical analysis.
 
 
 <h3><a name=fink>Fink</a></h3>
