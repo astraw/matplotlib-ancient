@@ -14,7 +14,7 @@
 Plot Functionality
 ###################
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Math and regular text
+Math text
 *******************
 Support special symbols
 
@@ -27,14 +27,6 @@ such as the Angstrom symbol requires additional work.
 Postscript support
 
 not started
-*******************
-Relative font sizes
-
-not started
-
-This will allow specification of a font size relative to
-an existing font rather than in absolute terms, which will 
-make scaling all fonts within a plot simpler.
 *******************
 Parser fixes
 
@@ -57,6 +49,27 @@ not started
 add spacing commands
 
 not started
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Regular text
+*******************
+Relative font sizes
+
+not started
+
+This will allow specification of a font size relative to
+an existing font rather than in absolute terms, which will 
+make scaling all fonts within a plot simpler.
+
+*******************
+Newline separated text and arbitrary rotations
+
+partial
+
+agg and postscript support arbitrary rotations but the horizontal and
+vertical alignment strings only work with 0 and 90 degrees.  We want
+to support arbitrary rotations w/ newlines across backends, with a
+high priority given to Agg and PS.
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Plot types
@@ -83,6 +96,7 @@ axis, this work would make it easier to create such plots.
 Contour plots
 
 not started
+
 *******************
 Log histogram
 
