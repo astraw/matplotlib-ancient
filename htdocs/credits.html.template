@@ -47,7 +47,8 @@ matplotlib was written by John Hunter<p>
   <li>Jim Benson provided the patch to handle vertical mathttext</li>
 
   <li>Gregory Lielens provided the fltk backend and several patches
-  for the frontend, including contributions to toolbar2	</li>
+  for the frontend, including contributions to toolbar2, and support
+  for log ticking with alternate bases and major and minor log ticking</li>
 
 </ul>
 
