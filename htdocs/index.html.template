@@ -21,6 +21,7 @@ commands = (
     ('gray', 'set current colormap to gray'),	    
     ('grid', 'set the axis grid lines on or off'),	
     ('hist', 'make a histogram'),
+    ('imread', 'read an image file into an array'),
     ('imshow', 'show an image'),
     ('jet', 'set current colormap to jet'),	        
     ('legend', 'add a legend to the axes'),

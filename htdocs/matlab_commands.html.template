@@ -25,6 +25,7 @@ plotcommands = (
     ('grid', 'set the axis grid lines on or off'),
     ('hist', 'make a histogram'),
     ('hold', 'set the hold state on current axes'),
+    ('imread', 'read an image file into an array'),
     ('imshow', 'show an image'),
     ('legend', 'add a legend to the axes'),
     ('loglog', 'a log log plot'),
