@@ -1,21 +1,35 @@
 new_to_50 = ( 
 
-	('GD supports clipping and antialiased line drawing', 
-"""See instructions about ugrading gd and gdmodule at <a
-href=backends.html#GD>Installing the GD backend</a>."""),
+	('GD supports clipping and antialiased line drawing', """See
+instructions about ugrading gd and gdmodule at <a
+href=backends.html#GD>Installing the GD backend</a>.  The line object
+has a new 'antialiased' property, that if true, the backend will
+render the line antialiased if supported.  """),
 
 	('bar charts support positive and negative bars', """You can
-provide an optional argument originY to the <a
+provide an optional argument bottom to the <a
 href=matplotlib.matlab.html#bar>bar</a> command to determine where the
-inflection point is - default at 0.  Thanks to David Moore for the
-patch"""),
+bottom of each bar is, default 0 for all.  This enables stacked bar
+plots and candelstick plots -- <a
+href=examples/bar_stacked.py>examples/bar_stacked.py</a>.  Thanks to
+David Moore and John Gill for suggestions and code.  """),
 
 	('Bugfixes', """\
 
 <ul>
 
+  <li> All : the yticks on the right hand side were placed incorretly,
+  now fixed</li>
+
+  <li> All : ticklabels now make a more intelligent choice about how
+  many significant digits to display </li>
+
   <li> GD : An int truncation bug was causing the dotted lines to
   disappear</li>
+
+  <li> GD and GTK : Fixed line width to scale with DPI</li>
+
+  <li> GD : Fixed small text layout bug</li>
 
   <li> GD : Fixed the constant for GD which maps pixels per inch -
   this should give better agreement with other backends witht he
