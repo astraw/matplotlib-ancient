@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.afm</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/afm.py">/matplotlib/afm.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/afm.py">/usr/local/lib/python2.3/site-packages/matplotlib/afm.py</a></font></td></tr></table>
     <p><tt>This&nbsp;is&nbsp;a&nbsp;python&nbsp;interface&nbsp;to&nbsp;Adobe&nbsp;Font&nbsp;Metrics&nbsp;Files.&nbsp;&nbsp;Although&nbsp;a<br>
 number&nbsp;of&nbsp;other&nbsp;python&nbsp;implementations&nbsp;exist&nbsp;(and&nbsp;may&nbsp;be&nbsp;more&nbsp;complete<br>
 than&nbsp;mine)&nbsp;I&nbsp;decided&nbsp;not&nbsp;to&nbsp;go&nbsp;with&nbsp;them&nbsp;because&nbsp;either&nbsp;they&nbsp;were<br>

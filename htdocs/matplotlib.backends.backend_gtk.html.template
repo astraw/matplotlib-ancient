@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_gtk</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/backends/backend_gtk.py">/matplotlib/backends/backend_gtk.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_gtk.py">/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_gtk.py</a></font></td></tr></table>
     <p></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -137,7 +137,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (136924104)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (136922608)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -811,7 +811,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (136886064)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (136885576)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -1169,7 +1169,7 @@ window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;gtk.Window<br>&nbsp;</
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="FigureManagerGTK-__init__"><strong>__init__</strong></a>(self, canvas, num)</dt></dl>
 
-<dl><dt><a name="FigureManagerGTK-add_axes"><strong>add_axes</strong></a>(self, rect, axisbg)</dt></dl>
+<dl><dt><a name="FigureManagerGTK-add_axes"><strong>add_axes</strong></a>(self, rect, **kwargs)</dt></dl>
 
 <dl><dt><a name="FigureManagerGTK-add_subplot"><strong>add_subplot</strong></a>(self, *args, **kwargs)</dt></dl>
 
@@ -1200,7 +1200,7 @@ window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;gtk.Window<br>&nbsp;</
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="FigureManagerGTK-__init__"><strong>__init__</strong></a>(self, canvas, num)</dt></dl>
 
-<dl><dt><a name="FigureManagerGTK-add_axes"><strong>add_axes</strong></a>(self, rect, axisbg)</dt></dl>
+<dl><dt><a name="FigureManagerGTK-add_axes"><strong>add_axes</strong></a>(self, rect, **kwargs)</dt></dl>
 
 <dl><dt><a name="FigureManagerGTK-add_subplot"><strong>add_subplot</strong></a>(self, *args, **kwargs)</dt></dl>
 
@@ -1372,7 +1372,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (136889832)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (136888312)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -1833,7 +1833,7 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>fontangles</strong> = {'italic': 2, 'normal': 0, 'oblique': 1}</dl>
 
-<dl><dt><strong>fontweights</strong> = {'bold': 700, 'heavy': 900, 'light': 300, 'normal': 400, 'ultrabold': 800, 'ultralight': 200}</dl>
+<dl><dt><strong>fontweights</strong> = {100: 200, 200: 300, 300: 300, 400: 400, 500: 400, 600: 700, 700: 700, 800: 900, 900: 800, 'black': 800, ...}</dl>
 
 <dl><dt><strong>layoutd</strong> = {}</dl>
 
@@ -1878,5 +1878,6 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
 <strong>UInt8</strong> = 'b'<br>
 <strong>colorManager</strong> = &lt;matplotlib.backends.backend_gtk.ColorManagerGTK instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
 <strong>useMathText</strong> = True</td></tr></table>
 @footer@

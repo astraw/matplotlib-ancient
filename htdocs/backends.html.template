@@ -28,6 +28,7 @@ command, the backend can be chosen from the command line with the
 > python subplot_demo.py -dGTKAgg  # GTK GUI with antigrain rendering
 > python subplot_demo.py -dTkAgg   # Tkinter GUI with antigrain rendering
 > python subplot_demo.py -dWX      # WX backend
+> python subplot_demo.py -dWX      # WX GUI with antigrain rendering
 
 # The image backends, no window pops up; you must call savefig
 > python subplot_demo.py -dAgg     # antigrain geometry backend image
@@ -64,7 +65,8 @@ href=matplotlib.backends.backend_gtk.html>GTK</a>, <a
 href=matplotlib.backends.backend_gtkagg.html>GTKAgg</a>, <a
 href=matplotlib.backends.backend_ps.html>PS</a> <a
 href=matplotlib.backends.backend_tkagg.html>TkAgg</a> <a
-href=matplotlib.backends.backend_ps.html>WX</a> <a
+href=matplotlib.backends.backend_wx.html>WX</a> <a
+href=matplotlib.backends.backend_wxagg.html>WXAgg</a> <a
 href=matplotlib.backends.backend_paint.html>Paint</a> and <a
 href=matplotlib.backends.backend_template.html>Template</a>.
 
@@ -92,6 +94,7 @@ this page below or by clicking
 <li><a href=backends.html#TkAgg>TkAgg</a></li>
 <li><a href=backends.html#GTKAgg>GTKAgg</a></li>
 <li><a href=backends.html#WX>WX</a></li>
+<li><a href=backends.html#WXAgg>WXAgg</a></li>
 <li><a href=backends.html#PS>PS</a></li>
 <li><a href=backends.html#Paint>Paint</a></li>
 <li><a href=backends.html#GD>GD</a></li>
@@ -127,25 +130,34 @@ GTK runtime</a></li>
   the email will be sure to get past my spam filters.<p>
 
 
-<h4>Windows Users</h4>
+<h2> Windows GTK Quickstart</h2>
 
-   Windows users should consult <a
-   href=http://www.mapr.ucl.ac.be/~gustin/win32_ports>Cedric's pygtk
-   for win32 site</a> for information about pygtk for win32.
-   Basically, you need to install the <a
-   href=http://www.pcpm.ucl.ac.be/~gustin/win32_ports/>GTK 2.2.4
-   Runtime</a> and <a
-href=http://www.pcpm.ucl.ac.be/~gustin/win32_ports/binaries/pygtk-2.2.0-1.win32-py2.3.exe>pygtk-2.2.0</a>
-   both of which have friendly windows installers.  After you install
-   the runtime, you need to add the bin and lib subdirs of your
-   install dir to your PATH.  Cedric's website also provides
-   pygtk-1.99.16 for python2.2 users which also works fine with
-   matplotlib.<p>
+These install instructions will provide the <a
+href=backends.html#GTK>GTK<a/> and <a
+href=backends.html#GTKAgg>GTK<a/>GTKAgg</a> backends on windows.  <ul>
 
-  See the <a href=fonts.html>fonts</a> for more information about
-  getting the GTK backend setup for proper font rendering.  If you are
-  experiencing warnings about Times font not being found, see this <a
-  href=faq.html#WINFONTS>FAQ</a> entry <p>
+<li>Install <a
+href=http://sourceforge.net/project/showfiles.php?group_id=1369&release_id=176455>
+Numeric/numarray</a>. If you are using the enthought edition of
+python, you can skip this step.</li>
+
+<li>Install the <a href=http://prdownloads.sourceforge.net/gtk-win>
+GTK runtime</a> (currently version 2.2.4.1). <i>I recommend not using
+the default install location as it makes it difficult to set your
+path; use C:\GTk instead</i></li>
+
+<li>Install <a
+href=http://www.pcpm.ucl.ac.be/~gustin/win32_ports/binaries/pygtk-2.2.0-1.win32-py2.3.exe>pygtk-2.2.0</a></li>
+
+<li>Modify your path.  Check <a
+href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.012.htp>this
+FAQ entry</a> for information on how to do this right.
+
+<li> Install matplotlib using the windows installer on the <a
+ref=http://sourceforge.net/projects/matplotlib>download page<a></li>
+
+</ul> 
+
 
 <a name=WX><h3>WX</h3></a>
 
@@ -154,6 +166,15 @@ may want to consider the <a
 href=http://www.enthought.com/python>enthought edition</a> of python,
 which comes with wxpython and Numeric built in, so matplotlib will
 work right out of the box.  matplotlib under WX has been tested on
+linux, win32 and OSX.<p>
+
+<a name=WXAgg><h3>WXAgg</h3></a>
+
+Requires <a href=http://www.wxpython.org>wxpython</a>.  Windows users
+may want to consider the <a
+href=http://www.enthought.com/python>enthought edition</a> of python,
+which comes with wxpython and Numeric built in, so matplotlib will
+work right out of the box.  matplotlib under WXAgg has been tested on
 linux, win32 and OSX.<p>
 
 <a name=Agg><h3>Agg output</h3></a>
@@ -168,12 +189,7 @@ GTKAgg and TkAgg backends -- see <tt>setup.py</tt><p>
 
 The windows installer comes with Agg prebuilt.  For other platforms,
 to compile Agg from src, set the <tt>BUILD_AGG</tt> flag in
-<tt>setup.py</tt>.  Like the other freetype image modules GD and
-Paint, Agg uses TTFQuery and fonttools for cross-platform font
-finding.  These modules, too, are included in the windows installer,
-and will be build automatically by setting BUILD_AGG.  See <a
-href=fonts.html#TTFFONTS>ttf fonts</a> for information about setting
-your paths to find your <tt>*.ttf</tt> font files.<p>
+<tt>setup.py</tt>.  
 
 <a name=GTKAgg><h3>GTKAgg: GTK GUI with antigrain rendering</h3></a>
 
@@ -200,6 +216,9 @@ built from source code (Python.org tarball, not the redhat SRPM)
 includes Tkinter support by default on Red Hat Linux.
 
 <h3><a name=GD>GD output</a></h3>
+
+The recommended image backend is Agg.  If you are sure you want to use
+GD, read on.<p>
   
 The GD module can be used to create images with no X11 server, and is
 particularly useful for web application developers who want dynamic
@@ -207,11 +226,9 @@ graphing capabilities.  There are a number of prerequisites but they
 are easy to install (Windows users should skip ahead to the win32
 section).<p>
 
-The GD backend depends on Numeric/numarray, gdmodule, gd, TTFQuery and
-fonttools.  To ease installation, the latter two packages now ship
-with matplotlib.  Set the flag <tt>BUILD_FONTTOOLS</tt> in setup.py to
-build both TTFQuery and fonttools with matplotlib.  Below are
-instructions for building gdmoule.
+The GD backend depends on Numeric/numarray, gdmodule, and gd.  To ease
+installation, the latter two packages now ship with matplotlib.  Below
+are instructions for building gdmodule.
 	
   <ul>
 
@@ -227,35 +244,11 @@ instructions for building gdmoule.
   href=http://newcenturycomputers.net/projects/gdmodule.html>gdmodule-0.52</a>
   -- The python interface to the gd module.</li>
 
-  <li><a href="http://fonttools.sourceforge.net/">font tools</a> -- Base
-  library for handling TTF fonts -- required by TTF query.</li>  
-
-</ul>
-   <h4>Quick install guide for GD module: linux and friends</h4>
- 
-   The latest snapshot of matplotlib requires a patch to
-   gdmodule-0.52.  
-
-   <pre>
-    cd /var/tmp
-    tar xvfz ~/src/gd-2.0.22.tar.gz
-    cd gd-2.0.22/
-    ./configure --prefix=/usr
-    sudo make install
-
-    cd /var/tmp
-    tar xvfz ~/python/src/gdmodule-0.52.tar.gz
-    cd gdmodule-0.52
-    sudo python2.3 Setup.py install
-
-   </pre>
-</ul>
 
 
 <h4><a name=GDWIN32>Quick install guide for GD output: Windows</a></h4>
 
-The windows installer for matplotlib comes with fonttools and TTFQuery
-built in.  In addition to that package and Numeric, you'll need
+In addition to Numeric, you'll need
 
 <ul>
 
@@ -265,11 +258,6 @@ PATH</li>
 <li> gdmodule for win32 and python2.3 <a href=gd/gdmodule-0.52a.win32-py2.3.exe >gdmodule-0.52a</a>.</li>
 
 </ul>
-
-See the <a href=fonts.html#TTFFONTS>fonts</a> for more information
-about getting the GD backend setup for proper font rendering.  Note
-the formerly named <tt>GDFONTPATH</tt> is now called
-<tt>TTFPATH</tt>.<p>
 
 <a name=PS><h3>Postscript</h3></a>
 
@@ -294,10 +282,6 @@ exposes some of them, and David has been extending it to expose more.<p>
 The paint backend requires <a
 href=http://sourceforge.net/projects/numpy>Numeric/numarray</a>, <a
 href=http://sourceforge.net/projects/pypaint>pypaint</a> version 0.3.
-If you want cross-platform freetype font selection support, you'll
-also need TTFQuery and fonttools - these now ship with matplotlib in
-both the src and windows binary distributions.  See <a
-href=fonts.html#TTFFONTS>freetype fonts</a> for more information.<p>
 
 libart is highly portable, and the paint backend has been confirmed to
 work on win32 and linux.  The pypaint web site has a src distribution

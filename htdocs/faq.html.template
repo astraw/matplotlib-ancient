@@ -3,12 +3,11 @@ FAQs = (
     ('NUMARRAY',
     'Does matplotlib work with numarray?',
     """
-Yes.  Todd Miller has added a numeric module which allows you to
-choose between Numeric or numarray at the promptw, in a config file, or
-using an environment variable.  For the most part, this works
-seamlessly.  See <a href=NUMARRAY_ISSUES>NUMARRAY_ISSUES</a> and the
-<a href=matplotlib.numerix.html>numerix</a> module for information.
-</a> </a>
+Yes.  Todd Miller has added a numerix module which allows you to
+choose between Numeric or numarray at the promptw, in a config file,
+or using an environment variable.  For the most part, this works
+seamlessly.  See <a href=numerix.html>numerix module</a> for more
+information.
 """),
 
     ('MATPLOTLIBRC', 
@@ -125,6 +124,26 @@ your best best.  Tk widgets are not visually stunning. </li>
 </ul>
 
 
+"""),
+
+    ('DATES',
+     'Can I plot dates?',
+     r"""
+As of matplotlib-0.53, you can plot dates using a variety of datetime
+instances (eg python2.3 datetime module, mx.DateTime, raw epoch data).
+There are a number of converters, major and minor tick locators, and
+date formatters specialized for plotting dates.  See see <a
+href=matplotlib.ticker.html>ticker</a> and <a
+href=matplotlib.dates.html>dates</a> for details and usage and the
+examples <a href=examples/date_demo1.py>date_demo1.py</a> and <a
+href=examples/date_demo2.py>date_demo2.py</a>.
+"""),
+
+    ('TWOSCALES',
+     'Can I plot data with two y axes scales?',
+     r"""
+As of matplotlib-0.53, there is support for this.  See <a
+href=examples/two_scalers.py>two_scales.py</a>.
 """),
 
     ('MATHTEXT',

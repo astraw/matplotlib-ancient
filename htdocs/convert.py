@@ -2,6 +2,7 @@ import yaptu
 import re, os, sys, copy
 from StringIO import StringIO
 
+from hthelpers import modules
 rex=re.compile('@([^@]+)@')
 rbe=re.compile('\s*\+')
 ren=re.compile('\s*-')
@@ -79,36 +80,7 @@ lines = file('footer.html.template').readlines()
 cop.copy(lines)
 params['footer'] = footerBuffer.getvalue()
 
-docs = (
-    'matplotlib.afm.html.template',
-    'matplotlib.artist.html.template',
-    'matplotlib.axes.html.template',
-    'matplotlib.axis.html.template',        
-    'matplotlib.backend_bases.html.template',
-    'matplotlib.backends.backend_agg.html.template',
-    'matplotlib.backends.backend_gd.html.template',
-    'matplotlib.backends.backend_gtk.html.template',
-    'matplotlib.backends.backend_gtkgd.html.template',
-    'matplotlib.backends.backend_paint.html.template',
-    'matplotlib.backends.backend_ps.html.template',
-    'matplotlib.backends.backend_template.html.template',
-    'matplotlib.backends.backend_tkagg.html.template',    
-    'matplotlib.backends.backend_wx.html.template',
-    'matplotlib.colors.html.template',
-    'matplotlib.cbook.html.template',
-    'matplotlib.figure.html.template',
-    'matplotlib.image.html.template',            
-    'matplotlib.legend.html.template',        
-    'matplotlib.lines.html.template',
-    'matplotlib.matlab.html.template',
-    'matplotlib.mathtext.html.template',
-    'matplotlib.mlab.html.template',
-    'matplotlib.numerix.html.template',    
-    'matplotlib.patches.html.template',
-    'matplotlib.table.html.template',    
-    'matplotlib.text.html.template',    
-    'matplotlib.transforms.html.template',
-         )
+docs = [modname + '.html.template' for modname in modules]
          
 
 files = [

@@ -13,7 +13,6 @@ If these dependencies are satisfied, just do the usual thing:<p>
 Matplotlib is known to work on several linux, win32 and OS X
 platforms; it should run anywhere that python and Numeric run.  
 
-
 To get the most out of matplotlib, you will probably want to install
 one or more of the additional backends, which provide output to
 various GUI and image rendering libraries.  Each of these has
@@ -30,64 +29,37 @@ Note that if you install matplotlib anywhere other than the default
 location, you will need to set the MATPLOTLIBDATA environment variable
 to point to the install base dir. 
 
-<h2> GTK Quickstart </h2>
+<h2>Windows</h2>
 
-The GTK backend was the first and thus arguably most mature backend.
-Below is a quickguide to what you'll need to get matplotlib up and
-running with the GTK backend.  
+If you don't already have python installed, you may want to consider
+using the <a href=http://www.enthought.com/python/>enthought
+edition</a> of python, which has scipy, Numeric, and wxpython, plus a
+lot of other goodies, preinstalled.<p>
 
-<h2> Windows GTK Quickstart</h2>
+If you have Numeric or numarray on your system, matplotlib will work
+out of the box on windows.  All of the GUI backends run on windows,
+but <a href=backends.html#TkAgg>TkAgg</a> is probably the best one to
+use since it requires no other libraries and has the best support for
+interactive use with the standard python shell.  If you are using the
+enthought edition of python, the <a href=backends.html#WXAgg>WXAgg
+backend</a> will also work out of the box.
 
-These install instructions will provide the <a
-href=backends.html#GTK>GTK<a/> and <a
-href=backends.html#GTK>GTK<a/>GTKAgg</a> backends on windows.  If you
-don't already have python installed, you may want to consider using
-the <a href=http://www.enthought.com/python/>enthought edition</a> of
-python, which has scipy, Numeric, and wxpython, plus a lot of other
-goodies, preinstalled.
+<h2>Linux</h2> 
 
-<ul> 
+The GTK backend was the first and thus arguably most mature backend
+and is a great choice for linux.  All of the backends, however, run on
+linux.  To use GTK or GTKAgg, you need to have GNOME 2 and at least
+pygtk-1.99.16 installed.  Don't assume that because you are running
+redhat 9 that you have the latest libs.  Redhat 8 and 9 come with the
+GNOME2, but you will still need to upgrade to at least pygtk-1.99.16.
+The latest version (currently 2.0.0) is recommended.  I don't have
+specific information about the other linux distributions.</p>
 
-<li>Install <a
-href=http://sourceforge.net/project/showfiles.php?group_id=1369&release_id=176455>
-Numeric/numarray</a>. If you are using the enthought edition of
-python, you can skip this step.</li>
-
-<li>Install the <a href=http://prdownloads.sourceforge.net/gtk-win>
-GTK runtime</a> (currently version 2.2.4.1). <i>I recommend not using
-the default install location as it makes it difficult to set your
-path; use C:\GTk instead</i></li>
-
-<li>Install <a
-href=http://www.pcpm.ucl.ac.be/~gustin/win32_ports/binaries/pygtk-2.2.0-1.win32-py2.3.exe>pygtk-2.2.0</a></li>
-
-<li>Modify your path.  Check <a
-href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.012.htp>this
-FAQ entry</a> for information on how to do this right.
-
-<li> Install matplotlib using the windows installer on the <a
-ref=http://sourceforge.net/projects/matplotlib>download page<a></li>
-
-</ul> 
+Edit setup.py to configure the backends you want to build and then do
+<tt>python setup.py build</tt>.
 
 
-
-<h2>Linux GTK quickstart</h2> 
-
-<ul>
-
-<li><b>Important:</b> To generate plots in the graphical user
-interface GTK, you need to have GNOME 2 and at least pygtk-1.99.16
-installed.  Don't assume that because you are running redhat 9 that
-you have the latest libs.  Redhat 8 and 9 come with the GNOME2, but
-you will still need to upgrade to at least pygtk-1.99.16.  The latest
-version (currently 2.0.0) is recommended.  I don't have specific
-information about the other linux distributions. 
-
-</ul> 
-
-
-<h2><a name=Debian>Debian Users</a></h3>
+<h2><a name=Debian>Debian</a></h3>
 
 Vittorio Palmisano <redclay@email.it> posted this message to matplotlib-devel
 
@@ -102,6 +74,17 @@ Vittorio Palmisano <redclay@email.it> posted this message to matplotlib-devel
   are some (many?) things to fix.  I think that the package may also
   include the api documentation generated with pydoc.  
 </pre>
+
+<h2><a name=OSX>OS X</a></h2> 
+
+All of the backends run on OS X.  You will need to install freetype2
+via fink or from src.  You will also need the base libraries for a
+given backend.  Eg, if you want to run TkAgg, you will need a python
+with Tkinter; if you want to use WxAgg, install wxpython.  See <a
+href=backends.html>backends</a> for a more comprehensive discussion of
+the various backend requirements.  Edit setup.py to configure the
+backends you want to build and then do <tt>python setup.py build</tt>.
+
 
 
 

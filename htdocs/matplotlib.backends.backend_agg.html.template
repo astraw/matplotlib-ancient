@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_agg</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/backends/backend_agg.py">/matplotlib/backends/backend_agg.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_agg.py">/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_agg.py</a></font></td></tr></table>
     <p><tt>An&nbsp;agg&nbsp;<a href="http://antigrain.com/">http://antigrain.com/</a>&nbsp;backend<br>
 &nbsp;<br>
 Features&nbsp;that&nbsp;are&nbsp;implemented<br>
@@ -127,6 +127,8 @@ If&nbsp;the&nbsp;extension&nbsp;matches&nbsp;PNG,&nbsp;write&nbsp;a&nbsp;PNG&nbs
 &nbsp;<br>
 If&nbsp;the&nbsp;extension&nbsp;matches&nbsp;BMP&nbsp;or&nbsp;RAW,&nbsp;write&nbsp;an&nbsp;RGBA&nbsp;bitmap&nbsp;file</tt></dd></dl>
 
+<dl><dt><a name="FigureCanvasAgg-tostring_rgb"><strong>tostring_rgb</strong></a>(self)</dt></dl>
+
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
 <dl><dt><a name="FigureCanvasAgg-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
@@ -151,7 +153,7 @@ context&nbsp;instance&nbsp;that&nbsp;controls&nbsp;the&nbsp;colors/styles<br>&nb
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="RendererAgg-__init__"><strong>__init__</strong></a>(self, width, height, dpi)</dt></dl>
 
-<dl><dt><a name="RendererAgg-compute_text_offsets"><strong>compute_text_offsets</strong></a>(self, t, props)</dt><dd><tt>Return&nbsp;the&nbsp;(x,y)&nbsp;offsets&nbsp;to&nbsp;adjust&nbsp;for&nbsp;the&nbsp;alignment<br>
+<dl><dt><a name="RendererAgg-compute_text_offsets"><strong>compute_text_offsets</strong></a>(self, t, key)</dt><dd><tt>Return&nbsp;the&nbsp;(x,y)&nbsp;offsets&nbsp;to&nbsp;adjust&nbsp;for&nbsp;the&nbsp;alignment<br>
 specifications</tt></dd></dl>
 
 <dl><dt><a name="RendererAgg-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, rgbFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
@@ -183,13 +185,7 @@ inch&nbsp;into&nbsp;account</tt></dd></dl>
 <dl><dt><a name="RendererAgg-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;point&nbsp;measures&nbsp;to&nbsp;pixes&nbsp;using&nbsp;dpi&nbsp;and&nbsp;the&nbsp;pixels&nbsp;per<br>
 inch&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
-<hr>
-Data and other attributes defined here:<br>
-<dl><dt><strong>fontd</strong> = {}</dl>
-
-<dl><dt><strong>mathfonts</strong> = {}</dl>
-
-<dl><dt><strong>offsetd</strong> = {}</dl>
+<dl><dt><a name="RendererAgg-tostring_rgb"><strong>tostring_rgb</strong></a>(self)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>

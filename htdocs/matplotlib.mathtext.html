@@ -77,7 +77,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.mathtext</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/mathtext.py">/matplotlib/mathtext.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/mathtext.py">/usr/local/lib/python2.3/site-packages/matplotlib/mathtext.py</a></font></td></tr></table>
     <p><tt>OVERVIEW&nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;mathtext&nbsp;is&nbsp;a&nbsp;module&nbsp;for&nbsp;parsing&nbsp;TeX&nbsp;expressions&nbsp;and&nbsp;drawing&nbsp;them<br>
@@ -171,10 +171,10 @@ USAGE:<br>
 &nbsp;&nbsp;<br>
 BACKENDS<br>
 &nbsp;<br>
-&nbsp;&nbsp;mathtext&nbsp;currently&nbsp;works&nbsp;with&nbsp;GTK,&nbsp;Agg,&nbsp;GTKAgg&nbsp;and&nbsp;TkAgg.&nbsp;&nbsp;If&nbsp;David<br>
-&nbsp;&nbsp;incorporates&nbsp;ft2font&nbsp;into&nbsp;paint,&nbsp;it&nbsp;will&nbsp;be&nbsp;easy&nbsp;to&nbsp;add&nbsp;to&nbsp;Paint.<br>
-&nbsp;&nbsp;WX&nbsp;can&nbsp;follow&nbsp;the&nbsp;lead&nbsp;of&nbsp;GTK&nbsp;and&nbsp;use&nbsp;pixels&nbsp;API&nbsp;calls&nbsp;to&nbsp;use<br>
-&nbsp;&nbsp;mathtext.<br>
+&nbsp;&nbsp;mathtext&nbsp;currently&nbsp;works&nbsp;with&nbsp;GTK,&nbsp;Agg,&nbsp;GTKAgg,&nbsp;TkAgg&nbsp;and&nbsp;WxAgg.&nbsp;&nbsp;If<br>
+&nbsp;&nbsp;David&nbsp;incorporates&nbsp;ft2font&nbsp;into&nbsp;paint,&nbsp;it&nbsp;will&nbsp;be&nbsp;easy&nbsp;to&nbsp;add&nbsp;to<br>
+&nbsp;&nbsp;Paint.&nbsp;&nbsp;WX&nbsp;can&nbsp;follow&nbsp;the&nbsp;lead&nbsp;of&nbsp;GTK&nbsp;and&nbsp;use&nbsp;pixels&nbsp;API&nbsp;calls&nbsp;to<br>
+&nbsp;&nbsp;use&nbsp;mathtext.<br>
 &nbsp;<br>
 &nbsp;&nbsp;PS&nbsp;will&nbsp;require&nbsp;more&nbsp;substantial&nbsp;work,&nbsp;doing&nbsp;the&nbsp;metrics&nbsp;and<br>
 &nbsp;&nbsp;layouts&nbsp;with&nbsp;the&nbsp;AFM&nbsp;versions&nbsp;of&nbsp;the&nbsp;computer&nbsp;modern&nbsp;fonts.<br>
@@ -261,8 +261,6 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathT
 
 <dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
 
-<dl><dt><strong>fontprops</strong> = &lt;matplotlib.font_manager.FontProperties instance&gt;</dl>
-
 <dl><dt><strong>nx</strong> = 0</dl>
 
 <dl><dt><strong>ny</strong> = 0</dl>
@@ -317,8 +315,6 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathT
 
 <dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
 
-<dl><dt><strong>fontprops</strong> = &lt;matplotlib.font_manager.FontProperties instance&gt;</dl>
-
 <dl><dt><strong>nx</strong> = 0</dl>
 
 <dl><dt><strong>ny</strong> = 0</dl>
@@ -368,8 +364,6 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathT
 <dl><dt><strong>dpi</strong> = 200</dl>
 
 <dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
-
-<dl><dt><strong>fontprops</strong> = &lt;matplotlib.font_manager.FontProperties instance&gt;</dl>
 
 <dl><dt><strong>nx</strong> = 0</dl>
 
@@ -433,8 +427,6 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
 
-<dl><dt><strong>fontprops</strong> = &lt;matplotlib.font_manager.FontProperties instance&gt;</dl>
-
 <dl><dt><strong>nx</strong> = 0</dl>
 
 <dl><dt><strong>ny</strong> = 0</dl>
@@ -486,8 +478,6 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathT
 
 <dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
 
-<dl><dt><strong>fontprops</strong> = &lt;matplotlib.font_manager.FontProperties instance&gt;</dl>
-
 <dl><dt><strong>nx</strong> = 0</dl>
 
 <dl><dt><strong>ny</strong> = 0</dl>
@@ -517,6 +507,14 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathT
 <dl><dt><a name="SubSup-set_size"><strong>set_size</strong></a>(self, size)</dt></dl>
 
 <hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>SUBOFFSET</strong> = 0.5</dl>
+
+<dl><dt><strong>SUBSCALE</strong> = 0.69999999999999996</dl>
+
+<dl><dt><strong>SUPOFFSET</strong> = 0.75</dl>
+
+<hr>
 Methods inherited from <a href="matplotlib.mathtext.html#MathText">MathText</a>:<br>
 <dl><dt><a name="SubSup-draw"><strong>draw</strong></a>(self, baseline)</dt></dl>
 
@@ -536,8 +534,6 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathT
 <dl><dt><strong>dpi</strong> = 200</dl>
 
 <dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
-
-<dl><dt><strong>fontprops</strong> = &lt;matplotlib.font_manager.FontProperties instance&gt;</dl>
 
 <dl><dt><strong>nx</strong> = 0</dl>
 
@@ -583,6 +579,8 @@ The&nbsp;following&nbsp;are&nbsp;available,&nbsp;if&nbsp;scalable&nbsp;is&nbsp;t
  <dl><dt><a name="-math_parse_s"><strong>math_parse_s</strong></a>(s, dpi, fontsize)</dt><dd><tt>Parse&nbsp;the&nbsp;math&nbsp;expression&nbsp;s,&nbsp;return&nbsp;the&nbsp;(bbox,&nbsp;fonts)&nbsp;tuple&nbsp;needed<br>
 to&nbsp;render&nbsp;it.<br>
 &nbsp;<br>
+fontsize&nbsp;must&nbsp;be&nbsp;in&nbsp;points<br>
+&nbsp;<br>
 bbox:&nbsp;left,&nbsp;bottom,&nbsp;width,&nbsp;heigt<br>
 fonts:&nbsp;a&nbsp;seq&nbsp;of&nbsp;FT2Fonts</tt></dd></dl>
 </td></tr></table><p>
@@ -595,6 +593,7 @@ fonts:&nbsp;a&nbsp;seq&nbsp;of&nbsp;FT2Fonts</tt></dd></dl>
 <td width="100%"><strong>False</strong> = False<br>
 <strong>OFFSET_EX10</strong> = 4.0<br>
 <strong>True</strong> = True<br>
+<strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>alphanums</strong> = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'<br>
 <strong>alphas</strong> = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'<br>
 <strong>ampersand</strong> = "&amp;"<br>

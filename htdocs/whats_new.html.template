@@ -7,18 +7,14 @@ ttfquery are no longer required for font finding as matplotlib now has
 a completely freestanding freetype2 implementation and font finder.
 Among other things, this should enable you to specify fonts in your
 scripts and matplotlibrc file and generate consistent figures across
-backends and operating systems.<p>
+backends and operating systems.  The font finder algorithm and
+implementation are based on the <a
+href=http://www.w3.org/TR/1999/REC-CSS1-19990111>W3C standard</a>.<p>
 
-The font finder algorithm and implementation are based on the W3C
-standard.  Fonts are specified by family, one of: serif, san-serif,
-monospace, cursive or fantasy.  You can specify relative font sizes
-like 'smaller' or 'larger' for text elements, which enables you to
-change to entire font sizing scheme of a figure just by changing the
-base size.  See <a href=matplotlib.font_manager.html>the font manager
-documentation</a>, the <a href=fonts.html>fonts documentation</a> and
-the updated <a href=.matplotlibrc>.matplotlibrc</a> file for more
-details; please update your .matplotlibrc files as described in that
-link.
+See <a href=matplotlib.font_manager.html>the font manager module</a>
+documentation, the <a href=fonts.html>fonts documentation</a> and the
+updated <a href=.matplotlibrc>.matplotlibrc</a> file for more details;
+please update your .matplotlibrc files as described in that link.
 """),
 
     ('Backend WXAgg', """
@@ -41,19 +37,19 @@ locations.
 """
      ),
 
-    ('Date plot',
-"""
+    ('Date plot', """
 A new command a href=matplotlib.matlab.html#-plot_date>plot_date</a>
-command for plotting date dependent data.  Converters supplied in the
-<a href=matplotlib.dates.html>dates</a> module allow you to work with
-a variety of datetime instances.  Custom date locators and formatters
-allow you to place major and minor ticks by minute, hour, weekday,
-month, year, etc, and use strftime format strings to format the ticks.
-See examples <a href=examples/date_demo1.py>date_demo1.py</a> and <a
+command for plotting date dependent data; see <a
+href=screenshots.html#date_demo>date demo</a>.  Converters supplied in
+the <a href=matplotlib.dates.html>dates</a> module allow you to work
+with a variety of datetime instances.  Custom date locators and
+formatters allow you to place major and minor ticks by minute, hour,
+weekday, month, year, etc, and use strftime format strings to format
+the ticks.  See examples <a
+href=examples/date_demo1.py>date_demo1.py</a> and <a
 href=examples/date_demo2.py>date_demo2.py</a>.  The <a
-href=matplotlib.dates.html>dates documentation</a> provides a
-reasonably complete discussion of working with dates.
-"""),
+href=matplotlib.dates.html>dates documentation</a> provides an
+overview anf guide to with dates."""),
 
     
     ('Ported image support to numarray and postscript backend', """
@@ -73,6 +69,16 @@ Added some features to the axis and ticks to allow two plots with
 different scales on the "same" axes with different scales, ticks
 and labels on the left and right side of the x axis.  To see why same is
 quoted, see <a href=examples/two_scales.py>two_scales.py</a>.
+"""
+     ),
+
+    ('finance module',
+"""
+The finance module includes a function to fetch quotes from yahoo, to
+draw candlestick plots, and to draw vertical line plots for high-low
+range with open-close ticks to the left and right.  I'm hoping that
+user contributions will make up the bulk of this module since I'm not
+a finance guy!  See <a href=screenshots.html#date_demo>date demo</a>.
 """
      ),
     )

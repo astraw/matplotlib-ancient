@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_gd</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/backends/backend_gd.py">/matplotlib/backends/backend_gd.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_gd.py">/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_gd.py</a></font></td></tr></table>
     <p><tt>A&nbsp;gd&nbsp;backend&nbsp;<a href="http://newcenturycomputers.net/projects/gdmodule.html">http://newcenturycomputers.net/projects/gdmodule.html</a></tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -89,7 +89,7 @@ figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected
 <td width="100%">Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>:<br>
 <dl><dt><a name="FigureManagerGD-__init__"><strong>__init__</strong></a>(self, canvas, num)</dt></dl>
 
-<dl><dt><a name="FigureManagerGD-add_axes"><strong>add_axes</strong></a>(self, rect, axisbg)</dt><dd><tt>Add&nbsp;an&nbsp;axes&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
+<dl><dt><a name="FigureManagerGD-add_axes"><strong>add_axes</strong></a>(self, rect, **kwargs)</dt><dd><tt>Add&nbsp;an&nbsp;axes&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
 
 <dl><dt><a name="FigureManagerGD-add_subplot"><strong>add_subplot</strong></a>(self, *args, **kwargs)</dt><dd><tt>Add&nbsp;a&nbsp;subplot&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
 
@@ -113,7 +113,7 @@ figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected
 <td width="100%">Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>:<br>
 <dl><dt><a name="FigureManagerGD-__init__"><strong>__init__</strong></a>(self, canvas, num)</dt></dl>
 
-<dl><dt><a name="FigureManagerGD-add_axes"><strong>add_axes</strong></a>(self, rect, axisbg)</dt><dd><tt>Add&nbsp;an&nbsp;axes&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
+<dl><dt><a name="FigureManagerGD-add_axes"><strong>add_axes</strong></a>(self, rect, **kwargs)</dt><dd><tt>Add&nbsp;an&nbsp;axes&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
 
 <dl><dt><a name="FigureManagerGD-add_subplot"><strong>add_subplot</strong></a>(self, *args, **kwargs)</dt><dd><tt>Add&nbsp;a&nbsp;subplot&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
 

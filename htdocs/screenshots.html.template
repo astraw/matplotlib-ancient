@@ -37,6 +37,15 @@ markers with the <a href=backends.html#Agg>Agg backend</a> """, 1),
 plot filled polygons.  Thanks to Andrew Straw for providing this
 function.""", 1),
 
+('date_demo', """
+You can plot date data with major and minor ticks and custom tick
+formatters for both the major and minor ticks; see <a
+href=matplotlib.ticker.html>ticker</a> and <a
+href=matplotlib.dates.html>dates</a> for details and usage.  This plot
+uses the <a href=matplotlib.finance.html>finance module</a> to
+retrieve stock data and plot it with a candlestick plot""",
+1),
+
 ('log_shot', """The <a
 href=matplotlib.matlab.html#-semilogx>semilogx</a>, <a
 href=matplotlib.matlab.html#-semilogy>semilogy</a> and <a

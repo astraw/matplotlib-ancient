@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.axes</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/axes.py">/matplotlib/axes.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/axes.py">/usr/local/lib/python2.3/site-packages/matplotlib/axes.py</a></font></td></tr></table>
     <p></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -54,7 +54,9 @@ fraction&nbsp;of&nbsp;the&nbsp;total&nbsp;figure&nbsp;window.&nbsp;&nbsp;<br>
 axisbg&nbsp;is&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;axis&nbsp;background<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Axes-__init__"><strong>__init__</strong></a>(self, fig, position, axisbg<font color="#909090">='w'</font>)</dt></dl>
+<dl><dt><a name="Axes-__init__"><strong>__init__</strong></a>(self, fig, position, axisbg<font color="#909090">='w'</font>, frameon<font color="#909090">=True</font>)</dt></dl>
+
+<dl><dt><a name="Axes-add_artist"><strong>add_artist</strong></a>(self, a)</dt><dd><tt>Add&nbsp;any&nbsp;artist&nbsp;to&nbsp;the&nbsp;axes</tt></dd></dl>
 
 <dl><dt><a name="Axes-add_line"><strong>add_line</strong></a>(self, line)</dt><dd><tt>Add&nbsp;a&nbsp;line&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;plot&nbsp;lines</tt></dd></dl>
 
@@ -173,6 +175,8 @@ Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patches&nbsp;that&nbsp;were&nbsp;added.</t
 <dl><dt><a name="Axes-get_legend"><strong>get_legend</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;Legend&nbsp;instance,&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;legend&nbsp;is&nbsp;defined</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_lines"><strong>get_lines</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Axes-get_position"><strong>get_position</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axes&nbsp;position</tt></dd></dl>
 
 <dl><dt><a name="Axes-get_xaxis"><strong>get_xaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;XAxis&nbsp;instance</tt></dd></dl>
 
@@ -302,6 +306,10 @@ more&nbsp;info</tt></dd></dl>
 &nbsp;<br>
 <a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y&nbsp;&nbsp;<br>
 &nbsp;<br>
+<a href="#Axes-pcolor">pcolor</a>(C,&nbsp;cmap=colormapInstance)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of<br>
+matrix&nbsp;C&nbsp;using&nbsp;rectangle&nbsp;patches&nbsp;using&nbsp;a&nbsp;custom&nbsp;colormap&nbsp;derived<br>
+from&nbsp;matplotlib.colors.Colormap.&nbsp;&nbsp;You&nbsp;must&nbsp;pass&nbsp;this&nbsp;as&nbsp;a&nbsp;kwarg.<br>
+&nbsp;<br>
 Shading:<br>
 &nbsp;<br>
 &nbsp;&nbsp;The&nbsp;optional&nbsp;keyword&nbsp;arg&nbsp;shading&nbsp;('flat'&nbsp;or&nbsp;'faceted')&nbsp;will<br>
@@ -349,6 +357,14 @@ An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;
 &nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x1,&nbsp;y1,&nbsp;'g^',&nbsp;x2,&nbsp;y2,&nbsp;'l-')&nbsp;&nbsp;<br>
 &nbsp;<br>
 Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+
+<dl><dt><a name="Axes-plot_date"><strong>plot_date</strong></a>(self, d, y, converter, fmt<font color="#909090">='bo'</font>, **kwargs)</dt><dd><tt><a href="#Axes-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;**kwargs)<br>
+&nbsp;<br>
+d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates;&nbsp;converter&nbsp;is&nbsp;a&nbsp;dates.DateConverter<br>
+instance&nbsp;that&nbsp;converts&nbsp;your&nbsp;dates&nbsp;to&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;for<br>
+plotting.&nbsp;&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is&nbsp;a&nbsp;plot<br>
+format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot&nbsp;for&nbsp;more<br>
+information.</tt></dd></dl>
 
 <dl><dt><a name="Axes-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
 The&nbsp;vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment<br>
@@ -402,8 +418,13 @@ more&nbsp;info</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_axis_on"><strong>set_axis_on</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="Axes-set_frame_on"><strong>set_frame_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;the&nbsp;axes&nbsp;rectangle&nbsp;patch&nbsp;is&nbsp;drawn&nbsp;with&nbsp;boolean&nbsp;b</tt></dd></dl>
+
 <dl><dt><a name="Axes-set_image_extent"><strong>set_image_extent</strong></a>(self, xmin, xmax, ymin, ymax)</dt><dd><tt>Set&nbsp;the&nbsp;dat&nbsp;units&nbsp;of&nbsp;the&nbsp;image.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
 plot&nbsp;other&nbsp;things&nbsp;over&nbsp;the&nbsp;image,&nbsp;eg,&nbsp;lines&nbsp;or&nbsp;scatter</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_position"><strong>set_position</strong></a>(self, pos)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;position&nbsp;with&nbsp;pos&nbsp;=&nbsp;left,&nbsp;bottom,&nbsp;width,&nbsp;height<br>
+in&nbsp;relative&nbsp;0,1&nbsp;coords</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_title"><strong>set_title</strong></a>(self, label, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;title&nbsp;for&nbsp;the&nbsp;xaxis<br>
 &nbsp;<br>
@@ -592,6 +613,8 @@ Methods defined here:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.axes.html#Axes">Axes</a>:<br>
+<dl><dt><a name="Subplot-add_artist"><strong>add_artist</strong></a>(self, a)</dt><dd><tt>Add&nbsp;any&nbsp;artist&nbsp;to&nbsp;the&nbsp;axes</tt></dd></dl>
+
 <dl><dt><a name="Subplot-add_line"><strong>add_line</strong></a>(self, line)</dt><dd><tt>Add&nbsp;a&nbsp;line&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;plot&nbsp;lines</tt></dd></dl>
 
 <dl><dt><a name="Subplot-add_patch"><strong>add_patch</strong></a>(self, patch)</dt><dd><tt>Add&nbsp;a&nbsp;line&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;plot&nbsp;lines</tt></dd></dl>
@@ -709,6 +732,8 @@ Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patches&nbsp;that&nbsp;were&nbsp;added.</t
 <dl><dt><a name="Subplot-get_legend"><strong>get_legend</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;Legend&nbsp;instance,&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;legend&nbsp;is&nbsp;defined</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_lines"><strong>get_lines</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Subplot-get_position"><strong>get_position</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axes&nbsp;position</tt></dd></dl>
 
 <dl><dt><a name="Subplot-get_xaxis"><strong>get_xaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;XAxis&nbsp;instance</tt></dd></dl>
 
@@ -838,6 +863,10 @@ more&nbsp;info</tt></dd></dl>
 &nbsp;<br>
 <a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y&nbsp;&nbsp;<br>
 &nbsp;<br>
+<a href="#Subplot-pcolor">pcolor</a>(C,&nbsp;cmap=colormapInstance)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of<br>
+matrix&nbsp;C&nbsp;using&nbsp;rectangle&nbsp;patches&nbsp;using&nbsp;a&nbsp;custom&nbsp;colormap&nbsp;derived<br>
+from&nbsp;matplotlib.colors.Colormap.&nbsp;&nbsp;You&nbsp;must&nbsp;pass&nbsp;this&nbsp;as&nbsp;a&nbsp;kwarg.<br>
+&nbsp;<br>
 Shading:<br>
 &nbsp;<br>
 &nbsp;&nbsp;The&nbsp;optional&nbsp;keyword&nbsp;arg&nbsp;shading&nbsp;('flat'&nbsp;or&nbsp;'faceted')&nbsp;will<br>
@@ -885,6 +914,14 @@ An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;
 &nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x1,&nbsp;y1,&nbsp;'g^',&nbsp;x2,&nbsp;y2,&nbsp;'l-')&nbsp;&nbsp;<br>
 &nbsp;<br>
 Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+
+<dl><dt><a name="Subplot-plot_date"><strong>plot_date</strong></a>(self, d, y, converter, fmt<font color="#909090">='bo'</font>, **kwargs)</dt><dd><tt><a href="#Subplot-plot_date">plot_date</a>(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;**kwargs)<br>
+&nbsp;<br>
+d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates;&nbsp;converter&nbsp;is&nbsp;a&nbsp;dates.DateConverter<br>
+instance&nbsp;that&nbsp;converts&nbsp;your&nbsp;dates&nbsp;to&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;for<br>
+plotting.&nbsp;&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is&nbsp;a&nbsp;plot<br>
+format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot&nbsp;for&nbsp;more<br>
+information.</tt></dd></dl>
 
 <dl><dt><a name="Subplot-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
 The&nbsp;vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment<br>
@@ -938,8 +975,13 @@ more&nbsp;info</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_axis_on"><strong>set_axis_on</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="Subplot-set_frame_on"><strong>set_frame_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;the&nbsp;axes&nbsp;rectangle&nbsp;patch&nbsp;is&nbsp;drawn&nbsp;with&nbsp;boolean&nbsp;b</tt></dd></dl>
+
 <dl><dt><a name="Subplot-set_image_extent"><strong>set_image_extent</strong></a>(self, xmin, xmax, ymin, ymax)</dt><dd><tt>Set&nbsp;the&nbsp;dat&nbsp;units&nbsp;of&nbsp;the&nbsp;image.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
 plot&nbsp;other&nbsp;things&nbsp;over&nbsp;the&nbsp;image,&nbsp;eg,&nbsp;lines&nbsp;or&nbsp;scatter</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_position"><strong>set_position</strong></a>(self, pos)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;position&nbsp;with&nbsp;pos&nbsp;=&nbsp;left,&nbsp;bottom,&nbsp;width,&nbsp;height<br>
+in&nbsp;relative&nbsp;0,1&nbsp;coords</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_title"><strong>set_title</strong></a>(self, label, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;title&nbsp;for&nbsp;the&nbsp;xaxis<br>
 &nbsp;<br>
@@ -1111,6 +1153,9 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
+<strong>SEC_PER_DAY</strong> = 86400<br>
+<strong>SEC_PER_HOUR</strong> = 3600<br>
+<strong>SEC_PER_WEEK</strong> = 604800<br>
 <strong>True</strong> = True<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
@@ -1118,5 +1163,5 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>lineMarkers</strong> = {'+': 1, ',': 1, '.': 1, '&lt;': 1, '&gt;': 1, '^': 1, 'o': 1, 's': 1, 'v': 1, 'x': 1}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1}<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTK', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTK', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
 @footer@

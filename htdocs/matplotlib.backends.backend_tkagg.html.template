@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_tkagg</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/backends/backend_tkagg.py">/matplotlib/backends/backend_tkagg.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_tkagg.py">/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_tkagg.py</a></font></td></tr></table>
     <p><tt>#&nbsp;Todd&nbsp;Miller&nbsp;&nbsp;&nbsp;jmiller@stsci.edu</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -20,6 +20,7 @@
 </td><td width="25%" valign=top><a href="os.html">os</a><br>
 <a href="sys.html">sys</a><br>
 </td><td width="25%" valign=top><a href="matplotlib.backends.tkagg.html">matplotlib.backends.tkagg</a><br>
+<a href="matplotlib.windowing.html">matplotlib.windowing</a><br>
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
@@ -83,11 +84,15 @@
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="FigureCanvasTkAgg-__init__"><strong>__init__</strong></a>(self, figure, master<font color="#909090">=None</font>, resize_callback<font color="#909090">=&lt;function &lt;lambda&gt;&gt;</font>)</dt></dl>
+<dl><dt><a name="FigureCanvasTkAgg-__init__"><strong>__init__</strong></a>(self, figure, master<font color="#909090">=None</font>, resize_callback<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="FigureCanvasTkAgg-connect"><strong>connect</strong></a>(self, eventname, handler)</dt></dl>
 
 <dl><dt><a name="FigureCanvasTkAgg-get_tk_widget"><strong>get_tk_widget</strong></a>(self)</dt><dd><tt>returns&nbsp;the&nbsp;Tk&nbsp;widget&nbsp;used&nbsp;to&nbsp;implement&nbsp;<a href="#FigureCanvasTkAgg">FigureCanvasTkAgg</a>.<br>
 Although&nbsp;the&nbsp;initial&nbsp;implementation&nbsp;uses&nbsp;a&nbsp;Tk&nbsp;canvas,&nbsp;&nbsp;this&nbsp;routine<br>
 is&nbsp;intended&nbsp;to&nbsp;hide&nbsp;that&nbsp;fact.</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasTkAgg-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt></dl>
 
 <dl><dt><a name="FigureCanvasTkAgg-resize"><strong>resize</strong></a>(self, event)</dt></dl>
 
@@ -97,14 +102,7 @@ is&nbsp;intended&nbsp;to&nbsp;hide&nbsp;that&nbsp;fact.</tt></dd></dl>
 Methods inherited from <a href="matplotlib.backends.backend_agg.html#FigureCanvasAgg">matplotlib.backends.backend_agg.FigureCanvasAgg</a>:<br>
 <dl><dt><a name="FigureCanvasTkAgg-draw"><strong>draw</strong></a>(self)</dt><dd><tt>Draw&nbsp;the&nbsp;figure&nbsp;using&nbsp;the&nbsp;renderer</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasTkAgg-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy.&nbsp;&nbsp;Set&nbsp;the&nbsp;figure&nbsp;patch&nbsp;face&nbsp;and<br>
-edge&nbsp;colors.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;because&nbsp;some&nbsp;of&nbsp;the&nbsp;GUIs&nbsp;have&nbsp;a<br>
-gray&nbsp;figure&nbsp;face&nbsp;color&nbsp;background&nbsp;and&nbsp;you'll&nbsp;probably&nbsp;want&nbsp;to<br>
-override&nbsp;this&nbsp;on&nbsp;hardcopy<br>
-&nbsp;<br>
-If&nbsp;the&nbsp;extension&nbsp;matches&nbsp;PNG,&nbsp;write&nbsp;a&nbsp;PNG&nbsp;file<br>
-&nbsp;<br>
-If&nbsp;the&nbsp;extension&nbsp;matches&nbsp;BMP&nbsp;or&nbsp;RAW,&nbsp;write&nbsp;an&nbsp;RGBA&nbsp;bitmap&nbsp;file</tt></dd></dl>
+<dl><dt><a name="FigureCanvasTkAgg-tostring_rgb"><strong>tostring_rgb</strong></a>(self)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
@@ -130,9 +128,9 @@ toolbar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;tk.Toolbar<br>
 window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;tk.Window<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="FigureManagerTkAgg-__init__"><strong>__init__</strong></a>(self, canvas, num)</dt></dl>
+<dl><dt><a name="FigureManagerTkAgg-__init__"><strong>__init__</strong></a>(self, canvas, num, window)</dt></dl>
 
-<dl><dt><a name="FigureManagerTkAgg-add_axes"><strong>add_axes</strong></a>(self, rect, axisbg)</dt></dl>
+<dl><dt><a name="FigureManagerTkAgg-add_axes"><strong>add_axes</strong></a>(self, rect, **kwargs)</dt></dl>
 
 <dl><dt><a name="FigureManagerTkAgg-add_subplot"><strong>add_subplot</strong></a>(self, *args, **kwargs)</dt></dl>
 
@@ -165,9 +163,9 @@ toolbar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;tk.Toolbar<br>
 window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;tk.Window<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="FigureManagerTkAgg-__init__"><strong>__init__</strong></a>(self, canvas, num)</dt></dl>
+<dl><dt><a name="FigureManagerTkAgg-__init__"><strong>__init__</strong></a>(self, canvas, num, window)</dt></dl>
 
-<dl><dt><a name="FigureManagerTkAgg-add_axes"><strong>add_axes</strong></a>(self, rect, axisbg)</dt></dl>
+<dl><dt><a name="FigureManagerTkAgg-add_axes"><strong>add_axes</strong></a>(self, rect, **kwargs)</dt></dl>
 
 <dl><dt><a name="FigureManagerTkAgg-add_subplot"><strong>add_subplot</strong></a>(self, *args, **kwargs)</dt></dl>
 
@@ -940,5 +938,5 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
 <strong>PIXELS_PER_INCH</strong> = 75<br>
 <strong>True</strong> = True<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTK', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTK', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}</td></tr></table>
 @footer@

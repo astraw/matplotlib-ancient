@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.matlab</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/matlab.py">/matplotlib/matlab.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/matlab.py">/usr/local/lib/python2.3/site-packages/matplotlib/matlab.py</a></font></td></tr></table>
     <p><tt>This&nbsp;is&nbsp;a&nbsp;matlab&nbsp;style&nbsp;functional&nbsp;interface&nbsp;the&nbsp;matplotlib.<br>
 &nbsp;<br>
 The&nbsp;following&nbsp;matlab&nbsp;compatible&nbsp;commands&nbsp;are&nbsp;provided<br>
@@ -108,9 +108,11 @@ Time&nbsp;series&nbsp;analysis<br>
 Other<br>
 &nbsp;<br>
 &nbsp;&nbsp;angle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;angle&nbsp;of&nbsp;a&nbsp;complex&nbsp;array<br>
+&nbsp;&nbsp;load&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;load&nbsp;ASCII&nbsp;data&nbsp;into&nbsp;array<br>
 &nbsp;&nbsp;polyfit&nbsp;&nbsp;&nbsp;-&nbsp;fit&nbsp;x,&nbsp;y&nbsp;to&nbsp;an&nbsp;n-th&nbsp;order&nbsp;polynomial<br>
 &nbsp;&nbsp;polyval&nbsp;&nbsp;&nbsp;-&nbsp;evaluate&nbsp;an&nbsp;n-th&nbsp;order&nbsp;polynomial<br>
 &nbsp;&nbsp;roots&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;the&nbsp;roots&nbsp;of&nbsp;the&nbsp;polynomial&nbsp;coefficients&nbsp;in&nbsp;p<br>
+&nbsp;&nbsp;save&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;save&nbsp;an&nbsp;array&nbsp;to&nbsp;an&nbsp;ASCII&nbsp;file<br>
 &nbsp;&nbsp;trapz&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;trapezoidal&nbsp;integration<br>
 &nbsp;<br>
 &nbsp;<br>
@@ -473,6 +475,22 @@ in&nbsp;axes&nbsp;coords,&nbsp;ie,<br>
 &nbsp;<br>
 &nbsp;<br>
 The&nbsp;legend&nbsp;instance&nbsp;is&nbsp;returned</tt></dd></dl>
+ <dl><dt><a name="-load"><strong>load</strong></a>(fname)</dt><dd><tt>Load&nbsp;ASCII&nbsp;data&nbsp;from&nbsp;fname&nbsp;into&nbsp;an&nbsp;array&nbsp;and&nbsp;return&nbsp;the&nbsp;array.<br>
+&nbsp;<br>
+The&nbsp;data&nbsp;must&nbsp;be&nbsp;regular,&nbsp;same&nbsp;number&nbsp;of&nbsp;values&nbsp;in&nbsp;every&nbsp;row<br>
+&nbsp;<br>
+fname&nbsp;can&nbsp;be&nbsp;a&nbsp;filename&nbsp;or&nbsp;a&nbsp;file&nbsp;handle<br>
+&nbsp;<br>
+matfile&nbsp;data&nbsp;is&nbsp;not&nbsp;currently&nbsp;supported,&nbsp;but&nbsp;see<br>
+Nigel&nbsp;Wade's&nbsp;matfile&nbsp;<a href="ftp://ion.le.ac.uk/matfile/matfile.tar.gz">ftp://ion.le.ac.uk/matfile/matfile.tar.gz</a><br>
+&nbsp;<br>
+Example&nbsp;usage:<br>
+&nbsp;<br>
+x,y&nbsp;=&nbsp;<a href="#-load">load</a>('test.dat')&nbsp;&nbsp;#&nbsp;data&nbsp;in&nbsp;two&nbsp;columns<br>
+&nbsp;<br>
+X&nbsp;=&nbsp;<a href="#-load">load</a>('test.dat')&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;matrix&nbsp;of&nbsp;data<br>
+&nbsp;<br>
+x&nbsp;=&nbsp;<a href="#-load">load</a>('test.dat')&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;single&nbsp;column&nbsp;of&nbsp;data</tt></dd></dl>
  <dl><dt><a name="-loglog"><strong>loglog</strong></a>(*args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
 to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
 more&nbsp;info</tt></dd></dl>
@@ -572,6 +590,13 @@ to&nbsp;all&nbsp;those&nbsp;lines,&nbsp;eg<br>
 &nbsp;&nbsp;<a href="#-plot">plot</a>(x1,&nbsp;y1,&nbsp;x2,&nbsp;y2,&nbsp;antialising=False)<br>
 &nbsp;<br>
 Neither&nbsp;line&nbsp;will&nbsp;be&nbsp;antialiased.</tt></dd></dl>
+ <dl><dt><a name="-plot_date"><strong>plot_date</strong></a>(*args, **kwargs)</dt><dd><tt>PLOT_DATE(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;**kwargs)<br>
+&nbsp;<br>
+d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates;&nbsp;converter&nbsp;is&nbsp;a&nbsp;dates.DateConverter<br>
+instance&nbsp;that&nbsp;converts&nbsp;your&nbsp;dates&nbsp;to&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;for<br>
+plotting.&nbsp;&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is&nbsp;a&nbsp;plot<br>
+format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot&nbsp;for&nbsp;more<br>
+information.</tt></dd></dl>
  <dl><dt><a name="-plotting"><strong>plotting</strong></a>()</dt><dd><tt>Plotting&nbsp;commands<br>
 &nbsp;<br>
 axes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Create&nbsp;a&nbsp;new&nbsp;axes<br>
@@ -632,6 +657,17 @@ Refs:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
  <dl><dt><a name="-raise_msg_to_str"><strong>raise_msg_to_str</strong></a>(msg)</dt><dd><tt>msg&nbsp;is&nbsp;a&nbsp;return&nbsp;arg&nbsp;from&nbsp;a&nbsp;raise.&nbsp;&nbsp;Join&nbsp;with&nbsp;new&nbsp;lines</tt></dd></dl>
  <dl><dt><a name="-reshape"><strong>reshape</strong></a>(...)</dt><dd><tt><a href="#-reshape">reshape</a>(a,&nbsp;(d1,&nbsp;d2,&nbsp;...,&nbsp;dn)).&nbsp;&nbsp;Change&nbsp;the&nbsp;shape&nbsp;of&nbsp;a&nbsp;to&nbsp;be&nbsp;an&nbsp;n-dimensional&nbsp;array&nbsp;with&nbsp;dimensions&nbsp;given&nbsp;by&nbsp;d1...dn.&nbsp;&nbsp;Note:&nbsp;the&nbsp;size&nbsp;specified&nbsp;for&nbsp;the&nbsp;new&nbsp;array&nbsp;must&nbsp;be&nbsp;exactly&nbsp;equal&nbsp;to&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;&nbsp;old&nbsp;one&nbsp;or&nbsp;an&nbsp;error&nbsp;will&nbsp;occur.</tt></dd></dl>
+ <dl><dt><a name="-save"><strong>save</strong></a>(fname, X, fmt<font color="#909090">='%1.4f'</font>)</dt><dd><tt>Save&nbsp;the&nbsp;data&nbsp;in&nbsp;X&nbsp;to&nbsp;file&nbsp;fname&nbsp;using&nbsp;fmt&nbsp;string&nbsp;to&nbsp;convert&nbsp;the<br>
+data&nbsp;to&nbsp;strings<br>
+&nbsp;<br>
+fname&nbsp;can&nbsp;be&nbsp;a&nbsp;filename&nbsp;or&nbsp;a&nbsp;file&nbsp;handle&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Example&nbsp;usage:<br>
+&nbsp;<br>
+<a href="#-save">save</a>('test.out',&nbsp;X)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;X&nbsp;is&nbsp;an&nbsp;array<br>
+<a href="#-save">save</a>('test1.out',&nbsp;(x,y,z))&nbsp;&nbsp;#&nbsp;x,y,z&nbsp;equal&nbsp;sized&nbsp;1D&nbsp;arrays<br>
+<a href="#-save">save</a>('test2.out',&nbsp;x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;x&nbsp;is&nbsp;1D<br>
+<a href="#-save">save</a>('test3.out',&nbsp;x,&nbsp;fmt='%1.4e')&nbsp;&nbsp;#&nbsp;use&nbsp;exponential&nbsp;notation</tt></dd></dl>
  <dl><dt><a name="-savefig"><strong>savefig</strong></a>(*args, **kwargs)</dt><dd><tt>def&nbsp;<a href="#-savefig">savefig</a>(fname,&nbsp;dpi=150,&nbsp;facecolor='w',&nbsp;edgecolor='w',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;orientation='portrait'):<br>
 Save&nbsp;the&nbsp;current&nbsp;figure&nbsp;to&nbsp;filename&nbsp;fname.&nbsp;&nbsp;dpi&nbsp;is&nbsp;the&nbsp;resolution<br>
@@ -906,7 +942,7 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>not_equal</strong> = &lt;ufunc 'not_equal'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTK', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 0.5, 'axes.titlesize': 14.0, 'backend': 'GTK', 'datapath': '/usr/local/share/matplotlib', 'figure.dpi': 80.0, ...}<br>
 <strong>readme</strong> = '<font color="#c040c0">\n</font>MLab2.py, release 1<font color="#c040c0">\n\n</font>Created on February 2003 b...<font color="#c040c0">\n</font>Look at: http://pdilib.sf.net for new releases.<font color="#c040c0">\n</font>'<br>
 <strong>remainder</strong> = &lt;ufunc 'remainder'&gt;<br>
 <strong>right_shift</strong> = &lt;ufunc 'right_shift'&gt;<br>

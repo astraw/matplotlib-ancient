@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.backend_bases</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/backend_bases.py">/matplotlib/backend_bases.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/backend_bases.py">/usr/local/lib/python2.3/site-packages/matplotlib/backend_bases.py</a></font></td></tr></table>
     <p><tt>Abstract&nbsp;base&nbsp;classes&nbsp;definine&nbsp;the&nbsp;primitives&nbsp;that&nbsp;renderers&nbsp;and<br>
 graphics&nbsp;contexts&nbsp;must&nbsp;implement&nbsp;to&nbsp;serve&nbsp;as&nbsp;a&nbsp;matplotlib&nbsp;backend</tt></p>
 <p>
@@ -74,7 +74,7 @@ num&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;figure&nbsp;number<br>&nbsp;</tt></td
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="FigureManagerBase-__init__"><strong>__init__</strong></a>(self, canvas, num)</dt></dl>
 
-<dl><dt><a name="FigureManagerBase-add_axes"><strong>add_axes</strong></a>(self, rect, axisbg)</dt><dd><tt>Add&nbsp;an&nbsp;axes&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
+<dl><dt><a name="FigureManagerBase-add_axes"><strong>add_axes</strong></a>(self, rect, **kwargs)</dt><dd><tt>Add&nbsp;an&nbsp;axes&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
 
 <dl><dt><a name="FigureManagerBase-add_subplot"><strong>add_subplot</strong></a>(self, *args, **kwargs)</dt><dd><tt>Add&nbsp;a&nbsp;subplot&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
 

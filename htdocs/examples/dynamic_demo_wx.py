@@ -19,8 +19,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.23  2004/04/13 21:14:01  jdh2358
-mathtext fixes
+Revision 1.24  2004/04/20 22:54:40  jdh2358
+removed tz info from dates; updated htdocs
 
 Revision 1.3  2004/03/08 22:17:20  jdh2358
 
