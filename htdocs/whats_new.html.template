@@ -1,14 +1,27 @@
-new_to_42 = ( ('EPS output from PS backend', 
+new_to_42 = ( 
+
+	('EPS output from PS backend', 
 """Just add an eps extension"""),
 
-	('PS save from GTK backend fixed',
+	('PS and EPS save from GTK and WX backends with bugs fixed',
 """
 A few of the bugs that were lingering in the PS output from the GTK
 backend have been cleared up.  A fairly substantial refactoring of the
 Text class enabled this.  Text is now backend independent and behaves
-like the other artists in the figure (lines, patches, etc).  This
-results in a much cleaner design under the hood.
+like the other artists in the figure (lines, patches, etc).
+Additionally, PS and EPS save from WX backend work
 """),	
+
+	('Object picker example', 
+"""The file examples/object_picker.py is a template showing how to
+select objects in the figure with the mouse(eg, text, lines).  If you
+click on the line, a properties dialog will pop up.  You can edit the
+line properties.  This is just a template for those who want to
+develop a GUI properties dialog.  If interested, contact the mailing
+list.  It would be straight forward to extend this example to allow
+you to move objects in the figure, etc..."""),
+
+
 
 )
 

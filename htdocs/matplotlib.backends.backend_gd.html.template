@@ -291,7 +291,7 @@ giving&nbsp;the&nbsp;x,y&nbsp;coords&nbsp;a&nbsp;vertex</tt></dd></dl>
 If&nbsp;filled=True,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;the&nbsp;gc&nbsp;foreground<br>
 gc&nbsp;is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="RendererGD-draw_text"><strong>draw_text</strong></a>(self, x, y, t)</dt><dd><tt>Render&nbsp;the&nbsp;text&nbsp;using&nbsp;the&nbsp;<a href="#RendererGD">RendererGD</a>&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="RendererGD-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, t)</dt><dd><tt>Render&nbsp;the&nbsp;text&nbsp;using&nbsp;the&nbsp;<a href="#RendererGD">RendererGD</a>&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="RendererGD-finish"><strong>finish</strong></a>(self)</dt></dl>
 

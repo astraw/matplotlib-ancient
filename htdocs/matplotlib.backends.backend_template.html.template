@@ -328,8 +328,8 @@ is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 If&nbsp;faceColor&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="RendererTemplate-draw_text"><strong>draw_text</strong></a>(self, x, y, text)</dt><dd><tt>Render&nbsp;the&nbsp;matplotlib.text.Text&nbsp;instance&nbsp;at&nbsp;x,&nbsp;y&nbsp;in&nbsp;window<br>
-coords</tt></dd></dl>
+<dl><dt><a name="RendererTemplate-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, text)</dt><dd><tt>Render&nbsp;the&nbsp;matplotlib.text.Text&nbsp;instance&nbsp;at&nbsp;x,&nbsp;y&nbsp;in&nbsp;window<br>
+coords&nbsp;using&nbsp;GraphicsContext&nbsp;gc</tt></dd></dl>
 
 <dl><dt><a name="RendererTemplate-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Return&nbsp;the&nbsp;ink&nbsp;extent&nbsp;of&nbsp;the&nbsp;text&nbsp;as&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
 

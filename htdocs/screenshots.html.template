@@ -4,7 +4,7 @@ shots = (
 
 ('subplot_demo', 
 """Multiple regular axes are created with <a
-href=matlab.html#-subplot>subplot</a>.  This is a screenshot of the
+href=matplotlib.matlab.html#-subplot>subplot</a>.  This is a screenshot of the
 matplotlib figure window.  Navigation controls on the bottom of the
 figure let you pan and zoom the X and Y axis of any combination of
 subplots together or separately""", 0),
@@ -54,7 +54,7 @@ href=matplotlib.lines.html#Line2D>lines</a> """, 1),
 making a font dictionary.  Here the default font is <tt>courier</tt>
 and the default color is red, but you can override the defaults, as in
 the function label in the axes.  See <a
-href=matlab.html#-text>text</a> for more information.  This example
+href=matplotlib.matlab.html#-text>text</a> for more information.  This example
 uses a python dictionary to control text themes, but you can also use
 matlab handle graphics calls.  See the examples file <a
 href=examples/text_handles.py>text_handles.py</a> in the src
@@ -62,7 +62,7 @@ distribution for a handle graphics demo.""", 1),
 
 ('axes_demo', 
 """Arbitrary placement of axes is possible with the <a
-href=matlab.html#-axes>axes</a> command.  Here, two inset axes are
+href=matplotlib.matlab.html#-axes>axes</a> command.  Here, two inset axes are
 placed over a <a href=matplotlib.matlab.html#-subplot>subplot</a>.""", 1), 
 
 ('eeg', """ You can embed matplotlib into a pygtk or wxpython

@@ -63,7 +63,7 @@
 
 <dl><dt><a name="FigurePS-add_axis"><strong>add_axis</strong></a>(self, a)</dt></dl>
 
-<dl><dt><a name="FigurePS-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt></dl>
+<dl><dt><a name="FigurePS-draw"><strong>draw</strong></a>(self, renderer<font color="#909090">=None</font>, *args, **kwargs)</dt></dl>
 
 <dl><dt><a name="FigurePS-print_figure"><strong>print_figure</strong></a>(self, filename, dpi)</dt><dd><tt>dpi&nbsp;is&nbsp;ignored&nbsp;for&nbsp;PS&nbsp;output,&nbsp;it&nbsp;is&nbsp;set&nbsp;depends&nbsp;on&nbsp;the&nbsp;output&nbsp;device</tt></dd></dl>
 
@@ -130,7 +130,7 @@ the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;o
 
 <dl><dt><a name="FigurePS-add_axis"><strong>add_axis</strong></a>(self, a)</dt></dl>
 
-<dl><dt><a name="FigurePS-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt></dl>
+<dl><dt><a name="FigurePS-draw"><strong>draw</strong></a>(self, renderer<font color="#909090">=None</font>, *args, **kwargs)</dt></dl>
 
 <dl><dt><a name="FigurePS-print_figure"><strong>print_figure</strong></a>(self, filename, dpi)</dt><dd><tt>dpi&nbsp;is&nbsp;ignored&nbsp;for&nbsp;PS&nbsp;output,&nbsp;it&nbsp;is&nbsp;set&nbsp;depends&nbsp;on&nbsp;the&nbsp;output&nbsp;device</tt></dd></dl>
 
@@ -244,7 +244,7 @@ specifications</tt></dd></dl>
 
 <dl><dt><a name="RendererPS-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gc, faceColor, x, y, width, height)</dt></dl>
 
-<dl><dt><a name="RendererPS-draw_text"><strong>draw_text</strong></a>(self, x, y, t)</dt><dd><tt>draw&nbsp;a&nbsp;Text&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="RendererPS-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, t)</dt><dd><tt>draw&nbsp;a&nbsp;Text&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="RendererPS-finish"><strong>finish</strong></a>(self)</dt></dl>
 

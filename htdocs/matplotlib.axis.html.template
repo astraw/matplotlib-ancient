@@ -549,5 +549,6 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <td width="100%"><strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
 <strong>True</strong> = True<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;</td></tr></table>
 @footer@
