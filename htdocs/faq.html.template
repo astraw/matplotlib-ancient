@@ -46,18 +46,30 @@ show()
     ('GTKPATH',
     'I cannot import gtk / gdk / gobject',
     """
-95 times out of 100 this is a PATH issue.  Follow the instructions on
-this <a
-href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.012.htp>pygtk
-FAQ entry</a>.  There is a long thread on the pygtk mailing list where
-Cousing Stanley got his gtk corrupted by installing glade, which
-writes some older libgtk versions into the windows system dir.  Do a
-file search for libgtk and make sure nothing shows up outside of your
-GTK install tree.  Read <a
-href=http://www.mail-archive.com/pygtk@daa.com.au/msg07324.html>this
-thread</a>, which is filled with good advice.  """
-    ),
 
+Basically, there are 3 things that I've seen cause failure (relative
+likelihood in parentheses):
+
+ <ul> 
+
+ <li> You didn't set the path properly (95% of the time).
+ <it>Solution:</it> <a
+ href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.012.htp>pygtk
+ FAQ entry</a></li>
+
+ <li> You previously installed some other GTK app and one of libiconv
+   / libgtk /libgdk is in your windows system dir and causing a
+   problem (4% of the time).  <it>Solution:</it> Remove these old libs.</li>
+
+ <li> You accidentally installed GTK-Development lib and not
+   GTK-Runtime (1% of the time).  <it>Solution:</it> install the
+   runtime as described at <a
+   href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.012.htp>pygtk
+   FAQ entry</a></li> </ul> There is a long thread on the pygtk
+   mailing list where Cousing Stanley got his gtk corrupted; read <a
+   href=http://www.mail-archive.com/pygtk@daa.com.au/msg07324.html>this
+   thread</a>, which is filled with good advice.  """ ),
+	
 
     ('WHICHBACKEND',
      'Which backend should I use?',
