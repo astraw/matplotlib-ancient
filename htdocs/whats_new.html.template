@@ -33,7 +33,8 @@ compiles in the appropriate extension code.  Thus you can use
 matplotlib with either or both packages and still get the optimal
 performance.  So it is no longer necessary to set NUMERIX in setup.py,
 but it is necessary to have the extensions you want compiled available
-at the time you compile matplotlib."""),
+at the time you compile matplotlib.  The win32 build is for numarray
+1.1."""),
 
         ('xlim, ylim, xticks and yticks',"""\
 New functions <a href=matplotlib.matlab.html#-xlim>xlim</a>, <a

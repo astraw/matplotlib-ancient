@@ -5787,5 +5787,5 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
 <strong>wxYES</strong> = 2<br>
 <strong>wxYES_DEFAULT</strong> = 0<br>
 <strong>wxYES_NO</strong> = 10<br>
-<strong>wxapp</strong> = &lt;wxPython.wx.wxPySimpleApp instance; proxy of C++ wxPyApp instance at _85bd970_wxPyApp_p&gt;</td></tr></table>
+<strong>wxapp</strong> = &lt;wxPython.wx.wxPySimpleApp instance; proxy of C++ wxPyApp instance at _85bd900_wxPyApp_p&gt;</td></tr></table>
 @footer@
