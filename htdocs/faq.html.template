@@ -500,13 +500,8 @@ http://www2.arnes.si/~sopjsimo/gimp/faq.html>, reproduced here:
 
 I took option B and now all is well with both Gimp and Matplotlib.
 I'm running Win98 and the Gimp FAQ entry hints that it may be a
-problem in Win98,ME and NT installations. It might be worth adding
-this to the Matplotlib faq page next to the "On windows with
-GTK, I'm getting lots of messages about not finding the Times
-font" entry.
-
-Gary
-<pre>
+problem in Win98,ME and NT installations. 
+</pre>
 
 
 """ 
