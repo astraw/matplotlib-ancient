@@ -1,3 +1,21 @@
+
+new_to_51 = ( 
+
+    ('freetype2 suuport added for agg backend', """\
+With freetype2, agg now renders fonts nicely even at very small raster
+sizes.""" ),
+
+    ('Tkinter backend', """\
+Todd Miller has written a Tkinter backend.  This is a significant step
+forward, because now matplotlib works out of the box with any python +
+numeric.  The Tkinter backend works interactively from any python
+shell.  Also, because TkAgg uses the agg backend for rendering, it has
+all of the features of agg, including fast antialiased rendering,
+freetype2, alpha blending, and so on.  See <a
+href=backends.html#TkAgg>The TkAgg Backend</a>.""" ),
+
+)
+
 new_to_50 = ( 
 
     ('Antigrain backend: Agg', """Adding to the growing list of image
@@ -457,6 +475,12 @@ defined in figure.py.
 )
 
 @header@
+
+<h2> What's new in matplotlib 0.51</h2>
+ + for title, new in new_to_51:
+   <h4>@title@</h4>
+   @new@<br>
+ -
 
 <h2> What's new in matplotlib 0.50</h2>
  + for title, new in new_to_50:

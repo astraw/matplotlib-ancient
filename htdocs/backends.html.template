@@ -17,13 +17,18 @@ backends without any alterations.  Following the lead of the matlab
 <tt>print</tt> command, the backend can be chosen from the command
 line with the <tt>-d</tt> flag, as in
 
+
 <pre>
-> python subplot_demo.py -dGTK     # the GTK backend
-> python subplot_demo.py -dAgg     # the antigrain geometry backend
-> python subplot_demo.py -dPS      # the postscript backend
-> python subplot_demo.py -dGD      # the GD backend
-> python subplot_demo.py -dWX      # the WX backend
-> python subplot_demo.py -dPaint   # the Paint backend
+# the GUI backends
+> python subplot_demo.py -dGTK     # GTK backend
+> python subplot_demo.py -dTkAgg   # Tkinter GUI with antigrain rendering
+> python subplot_demo.py -dWX      # WX backend
+
+# The image backends, no window pops up; you must call savefig
+> python subplot_demo.py -dAgg     # antigrain geometry backend image
+> python subplot_demo.py -dPS      # postscript backend
+> python subplot_demo.py -dGD      # GD backend
+> python subplot_demo.py -dPaint   # Paint backend
 </pre>
 
 For backends that do not have a GUI, no output will be produced unless
@@ -51,10 +56,10 @@ href=matplotlib.backends.backend_gd.html>GD</a>, <a
 href=matplotlib.backends.backend_agg.html>Agg</a>, <a
 href=matplotlib.backends.backend_gtk.html>GTK</a>, <a
 href=matplotlib.backends.backend_ps.html>PS</a> <a
+href=matplotlib.backends.backend_tkagg.html>TkAgg</a> <a
 href=matplotlib.backends.backend_ps.html>WX</a> <a
 href=matplotlib.backends.backend_paint.html>Paint</a> and <a
 href=matplotlib.backends.backend_template.html>Template</a>.
-
 
 The default is GTK.  Template is a do nothing backend that serves as a
 template for backend writers (volunteers welcome!).<p>
@@ -77,6 +82,7 @@ this page below or by clicking
 <ul>
 <li><a href=backends.html#GTK>GTK</a></li>
 <li><a href=backends.html#Agg>Agg</a></li>
+<li><a href=backends.html#TkAgg>TkAgg</a></li>
 <li><a href=backends.html#WX>WX</a></li>
 <li><a href=backends.html#PS>PS</a></li>
 <li><a href=backends.html#Paint>Paint</a></li>
@@ -162,6 +168,14 @@ included in the windows installer, and will be build automatically by
 setting BUILD_AGG.  See <a href=fonts.html#TTFFONTS>ttf fonts</a> for
 information about setting your paths to find your <tt>*.ttf</tt> font
 files.<p>
+
+<a name=TkAgg><h3>Tkinter GUI backend</h3></a>
+
+Todd Miller has written a backend for Tkinter that uses the agg
+backend for rendering.  To use Tkagg, you need to set the BUILD_TKAGG
+flag in setup.py.  The windows installer comes with TkAgg prebuilt.
+See <a href=backends.html#Agg>agg backend</a> for more information on
+agg rendering and fonts.
 
 <h3><a name=GD>GD output</a></h3>
   

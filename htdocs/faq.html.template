@@ -45,9 +45,9 @@ Yes.  matplotlb can be used with any web application server that can
 call python.  It has been used with mod_python, xml_rpc, and other
 frameworks.  You'll want to use one of the image backends; <a
 href=faq.html#BATCHMODE>see batch mode</a>.  Also to make small images
-appropriate for use on a web page, you may want to consider the GD
-backend, since it renders small font rasters using freetype2 better
-than Agg or Paint, which currently use freetype1.  You can work around
+appropriate for use on a web page, you may want to consider the Agg or GD
+backends, since they renders small font rasters using freetype2 better
+than Paint, which currently use freetype1.  You can work around
 the problem of small raster sizes by making your fonts appear larger
 for a given by decreasing the figure size and increasing the dpi.  Eg,
 

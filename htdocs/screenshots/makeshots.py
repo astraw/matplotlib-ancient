@@ -4,10 +4,10 @@ setenv TTFPATH ~/src/ttf_microsoft/
 """
 import sys, os
 
-default = 'GD'
+default = 'Agg'
 # do not remove the pngs - some are screenshots!
 files = {'simple_plot.py'    : default, 
-         'axes_demo.py'      : 'GTK',  # color allocation bug   
+         'axes_demo.py'      : default,  # color allocation bug   
          'histogram_demo.py' : default, 
          'mri_with_eeg.py'   : default, 
          'barchart_demo.py'  : default,
@@ -17,12 +17,12 @@ files = {'simple_plot.py'    : default,
          'text_themes.py'    : default,
          'log_shot.py'       : default,
          'align_text.py'     : default,          
-         'scatter_demo2.py'  : 'Agg',    # use alpha
+         'scatter_demo2.py'  : default,    # use alpha
          }
 
 figsize = 'figsize=(6,4)'
-dpi1 = 75
-dpi2 = 150
+dpi1 = 65
+dpi2 = 130
 def make_shot(fname, backend):
     lines = [
         'from __future__ import division\n',

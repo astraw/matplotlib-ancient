@@ -1,7 +1,7 @@
 plot_table_border = 'border=1 cellspacing=1 cellpadding=1'
 
 font_props = (
-    ('fontweight', 'normal | bold | heavy | light | normal | ultrabold | ultralight'),
+    ('fontweight', 'normal | bold | light t'),
     ('fontangle', 'italic | normal | oblique'),
     ('verticalalignment', 'bottom | center | top'),
     ('horizontalalignment', 'left | center | right'),
@@ -86,7 +86,7 @@ styles in one command using Numeric arrays.  Note if you are not
 familiar with Numeric, now would be a good time to check out their
 documentation at <a href=http://www.pfdubois.com/numpy>numpy</a> since
 a lot of the matplotlib examples assume you know Numeric, and the
-matplotlib.matlab imports all the Numeric (and MLAb) functions.<p>
+matplotlib.matlab imports all the Numeric (and MLab) functions.<p>
 
 <table @plot_table_border@><tr><td>
 <table>
@@ -200,11 +200,10 @@ specify font properties in matplotlib: handle graphics calls using <a
 href=matplotlib.matlab.html#-set>set</a>, object oriented methods, and font
 dictionaries.<p>
 
-The text commands return an <a
-href=matplotlib.backend_bases.html#AxisTextBase>AxisText</a> instance
-(or a list of instances if multiple text objects are created), and the
-following font properties can be set; these names are compatible with
-matlab handle graphics for text<p>
+The text commands return an <a href=matplotlib.text.html>Text</a>
+instance (or a list of instances if multiple text objects are
+created), and the following font properties can be set; these names
+are compatible with matlab handle graphics for text<p>
 
 <table @default_table@>
     <tr><th >Property</th> <th>Values</th></tr>
@@ -244,16 +243,23 @@ properties listed in the table above.  For example, to make a red bold
 
 <pre>
 t = xlabel('time')
-set(t, 'color', 'r')
-set(t, 'fontweight', 'bold')
+set(t, 'color', 'r', 'fontweight', 'bold')
 </pre>
+
+Set also works with a list of text instances.  The following changes
+the properties of all the tick labels.
+<pre>
+labels = get(gca(), 'xticklabels')
+set(labels, 'color', 'r', 'fontweight', 'bold')
+</pre>
+
 
 <h4>Controlling text using object methods</h4>
 
-The <a href=matplotlib.matlab.html#-set>set</a> command is just a wrapper around
-the AxisText set methods.  If you prefer using instance methods, you
-just prepend <tt>set_</tt> to the text property and make a normal
-python instance method call, as in<p>
+The <a href=matplotlib.matlab.html#-set>set</a> command is just a
+wrapper around the Text set methods.  If you prefer using instance
+methods, you just prepend <tt>set_</tt> to the text property and make
+a normal python instance method call, as in<p>
 
 <pre>
 t = xlabel('time')

@@ -24,14 +24,14 @@ same <tt>*.ttf</tt> fonts in <tt>C:\windows\fonts</tt> will work with
 matplotlib on linux if you place them in your TTFPATH.  Consult your
 Windows EULA.<p>
 
-Currently paint and Agg both use freetype1, which look great at high
-resolutions but render poorly for lower resolutions.  If you are using
-matplotlib to generate images for html, you may want to consider using
-the gd backend, which supports freetype2.  freetype 2 tends to render
-fonts better at very small raster sizes.  Look for freetype2 font
-support in Paint and Agg in the near future.  See <a
-href=faq.html#APPSERVER>matplotlib images in html</a> for more
-information.<p>
+Currently paint uses freetype1, which look great at high resolutions
+but render poorly for lower resolutions.  If you are using matplotlib
+to generate images for html, you may want to consider using a backend
+which supports freetype2.  freetype 2 tends to render fonts better at
+very small raster sizes.  Look for freetype2 font support in Paint in
+the near future.  See <a href=faq.html#APPSERVER>matplotlib images in
+html</a> for more information.  The Agg and GD image backends both
+support freetype2.<p>
 
 For platform independent font finding, matplotlib uses fonttools and
 TTFQuery.  Since several of the matplotlib backends now depend on
