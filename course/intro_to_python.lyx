@@ -2000,7 +2000,7 @@ None
 
 
 \color blue
-# no normalize argument do the default thing
+# no normalize argument; do the default thing
 \layout LyX-Code
 
 >>> psd(x)   
@@ -2010,11 +2010,18 @@ None
 
 
 \color blue
-# define a custom normalize function as pass it to psd
+# define a custom normalize function unitstd as pass it
+\layout LyX-Code
+
+
+\color blue
+# to psd
 \layout LyX-Code
 
 >>> def unitstd(x): return x/std(x)
 \layout LyX-Code
 
 >>> psd(x, normalize=unitstd)
+\layout LyX-Code
+
 \the_end
