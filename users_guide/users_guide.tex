@@ -1124,6 +1124,93 @@ pass \code{origin='lower'}, as shown in Figure~\ref{fig:image_origin}.
 
 \section{Legends and tables}
 \label{sec:legends_and_tables}
+\section{Navigation}
+\label{sec:navigation}
+
+matplotlib comes with two navigation toolbars for the graphical user
+interfaces: classic and toolbar2.  You can use these to change the
+view limits of the axes in the figure.  toolbar2 superceeds classic
+and was designed to overcome shortcomings of the classic toolbar.  The
+default toolbar is determined by the \rc{toolbar} parameter in
+\fname{.matplotlibrc}.
+
+All figure windows come with a navigation toolbar, which can be used
+to navigate through the data set.  You can select either the "classic"
+or newfangled toolbar "toolbar2" in your <a
+href=.matplotlibrc>.matplotlibrc</a> file using the <tt>toolbar</tt>
+setting. 
+
+
+\subsection{Classic toolbar}
+\label{sec:toolbar_classic}
+
+You can pan and zoom on the X and Y axis for any combination of the
+axes that are plotted.  If you have a wheel mouse, you can move
+bidirectionally by scrolling the wheel over the controls.  For
+examples, the wheel mouse can be used to pan left or right by
+scrolling over either of the left arrow or right arrow buttons, so you
+never have to move the mouse to pan the x-axis left and right.  If you
+don't have a wheel mouse, buy one!
+
+The left widget that says 'All' on the controls on the bottom of
+Figure~\ref{fig:toolbar_classic} is a drop down menu used to select
+which axes the controls affect.  You can select all, none, single, or
+combinations of axes.  The first set of 4 controls are used to pan
+left, pan right, zoom in and zoom out on the x axes.  The second set
+are used to pan up, pan down, zoom in and zoom out on the y axes.  The
+remaining buttons are used to redraw the figure, save (PNG or JPEG)
+the figure, or to close the figure window.
+
+\fig{4in}{figures/toolbar_classic}{The classic toolbar, discussed
+in Section~\ref{sec:toolbar_classic}}{fig:toolbar_classic}
+
+\subsection{toolbar2}
+\label{sec:toolbar_toolbar2}
+
+These buttons (see Figure~\ref{fig:toolbar_toolbar2} behave very
+differently from the classic the classic matplotlib toolbar (else why
+introduce a new one!) despite the visual similarity of the forward and
+back buttons.
+
+The <tt>Forward</tt> and <tt>Back</tt> buttons are akin to the web
+browser forward and back buttons.  They are used to navigate back and
+forth between previously defined views.  They have no meaning unless
+you have already navigated somewhere else using the pan and zoom
+buttons.  This is analogous to trying to click 'back' on your web
+browser before visiting a new page.  Nothing happens.  <tt>Home</tt>
+always takes you to the first view.  For <tt>Home</tt>,
+<tt>Forward</tt> and <tt>Back</tt>, think web browser where data views
+are web pages.  Use the <tt>Pan</tt> and <tt>Zoom to rectangle</tt>
+buttons, discussed below, to rectangle to define new views.
+
+The <tt>Pan</tt> button has two modes: pan and zoom.  Click this
+toolbar button to activate this mode.  Then put your mouse somewhere
+over an axes.  <b>Mode 1</b>: Press the left mouse button and hold it,
+dragging it to a new position.  When you release it, the data under
+the point where you pressed will be moved to the point where you
+released.  <b>Mode 2</b>: Press the right mouse button, dragging it to
+a new position.  The x axis will be zoomed in proportionate to the
+rightward movement and zoomed out proportionate to the leftward
+movement.  Ditto for the yaxis and up/down motions.
+
+The <tt>Zoom to rectangle</tt> button: Click this toolbar button to
+activate this mode.  Put your mouse somewhere over and axes and press
+the left mouse button.  Drag the mouse while holding the button to a
+new location and release.  The axes view limits will be zoomed to the
+rectangle you have defined.
+
+The <tt>Save</tt> button: click this button to launch a file save
+dialog.  All the *Agg backends know how to save the following image
+types: PNG, PS, EPS, SVG.  There is no support currently in Agg for
+writing to JPEG, TIFF (the regular wx and gtk backends handle these
+types).  It is possible to use matplotlib/agg + PIL to convert agg
+images to one of these other formats if required.  I can provide a
+recipe for you.  I prefer PNG over JPG and TIFF, which is why I
+haven't worked too hard to include these other image formats in agg.
+
+\fig{4in}{figures/toolbar_toolbar2}{The newfangled toolbar2, discussed
+in Section~\ref{sec:toolbar_toolbar2}}{fig:toolbar_toolbar2}
+
 
 \section{Event handling}
 \label{sec:events}
