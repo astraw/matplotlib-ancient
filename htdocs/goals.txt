@@ -78,8 +78,12 @@ Image support
 
 done
 
-AGG support appeared in 0.52, Postscript image support in 0.53.
-See <a href="http://matplotlib.sourceforge.net/matplotlib.matlab.html#-imshow">
+AGG support appeared in 
+<a href="whats_new.html#0.52-Image support">
+matplotlib-0.52</a>, Postscript image support in 
+<a href="whats_new.html#0.53-Ported image support to numarray and postscript backend">
+matplotlib-0.53</a>.
+See <a href="matplotlib.matlab.html#-imshow">
 imshow</a>
 *******************
 Polar plots

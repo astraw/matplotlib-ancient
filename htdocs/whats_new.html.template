@@ -1,6 +1,10 @@
-new_to_53 = ( 
+# To update, add a new entry to the versioninfo dictionary using the
+# version string as a key. The value of the dict entry should be a 
+# tuple of (name, description) tuples
 
+versioninfo = {}
 
+versioninfo['0.53'] = (
     ('Improved font manager and support', """
 Paul Barrett has thoroughly overhauled font support.  FontTools and
 ttfquery are no longer required for font finding as matplotlib now has
@@ -91,8 +95,9 @@ a finance guy!  See <a href=screenshots.html#date_demo>date demo</a>.
 """
      ),
     )
+#######################################################################################    
 
-new_to_52 = ( 
+versioninfo['0.52'] = (
     ('Image support', """
 Basic image support.  Images can be specified by Numeric float arrays
 <pre>
@@ -139,9 +144,10 @@ support; see <a href=examples/specgram_demo.py>specgram_demo.py</a>
 </ul>
 """),
      )
+################################################################################
 
-new_to_51 = ( 
 
+versioninfo['0.51'] = (
     ('Tkinter backend', """Todd Miller has written a Tkinter backend.
 This is a significant step forward, because now matplotlib works out
 of the box with any python + numeric.  The Tkinter backend works
@@ -223,9 +229,9 @@ legend()
 """
 ),
 )
+#############################################################################
 
-new_to_50 = ( 
-
+versioninfo['0.50'] = (
     ('Antigrain backend: Agg', """Adding to the growing list of image
 backends is <a href=http://antigrain.com>Antigrain</a>.  This is a
 backend written mostly in extension code and is the fastest of all the
@@ -352,9 +358,9 @@ work better interactively from a python shell</li>
 
 
 )
+########################################################################
 
-new_to_42 = ( 
-
+versioninfo['0.42'] = (
 	('EPS output from PS backend', 
 """Just add an eps extension"""),
 
@@ -379,9 +385,10 @@ you to move objects in the figure, etc..."""),
 
 
 )
+########################################################################
 
-
-new_to_41 = ( ('Pcolor optimizations', 
+versioninfo['0.41'] = (
+('Pcolor optimizations', 
 """Several optimizations have improved the performance of pcolor
 across all backends, 4x on the GTK backend"""),
 
@@ -405,8 +412,10 @@ You can now pass bar a len(x) list of color args to have bars with
 different colors.
 """),	
 )
+##############################################################################
 
-new_to_40 = ( ('Wx python backend', 
+versioninfo['0.40'] = (
+('Wx python backend', 
 """ Jeremy O'Donoghue has done an amazing job implementing the backend
 for <a href=http://www.wxpython.org>wxpython</a>.  See <a
 href=matplotlib.backends.backend_wx.html>backend_wx</a> for a status
@@ -457,8 +466,9 @@ upper right).
 """),
 
         )
+###############################################################################
 
-new_to_32 = ( 
+versioninfo['0.32'] = (
 	('wx python backend -- development version',
 """
 Jeremy O'Donoghue has done an amazing job implementing the backend for
@@ -487,8 +497,9 @@ Fixed reversed zoom tools, bug in ticklabel setting, bug in AFM font
 path setting for PS backend, fixed a label position bug
 """),
         )
+###############################################################################        
 
-new_to_29_2 = (
+versioninfo['0.29.2'] = (
     ('Log scaling',
 """
 Andrew Straw chipped in provided some code to support log scaling.
@@ -499,8 +510,9 @@ Many thanks.  matplotlib now has three new commands <a
    <a href=examples/log_demo.py>log_demo.py</a>
 """),
     )
+##############################################################################
 
-new_to_29_1 = (
+versioninfo['0.29.1'] = (
     ('GTK bugfixes and interactive mode',
 """This includes several bug fixes in the GTK backend which affected
 interactive mode and figure resizing.  See <a href=examples/interactive2.py>interactive2.py</a> in
@@ -517,8 +529,9 @@ color format string is supported ).  See <a
 href=examples/color_demo.py>color_demo.py</a>
 """),
 )
+##############################################################################
 
-new_to_29 = ( 
+versioninfo['0.29'] = (
 	('Multiple output devices', 
 """The major improvement in matplotlib with this release is that the
 library no longer requires pygtk or GTK, and instead renders to an
@@ -558,8 +571,9 @@ interpolating them).
 """
 """),
 )
+############################################################################
 
-new_2_to_21 = (
+versioninfo['0.21'] = (
     ('Deprecation warnings',
 """
 Several users reported Deprecation warnings with python2.3 and pygtk
@@ -593,13 +607,12 @@ subplots.  See <a href="examples/figtext.py">figtext.py</a>
 All drawing is done to a pixmap and then updated.  This allows flicker
 free updates of the figure.  You can use this, for example, to build a
 system monitor, which continuously shows system resources such as RAM,
-CPU, etc...  See <a href="examples/system_monitor.py>system_monitor.py</a> for a demo. 
+CPU, etc...  See <a href="examples/system_monitor.py">system_monitor.py</a> for a demo. 
 """),
     )
-    
+############################################################################    
 
-
-new_1to2 = (
+versioninfo['0.2'] = (
 ('Font handling',
 """
 Major improvements in font and text handling.  matplotlib 0.1 drew all
@@ -678,90 +691,22 @@ href=text.html#AxisText>AxisText</a> class in text.py.  Axis handling
 refactored into dedicated class <a href=figure.html#Axis>Axis</a>
 defined in figure.py.
 """),
-
-
 )
+
+# sort versions
+versions = versioninfo.keys()
+versions.sort()
+versions.reverse()
+versioninfo_list = [(ver, versioninfo[ver]) for ver in versions]
 
 @header@
 
-<h2> What's new in matplotlib 0.53</h2>
- + for title, new in new_to_53:
-   <h4>@title@</h4>
-   @new@<br>
- -
-
-<h2> What's new in matplotlib 0.52</h2>
- + for title, new in new_to_52:
-   <h4>@title@</h4>
-   @new@<br>
- -
-
-<h2> What's new in matplotlib 0.51</h2>
- + for title, new in new_to_51:
-   <h4>@title@</h4>
-   @new@<br>
- -
-
-<h2> What's new in matplotlib 0.50</h2>
- + for title, new in new_to_50:
-   <h4>@title@</h4>
-   @new@<br>
- -
-
-<h2> What's new in matplotlib 0.42</h2>
- + for title, new in new_to_42:
-   <h4>@title@</h4>
-   @new@<br>
- -
-
-
-<h2> What's new in matplotlib 0.41</h2>
- + for title, new in new_to_41:
-   <h4>@title@</h4>
-   @new@<br>
- -
-
-<h2> What's new in matplotlib 0.40</h2>
- + for title, new in new_to_40:
-   <h4>@title@</h4>
-   @new@<br>
- -
-
-<h2> What's new in matplotlib 0.32</h2>
- + for title, new in new_to_32:
-   <h4>@title@</h4>
-   @new@<br>
- -
-
-<h2> What's new in matplotlib 0.29.2</h2>
- + for title, new in new_to_29_2:
-   <h4>@title@</h4>
-   @new@<br>
- -
-
-
-<h2> What's new in matplotlib 0.29.1</h2>
- + for title, new in new_to_29_1:
-   <h4>@title@</h4>
-   @new@<br>
- -
-
-<h2> What's new in matplotlib 0.29</h2>
- + for title, new in new_to_29:
-   <h4>@title@</h4>
-   @new@<br>
- -
-
-<h2> What's new in matplotlib 0.21</h2>
- + for title, new in new_2_to_21:
-   <h4>@title@</h4>
-   @new@<br>
- -
-  
-<h2> What's new in matplotlib 0.2</h2>
- + for title, new in new_1to2:
-   <h4>@title@</h4>
-   @new@<br>
- - 
++ for version, items in versioninfo_list:
+<h2> <a name=@version@>What's new in matplotlib @version@</a></h2>
+  + for title, description in items:
+<h4> <a name="@version@-@title@">@title@</a></h4>
+@description@<br>
+  -
+-
 
 @footer@
