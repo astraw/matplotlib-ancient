@@ -85,6 +85,21 @@
 \layout Standard
 
 
+\begin_inset Note
+collapsed false
+
+\layout Standard
+
+- http://jtauber.com/graphical_shell_widget: notes about how the WX and Qt
+ text widgets don't allow inlined graphics.
+ Apparently the Tk one does.
+ Will need to look into this.
+\end_inset 
+
+
+\layout Standard
+
+
 \begin_inset ERT
 status Collapsed
 
