@@ -19,8 +19,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.22  2004/03/19 21:09:39  jdh2358
-small font fixes for win32
+Revision 1.23  2004/04/13 21:14:01  jdh2358
+mathtext fixes
 
 Revision 1.3  2004/03/08 22:17:20  jdh2358
 

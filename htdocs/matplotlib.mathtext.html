@@ -10,6 +10,7 @@
        <td  colspan=3 valign=top align=left><img align=left
              src=screenshots/logo.png></td></td>
     </tr>
+    <tr>
     <td valign=top>
         <table border=0 >
             <tr><td valign=top>
@@ -91,7 +92,7 @@
 &nbsp;&nbsp;handle&nbsp;fairly&nbsp;complex&nbsp;TeX&nbsp;expressions&nbsp;Eg,&nbsp;the&nbsp;following&nbsp;renders<br>
 &nbsp;&nbsp;correctly<br>
 &nbsp;<br>
-&nbsp;&nbsp;s&nbsp;=&nbsp;r'\cal{R}\prod_{i=\alpha\cal{B}}^\infty&nbsp;a_i\rm{sin}(2&nbsp;\pi&nbsp;f&nbsp;x_i)'<br>
+&nbsp;&nbsp;s&nbsp;=&nbsp;r'$\cal{R}\prod_{i=\alpha\cal{B}}^\infty&nbsp;a_i\rm{sin}(2&nbsp;\pi&nbsp;f&nbsp;x_i)$'<br>
 &nbsp;<br>
 &nbsp;&nbsp;The&nbsp;fonts&nbsp;\cal,&nbsp;\rm,&nbsp;\it,&nbsp;and&nbsp;\tt&nbsp;are&nbsp;allowed.<br>
 &nbsp;<br>
@@ -260,6 +261,8 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathT
 
 <dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
 
+<dl><dt><strong>fontprops</strong> = &lt;matplotlib.font_manager.FontProperties instance&gt;</dl>
+
 <dl><dt><strong>nx</strong> = 0</dl>
 
 <dl><dt><strong>ny</strong> = 0</dl>
@@ -314,6 +317,8 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathT
 
 <dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
 
+<dl><dt><strong>fontprops</strong> = &lt;matplotlib.font_manager.FontProperties instance&gt;</dl>
+
 <dl><dt><strong>nx</strong> = 0</dl>
 
 <dl><dt><strong>ny</strong> = 0</dl>
@@ -363,6 +368,8 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathT
 <dl><dt><strong>dpi</strong> = 200</dl>
 
 <dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
+
+<dl><dt><strong>fontprops</strong> = &lt;matplotlib.font_manager.FontProperties instance&gt;</dl>
 
 <dl><dt><strong>nx</strong> = 0</dl>
 
@@ -426,6 +433,8 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
 
+<dl><dt><strong>fontprops</strong> = &lt;matplotlib.font_manager.FontProperties instance&gt;</dl>
+
 <dl><dt><strong>nx</strong> = 0</dl>
 
 <dl><dt><strong>ny</strong> = 0</dl>
@@ -477,6 +486,8 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathT
 
 <dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
 
+<dl><dt><strong>fontprops</strong> = &lt;matplotlib.font_manager.FontProperties instance&gt;</dl>
+
 <dl><dt><strong>nx</strong> = 0</dl>
 
 <dl><dt><strong>ny</strong> = 0</dl>
@@ -526,6 +537,8 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathT
 
 <dl><dt><strong>fontfile</strong> = 'cmmi10.ttf'</dl>
 
+<dl><dt><strong>fontprops</strong> = &lt;matplotlib.font_manager.FontProperties instance&gt;</dl>
+
 <dl><dt><strong>nx</strong> = 0</dl>
 
 <dl><dt><strong>ny</strong> = 0</dl>
@@ -545,27 +558,28 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#MathT
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-FT2Font"><strong>FT2Font</strong></a>(...)</dt><dd><tt><a href="#-FT2Font">FT2Font</a>(ttffile)<br>
 &nbsp;<br>
-Create&nbsp;a&nbsp;new&nbsp;FT2Font&nbsp;object;&nbsp;the&nbsp;following&nbsp;global&nbsp;font&nbsp;attributes<br>
-are&nbsp;defined<br>
-num_faces&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;number&nbsp;of&nbsp;faces&nbsp;in&nbsp;file<br>
-face_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;face&nbsp;flags&nbsp;as&nbsp;python&nbsp;int<br>
-style_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;style&nbsp;flags&nbsp;as&nbsp;python&nbsp;int<br>
-num_glyphs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;number&nbsp;of&nbsp;glyphs&nbsp;in&nbsp;the&nbsp;face<br>
-family_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;face&nbsp;family&nbsp;name<br>
-style_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;face&nbsp;syle&nbsp;name<br>
-num_fixed_sizes&nbsp;&nbsp;#&nbsp;the&nbsp;number&nbsp;of&nbsp;embedded&nbsp;bitmap&nbsp;strikes&nbsp;in&nbsp;the&nbsp;current&nbsp;face<br>
+Create&nbsp;a&nbsp;new&nbsp;FT2Font&nbsp;object<br>
+The&nbsp;following&nbsp;global&nbsp;font&nbsp;attributes&nbsp;are&nbsp;defined:<br>
+&nbsp;&nbsp;num_faces&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;faces&nbsp;in&nbsp;file<br>
+&nbsp;&nbsp;face_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;flags&nbsp;&nbsp;(int&nbsp;type);&nbsp;see&nbsp;the&nbsp;ft2font&nbsp;constants<br>
+&nbsp;&nbsp;style_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style&nbsp;flags&nbsp;&nbsp;(int&nbsp;type);&nbsp;see&nbsp;the&nbsp;ft2font&nbsp;constants<br>
+&nbsp;&nbsp;num_glyphs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;glyphs&nbsp;in&nbsp;the&nbsp;face<br>
+&nbsp;&nbsp;family_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;family&nbsp;name<br>
+&nbsp;&nbsp;style_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;syle&nbsp;name<br>
+&nbsp;&nbsp;num_fixed_sizes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;bitmap&nbsp;in&nbsp;the&nbsp;face<br>
+&nbsp;&nbsp;scalable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;is&nbsp;scalable<br>
 &nbsp;<br>
-#&nbsp;the&nbsp;following&nbsp;are&nbsp;only&nbsp;available&nbsp;if&nbsp;face.scalable<br>
-bbox&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;face&nbsp;global&nbsp;bounding&nbsp;box&nbsp;(xmin,&nbsp;ymin,&nbsp;xmax,&nbsp;ymax)<br>
-units_per_EM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;number&nbsp;of&nbsp;font&nbsp;units&nbsp;covered&nbsp;by&nbsp;the&nbsp;EM<br>
-ascender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;ascender&nbsp;in&nbsp;26.6&nbsp;units<br>
-descender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;descender&nbsp;in&nbsp;26.6&nbsp;units<br>
-height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;height&nbsp;in&nbsp;26.6&nbsp;units;&nbsp;used&nbsp;to&nbsp;compute&nbsp;a&nbsp;default<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line&nbsp;spacing&nbsp;(i.e.,&nbsp;the&nbsp;baseline-to-baseline&nbsp;distance)&nbsp;&nbsp;<br>
-max_advance_width&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;maximum&nbsp;horizontal&nbsp;cursor&nbsp;advance&nbsp;for&nbsp;all&nbsp;glyphs<br>
-max_advance_height&nbsp;&nbsp;&nbsp;#&nbsp;same&nbsp;for&nbsp;vertical&nbsp;layout<br>
-underline_position&nbsp;&nbsp;&nbsp;#&nbsp;vertical&nbsp;position&nbsp;of&nbsp;the&nbsp;underline&nbsp;bar<br>
-underline_thickness&nbsp;&nbsp;#&nbsp;vertical&nbsp;thickness&nbsp;of&nbsp;the&nbsp;underline</tt></dd></dl>
+The&nbsp;following&nbsp;are&nbsp;available,&nbsp;if&nbsp;scalable&nbsp;is&nbsp;true:<br>
+&nbsp;&nbsp;bbox&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;global&nbsp;bounding&nbsp;box&nbsp;(xmin,&nbsp;ymin,&nbsp;xmax,&nbsp;ymax)<br>
+&nbsp;&nbsp;units_per_EM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;font&nbsp;units&nbsp;covered&nbsp;by&nbsp;the&nbsp;EM<br>
+&nbsp;&nbsp;ascender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ascender&nbsp;in&nbsp;26.6&nbsp;units<br>
+&nbsp;&nbsp;descender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;descender&nbsp;in&nbsp;26.6&nbsp;units<br>
+&nbsp;&nbsp;height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;in&nbsp;26.6&nbsp;units;&nbsp;used&nbsp;to&nbsp;compute&nbsp;a&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line&nbsp;spacing&nbsp;(baseline-to-baseline&nbsp;distance)<br>
+&nbsp;&nbsp;max_advance_width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maximum&nbsp;horizontal&nbsp;cursor&nbsp;advance&nbsp;for&nbsp;all&nbsp;glyphs<br>
+&nbsp;&nbsp;max_advance_height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;same&nbsp;for&nbsp;vertical&nbsp;layout<br>
+&nbsp;&nbsp;underline_position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;position&nbsp;of&nbsp;the&nbsp;underline&nbsp;bar<br>
+&nbsp;&nbsp;underline_thickness&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;thickness&nbsp;of&nbsp;the&nbsp;underline</tt></dd></dl>
  <dl><dt><a name="-math_parse_s"><strong>math_parse_s</strong></a>(s, dpi, fontsize)</dt><dd><tt>Parse&nbsp;the&nbsp;math&nbsp;expression&nbsp;s,&nbsp;return&nbsp;the&nbsp;(bbox,&nbsp;fonts)&nbsp;tuple&nbsp;needed<br>
 to&nbsp;render&nbsp;it.<br>
 &nbsp;<br>
@@ -598,7 +612,7 @@ fonts:&nbsp;a&nbsp;seq&nbsp;of&nbsp;FT2Fonts</tt></dd></dl>
 <strong>expr</strong> = OneOrMore:(Or:([Or:([Or:([Or:([Or:([Or:([Or:([Or...Optional:(Forward:(Group:(And:([...]))))])))])]))<br>
 <strong>fontgrp</strong> = Group:(And:([Combine:(And:(["\", MatchFirst:([Ma...:(Group:(And:([...])))]))]), Suppress:("}")]))]))<br>
 <strong>fontname</strong> = MatchFirst:([MatchFirst:([MatchFirst:(["rm", "cal"]), "it"]), "tt"])<br>
-<strong>fonttable</strong> = {'(': ('cmex10.ttf', 'A1'), ')': ('cmex10.ttf', 'A2'), '*': ('cmsy10.ttf', 'A4'), '+': ('cmr10.ttf', '2B'), ',': ('cmmi10.ttf', '3B'), '-': ('cmsy10.ttf', 'A1'), '.': ('cmmi10.ttf', '3A'), '/': ('cmmi10.ttf', '3D'), '0': ('cmr10.ttf', '30'), '1': ('cmr10.ttf', '31'), ...}<br>
+<strong>fonttable</strong> = {'(': ('cmr10.ttf', '28'), ')': ('cmr10.ttf', '29'), '*': ('cmsy10.ttf', 'A4'), '+': ('cmr10.ttf', '2B'), ',': ('cmmi10.ttf', '3B'), '-': ('cmsy10.ttf', 'A1'), '.': ('cmmi10.ttf', '3A'), '/': ('cmmi10.ttf', '3D'), '0': ('cmr10.ttf', '30'), '1': ('cmr10.ttf', '31'), ...}<br>
 <strong>group</strong> = Or:([Or:([Group:(And:([And:([Suppress:("{"), One...), Optional:(Forward:(Group:(And:([...]))))])))])<br>
 <strong>grouping</strong> = MatchFirst:([MatchFirst:([MatchFirst:(["[", "]"]), "("]), ")"])<br>
 <strong>grp</strong> = Group:(And:([And:([Suppress:("{"), OneOrMore:(Or:([...]))]), Suppress:("}")]))<br>

@@ -69,11 +69,6 @@ AUTHOR:<br>
 
 <dl><dt><a name="AFM-get_angle"><strong>get_angle</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;fontangle&nbsp;as&nbsp;float</tt></dd></dl>
 
-<dl><dt><a name="AFM-get_bbox_char"><strong>get_bbox_char</strong></a>(self, c)</dt><dd><tt>Get&nbsp;the&nbsp;llx,&nbsp;lly,&nbsp;urx,&nbsp;ury&nbsp;ink&nbsp;rectangle&nbsp;for&nbsp;the&nbsp;character</tt></dd></dl>
-
-<dl><dt><a name="AFM-get_bbox_font"><strong>get_bbox_font</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;llx,&nbsp;lly,&nbsp;urx,&nbsp;ury&nbsp;ink&nbsp;bounding&nbsp;box&nbsp;for&nbsp;the&nbsp;entire<br>
-font</tt></dd></dl>
-
 <dl><dt><a name="AFM-get_familyname"><strong>get_familyname</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;family&nbsp;name,&nbsp;eg,&nbsp;Times</tt></dd></dl>
 
 <dl><dt><a name="AFM-get_fontname"><strong>get_fontname</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;name,&nbsp;eg,&nbsp;Times-Roman</tt></dd></dl>
