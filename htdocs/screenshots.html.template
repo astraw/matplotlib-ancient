@@ -61,6 +61,10 @@ also use matlab handle graphics calls.  See the examples file <a
 href=examples/text_handles.py>text_handles.py</a> in the src
 distribution for a handle graphics demo.""", 1),
 
+('align_text', """You can precisely layout text in data or axes (0,1)
+ coordinates.  This example shows you some of the alignment and
+ rotation specifications to layout text.""", 1),
+
 ('axes_demo', 
 """Arbitrary placement of axes is possible with the <a
 href=matplotlib.matlab.html#-axes>axes</a> command.  Here, two inset axes are

@@ -9,7 +9,8 @@ files = {'simple_plot.py'    : 'GD',
          'legend_demo.py'    : 'GD', 
          'pcolor_demo.py'    : 'GD', 
          'text_themes.py'    : 'GTK',   # font problem
-         'log_shot.py'       : 'GD', 
+         'log_shot.py'       : 'GD',
+         'align_text.py'       : 'GTK',          
          'scatter_demo2.py'  : 'GD',    # color bug, some circles not filled
          }
 

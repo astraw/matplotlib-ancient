@@ -1,5 +1,12 @@
 new_to_50 = ( 
 
+	('Paint/libart backend', """ David Moore wrote a backend for
+<a href=http://pypaint.sourceforge.net>pypaint</a>, a <a
+href=http://www.levien.com/libart>libart</a> wrapper.  libart is a
+high quality, cross platform image renderer that supports antialiased
+lines, freetype fonts, and other capabilities to soon be exploited.
+Thanks David!  """ )
+
 	('GD supports clipping and antialiased line drawing', """See
 instructions about upgrading gd and gdmodule at <a
 href=backends.html#GD>Installing the GD backend</a>.  The line object
@@ -21,6 +28,9 @@ David Moore and John Gill for suggestions and code.  """),
   <li> All : the yticks on the right hand side were placed incorrectly,
   now fixed</li>
 
+  <li> All : Exposed all Figure construc attributes (figsize, dpi,
+  facecolor, edgecolor) to matlab interface</li>
+
   <li> All : ticklabels now make a more intelligent choice about how
   many significant digits to display </li>
 
@@ -29,13 +39,14 @@ David Moore and John Gill for suggestions and code.  """),
 
   <li> GD and GTK : Fixed line width to scale with DPI</li>
 
-  <li> GD : Fixed small text layout bug</li>
+  <li> GD, GTK and PS : Fixed minor text layout problems</li>
 
   <li> GD : Fixed the constant for GD which maps pixels per inch -
   this should give better agreement with other backends with he
   relative sizes of objects</li>
 
   <li> GTK : Dash spacing was not properly scaling with DPI</li>
+  <li> GTK : Rotated text did not display correctly in some cases</li>
   
 </ul>
 
