@@ -15,6 +15,7 @@ plotcommands = (
     ('gcf', 'return the current figure'),
     ('get', 'get a handle graphics property'),
     ('hist', 'make a histogram'),
+    ('imshow', 'show an image'),
     ('loglog', 'a log log plot'),
     ('pcolor', 'make pseudocolor plot'),
     ('plot', 'make a line plot'),

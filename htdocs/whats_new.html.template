@@ -1,4 +1,17 @@
 new_to_52 = ( 
+    ('Image support', """
+Basic image support.  Images can be specified by Numeric float arrays
+
+     If X is MxN, assume luminance (grayscale)
+     If X is MxNx3, assume RGB
+     If X is MxNx4, assume RGBA
+
+see <a href=matplotlib.matlab.html#-imshow>imshow</a> and the
+image_demo*.py examples in the matplotlib src distribution.  Set
+BUILD_IMAGE in setup.py for image support.  Currently available on
+Agg, GTKAgg, TkAgg and GTK backends.
+"""),
+
     ('Figure legends', """
 In addition to adding legends to the axes with the legend command, you
 can place legends anywhere in the figure with figlegend
