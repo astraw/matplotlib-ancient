@@ -6,22 +6,25 @@ import sys, os
 
 default = 'Agg'
 # do not remove the pngs - some are screenshots!
-files = {'simple_plot.py'    : default, 
-         'axes_demo.py'      : default,  # color allocation bug   
-         'histogram_demo.py' : default, 
-         'mri_with_eeg.py'   : default,
-         'fill_demo.py'  : default,
-         'date_demo.py'  : default,         
-         'barchart_demo.py'  : default,
-         'table_demo.py'     : default, 
-         'legend_demo.py'    : default,
-         'mathtext_demo.py'    : default, 
-         'pcolor_demo.py'    : default, 
-         'text_themes.py'    : default,  # font path
-         'log_shot.py'       : default,
-         'align_text.py'     : default,          
-         'scatter_demo2.py'  : default,    # use alpha
-         }
+files = {
+    'finance_work2.py'  : default,    
+    'simple_plot.py'    : default, 
+    'axes_demo.py'      : default,  # color allocation bug   
+    'histogram_demo.py' : default, 
+    'mri_with_eeg.py'   : default,
+    'fill_demo.py'  : default,
+    'date_demo.py'  : default,         
+    'barchart_demo.py'  : default,
+    'table_demo.py'     : default, 
+    'legend_demo.py'    : default,
+    'mathtext_demo.py'    : default, 
+    'pcolor_demo.py'    : default, 
+    'text_themes.py'    : default,  # font path
+    'log_shot.py'       : default,
+    'align_text.py'     : default,          
+    'scatter_demo2.py'  : default,    # use alpha
+
+    }
 
 figsize = 'figsize=(8,6)'
 dpi1 = 60

@@ -46,6 +46,15 @@ uses the <a href=matplotlib.finance.html>finance module</a> to
 retrieve stock data and plot it with a candlestick plot""",
 1),
 
+('finance_work2', """ You can make much more sophisticated financial
+plots.  This example emulates one of the <a
+href=http://www.advsofteng.com/gallery_finance.html>ChartDirector</a>
+financial plot.  Some of the data in the plot, are real financial
+data, some are random traces that I used since the goal was to
+illustrate plotting techniques, not market analysis!""", 1),
+
+
+
 ('log_shot', """The <a
 href=matplotlib.matlab.html#-semilogx>semilogx</a>, <a
 href=matplotlib.matlab.html#-semilogy>semilogy</a> and <a

@@ -621,7 +621,7 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
 <strong>True</strong> = True<br>
-<strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
+<strong>absolute</strong> = &lt;UFunc: 'abs'&gt;<br>
 <strong>alphanums</strong> = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'<br>
 <strong>alphas</strong> = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'<br>
 <strong>ampersand</strong> = "&amp;"<br>

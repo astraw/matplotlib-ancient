@@ -5,10 +5,10 @@
 The matplotlib core graphics routines interact with an abstract
 renderer and graphics context to allow device independent ouput.
 Currently, output to pygtk, wxPython, Tkinter, postscript, gdmodule,
-libart/paint and agg (antigrain geometry) are supported.  With not too
-much effort, you can port matplotlib to your favorite display; high on
-my list of priorities are SVG, PDF and PIL.  If you are interested in
-porting to one of these platforms, please contact me!<p>
+libart/paint, svg and agg (antigrain geometry) are supported.  With
+not too much effort, you can port matplotlib to your favorite display;
+high on my list of priorities are PDF and PIL.  If you are interested
+in porting to one of these platforms, please contact me!<p>
 
 For a summary of the comparative strengths and features of the various
 backends, see <a href=faq.html#WHICHBACKEND>which backend should I
@@ -35,6 +35,7 @@ command, the backend can be chosen from the command line with the
 > python subplot_demo.py -dGD      # GD backend
 > python subplot_demo.py -dPaint   # Paint backend
 > python subplot_demo.py -dPS      # postscript backend
+> python subplot_demo.py -dSVG      # SVG backend
 </pre>
 
 

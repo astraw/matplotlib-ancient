@@ -264,8 +264,8 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
-<strong>Float</strong> = 'd'<br>
+<strong>Float</strong> = Float64<br>
 <strong>True</strong> = True<br>
-<strong>add</strong> = &lt;ufunc 'add'&gt;<br>
+<strong>add</strong> = &lt;UFunc: 'add'&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
 @footer@

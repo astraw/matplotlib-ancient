@@ -325,7 +325,6 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-Bbox"><strong>Bbox</strong></a>(...)</dt><dd><tt><a href="#-Bbox">Bbox</a>(ll,&nbsp;ur)</tt></dd></dl>
- <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
  <dl><dt><a name="-error_msg"><strong>error_msg</strong></a> = error_msg_gd(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
  <dl><dt><a name="-error_msg_gd"><strong>error_msg_gd</strong></a>(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
  <dl><dt><a name="-gd_requirements_failed"><strong>gd_requirements_failed</strong></a>()</dt><dd><tt>Print&nbsp;a&nbsp;message&nbsp;about&nbsp;the&nbsp;required&nbsp;gd&nbsp;version&nbsp;and&nbsp;quit</tt></dd></dl>
@@ -346,5 +345,5 @@ the&nbsp;figure&nbsp;in&nbsp;it.</tt></dd></dl>
 <strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
-<strong>nx</strong> = &lt;matplotlib.nc_imports._TypeNamespace instance&gt;</td></tr></table>
+<strong>nx</strong> = &lt;matplotlib.na_imports._TypeNamespace instance&gt;</td></tr></table>
 @footer@

@@ -11,7 +11,7 @@ X,Y = meshgrid(x, y)
 
 Z = func3(X, Y)
 #pcolor(X, Y, Z, shading='flat')       # slow
-im = imshow(Z, cmap=ColormapJet(256))  # fast
+im = imshow(Z, cmap=cm.jet)  # fast
 gca().set_image_extent(-3, 3, -3, 3)
 axis('off')
 
