@@ -21,6 +21,8 @@ screenshots/makeshots.py is a script that creates all the screenshots
   a fast computer!
 
 So in a nutshell, here is what you need to do to generate the docs.
+
+  0) Build the matplotlib html class documentation with Make htmldocs
   
   1) Make sure the CVS matplotlib tree is in your PYTHONPATH and 
      > cd htdocs
