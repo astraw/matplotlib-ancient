@@ -1,5 +1,12 @@
 New entries should be added at the top
+
+2004-07-08 fixed a mathtext bug for '6'
+
+2004-07-08 added some numarray bug workarounds
+
 =======
+
+2004-07-07 0.60 released
 
 2004-07-07 Fixed a bug in dynamic_demo_wx
 

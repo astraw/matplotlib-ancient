@@ -49,6 +49,13 @@ less typing :-)
 New finance demo shows off may of the features of matplotlib - see
 screenshot at <a href=screenshots.html#finance_work2>finance_work2</a>"""),
 
+    ('dynamic image demo', """\
+
+Andrew Straw submitted a dynamic_image example.  The wx version is
+still in progree and has some flicker problems, but the gtk version is
+pretty cool - <a
+href=http://matplotlib.sf.net/examples/dynamic_image_gtkagg.py>dynamic_image_gtkagg.py</a>"""),
+
     ('Bug fixes', 'dynamic_demo_wx, figure legends, memory leaks, axis scaling bug related to singleton plots'),
 
     )

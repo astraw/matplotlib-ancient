@@ -191,5 +191,5 @@ gives&nbsp;the&nbsp;closest&nbsp;value&nbsp;for&nbsp;values&nbsp;of&nbsp;x&nbsp;
 <strong>Int</strong> = 'l'<br>
 <strong>True</strong> = True<br>
 <strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
-<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
+<strong>divide</strong> = &lt;ufunc 'divide'&gt;</td></tr></table>
 @footer@

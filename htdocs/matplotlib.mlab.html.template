@@ -227,6 +227,7 @@ If&nbsp;normed&nbsp;is&nbsp;False,&nbsp;return&nbsp;the&nbsp;counts&nbsp;in&nbsp
 return&nbsp;tuple.&nbsp;&nbsp;If&nbsp;normed&nbsp;is&nbsp;True,&nbsp;return&nbsp;the&nbsp;probability&nbsp;density<br>
 n/(len(y)*dbin)<br>
 &nbsp;<br>
+If&nbsp;y&nbsp;has&nbsp;rank&gt;1,&nbsp;it&nbsp;will&nbsp;be&nbsp;raveled<br>
 Credits:&nbsp;the&nbsp;Numeric&nbsp;22&nbsp;documentation</tt></dd></dl>
  <dl><dt><a name="-levypdf"><strong>levypdf</strong></a>(x, gamma, alpha)</dt><dd><tt>Returm&nbsp;the&nbsp;levy&nbsp;pdf&nbsp;evaluated&nbsp;at&nbsp;x&nbsp;for&nbsp;params&nbsp;gamma,&nbsp;alpha</tt></dd></dl>
  <dl><dt><a name="-linspace"><strong>linspace</strong></a>(xmin, xmax, N)</dt></dl>

@@ -1,4 +1,8 @@
 # Thanks to Charles Twardy for this example
+#
+#See http://matplotlib.sf.net/examples/legend_demo2.py for an example
+#controlling which lines the legend uses and the order
+
 from matplotlib.matlab import *
 
 a = arange(0,3,.02)
