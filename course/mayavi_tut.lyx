@@ -23,7 +23,10 @@
 \papersides 1
 \paperpagestyle default
 
-\layout Standard
+\layout Section
 
-hello mayavi
+Generalities
+\layout Section
+
+Scripted examples
 \the_end

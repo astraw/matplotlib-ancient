@@ -23,7 +23,19 @@
 \papersides 1
 \paperpagestyle default
 
+\layout Section
+
+weave
+\layout Section
+
+swig 
+\layout Section
+
+f2py 
+\layout Section
+
+Others
 \layout Standard
 
-hello swig, f2py, boost, and cxx
+boost, pyrex, cxx
 \the_end

@@ -387,10 +387,35 @@ timeit.Timer
  object.
 \layout Standard
 
+The magic commands 
+\family typewriter 
+%pdoc
+\family default 
+, 
+\family typewriter 
+%pdef
+\family default 
+, 
+\family typewriter 
+%psource
+\family default 
+ and 
+\family typewriter 
+%pfile
+\family default 
+ will respectively print the docstring, function definition line, full source
+ code and the complete file for any object (when they can be found).
+ If automagic is on (it is by default), you don't need to type the '
+\family typewriter 
+%
+\family default 
+' explicitly.
+\layout Standard
+
 
 \begin_inset Float figure
 wide false
-collapsed false
+collapsed true
 
 \layout Standard
 \align center 
@@ -427,28 +452,423 @@ IPython can show syntax-highlighted source code for objects whose source
 \layout Subsection
 
 I/O prompts
+\layout Standard
+
+Use the output cache.
+ All output results are automatically stored in a global dictionary named
+ 
+\family typewriter 
+Out
+\family default 
+ and variables named 
+\family typewriter 
+_1
+\family default 
+, 
+\family typewriter 
+_2
+\family default 
+, etc.
+ alias them.
+ For example, the result of input line 4 is available either as 
+\family typewriter 
+Out[4]
+\family default 
+ or as 
+\family typewriter 
+_4
+\family default 
+.
+ Additionally, three variables named 
+\family typewriter 
+_
+\family default 
+, 
+\family typewriter 
+__
+\family default 
+ and 
+\family typewriter 
+___
+\family default 
+ are always kept updated with the for the last three results.
+ This allows you to recall any previous result and further use it for new
+ calculations.
+\layout Standard
+
+Put a '
+\family typewriter 
+;
+\family default 
+' at the end of a line to supress the printing of output.
+ This is useful when doing calculations which generate long output you are
+ not interested in seeing.
+ The 
+\family typewriter 
+_*
+\family default 
+ variables ant the 
+\family typewriter 
+Out[]
+\family default 
+ list do get updated with the contents of the output, even if it is not
+ printed.
+ You can thus still access the generated results this way for further processing.
+\layout Standard
+
+A similar system exists for caching input.
+ All input is stored in a global list called 
+\family typewriter 
+In
+\family default 
+ , so you can re-execute lines 22 through 28 plus line 34 by typing 
+\family typewriter 
+'exec In[22:29]+In[34]'
+\family default 
+ (using Python slicing notation).
+ If you need to execute the same set of lines often, you can assign them
+ to a macro with the 
+\family typewriter 
+%macro
+\family default 
+ 
+\family typewriter 
+function.
+\layout Standard
+
+Use your input history.
+ The 
+\family typewriter 
+%hist
+\family default 
+ command can show you all previous input, without line numbers if desired
+ (option 
+\family typewriter 
+-n
+\family default 
+) so you can directly copy and paste code either back in IPython or in a
+ text editor.
+ You can also save all your history by turning on logging via 
+\family typewriter 
+%logstart
+\family default 
+; these logs can later be either reloaded as IPython sessions or used as
+ code for your programs.
 \layout Subsection
 
 Running code
+\layout Standard
+
+The 
+\family typewriter 
+%run
+\family default 
+ magic command allows you to run any python script and load all of its data
+ directly into the interactive namespace.
+ Since the file is re-read from disk each time, changes you make to it are
+ reflected immediately (in contrast to the behavior of 
+\family typewriter 
+import
+\family default 
+).
+ I rarely use 
+\family typewriter 
+import
+\family default 
+ for code I am testing, relying on 
+\family typewriter 
+%run
+\family default 
+ instead.
+ 
+\layout Standard
+
+
+\family typewriter 
+%run
+\family default 
+ also has special flags for timing the execution of your scripts (
+\family typewriter 
+-t
+\family default 
+) and for executing them under the control of either Python's 
+\family typewriter 
+pdb 
+\family default 
+debugger (
+\family typewriter 
+-d
+\family default 
+) or profiler (
+\family typewriter 
+-p
+\family default 
+).
+ With all of these, 
+\family typewriter 
+%run
+\family default 
+ can be used as the main tool for efficient interactive development of code
+ which you write in your editor of choice.
+\layout Standard
+
+dreload...
+ a recursive reload command.
 \layout Subsection
 
 Access to the underlying Operating System
+\layout Standard
+
+Lines starting with ! are passed directly to the system shell, and using
+ !! captures shell output into python variables for further use.
+\layout Standard
+
+Define your own system aliases.
+ Even though IPython gives you access to your system shell via the 
+\family typewriter 
+!
+\family default 
+ prefix, it is convenient to have aliases to the system commands you use
+ most often.
+ This allows you to work seamlessly from inside IPython with the same commands
+ you are used to in your system shell.
+\layout Standard
+
+IPython comes with some pre-defined aliases and a complete system for changing
+ directories, both via a stack (see 
+\family typewriter 
+%pushd
+\family default 
+, 
+\family typewriter 
+%popd
+\family default 
+ and 
+\family typewriter 
+%ds
+\family default 
+) and via direct 
+\family typewriter 
+%cd
+\family default 
+.
+ The latter keeps a history of visited directories and allows you to go
+ to any previously visited one.
+\layout Standard
+
+Use Python to manipulate the results of system commands.
+ The `
+\family typewriter 
+!!
+\family default 
+' special syntax, and the 
+\family typewriter 
+%sc
+\family default 
+ and 
+\family typewriter 
+%sx
+\family default 
+ magic commands allow you to capture system output into Python variables.
+\layout Standard
+
+Expand python variables when calling the shell (either via 
+\family typewriter 
+`!'
+\family default 
+ and 
+\family typewriter 
+`!!'
+\family default 
+ or via aliases) by prepending a 
+\family typewriter 
+$
+\family default 
+ in front of them.
+ You can also expand complete python expressions.
+\layout Subsection
+
+More
+\layout Itemize
+
+Define your own macros with 
+\family typewriter 
+%macro
+\family default 
+.
+ This can be useful for automating sequences of expressions when working
+ interactively.
+\layout Itemize
+
+Use 
+\family typewriter 
+%edit
+\family default 
+ to have almost multiline editing.
+ While IPython doesn't support true multiline editing, this command allows
+ you to call an editor on the spot, and IPython will execute the code you
+ type in there as if it were typed interactively.
 \layout Section
 
 Customizing IPython
 \layout Subsection
 
 Basics
+\layout Standard
+
+Flexible configuration system.
+ It uses a configuration file which allows permanent setting of all command-line
+ options, module loading, code and file execution.
+ The system allows recursive file inclusion, so you can have a base file
+ with defaults and layers which load other customizations for particular
+ projects.
 \layout Subsection
 
 Profiles
+\layout Standard
+
+Use profiles to maintain different configurations (modules to load, function
+ definitions, option settings) for particular tasks.
+ You can then have customized versions of IPython for specific purposes.
+ 
 \layout Section
 
 Debugging and profiling with IPython 
+\layout Standard
+
+The Python debugger.
+ You can set IPython to call up the Python debugger (pdb) every time there
+ is an uncaught exception.
+ This drops you inside the code which triggered the exception with all the
+ data live and it is possible to navigate the stack to rapidly isolate the
+ source of a bug.
+ The 
+\family typewriter 
+%run
+\family default 
+ magic command --with the 
+\family typewriter 
+-d
+\family default 
+ option-- can run any script under 
+\family typewriter 
+pdb
+\family default 
+'s control, automatically setting initial breakpoints for you.
+\layout Standard
+
+The Python profiler.
+ When dealing with performance issues, the 
+\family typewriter 
+%run
+\family default 
+ command with a 
+\family typewriter 
+-p
+\family default 
+ option allows you to run complete programs under the control of the Python
+ profiler.
+ The 
+\family typewriter 
+%prun
+\family default 
+ command does a similar job for single Python expressions (like function
+ calls).
+\layout Standard
+
+You can run single statements (similar to 
+\family typewriter 
+profile.run()
+\family default 
+) or complete programs under the profiler's control.
+ While this is possible with the standard 
+\family typewriter 
+profile
+\family default 
+ module, IPython wraps this functionality with magic commands (see 
+\family typewriter 
+`%prun'
+\family default 
+ and 
+\family typewriter 
+`%run -p
+\family default 
+') convenient for rapid interactive work.
 \layout Section
 
 Embedding IPython into your programs 
+\layout Standard
+
+A few lines of code are enough to load a complete IPython inside your own
+ programs, giving you the ability to work with your data interactively after
+ automatic processing has been completed.
+ 
+\layout Standard
+
+You can call IPython as a python shell inside your own python programs.
+ This can be used both for debugging code or for providing interactive abilities
+ to your programs with knowledge about the local namespaces (very useful
+ in debugging and data analysis situations).
 \layout Section
 
 Integration with Matplotlib
+\layout Standard
+
+The matplotlib library (
+\begin_inset LatexCommand \htmlurl[http://matplotlib.sourceforge.net]{http://matplotlib.sourceforge.net}
+
+\end_inset 
+
+) provides high quality 2D plotting for Python.
+ Matplotlib can produce plots on screen using a variety of GUI toolkits,
+ including Tk, GTK and WXPython.
+ It also provides a number of commands useful for scientific computing,
+ all with a syntax compatible with that of the popular Matlab program.
+\layout Standard
+
+IPython accepts the special option 
+\family typewriter 
+-pylab
+\family default 
+.
+ This configures it to support matplotlib, honoring the settings in the
+ 
+\family typewriter 
+.matplotlibrc
+\family default 
+ file.
+ IPython will detect the user's choice of matplotlib GUI backend, and automatica
+lly select the proper threading model to prevent blocking.
+ It also sets matplotlib in interactive mode and modifies 
+\family typewriter 
+%run
+\family default 
+ slightly, so that any matplotlib-based script can be executed using 
+\family typewriter 
+%run
+\family default 
+ and the final 
+\family typewriter 
+show()
+\family default 
+ command does not block the interactive shell.
+\layout Standard
+
+The 
+\family typewriter 
+-pylab
+\family default 
+ option must be given first in order for IPython to configure its threading
+ mode.
+ However, you can still issue other options afterwards.
+ This allows you to have a matplotlib-based environment customized with
+ additional modules using the standard IPython profile mechanism: ``
+\family typewriter 
+ipython -pylab -p myprofile
+\family default 
+'' will load the profile defined in 
+\family typewriter 
+ipythonrc-myprofile
+\family default 
+ after configuring matplotlib.
 \the_end
