@@ -1,7 +1,40 @@
 new_to_53 = ( 
+
+    ('Improved font manager and support', """
+Paul Barrett has thoroughly overhauled font support.  FontTools and
+ttfquery are no longer required for font finding as matplotlib now has
+a completely freestanding freetype2 implementation and font finder.
+Among other things, this should enable you to specify fonts in your
+scripts and matplotlibrc file and generate consistent figures across
+backends and operating systems.<p>
+
+The font finder algorithm and implementation are based on the W3C
+standard.  Fonts are specified by family, one of: serif, san-serif,
+monospace, cursive or fantasy.  You can specify relative font sizes
+like 'smaller' or 'larger' for text elements, which enables you to
+change to entire font sizing scheme of a figure just by changing the
+base size.  See <a href=matplotlib.font_manager.html>the font manager
+documentation</a> for more details; please update your matplotlibrc
+files as described in that link.
+"""),
+
     ('Ported image support to numarray', """
 The image module now works with Numeric or numarray
 """),
+
+    ('Backend WXAgg', """
+Antigrain rendering to wxpython applications and figure windows.  Now
+wx users have access to all the latest matplotlib functionality,
+including mathtext, antialised drawing, alpha blending and image
+support.
+"""),
+
+    ('load and save commands', """
+Helper functions for loading and saving ASCII arrays.  See <a
+href=matplotlib.matlab.html#-load>load</a> and See <a
+href=matplotlib.matlab.html#-save>save</a>.
+"""),
+
 )
 
 new_to_52 = ( 

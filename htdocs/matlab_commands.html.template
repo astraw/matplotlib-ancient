@@ -101,9 +101,11 @@ plotcommands = (
 
 ('Other', (
     ('angle', 'the angle of a complex array'),
+    ('load',  'load ASCII data into an array'),
     ('polyfit', 'fit x, y to an n-th order polynomial'),
     ('polyval', 'evaluate an n-th order polynomial'),
     ('roots', 'the roots of the polynomial coefficients in p'),
+    ('save',  'save array as ASCII data array'),
     ('trapz', 'trapezoidal integration'),
 )))
 
