@@ -1,57 +1,60 @@
 
 new_to_51 = ( 
 
-    ('Tkinter backend', """\
-Todd Miller has written a Tkinter backend.  This is a significant step
-forward, because now matplotlib works out of the box with any python +
-numeric.  The Tkinter backend works interactively from any python
-shell - see the <a href=interactive.html>interactive
-documentation</a>.  Also, because TkAgg uses the agg backend for
-rendering, it has all of the features of agg, including fast
-antialiased rendering, freetype2, alpha blending, mathtext, and so on.
-See the <a href=backends.html#TkAgg>TkAgg backend</a>.""" ),
+    ('Tkinter backend', """Todd Miller has written a Tkinter backend.
+This is a significant step forward, because now matplotlib works out
+of the box with any python + numeric.  The Tkinter backend works
+interactively from any python shell - see the <a
+href=interactive.html>interactive documentation</a>.  Also, because
+TkAgg uses the agg backend for rendering, it has all of the features
+of agg, including fast antialiased rendering, freetype2, alpha
+blending, mathtext, and so on.  See the <a
+href=backends.html#TkAgg>TkAgg backend</a>.  To use the TkAgg backend,
+you must launch your scripts in interactive mode <tt>python -i
+myscript.py -dTkAgg</tt>; otherwise they'll just pop up and
+disappear.""" ),
     
-    ('freetype2 support added for agg backend', """\ With freetype2,
+    ('freetype2 support added for agg backend', """With freetype2,
 agg now renders fonts nicely even at very small raster sizes.""" ),
 
-    ('math text', """\ matplotlib now ships with the <a
+    ('math text', """matplotlib now ships with the <a
 href=http://www.math.utah.edu/~beebe/fonts/bakoma.html>BaKoMa</a> TeX
 Computer Modern fonts, and displays math text using TeX expressions.
 See <a href=screenshots.html#mathtext_demo>screenshot</a> and the <a
 href=matplotlib.mathtext.html>mathtext</a> documentation for usage
-information.  Not available (yet) on all backends.  """),
+information.  Currently available on GTK, Agg, TkAgg and GTKAgg. If
+you build matplotlib yourself, you need to edit setup.py and set
+BUILD_FT2FONT"""),
 
-    ('configuration file', """\
-A configuration file is placed in your install path
-(distutils.sysconfig.PREFIX + 'share/matplotlib').  This determines
-many of the default figure properties: the default backend, line
-properties, text properties, colors, and more.  See <a
+    ('configuration file', """A configuration file is placed in your
+install path (distutils.sysconfig.PREFIX + 'share/matplotlib').  This
+determines many of the default figure properties: the default backend,
+line properties, text properties, colors, and more.  See <a
 href=.matplotlibrc>.matplotlibrc</a> for an example configuration
 file.  Place this in your home dir (linux and friends), or edit in the
-install path (windows),
-"""),
+install path (windows).  See the faqs <a
+href=faq.html#MATPLOTLIBRC>matplotlibrc</a> and <a
+href=faq.html#CUSTOM>overriding defaults</a>.  """),
 
-    ('numarray support', """\
-Todd Miller has provided a numerix module which allows you to choose
-between Numeric of numarray.  You can set Numeric or numarray in your
-matplotlibrc file, with an environment variable, or from the prompt.
-See the <a href=matplotlib.numerix.html>numerix module</a> for more
-information and <a href=NUMARRAY_ISSUES>numarray issues</a> for a
-summary of known issues in using numarray.
-"""),
+    ('numarray support', """Todd Miller has provided a numerix module
+which allows you to choose between Numeric of numarray.  You can set
+Numeric or numarray in your matplotlibrc file, with an environment
+variable, or from the prompt.  See the <a
+href=matplotlib.numerix.html>numerix module</a> for more information
+and <a href=NUMARRAY_ISSUES>numarray issues</a> for a summary of known
+issues in using numarray.  """),
 
-    ('data clipping off by default', """\
-Data clipping, as opposed to viewport clipping, is turned off by
-default.  You can change the default behavior in <a
-href=.matplotlibrc>.matplotlibrc</a> or set it to be true when needed
-as in <a href=examples/stock_demo.py</a>
-"""),
+    ('data clipping off by default', """Data clipping, as opposed to
+viewport clipping, is turned off by default.  You can change the
+default behavior in <a href=.matplotlibrc>.matplotlibrc</a> or set it
+to be true when needed as in <a
+href=examples/stock_demo.py>stock_demo.py</a> """),
 
-    ('kwargs in plot commands', """\
-The plot commands now take kwargs that are can be used to set line
-properties (any property that has a set_* method).  You can use this
-to set a line label (for auto legends), linewidth, anitialising,
-marker face color, etc.  Here is an example:
+    ('kwargs in plot commands', """The plot commands now take kwargs
+that are can be used to set line properties (any property that has a
+set_* method).  You can use this to set a line label (for auto
+legends), linewidth, anitialising, marker face color, etc.  Here is an
+example:
 
 <pre>
 plot([1,2,3], [1,2,3], 'go-', label='line 1', linewidth=2)

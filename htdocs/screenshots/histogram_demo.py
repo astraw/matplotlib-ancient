@@ -1,4 +1,7 @@
+from matplotlib import rcParams
+rcParams['text.fontname'] = 'cmr10'
 from matplotlib.matlab import *
+
 
 mu, sigma = 100, 15
 x = mu + sigma*randn(10000)
@@ -14,8 +17,7 @@ set(gca(), 'xlim', [40, 160])
 
 xlabel('Smarts')
 ylabel('P')
-title('Histogram of IQ: mu=100, sigma=15')
-
+title(r'$\rm{IQ: } \mu=100, \sigma=15$')
 
 savefig('histogram_demo_small.png', dpi=60)
 savefig('histogram_demo_large.png', dpi=120)

@@ -19,6 +19,30 @@ to set everything from the default font, to the figure size, to the
 default line width.  See <a href=.matplotlibrc>.matplotlibrc</a> for a
 sample config file and information on how to use it.
 """),
+
+    ('CUSTOM',
+    'How do I customize the default behavior of a single figure?',
+    """\
+If you want to customize a single figure, eg, the default font,
+linewidth, fontsize, etc, you can import and customize the rcParams
+determined by the matplotlibrc file (see above).  For example, if you
+are using mathtext you may want your default axes labels, tick labels
+etc, to be in the same font as mathtext roman.  <it>You must import
+and customize the rcParams before importing anything else from
+matplotlib</it>
+
+<pre>
+from matplotlib import rcParams
+# default font is computer modern roman and linewidth is 1.0
+rcParams['text.fontname']   = 'cmr10'
+rcParams['lines.linewidth'] = 2.0
+
+from matplotlib.matlab import *
+plot([1,2,3])
+title(r'$\rm{Histogram of IQ:} \mu=100, \sigma=15$')
+show()
+</pre>
+"""),
 	
     ('GTKPATH',
     'I cannot import gtk / gdk / gobject',
@@ -287,3 +311,4 @@ remove font.cache and rerun your script, capturing them to a file.
  -
 
 @footer@
+
