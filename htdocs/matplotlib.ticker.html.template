@@ -32,6 +32,8 @@ matplotlib.<br>
 The&nbsp;basic&nbsp;generic&nbsp;&nbsp;locators&nbsp;are<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;<a href="#NullLocator">NullLocator</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;No&nbsp;ticks<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;<a href="#FixedLocator">FixedLocator</a>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Tick&nbsp;locations&nbsp;are&nbsp;fixed<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;<a href="#IndexLocator">IndexLocator</a>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;locator&nbsp;for&nbsp;index&nbsp;plots&nbsp;(eg&nbsp;where&nbsp;x&nbsp;=&nbsp;range(len(y))<br>
 &nbsp;&nbsp;<br>
@@ -79,8 +81,6 @@ axis.<br>
 &nbsp;&nbsp;*&nbsp;<a href="#FuncFormatter">FuncFormatter</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;user&nbsp;defined&nbsp;function&nbsp;sets&nbsp;the&nbsp;labels<br>
 &nbsp;<br>
 &nbsp;&nbsp;*&nbsp;<a href="#FormatStrFormatter">FormatStrFormatter</a>&nbsp;-&nbsp;use&nbsp;a&nbsp;sprintf&nbsp;format&nbsp;string<br>
-&nbsp;<br>
-&nbsp;&nbsp;*&nbsp;IndexFormatter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;cycle&nbsp;through&nbsp;fixed&nbsp;strings&nbsp;by&nbsp;tick&nbsp;position<br>
 &nbsp;&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;<a href="#ScalarFormatter">ScalarFormatter</a>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;default&nbsp;formatter&nbsp;for&nbsp;scalars;&nbsp;autopick&nbsp;the&nbsp;fmt&nbsp;string<br>
 &nbsp;<br>

@@ -243,7 +243,9 @@ a&nbsp;list&nbsp;of&nbsp;possible&nbsp;values.</tt></dd></dl>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-add_filename"><strong>add_filename</strong></a>(fontdict, prop, fname)</dt><dd><tt>A&nbsp;function&nbsp;to&nbsp;add&nbsp;a&nbsp;font&nbsp;file&nbsp;name&nbsp;to&nbsp;the&nbsp;font&nbsp;dictionary&nbsp;using<br>
+<td width="100%"><dl><dt><a name="-OSXFontDirectory"><strong>OSXFontDirectory</strong></a>()</dt><dd><tt>Return&nbsp;the&nbsp;system&nbsp;font&nbsp;directories&nbsp;for&nbsp;OS&nbsp;X.</tt></dd></dl>
+ <dl><dt><a name="-OSXInstalledFonts"><strong>OSXInstalledFonts</strong></a>(directory<font color="#909090">=None</font>, fontext<font color="#909090">=None</font>)</dt><dd><tt>Get&nbsp;list&nbsp;of&nbsp;font&nbsp;files&nbsp;on&nbsp;OS&nbsp;X&nbsp;-&nbsp;ignores&nbsp;font&nbsp;suffix&nbsp;by&nbsp;default</tt></dd></dl>
+ <dl><dt><a name="-add_filename"><strong>add_filename</strong></a>(fontdict, prop, fname)</dt><dd><tt>A&nbsp;function&nbsp;to&nbsp;add&nbsp;a&nbsp;font&nbsp;file&nbsp;name&nbsp;to&nbsp;the&nbsp;font&nbsp;dictionary&nbsp;using<br>
 the&nbsp;<a href="#FontKey">FontKey</a>&nbsp;properties.&nbsp;&nbsp;If&nbsp;a&nbsp;font&nbsp;property&nbsp;has&nbsp;no&nbsp;dictionary,&nbsp;then<br>
 create&nbsp;it.</tt></dd></dl>
  <dl><dt><a name="-afmFontProperty"><strong>afmFontProperty</strong></a>(font)</dt><dd><tt>A&nbsp;function&nbsp;for&nbsp;populating&nbsp;the&nbsp;<a href="#FontKey">FontKey</a>&nbsp;by&nbsp;extracting&nbsp;information<br>
@@ -276,7 +278,8 @@ returned&nbsp;by&nbsp;default&nbsp;with&nbsp;AFM&nbsp;fonts&nbsp;as&nbsp;an&nbsp
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>MSFolders</strong> = r'Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'<br>
 <strong>MSFontDirectories</strong> = [r'SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts', r'SOFTWARE\Microsoft\Windows\CurrentVersion\Fonts']<br>
-<strong>X11FontDirectories</strong> = ['/usr/X11R6/lib/X11/fonts/TTF/', '/usr/lib/openoffice/share/fonts/truetype/', '/usr/share/fonts/', '~/Library/Fonts/', '/Library/Fonts/', '/Network/Library/Fonts/', '/System/Library/Fonts/', 'System Folder:Fonts:', '/home/jdhunter/Library/Fonts']<br>
+<strong>OSXFontDirectories</strong> = ['/Library/Fonts/', '/Network/Library/Fonts/', '/System/Library/Fonts/', '/home/jdhunter/Library/Fonts']<br>
+<strong>X11FontDirectories</strong> = ['/usr/X11R6/lib/X11/fonts/TTF/', '/usr/lib/openoffice/share/fonts/truetype/', '/usr/share/fonts/']<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
 <strong>font_scalings</strong> = {'large': 1.2, 'medium': 1.0, 'small': 0.83299999999999996, 'x-large': 1.4399999999999999, 'x-small': 0.69399999999999995, 'xx-large': 1.728, 'xx-small': 0.57899999999999996}<br>
 <strong>home</strong> = '/home/jdhunter'<br>

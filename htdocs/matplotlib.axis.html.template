@@ -205,20 +205,21 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>Abstract&nbsp;base&nbsp;class&nbsp;for&nbsp;the&nbsp;axis&nbsp;ticks,&nbsp;grid&nbsp;lines&nbsp;and&nbsp;labels<br>
 &nbsp;<br>
+1&nbsp;refers&nbsp;to&nbsp;the&nbsp;bottom&nbsp;of&nbsp;the&nbsp;plot&nbsp;for&nbsp;xticks&nbsp;and&nbsp;the&nbsp;left&nbsp;for&nbsp;yticks<br>
+2&nbsp;refers&nbsp;to&nbsp;the&nbsp;top&nbsp;of&nbsp;the&nbsp;plot&nbsp;for&nbsp;xticks&nbsp;and&nbsp;the&nbsp;right&nbsp;for&nbsp;yticks<br>
+&nbsp;<br>
 Publicly&nbsp;accessible&nbsp;attributes<br>
 &nbsp;<br>
 &nbsp;&nbsp;tick1line&nbsp;&nbsp;:&nbsp;a&nbsp;Line2D&nbsp;instance<br>
 &nbsp;&nbsp;tick2line&nbsp;&nbsp;:&nbsp;a&nbsp;Line2D&nbsp;instance<br>
 &nbsp;&nbsp;gridline&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;Line2D&nbsp;instance<br>
-&nbsp;&nbsp;label1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;an&nbsp;Text&nbsp;instance<br>
-&nbsp;&nbsp;label2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;an&nbsp;Text&nbsp;instance<br>
+&nbsp;&nbsp;label1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;Text&nbsp;instance<br>
+&nbsp;&nbsp;label2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;Text&nbsp;instance<br>
 &nbsp;&nbsp;gridOn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;tickline<br>
 &nbsp;&nbsp;tick1On&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;1st&nbsp;tickline<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(left&nbsp;for&nbsp;xtick&nbsp;and&nbsp;bottom&nbsp;for&nbsp;yticks)<br>
 &nbsp;&nbsp;tick2On&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;2nd&nbsp;tickline<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(left&nbsp;for&nbsp;xtick&nbsp;and&nbsp;bottom&nbsp;for&nbsp;yticks)<br>
-&nbsp;&nbsp;label1On&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;tick&nbsp;label<br>
-&nbsp;&nbsp;label2On&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;tick&nbsp;label<br>&nbsp;</tt></td></tr>
+&nbsp;&nbsp;label1On&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;tick&nbsp;label<br>
+&nbsp;&nbsp;label2On&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;tick&nbsp;label<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Tick-__init__"><strong>__init__</strong></a>(self, axes, loc, label, size<font color="#909090">=None</font>, gridOn<font color="#909090">=None</font>, tick1On<font color="#909090">=True</font>, tick2On<font color="#909090">=True</font>, label1On<font color="#909090">=True</font>, label2On<font color="#909090">=False</font>, major<font color="#909090">=True</font>)</dt><dd><tt>bbox&nbsp;is&nbsp;the&nbsp;Bound2D&nbsp;bounding&nbsp;box&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;Axes<br>

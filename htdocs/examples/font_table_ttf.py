@@ -8,7 +8,7 @@ Usage python font_table_ttf.py somefile.ttf
 """
 import sys, os
 from matplotlib.ft2font import FT2Font
-from matplotlib.matlab import figure, table, show, axis, title
+from pylab import figure, table, show, axis, title
 from matplotlib.font_manager import FontProperties
 
 # the font table grid

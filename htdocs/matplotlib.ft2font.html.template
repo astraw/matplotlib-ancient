@@ -30,6 +30,9 @@
 <strong>HORIZONTAL</strong> = 16<br>
 <strong>ITALIC</strong> = 1<br>
 <strong>KERNING</strong> = 64<br>
+<strong>KERNING_DEFAULT</strong> = 0<br>
+<strong>KERNING_UNFITTED</strong> = 1<br>
+<strong>KERNING_UNSCALED</strong> = 2<br>
 <strong>MULTIPLE_MASTERS</strong> = 256<br>
 <strong>SCALABLE</strong> = 1<br>
 <strong>SFNT</strong> = 8<br>

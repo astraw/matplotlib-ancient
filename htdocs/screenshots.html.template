@@ -44,6 +44,11 @@ markers with the <a href=backends.html#Agg>Agg backend</a> """, 1),
 plot filled polygons.  Thanks to Andrew Straw for providing this
 function.""", 1),
 
+('axes_demo', 
+"""Arbitrary placement of axes is possible with the <a
+href=matplotlib.pylab.html#-axes>axes</a> command.  Here, two inset axes are
+placed over a <a href=matplotlib.pylab.html#-subplot>subplot</a>.""", 1), 
+
 ('date_demo', """
 You can plot date data with major and minor ticks and custom tick
 formatters for both the major and minor ticks; see <a
@@ -106,6 +111,22 @@ contours overaying a grayscale image.""", 1),
 alpha blending using the <a
 href=matplotlib.pylab.html#-imshow>imshow</a> command.""", 1),
 
+
+('hstdemo', """
+This example shows how you can plot an rgb image with the aspect ratio
+preserved.  Thanks to Perry Greenfield and the <a
+href=http://www.stsci.edu>Space Telescope Science Institute</a> for
+this example.  See the following example which shows how to overlay
+contours on images.
+""", 1),
+
+('hstdemo_contour', """
+This example shows the HST image data above with contour lines
+superimposed
+""", 1),
+
+
+
 ('mri_with_eeg', """A magnetic resonace image (MRI) displayed using <a
 href=matplotlib.pylab.html#-pcolor>pcolor</a>, image intensity in the
 MRI plotted with <a href=matplotlib.pylab.html#-hist>hist</a>, and
@@ -126,10 +147,6 @@ distribution for a handle graphics demo.""", 1),
  coordinates.  This example shows you some of the alignment and
  rotation specifications to layout text.""", 1),
 
-('axes_demo', 
-"""Arbitrary placement of axes is possible with the <a
-href=matplotlib.pylab.html#-axes>axes</a> command.  Here, two inset axes are
-placed over a <a href=matplotlib.pylab.html#-subplot>subplot</a>.""", 1), 
 
 ('eeg', """ You can embed matplotlib into a pygtk, wxpython or Tk
 applications.  Here is a screenshot of an eeg viewer written in pygtk

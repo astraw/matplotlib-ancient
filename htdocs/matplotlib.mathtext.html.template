@@ -178,6 +178,7 @@ License&nbsp;&nbsp;&nbsp;:&nbsp;matplotlib&nbsp;license&nbsp;(PSF&nbsp;compatibl
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#BakomaPSFonts">BakomaPSFonts</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#BakomaTrueTypeFonts">BakomaTrueTypeFonts</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#TrueTypeFonts">TrueTypeFonts</a>
 </font></dt></dl>
 </dd>
 <dt><font face="helvetica, arial"><a href="matplotlib.mathtext.html#Handler">Handler</a>
@@ -208,6 +209,15 @@ Data and other attributes defined here:<br>
 
 <dl><dt><strong>fontmap</strong> = {None: 'cmmi10', 'cal': 'cmsy10', 'it': 'cmmi10', 'rm': 'cmr10', 'tt': 'cmtt10'}</dl>
 
+<hr>
+Methods inherited from <a href="matplotlib.mathtext.html#Fonts">Fonts</a>:<br>
+<dl><dt><a name="BakomaPSFonts-get_kern"><strong>get_kern</strong></a>(self, font, symleft, symright, fontsize, dpi)</dt><dd><tt>Get&nbsp;the&nbsp;kerning&nbsp;distance&nbsp;for&nbsp;font&nbsp;between&nbsp;symleft&nbsp;and&nbsp;symright.<br>
+&nbsp;<br>
+font&nbsp;is&nbsp;one&nbsp;of&nbsp;tt,&nbsp;it,&nbsp;rm,&nbsp;cal&nbsp;or&nbsp;None<br>
+&nbsp;<br>
+sym&nbsp;is&nbsp;a&nbsp;single&nbsp;symbol(alphanum,&nbsp;punct)&nbsp;or&nbsp;a&nbsp;special&nbsp;symbol<br>
+like&nbsp;\sigma.</tt></dd></dl>
+
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
@@ -219,6 +229,13 @@ Data and other attributes defined here:<br>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="BakomaTrueTypeFonts-__init__"><strong>__init__</strong></a>(self, useSVG<font color="#909090">=False</font>)</dt></dl>
+
+<dl><dt><a name="BakomaTrueTypeFonts-get_kern"><strong>get_kern</strong></a>(self, font, symleft, symright, fontsize, dpi)</dt><dd><tt>Get&nbsp;the&nbsp;kerning&nbsp;distance&nbsp;for&nbsp;font&nbsp;between&nbsp;symleft&nbsp;and&nbsp;symright.<br>
+&nbsp;<br>
+font&nbsp;is&nbsp;one&nbsp;of&nbsp;tt,&nbsp;it,&nbsp;rm,&nbsp;cal&nbsp;or&nbsp;None<br>
+&nbsp;<br>
+sym&nbsp;is&nbsp;a&nbsp;single&nbsp;symbol(alphanum,&nbsp;punct)&nbsp;or&nbsp;a&nbsp;special&nbsp;symbol<br>
+like&nbsp;\sigma.</tt></dd></dl>
 
 <dl><dt><a name="BakomaTrueTypeFonts-get_metrics"><strong>get_metrics</strong></a>(self, font, sym, fontsize, dpi)</dt></dl>
 
@@ -383,6 +400,13 @@ The&nbsp;class&nbsp;must&nbsp;be&nbsp;able&nbsp;to&nbsp;take&nbsp;symbol&nbsp;ke
 return&nbsp;the&nbsp;character&nbsp;metrics&nbsp;as&nbsp;well&nbsp;as&nbsp;do&nbsp;the&nbsp;drawing<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
+<dl><dt><a name="Fonts-get_kern"><strong>get_kern</strong></a>(self, font, symleft, symright, fontsize, dpi)</dt><dd><tt>Get&nbsp;the&nbsp;kerning&nbsp;distance&nbsp;for&nbsp;font&nbsp;between&nbsp;symleft&nbsp;and&nbsp;symright.<br>
+&nbsp;<br>
+font&nbsp;is&nbsp;one&nbsp;of&nbsp;tt,&nbsp;it,&nbsp;rm,&nbsp;cal&nbsp;or&nbsp;None<br>
+&nbsp;<br>
+sym&nbsp;is&nbsp;a&nbsp;single&nbsp;symbol(alphanum,&nbsp;punct)&nbsp;or&nbsp;a&nbsp;special&nbsp;symbol<br>
+like&nbsp;\sigma.</tt></dd></dl>
+
 <dl><dt><a name="Fonts-get_metrics"><strong>get_metrics</strong></a>(self, font, sym, fontsize, dpi)</dt><dd><tt>font&nbsp;is&nbsp;one&nbsp;of&nbsp;tt,&nbsp;it,&nbsp;rm,&nbsp;cal&nbsp;or&nbsp;None<br>
 &nbsp;<br>
 sym&nbsp;is&nbsp;a&nbsp;single&nbsp;symbol(alphanum,&nbsp;punct)&nbsp;or&nbsp;a&nbsp;special&nbsp;symbol<br>
@@ -618,6 +642,29 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#Eleme
 
 <dl><dt><strong>fontsize</strong> = 12</dl>
 
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TrueTypeFonts">class <strong>TrueTypeFonts</strong></a>(<a href="matplotlib.mathtext.html#Fonts">Fonts</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="TrueTypeFonts-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TrueTypeFonts-get_kern"><strong>get_kern</strong></a>(self, font, symleft, symright, fontsize, dpi)</dt><dd><tt>Get&nbsp;the&nbsp;kerning&nbsp;distance&nbsp;for&nbsp;font&nbsp;between&nbsp;symleft&nbsp;and&nbsp;symright.<br>
+&nbsp;<br>
+font&nbsp;is&nbsp;one&nbsp;of&nbsp;tt,&nbsp;it,&nbsp;rm,&nbsp;cal&nbsp;or&nbsp;None<br>
+&nbsp;<br>
+sym&nbsp;is&nbsp;a&nbsp;single&nbsp;symbol(alphanum,&nbsp;punct)&nbsp;or&nbsp;a&nbsp;special&nbsp;symbol<br>
+like&nbsp;\sigma.</tt></dd></dl>
+
+<dl><dt><a name="TrueTypeFonts-get_metrics"><strong>get_metrics</strong></a>(self, font, sym, fontsize, dpi)</dt></dl>
+
+<dl><dt><a name="TrueTypeFonts-render"><strong>render</strong></a>(self, ox, oy, font, sym, fontsize, dpi)</dt></dl>
+
+<dl><dt><a name="TrueTypeFonts-set_canvas_size"><strong>set_canvas_size</strong></a>(self, w, h)</dt><dd><tt>Dimension&nbsp;the&nbsp;drawing&nbsp;canvas;&nbsp;may&nbsp;be&nbsp;a&nbsp;noop</tt></dd></dl>
+
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -664,6 +711,7 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 <strong>cal</strong> = "cal"<br>
 <strong>char</strong> = W:(abcd...)<br>
 <strong>charOverChars</strong> = {r'\angstrom': (('rm', 'A', 1.0), (None, r'\circ', 0.5), 0.0)}<br>
+<strong>cmkern</strong> = {'cmex10': {}, 'cmmi10': {('9', 'A'): -0.055555, ('9', 'M'): -0.055555, ('9', 'N'): -0.055555, ('9', 'Y'): 0.055555, ('9', 'Z'): -0.055555, ('d', 'Y'): 0.055555, ('d', 'Z'): -0.055555, ('d', 'f'): -0.16666700000000001, ('d', 'j'): -0.111112}, 'cmr10': {('A', 'C'): -0.027779000000000002, ('A', 'G'): -0.027779000000000002, ('A', 'O'): -0.027779000000000002, ('A', 'Q'): -0.027779000000000002, ('A', 'T'): -0.083334000000000005, ('A', 'U'): -0.027779000000000002, ('A', 'V'): -0.111112, ('A', 'W'): -0.111112, ('A', 'Y'): -0.083334000000000005, ('A', 't'): -0.027779000000000002, ...}, 'cmsy10': {}}<br>
 <strong>colon</strong> = ":"<br>
 <strong>comma</strong> = ","<br>
 <strong>composite</strong> = composite<br>
@@ -673,6 +721,7 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 <strong>exclamation</strong> = "!"<br>
 <strong>expression</strong> = expression<br>
 <strong>font</strong> = font<br>
+<strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
 <strong>fontname</strong> = {{{"rm" | "cal"} | "it"} | "tt"}<br>
 <strong>group</strong> = group<br>
 <strong>grouping</strong> = {{{"[" | "]"} | "("} | ")"}<br>

@@ -110,10 +110,15 @@ support only horizontal and vertical).  Added in <a href="whats_new.html#0.54-Ne
 *******************
 International / unicode support
 
-some progress
+mostly done
 
-Via mathtext, you can use accented western characters, eg \"o and \'e,
-but the work on supporting unicode in general is not started.
+Via mathtext, you can use accented western characters, eg \"o and \'e.
+Unicode support for the *Agg and PS backends was added in <a
+href="whats_new.html#0.74-unicode">matplotlib-0.74</a>, and previously
+existed in the GTK and WX backends.  This has only been lightly tested
+with western fonts, and I expect there will be issues with other fonts
+and encodings so please post problems to the users list.
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Plot types
 *******************
@@ -184,7 +189,15 @@ algorithms.
 *******************
 2-D vector plots
 
-not started
+mostly done
+
+The <a href=matplotlib.pylab.html#-quiver>quiver</a> command was added
+in <a href="whats_new.html#0.74-vector_fields">matplotlib-0.74</a>.
+This draws arrows ar position x,y with direction and magnitude given
+by dx, dy.  I would like to refactor this a bot to make the arrows
+look nicer, and to support other modes of drawing (simple line arrows
+rather than polygons, using dot-line instead of arrow), but the basic
+functionality is there.
 
 *******************
 Gradient polygon fills

@@ -13,27 +13,28 @@ The&nbsp;majority&nbsp;of&nbsp;them,&nbsp;however,&nbsp;have&nbsp;matlab&nbsp;an
 &nbsp;<br>
 _Plotting&nbsp;commands<br>
 &nbsp;<br>
-&nbsp;&nbsp;axes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Create&nbsp;a&nbsp;new&nbsp;axes<br>
-&nbsp;&nbsp;axhline&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;horizontal&nbsp;line&nbsp;across&nbsp;axes<br>
-&nbsp;&nbsp;axvline&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;vertical&nbsp;line&nbsp;across&nbsp;axes<br>
-&nbsp;&nbsp;axhspan&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;horizontal&nbsp;bar&nbsp;across&nbsp;axes<br>
-&nbsp;&nbsp;axvspan&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;vertical&nbsp;bar&nbsp;across&nbsp;axes<br>
-&nbsp;&nbsp;axis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Set&nbsp;or&nbsp;return&nbsp;the&nbsp;current&nbsp;axis&nbsp;limits<br>
-&nbsp;&nbsp;bar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;bar&nbsp;chart<br>
-&nbsp;&nbsp;barh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;horizontal&nbsp;bar&nbsp;chart<br>
-&nbsp;&nbsp;cla&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;current&nbsp;axes<br>
-&nbsp;&nbsp;clabel&nbsp;&nbsp;&nbsp;-&nbsp;label&nbsp;a&nbsp;contour&nbsp;plot<br>
-&nbsp;&nbsp;clf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;a&nbsp;figure&nbsp;window<br>
-&nbsp;&nbsp;clim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;adjust&nbsp;the&nbsp;color&nbsp;limits&nbsp;of&nbsp;the&nbsp;current&nbsp;image<br>
-&nbsp;&nbsp;close&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;close&nbsp;a&nbsp;figure&nbsp;window<br>
-&nbsp;&nbsp;colorbar&nbsp;-&nbsp;add&nbsp;a&nbsp;colorbar&nbsp;to&nbsp;the&nbsp;current&nbsp;figure<br>
-&nbsp;&nbsp;cohere&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;coherence<br>
-&nbsp;&nbsp;contour&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;contour&nbsp;plot<br>
+&nbsp;&nbsp;axes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Create&nbsp;a&nbsp;new&nbsp;axes<br>
+&nbsp;&nbsp;axhline&nbsp;&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;horizontal&nbsp;line&nbsp;across&nbsp;axes<br>
+&nbsp;&nbsp;axvline&nbsp;&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;vertical&nbsp;line&nbsp;across&nbsp;axes<br>
+&nbsp;&nbsp;axhspan&nbsp;&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;horizontal&nbsp;bar&nbsp;across&nbsp;axes<br>
+&nbsp;&nbsp;axvspan&nbsp;&nbsp;&nbsp;-&nbsp;draw&nbsp;a&nbsp;vertical&nbsp;bar&nbsp;across&nbsp;axes<br>
+&nbsp;&nbsp;axis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Set&nbsp;or&nbsp;return&nbsp;the&nbsp;current&nbsp;axis&nbsp;limits<br>
+&nbsp;&nbsp;bar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;bar&nbsp;chart<br>
+&nbsp;&nbsp;barh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;horizontal&nbsp;bar&nbsp;chart<br>
+&nbsp;&nbsp;boxplot&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;box&nbsp;and&nbsp;whisker&nbsp;plot<br>
+&nbsp;&nbsp;cla&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;current&nbsp;axes<br>
+&nbsp;&nbsp;clabel&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;label&nbsp;a&nbsp;contour&nbsp;plot<br>
+&nbsp;&nbsp;clf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;a&nbsp;figure&nbsp;window<br>
+&nbsp;&nbsp;clim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;adjust&nbsp;the&nbsp;color&nbsp;limits&nbsp;of&nbsp;the&nbsp;current&nbsp;image<br>
+&nbsp;&nbsp;close&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;close&nbsp;a&nbsp;figure&nbsp;window<br>
+&nbsp;&nbsp;colorbar&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;colorbar&nbsp;to&nbsp;the&nbsp;current&nbsp;figure<br>
+&nbsp;&nbsp;cohere&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;coherence<br>
+&nbsp;&nbsp;contour&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;contour&nbsp;plot<br>
 &nbsp;&nbsp;contourf&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;filled&nbsp;contour&nbsp;plot<br>
-&nbsp;&nbsp;csd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;cross&nbsp;spectral&nbsp;density<br>
-&nbsp;&nbsp;delaxes&nbsp;&nbsp;-&nbsp;delete&nbsp;an&nbsp;axes&nbsp;from&nbsp;the&nbsp;current&nbsp;figure<br>
-&nbsp;&nbsp;draw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Force&nbsp;a&nbsp;redraw&nbsp;of&nbsp;the&nbsp;current&nbsp;figure<br>
-&nbsp;&nbsp;errorbar&nbsp;-&nbsp;make&nbsp;an&nbsp;errorbar&nbsp;graph<br>
+&nbsp;&nbsp;csd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;cross&nbsp;spectral&nbsp;density<br>
+&nbsp;&nbsp;delaxes&nbsp;&nbsp;&nbsp;-&nbsp;delete&nbsp;an&nbsp;axes&nbsp;from&nbsp;the&nbsp;current&nbsp;figure<br>
+&nbsp;&nbsp;draw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Force&nbsp;a&nbsp;redraw&nbsp;of&nbsp;the&nbsp;current&nbsp;figure<br>
+&nbsp;&nbsp;errorbar&nbsp;&nbsp;-&nbsp;make&nbsp;an&nbsp;errorbar&nbsp;graph<br>
 &nbsp;&nbsp;figlegend&nbsp;-&nbsp;make&nbsp;legend&nbsp;on&nbsp;the&nbsp;figure&nbsp;rather&nbsp;than&nbsp;the&nbsp;axes<br>
 &nbsp;&nbsp;figimage&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;figure&nbsp;image<br>
 &nbsp;&nbsp;figtext&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;text&nbsp;in&nbsp;figure&nbsp;coords<br>
@@ -61,6 +62,7 @@ _Plotting&nbsp;commands<br>
 &nbsp;&nbsp;pie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;pie&nbsp;charts<br>
 &nbsp;&nbsp;polar&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;polar&nbsp;plot&nbsp;on&nbsp;a&nbsp;PolarAxes<br>
 &nbsp;&nbsp;psd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;power&nbsp;spectral&nbsp;density<br>
+&nbsp;&nbsp;quiver&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;direction&nbsp;field&nbsp;(arrows)&nbsp;plot<br>
 &nbsp;&nbsp;rc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;control&nbsp;the&nbsp;default&nbsp;params<br>
 &nbsp;&nbsp;rgrids&nbsp;&nbsp;&nbsp;-&nbsp;customize&nbsp;the&nbsp;radial&nbsp;grids&nbsp;and&nbsp;labels&nbsp;for&nbsp;polar<br>
 &nbsp;&nbsp;savefig&nbsp;&nbsp;-&nbsp;save&nbsp;the&nbsp;current&nbsp;figure<br>
@@ -372,6 +374,32 @@ scalars&nbsp;or&nbsp;len(x)&nbsp;sequences<br>
 &nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-bone"><strong>bone</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;bone&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
+ <dl><dt><a name="-boxplot"><strong>boxplot</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-boxplot">boxplot</a>(x,&nbsp;notch=0,&nbsp;sym='+',&nbsp;vert=1,&nbsp;whis=1.5)<br>
+Make&nbsp;a&nbsp;box&nbsp;and&nbsp;whisker&nbsp;plot&nbsp;for&nbsp;each&nbsp;column&nbsp;of&nbsp;x.<br>
+The&nbsp;box&nbsp;extends&nbsp;from&nbsp;the&nbsp;lower&nbsp;to&nbsp;upper&nbsp;quartile&nbsp;values<br>
+of&nbsp;the&nbsp;data,&nbsp;with&nbsp;a&nbsp;line&nbsp;at&nbsp;the&nbsp;median.&nbsp;&nbsp;The&nbsp;whiskers<br>
+extend&nbsp;from&nbsp;the&nbsp;box&nbsp;to&nbsp;show&nbsp;the&nbsp;range&nbsp;of&nbsp;the&nbsp;data.&nbsp;&nbsp;Flier<br>
+points&nbsp;are&nbsp;those&nbsp;past&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;whiskers.<br>
+&nbsp;<br>
+notch&nbsp;=&nbsp;0&nbsp;(default)&nbsp;produces&nbsp;a&nbsp;rectangular&nbsp;box&nbsp;plot.&nbsp;&nbsp;<br>
+notch&nbsp;=&nbsp;1&nbsp;will&nbsp;produce&nbsp;a&nbsp;notched&nbsp;box&nbsp;plot<br>
+&nbsp;<br>
+sym&nbsp;(default&nbsp;'b+')&nbsp;is&nbsp;the&nbsp;default&nbsp;symbol&nbsp;for&nbsp;flier&nbsp;points.<br>
+Enter&nbsp;an&nbsp;empty&nbsp;string&nbsp;('')&nbsp;if&nbsp;you&nbsp;don't&nbsp;want&nbsp;to&nbsp;show&nbsp;fliers.<br>
+&nbsp;<br>
+vert&nbsp;=&nbsp;1&nbsp;(default)&nbsp;makes&nbsp;the&nbsp;boxes&nbsp;vertical.<br>
+vert&nbsp;=&nbsp;0&nbsp;makes&nbsp;horizontal&nbsp;boxes.&nbsp;&nbsp;This&nbsp;seems&nbsp;goofy,&nbsp;but<br>
+that's&nbsp;how&nbsp;Matlab&nbsp;did&nbsp;it.<br>
+&nbsp;<br>
+whis&nbsp;(default&nbsp;1.5)&nbsp;defines&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;whiskers&nbsp;as<br>
+a&nbsp;function&nbsp;of&nbsp;the&nbsp;inner&nbsp;quartile&nbsp;range.&nbsp;&nbsp;They&nbsp;extend&nbsp;to&nbsp;the<br>
+most&nbsp;extreme&nbsp;data&nbsp;point&nbsp;within&nbsp;(&nbsp;whis*(75%-25%)&nbsp;)&nbsp;data&nbsp;range.<br>
+x&nbsp;is&nbsp;a&nbsp;Numeric&nbsp;array<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;lines&nbsp;added<br>
+&nbsp;<br>
+&nbsp;<br>
+Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-choose"><strong>choose</strong></a>(...)</dt><dd><tt><a href="#-choose">choose</a>(a,&nbsp;(b1,b2,...))</tt></dd></dl>
  <dl><dt><a name="-cla"><strong>cla</strong></a>(*args, **kwargs)</dt><dd><tt>Clear&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
  <dl><dt><a name="-clabel"><strong>clabel</strong></a>(*args, **kwargs)</dt><dd><tt>CLABEL(*args,&nbsp;**kwargs)<br>
@@ -700,9 +728,9 @@ The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axes.&nbsp;&nbsp;Defaults&nbsp;to&nbsp;the&nbsp;rc&nbsp;image.origin&nbsp;value<br>
 &nbsp;<br>
-This&nbsp;complements&nbsp;the&nbsp;axes&nbsp;image&nbsp;which&nbsp;will&nbsp;be&nbsp;resampled&nbsp;to&nbsp;fit&nbsp;the<br>
-current&nbsp;axes.&nbsp;&nbsp;If&nbsp;you&nbsp;want&nbsp;a&nbsp;resampled&nbsp;image&nbsp;to&nbsp;fill&nbsp;the&nbsp;entire<br>
-figure,&nbsp;you&nbsp;can&nbsp;define&nbsp;an&nbsp;Axes&nbsp;with&nbsp;size&nbsp;[0,1,0,1].<br>
+This&nbsp;complements&nbsp;the&nbsp;axes&nbsp;image&nbsp;(Axes.imshow)&nbsp;which&nbsp;will&nbsp;be&nbsp;resampled<br>
+to&nbsp;fit&nbsp;the&nbsp;current&nbsp;axes.&nbsp;&nbsp;If&nbsp;you&nbsp;want&nbsp;a&nbsp;resampled&nbsp;image&nbsp;to&nbsp;fill&nbsp;the<br>
+entire&nbsp;figure,&nbsp;you&nbsp;can&nbsp;define&nbsp;an&nbsp;Axes&nbsp;with&nbsp;size&nbsp;[0,1,0,1].<br>
 &nbsp;<br>
 A&nbsp;image.FigureImage&nbsp;instance&nbsp;is&nbsp;returned.<br>
 &nbsp;<br>
@@ -725,10 +753,9 @@ the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;o
  <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=None</font>, figsize<font color="#909090">=None</font>, dpi<font color="#909090">=None</font>, facecolor<font color="#909090">=None</font>, edgecolor<font color="#909090">=None</font>, frameon<font color="#909090">=True</font>)</dt><dd><tt><a href="#-figure">figure</a>(num&nbsp;=&nbsp;None,&nbsp;figsize=(8,&nbsp;6),&nbsp;dpi=80,&nbsp;facecolor='w',&nbsp;edgecolor='k')<br>
 &nbsp;<br>
 &nbsp;<br>
-Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;and&nbsp;return&nbsp;a&nbsp;handle&nbsp;to&nbsp;it.&nbsp;&nbsp;If&nbsp;num=None,&nbsp;the<br>
-figure&nbsp;number&nbsp;will&nbsp;be&nbsp;incremented&nbsp;and&nbsp;a&nbsp;new&nbsp;figure&nbsp;will&nbsp;be<br>
-created.<br>
-&nbsp;<br>
+Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;and&nbsp;return&nbsp;a&nbsp;handle&nbsp;to&nbsp;it.&nbsp;&nbsp;If&nbsp;num=None,&nbsp;the&nbsp;figure<br>
+number&nbsp;will&nbsp;be&nbsp;incremented&nbsp;and&nbsp;a&nbsp;new&nbsp;figure&nbsp;will&nbsp;be&nbsp;created.&nbsp;&nbsp;The&nbsp;returned<br>
+figure&nbsp;objects&nbsp;have&nbsp;a&nbsp;.number&nbsp;attribute&nbsp;holding&nbsp;this&nbsp;number.<br>
 &nbsp;<br>
 If&nbsp;num&nbsp;is&nbsp;an&nbsp;integer,&nbsp;and&nbsp;<a href="#-figure">figure</a>(num)&nbsp;already&nbsp;exists,&nbsp;make&nbsp;it<br>
 active&nbsp;and&nbsp;return&nbsp;the&nbsp;handle&nbsp;to&nbsp;it.&nbsp;&nbsp;If&nbsp;<a href="#-figure">figure</a>(num)&nbsp;does&nbsp;not&nbsp;exist<br>
@@ -783,23 +810,6 @@ collection),&nbsp;or&nbsp;None&nbsp;if&nbsp;no&nbsp;images&nbsp;or&nbsp;patch&nb
 defined.&nbsp;&nbsp;The&nbsp;commands&nbsp;imshow&nbsp;and&nbsp;figimage&nbsp;create&nbsp;images<br>
 instances,&nbsp;and&nbsp;the&nbsp;commands&nbsp;pcolor&nbsp;and&nbsp;scatter&nbsp;create&nbsp;patch<br>
 collection&nbsp;instances</tt></dd></dl>
- <dl><dt><a name="-get"><strong>get</strong></a>(o, *args)</dt><dd><tt>Return&nbsp;the&nbsp;value&nbsp;of&nbsp;handle&nbsp;property&nbsp;s<br>
-&nbsp;<br>
-h&nbsp;is&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;class,&nbsp;eg&nbsp;a&nbsp;Line2D&nbsp;or&nbsp;an&nbsp;Axes&nbsp;or&nbsp;Text.<br>
-if&nbsp;s&nbsp;is&nbsp;'somename',&nbsp;this&nbsp;function&nbsp;returns<br>
-&nbsp;<br>
-&nbsp;&nbsp;o.get_somename()<br>
-&nbsp;<br>
-get&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;query&nbsp;all&nbsp;the&nbsp;gettable&nbsp;properties&nbsp;with&nbsp;<a href="#-get">get</a>(o)<br>
-Many&nbsp;properties&nbsp;have&nbsp;aliases&nbsp;for&nbsp;shorter&nbsp;typing,&nbsp;eg&nbsp;'lw'&nbsp;is&nbsp;an<br>
-alias&nbsp;for&nbsp;'linewidth'.&nbsp;&nbsp;In&nbsp;the&nbsp;output,&nbsp;aliases&nbsp;and&nbsp;full&nbsp;property<br>
-names&nbsp;will&nbsp;be&nbsp;listed&nbsp;as<br>
-&nbsp;<br>
-&nbsp;&nbsp;property&nbsp;or&nbsp;&nbsp;alias&nbsp;=&nbsp;value<br>
-&nbsp;<br>
-eg<br>
-&nbsp;<br>
-&nbsp;&nbsp;linewidth&nbsp;or&nbsp;lw&nbsp;=&nbsp;2</tt></dd></dl>
  <dl><dt><a name="-get_current_fig_manager"><strong>get_current_fig_manager</strong></a>()</dt></dl>
  <dl><dt><a name="-get_plot_commands"><strong>get_plot_commands</strong></a>()</dt></dl>
  <dl><dt><a name="-gray"><strong>gray</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;gray&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
@@ -812,6 +822,7 @@ The&nbsp;return&nbsp;values&nbsp;is&nbsp;(n,&nbsp;bins,&nbsp;patches)<br>
 If&nbsp;normed&nbsp;is&nbsp;true,&nbsp;the&nbsp;first&nbsp;element&nbsp;of&nbsp;the&nbsp;return&nbsp;tuple&nbsp;will&nbsp;be&nbsp;the<br>
 counts&nbsp;normalized&nbsp;to&nbsp;form&nbsp;a&nbsp;probability&nbsp;distribtion,&nbsp;ie,<br>
 n/(len(x)*dbin)<br>
+kwargs&nbsp;are&nbsp;used&nbsp;to&nbsp;update&nbsp;the&nbsp;properties&nbsp;of&nbsp;the&nbsp;hist&nbsp;bars<br>
 &nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-hlines"><strong>hlines</strong></a>(*args, **kwargs)</dt><dd><tt>HLINES(y,&nbsp;xmin,&nbsp;xmax,&nbsp;fmt='k-')<br>
@@ -896,8 +907,8 @@ USAGE:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),&nbsp;loc='upper&nbsp;left')<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-legend">legend</a>(&nbsp;(line1,&nbsp;line2,&nbsp;line3),&nbsp;&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),&nbsp;loc=2)<br>
 The&nbsp;location&nbsp;codes&nbsp;are<br>
-&nbsp;&nbsp;'best'&nbsp;:&nbsp;0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(currently&nbsp;not&nbsp;supported,&nbsp;defaults&nbsp;to&nbsp;upper&nbsp;right)<br>
-&nbsp;&nbsp;'upper&nbsp;right'&nbsp;&nbsp;:&nbsp;1,&nbsp;&nbsp;(default)<br>
+&nbsp;&nbsp;'best'&nbsp;:&nbsp;0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(default)<br>
+&nbsp;&nbsp;'upper&nbsp;right'&nbsp;&nbsp;:&nbsp;1,<br>
 &nbsp;&nbsp;'upper&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;2,<br>
 &nbsp;&nbsp;'lower&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;3,<br>
 &nbsp;&nbsp;'lower&nbsp;right'&nbsp;&nbsp;:&nbsp;4,<br>
@@ -1180,6 +1191,7 @@ Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;def
 axes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Create&nbsp;a&nbsp;new&nbsp;axes<br>
 axis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Set&nbsp;or&nbsp;return&nbsp;the&nbsp;current&nbsp;axis&nbsp;limits<br>
 bar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;bar&nbsp;chart<br>
+boxplot&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;box&nbsp;and&nbsp;whiskers&nbsp;chart<br>
 cla&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;current&nbsp;axes<br>
 clabel&nbsp;&nbsp;&nbsp;-&nbsp;label&nbsp;a&nbsp;contour&nbsp;plot<br>
 clf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;a&nbsp;figure&nbsp;window<br>
@@ -1210,6 +1222,7 @@ matshow&nbsp;&nbsp;-&nbsp;display&nbsp;a&nbsp;matrix&nbsp;in&nbsp;a&nbsp;new&nbs
 pcolor&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot<br>
 plot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;line&nbsp;plot<br>
 psd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;power&nbsp;spectral&nbsp;density<br>
+quiver&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;direction&nbsp;field&nbsp;(arrows)&nbsp;plot<br>
 rc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;control&nbsp;the&nbsp;default&nbsp;params<br>
 savefig&nbsp;&nbsp;-&nbsp;save&nbsp;the&nbsp;current&nbsp;figure<br>
 scatter&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot<br>
@@ -1272,6 +1285,29 @@ though&nbsp;pxx&nbsp;itself&nbsp;is&nbsp;returned<br>
 Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)<br>
+&nbsp;<br>
+Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
+ <dl><dt><a name="-quiver"><strong>quiver</strong></a>(*args, **kwargs)</dt><dd><tt>QUIVER(&nbsp;X,&nbsp;Y,&nbsp;U,&nbsp;V&nbsp;)<br>
+QUIVER(&nbsp;U,&nbsp;V&nbsp;)<br>
+QUIVER(&nbsp;X,&nbsp;Y,&nbsp;U,&nbsp;V,&nbsp;S)<br>
+QUIVER(&nbsp;U,&nbsp;V,&nbsp;S&nbsp;)<br>
+QUIVER(&nbsp;...,&nbsp;color=None,&nbsp;width=1.0,&nbsp;cmap=None,norm=None&nbsp;)<br>
+Make&nbsp;a&nbsp;vector&nbsp;plot&nbsp;(U,&nbsp;V)&nbsp;with&nbsp;arrows&nbsp;on&nbsp;a&nbsp;grid&nbsp;(X,&nbsp;Y)<br>
+The&nbsp;optional&nbsp;arguments&nbsp;color&nbsp;and&nbsp;width&nbsp;are&nbsp;used&nbsp;to&nbsp;specify&nbsp;the&nbsp;color&nbsp;and&nbsp;width<br>
+of&nbsp;the&nbsp;arrow.&nbsp;color&nbsp;can&nbsp;be&nbsp;an&nbsp;array&nbsp;of&nbsp;colors&nbsp;in&nbsp;which&nbsp;case&nbsp;the&nbsp;arrows&nbsp;can&nbsp;be<br>
+colored&nbsp;according&nbsp;to&nbsp;another&nbsp;dataset.<br>
+&nbsp;<br>
+If&nbsp;cm&nbsp;is&nbsp;specied&nbsp;and&nbsp;color&nbsp;is&nbsp;None,&nbsp;the&nbsp;colormap&nbsp;is&nbsp;used&nbsp;to&nbsp;give&nbsp;a&nbsp;color<br>
+according&nbsp;to&nbsp;the&nbsp;vector's&nbsp;length.<br>
+&nbsp;<br>
+If&nbsp;color&nbsp;is&nbsp;a&nbsp;scalar&nbsp;field,&nbsp;the&nbsp;colormap&nbsp;is&nbsp;used&nbsp;to&nbsp;map&nbsp;the&nbsp;scalar&nbsp;to&nbsp;a&nbsp;color<br>
+If&nbsp;a&nbsp;colormap&nbsp;is&nbsp;specified&nbsp;and&nbsp;color&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;color&nbsp;triplets,&nbsp;then&nbsp;the<br>
+colormap&nbsp;is&nbsp;ignored<br>
+width&nbsp;is&nbsp;a&nbsp;scalar&nbsp;that&nbsp;controls&nbsp;the&nbsp;width&nbsp;of&nbsp;the&nbsp;arrows<br>
+if&nbsp;S&nbsp;is&nbsp;specified&nbsp;it&nbsp;is&nbsp;used&nbsp;to&nbsp;scale&nbsp;the&nbsp;vectors.&nbsp;Use&nbsp;S=0&nbsp;to&nbsp;disable&nbsp;automatic<br>
+scaling.<br>
+If&nbsp;S!=0,&nbsp;vectors&nbsp;are&nbsp;scaled&nbsp;to&nbsp;fit&nbsp;within&nbsp;the&nbsp;grid&nbsp;and&nbsp;then&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;S.<br>
+&nbsp;<br>
 &nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-raise_msg_to_str"><strong>raise_msg_to_str</strong></a>(msg)</dt><dd><tt>msg&nbsp;is&nbsp;a&nbsp;return&nbsp;arg&nbsp;from&nbsp;a&nbsp;raise.&nbsp;&nbsp;Join&nbsp;with&nbsp;new&nbsp;lines</tt></dd></dl>
@@ -1451,7 +1487,7 @@ plot&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling
 &nbsp;&nbsp;&nbsp;&nbsp;which&nbsp;depend&nbsp;on&nbsp;the&nbsp;number&nbsp;of&nbsp;decades&nbsp;in&nbsp;the&nbsp;plot<br>
 &nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
- <dl><dt><a name="-set"><strong>set</strong></a>(h, *args, **kwargs)</dt><dd><tt>matlab(TM)&nbsp;and&nbsp;pylab&nbsp;allow&nbsp;you&nbsp;to&nbsp;use&nbsp;set&nbsp;and&nbsp;get&nbsp;to&nbsp;set&nbsp;and&nbsp;get<br>
+ <dl><dt><a name="-set"><strong>set</strong></a>(*args, **kwargs)</dt><dd><tt>matlab(TM)&nbsp;and&nbsp;pylab&nbsp;allow&nbsp;you&nbsp;to&nbsp;use&nbsp;set&nbsp;and&nbsp;get&nbsp;to&nbsp;set&nbsp;and&nbsp;get<br>
 object&nbsp;properties,&nbsp;as&nbsp;well&nbsp;as&nbsp;to&nbsp;do&nbsp;introspection&nbsp;on&nbsp;the&nbsp;object<br>
 For&nbsp;example,&nbsp;to&nbsp;set&nbsp;the&nbsp;linestyle&nbsp;of&nbsp;a&nbsp;line&nbsp;to&nbsp;be&nbsp;dashed,&nbsp;you&nbsp;can&nbsp;do<br>
 &nbsp;<br>

@@ -239,27 +239,6 @@ for fname in files: os.remove(fname)
 """),
 
 
-    ('WRONGDIR',
-    "When I try to import pylab, I get an error about no _transform.so or ft2font.so",
-
-"""
-If you are trying to run matplotlib from the matplotlib build dir, you
-will fail.  This is because the matplotlib python src dir is in your
-module path, but it does not include the compiled extension modules
-which are in site-packages/matplotlib.  Change into another directory
-and try again.<p>
-
-If the problem persists, see if the required object files are in
-site-packages/matplotlib.  If not, something is wrong with your
-install.  You may want to try rebuilding with
-<pre>
-   > rm -rf build
-   > python setup.py build > build.out 
-</pre>
-
-and post the results to the matplotlib-devel or matplotlib-users
-<a href=http://sourceforge.net/mail/?group_id=80706>mailing lists</a>.
-"""),
     
 
     ('EXAMPLES',

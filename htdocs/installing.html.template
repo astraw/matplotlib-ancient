@@ -193,6 +193,16 @@ packages at http://mentors.debian.net
   </li>
 </ul>
 
+<h3><a name=gentoo>Gentoo</a></h3>
+
+The gentoo packagers do a good job of keeping current matplotlib
+builds <a href=http://www.gentoo-portage.com/dev-python/matplotlib>here</a>
+
+<h3><a name=freebsd>FreeBSD</a></h3>
+
+The FreeBSD matplotlib repository is <a
+href=http://www.freshports.org/math/py-matplotlib/>here</a>.
+
 
 <h3><a name=fink>Fink</a></h3>
 

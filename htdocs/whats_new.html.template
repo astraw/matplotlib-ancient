@@ -4,12 +4,62 @@
 
 versioninfo = {}
 
+
+versioninfo['0.74'] = (
+
+    ('unicode', """
+See <a href=examples/unicode_demo.py>unicode_demo.py</a>.  Unicode
+font file names are now accepted and unicode strings are rendered in
+the agg and postscript backends.  Currently, all the symbols in the
+unicode string have to be in the active font file.  In later releases
+we'll try and support symbols from multiple ttf files in one string."""),
+
+    ('Auto-legends',"""
+The automatic placement of legends is now supported with loc='best' --
+; see <a href=examples/legend_auto.py>legend_auto.py</a>.  We did this
+at the matplotlib sprint at pycon -- thanks John Gill and Phil! Note
+that your legend will move if you interact with your data and you
+force data under the legend line.  If this is not what you want, use a
+designated location code."""),
+
+    ('vector fields', """
+Ludovic Aubry contributed a patch for the matlab compatible <a
+href=matplotlib.pylab.html#-quiver>quiver</a> method.  This makes a
+direction field with arrows.  See <a
+href=examples/quiver_demo.py>quiver_demo.py</a>."""),
+
+    ('boxplot', """
+David Haas contributed a matlab-compatible <a
+href=matplotlib.pylab.html#-boxplot>boxplot</a> function -- see <a
+href=examples/boxplot_demo.py>boxplot_demo.py</a>.  This currently
+returns all the boxplot boxes, whiskers, flyer points, etc as a list
+of lines.  This will soon be refactored to return multiple lists so
+that the different elements can be more readily configured."""),
+
+    ('Hubble data example',"""
+Perry Greenfield of the <a href=http://www.stsci.edu>Space Telescope
+Science Institute</a> contributed this nice <a
+href=screenshots.html#hstdemo>example</a> showing Hubble data with
+overlayed contours.
+    """),
+     
+     
+    ('minor enhancements and bug-fixes', """
+Some ticker locations bugs were fixed including a problem causing a
+memory error in psd, an ellipse bug in backend ps that was causing
+errant lines was fixed, svg text enhanced, added label kwarg to axes
+constructor to support creation of otherwise identical axes, fixed the
+NULL string pointer causing some Japanses fonts to segfault mpl"""),
+)
+
 versioninfo['0.73'] = (
   ('new contour functionality', """\
 Filled contours (polygons) with <a
 href=matplotlib.pylab.html#-contourf>contourf</a> and <a
 href=matplotlib.pylab.html#-clabel>clabel</a> .  See <a
-href=examples/contour_demo.py>contour_demo.py</a>, <a
+href=examples/contour_demo.py>contour_demo.py</a>, 
+<a
+href=examples/contourf_demo.py>contourf_demo.py</a>, <a
 href=examples/contour_image.py>contour_image.py</a> and this <a
 href=screenshots.html#pcolor_demo>screenshot</a>.  Thanks Nadia and
 Eric for lots of hard work.  This code is not perfect, so please let
@@ -19,14 +69,18 @@ us know if you find bugs or problems.
 Added new rc param param ps.useafm so ps backend can use native fonts; this currently breaks mathtext but makes for smaller files"""),
   ('colorbar now a figure method', """\
 Refactored colorbar code out of pylab into <a
-href=matplotlib.figure.html#Figure-add_subplot>Figure API</a> for API
-developers.  < a
+href=matplotlib.figure.html#Figure-colorbar>Figure API</a> for API
+developers.  <a
 href=matplotlib.pylab.html#-colorbar>pylab.colorbar</a> is now a thin
 wrapper to this function."""),
 
-    ('minor enhancements and bug-fixes', """\
-Experimental support for GTK w/o double buffering, added double buffering to gtkagg, exposed some core agg functionality in matplotlib.agg, upgraded wrapper generator to CXX 5.3.1, added a custom pixel transfer function for GTK which works for Numeric and numarray, added patch for problem with Japanse fonts in windows registry, fixed ticks for horizontal colorbars"""),
-  )
+    ('minor enhancements and bug-fixes', """Experimental support for
+GTK w/o double buffering, added double buffering to gtkagg, exposed
+some core agg functionality in matplotlib.agg, upgraded wrapper
+generator to CXX 5.3.1, added a custom pixel transfer function for GTK
+which works for Numeric and numarray, added patch for problem with
+Japanse fonts in windows registry, fixed ticks for horizontal
+colorbars, fixed labelsep legend bug"""), )
 
 
 versioninfo['0.72'] = (

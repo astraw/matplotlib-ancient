@@ -446,6 +446,7 @@ val&nbsp;=&nbsp;<a href="#-popd">popd</a>(d,&nbsp;key)<br>
 #&nbsp;returns&nbsp;value&nbsp;for&nbsp;key&nbsp;if&nbsp;key&nbsp;exists,&nbsp;else&nbsp;default.&nbsp;&nbsp;Delete&nbsp;key,<br>
 #&nbsp;val&nbsp;item&nbsp;if&nbsp;it&nbsp;exists.&nbsp;&nbsp;Will&nbsp;not&nbsp;raise&nbsp;a&nbsp;KeyError<br>
 val&nbsp;=&nbsp;<a href="#-popd">popd</a>(d,&nbsp;key,&nbsp;default)</tt></dd></dl>
+ <dl><dt><a name="-reverse_dict"><strong>reverse_dict</strong></a>(d)</dt><dd><tt>reverse&nbsp;the&nbsp;dictionary&nbsp;--&nbsp;may&nbsp;lose&nbsp;data&nbsp;if&nbsp;values&nbsp;are&nbsp;not&nbsp;uniq!</tt></dd></dl>
  <dl><dt><a name="-soundex"><strong>soundex</strong></a>(name, len<font color="#909090">=4</font>)</dt><dd><tt>soundex&nbsp;module&nbsp;conforming&nbsp;to&nbsp;Odell-Russell&nbsp;algorithm</tt></dd></dl>
  <dl><dt><a name="-strip_math"><strong>strip_math</strong></a>(s)</dt><dd><tt>remove&nbsp;latex&nbsp;formatting&nbsp;from&nbsp;mathtext</tt></dd></dl>
  <dl><dt><a name="-unique"><strong>unique</strong></a>(x)</dt><dd><tt>Return&nbsp;a&nbsp;<a href="__builtin__.html#list">list</a>&nbsp;of&nbsp;unique&nbsp;elements&nbsp;of&nbsp;x</tt></dd></dl>

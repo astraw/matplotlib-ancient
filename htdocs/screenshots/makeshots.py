@@ -27,9 +27,10 @@ files = {
     'polar_demo.py'     : default,
     'pie_demo.py'     : default,
     'plotmap.py'     : default,         
+    'hstdemo.py' : default,
+    'hstdemo_contour.py' : default,
     }
 
-figsize = 'figsize=(8,6)'
 dpi1 = 60
 dpi2 = 120
 def make_shot(fname, backend):
@@ -38,7 +39,6 @@ def make_shot(fname, backend):
         'import matplotlib\n',
         'matplotlib.use("%s")\n' % backend,
         'from pylab import *\n'
-#        'figure(%s)\n' % figsize,
         ]
     
     print '\tdriving %s' % fname

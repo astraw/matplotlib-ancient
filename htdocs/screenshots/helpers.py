@@ -2,6 +2,9 @@ import time, datetime
 from matplotlib.numerix import *
 from matplotlib.numerix.mlab import *
 from matplotlib.dates import date2num
+import zlib
+import sys
+
 
 def load_quotes(fname, maxq=None):
     """
@@ -71,3 +74,20 @@ def random_signal(N, tau):
     t = arange(float(N))
     filter = exp(-t/tau)
     return convolve( randn(N), filter, mode=2)[:len(t)]
+
+def load_hst_data():
+    """reconstruct the numerix arrays from the data files"""
+    import matplotlib.numerix as n
+    #hst = n.fromfile('hst.dat',typecode=n.UInt8, shape=(812,592,3))/255.
+    str = open('data/hst.zdat').read()
+    dstr = zlib.decompress(str)
+    hst = n.fromstring(dstr, n.UInt8)
+    hst.shape = (812, 592, 3)
+    hst = hst/255.
+    str = open('data/chandra.dat').read()
+    chandra = n.fromstring(str, n.Int16)
+    chandra.shape = (812,592)
+    if sys.byteorder == 'little':
+        chandra.byteswapped()
+    # note that both HST and Chandra data are normalized to be between 0 and 1
+    return hst, chandra/16000.
