@@ -33,6 +33,7 @@ Gregory Lielens.
     ('Mathtext optimizations', """\
 Mathtext now more than 5x faster.  Thanks to Paul Mcguire for
 optimizations in both pyparsing and the matplotlib grammar!
+Warning, mathtext broken on python2.2.  We hope to fix this soon.
 """),
 
     ('FLTKAgg backend - alpha', """\
