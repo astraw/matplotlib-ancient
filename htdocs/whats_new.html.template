@@ -1,3 +1,17 @@
+new_to_52 = ( 
+    ('Figure legends', """
+In addition to adding legends to the axes with the legend command, you
+can place legends anywhere in the figure with figlegend
+"""),
+
+	('Bugfixes and minor improvements', """\
+
+<ul>
+  <li> Tk : Fixed a close figure bug in interactive mode</li>
+  <li> GTK : Much improved mathtext performance thanks to patch by Trevor Blackwell</li>
+</ul>
+"""),
+     )
 
 new_to_51 = ( 
 

@@ -41,8 +41,9 @@ commands = (
   across platforms.  matplotlib can be used in python scripts,
   interactively from the python shell (ala matlab or mathematica), in
   web application servers generating dynamic charts, or embedded in
-  GTK, Tk or WX applications; see <a
-  href=backends.html>backends</a>.<p>
+  GTK, Tk or WX applications; see <a href=backends.html>backends</a>.
+  All of the matplotlib backends can be used on linux, windows or Mac
+  OS X.<p>
 
   matplotlib trys to make easy things easy and hard things possible.
   You can generate plots, histograms, power spectra, bar charts,
