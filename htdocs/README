@@ -34,32 +34,22 @@ OK, YOU'RE STILL HERE?
     screenshots/makeshots.py is a script that creates all the screenshots
       that can be generated dyamically (some cannot be because, for
       example, they are screenshots of figure windows with the navigation
-      toolbar).  Caution, the mri and pcolor screenshots currently take a
-      long time to generate because the are high resolution.  Best run on
-      a fast computer!
+      toolbar).  
 
 
 BUILDING THE DOCS IN A NUTSHELL
 
-    So in a nutshell, here is what you need to do to generate the docs.
+    All you need to do to build the html documentation is 'make
+    htmldocs'.  This runs process_docs.py and convert.py for you.  I
+    decoupled running the screenshot script from building the docs
+    because typically I need to rebuild the docs more often than I
+    need to rebuild the screenshots.  To build the shots do
 
-      0) Build the matplotlib html class documentation with Make htmldocs
+      > cd screenshots
 
-      1) Make sure the CVS matplotlib tree is in your PYTHONPATH and 
-         > cd htdocs
+      > python makeshots.py 
 
-      2) > python process_docs.py
-
-      3) > python convert.py
-
-      4) > cd screenshots
-
-      5) > python makeshots.py  # this could take a while for pcolor and  mri
-
-      6) Point your browser at file:///your/dev/matplotlb/htdocs/index.html
-
-    You can also run
-
-      # in the matplotlib dev root (doesn't rebuild screenshots)
-      > make htmldocs 
+     
+    After you have done the point your browser at
+    file:///your/dev/matplotlb/htdocs/index.html
 
