@@ -1266,7 +1266,6 @@ in IPython:
 \layout LyX-Code
 
 
-\emph on 
 \color blue
 # A regular %run will produce an error:
 \layout LyX-Code
@@ -2122,8 +2121,15 @@ notepad
  
 \layout Standard
 
-You can also set the value of this editor via the command-line option '-editor'
- or in your ipythonrc file.
+You can also set the value of this editor via the command-line option 
+\family typewriter 
+`-editor'
+\family default 
+ or in your 
+\family typewriter 
+ipythonrc
+\family default 
+ file.
  This is useful if you wish to use specifically for IPython an editor different
  from your typical default (and for Windows users who typically don't set
  environment variables).
@@ -2133,9 +2139,12 @@ This command allows you to conveniently edit multi-line code right in your
  IPython session.
 \layout Standard
 
-If called without arguments, %edit opens up an empty editor with a temporary
- file and will execute the contents of this file when you close it (don't
- forget to save it!).
+If called without arguments, 
+\family typewriter 
+%edit
+\family default 
+ opens up an empty editor with a temporary file and will execute the contents
+ of this file when you close it (don't forget to save it!).
  
 \layout Section
 
@@ -2317,29 +2326,210 @@ Debugging and profiling
 
 \layout Standard
 
-The Python debugger.
- You can set IPython to call up the Python debugger (pdb) every time there
- is an uncaught exception.
- This drops you inside the code which triggered the exception with all the
- data live and it is possible to navigate the stack to rapidly isolate the
- source of a bug.
- The 
-\family typewriter 
-%run
-\family default 
- magic command --with the 
-\family typewriter 
--d
-\family default 
- option-- can run any script under 
+The Python standard library includes powerful facilities for debugging and
+ profiling code, but it is common to find even experienced Python programmers
+ who still do not take advantage of them.
+ In part, this is due to the fact that loading and configuring them requires
+ reading an extra documentation section, and keeping a bit of additional
+ information about their use in your head.
+ IPython tries to automate their use to the point where, with a single command,
+ you can use either of these subsystems in a transparent manner.
+ Hopefully they will become part of your daily workflow.
+\layout Subsection
+
+Automatic invocation of 
 \family typewriter 
 pdb
 \family default 
-'s control, automatically setting initial breakpoints for you.
+ on exceptions
 \layout Standard
 
-The Python profiler.
- When dealing with performance issues, the 
+IPython, if started with the 
+\family typewriter 
+-pdb
+\family default 
+ option (or if the option is set in your rc file) can call the Python 
+\family typewriter 
+pdb
+\family default 
+ debugger every time your code triggers an uncaught exception.
+ This feature can also be toggled at any time with the 
+\family typewriter 
+%pdb
+\family default 
+ magic command.
+ This can be extremely useful in order to find the origin of subtle bugs,
+ because 
+\family typewriter 
+pdb
+\family default 
+ opens up at the point in your code which triggered the exception, and while
+ your program is at this point `dead', all the data is still available and
+ you can walk up and down the stack frame and understand the origin of the
+ problem.
+\layout Standard
+
+Furthermore, you can use these debugging facilities both with the embedded
+ IPython mode and without IPython at all.
+ For an embedded shell (see sec.
+ 
+\begin_inset LatexCommand \ref{sec:ipython_embed}
+
+\end_inset 
+
+), simply call the constructor with 
+\family typewriter 
+`-pdb'
+\family default 
+ in the argument string and automatically 
+\family typewriter 
+pdb
+\family default 
+ will be called if an uncaught exception is triggered by your code.
+ 
+\layout Standard
+
+For stand-alone use of the feature in your programs which do not use IPython
+ at all, put the following lines toward the top of your `main' routine:
+\layout LyX-Code
+
+import sys,IPython.ultraTB
+\layout LyX-Code
+
+sys.excepthook = IPython.ultraTB.FormattedTB(mode=`Verbose', color_scheme=`Linux',
+ call_pdb=1)
+\layout Standard
+
+The 
+\family typewriter 
+mode
+\family default 
+ keyword can be either 
+\family typewriter 
+`Verbose'
+\family default 
+ or 
+\family typewriter 
+`Plain'
+\family default 
+, giving either very detailed or normal tracebacks respectively.
+ The 
+\family typewriter 
+color_scheme
+\family default 
+ keyword can be one of 
+\family typewriter 
+`NoColor'
+\family default 
+, 
+\family typewriter 
+`Linux'
+\family default 
+ (default) or 
+\family typewriter 
+`LightBG'
+\family default 
+.
+ These are the same options which can be set in IPython with 
+\family typewriter 
+-colors
+\family default 
+ and 
+\family typewriter 
+-xmode
+\family default 
+.
+\layout Standard
+
+This will give any of your programs detailed, colored tracebacks with automatic
+ invocation of 
+\family typewriter 
+pdb
+\family default 
+.
+\layout Subsection
+
+Running entire programs via 
+\family typewriter 
+pdb
+\layout Standard
+
+
+\family typewriter 
+pdb
+\family default 
+, the Python debugger, is a powerful interactive debugger which allows you
+ to step through code, set breakpoints, watch variables, etc.
+ IPython makes it very easy to start any script under the control of 
+\family typewriter 
+pdb
+\family default 
+, regardless of whether you have wrapped it into a 
+\family typewriter 
+`main()'
+\family default 
+ function or not.
+ For this, simply type 
+\family typewriter 
+`%run -d myscript'
+\family default 
+ at an IPython prompt.
+ See the 
+\family typewriter 
+%run
+\family default 
+ command's documentation (
+\family typewriter 
+run?
+\family default 
+) for more details, including how to control where 
+\family typewriter 
+pdb
+\family default 
+ will stop execution first.
+\layout Standard
+
+For more information on the use of the 
+\family typewriter 
+pdb
+\family default 
+ debugger, read the included 
+\family typewriter 
+pdb.doc
+\family default 
+ file (part of the standard Python distribution).
+ On a stock Linux system it is located at 
+\family typewriter 
+/usr/lib/python2.3/pdb.doc
+\family default 
+, but the easiest way to read it is by using the 
+\family typewriter 
+help()
+\family default 
+ function of the 
+\family typewriter 
+pdb
+\family default 
+ module as follows (in an IPython prompt):
+\layout LyX-Code
+
+In [1]: import pdb
+\layout LyX-Code
+
+In [2]: pdb.help()
+\layout Standard
+
+This will load the 
+\family typewriter 
+pdb.doc
+\family default 
+ document in a file viewer for you automatically.
+\layout Subsection
+
+Profiling
+\layout Standard
+
+When dealing with performance issues, the 
 \family typewriter 
 %run
 \family default 
@@ -2354,28 +2544,23 @@ The Python profiler.
 %prun
 \family default 
  command does a similar job for single Python expressions (like function
- calls).
-\layout Standard
-
-You can run single statements (similar to 
+ calls, similar to 
 \family typewriter 
 profile.run()
 \family default 
-) or complete programs under the profiler's control.
+).
  While this is possible with the standard 
 \family typewriter 
 profile
 \family default 
- module, IPython wraps this functionality with magic commands (see 
-\family typewriter 
-`%prun'
-\family default 
- and 
-\family typewriter 
-`%run -p
-\family default 
-') convenient for rapid interactive work.
+ module, IPython wraps this functionality with magic commands convenient
+ for rapid interactive work.
 \layout Section
+
+
+\begin_inset LatexCommand \label{sec:ipython_embed}
+
+\end_inset 
 
 Embedding IPython into your programs 
 \begin_inset OptArg
@@ -2399,6 +2584,134 @@ You can call IPython as a python shell inside your own python programs.
  This can be used both for debugging code or for providing interactive abilities
  to your programs with knowledge about the local namespaces (very useful
  in debugging and data analysis situations).
+\layout Standard
+
+It is possible to start an IPython instance 
+\emph on 
+inside
+\emph default 
+ your own Python programs.
+ This allows you to evaluate dynamically the state of your code, operate
+ with your variables, analyze them, etc.
+ Note however that any changes you make to values while in the shell do
+ 
+\emph on 
+not
+\emph default 
+ propagate back to the running code, so it is safe to modify your values
+ because you won't break your code in bizarre ways by doing so.
+\layout Standard
+
+This feature allows you to easily have a fully functional python environment
+ for doing object introspection anywhere in your code with a simple function
+ call.
+ In some cases a simple print statement is enough, but if you need to do
+ more detailed analysis of a code fragment this feature can be very valuable.
+\layout Standard
+
+It can also be useful in scientific computing situations where it is common
+ to need to do some automatic, computationally intensive part and then stop
+ to look at data, plots, etc
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+This functionality was inspired by IDL's combination of the 
+\family typewriter 
+stop
+\family default 
+ keyword and the 
+\family typewriter 
+.continue
+\family default 
+ executive command, which I have found very useful in the past, and by a
+ posting on comp.lang.python by cmkl <cmkleffner@gmx.de> on Dec.
+ 06/01 concerning similar uses of pyrepl.
+\end_inset 
+
+.
+ Opening an IPython instance will give you full access to your data and
+ functions, and you can resume program execution once you are done with
+ the interactive part (perhaps to stop again later, as many times as needed).
+\layout Standard
+
+The following code snippet is the bare minimum you need to include in your
+ Python programs for this to work (detailed examples follow later):
+\layout LyX-Code
+
+from IPython.Shell import IPShellEmbed
+\layout LyX-Code
+
+ipshell = IPShellEmbed()
+\layout LyX-Code
+
+ipshell() # this call anywhere in your program will start IPython
+\layout Standard
+
+You can run embedded instances even in code which is itself being run at
+ the IPython interactive prompt with '
+\family typewriter 
+%run\SpecialChar ~
+<filename>
+\family default 
+'.
+ Since it's easy to get lost as to where you are (in your top-level IPython
+ or in your embedded one), it's a good idea in such cases to set the in/out
+ prompts to something different for the embedded instances.
+ The code examples below illustrate this.
+\layout Standard
+
+You can also have multiple IPython instances in your program and open them
+ separately, for example with different options for data presentation.
+ If you close and open the same instance multiple times, its prompt counters
+ simply continue from each execution to the next.
+\layout Standard
+
+Please look at the docstrings in the 
+\family typewriter 
+Shell.py
+\family default 
+ module for more details on the use of this system.
+\layout Standard
+
+The following sample file illustrating how to use the embedding functionality
+ is provided in the examples directory as 
+\family typewriter 
+example-embed.py
+\family default 
+.
+ It should be fairly self-explanatory:
+\layout Standard
+
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+lstinputlisting{examples/ip_embed.py}
+\end_inset 
+
+
+\layout Standard
+
+Once you understand how the system functions, you can use the following
+ code fragments in your programs which are ready for cut and paste:
+\layout Standard
+
+
+\begin_inset ERT
+status Open
+
+\layout Standard
+
+\backslash 
+lstinputlisting{examples/ip_embed-short.py}
+\end_inset 
+
+
 \layout Section
 
 
@@ -2419,7 +2732,7 @@ Matplotlib
 \layout Standard
 
 The matplotlib library (
-\begin_inset LatexCommand \htmlurl[http://matplotlib.sourceforge.net]{http://matplotlib.sourceforge.net}
+\begin_inset LatexCommand \htmlurl{http://matplotlib.sourceforge.net}
 
 \end_inset 
 
