@@ -9,6 +9,7 @@ files = (
     'from_pil.py',
     'image_demo.py',
     'image_origin.py',
+    'integral_demo.py',    
     'layer_images.py',
     'linear_regression.py',
     'major_minor_demo.py',

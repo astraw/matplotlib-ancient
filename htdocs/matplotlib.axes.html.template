@@ -358,7 +358,16 @@ in&nbsp;axes&nbsp;coords,&nbsp;ie,<br>
 
 <dl><dt><a name="Axes-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
 to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
-more&nbsp;info</tt></dd></dl>
+more&nbsp;info<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs<br>
+supported&nbsp;by&nbsp;plot&nbsp;or&nbsp;set_xscale&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for<br>
+log&nbsp;scaling:<br>
+&nbsp;<br>
+basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;x&nbsp;logarithm<br>
+subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)<br>
+basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;y&nbsp;logarithm<br>
+subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;yticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basey)</tt></dd></dl>
 
 <dl><dt><a name="Axes-panx"><strong>panx</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;the&nbsp;x&nbsp;axis&nbsp;numsteps&nbsp;(plus&nbsp;pan&nbsp;right,&nbsp;minus&nbsp;pan&nbsp;left)</tt></dd></dl>
 
@@ -572,13 +581,25 @@ be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;colormap&nbsp;jet.&nbsp;&nbsp;&nbsp;&nbsp;&
 &nbsp;<br>
 If&nbsp;size&nbsp;is&nbsp;None&nbsp;a&nbsp;default&nbsp;size&nbsp;will&nbsp;be&nbsp;used</tt></dd></dl>
 
-<dl><dt><a name="Axes-semilogx"><strong>semilogx</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;x&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
-semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
-more&nbsp;info</tt></dd></dl>
+<dl><dt><a name="Axes-semilogx"><strong>semilogx</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;x&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
+to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot<br>
+for&nbsp;more&nbsp;info.<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs<br>
+supported&nbsp;by&nbsp;plot&nbsp;or&nbsp;set_xscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling:<br>
+&nbsp;<br>
+basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)</tt></dd></dl>
 
 <dl><dt><a name="Axes-semilogy"><strong>semilogy</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
-semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
-more&nbsp;info</tt></dd></dl>
+semilogy&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
+more&nbsp;info.<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs<br>
+supported&nbsp;by&nbsp;plot&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling:<br>
+&nbsp;<br>
+basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basey)</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_axis_bgcolor"><strong>set_axis_bgcolor</strong></a>(self, color)</dt></dl>
 
@@ -608,7 +629,12 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 &nbsp;<br>
 if&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do&nbsp;not&nbsp;trigger&nbsp;an&nbsp;event</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_xscale"><strong>set_xscale</strong></a>(self, value)</dt></dl>
+<dl><dt><a name="Axes-set_xscale"><strong>set_xscale</strong></a>(self, value, basex<font color="#909090">=10</font>, subsx<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;xscaling:&nbsp;'log'&nbsp;or&nbsp;'linear'<br>
+&nbsp;<br>
+if&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have&nbsp;the&nbsp;following&nbsp;meaning<br>
+&nbsp;<br>
+basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_xticklabels"><strong>set_xticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels<br>
 Return&nbsp;a&nbsp;list&nbsp;of&nbsp;axis&nbsp;text&nbsp;instances</tt></dd></dl>
@@ -620,7 +646,6 @@ Return&nbsp;a&nbsp;list&nbsp;of&nbsp;axis&nbsp;text&nbsp;instances</tt></dd></dl
 Defaults&nbsp;override&nbsp;is<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;override&nbsp;=&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'fontproperties'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;see&nbsp;FontProperties()<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'verticalalignment'&nbsp;&nbsp;&nbsp;:&nbsp;'center',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'horizontalalignment'&nbsp;:&nbsp;'right',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rotation'='vertical'&nbsp;:&nbsp;}<br>
@@ -632,7 +657,13 @@ the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
 &nbsp;<br>
 if&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do&nbsp;not&nbsp;trigger&nbsp;an&nbsp;event</tt></dd></dl>
 
-<dl><dt><a name="Axes-set_yscale"><strong>set_yscale</strong></a>(self, value)</dt></dl>
+<dl><dt><a name="Axes-set_yscale"><strong>set_yscale</strong></a>(self, value, basey<font color="#909090">=10</font>, subsy<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;yscaling:&nbsp;'log'&nbsp;or&nbsp;'linear'<br>
+&nbsp;<br>
+if&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have&nbsp;the&nbsp;following&nbsp;meaning<br>
+&nbsp;<br>
+basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+&nbsp;<br>
+subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;are&nbsp;the&nbsp;default&nbsp;range(2,basex)</tt></dd></dl>
 
 <dl><dt><a name="Axes-set_yticklabels"><strong>set_yticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels.<br>
 Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
@@ -682,14 +713,13 @@ If&nbsp;fontdict&nbsp;is&nbsp;None,&nbsp;the&nbsp;default&nbsp;is<br>
 &nbsp;<br>
 If&nbsp;len(args)&nbsp;the&nbsp;override&nbsp;dictionary&nbsp;will&nbsp;be:<br>
 &nbsp;<br>
-&nbsp;&nbsp;'fontproperties'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;see&nbsp;FontProperties<br>
 &nbsp;&nbsp;'verticalalignment'&nbsp;&nbsp;&nbsp;:&nbsp;'bottom',<br>
 &nbsp;&nbsp;'horizontalalignment'&nbsp;:&nbsp;'left'<br>
-&nbsp;<br>
+&nbsp;&nbsp;'transform'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;self.<strong>transData</strong><br>
 &nbsp;<br>
 **kwargs&nbsp;can&nbsp;in&nbsp;turn&nbsp;be&nbsp;used&nbsp;to&nbsp;override&nbsp;the&nbsp;override,&nbsp;as&nbsp;in<br>
 &nbsp;<br>
-&nbsp;&nbsp;a.<a href="#Axes-text">text</a>(x,y,label,&nbsp;fontpropeties=FontProperties(size=12))<br>
+&nbsp;&nbsp;a.<a href="#Axes-text">text</a>(x,y,label,&nbsp;fontsize=12)<br>
 &nbsp;<br>
 will&nbsp;have&nbsp;verticalalignment=bottom&nbsp;and<br>
 horizontalalignment=left&nbsp;but&nbsp;will&nbsp;have&nbsp;a&nbsp;fontsize&nbsp;of&nbsp;12<br>
@@ -1102,7 +1132,16 @@ in&nbsp;axes&nbsp;coords,&nbsp;ie,<br>
 
 <dl><dt><a name="Subplot-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
 to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
-more&nbsp;info</tt></dd></dl>
+more&nbsp;info<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs<br>
+supported&nbsp;by&nbsp;plot&nbsp;or&nbsp;set_xscale&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for<br>
+log&nbsp;scaling:<br>
+&nbsp;<br>
+basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;x&nbsp;logarithm<br>
+subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)<br>
+basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;y&nbsp;logarithm<br>
+subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;yticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basey)</tt></dd></dl>
 
 <dl><dt><a name="Subplot-panx"><strong>panx</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;the&nbsp;x&nbsp;axis&nbsp;numsteps&nbsp;(plus&nbsp;pan&nbsp;right,&nbsp;minus&nbsp;pan&nbsp;left)</tt></dd></dl>
 
@@ -1316,13 +1355,25 @@ be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;colormap&nbsp;jet.&nbsp;&nbsp;&nbsp;&nbsp;&
 &nbsp;<br>
 If&nbsp;size&nbsp;is&nbsp;None&nbsp;a&nbsp;default&nbsp;size&nbsp;will&nbsp;be&nbsp;used</tt></dd></dl>
 
-<dl><dt><a name="Subplot-semilogx"><strong>semilogx</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;x&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
-semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
-more&nbsp;info</tt></dd></dl>
+<dl><dt><a name="Subplot-semilogx"><strong>semilogx</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;x&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
+to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot<br>
+for&nbsp;more&nbsp;info.<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs<br>
+supported&nbsp;by&nbsp;plot&nbsp;or&nbsp;set_xscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling:<br>
+&nbsp;<br>
+basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)</tt></dd></dl>
 
 <dl><dt><a name="Subplot-semilogy"><strong>semilogy</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
-semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
-more&nbsp;info</tt></dd></dl>
+semilogy&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
+more&nbsp;info.<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs<br>
+supported&nbsp;by&nbsp;plot&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling:<br>
+&nbsp;<br>
+basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basey)</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_axis_bgcolor"><strong>set_axis_bgcolor</strong></a>(self, color)</dt></dl>
 
@@ -1352,7 +1403,12 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 &nbsp;<br>
 if&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do&nbsp;not&nbsp;trigger&nbsp;an&nbsp;event</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_xscale"><strong>set_xscale</strong></a>(self, value)</dt></dl>
+<dl><dt><a name="Subplot-set_xscale"><strong>set_xscale</strong></a>(self, value, basex<font color="#909090">=10</font>, subsx<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;xscaling:&nbsp;'log'&nbsp;or&nbsp;'linear'<br>
+&nbsp;<br>
+if&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have&nbsp;the&nbsp;following&nbsp;meaning<br>
+&nbsp;<br>
+basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_xticklabels"><strong>set_xticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels<br>
 Return&nbsp;a&nbsp;list&nbsp;of&nbsp;axis&nbsp;text&nbsp;instances</tt></dd></dl>
@@ -1364,7 +1420,6 @@ Return&nbsp;a&nbsp;list&nbsp;of&nbsp;axis&nbsp;text&nbsp;instances</tt></dd></dl
 Defaults&nbsp;override&nbsp;is<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;override&nbsp;=&nbsp;{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'fontproperties'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;see&nbsp;FontProperties()<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'verticalalignment'&nbsp;&nbsp;&nbsp;:&nbsp;'center',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'horizontalalignment'&nbsp;:&nbsp;'right',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rotation'='vertical'&nbsp;:&nbsp;}<br>
@@ -1376,7 +1431,13 @@ the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
 &nbsp;<br>
 if&nbsp;emit&nbsp;is&nbsp;false,&nbsp;do&nbsp;not&nbsp;trigger&nbsp;an&nbsp;event</tt></dd></dl>
 
-<dl><dt><a name="Subplot-set_yscale"><strong>set_yscale</strong></a>(self, value)</dt></dl>
+<dl><dt><a name="Subplot-set_yscale"><strong>set_yscale</strong></a>(self, value, basey<font color="#909090">=10</font>, subsy<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;yscaling:&nbsp;'log'&nbsp;or&nbsp;'linear'<br>
+&nbsp;<br>
+if&nbsp;value&nbsp;is&nbsp;'log',&nbsp;the&nbsp;additional&nbsp;kwargs&nbsp;have&nbsp;the&nbsp;following&nbsp;meaning<br>
+&nbsp;<br>
+basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+&nbsp;<br>
+subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;are&nbsp;the&nbsp;default&nbsp;range(2,basex)</tt></dd></dl>
 
 <dl><dt><a name="Subplot-set_yticklabels"><strong>set_yticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels.<br>
 Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances</tt></dd></dl>
@@ -1426,14 +1487,13 @@ If&nbsp;fontdict&nbsp;is&nbsp;None,&nbsp;the&nbsp;default&nbsp;is<br>
 &nbsp;<br>
 If&nbsp;len(args)&nbsp;the&nbsp;override&nbsp;dictionary&nbsp;will&nbsp;be:<br>
 &nbsp;<br>
-&nbsp;&nbsp;'fontproperties'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;see&nbsp;FontProperties<br>
 &nbsp;&nbsp;'verticalalignment'&nbsp;&nbsp;&nbsp;:&nbsp;'bottom',<br>
 &nbsp;&nbsp;'horizontalalignment'&nbsp;:&nbsp;'left'<br>
-&nbsp;<br>
+&nbsp;&nbsp;'transform'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;self.<strong>transData</strong><br>
 &nbsp;<br>
 **kwargs&nbsp;can&nbsp;in&nbsp;turn&nbsp;be&nbsp;used&nbsp;to&nbsp;override&nbsp;the&nbsp;override,&nbsp;as&nbsp;in<br>
 &nbsp;<br>
-&nbsp;&nbsp;a.<a href="#Subplot-text">text</a>(x,y,label,&nbsp;fontpropeties=FontProperties(size=12))<br>
+&nbsp;&nbsp;a.<a href="#Subplot-text">text</a>(x,y,label,&nbsp;fontsize=12)<br>
 &nbsp;<br>
 will&nbsp;have&nbsp;verticalalignment=bottom&nbsp;and<br>
 horizontalalignment=left&nbsp;but&nbsp;will&nbsp;have&nbsp;a&nbsp;fontsize&nbsp;of&nbsp;12<br>
@@ -1547,6 +1607,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>generators</strong> = _Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 4096)<br>
 <strong>lineMarkers</strong> = {0: 1, 1: 1, 2: 1, 3: 1, '+': 1, ',': 1, '.': 1, '1': 1, '2': 1, '3': 1, ...}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1, 'None': 1}<br>
+<strong>log</strong> = &lt;ufunc 'log'&gt;<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
 <strong>rcParams</strong> = {'axes.edgecolor': 'k', 'axes.facecolor': 'w', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'k', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
 @footer@

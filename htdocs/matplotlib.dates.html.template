@@ -27,17 +27,17 @@ You&nbsp;can&nbsp;provide&nbsp;your&nbsp;own&nbsp;converter&nbsp;by&nbsp;derivin
 <a href="#DateConverter">DateConverter</a>&nbsp;and&nbsp;overriding&nbsp;the&nbsp;methods&nbsp;epoch&nbsp;and&nbsp;from_epoch.&nbsp;&nbsp;If&nbsp;you<br>
 define&nbsp;one&nbsp;for&nbsp;a&nbsp;widely&nbsp;used&nbsp;date&nbsp;class,&nbsp;or&nbsp;extend&nbsp;the&nbsp;ones&nbsp;here,<br>
 please&nbsp;contribute&nbsp;the&nbsp;code&nbsp;back!&nbsp;&nbsp;All&nbsp;conversions&nbsp;are&nbsp;done&nbsp;to&nbsp;and&nbsp;from<br>
-seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;locatime.<br>
+seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;localtime.<br>
 &nbsp;<br>
 Here&nbsp;is&nbsp;an&nbsp;example&nbsp;of&nbsp;how&nbsp;you&nbsp;could&nbsp;plot&nbsp;dates&nbsp;with&nbsp;python&nbsp;datetime<br>
-instances&nbsp;in&nbsp;the&nbsp;eastern&nbsp;time&nbsp;zone::<br>
+instances<br>
 &nbsp;<br>
 &nbsp;&nbsp;from&nbsp;matplotlib.dates&nbsp;import&nbsp;<a href="#PyDatetimeConverter">PyDatetimeConverter</a>,&nbsp;Eastern<br>
 &nbsp;&nbsp;from&nbsp;matplotlib.matlab&nbsp;import&nbsp;*<br>
 &nbsp;&nbsp;<br>
 &nbsp;&nbsp;dates&nbsp;=&nbsp;[&nbsp;dt1,&nbsp;dt2,&nbsp;dt2,&nbsp;...]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;datetime&nbsp;instances<br>
 &nbsp;&nbsp;vals&nbsp;&nbsp;=&nbsp;[&nbsp;val1,&nbsp;val2,&nbsp;val3,&nbsp;...]&nbsp;&nbsp;#&nbsp;the&nbsp;y&nbsp;values<br>
-&nbsp;&nbsp;converter&nbsp;=&nbsp;<a href="#PyDatetimeConverter">PyDatetimeConverter</a>(Eastern)&nbsp;&nbsp;#&nbsp;dates&nbsp;are&nbsp;in&nbsp;Eastern&nbsp;tz<br>
+&nbsp;&nbsp;converter&nbsp;=&nbsp;<a href="#PyDatetimeConverter">PyDatetimeConverter</a>()<br>
 &nbsp;&nbsp;ax&nbsp;=&nbsp;subplot(111)<br>
 &nbsp;&nbsp;plot_date(dates,&nbsp;vals,&nbsp;converter)<br>
 &nbsp;<br>

@@ -75,8 +75,9 @@ command""", 1),
 ('mathtext_demo', """The mathtext module provides TeX style
 mathematical expressions using freetype2 and the BaKoMa computer
 modern fonts.  See the <a href=matplotlib.mathtext.html>mathtext</a>
-module for usage, licensing and backend information.  Requires
-matplotlib-0.51 or later.""", 1),
+module for usage, licensing and backend information.  matplotlib
+mathtext is an independent implementation, and does not required TeX
+or any external packages installed on your computer-.""", 1),
 
 ('pcolor_demo', """The <a
 href=matplotlib.matlab.html#-pcolor>pcolor</a> command generates

@@ -18,7 +18,7 @@ files = {
     'barchart_demo.py'  : default,
     'table_demo.py'     : default, 
     'legend_demo.py'    : default,
-    'mathtext_demo.py'    : default, 
+    'mathtext_demo.py'    : default,     
     'pcolor_demo.py'    : default, 
     'text_themes.py'    : default,  # font path
     'log_shot.py'       : default,

@@ -268,13 +268,13 @@ performance is 10x faster in <a href="whats_new.html#0.54-New_scatter_plots">mat
 ********************
 Faster math text
 
-partially done
+done
 
-A recent upgrade in the pyparsing module that matplotlib uses to parse
-mathtext has more than doubled mathtext performance.  Almost all of
-the time matplotlib uses for mathtext is used by the pyparsing module,
-so futher improvements will likely come as that module is optimized
-for performance.
+Mathtext performance improved 5x in <a
+href="whats_new.html#0.62-Faster-mathtext">matplotlib-0.61</a>.
+Thanks to Paul Mcguire for fixes both to pyparsing and to the
+matplotlib grammar!
+
 ============================================================================
 Documentation
 *******************

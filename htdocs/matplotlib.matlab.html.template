@@ -632,7 +632,16 @@ X&nbsp;=&nbsp;<a href="#-load">load</a>('test.dat')&nbsp;&nbsp;&nbsp;&nbsp;#&nbs
 x&nbsp;=&nbsp;<a href="#-load">load</a>('test.dat')&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;single&nbsp;column&nbsp;of&nbsp;data</tt></dd></dl>
  <dl><dt><a name="-loglog"><strong>loglog</strong></a>(*args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
 to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
-more&nbsp;info</tt></dd></dl>
+more&nbsp;info<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs<br>
+supported&nbsp;by&nbsp;plot&nbsp;or&nbsp;set_xscale&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for<br>
+log&nbsp;scaling:<br>
+&nbsp;<br>
+basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;x&nbsp;logarithm<br>
+subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)<br>
+basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;y&nbsp;logarithm<br>
+subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;yticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basey)</tt></dd></dl>
  <dl><dt><a name="-mpl_connect"><strong>mpl_connect</strong></a>(s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
 &nbsp;<br>
 &nbsp;&nbsp;def&nbsp;func(event)<br>
@@ -651,7 +660,8 @@ where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbs
 &nbsp;<br>
 return&nbsp;value&nbsp;is&nbsp;a&nbsp;connection&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with<br>
 mpl_disconnect</tt></dd></dl>
- <dl><dt><a name="-mpl_disconnect"><strong>mpl_disconnect</strong></a>(cid)</dt><dd><tt>Connect&nbsp;s&nbsp;to&nbsp;func.&nbsp;return&nbsp;an&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect</tt></dd></dl>
+ <dl><dt><a name="-mpl_disconnect"><strong>mpl_disconnect</strong></a>(cid)</dt><dd><tt>Connect&nbsp;s&nbsp;to&nbsp;func.&nbsp;return&nbsp;an&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with&nbsp;disconnect<br>
+Method&nbsp;should&nbsp;return&nbsp;None</tt></dd></dl>
  <dl><dt><a name="-pcolor"><strong>pcolor</strong></a>(*args, **kwargs)</dt><dd><tt>PCOLOR(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
 &nbsp;<br>
 PCOLOR(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y<br>
@@ -1037,12 +1047,24 @@ be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;colormap&nbsp;jet.&nbsp;&nbsp;&nbsp;&nbsp;&
 &nbsp;<br>
 If&nbsp;size&nbsp;is&nbsp;None&nbsp;a&nbsp;default&nbsp;size&nbsp;will&nbsp;be&nbsp;used</tt></dd></dl>
  <dl><dt><a name="-searchsorted"><strong>searchsorted</strong></a> = binarysearch(...)</dt><dd><tt>binarysearch(a,v)</tt></dd></dl>
- <dl><dt><a name="-semilogx"><strong>semilogx</strong></a>(*args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;x&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
-semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
-more&nbsp;info</tt></dd></dl>
+ <dl><dt><a name="-semilogx"><strong>semilogx</strong></a>(*args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;x&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
+to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot<br>
+for&nbsp;more&nbsp;info.<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs<br>
+supported&nbsp;by&nbsp;plot&nbsp;or&nbsp;set_xscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling:<br>
+&nbsp;<br>
+basex:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+subsx:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basex)</tt></dd></dl>
  <dl><dt><a name="-semilogy"><strong>semilogy</strong></a>(*args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
-semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
-more&nbsp;info</tt></dd></dl>
+semilogy&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
+more&nbsp;info.<br>
+&nbsp;<br>
+Optional&nbsp;keyword&nbsp;args&nbsp;supported&nbsp;are&nbsp;any&nbsp;of&nbsp;the&nbsp;kwargs<br>
+supported&nbsp;by&nbsp;plot&nbsp;or&nbsp;set_yscale.&nbsp;&nbsp;Notable,&nbsp;for&nbsp;log&nbsp;scaling:<br>
+&nbsp;<br>
+basey:&nbsp;base&nbsp;of&nbsp;the&nbsp;logarithm<br>
+subsy:&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticks;&nbsp;None&nbsp;defaults&nbsp;to&nbsp;range(2,basey)</tt></dd></dl>
  <dl><dt><a name="-set"><strong>set</strong></a>(h, *args, **kwargs)</dt><dd><tt>Set&nbsp;handle&nbsp;h&nbsp;property&nbsp;in&nbsp;string&nbsp;s&nbsp;to&nbsp;value&nbsp;val<br>
 &nbsp;<br>
 h&nbsp;can&nbsp;be&nbsp;a&nbsp;handle&nbsp;or&nbsp;vector&nbsp;of&nbsp;handles.<br>

@@ -1,5 +1,24 @@
 New entries should be added at the top
 
+2004-08-25 Exposed Darren's and Greg's log ticking and formatting
+           options to semilogx and friends
+
+2004-08-23 Fixed grid w/o args to toggle grid state - JDH
+
+2004-08-11 Added Gregory's log patches for major and minor ticking
+
+2004-08-18 Some pixel edge effects fixes for images
+
+2004-08-18 Fixed TTF files reads in backend_ps on win32.  
+
+2004-08-18 Added base and subs properties for logscale plots, user
+           modifiable using
+           set_[x,y]scale('log',base=b,subs=[mt1,mt2,...]) - GL
+
+2004-08-18 fixed a bug exposed by trying to find the HOME dir on win32
+           thanks to Alan Issac for pointing to the light - JDH
+
+2004-08-18 fixed errorbar bug in setting ecolor - JDH
 
 2004-08-12 Added Darren Dale's exponential ticking patch
 
