@@ -44,7 +44,7 @@ lonout = numarray.where(lonout < 0, lonout+360, lonout)
 latout = latout+90
 
 # read in topo data from pickle (on a regular lat/lon grid)
-topodict = cPickle.load(open('etopo20.pickle','rb'))        
+topodict = cPickle.load(file('data/etopo20.pickle','rb'))        
 lons = topodict['lons']
 lats = topodict['lats']
 topoin = topodict['topo']
@@ -64,7 +64,7 @@ im = ax.imshow(topodat, interpolation='nearest',extent=(0, xmax, 0, ymax))
 #pcolor(xgrid, ygrid, topodat, shading='flat')
 
 # read in coastline data from pickle.
-wcl = cPickle.load(open('wcl.pickle','rb'))
+wcl = cPickle.load(file('data/wcl.pickle','rb'))
 ind = wcl['segment_index']; lons = wcl['lons']; lats = wcl['lats']
 # transform coastline segements to map projection coordinates.                  
 xs, ys = proj(lons,lats)
