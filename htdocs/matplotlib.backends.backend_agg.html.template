@@ -184,8 +184,6 @@ inch&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
 <dl><dt><a name="RendererAgg-tostring_rgb"><strong>tostring_rgb</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="RendererAgg-using_ft2font"><strong>using_ft2font</strong></a>(self)</dt></dl>
-
 <hr>
 Data and other attributes defined here:<br>
 <dl><dt><strong>debug</strong> = 1</dl>
@@ -300,7 +298,7 @@ The&nbsp;following&nbsp;are&nbsp;available,&nbsp;if&nbsp;scalable&nbsp;is&nbsp;t
 &nbsp;&nbsp;underline_position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;position&nbsp;of&nbsp;the&nbsp;underline&nbsp;bar<br>
 &nbsp;&nbsp;underline_thickness&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;thickness&nbsp;of&nbsp;the&nbsp;underline</tt></dd></dl>
  <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
- <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
+ <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args, **kwargs)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">

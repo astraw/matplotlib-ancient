@@ -126,6 +126,10 @@ multiline&nbsp;text&nbsp;within&nbsp;that&nbsp;box&nbsp;can&nbsp;be&nbsp;left,&n
 <dl><dt><a name="Text-update_properties"><strong>update_properties</strong></a>(self, d)</dt><dd><tt>Update&nbsp;the&nbsp;font&nbsp;attributes&nbsp;with&nbsp;the&nbsp;dictionary&nbsp;in&nbsp;d</tt></dd></dl>
 
 <hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>cached</strong> = {}</dl>
+
+<hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><a name="Text-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>

@@ -194,8 +194,6 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
 
 <dl><dt><a name="RendererPaint-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;GraphicsContextBase</tt></dd></dl>
 
-<dl><dt><a name="RendererPaint-using_ft2font"><strong>using_ft2font</strong></a>(self)</dt></dl>
-
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -205,10 +203,10 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-error_msg"><strong>error_msg</strong></a> = error_msg_paint(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
  <dl><dt><a name="-error_msg_paint"><strong>error_msg_paint</strong></a>(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
- <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a> = new_figure_manager_paint(num, *args)</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;figure&nbsp;num&nbsp;(default&nbsp;autoincrement).&nbsp;&nbsp;For&nbsp;GUI<br>
+ <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a> = new_figure_manager_paint(num, *args, **kwargs)</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;figure&nbsp;num&nbsp;(default&nbsp;autoincrement).&nbsp;&nbsp;For&nbsp;GUI<br>
 backends,&nbsp;you'll&nbsp;need&nbsp;to&nbsp;instantiate&nbsp;a&nbsp;new&nbsp;window&nbsp;and&nbsp;embed<br>
 the&nbsp;figure&nbsp;in&nbsp;it.</tt></dd></dl>
- <dl><dt><a name="-new_figure_manager_paint"><strong>new_figure_manager_paint</strong></a>(num, *args)</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;figure&nbsp;num&nbsp;(default&nbsp;autoincrement).&nbsp;&nbsp;For&nbsp;GUI<br>
+ <dl><dt><a name="-new_figure_manager_paint"><strong>new_figure_manager_paint</strong></a>(num, *args, **kwargs)</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;figure&nbsp;num&nbsp;(default&nbsp;autoincrement).&nbsp;&nbsp;For&nbsp;GUI<br>
 backends,&nbsp;you'll&nbsp;need&nbsp;to&nbsp;instantiate&nbsp;a&nbsp;new&nbsp;window&nbsp;and&nbsp;embed<br>
 the&nbsp;figure&nbsp;in&nbsp;it.</tt></dd></dl>
 </td></tr></table><p>

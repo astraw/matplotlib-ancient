@@ -204,6 +204,7 @@ xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used
 on&nbsp;the&nbsp;bar&nbsp;chart<br>
 &nbsp;<br>
 color&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;bar<br>
+ecolor&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;any&nbsp;errorbar<br>
 &nbsp;<br>
 capsize&nbsp;determines&nbsp;the&nbsp;length&nbsp;in&nbsp;points&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps<br>
 &nbsp;<br>
@@ -294,7 +295,7 @@ valued),&nbsp;and&nbsp;10*log10(|Pxy|)&nbsp;is&nbsp;plotted<br>
 Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
- <dl><dt><a name="-errorbar"><strong>errorbar</strong></a>(x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
+ <dl><dt><a name="-errorbar"><strong>errorbar</strong></a>(x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">='k'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
 Vertical&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;yerr&nbsp;is&nbsp;not&nbsp;None<br>
 Horizontal&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;xerr&nbsp;is&nbsp;not&nbsp;None<br>
 &nbsp;<br>
@@ -302,8 +303,9 @@ xerr&nbsp;and&nbsp;yerr&nbsp;may&nbsp;be&nbsp;any&nbsp;of:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;rank-0,&nbsp;Nx1&nbsp;Numpy&nbsp;array&nbsp;&nbsp;-&nbsp;symmetric&nbsp;errorbars&nbsp;+/-&nbsp;value<br>
 &nbsp;&nbsp;&nbsp;&nbsp;an&nbsp;N-element&nbsp;list&nbsp;or&nbsp;tuple&nbsp;-&nbsp;symmetric&nbsp;errorbars&nbsp;+/-&nbsp;value<br>
 &nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;rank-1,&nbsp;Nx2&nbsp;Numpy&nbsp;array&nbsp;&nbsp;-&nbsp;asymmetric&nbsp;errorbars&nbsp;-column1/+column2<br>
-&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
 fmt&nbsp;is&nbsp;the&nbsp;plot&nbsp;format&nbsp;symbol&nbsp;for&nbsp;y<br>
+ecolor&nbsp;is&nbsp;the&nbsp;errorbar&nbsp;color&nbsp;specifier<br>
 &nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&nbsp;first&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
 y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.<br>
@@ -320,7 +322,7 @@ USAGE:&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'upper&nbsp;right')<br>
 &nbsp;<br>
 See&nbsp;help(legend)&nbsp;for&nbsp;information&nbsp;about&nbsp;the&nbsp;location&nbsp;codes</tt></dd></dl>
- <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=1</font>, figsize<font color="#909090">=[8.0, 6.0]</font>, dpi<font color="#909090">=80.0</font>, facecolor<font color="#909090">=0.75</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt><a href="#-figure">figure</a>(num&nbsp;=&nbsp;1,&nbsp;figsize=(8,&nbsp;6),&nbsp;dpi=80,&nbsp;facecolor='w',&nbsp;edgecolor='k')<br>
+ <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=1</font>, figsize<font color="#909090">=[8.0, 6.0]</font>, dpi<font color="#909090">=80.0</font>, facecolor<font color="#909090">=0.75</font>, edgecolor<font color="#909090">='w'</font>, frameon<font color="#909090">=True</font>)</dt><dd><tt><a href="#-figure">figure</a>(num&nbsp;=&nbsp;1,&nbsp;figsize=(8,&nbsp;6),&nbsp;dpi=80,&nbsp;facecolor='w',&nbsp;edgecolor='k')<br>
 &nbsp;<br>
 &nbsp;<br>
 Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;and&nbsp;return&nbsp;a&nbsp;handle&nbsp;to&nbsp;it<br>
@@ -656,7 +658,9 @@ d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates;&nbsp;converter&nbsp;is&nbsp;a
 instance&nbsp;that&nbsp;converts&nbsp;your&nbsp;dates&nbsp;to&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;for<br>
 plotting.&nbsp;&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is&nbsp;a&nbsp;plot<br>
 format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot&nbsp;for&nbsp;more<br>
-information.</tt></dd></dl>
+information.<br>
+&nbsp;<br>
+pass&nbsp;converter&nbsp;=&nbsp;None&nbsp;if&nbsp;your&nbsp;dates&nbsp;are&nbsp;already&nbsp;in&nbsp;epoch&nbsp;format</tt></dd></dl>
  <dl><dt><a name="-plotting"><strong>plotting</strong></a>()</dt><dd><tt>Plotting&nbsp;commands<br>
 axes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Create&nbsp;a&nbsp;new&nbsp;axes<br>
 axis&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Set&nbsp;or&nbsp;return&nbsp;the&nbsp;current&nbsp;axis&nbsp;limits<br>

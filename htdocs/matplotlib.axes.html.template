@@ -68,7 +68,7 @@ axisbg&nbsp;is&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;axis&nbsp;background<br
 
 <dl><dt><a name="Axes-autoscale_view"><strong>autoscale_view</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Axes-bar"><strong>bar</strong></a>(self, left, height, width<font color="#909090">=0.80000000000000004</font>, bottom<font color="#909090">=0</font>, color<font color="#909090">='b'</font>, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>BAR(left,&nbsp;height)<br>
+<dl><dt><a name="Axes-bar"><strong>bar</strong></a>(self, left, height, width<font color="#909090">=0.80000000000000004</font>, bottom<font color="#909090">=0</font>, color<font color="#909090">='b'</font>, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, ecolor<font color="#909090">='k'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>BAR(left,&nbsp;height)<br>
 &nbsp;<br>
 Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at<br>
 &nbsp;&nbsp;left,&nbsp;left+width,&nbsp;0,&nbsp;height<br>
@@ -83,6 +83,7 @@ xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used
 on&nbsp;the&nbsp;bar&nbsp;chart<br>
 &nbsp;<br>
 color&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;bar<br>
+ecolor&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;any&nbsp;errorbar<br>
 &nbsp;<br>
 capsize&nbsp;determines&nbsp;the&nbsp;length&nbsp;in&nbsp;points&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps<br>
 &nbsp;<br>
@@ -138,7 +139,7 @@ Refs:<br>
 
 <dl><dt><a name="Axes-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt><dd><tt>Draw&nbsp;everything&nbsp;(plot&nbsp;lines,&nbsp;axes,&nbsp;labels)</tt></dd></dl>
 
-<dl><dt><a name="Axes-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
+<dl><dt><a name="Axes-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">='k'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
 Vertical&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;yerr&nbsp;is&nbsp;not&nbsp;None<br>
 Horizontal&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;xerr&nbsp;is&nbsp;not&nbsp;None<br>
 &nbsp;<br>
@@ -421,7 +422,9 @@ d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates;&nbsp;converter&nbsp;is&nbsp;a
 instance&nbsp;that&nbsp;converts&nbsp;your&nbsp;dates&nbsp;to&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;for<br>
 plotting.&nbsp;&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is&nbsp;a&nbsp;plot<br>
 format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot&nbsp;for&nbsp;more<br>
-information.</tt></dd></dl>
+information.<br>
+&nbsp;<br>
+pass&nbsp;converter&nbsp;=&nbsp;None&nbsp;if&nbsp;your&nbsp;dates&nbsp;are&nbsp;already&nbsp;in&nbsp;epoch&nbsp;format</tt></dd></dl>
 
 <dl><dt><a name="Axes-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
 The&nbsp;vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment<br>
@@ -713,7 +716,7 @@ Methods inherited from <a href="matplotlib.axes.html#Axes">Axes</a>:<br>
 
 <dl><dt><a name="Subplot-autoscale_view"><strong>autoscale_view</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="Subplot-bar"><strong>bar</strong></a>(self, left, height, width<font color="#909090">=0.80000000000000004</font>, bottom<font color="#909090">=0</font>, color<font color="#909090">='b'</font>, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>BAR(left,&nbsp;height)<br>
+<dl><dt><a name="Subplot-bar"><strong>bar</strong></a>(self, left, height, width<font color="#909090">=0.80000000000000004</font>, bottom<font color="#909090">=0</font>, color<font color="#909090">='b'</font>, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, ecolor<font color="#909090">='k'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>BAR(left,&nbsp;height)<br>
 &nbsp;<br>
 Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at<br>
 &nbsp;&nbsp;left,&nbsp;left+width,&nbsp;0,&nbsp;height<br>
@@ -728,6 +731,7 @@ xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used
 on&nbsp;the&nbsp;bar&nbsp;chart<br>
 &nbsp;<br>
 color&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;bar<br>
+ecolor&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;any&nbsp;errorbar<br>
 &nbsp;<br>
 capsize&nbsp;determines&nbsp;the&nbsp;length&nbsp;in&nbsp;points&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps<br>
 &nbsp;<br>
@@ -783,7 +787,7 @@ Refs:<br>
 
 <dl><dt><a name="Subplot-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt><dd><tt>Draw&nbsp;everything&nbsp;(plot&nbsp;lines,&nbsp;axes,&nbsp;labels)</tt></dd></dl>
 
-<dl><dt><a name="Subplot-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
+<dl><dt><a name="Subplot-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, ecolor<font color="#909090">='k'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
 Vertical&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;yerr&nbsp;is&nbsp;not&nbsp;None<br>
 Horizontal&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;xerr&nbsp;is&nbsp;not&nbsp;None<br>
 &nbsp;<br>
@@ -1066,7 +1070,9 @@ d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates;&nbsp;converter&nbsp;is&nbsp;a
 instance&nbsp;that&nbsp;converts&nbsp;your&nbsp;dates&nbsp;to&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch&nbsp;for<br>
 plotting.&nbsp;&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is&nbsp;a&nbsp;plot<br>
 format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot&nbsp;for&nbsp;more<br>
-information.</tt></dd></dl>
+information.<br>
+&nbsp;<br>
+pass&nbsp;converter&nbsp;=&nbsp;None&nbsp;if&nbsp;your&nbsp;dates&nbsp;are&nbsp;already&nbsp;in&nbsp;epoch&nbsp;format</tt></dd></dl>
 
 <dl><dt><a name="Subplot-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
 The&nbsp;vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment<br>

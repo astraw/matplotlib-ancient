@@ -313,8 +313,6 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
 
 <dl><dt><a name="RendererGD-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
 
-<dl><dt><a name="RendererGD-using_ft2font"><strong>using_ft2font</strong></a>(self)</dt></dl>
-
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -327,7 +325,7 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
  <dl><dt><a name="-error_msg"><strong>error_msg</strong></a> = error_msg_gd(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
  <dl><dt><a name="-error_msg_gd"><strong>error_msg_gd</strong></a>(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
  <dl><dt><a name="-gd_requirements_failed"><strong>gd_requirements_failed</strong></a>()</dt><dd><tt>Print&nbsp;a&nbsp;message&nbsp;about&nbsp;the&nbsp;required&nbsp;gd&nbsp;version&nbsp;and&nbsp;quit</tt></dd></dl>
- <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args)</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;figure&nbsp;num&nbsp;(default&nbsp;autoincrement).&nbsp;&nbsp;For&nbsp;GUI<br>
+ <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args, **kwargs)</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;figure&nbsp;num&nbsp;(default&nbsp;autoincrement).&nbsp;&nbsp;For&nbsp;GUI<br>
 backends,&nbsp;you'll&nbsp;need&nbsp;to&nbsp;instantiate&nbsp;a&nbsp;new&nbsp;window&nbsp;and&nbsp;embed<br>
 the&nbsp;figure&nbsp;in&nbsp;it.</tt></dd></dl>
  <dl><dt><a name="-round"><strong>round</strong></a>(x)</dt></dl>

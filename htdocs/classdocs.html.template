@@ -30,6 +30,7 @@ modfiles = (
     ('backends.backend_gtkagg', 'GTK GUI with agg renderering'),    
     ('backends.backend_paint', 'The Paint backend'), 
     ('backends.backend_ps', 'The Postscript backend'),
+    ('backends.backend_svg', 'The SVG Backend'),
     ('backends.backend_template', 'A template for backend writers'),
     ('backends.backend_tkagg', 'Tk GUI with agg renderering'),    
     ('backends.backend_wx', 'wx backend'),

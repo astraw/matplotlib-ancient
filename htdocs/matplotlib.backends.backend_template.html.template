@@ -383,8 +383,6 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
 
 <dl><dt><a name="RendererTemplate-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
 
-<dl><dt><a name="RendererTemplate-using_ft2font"><strong>using_ft2font</strong></a>(self)</dt></dl>
-
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -397,7 +395,7 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
 should&nbsp;be&nbsp;done&nbsp;in&nbsp;interactive&nbsp;python&nbsp;mode</tt></dd></dl>
  <dl><dt><a name="-error_msg"><strong>error_msg</strong></a> = error_msg_template(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
  <dl><dt><a name="-error_msg_template"><strong>error_msg_template</strong></a>(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
- <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
+ <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args, **kwargs)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
  <dl><dt><a name="-show"><strong>show</strong></a>()</dt><dd><tt>This&nbsp;is&nbsp;usually&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;a&nbsp;matlab&nbsp;script&nbsp;and&nbsp;tells&nbsp;the<br>
 backend&nbsp;that&nbsp;it&nbsp;is&nbsp;time&nbsp;to&nbsp;draw.&nbsp;&nbsp;In&nbsp;interactive&nbsp;mode,&nbsp;this&nbsp;may&nbsp;be<br>
 a&nbsp;do&nbsp;nothing&nbsp;func.&nbsp;&nbsp;See&nbsp;the&nbsp;GTK&nbsp;backend&nbsp;for&nbsp;an&nbsp;example&nbsp;of&nbsp;how&nbsp;to<br>

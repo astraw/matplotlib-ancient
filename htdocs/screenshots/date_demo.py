@@ -55,8 +55,7 @@ ax.xaxis.set_major_formatter(fmt)
 ax.xaxis.set_minor_locator(days)
 ax.autoscale_view()
 
+set( ax.get_xticklabels(), 'rotation', 45, 'horizontalalignment', 'right')
 
-set( ax.xaxis.get_major_ticks(), 'pad', 10)
-set( ax.get_xticklabels(),       'rotation', 45)
 grid(True)
 show()

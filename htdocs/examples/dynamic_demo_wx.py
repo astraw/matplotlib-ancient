@@ -20,8 +20,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.36  2004/05/21 14:41:32  jdh2358
-added frameon for figure
+Revision 1.37  2004/05/27 21:11:26  jdh2358
+sync to 0.54.1
 
 Revision 1.4  2004/05/03 12:12:26  jdh2358
 added bang header to examples

@@ -260,8 +260,6 @@ with&nbsp;fontsize&nbsp;in&nbsp;points</tt></dd></dl>
 <dl><dt><a name="RendererBase-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;points&nbsp;to&nbsp;display&nbsp;units;&nbsp;unless&nbsp;your&nbsp;backend&nbsp;doesn't<br>
 have&nbsp;dpi,&nbsp;eg,&nbsp;postscript,&nbsp;you&nbsp;need&nbsp;to&nbsp;overrride&nbsp;this&nbsp;function</tt></dd></dl>
 
-<dl><dt><a name="RendererBase-using_ft2font"><strong>using_ft2font</strong></a>(self)</dt></dl>
-
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">

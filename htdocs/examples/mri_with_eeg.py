@@ -6,7 +6,8 @@ faster*
 from __future__ import division
 from matplotlib.matlab import *
 from matplotlib.lines import Line2D
-from matplotlib.transforms import get_bbox_transform, Point, Value, Bbox
+from matplotlib.transforms import get_bbox_transform, Point, Value, Bbox,\
+     translation_transform, zero
 # I use if 1 to break up the different regions of code visually
 
 if 1:   # load the data
@@ -46,9 +47,10 @@ if 1:   # plot the EEG
 
     for i in range(numRows):
         trans = get_bbox_transform(ax.viewLim, ax.bbox)
-        offset = i/(numRows+1)
-        #print offset
-        trans.set_offset( (0,offset), ax.transAxes)
+        offset = (i+1)/(numRows+1)
+        height = Value(offset) * (ax.bbox.ur().y() - ax.bbox.ll().y())
+        trans.set_offset( (0,0), translation_transform(zero(), height) )
+        
         thisLine = Line2D(
             t, data[:,i]-data[0,i],
             )
@@ -59,13 +61,13 @@ if 1:   # plot the EEG
         ticklocs.append(offset)
 
     set(gca(), 'xlim', [0,10])
-    set(gca(), 'ylim', [-5,50])    
+    set(gca(), 'ylim', [0,200])    
     set(gca(), 'xticks', arange(10))
-    #yticks = set(gca(), 'yticks', ticklocs)
-    #set(gca(), 'yticklabels', ['PG3', 'PG5', 'PG7', 'PG9']) 
+    yticks = set(gca(), 'yticks', ticklocs)
+    set(gca(), 'yticklabels', ['PG3', 'PG5', 'PG7', 'PG9']) 
 
     # set the yticks to use axes coords on the y axis
-    #set(yticks, 'transform', ax.transAxes)
+    set(yticks, 'transform', ax.transAxes)
     xlabel('time (s)')
 
 
