@@ -14,11 +14,13 @@ from&nbsp;the&nbsp;Python&nbsp;Cookbook&nbsp;--&nbsp;hence&nbsp;the&nbsp;name&nb
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="errno.html">errno</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="StringIO.html">StringIO</a><br>
+<a href="errno.html">errno</a><br>
 </td><td width="25%" valign=top><a href="os.html">os</a><br>
-</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="re.html">re</a><br>
 </td><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td></tr></table></td></tr></table><p>
+<a href="traceback.html">traceback</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -253,6 +255,7 @@ v&nbsp;defaults&nbsp;to&nbsp;None.</tt></dl>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-enumerate"><strong>enumerate</strong></a>(seq)</dt><dd><tt>#&nbsp;until&nbsp;2.3</tt></dd></dl>
+ <dl><dt><a name="-exception_to_str"><strong>exception_to_str</strong></a>(s<font color="#909090">=None</font>)</dt></dl>
  <dl><dt><a name="-flatten"><strong>flatten</strong></a>(seq, scalarp<font color="#909090">=&lt;function is_scalar&gt;</font>)</dt><dd><tt>this&nbsp;generator&nbsp;flattens&nbsp;nested&nbsp;containers&nbsp;such&nbsp;as<br>
 &nbsp;<br>
 &gt;&gt;&gt;&nbsp;l=(&nbsp;('John',&nbsp;'Hunter'),&nbsp;(1,23),&nbsp;[[[[42,(5,23)]]]])<br>
@@ -275,6 +278,7 @@ len('&nbsp;'.join(seq[:ind])&lt;=N</tt></dd></dl>
  <dl><dt><a name="-listFiles"><strong>listFiles</strong></a>(root, patterns<font color="#909090">='*'</font>, recurse<font color="#909090">=1</font>, return_folders<font color="#909090">=0</font>)</dt><dd><tt>Recursively&nbsp;list&nbsp;files<br>
 from&nbsp;Parmar&nbsp;and&nbsp;Martelli&nbsp;in&nbsp;the&nbsp;Python&nbsp;Cookbook</tt></dd></dl>
  <dl><dt><a name="-mkdirs"><strong>mkdirs</strong></a>(newdir, mode<font color="#909090">=511</font>)</dt></dl>
+ <dl><dt><a name="-pieces"><strong>pieces</strong></a>(seq, num<font color="#909090">=2</font>)</dt><dd><tt>Break&nbsp;up&nbsp;the&nbsp;seq&nbsp;into&nbsp;num&nbsp;tuples</tt></dd></dl>
  <dl><dt><a name="-soundex"><strong>soundex</strong></a>(name, len<font color="#909090">=4</font>)</dt><dd><tt>soundex&nbsp;module&nbsp;conforming&nbsp;to&nbsp;Odell-Russell&nbsp;algorithm</tt></dd></dl>
  <dl><dt><a name="-wrap"><strong>wrap</strong></a>(prefix, text, cols)</dt></dl>
 </td></tr></table><p>

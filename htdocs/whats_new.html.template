@@ -37,7 +37,7 @@ David Moore and John Gill for suggestions and code.  """),
 
   <li> GTK : Dash spacing was not properly scaling with DPI</li>
   
-<ul>
+</ul>
 
 """),
 
@@ -45,7 +45,7 @@ David Moore and John Gill for suggestions and code.  """),
 split into a backend independent component <a
 href=matplotlib.figure.html>Figure</a> and a backend dependent
 component <a
-href=matplotlib.backends_bases.html#FigureCanvasBase>FigureCanvasBase</a>.
+href=matplotlib.backend_bases.html#FigureCanvasBase>FigureCanvasBase</a>.
 This completes the transition to a totally abstrac figure interface
 and improves the ability the switch backends and a figure to multiple
 backends.  See <a href=API_CHANGES>API_CHANGES</a> for information on
@@ -384,6 +384,12 @@ defined in figure.py.
 )
 
 @header@
+
+<h2> What's new in matplotlib 0.50</h2>
+ + for title, new in new_to_50:
+   <h4>@title@</h4>
+   @new@<br>
+ -
 
 <h2> What's new in matplotlib 0.42</h2>
  + for title, new in new_to_42:

@@ -179,17 +179,21 @@ x&nbsp;and&nbsp;y&nbsp;axis&nbsp;limits</tt></dd></dl>
 &nbsp;&nbsp;Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at&nbsp;x,&nbsp;x+width,&nbsp;0,&nbsp;y&nbsp;x&nbsp;and&nbsp;y&nbsp;are<br>
 &nbsp;&nbsp;Numeric&nbsp;arrays<br>
 &nbsp;<br>
-<a href="#-bar">bar</a>(x,&nbsp;y,&nbsp;width=0.8,&nbsp;color='b',&nbsp;yerr=None,&nbsp;xerr=None,&nbsp;capsize=3)<br>
+<a href="#-bar">bar</a>(x,&nbsp;y,&nbsp;width=0.8,&nbsp;color='b',<br>
+&nbsp;&nbsp;&nbsp;yerr=None,&nbsp;xerr=None,&nbsp;capsize=3,<br>
+&nbsp;&nbsp;&nbsp;originY=0)<br>
 &nbsp;<br>
 &nbsp;&nbsp;xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
 &nbsp;&nbsp;on&nbsp;the&nbsp;bar&nbsp;chart&nbsp;for&nbsp;the&nbsp;x&nbsp;and&nbsp;y&nbsp;axes,&nbsp;respectively.&nbsp;&nbsp;See<br>
 &nbsp;&nbsp;errorbar&nbsp;for&nbsp;more&nbsp;info&nbsp;on&nbsp;the&nbsp;xerr&nbsp;and&nbsp;yerr&nbsp;optional&nbsp;arguments.<br>
 &nbsp;<br>
-&nbsp;&nbsp;color&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;string&nbsp;or&nbsp;tuple,&nbsp;or&nbsp;it&nbsp;can&nbsp;be<br>
-&nbsp;&nbsp;a&nbsp;len(x)&nbsp;list&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;strings&nbsp;or&nbsp;tuples<br>
-&nbsp;<br>
+&nbsp;&nbsp;color&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;string&nbsp;or&nbsp;tuple,&nbsp;or&nbsp;it&nbsp;can&nbsp;be&nbsp;a<br>
+&nbsp;&nbsp;min(len(x),&nbsp;len(y))&nbsp;list&nbsp;of&nbsp;matplotlib&nbsp;color&nbsp;strings&nbsp;or&nbsp;tuples<br>
+&nbsp;&nbsp;<br>
 &nbsp;&nbsp;capsize&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;errorbar;&nbsp;see&nbsp;errorbar&nbsp;for&nbsp;more<br>
 &nbsp;&nbsp;info.<br>
+&nbsp;<br>
+&nbsp;&nbsp;originY&nbsp;sets&nbsp;the&nbsp;origin&nbsp;for&nbsp;the&nbsp;bars&nbsp;(default&nbsp;0)<br>
 &nbsp;&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances</tt></dd></dl>
  <dl><dt><a name="-choose"><strong>choose</strong></a>(...)</dt><dd><tt><a href="#-choose">choose</a>(a,&nbsp;(b1,b2,...))</tt></dd></dl>
@@ -516,11 +520,13 @@ Refs:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
  <dl><dt><a name="-raise_msg_to_str"><strong>raise_msg_to_str</strong></a>(msg)</dt><dd><tt>msg&nbsp;is&nbsp;a&nbsp;return&nbsp;arg&nbsp;from&nbsp;a&nbsp;raise.&nbsp;&nbsp;Join&nbsp;with&nbsp;new&nbsp;lines</tt></dd></dl>
  <dl><dt><a name="-reshape"><strong>reshape</strong></a>(...)</dt><dd><tt><a href="#-reshape">reshape</a>(a,&nbsp;(d1,&nbsp;d2,&nbsp;...,&nbsp;dn)).&nbsp;&nbsp;Change&nbsp;the&nbsp;shape&nbsp;of&nbsp;a&nbsp;to&nbsp;be&nbsp;an&nbsp;n-dimensional&nbsp;array&nbsp;with&nbsp;dimensions&nbsp;given&nbsp;by&nbsp;d1...dn.&nbsp;&nbsp;Note:&nbsp;the&nbsp;size&nbsp;specified&nbsp;for&nbsp;the&nbsp;new&nbsp;array&nbsp;must&nbsp;be&nbsp;exactly&nbsp;equal&nbsp;to&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;&nbsp;old&nbsp;one&nbsp;or&nbsp;an&nbsp;error&nbsp;will&nbsp;occur.</tt></dd></dl>
- <dl><dt><a name="-savefig"><strong>savefig</strong></a>(fname, dpi<font color="#909090">=150</font>)</dt><dd><tt>Save&nbsp;the&nbsp;current&nbsp;figure&nbsp;to&nbsp;filename&nbsp;fname.&nbsp;&nbsp;dpi&nbsp;is&nbsp;the&nbsp;resolution<br>
+ <dl><dt><a name="-savefig"><strong>savefig</strong></a>(fname, dpi<font color="#909090">=150</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt>Save&nbsp;the&nbsp;current&nbsp;figure&nbsp;to&nbsp;filename&nbsp;fname.&nbsp;&nbsp;dpi&nbsp;is&nbsp;the&nbsp;resolution<br>
 in&nbsp;dots&nbsp;per&nbsp;inch.<br>
 &nbsp;<br>
 Output&nbsp;file&nbsp;types&nbsp;currently&nbsp;supported&nbsp;are&nbsp;jpeg&nbsp;and&nbsp;png&nbsp;and&nbsp;will&nbsp;be<br>
-deduced&nbsp;by&nbsp;the&nbsp;extension&nbsp;to&nbsp;fname</tt></dd></dl>
+deduced&nbsp;by&nbsp;the&nbsp;extension&nbsp;to&nbsp;fname<br>
+&nbsp;<br>
+facecolor&nbsp;and&nbsp;edgecolor&nbsp;are&nbsp;the&nbsp;colors&nbsp;os&nbsp;the&nbsp;figure&nbsp;rectangle</tt></dd></dl>
  <dl><dt><a name="-scatter"><strong>scatter</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-scatter">scatter</a>(self,&nbsp;x,&nbsp;y,&nbsp;s=None,&nbsp;c='b'):<br>
 &nbsp;<br>
 Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data<br>
