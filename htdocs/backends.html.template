@@ -166,14 +166,14 @@ generating images for html inclusion or for generating images in batch
 scripts.  Agg can also be embedded in GUI applications, as in the
 GTKAgg and TkAgg backends -- see <tt>setup.py</tt><p>
 
-The windows installer comes with Agg prebuilt.  To compile Agg from
-src, set the <tt>BUILD_AGG</tt> flag in <tt>setup.py</tt>.  Like the
-other freetype image modules GD and Paint, Agg uses TTFQuery and
-fonttools for cross-platform font finding.  These modules, too, are
-included in the windows installer, and will be build automatically by
-setting BUILD_AGG.  See <a href=fonts.html#TTFFONTS>ttf fonts</a> for
-information about setting your paths to find your <tt>*.ttf</tt> font
-files.<p>
+The windows installer comes with Agg prebuilt.  For other platforms,
+to compile Agg from src, set the <tt>BUILD_AGG</tt> flag in
+<tt>setup.py</tt>.  Like the other freetype image modules GD and
+Paint, Agg uses TTFQuery and fonttools for cross-platform font
+finding.  These modules, too, are included in the windows installer,
+and will be build automatically by setting BUILD_AGG.  See <a
+href=fonts.html#TTFFONTS>ttf fonts</a> for information about setting
+your paths to find your <tt>*.ttf</tt> font files.<p>
 
 <a name=GTKAgg><h3>GTKAgg: GTK GUI with antigrain rendering</h3></a>
 
