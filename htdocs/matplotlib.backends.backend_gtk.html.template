@@ -151,7 +151,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137164304)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137164320)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -831,7 +831,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137127264)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137127280)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -1286,7 +1286,7 @@ Methods inherited from <a href="gtk.html#FileSelection">gtk.FileSelection</a>:<b
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#FileSelection">gtk.FileSelection</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileSelection (137173096)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileSelection (137173112)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.FileSelection' objects&gt;</dl>
 
@@ -2122,7 +2122,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137130016)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137130032)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -2645,7 +2645,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137130016)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137130032)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -3219,5 +3219,6 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
 <strong>fname</strong> = '/usr/local/share/matplotlib/matplotlib.svg'<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
 <strong>nx</strong> = &lt;matplotlib.nc_imports._TypeNamespace instance&gt;<br>
-<strong>useMathText</strong> = True</td></tr></table>
+<strong>useMathText</strong> = True<br>
+<strong>version_required</strong> = (1, 99, 16)</td></tr></table>
 @footer@

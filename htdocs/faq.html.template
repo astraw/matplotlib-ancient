@@ -41,6 +41,30 @@ thread</a> and the responses to that post for more information.
 
 """),
 
+
+    ('WRONGDIR',
+    "When I try to import matplotlib.matlab, I get an error about no _transform.so or ft2font.so",
+
+"""
+If you are trying to run matplotlib from the matplotlib build dir, you
+will fail.  This is because the matplotlib python src dir is in your
+module path, but it does not include the compiled extension modules
+which are in site-packages/matplotlib.  Change into another directory
+and try again.<p>
+
+If the problem persists, see if the required object files are in
+site-packages/matplotlib.  If not, something is wrong with your
+install.  You may want to try rebuilding with
+<pre>
+   > rm -rf build
+   > python setup.py build > build.out 
+</pre>
+
+and post the results to the matplotlib-devel or matplotlib-users
+<a href=http://sourceforge.net/mail/?group_id=80706>mailing lists</a>.
+"""),
+    
+
     ('EXAMPLES',
     'Where can I find examples of matplotlib code?',
 """
@@ -481,11 +505,6 @@ href=faq.html#MATPLOTLIBRC>matplotlibrc</a> file or override it for a
 single plot using <a
 href=faq.html#CUSTOM>rcParams</a>."""),
 
-    ('DYNAMIC',
-     'Can matplotlib do dynamic plots, like digital oscilloscopes or animations?', 
-    """
-Absolutely.  See for example, <a href=examples/anim.py>anim.py</a> and <a
-href=examples/system_monitor.py>system_monitor.py</a>"""),
 
     ('DYNAMIC',
      'Can matplotlib do dynamic plots, like digital oscilloscopes or animations?', 
@@ -501,15 +520,17 @@ subplot is just a helper function to generate regularly spaced axes.
 For more fine-grained control, you can position axes anywhere you want
 in any size using the axes command.  See
 the <a href=matplotlib.matlab.html#-axes>axes command</a> and the example
-<a href=examples/axes_demo.py>axes_demo.py<a/>.
+<a href=examples/axes_demo.py>axes_demo.py<a/>.<p>
+
 """),
 
     ('IMAGES',
     'Can matplotlib handle image data?',
      """
-Yes - you can now plot array images with <a
-href=matplotlib.matlab.html#-imshow>imshow</a>.  More image loaders
-coming soon. """),
+Yes - you can now plot images from numerix arraysq with <a
+href=matplotlib.matlab.html#-imshow>imshow</a>.  You can load png
+files into arrays <a href=matplotlib.matlab.html#-imread>imread</a>;
+image loaders coming soon."""),
 
     ('ROTATETICKS',
      'How do I make vertical xticklabels?',
@@ -574,18 +595,6 @@ problem in Win98,ME and NT installations.
 
 ),
 
-     ('FONTCACHE',
-      "On windows with GD/Agg/Paint, the first time I ran my script I got a bunch or error messages but don't anymore",
-    """
-These modules use FontTools and TTFQuery to find freetype fonts.  The
-first time you import one of these backends, a font registry created
-in site-packages/ttfquery/font.cache.  As you system is scanned for
-fonts, some errors may be caught if a font file is not readable, etc.
-Generally, this is not a major problem, as long as most system fonts
-are found.  In subsequent runs, the font.cache is already built so you
-won't see the messages again.  If you want to see the error messages,
-remove font.cache and rerun your script, capturing them to a file.
-""" ),
      
      ('FREETYPE2',
       "Why are my fonts not being rendered properly?",
@@ -600,8 +609,8 @@ docs</a> for details.
 """\
 A number of severe memory leaks were fixed in the 0.54 and 0.60
 matplotlib releases.  These have been fixed, and here are no known
-severe leaks in matplotlib as of 0.61There is a leak in freetype 2.1.7
-and earlier that was fixed in freetype 2.1.9.  The memory leak
+severe leaks in matplotlib as of 0.61.  There is a leak in freetype
+2.1.7 and earlier that was fixed in freetype 2.1.9.  The memory leak
 situation has improved significantly as I've migrated almost all of
 the extension code to pycxx, and I use a number of unit tests to test
 leaks of various extension code components. <p>
