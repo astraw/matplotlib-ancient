@@ -4,6 +4,61 @@
 
 versioninfo = {}
 
+versioninfo['0.61'] = (
+
+    ('toolbar2', """\
+A new, enhanced, navigation toolbar.  Set <tt>toolbar : toolbar2</tt>
+in matplotlibrc to try it out.  Tutorial on the new toolbar is at <a
+href=tutorial.html#toolbar2>toolbar2 tutorial</a>.  Note that this
+toolbar behaves very differently than the classic toolbar.  To use it,
+you must click on the pan/zoom or zoom to rect and then interact with
+the axes by dragging your mouse over it.  The 'forward' and 'back'
+buttons are used to navigate between previously defined view limits.
+At some point we'll add multiple simultaneous axes support for the new
+toolbar but we're still mulling over the interface - if you need it
+you can still uses <tt>toolbar : classic</tt>."""),
+
+    ('Mathtext for PS!!!',   """\
+Also, PS now embeds TrueType fonts so the same fonts you use in the
+*Agg GUIs should be displayed in PS output. Thanks Paul Barret!"""),
+
+    ('imread', """\
+The <a href=matplotlib.matlab.html#-imread>imread</a> function is used
+to load PNGs into arrays.  I'd like to add more image loaders and
+savers down the road."""),
+
+    ('New event handling',  """\
+The functions mpl_connect and mpl_disconnect are used for backend
+independent event handling.  The callback signature is <tt>func(event)</tt>.
+See <a href=tutorial.html#events>events tutorial</a> and <a
+href=examples/coords_demo.py>coords_demo.py</a>.  The new events carry
+lots of useful information in them, like the coords in display and
+data units, the axes instance they were over, keys pressed during the
+event and more."""),
+
+    ('svg fixes', """\
+Many fixes to the SVG backend, including page layout, font support and
+image.  SVG is now considered alpha.  You can save ps/eps/svg figures
+from GUI backends by providing the right extensions.  SVG is currently
+the fastest backend in my tests."""),
+
+    ('More memory leaks fixed', """\
+See <a href=faq.html#LEAKS> for details.  My estimate is that complex
+figures (multiple subplots, images, etc..)  now leak no more than
+10-50 bytes per figure.  Down from several hundred bytes per figure in
+0.60."""),
+
+
+    ('Rotated mathtext', """\
+Vertical mathtext in backend_agg (ylabels now work properly!).
+mathtext with arbitrary rotations in PS.  Thanks Jim Benson and Paul
+Barrett!"""),
+
+    ('bug fixes', """\
+Numerous bug fixes and minor enhancements detailed at
+<a href=CHANGELOG>CHANGELOG</a>"""),
+)
+
 versioninfo['0.60'] = (
 
     ('figure images', """\

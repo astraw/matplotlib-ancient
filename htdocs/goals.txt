@@ -95,7 +95,7 @@ make scaling all fonts within a plot simpler.
 *******************
 Newline separated text and arbitrary rotations
 
-mostly done
+done
 
 
 Properly aligned newline separated text works across backends.  The
@@ -204,28 +204,29 @@ GUI Functionality
 *******************
 Generalized event handling framework
 
-partially done
+partly done
 
 Provide a standard event handling framework that works with all GUI
 back-ends. Some basic event handling, GUI neutral, event handling is
 implemented with the <a
-href=matplotlib.backend_bases.html#FigureCanvas>FigureCanvas</a>
-methods mpl_connect and mpl_disconnect.  See, for example, <a href=examples/coords_demo.py>coords_demo.py</a>.
+href=matplotlib.matlab.html#-mpl_connect>mpl_connect</a> and <a
+href=matplotlib.matlab.html#-mpl_disconnect>mpl_disconnect</a>
+methods.  See, for example, <a
+href=examples/coords_demo.py>coords_demo.py</a>.
 
 
 *******************
 Cursor read function
 
-not started
+done
 
 Provide a standard function for reading cursor position from a program
 either immeditately or based on a specified event (e.g., keypress or
 mouse button).  The example <a
 href=examples/coords_demo.py>coords_demo.py</a> shows you how to use
 GUI callbacks to get the x and y mouse coordinates in display and data
-units with the GTK and Tk backend.  We would like to expand and
-generalize this code to make it part of the core classes across
-backends.
+units with the GTK and Tk backend.  Yet to be added is a blocking
+function, like x, y = mouse_press(*args)
 
 ********************
 Solve mainloop issues
@@ -283,7 +284,7 @@ Backends
 *******************
 Various WX improvements and fixes
 
-partially done
+mostly done
 
 Jeremy fixed the known wx bugs relating to tooltips and the close
 button button not returning the interpreter in <a
@@ -300,8 +301,12 @@ not started
 *******************
 SVG backend
 
-Jared Wahlstrand wrote the SVG backend, which is in alpha.  Remaining
-is freetype font support, image support and mathtext.
+almost done 
+
+Jared Wahlstrand wrote the SVG backend, which is in alpha.  As of <a
+href="whats_new.html#0.61-svg_fixes">matplotlib-0.61</a> svg has fast
+rendering, good layout, image support and font support.  Remaining is
+mathtext for svg.
 
 *******************
 Paint clipping problems
