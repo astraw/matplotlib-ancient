@@ -5,6 +5,25 @@
 versioninfo = {}
 versioninfo['0.54'] = (
 
+
+    ('More efficient pcolor', """ 
+pcolor is now implemented with matplotlib.collections.polygon
+collections which should provide significantly faster performance
+across backends.  The return value from pcolor is now a PolyColleciton
+object rather than a list of patches, but the API is largely
+compatible.<p>
+
+Eg, You can do 
+
+<pre>
+  c = pcolor(blah, blah)
+  set(c, 'linewidth', 1.0, 'edgecolor', 'g')
+</pre>
+
+The old function pcolor_classic is retained for full backward
+compatibility.
+"""),
+
     ('New scatter plots', """ The scatter command is new, and is
 implemented in the backend with a new polygon collection class.  For
 large scatter plots, the performance is 5 times faster across all
