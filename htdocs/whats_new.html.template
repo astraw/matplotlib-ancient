@@ -67,6 +67,11 @@ Updated installing instructions at <a
 href=installing.html>installing</a> (see also INSTALL in src distro).
 Fixed a tk/osx install problem in setupext.py</a>"""),
 
+    ('wx cursor demo', """\
+New demo for wx/wxagg showing how to to make a flicker free cursor
+that follows the mouse and reports the coords in a status bar - see
+<a href=examples/wxcursor_demo.py>wxcursor_demo.py</a>"""),
+
     ('bug fixes', """\
 Numerous bug fixes and minor enhancements detailed at
 <a href=CHANGELOG>CHANGELOG</a>"""),
