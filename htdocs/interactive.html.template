@@ -1,0 +1,153 @@
+@header@
+<h2>Using matplotlib interactively</h2>
+
+matplotlib can be used interactively from the python shell to create
+figures and modify their properties, as you can do in matlab, maple or
+mathematica.  Unfortunately, due to the 'mainloop' cycle of GUI
+toolkits, it is not yet possible to use matplotlib from an arbitrary
+python shell.  Instead, there are custom solutions depending on the
+GUI environment in which you use matplotlib.  If you know of solutions
+bettern than the ones presented here, please contact me (John
+D. Hunter @myemail@).<p>
+
+<h3>WX</h3>
+
+<h3>GTK</h3>
+There are two interactive shells provided with matplotlib for GTK,
+which are in the examples dir of the src distribution (<a
+href=examples/interactive.py>interactive.py</a> and <a
+href=examples/interactive2.py>interactive2.py</a>).<p>
+
+
+<tt>interactive2.py</tt> will work with any pygtk 1.99.16 or
+later, regardless of whether threading was built in or not.
+<tt>interactive.py</tt> requires an interpreter with threading an
+so requires a bit more work.  There are relative strengths of both
+these interpreters and neither is perfect.  For example,
+interactive2.py is easier to set up since it doesn't require
+threading, and looks nicer, but interactive.py better handles cutting
+and pasting of code blocks from an editor into the interpreter.<p>
+
+
+Note, if you use the matplotlib interactive interpreter, you do not
+need to import any of the matplotlib.matlab, Numeric or MLab symbols,
+as this is done automatically by the interpreter.  Thus you can issue
+plot commands immediately
+
+<pre>
+examples> ./interactive2.py
+Welcome to matplotlib.
+
+  help(matlab)   -- shows a list of all matlab compatible commands
+  help(plotting) -- shows a list of plot specific commands
+
+>> plot([1,2,3])
+</pre>
+
+<h2>pygtk with threading</h2>
+
+The rest of this page details how to get pygtk setup with threading if
+you want to use interactive.py (interactive2.py doesn't require it).
+The core functionality of this interpreter was provided by <a
+href=http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/65109>Brian
+McErlean and John Finlay</a>.<p>
+
+
+<h3>WIN32 Users</h3>
+
+  You will need pygtk compiled for threading.  The lastest version for
+  windows at Cedirc's website, pygtk-2.0.0 has threading built in
+  automatically.  If for some reason, you need an older version, a
+  windows installer for pygtk-1.99.16 with threading is available at
+  <a
+  href=http://nitace.bsd.uchicago.edu:8080/Wikis/Leo/Python/win32/pygtk-1.99.16.threading.win32-py2.2.exe>pygtk-1.99.16
+  with threading</a>.<p>
+
+
+  I have seen reports of threading difficulties with pygtk on win32,
+  but haven't experienced them myself.  If you experience freezes or
+  other strangeness, check the <a
+  href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.003.htp>pygtk
+  FAQ entry</a>.<p>
+
+
+<h3>Linux/UNIX Users</h3>
+
+  To compile pygtk with threading, you need to build with<p>
+
+  <pre>
+  > python setup.py build --enable-threading
+  > python setup.py install
+  </pre>
+
+  If after this install, threading still is not working for you, you
+  may want to try a clean install using configure.  See below.<p>
+  
+<h3>Testing threading</h3>
+
+  To test whether this install worked, try running this script<p>
+
+  <pre>
+    import pygtk
+    pygtk.require('2.0')
+    import gtk
+
+    import threading, time
+
+    def func():
+      n = 0
+      while 1:
+        print n
+        n += 1
+        time.sleep(0.1)
+
+    gtk.threads_init()
+    threading.Thread(target=func).start()
+    gtk.mainloop()
+  </pre>
+
+
+  If it spits numbers back at you, you're golden.<p>
+
+<h3>Testing with matplotlib</h3>
+
+  You should be able to make a simple plot with<p>
+
+  <pre>
+  > cd examples
+  > ./interactive.py
+  Welcome to matplotlib.
+
+      help(matlab)   -- shows a list of all matlab compatible commands provided
+      help(plotting) -- shows a list of plot specific commands
+
+  >> plot([1,2,3])
+  </pre>
+
+
+<h3>If threading is still not working under linux</h3>
+
+  In some cases, I have needed to wipe clean the existing pygtk
+  installation before installing with threading.  If you have followed
+  the steps above and threading is still not working for you, you may
+  want to try this.<p>
+
+  Make a backup of your existing pygtk install tree and completely
+  remove it, eg<p>
+
+  <pre>
+  > cd /your/path/to/python/site-packages
+  > cp -a gtk-2.0 /some/backup/dir
+  > rm -rf gtk-2.0
+  </pre>
+
+  From a clean pygtk src tree<p>
+
+   <pre>
+   > ./configure --enable-thread  # and any other flags
+   > make install
+   </pre>
+
+
+@footer@
+

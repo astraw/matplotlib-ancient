@@ -1,0 +1,496 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.mlab</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="matplotlib/mlab.py">matplotlib/mlab.py</a></font></td></tr></table>
+    <p><tt>Numerical&nbsp;python&nbsp;functions&nbsp;written&nbsp;for&nbsp;compatability&nbsp;with&nbsp;matlab<br>
+commands&nbsp;with&nbsp;the&nbsp;same&nbsp;names.&nbsp;&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;Matlab&nbsp;compatible&nbsp;functions:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;cohere&nbsp;-&nbsp;Coherence&nbsp;(normalized&nbsp;cross&nbsp;spectral&nbsp;density)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;corrcoef&nbsp;-&nbsp;The&nbsp;matrix&nbsp;of&nbsp;correlation&nbsp;coefficients<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;csd&nbsp;-&nbsp;Cross&nbsp;spectral&nbsp;density&nbsp;uing&nbsp;Welch's&nbsp;average&nbsp;periodogram<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;detrend&nbsp;--&nbsp;Remove&nbsp;the&nbsp;mean&nbsp;or&nbsp;best&nbsp;fit&nbsp;line&nbsp;from&nbsp;an&nbsp;array<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;find&nbsp;-&nbsp;Return&nbsp;the&nbsp;indices&nbsp;where&nbsp;some&nbsp;condition&nbsp;is&nbsp;true<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;linspace&nbsp;--&nbsp;Linear&nbsp;spaced&nbsp;array&nbsp;from&nbsp;min&nbsp;to&nbsp;max<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;hist&nbsp;--&nbsp;Histogram<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;polyfit&nbsp;-&nbsp;least&nbsp;squares&nbsp;best&nbsp;polynomial&nbsp;fit&nbsp;of&nbsp;x&nbsp;to&nbsp;y<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;polyval&nbsp;-&nbsp;evaluate&nbsp;a&nbsp;vector&nbsp;for&nbsp;a&nbsp;vector&nbsp;of&nbsp;polynomial&nbsp;coeffs<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;prctile&nbsp;-&nbsp;find&nbsp;the&nbsp;percentiles&nbsp;of&nbsp;a&nbsp;sequence<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;prepca&nbsp;-&nbsp;Principal&nbsp;Component's&nbsp;Analysis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;psd&nbsp;-&nbsp;Power&nbsp;spectral&nbsp;density&nbsp;uing&nbsp;Welch's&nbsp;average&nbsp;periodogram<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;rk4&nbsp;-&nbsp;A&nbsp;4th&nbsp;order&nbsp;runge&nbsp;kutta&nbsp;integrator&nbsp;for&nbsp;1D&nbsp;or&nbsp;ND&nbsp;systems<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;vander&nbsp;-&nbsp;the&nbsp;Vandermonde&nbsp;matrix<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;trapz&nbsp;-&nbsp;trapeziodal&nbsp;integration<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;Functions&nbsp;that&nbsp;don't&nbsp;exist&nbsp;in&nbsp;matlab,&nbsp;but&nbsp;are&nbsp;useful&nbsp;anyway:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;cohere_pairs&nbsp;-&nbsp;Coherence&nbsp;over&nbsp;all&nbsp;pairs.&nbsp;&nbsp;This&nbsp;is&nbsp;not&nbsp;a&nbsp;matlab<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function,&nbsp;but&nbsp;we&nbsp;compute&nbsp;coherence&nbsp;a&nbsp;lot&nbsp;in&nbsp;my&nbsp;lab,&nbsp;and&nbsp;we<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;compute&nbsp;it&nbsp;for&nbsp;alot&nbsp;of&nbsp;pairs.&nbsp;&nbsp;This&nbsp;function&nbsp;is&nbsp;optimized&nbsp;to&nbsp;do<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;efficiently&nbsp;by&nbsp;caching&nbsp;the&nbsp;direct&nbsp;FFTs.<br>
+&nbsp;<br>
+Credits:<br>
+&nbsp;<br>
+&nbsp;&nbsp;Unless&nbsp;otherwise&nbsp;noted,&nbsp;these&nbsp;functions&nbsp;were&nbsp;written&nbsp;by<br>
+&nbsp;&nbsp;Author:&nbsp;John&nbsp;D.&nbsp;Hunter&nbsp;&lt;jdhunter@ace.bsd.uchicago.edu&gt;<br>
+&nbsp;<br>
+&nbsp;&nbsp;Some&nbsp;others&nbsp;are&nbsp;from&nbsp;the&nbsp;Numeric&nbsp;documentation,&nbsp;or&nbsp;imported&nbsp;from<br>
+&nbsp;&nbsp;MLab&nbsp;or&nbsp;other&nbsp;Numeric&nbsp;packages</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="LinearAlgebra.html">LinearAlgebra</a><br>
+<a href="MLab.html">MLab</a><br>
+<a href="Numeric.html">Numeric</a><br>
+</td><td width="25%" valign=top><a href="RandomArray.html">RandomArray</a><br>
+<a href="copy.html">copy</a><br>
+<a href="copy_reg.html">copy_reg</a><br>
+</td><td width="25%" valign=top><a href="math.html">math</a><br>
+<a href="multiarray.html">multiarray</a><br>
+<a href="pickle.html">pickle</a><br>
+</td><td width="25%" valign=top><a href="string.html">string</a><br>
+<a href="sys.html">sys</a><br>
+<a href="types.html">types</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-approx_real"><strong>approx_real</strong></a>(x)</dt><dd><tt><a href="#-approx_real">approx_real</a>(x)&nbsp;:&nbsp;returns&nbsp;x.real&nbsp;if&nbsp;|x.imag|&nbsp;&lt;&nbsp;|x.real|&nbsp;*&nbsp;_eps_approx.<br>
+This&nbsp;function&nbsp;is&nbsp;needed&nbsp;by&nbsp;sqrtm&nbsp;and&nbsp;allows&nbsp;further&nbsp;functions.</tt></dd></dl>
+ <dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
+&nbsp;<br>
+&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
+specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
+ <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
+ <dl><dt><a name="-arrayrange"><strong>arrayrange</strong></a> = arange(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
+&nbsp;<br>
+&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
+specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
+ <dl><dt><a name="-center_matrix"><strong>center_matrix</strong></a>(M, dim<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;matrix&nbsp;M&nbsp;with&nbsp;each&nbsp;row&nbsp;having&nbsp;zero&nbsp;mean&nbsp;and&nbsp;unit&nbsp;std<br>
+&nbsp;<br>
+if&nbsp;dim=1,&nbsp;center&nbsp;columns&nbsp;rather&nbsp;than&nbsp;rows</tt></dd></dl>
+ <dl><dt><a name="-choose"><strong>choose</strong></a>(...)</dt><dd><tt><a href="#-choose">choose</a>(a,&nbsp;(b1,b2,...))</tt></dd></dl>
+ <dl><dt><a name="-cohere"><strong>cohere</strong></a>(x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>cohere&nbsp;the&nbsp;coherence&nbsp;between&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;Coherence&nbsp;is&nbsp;the&nbsp;normalized<br>
+cross&nbsp;spectral&nbsp;density<br>
+&nbsp;<br>
+Cxy&nbsp;=&nbsp;|Pxy|^2/(Pxx*Pyy)<br>
+&nbsp;<br>
+The&nbsp;return&nbsp;value&nbsp;is&nbsp;(Cxy,&nbsp;f),&nbsp;where&nbsp;f&nbsp;are&nbsp;the&nbsp;frequencies&nbsp;of&nbsp;the<br>
+coherence&nbsp;vector.&nbsp;&nbsp;See&nbsp;the&nbsp;docs&nbsp;for&nbsp;psd&nbsp;and&nbsp;csd&nbsp;for&nbsp;information<br>
+about&nbsp;the&nbsp;function&nbsp;arguments&nbsp;NFFT,&nbsp;detrend,&nbsp;windowm&nbsp;noverlap,&nbsp;as<br>
+well&nbsp;as&nbsp;the&nbsp;methods&nbsp;used&nbsp;to&nbsp;compute&nbsp;Pxy,&nbsp;Pxx&nbsp;and&nbsp;Pyy.<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Cxy,&nbsp;freqs</tt></dd></dl>
+ <dl><dt><a name="-cohere_pairs"><strong>cohere_pairs</strong></a>(X, ij, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>, preferSpeedOverMemory<font color="#909090">=1</font>, progressCallback<font color="#909090">=&lt;function donothing_callback&gt;</font>)</dt><dd><tt>Cxy,&nbsp;Phase,&nbsp;freqs&nbsp;=&nbsp;<a href="#-cohere_pairs">cohere_pairs</a>(&nbsp;X,&nbsp;ij,&nbsp;...)<br>
+&nbsp;<br>
+Compute&nbsp;the&nbsp;coherence&nbsp;for&nbsp;all&nbsp;pairs&nbsp;in&nbsp;ij.&nbsp;&nbsp;X&nbsp;is&nbsp;a<br>
+numSamples,numCols&nbsp;Numeric&nbsp;array.&nbsp;&nbsp;ij&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;tuples&nbsp;(i,j).<br>
+Each&nbsp;tuple&nbsp;is&nbsp;a&nbsp;pair&nbsp;of&nbsp;indexes&nbsp;into&nbsp;the&nbsp;columns&nbsp;of&nbsp;X&nbsp;for&nbsp;which<br>
+you&nbsp;want&nbsp;to&nbsp;compute&nbsp;coherence.&nbsp;&nbsp;For&nbsp;example,&nbsp;if&nbsp;X&nbsp;has&nbsp;64&nbsp;columns,<br>
+and&nbsp;you&nbsp;want&nbsp;to&nbsp;compute&nbsp;all&nbsp;nonredundant&nbsp;pairs,&nbsp;define&nbsp;ij&nbsp;as<br>
+&nbsp;<br>
+&nbsp;&nbsp;ij&nbsp;=&nbsp;[]<br>
+&nbsp;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(64):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(i+1,64):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ij.append(&nbsp;(i,j)&nbsp;)<br>
+&nbsp;<br>
+The&nbsp;other&nbsp;function&nbsp;arguments,&nbsp;except&nbsp;for&nbsp;'preferSpeedOverMemory'<br>
+(see&nbsp;below),&nbsp;are&nbsp;explained&nbsp;in&nbsp;the&nbsp;help&nbsp;string&nbsp;of&nbsp;'psd'.<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;tuple&nbsp;(Cxy,&nbsp;Phase,&nbsp;freqs).<br>
+&nbsp;<br>
+&nbsp;&nbsp;Cxy&nbsp;--&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;(i,j)&nbsp;tuples&nbsp;-&gt;&nbsp;coherence&nbsp;vector&nbsp;for&nbsp;that<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pair.&nbsp;&nbsp;Ie,&nbsp;Cxy[(i,j)&nbsp;=&nbsp;<a href="#-cohere">cohere</a>(X[:,i],&nbsp;X[:,j]).&nbsp;&nbsp;Number&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dictionary&nbsp;keys&nbsp;is&nbsp;len(ij)<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;Phase&nbsp;--&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;phases&nbsp;of&nbsp;the&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;at<br>
+&nbsp;&nbsp;&nbsp;&nbsp;each&nbsp;frequency&nbsp;for&nbsp;each&nbsp;pair.&nbsp;&nbsp;keys&nbsp;are&nbsp;(i,j).<br>
+&nbsp;<br>
+&nbsp;&nbsp;freqs&nbsp;--&nbsp;a&nbsp;vector&nbsp;of&nbsp;frequencies,&nbsp;equal&nbsp;in&nbsp;length&nbsp;to&nbsp;either&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;coherence&nbsp;or&nbsp;phase&nbsp;vectors&nbsp;for&nbsp;any&nbsp;i,j&nbsp;key.&nbsp;&nbsp;Eg,&nbsp;to&nbsp;make&nbsp;a&nbsp;coherence<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Bode&nbsp;plot:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subplot(211)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plot(&nbsp;freqs,&nbsp;Cxy[(12,19)])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;subplot(212)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plot(&nbsp;freqs,&nbsp;Phase[(12,19)])<br>
+&nbsp;&nbsp;<br>
+For&nbsp;a&nbsp;large&nbsp;number&nbsp;of&nbsp;pairs,&nbsp;cohere_pairs&nbsp;can&nbsp;be&nbsp;much&nbsp;more<br>
+efficient&nbsp;than&nbsp;just&nbsp;calling&nbsp;cohere&nbsp;for&nbsp;each&nbsp;pair,&nbsp;because&nbsp;it<br>
+caches&nbsp;most&nbsp;of&nbsp;the&nbsp;intensive&nbsp;computations.&nbsp;&nbsp;If&nbsp;N&nbsp;is&nbsp;the&nbsp;number&nbsp;of<br>
+pairs,&nbsp;this&nbsp;function&nbsp;is&nbsp;O(N)&nbsp;for&nbsp;most&nbsp;of&nbsp;the&nbsp;heavy&nbsp;lifting,<br>
+whereas&nbsp;calling&nbsp;cohere&nbsp;for&nbsp;each&nbsp;pair&nbsp;is&nbsp;O(N^2).&nbsp;&nbsp;However,&nbsp;because<br>
+of&nbsp;the&nbsp;caching,&nbsp;it&nbsp;is&nbsp;also&nbsp;more&nbsp;memory&nbsp;intensive,&nbsp;making&nbsp;2<br>
+additional&nbsp;complex&nbsp;arrays&nbsp;with&nbsp;approximately&nbsp;the&nbsp;same&nbsp;number&nbsp;of<br>
+elements&nbsp;as&nbsp;X.<br>
+&nbsp;<br>
+The&nbsp;parameter&nbsp;'preferSpeedOverMemory',&nbsp;if&nbsp;false,&nbsp;limits&nbsp;the<br>
+caching&nbsp;by&nbsp;only&nbsp;making&nbsp;one,&nbsp;rather&nbsp;than&nbsp;two,&nbsp;complex&nbsp;cache&nbsp;arrays.<br>
+This&nbsp;is&nbsp;useful&nbsp;if&nbsp;memory&nbsp;becomes&nbsp;critical.&nbsp;&nbsp;Even&nbsp;when<br>
+preferSpeedOverMemory&nbsp;is&nbsp;false,&nbsp;cohere_pairs&nbsp;will&nbsp;still&nbsp;give<br>
+significant&nbsp;performace&nbsp;gains&nbsp;over&nbsp;calling&nbsp;cohere&nbsp;for&nbsp;each&nbsp;pair,<br>
+and&nbsp;will&nbsp;use&nbsp;subtantially&nbsp;less&nbsp;memory&nbsp;than&nbsp;if<br>
+preferSpeedOverMemory&nbsp;is&nbsp;true.&nbsp;&nbsp;In&nbsp;my&nbsp;tests&nbsp;with&nbsp;a&nbsp;43000,64&nbsp;array<br>
+over&nbsp;all&nbsp;nonredundant&nbsp;pairs,&nbsp;preferSpeedOverMemory=1&nbsp;delivered&nbsp;a<br>
+33%&nbsp;performace&nbsp;boost&nbsp;on&nbsp;a&nbsp;1.7GHZ&nbsp;Athlon&nbsp;with&nbsp;512MB&nbsp;RAM&nbsp;compared<br>
+with&nbsp;preferSpeedOverMemory=0.&nbsp;&nbsp;But&nbsp;both&nbsp;solutions&nbsp;were&nbsp;more&nbsp;than<br>
+10x&nbsp;faster&nbsp;than&nbsp;naievly&nbsp;crunching&nbsp;all&nbsp;possible&nbsp;pairs&nbsp;through<br>
+cohere.<br>
+&nbsp;<br>
+See&nbsp;test/cohere_pairs_test.py&nbsp;in&nbsp;the&nbsp;src&nbsp;tree&nbsp;for&nbsp;an&nbsp;example<br>
+script&nbsp;that&nbsp;shows&nbsp;that&nbsp;this&nbsp;cohere_pairs&nbsp;and&nbsp;cohere&nbsp;give&nbsp;the&nbsp;same<br>
+results&nbsp;for&nbsp;a&nbsp;given&nbsp;pair.</tt></dd></dl>
+ <dl><dt><a name="-corrcoef"><strong>corrcoef</strong></a>(*args)</dt><dd><tt><a href="#-corrcoef">corrcoef</a>(X)&nbsp;where&nbsp;X&nbsp;is&nbsp;a&nbsp;matrix&nbsp;returns&nbsp;a&nbsp;matrix&nbsp;of&nbsp;correlation<br>
+coefficients&nbsp;for&nbsp;each&nbsp;row&nbsp;of&nbsp;X.<br>
+&nbsp;<br>
+<a href="#-corrcoef">corrcoef</a>(x,y)&nbsp;where&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;vectors&nbsp;returns&nbsp;the&nbsp;matrix&nbsp;or<br>
+correlation&nbsp;coefficients&nbsp;for&nbsp;x&nbsp;and&nbsp;y.<br>
+&nbsp;<br>
+Numeric&nbsp;arrays&nbsp;can&nbsp;be&nbsp;real&nbsp;or&nbsp;complex<br>
+&nbsp;<br>
+The&nbsp;correlation&nbsp;matrix&nbsp;is&nbsp;defined&nbsp;from&nbsp;the&nbsp;covariance&nbsp;matrix&nbsp;C&nbsp;as<br>
+&nbsp;<br>
+r(i,j)&nbsp;=&nbsp;C[i,j]&nbsp;/&nbsp;(C[i,i]*C[j,j])</tt></dd></dl>
+ <dl><dt><a name="-cross_correlate"><strong>cross_correlate</strong></a>(...)</dt><dd><tt><a href="#-cross_correlate">cross_correlate</a>(a,v,&nbsp;mode=0)</tt></dd></dl>
+ <dl><dt><a name="-csd"><strong>csd</strong></a>(x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram<br>
+method.&nbsp;&nbsp;The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length<br>
+segments.&nbsp;&nbsp;Each&nbsp;segment&nbsp;is&nbsp;detrended&nbsp;by&nbsp;function&nbsp;detrend&nbsp;and<br>
+windowed&nbsp;by&nbsp;function&nbsp;window.&nbsp;&nbsp;noverlap&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the<br>
+overlap&nbsp;between&nbsp;segments.&nbsp;&nbsp;The&nbsp;product&nbsp;of&nbsp;the&nbsp;direct&nbsp;FFTs&nbsp;of&nbsp;x&nbsp;and<br>
+y&nbsp;are&nbsp;averaged&nbsp;over&nbsp;each&nbsp;segment&nbsp;to&nbsp;compute&nbsp;Pxy,&nbsp;with&nbsp;a&nbsp;scaling&nbsp;to<br>
+correct&nbsp;for&nbsp;power&nbsp;loss&nbsp;due&nbsp;to&nbsp;windowing.&nbsp;&nbsp;Fs&nbsp;is&nbsp;the&nbsp;sampling<br>
+frequency.<br>
+&nbsp;<br>
+NFFT&nbsp;must&nbsp;be&nbsp;a&nbsp;power&nbsp;of&nbsp;2<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Pxy,&nbsp;freqs<br>
+&nbsp;<br>
+Refs:<br>
+&nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+ <dl><dt><a name="-detrend"><strong>detrend</strong></a>(x, key<font color="#909090">=None</font>)</dt></dl>
+ <dl><dt><a name="-detrend_linear"><strong>detrend_linear</strong></a>(x)</dt><dd><tt>Return&nbsp;x&nbsp;minus&nbsp;best&nbsp;fit&nbsp;line;&nbsp;'linear'&nbsp;detrending</tt></dd></dl>
+ <dl><dt><a name="-detrend_mean"><strong>detrend_mean</strong></a>(x)</dt><dd><tt>Return&nbsp;x&nbsp;minus&nbsp;the&nbsp;<a href="#-mean">mean</a>(x)</tt></dd></dl>
+ <dl><dt><a name="-detrend_none"><strong>detrend_none</strong></a>(x)</dt><dd><tt>Return&nbsp;x:&nbsp;no&nbsp;detrending</tt></dd></dl>
+ <dl><dt><a name="-donothing_callback"><strong>donothing_callback</strong></a>(*args)</dt></dl>
+ <dl><dt><a name="-find"><strong>find</strong></a>(condition)</dt><dd><tt>Return&nbsp;the&nbsp;indices&nbsp;where&nbsp;condition&nbsp;is&nbsp;true</tt></dd></dl>
+ <dl><dt><a name="-fix"><strong>fix</strong></a>(x)</dt><dd><tt>Rounds&nbsp;towards&nbsp;zero.<br>
+x_rounded&nbsp;=&nbsp;<a href="#-fix">fix</a>(x)&nbsp;rounds&nbsp;the&nbsp;elements&nbsp;of&nbsp;x&nbsp;to&nbsp;the&nbsp;nearest&nbsp;integers<br>
+towards&nbsp;zero.<br>
+For&nbsp;negative&nbsp;numbers&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;ceil&nbsp;and&nbsp;for&nbsp;positive&nbsp;to&nbsp;floor.</tt></dd></dl>
+ <dl><dt><a name="-fromstring"><strong>fromstring</strong></a>(...)</dt><dd><tt><a href="#-fromstring">fromstring</a>(string,&nbsp;typecode='l',&nbsp;count=-1)&nbsp;returns&nbsp;a&nbsp;new&nbsp;1d&nbsp;array&nbsp;initialized&nbsp;from&nbsp;the&nbsp;raw&nbsp;binary&nbsp;data&nbsp;in&nbsp;string.&nbsp;&nbsp;If&nbsp;count&nbsp;is&nbsp;positive,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;have&nbsp;count&nbsp;elements,&nbsp;otherwise&nbsp;it's&nbsp;size&nbsp;is&nbsp;determined&nbsp;by&nbsp;the&nbsp;size&nbsp;of&nbsp;string.</tt></dd></dl>
+ <dl><dt><a name="-hist"><strong>hist</strong></a>(y, bins<font color="#909090">=10</font>, normed<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;histogram&nbsp;of&nbsp;y&nbsp;with&nbsp;bins&nbsp;equally&nbsp;sized&nbsp;bins.&nbsp;&nbsp;If&nbsp;bins<br>
+is&nbsp;an&nbsp;array,&nbsp;use&nbsp;the&nbsp;bins.&nbsp;&nbsp;Return&nbsp;value&nbsp;is<br>
+(n,x)&nbsp;where&nbsp;n&nbsp;is&nbsp;the&nbsp;count&nbsp;for&nbsp;each&nbsp;bin&nbsp;in&nbsp;x<br>
+&nbsp;<br>
+If&nbsp;normed&nbsp;is&nbsp;False,&nbsp;return&nbsp;the&nbsp;counts&nbsp;in&nbsp;the&nbsp;first&nbsp;element&nbsp;of&nbsp;the<br>
+return&nbsp;tuple.&nbsp;&nbsp;If&nbsp;normed&nbsp;is&nbsp;True,&nbsp;return&nbsp;the&nbsp;probability&nbsp;density<br>
+n/(len(y)*dbin)<br>
+&nbsp;<br>
+Credits:&nbsp;the&nbsp;Numeric&nbsp;22&nbsp;documentation</tt></dd></dl>
+ <dl><dt><a name="-levypdf"><strong>levypdf</strong></a>(x, gamma, alpha)</dt><dd><tt>Returm&nbsp;the&nbsp;levy&nbsp;pdf&nbsp;evaluated&nbsp;at&nbsp;x&nbsp;for&nbsp;params&nbsp;gamma,&nbsp;alpha</tt></dd></dl>
+ <dl><dt><a name="-linspace"><strong>linspace</strong></a>(xmin, xmax, N)</dt></dl>
+ <dl><dt><a name="-longest_contiguous_ones"><strong>longest_contiguous_ones</strong></a>(x)</dt><dd><tt>return&nbsp;the&nbsp;indicies&nbsp;of&nbsp;the&nbsp;longest&nbsp;stretch&nbsp;of&nbsp;contiguous&nbsp;ones&nbsp;in&nbsp;x,<br>
+assuming&nbsp;x&nbsp;is&nbsp;a&nbsp;vector&nbsp;of&nbsp;zeros&nbsp;and&nbsp;ones.</tt></dd></dl>
+ <dl><dt><a name="-longest_ones"><strong>longest_ones</strong></a>(x)</dt><dd><tt>return&nbsp;the&nbsp;indicies&nbsp;of&nbsp;the&nbsp;longest&nbsp;stretch&nbsp;of&nbsp;contiguous&nbsp;ones&nbsp;in&nbsp;x,<br>
+assuming&nbsp;x&nbsp;is&nbsp;a&nbsp;vector&nbsp;of&nbsp;zeros&nbsp;and&nbsp;ones.<br>
+&nbsp;<br>
+If&nbsp;there&nbsp;are&nbsp;two&nbsp;equally&nbsp;long&nbsp;stretches,&nbsp;pick&nbsp;the&nbsp;first</tt></dd></dl>
+ <dl><dt><a name="-mean"><strong>mean</strong></a>(x, dim<font color="#909090">=None</font>)</dt></dl>
+ <dl><dt><a name="-meshgrid"><strong>meshgrid</strong></a>(x, y)</dt><dd><tt>For&nbsp;vectors&nbsp;x,&nbsp;y&nbsp;with&nbsp;lengths&nbsp;Nx=len(x)&nbsp;and&nbsp;Ny=len(y),&nbsp;return&nbsp;X=Nx<br>
+x&nbsp;Ny&nbsp;and&nbsp;Y=Nx&nbsp;x&nbsp;Ny&nbsp;matrices&nbsp;with&nbsp;the&nbsp;elements&nbsp;of&nbsp;x&nbsp;and&nbsp;y&nbsp;repeated<br>
+to&nbsp;fill&nbsp;the&nbsp;matrix<br>
+&nbsp;<br>
+EG,<br>
+&nbsp;<br>
+&nbsp;&nbsp;[X,&nbsp;Y]&nbsp;=&nbsp;<a href="#-meshgrid">meshgrid</a>([1,2,3],&nbsp;[4,5,6,7])<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;X&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;3<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;3<br>
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;Y&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;4<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;5<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;6<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;&nbsp;7</tt></dd></dl>
+ <dl><dt><a name="-mfuncC"><strong>mfuncC</strong></a>(f, x)</dt><dd><tt><a href="#-mfuncC">mfuncC</a>(f,&nbsp;x)&nbsp;:&nbsp;matrix&nbsp;function&nbsp;with&nbsp;possibly&nbsp;complex&nbsp;eigenvalues.<br>
+Note:&nbsp;Numeric&nbsp;defines&nbsp;(v,u)&nbsp;=&nbsp;eig(x)&nbsp;=&gt;&nbsp;x*u.T&nbsp;=&nbsp;u.T&nbsp;*&nbsp;Diag(v)<br>
+This&nbsp;function&nbsp;is&nbsp;needed&nbsp;by&nbsp;sqrtm&nbsp;and&nbsp;allows&nbsp;further&nbsp;functions.</tt></dd></dl>
+ <dl><dt><a name="-norm"><strong>norm</strong></a>(x, y<font color="#909090">=2</font>)</dt><dd><tt>Norm&nbsp;of&nbsp;a&nbsp;matrix&nbsp;or&nbsp;a&nbsp;vector&nbsp;according&nbsp;to&nbsp;Matlab.<br>
+The&nbsp;description&nbsp;is&nbsp;taken&nbsp;from&nbsp;Matlab:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;matrices...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(X)&nbsp;is&nbsp;the&nbsp;largest&nbsp;singular&nbsp;value&nbsp;of&nbsp;X,&nbsp;max(svd(X)).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(X,2)&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;NORM(X).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(X,1)&nbsp;is&nbsp;the&nbsp;1-norm&nbsp;of&nbsp;X,&nbsp;the&nbsp;largest&nbsp;column&nbsp;sum,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;max(sum(abs((X)))).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(X,inf)&nbsp;is&nbsp;the&nbsp;infinity&nbsp;norm&nbsp;of&nbsp;X,&nbsp;the&nbsp;largest&nbsp;row&nbsp;sum,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;max(sum(abs((X')))).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(X,'fro')&nbsp;is&nbsp;the&nbsp;Frobenius&nbsp;norm,&nbsp;sqrt(sum(diag(X'*X))).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(X,P)&nbsp;is&nbsp;available&nbsp;for&nbsp;matrix&nbsp;X&nbsp;only&nbsp;if&nbsp;P&nbsp;is&nbsp;1,&nbsp;2,&nbsp;inf&nbsp;or&nbsp;'fro'.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;vectors...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(V,P)&nbsp;=&nbsp;sum(abs(V).^P)^(1/P).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(V)&nbsp;=&nbsp;<a href="#-norm">norm</a>(V,2).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(V,inf)&nbsp;=&nbsp;max(abs(V)).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NORM(V,-inf)&nbsp;=&nbsp;min(abs(V)).</tt></dd></dl>
+ <dl><dt><a name="-normpdf"><strong>normpdf</strong></a>(x, *args)</dt><dd><tt>Return&nbsp;the&nbsp;normal&nbsp;pdf&nbsp;evaluated&nbsp;at&nbsp;x;&nbsp;args&nbsp;provides&nbsp;mu,&nbsp;sigma</tt></dd></dl>
+ <dl><dt><a name="-orth"><strong>orth</strong></a>(A)</dt><dd><tt>Orthogonalization&nbsp;procedure&nbsp;by&nbsp;Matlab.<br>
+The&nbsp;description&nbsp;is&nbsp;taken&nbsp;from&nbsp;its&nbsp;help:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Q&nbsp;=&nbsp;ORTH(A)&nbsp;is&nbsp;an&nbsp;orthonormal&nbsp;basis&nbsp;for&nbsp;the&nbsp;range&nbsp;of&nbsp;A.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;That&nbsp;is,&nbsp;Q'*Q&nbsp;=&nbsp;I,&nbsp;the&nbsp;columns&nbsp;of&nbsp;Q&nbsp;span&nbsp;the&nbsp;same&nbsp;space&nbsp;as&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;columns&nbsp;of&nbsp;A,&nbsp;and&nbsp;the&nbsp;number&nbsp;of&nbsp;columns&nbsp;of&nbsp;Q&nbsp;is&nbsp;the&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;rank&nbsp;of&nbsp;A.</tt></dd></dl>
+ <dl><dt><a name="-polyfit"><strong>polyfit</strong></a>(x, y, N)</dt><dd><tt>Do&nbsp;a&nbsp;best&nbsp;fit&nbsp;polynomial&nbsp;of&nbsp;order&nbsp;N&nbsp;of&nbsp;y&nbsp;to&nbsp;x.&nbsp;&nbsp;Return&nbsp;value&nbsp;is&nbsp;a<br>
+vector&nbsp;of&nbsp;polynomial&nbsp;coefficients&nbsp;[pk&nbsp;...&nbsp;p1&nbsp;p0].&nbsp;&nbsp;Eg,&nbsp;for&nbsp;N=2<br>
+&nbsp;<br>
+&nbsp;&nbsp;p2*x0^2&nbsp;+&nbsp;&nbsp;p1*x0&nbsp;+&nbsp;p0&nbsp;=&nbsp;y1<br>
+&nbsp;&nbsp;p2*x1^2&nbsp;+&nbsp;&nbsp;p1*x1&nbsp;+&nbsp;p0&nbsp;=&nbsp;y1<br>
+&nbsp;&nbsp;p2*x2^2&nbsp;+&nbsp;&nbsp;p1*x2&nbsp;+&nbsp;p0&nbsp;=&nbsp;y2<br>
+&nbsp;&nbsp;.....<br>
+&nbsp;&nbsp;p2*xk^2&nbsp;+&nbsp;&nbsp;p1*xk&nbsp;+&nbsp;p0&nbsp;=&nbsp;yk<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<br>
+Method:&nbsp;if&nbsp;X&nbsp;is&nbsp;a&nbsp;the&nbsp;Vandermonde&nbsp;Matrix&nbsp;computed&nbsp;from&nbsp;x&nbsp;(see<br>
+<a href="http://mathworld.wolfram.com/VandermondeMatrix.html">http://mathworld.wolfram.com/VandermondeMatrix.html</a>),&nbsp;then&nbsp;the<br>
+polynomial&nbsp;least&nbsp;squares&nbsp;solution&nbsp;is&nbsp;given&nbsp;by&nbsp;the&nbsp;'p'&nbsp;in<br>
+&nbsp;<br>
+&nbsp;&nbsp;X*p&nbsp;=&nbsp;y<br>
+&nbsp;<br>
+where&nbsp;X&nbsp;is&nbsp;a&nbsp;len(x)&nbsp;x&nbsp;N+1&nbsp;matrix,&nbsp;p&nbsp;is&nbsp;a&nbsp;N+1&nbsp;length&nbsp;vector,&nbsp;and&nbsp;y<br>
+is&nbsp;a&nbsp;len(x)&nbsp;x&nbsp;1&nbsp;vector<br>
+&nbsp;<br>
+This&nbsp;equation&nbsp;can&nbsp;be&nbsp;solved&nbsp;as<br>
+&nbsp;<br>
+&nbsp;&nbsp;p&nbsp;=&nbsp;(XT*X)^-1&nbsp;*&nbsp;XT&nbsp;*&nbsp;y<br>
+&nbsp;<br>
+where&nbsp;XT&nbsp;is&nbsp;the&nbsp;transpose&nbsp;of&nbsp;X&nbsp;and&nbsp;-1&nbsp;denotes&nbsp;the&nbsp;inverse.<br>
+&nbsp;<br>
+For&nbsp;more&nbsp;info,&nbsp;see<br>
+<a href="http://mathworld.wolfram.com/LeastSquaresFittingPolynomial.html">http://mathworld.wolfram.com/LeastSquaresFittingPolynomial.html</a>,<br>
+but&nbsp;note&nbsp;that&nbsp;the&nbsp;k's&nbsp;and&nbsp;n's&nbsp;in&nbsp;the&nbsp;superscripts&nbsp;and&nbsp;subscripts<br>
+on&nbsp;that&nbsp;page.&nbsp;&nbsp;The&nbsp;linear&nbsp;algebra&nbsp;is&nbsp;correct,&nbsp;however.<br>
+&nbsp;<br>
+See&nbsp;also&nbsp;polyval</tt></dd></dl>
+ <dl><dt><a name="-polyval"><strong>polyval</strong></a>(p, x)</dt><dd><tt>y&nbsp;=&nbsp;<a href="#-polyval">polyval</a>(p,x)<br>
+&nbsp;<br>
+p&nbsp;is&nbsp;a&nbsp;vector&nbsp;of&nbsp;polynomial&nbsp;coeffients&nbsp;and&nbsp;y&nbsp;is&nbsp;the&nbsp;polynomial<br>
+evaluated&nbsp;at&nbsp;x.<br>
+&nbsp;<br>
+Example&nbsp;code&nbsp;to&nbsp;remove&nbsp;a&nbsp;polynomial&nbsp;(quadratic)&nbsp;trend&nbsp;from&nbsp;y:<br>
+&nbsp;<br>
+&nbsp;&nbsp;p&nbsp;=&nbsp;<a href="#-polyfit">polyfit</a>(x,&nbsp;y,&nbsp;2)<br>
+&nbsp;&nbsp;trend&nbsp;=&nbsp;<a href="#-polyval">polyval</a>(p,&nbsp;x)<br>
+&nbsp;&nbsp;resid&nbsp;=&nbsp;y&nbsp;-&nbsp;trend<br>
+&nbsp;<br>
+See&nbsp;also&nbsp;polyfit</tt></dd></dl>
+ <dl><dt><a name="-prctile"><strong>prctile</strong></a>(x, p<font color="#909090">=(0.0, 25.0, 50.0, 75.0, 100.0)</font>)</dt><dd><tt>Return&nbsp;the&nbsp;percentiles&nbsp;of&nbsp;x.&nbsp;&nbsp;p&nbsp;can&nbsp;either&nbsp;be&nbsp;a&nbsp;sequence&nbsp;of<br>
+percentil&nbsp;values&nbsp;or&nbsp;a&nbsp;scalar.&nbsp;&nbsp;If&nbsp;p&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the&nbsp;i-th&nbsp;element<br>
+of&nbsp;the&nbsp;return&nbsp;sequence&nbsp;is&nbsp;the&nbsp;p(i)-th&nbsp;percentile&nbsp;of&nbsp;x</tt></dd></dl>
+ <dl><dt><a name="-prepca"><strong>prepca</strong></a>(P, frac<font color="#909090">=0</font>)</dt><dd><tt>Compute&nbsp;the&nbsp;principal&nbsp;components&nbsp;of&nbsp;P.&nbsp;&nbsp;P&nbsp;is&nbsp;a&nbsp;numVars&nbsp;x<br>
+numObservations&nbsp;numeric&nbsp;array.&nbsp;&nbsp;frac&nbsp;is&nbsp;the&nbsp;minimum&nbsp;fraction&nbsp;of<br>
+variance&nbsp;that&nbsp;a&nbsp;component&nbsp;must&nbsp;contain&nbsp;to&nbsp;be&nbsp;included<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;are<br>
+Pcomponents&nbsp;:&nbsp;a&nbsp;num&nbsp;components&nbsp;x&nbsp;num&nbsp;observations&nbsp;numeric&nbsp;array<br>
+Trans&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;weights&nbsp;matrix,&nbsp;ie,&nbsp;Pcomponents&nbsp;=&nbsp;Trans*P<br>
+fracVar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;fraction&nbsp;of&nbsp;the&nbsp;variance&nbsp;accounted&nbsp;for&nbsp;by&nbsp;each<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;component&nbsp;returned</tt></dd></dl>
+ <dl><dt><a name="-psd"><strong>psd</strong></a>(x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
+The&nbsp;vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment<br>
+is&nbsp;detrended&nbsp;by&nbsp;function&nbsp;detrend&nbsp;and&nbsp;windowed&nbsp;by&nbsp;function&nbsp;window.<br>
+noperlap&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;overlap&nbsp;between&nbsp;segments.&nbsp;&nbsp;The<br>
+absolute(fft(segment))**2&nbsp;of&nbsp;each&nbsp;segment&nbsp;are&nbsp;averaged&nbsp;to&nbsp;compute&nbsp;Pxx,<br>
+with&nbsp;a&nbsp;scaling&nbsp;to&nbsp;correct&nbsp;for&nbsp;power&nbsp;loss&nbsp;due&nbsp;to&nbsp;windowing.&nbsp;&nbsp;Fs&nbsp;is<br>
+the&nbsp;sampling&nbsp;frequency.<br>
+&nbsp;<br>
+--&nbsp;NFFT&nbsp;must&nbsp;be&nbsp;a&nbsp;power&nbsp;of&nbsp;2<br>
+--&nbsp;detrend&nbsp;and&nbsp;window&nbsp;are&nbsp;functions,&nbsp;unlike&nbsp;in&nbsp;matlab&nbsp;where&nbsp;they&nbsp;are<br>
+&nbsp;&nbsp;&nbsp;vectors.<br>
+--&nbsp;if&nbsp;length&nbsp;x&nbsp;&lt;&nbsp;NFFT,&nbsp;it&nbsp;will&nbsp;be&nbsp;zero&nbsp;padded&nbsp;to&nbsp;NFFT<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Pxx,&nbsp;freqs<br>
+&nbsp;<br>
+Refs:<br>
+&nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+ <dl><dt><a name="-rank"><strong>rank</strong></a>(x)</dt><dd><tt>Returns&nbsp;the&nbsp;rank&nbsp;of&nbsp;a&nbsp;matrix.<br>
+The&nbsp;rank&nbsp;is&nbsp;understood&nbsp;here&nbsp;as&nbsp;the&nbsp;an&nbsp;estimation&nbsp;of&nbsp;the&nbsp;number&nbsp;of<br>
+linearly&nbsp;independent&nbsp;rows&nbsp;or&nbsp;columns&nbsp;(depending&nbsp;on&nbsp;the&nbsp;size&nbsp;of&nbsp;the<br>
+matrix).<br>
+Note&nbsp;that&nbsp;MLab.<a href="#-rank">rank</a>()&nbsp;is&nbsp;not&nbsp;equivalent&nbsp;to&nbsp;Matlab's&nbsp;rank.<br>
+This&nbsp;function&nbsp;is!</tt></dd></dl>
+ <dl><dt><a name="-rem"><strong>rem</strong></a>(x, y)</dt><dd><tt>Remainder&nbsp;after&nbsp;division.<br>
+<a href="#-rem">rem</a>(x,y)&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;x&nbsp;-&nbsp;y.*<a href="#-fix">fix</a>(x./y)&nbsp;in&nbsp;case&nbsp;y&nbsp;is&nbsp;not&nbsp;zero.<br>
+By&nbsp;convention,&nbsp;<a href="#-rem">rem</a>(x,0)&nbsp;returns&nbsp;None.<br>
+We&nbsp;keep&nbsp;the&nbsp;convention&nbsp;by&nbsp;Matlab:<br>
+"The&nbsp;input&nbsp;x&nbsp;and&nbsp;y&nbsp;must&nbsp;be&nbsp;real&nbsp;arrays&nbsp;of&nbsp;the&nbsp;same&nbsp;size,&nbsp;or&nbsp;real&nbsp;scalars."</tt></dd></dl>
+ <dl><dt><a name="-reshape"><strong>reshape</strong></a>(...)</dt><dd><tt><a href="#-reshape">reshape</a>(a,&nbsp;(d1,&nbsp;d2,&nbsp;...,&nbsp;dn)).&nbsp;&nbsp;Change&nbsp;the&nbsp;shape&nbsp;of&nbsp;a&nbsp;to&nbsp;be&nbsp;an&nbsp;n-dimensional&nbsp;array&nbsp;with&nbsp;dimensions&nbsp;given&nbsp;by&nbsp;d1...dn.&nbsp;&nbsp;Note:&nbsp;the&nbsp;size&nbsp;specified&nbsp;for&nbsp;the&nbsp;new&nbsp;array&nbsp;must&nbsp;be&nbsp;exactly&nbsp;equal&nbsp;to&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;&nbsp;old&nbsp;one&nbsp;or&nbsp;an&nbsp;error&nbsp;will&nbsp;occur.</tt></dd></dl>
+ <dl><dt><a name="-rk4"><strong>rk4</strong></a>(derivs, y0, t)</dt><dd><tt>Integrate&nbsp;1D&nbsp;or&nbsp;ND&nbsp;system&nbsp;of&nbsp;ODEs&nbsp;from&nbsp;initial&nbsp;state&nbsp;y0&nbsp;at&nbsp;sample<br>
+times&nbsp;t.&nbsp;&nbsp;derivs&nbsp;returns&nbsp;the&nbsp;derivative&nbsp;of&nbsp;the&nbsp;system&nbsp;and&nbsp;has&nbsp;the<br>
+signature<br>
+&nbsp;<br>
+&nbsp;dy&nbsp;=&nbsp;derivs(yi,&nbsp;ti)<br>
+&nbsp;<br>
+Example&nbsp;1&nbsp;:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;##&nbsp;2D&nbsp;system<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Numeric&nbsp;solution<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;derivs6(x,t):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d1&nbsp;=&nbsp;&nbsp;x[0]&nbsp;+&nbsp;2*x[1]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d2&nbsp;=&nbsp;&nbsp;-3*x[0]&nbsp;+&nbsp;4*x[1]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(d1,&nbsp;d2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dt&nbsp;=&nbsp;0.0005<br>
+&nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;=&nbsp;<a href="#-arange">arange</a>(0.0,&nbsp;2.0,&nbsp;dt)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y0&nbsp;=&nbsp;(1,2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;yout&nbsp;=&nbsp;<a href="#-rk4">rk4</a>(derivs6,&nbsp;y0,&nbsp;t)<br>
+&nbsp;<br>
+Example&nbsp;2:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;##&nbsp;1D&nbsp;system<br>
+&nbsp;&nbsp;&nbsp;&nbsp;alpha&nbsp;=&nbsp;2<br>
+&nbsp;&nbsp;&nbsp;&nbsp;def&nbsp;derivs(x,t):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;-alpha*x&nbsp;+&nbsp;exp(-t)<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;y0&nbsp;=&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;yout&nbsp;=&nbsp;<a href="#-rk4">rk4</a>(derivs,&nbsp;y0,&nbsp;t)</tt></dd></dl>
+ <dl><dt><a name="-searchsorted"><strong>searchsorted</strong></a> = binarysearch(...)</dt><dd><tt>binarysearch(a,v)</tt></dd></dl>
+ <dl><dt><a name="-sqrtm"><strong>sqrtm</strong></a>(x)</dt><dd><tt>Returns&nbsp;the&nbsp;square&nbsp;root&nbsp;of&nbsp;a&nbsp;square&nbsp;matrix.<br>
+This&nbsp;means&nbsp;that&nbsp;s=<a href="#-sqrtm">sqrtm</a>(x)&nbsp;implies&nbsp;s*s&nbsp;=&nbsp;x.<br>
+Note&nbsp;that&nbsp;s&nbsp;and&nbsp;x&nbsp;are&nbsp;matrices.</tt></dd></dl>
+ <dl><dt><a name="-take"><strong>take</strong></a>(...)</dt><dd><tt><a href="#-take">take</a>(a,&nbsp;indices,&nbsp;axis=0).&nbsp;&nbsp;Selects&nbsp;the&nbsp;elements&nbsp;in&nbsp;indices&nbsp;from&nbsp;array&nbsp;a&nbsp;along&nbsp;the&nbsp;given&nbsp;axis.</tt></dd></dl>
+ <dl><dt><a name="-trapz"><strong>trapz</strong></a>(x, y)</dt></dl>
+ <dl><dt><a name="-vander"><strong>vander</strong></a>(x, N<font color="#909090">=None</font>)</dt><dd><tt>X&nbsp;=&nbsp;<a href="#-vander">vander</a>(x,N=None)<br>
+&nbsp;<br>
+The&nbsp;Vandermonde&nbsp;matrix&nbsp;of&nbsp;vector&nbsp;x.&nbsp;&nbsp;The&nbsp;i-th&nbsp;column&nbsp;of&nbsp;X&nbsp;is&nbsp;the<br>
+the&nbsp;i-th&nbsp;power&nbsp;of&nbsp;x.&nbsp;&nbsp;N&nbsp;is&nbsp;the&nbsp;maximum&nbsp;power&nbsp;to&nbsp;compute;&nbsp;if&nbsp;N&nbsp;is<br>
+None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
+ <dl><dt><a name="-window_hanning"><strong>window_hanning</strong></a>(x)</dt><dd><tt>return&nbsp;x&nbsp;times&nbsp;the&nbsp;hanning&nbsp;window&nbsp;of&nbsp;len(x)</tt></dd></dl>
+ <dl><dt><a name="-window_none"><strong>window_none</strong></a>(x)</dt><dd><tt>No&nbsp;window&nbsp;function;&nbsp;simply&nbsp;return&nbsp;x</tt></dd></dl>
+ <dl><dt><a name="-zeros"><strong>zeros</strong></a>(...)</dt><dd><tt><a href="#-zeros">zeros</a>((d1,...,dn),typecode='l',savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;of&nbsp;shape&nbsp;(d1,...,dn)&nbsp;and&nbsp;type&nbsp;typecode&nbsp;with&nbsp;all&nbsp;it's&nbsp;entries&nbsp;initialized&nbsp;to&nbsp;zero.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero&nbsp;the&nbsp;array&nbsp;will&nbsp;be&nbsp;a&nbsp;spacesaver&nbsp;array.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Character</strong> = 'c'<br>
+<strong>Complex</strong> = 'D'<br>
+<strong>Complex0</strong> = 'F'<br>
+<strong>Complex16</strong> = 'F'<br>
+<strong>Complex32</strong> = 'F'<br>
+<strong>Complex64</strong> = 'D'<br>
+<strong>Complex8</strong> = 'F'<br>
+<strong>Float</strong> = 'd'<br>
+<strong>Float0</strong> = 'f'<br>
+<strong>Float16</strong> = 'f'<br>
+<strong>Float32</strong> = 'f'<br>
+<strong>Float64</strong> = 'd'<br>
+<strong>Float8</strong> = 'f'<br>
+<strong>Int</strong> = 'l'<br>
+<strong>Int0</strong> = '1'<br>
+<strong>Int16</strong> = 's'<br>
+<strong>Int32</strong> = 'i'<br>
+<strong>Int8</strong> = '1'<br>
+<strong>LittleEndian</strong> = True<br>
+<strong>NewAxis</strong> = None<br>
+<strong>PrecisionError</strong> = 'PrecisionError'<br>
+<strong>PyObject</strong> = 'O'<br>
+<strong>UInt</strong> = 'u'<br>
+<strong>UInt16</strong> = 'w'<br>
+<strong>UInt32</strong> = 'u'<br>
+<strong>UInt8</strong> = 'b'<br>
+<strong>UnsignedInt16</strong> = 'w'<br>
+<strong>UnsignedInt32</strong> = 'u'<br>
+<strong>UnsignedInt8</strong> = 'b'<br>
+<strong>UnsignedInteger</strong> = 'u'<br>
+<strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
+<strong>add</strong> = &lt;ufunc 'add'&gt;<br>
+<strong>arccos</strong> = &lt;ufunc 'arccos'&gt;<br>
+<strong>arccosh</strong> = &lt;ufunc 'arccosh'&gt;<br>
+<strong>arcsin</strong> = &lt;ufunc 'arcsin'&gt;<br>
+<strong>arcsinh</strong> = &lt;ufunc 'arcsinh'&gt;<br>
+<strong>arctan</strong> = &lt;ufunc 'arctan'&gt;<br>
+<strong>arctan2</strong> = &lt;ufunc 'arctan2'&gt;<br>
+<strong>arctanh</strong> = &lt;ufunc 'arctanh'&gt;<br>
+<strong>bitwise_and</strong> = &lt;ufunc 'bitwise_and'&gt;<br>
+<strong>bitwise_or</strong> = &lt;ufunc 'bitwise_or'&gt;<br>
+<strong>bitwise_xor</strong> = &lt;ufunc 'bitwise_xor'&gt;<br>
+<strong>ceil</strong> = &lt;ufunc 'ceil'&gt;<br>
+<strong>conjugate</strong> = &lt;ufunc 'conjugate'&gt;<br>
+<strong>cos</strong> = &lt;ufunc 'cos'&gt;<br>
+<strong>cosh</strong> = &lt;ufunc 'cosh'&gt;<br>
+<strong>divide</strong> = &lt;ufunc 'divide'&gt;<br>
+<strong>divide_safe</strong> = &lt;ufunc 'divide_safe'&gt;<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>e</strong> = 2.7182818284590451<br>
+<strong>equal</strong> = &lt;ufunc 'equal'&gt;<br>
+<strong>exp</strong> = &lt;ufunc 'exp'&gt;<br>
+<strong>fabs</strong> = &lt;ufunc 'fabs'&gt;<br>
+<strong>floor</strong> = &lt;ufunc 'floor'&gt;<br>
+<strong>floor_divide</strong> = &lt;ufunc 'floor_divide'&gt;<br>
+<strong>fmod</strong> = &lt;ufunc 'fmod'&gt;<br>
+<strong>greater</strong> = &lt;ufunc 'greater'&gt;<br>
+<strong>greater_equal</strong> = &lt;ufunc 'greater_equal'&gt;<br>
+<strong>hypot</strong> = &lt;ufunc 'hypot'&gt;<br>
+<strong>invert</strong> = &lt;ufunc 'invert'&gt;<br>
+<strong>left_shift</strong> = &lt;ufunc 'left_shift'&gt;<br>
+<strong>less</strong> = &lt;ufunc 'less'&gt;<br>
+<strong>less_equal</strong> = &lt;ufunc 'less_equal'&gt;<br>
+<strong>log</strong> = &lt;ufunc 'log'&gt;<br>
+<strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
+<strong>logical_and</strong> = &lt;ufunc 'logical_and'&gt;<br>
+<strong>logical_not</strong> = &lt;ufunc 'logical_not'&gt;<br>
+<strong>logical_or</strong> = &lt;ufunc 'logical_or'&gt;<br>
+<strong>logical_xor</strong> = &lt;ufunc 'logical_xor'&gt;<br>
+<strong>maximum</strong> = &lt;ufunc 'maximum'&gt;<br>
+<strong>minimum</strong> = &lt;ufunc 'minimum'&gt;<br>
+<strong>multiply</strong> = &lt;ufunc 'multiply'&gt;<br>
+<strong>negative</strong> = &lt;ufunc 'negative'&gt;<br>
+<strong>not_equal</strong> = &lt;ufunc 'not_equal'&gt;<br>
+<strong>pi</strong> = 3.1415926535897931<br>
+<strong>power</strong> = &lt;ufunc 'power'&gt;<br>
+<strong>readme</strong> = '<font color="#c040c0">\n</font>MLab2.py, release 1<font color="#c040c0">\n\n</font>Created on February 2003 b...<font color="#c040c0">\n</font>Look at: http://pdilib.sf.net for new releases.<font color="#c040c0">\n</font>'<br>
+<strong>remainder</strong> = &lt;ufunc 'remainder'&gt;<br>
+<strong>right_shift</strong> = &lt;ufunc 'right_shift'&gt;<br>
+<strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
+<strong>sinh</strong> = &lt;ufunc 'sinh'&gt;<br>
+<strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>
+<strong>subtract</strong> = &lt;ufunc 'subtract'&gt;<br>
+<strong>tan</strong> = &lt;ufunc 'tan'&gt;<br>
+<strong>tanh</strong> = &lt;ufunc 'tanh'&gt;<br>
+<strong>true_divide</strong> = &lt;ufunc 'true_divide'&gt;<br>
+<strong>typecodes</strong> = {'Character': 'c', 'Complex': 'FD', 'Float': 'fd', 'Integer': '1sil', 'UnsignedInteger': 'bwu'}</td></tr></table>
+@footer@

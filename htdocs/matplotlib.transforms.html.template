@@ -1,0 +1,553 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.transforms</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="matplotlib/transforms.py">matplotlib/transforms.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;contains&nbsp;the&nbsp;newfangled&nbsp;transform&nbsp;class&nbsp;which&nbsp;allows&nbsp;the<br>
+placement&nbsp;of&nbsp;artists&nbsp;(lines,&nbsp;patches,&nbsp;text)&nbsp;in&nbsp;a&nbsp;variety&nbsp;of&nbsp;coordinate<br>
+systems&nbsp;(display,&nbsp;arbitrary&nbsp;data,&nbsp;relative&nbsp;axes,&nbsp;physical&nbsp;sizes)<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;<a href="#Transform">Transform</a>()&nbsp;is&nbsp;identity.<br>
+&nbsp;<br>
+&nbsp;&nbsp;t&nbsp;=&nbsp;<a href="#Transform">Transform</a>()<br>
+&nbsp;&nbsp;x&nbsp;==&nbsp;<a href="#Transform">Transform</a>.positions(x)&nbsp;&nbsp;True<br>
+&nbsp;&nbsp;x&nbsp;==&nbsp;<a href="#Transform">Transform</a>.scale(x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;True<br>
+&nbsp;<br>
+A&nbsp;linear&nbsp;Transformation&nbsp;is&nbsp;specified&nbsp;by&nbsp;giving&nbsp;a&nbsp;<a href="#Bound1D">Bound1D</a>&nbsp;(min,&nbsp;max)<br>
+instance&nbsp;for&nbsp;the&nbsp;domain&nbsp;and&nbsp;range.&nbsp;&nbsp;The&nbsp;transform&nbsp;below&nbsp;maps&nbsp;the<br>
+interval&nbsp;[0,1]&nbsp;to&nbsp;[-10,10]<br>
+&nbsp;<br>
+&nbsp;&nbsp;t&nbsp;=&nbsp;<a href="#Transform">Transform</a>(&nbsp;<a href="#Bound1D">Bound1D</a>(0,1),&nbsp;<a href="#Bound1D">Bound1D</a>(-10,10)<br>
+&nbsp;<br>
+Since&nbsp;all&nbsp;Transforms&nbsp;know&nbsp;their&nbsp;inverse&nbsp;function,&nbsp;you&nbsp;can&nbsp;compute&nbsp;an<br>
+inverse&nbsp;transformation&nbsp;by&nbsp;calling&nbsp;inverse_positions&nbsp;or&nbsp;inverse_scale<br>
+&nbsp;<br>
+&nbsp;&nbsp;t&nbsp;=&nbsp;<a href="#Transform">Transform</a>(&nbsp;<a href="#Bound1D">Bound1D</a>(0,1),&nbsp;<a href="#Bound1D">Bound1D</a>(-10,10)<br>
+&nbsp;&nbsp;val&nbsp;=&nbsp;t.inverse_positions(5)&nbsp;&nbsp;#&nbsp;maps&nbsp;[-10,10]&nbsp;to&nbsp;[0,1]<br>
+&nbsp;<br>
+The&nbsp;difference&nbsp;between&nbsp;'positions'&nbsp;and&nbsp;'scale'&nbsp;is&nbsp;that&nbsp;the&nbsp;positions<br>
+func&nbsp;is&nbsp;appropriate&nbsp;for&nbsp;locations&nbsp;(eg,&nbsp;x,y)&nbsp;and&nbsp;the&nbsp;scale&nbsp;func&nbsp;is<br>
+appropriate&nbsp;for&nbsp;lengths&nbsp;(eg,&nbsp;width,&nbsp;height).<br>
+&nbsp;<br>
+The&nbsp;<a href="#Bound1D">Bound1D</a>&nbsp;methods&nbsp;provide&nbsp;a&nbsp;number&nbsp;of&nbsp;utility&nbsp;functions:&nbsp;the<br>
+interval&nbsp;max-min,&nbsp;determining&nbsp;if&nbsp;a&nbsp;point&nbsp;is&nbsp;in&nbsp;the&nbsp;open&nbsp;or&nbsp;closed<br>
+interval,&nbsp;constraining&nbsp;the&nbsp;bound&nbsp;to&nbsp;be&nbsp;positive&nbsp;(useful&nbsp;for&nbsp;log<br>
+transforms),&nbsp;and&nbsp;so&nbsp;on.&nbsp;&nbsp;These&nbsp;are&nbsp;useful&nbsp;for&nbsp;storing&nbsp;view,&nbsp;data&nbsp;and<br>
+display&nbsp;limits&nbsp;of&nbsp;a&nbsp;given&nbsp;axis.<br>
+&nbsp;<br>
+The&nbsp;<a href="#Bound2D">Bound2D</a>&nbsp;is&nbsp;a&nbsp;straight-forward&nbsp;generalization&nbsp;of&nbsp;<a href="#Bound1D">Bound1D</a>,&nbsp;and<br>
+stores&nbsp;2&nbsp;<a href="#Bound1D">Bound1D</a>&nbsp;instances&nbsp;'x'&nbsp;and&nbsp;'y'&nbsp;to&nbsp;represent&nbsp;a&nbsp;2D&nbsp;Bound&nbsp;(useful<br>
+for&nbsp;Axes&nbsp;bounding&nbsp;boxes,&nbsp;clipping&nbsp;etc).&nbsp;&nbsp;All&nbsp;Artists&nbsp;are&nbsp;responsible<br>
+for&nbsp;returning&nbsp;their&nbsp;extent&nbsp;in&nbsp;display&nbsp;coords&nbsp;as&nbsp;a&nbsp;<a href="#Bound2D">Bound2D</a>&nbsp;instance,<br>
+which&nbsp;is&nbsp;useful&nbsp;for&nbsp;determining&nbsp;whether&nbsp;2&nbsp;Artists&nbsp;overlap.&nbsp;&nbsp;Some<br>
+utility&nbsp;functions,&nbsp;eg,&nbsp;bound2d_all,&nbsp;return&nbsp;the&nbsp;<a href="#Bound2D">Bound2D</a>&nbsp;instance&nbsp;that<br>
+bounds&nbsp;all&nbsp;the&nbsp;<a href="#Bound2D">Bound2D</a>&nbsp;instances&nbsp;passed&nbsp;as&nbsp;args.&nbsp;&nbsp;This&nbsp;helps&nbsp;in&nbsp;text<br>
+layout,&nbsp;eg,&nbsp;in&nbsp;positioning&nbsp;the&nbsp;axis&nbsp;labels&nbsp;to&nbsp;not&nbsp;overlap&nbsp;the&nbsp;tick<br>
+labels.<br>
+&nbsp;<br>
+The&nbsp;<a href="#Bound1D">Bound1D</a>&nbsp;instances&nbsp;store&nbsp;their&nbsp;max&nbsp;and&nbsp;min&nbsp;values&nbsp;as&nbsp;RWVals<br>
+(read/write&nbsp;references).&nbsp;&nbsp;These&nbsp;are&nbsp;mutable&nbsp;scalars&nbsp;that&nbsp;can&nbsp;be&nbsp;shared<br>
+among&nbsp;all&nbsp;the&nbsp;figure&nbsp;components.&nbsp;&nbsp;When&nbsp;a&nbsp;figure&nbsp;clas&nbsp;resizes&nbsp;and&nbsp;thus<br>
+changes&nbsp;the&nbsp;display&nbsp;limits&nbsp;of&nbsp;an&nbsp;Axes,&nbsp;the&nbsp;Axes&nbsp;and&nbsp;all&nbsp;its&nbsp;components<br>
+know&nbsp;about&nbsp;the&nbsp;changes&nbsp;because&nbsp;they&nbsp;store&nbsp;a&nbsp;reference&nbsp;to&nbsp;the<br>
+displaylim,&nbsp;not&nbsp;the&nbsp;scalar&nbsp;value&nbsp;of&nbsp;the&nbsp;display&nbsp;lim.&nbsp;&nbsp;Likewise&nbsp;for<br>
+DPI.<br>
+&nbsp;<br>
+Also,&nbsp;it&nbsp;is&nbsp;possible&nbsp;to&nbsp;do&nbsp;simple&nbsp;arithmetic&nbsp;in&nbsp;RRefs&nbsp;via&nbsp;the&nbsp;derived<br>
+<a href="#BinOp">BinOp</a>&nbsp;class,&nbsp;which&nbsp;stores&nbsp;both&nbsp;sides&nbsp;of&nbsp;a&nbsp;binary&nbsp;arithmetic&nbsp;operation,<br>
+as&nbsp;well&nbsp;as&nbsp;the&nbsp;binary&nbsp;function&nbsp;to&nbsp;return&nbsp;the&nbsp;result&nbsp;of&nbsp;the&nbsp;binop<br>
+applied&nbsp;to&nbsp;the&nbsp;dereferenced&nbsp;scalars.&nbsp;&nbsp;This&nbsp;allows&nbsp;you&nbsp;to&nbsp;place&nbsp;artists<br>
+with&nbsp;locations&nbsp;like&nbsp;'3&nbsp;centimenters&nbsp;below&nbsp;the&nbsp;x&nbsp;axis'<br>
+&nbsp;<br>
+Here&nbsp;are&nbsp;some&nbsp;concepts&nbsp;and&nbsp;how&nbsp;to&nbsp;apply&nbsp;them&nbsp;via&nbsp;the&nbsp;transform<br>
+architecture<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;Map&nbsp;view&nbsp;limits&nbsp;to&nbsp;display&nbsp;limits&nbsp;via&nbsp;a&nbsp;linear&nbsp;tranformation<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;viewlim&nbsp;and&nbsp;displaylim&nbsp;are&nbsp;<a href="#Bound1D">Bound1D</a>&nbsp;instances<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tx&nbsp;=&nbsp;<a href="#Transform">Transform</a>(&nbsp;axes.xaxis.viewlim,&nbsp;axes.xaxis.displaylim&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ty&nbsp;=&nbsp;<a href="#Transform">Transform</a>(&nbsp;axes.yaxis.viewlim,&nbsp;axes.yaxis.displaylim&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;Line2D(dpi,&nbsp;bbox,&nbsp;xdata,&nbsp;ydata,&nbsp;transx=tx,&nbsp;transy=ty)<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;Map&nbsp;relative&nbsp;axes&nbsp;coords&nbsp;(&nbsp;0,0&nbsp;is&nbsp;lower&nbsp;left&nbsp;and&nbsp;1,1&nbsp;is&nbsp;upper<br>
+&nbsp;&nbsp;&nbsp;&nbsp;right&nbsp;)&nbsp;to&nbsp;display&nbsp;coords.&nbsp;&nbsp;This&nbsp;example&nbsp;puts&nbsp;text&nbsp;in&nbsp;the&nbsp;middle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;axes&nbsp;(0.5,&nbsp;0.5)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tx&nbsp;=&nbsp;<a href="#Transform">Transform</a>(&nbsp;<a href="#Bound1D">Bound1D</a>(0,1),&nbsp;axes.xaxis.displaylim&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ty&nbsp;=&nbsp;<a href="#Transform">Transform</a>(&nbsp;<a href="#Bound1D">Bound1D</a>(0,1),&nbsp;axes.yaxis.displaylim&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;=&nbsp;AxisText(dpi,&nbsp;bbox,&nbsp;0.5,&nbsp;0.5,&nbsp;transx=tx,&nbsp;transy=ty)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;*&nbsp;Map&nbsp;x&nbsp;view&nbsp;limits&nbsp;to&nbsp;display&nbsp;limits&nbsp;via&nbsp;a&nbsp;log&nbsp;tranformation&nbsp;and&nbsp;y<br>
+&nbsp;&nbsp;&nbsp;view&nbsp;limits&nbsp;via&nbsp;linear&nbsp;transform.&nbsp;&nbsp;The&nbsp;funcs&nbsp;pair&nbsp;is&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;transform/inverse&nbsp;pair<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;funcs&nbsp;=&nbsp;logwarn,&nbsp;pow10<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tx&nbsp;=&nbsp;<a href="#Transform">Transform</a>(&nbsp;axes.xaxis.viewlim,&nbsp;axes.xaxis.displaylim,&nbsp;funcs&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ty&nbsp;=&nbsp;<a href="#Transform">Transform</a>(&nbsp;axes.yaxis.viewlim,&nbsp;axes.yaxis.displaylim&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;l&nbsp;=&nbsp;Line2D(dpi,&nbsp;bbox,&nbsp;xdata,&nbsp;ydata,&nbsp;transx=tx,&nbsp;transy=ty)<br>
+&nbsp;<br>
+&nbsp;*&nbsp;You&nbsp;can&nbsp;also&nbsp;do&nbsp;transformation&nbsp;from&nbsp;one&nbsp;physical&nbsp;scale&nbsp;(inches,&nbsp;cm,<br>
+&nbsp;&nbsp;&nbsp;points,&nbsp;...)&nbsp;to&nbsp;another.&nbsp;&nbsp;You&nbsp;need&nbsp;to&nbsp;specify&nbsp;an&nbsp;offset&nbsp;in&nbsp;output<br>
+&nbsp;&nbsp;&nbsp;coords.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset&nbsp;=&nbsp;100&nbsp;&nbsp;#&nbsp;dots<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cm&nbsp;=&nbsp;<a href="#Centimeter">Centimeter</a>(&nbsp;self.<strong>dpi</strong>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dots&nbsp;=&nbsp;&nbsp;<a href="#Dots">Dots</a>(&nbsp;self.<strong>dpi</strong>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t&nbsp;=&nbsp;&nbsp;<a href="#TransformSize">TransformSize</a>(cm,&nbsp;dots,&nbsp;offset)<br>
+&nbsp;<br>
+&nbsp;*&nbsp;Combining&nbsp;the&nbsp;above,&nbsp;we&nbsp;can&nbsp;specify&nbsp;that&nbsp;a&nbsp;text&nbsp;instance&nbsp;is&nbsp;at&nbsp;an&nbsp;x<br>
+&nbsp;&nbsp;&nbsp;location&nbsp;in&nbsp;data&nbsp;coords&nbsp;and&nbsp;a&nbsp;y&nbsp;location&nbsp;in&nbsp;points&nbsp;relative&nbsp;to&nbsp;an<br>
+&nbsp;&nbsp;&nbsp;axis.&nbsp;&nbsp;Eg.&nbsp;the&nbsp;transformation&nbsp;below&nbsp;indicates&nbsp;that&nbsp;the&nbsp;x&nbsp;value&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;an&nbsp;xticklabel&nbsp;position&nbsp;is&nbsp;in&nbsp;data&nbsp;corrdinates&nbsp;and&nbsp;the&nbsp;y&nbsp;value&nbsp;is&nbsp;3<br>
+&nbsp;&nbsp;&nbsp;points&nbsp;below&nbsp;the&nbsp;x&nbsp;axis,&nbsp;top&nbsp;justified<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;top&nbsp;of&nbsp;the&nbsp;x&nbsp;ticklabel&nbsp;text&nbsp;is&nbsp;the&nbsp;bottom&nbsp;of&nbsp;the&nbsp;y&nbsp;axis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;minus&nbsp;3&nbsp;points.&nbsp;&nbsp;Note&nbsp;the&nbsp;code&nbsp;below&nbsp;uses&nbsp;the&nbsp;overloading&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;__sub__&nbsp;and&nbsp;__mul__&nbsp;to&nbsp;return&nbsp;a&nbsp;<a href="#BinOp">BinOp</a>.&nbsp;&nbsp;Changes&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;position&nbsp;of&nbsp;bbox.y&nbsp;or&nbsp;dpi,&nbsp;eg,&nbsp;on&nbsp;a&nbsp;resize&nbsp;event,&nbsp;are<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;automagically&nbsp;reflected&nbsp;in&nbsp;the&nbsp;tick&nbsp;label&nbsp;position.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;dpi*3/72&nbsp;converts&nbsp;3&nbsp;points&nbsp;to&nbsp;dots.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;top&nbsp;=&nbsp;self.<strong>bbox</strong>.y.get_refmin()&nbsp;-&nbsp;self.<strong>dpi</strong>*<a href="#RRef">RRef</a>(3/72.0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text&nbsp;=&nbsp;&nbsp;backends.AxisText(dpi,&nbsp;bbox,&nbsp;x=xdata,&nbsp;y=top,&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verticalalignment='top',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;horizontalalignment='center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transx&nbsp;=&nbsp;self.<strong>axes</strong>.xaxis.transData,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;transy&nbsp;is&nbsp;default,&nbsp;idenity&nbsp;transform)<br>
+&nbsp;<br>
+The&nbsp;unittest&nbsp;code&nbsp;for&nbsp;the&nbsp;transforms&nbsp;module&nbsp;is&nbsp;unit/transforms_unit.py</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.transforms.html#Bound1D">Bound1D</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.transforms.html#Bound2D">Bound2D</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.transforms.html#RRef">RRef</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.transforms.html#BinOp">BinOp</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.transforms.html#RWRef">RWRef</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.transforms.html#Size">Size</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.transforms.html#Centimeter">Centimeter</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.transforms.html#Dots">Dots</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.transforms.html#Inches">Inches</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.transforms.html#Millimeter">Millimeter</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.transforms.html#Points">Points</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.transforms.html#Transform">Transform</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.transforms.html#TransformSize">TransformSize</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BinOp">class <strong>BinOp</strong></a>(<a href="matplotlib.transforms.html#RRef">RRef</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;read&nbsp;only&nbsp;ref&nbsp;that&nbsp;handles&nbsp;binary&nbsp;ops&nbsp;of&nbsp;refs<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="BinOp-__init__"><strong>__init__</strong></a>(self, ref1, ref2, func<font color="#909090">=&lt;function binadd&gt;</font>)</dt></dl>
+
+<dl><dt><a name="BinOp-get"><strong>get</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.transforms.html#RRef">RRef</a>:<br>
+<dl><dt><a name="BinOp-__add__"><strong>__add__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="BinOp-__mul__"><strong>__mul__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="BinOp-__sub__"><strong>__sub__</strong></a>(self, other)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Bound1D">class <strong>Bound1D</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Store&nbsp;and&nbsp;update&nbsp;information&nbsp;about&nbsp;a&nbsp;1D&nbsp;bound<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Bound1D-__init__"><strong>__init__</strong></a>(self, minval<font color="#909090">=None</font>, maxval<font color="#909090">=None</font>, isPos<font color="#909090">=False</font>)</dt></dl>
+
+<dl><dt><a name="Bound1D-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Bound1D-bounds"><strong>bounds</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;min,&nbsp;max&nbsp;of&nbsp;the&nbsp;bounds</tt></dd></dl>
+
+<dl><dt><a name="Bound1D-defined"><strong>defined</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;both&nbsp;endpoints&nbsp;defined</tt></dd></dl>
+
+<dl><dt><a name="Bound1D-get_refmax"><strong>get_refmax</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Bound1D-get_refmin"><strong>get_refmin</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Bound1D-in_interval"><strong>in_interval</strong></a>(self, val)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;val&nbsp;is&nbsp;in&nbsp;[min,max]</tt></dd></dl>
+
+<dl><dt><a name="Bound1D-in_open_interval"><strong>in_open_interval</strong></a>(self, val)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;val&nbsp;is&nbsp;in&nbsp;(min,max)</tt></dd></dl>
+
+<dl><dt><a name="Bound1D-interval"><strong>interval</strong></a>(self)</dt><dd><tt>return&nbsp;max&nbsp;-&nbsp;min&nbsp;if&nbsp;defined,&nbsp;else&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="Bound1D-is_positive"><strong>is_positive</strong></a>(self, b)</dt><dd><tt>If&nbsp;true,&nbsp;bound&nbsp;will&nbsp;only&nbsp;return&nbsp;positive&nbsp;endpoints.</tt></dd></dl>
+
+<dl><dt><a name="Bound1D-max"><strong>max</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;max&nbsp;of&nbsp;the&nbsp;bounds</tt></dd></dl>
+
+<dl><dt><a name="Bound1D-min"><strong>min</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;min&nbsp;of&nbsp;the&nbsp;bounds</tt></dd></dl>
+
+<dl><dt><a name="Bound1D-overlap"><strong>overlap</strong></a>(self, bound)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;bound&nbsp;overlaps&nbsp;with&nbsp;self.<br>
+&nbsp;<br>
+Return&nbsp;False&nbsp;if&nbsp;either&nbsp;bound&nbsp;undefined</tt></dd></dl>
+
+<dl><dt><a name="Bound1D-scale"><strong>scale</strong></a>(self, s)</dt><dd><tt>scale&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;by&nbsp;ratio&nbsp;s&nbsp;and&nbsp;return&nbsp;a&nbsp;reference&nbsp;to&nbsp;self</tt></dd></dl>
+
+<dl><dt><a name="Bound1D-set_bounds"><strong>set_bounds</strong></a>(self, vmin, vmax)</dt><dd><tt>set&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;to&nbsp;vmin,&nbsp;vmax</tt></dd></dl>
+
+<dl><dt><a name="Bound1D-set_max"><strong>set_max</strong></a>(self, vmax)</dt><dd><tt>set&nbsp;the&nbsp;max&nbsp;to&nbsp;vmax</tt></dd></dl>
+
+<dl><dt><a name="Bound1D-set_min"><strong>set_min</strong></a>(self, vmin)</dt></dl>
+
+<dl><dt><a name="Bound1D-shift"><strong>shift</strong></a>(self, val)</dt><dd><tt>Shift&nbsp;min&nbsp;and&nbsp;max&nbsp;by&nbsp;val&nbsp;and&nbsp;return&nbsp;a&nbsp;reference&nbsp;to&nbsp;self</tt></dd></dl>
+
+<dl><dt><a name="Bound1D-update"><strong>update</strong></a>(self, x)</dt><dd><tt>Update&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;with&nbsp;values&nbsp;in&nbsp;x.&nbsp;&nbsp;Eg,&nbsp;only&nbsp;update&nbsp;min<br>
+if&nbsp;<a href="#Bound1D-min">min</a>(x)&lt;<a href="#Bound1D-min">min</a>().&nbsp;&nbsp;Return&nbsp;a&nbsp;reference&nbsp;to&nbsp;self</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Bound2D">class <strong>Bound2D</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Store&nbsp;and&nbsp;update&nbsp;2D&nbsp;bounding&nbsp;box&nbsp;information<br>
+&nbsp;<br>
+Publicly&nbsp;accessible&nbsp;attributes<br>
+&nbsp;<br>
+&nbsp;x&nbsp;the&nbsp;x&nbsp;<a href="#Bound1D">Bound1D</a>&nbsp;instance<br>
+&nbsp;y&nbsp;the&nbsp;y&nbsp;<a href="#Bound2D">Bound2D</a>&nbsp;instance<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Bound2D-__init__"><strong>__init__</strong></a>(self, left, bottom, width, height)</dt></dl>
+
+<dl><dt><a name="Bound2D-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Bound2D-copy"><strong>copy</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;deep&nbsp;copy&nbsp;of&nbsp;self</tt></dd></dl>
+
+<dl><dt><a name="Bound2D-defined"><strong>defined</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Bound2D-get_bounds"><strong>get_bounds</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Bound2D-overlap"><strong>overlap</strong></a>(self, bound)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;bound&nbsp;overlaps&nbsp;with&nbsp;self.<br>
+&nbsp;<br>
+Return&nbsp;False&nbsp;if&nbsp;either&nbsp;bound&nbsp;undefined</tt></dd></dl>
+
+<dl><dt><a name="Bound2D-set_bounds"><strong>set_bounds</strong></a>(self, left, bottom, width, height)</dt><dd><tt>Reset&nbsp;the&nbsp;bounds</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Centimeter">class <strong>Centimeter</strong></a>(<a href="matplotlib.transforms.html#Size">Size</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Centimeter-to_inches"><strong>to_inches</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Centimeter-units"><strong>units</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.transforms.html#Size">Size</a>:<br>
+<dl><dt><a name="Centimeter-__init__"><strong>__init__</strong></a>(self, dpi, val<font color="#909090">=1</font>)</dt></dl>
+
+<dl><dt><a name="Centimeter-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Centimeter-get"><strong>get</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Centimeter-set_val"><strong>set_val</strong></a>(self, val)</dt></dl>
+
+<dl><dt><a name="Centimeter-to_dots"><strong>to_dots</strong></a>(self)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Dots">class <strong>Dots</strong></a>(<a href="matplotlib.transforms.html#Size">Size</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Dots-to_dots"><strong>to_dots</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Dots-to_inches"><strong>to_inches</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Dots-units"><strong>units</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.transforms.html#Size">Size</a>:<br>
+<dl><dt><a name="Dots-__init__"><strong>__init__</strong></a>(self, dpi, val<font color="#909090">=1</font>)</dt></dl>
+
+<dl><dt><a name="Dots-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Dots-get"><strong>get</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Dots-set_val"><strong>set_val</strong></a>(self, val)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Inches">class <strong>Inches</strong></a>(<a href="matplotlib.transforms.html#Size">Size</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Inches-to_inches"><strong>to_inches</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Inches-units"><strong>units</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.transforms.html#Size">Size</a>:<br>
+<dl><dt><a name="Inches-__init__"><strong>__init__</strong></a>(self, dpi, val<font color="#909090">=1</font>)</dt></dl>
+
+<dl><dt><a name="Inches-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Inches-get"><strong>get</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Inches-set_val"><strong>set_val</strong></a>(self, val)</dt></dl>
+
+<dl><dt><a name="Inches-to_dots"><strong>to_dots</strong></a>(self)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Millimeter">class <strong>Millimeter</strong></a>(<a href="matplotlib.transforms.html#Size">Size</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Millimeter-to_inches"><strong>to_inches</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Millimeter-units"><strong>units</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.transforms.html#Size">Size</a>:<br>
+<dl><dt><a name="Millimeter-__init__"><strong>__init__</strong></a>(self, dpi, val<font color="#909090">=1</font>)</dt></dl>
+
+<dl><dt><a name="Millimeter-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Millimeter-get"><strong>get</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Millimeter-set_val"><strong>set_val</strong></a>(self, val)</dt></dl>
+
+<dl><dt><a name="Millimeter-to_dots"><strong>to_dots</strong></a>(self)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Points">class <strong>Points</strong></a>(<a href="matplotlib.transforms.html#Size">Size</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Points-to_inches"><strong>to_inches</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Points-units"><strong>units</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.transforms.html#Size">Size</a>:<br>
+<dl><dt><a name="Points-__init__"><strong>__init__</strong></a>(self, dpi, val<font color="#909090">=1</font>)</dt></dl>
+
+<dl><dt><a name="Points-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Points-get"><strong>get</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Points-set_val"><strong>set_val</strong></a>(self, val)</dt></dl>
+
+<dl><dt><a name="Points-to_dots"><strong>to_dots</strong></a>(self)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RRef">class <strong>RRef</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;read&nbsp;only&nbsp;ref<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="RRef-__add__"><strong>__add__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="RRef-__init__"><strong>__init__</strong></a>(self, val)</dt></dl>
+
+<dl><dt><a name="RRef-__mul__"><strong>__mul__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="RRef-__sub__"><strong>__sub__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="RRef-get"><strong>get</strong></a>(self)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RWRef">class <strong>RWRef</strong></a>(<a href="matplotlib.transforms.html#RRef">RRef</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;readable&nbsp;and&nbsp;writable&nbsp;ref<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="RWRef-set"><strong>set</strong></a>(self, val)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.transforms.html#RRef">RRef</a>:<br>
+<dl><dt><a name="RWRef-__add__"><strong>__add__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="RWRef-__init__"><strong>__init__</strong></a>(self, val)</dt></dl>
+
+<dl><dt><a name="RWRef-__mul__"><strong>__mul__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="RWRef-__sub__"><strong>__sub__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="RWRef-get"><strong>get</strong></a>(self)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Size">class <strong>Size</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Size-__init__"><strong>__init__</strong></a>(self, dpi, val<font color="#909090">=1</font>)</dt></dl>
+
+<dl><dt><a name="Size-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Size-get"><strong>get</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Size-set_val"><strong>set_val</strong></a>(self, val)</dt></dl>
+
+<dl><dt><a name="Size-to_dots"><strong>to_dots</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Size-to_inches"><strong>to_inches</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Size-units"><strong>units</strong></a>(self)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Transform">class <strong>Transform</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Abstract&nbsp;base&nbsp;class&nbsp;for&nbsp;transforming&nbsp;data<br>
+&nbsp;<br>
+Publicly&nbsp;accessible&nbsp;attributes&nbsp;are<br>
+&nbsp;&nbsp;func&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;transform&nbsp;func<br>
+&nbsp;&nbsp;ifunc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;inverse&nbsp;tranform&nbsp;func<br>
+&nbsp;<br>
+A&nbsp;tranform&nbsp;from&nbsp;in-&gt;out&nbsp;is&nbsp;defined&nbsp;by<br>
+&nbsp;<br>
+scale&nbsp;=&nbsp;(maxout-maxin)/(&nbsp;func(maxin)-func(minin)&nbsp;)<br>
+out&nbsp;=&nbsp;&nbsp;scale&nbsp;*&nbsp;(&nbsp;func(in)-func(minin)&nbsp;)&nbsp;+&nbsp;minout<br>
+&nbsp;<br>
+funcs&nbsp;are&nbsp;paired&nbsp;with&nbsp;inverses,&nbsp;allowing&nbsp;Transforms&nbsp;to&nbsp;return<br>
+their&nbsp;inverse<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Transform-__init__"><strong>__init__</strong></a>(self, boundin<font color="#909090">=Bound1D: 0 1</font>, boundout<font color="#909090">=Bound1D: 0 1</font>, funcs<font color="#909090">=(&lt;function identity&gt;, &lt;function identity&gt;)</font>)</dt><dd><tt>The&nbsp;default&nbsp;transform&nbsp;is&nbsp;identity.<br>
+&nbsp;<br>
+To&nbsp;do&nbsp;a&nbsp;linear&nbsp;transform,&nbsp;replace&nbsp;the&nbsp;bounds&nbsp;with&nbsp;the<br>
+coodinate&nbsp;bounds&nbsp;of&nbsp;the&nbsp;input&nbsp;and&nbsp;output&nbsp;spaces<br>
+&nbsp;<br>
+To&nbsp;do&nbsp;a&nbsp;log&nbsp;transform,&nbsp;use&nbsp;funcs=(log10,&nbsp;pow10)</tt></dd></dl>
+
+<dl><dt><a name="Transform-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Transform-inverse_positions"><strong>inverse_positions</strong></a>(self, x)</dt><dd><tt>Return&nbsp;the&nbsp;inverse&nbsp;transform&nbsp;of&nbsp;x</tt></dd></dl>
+
+<dl><dt><a name="Transform-inverse_scale"><strong>inverse_scale</strong></a>(self, x)</dt><dd><tt>Return&nbsp;the&nbsp;inverse&nbsp;transform&nbsp;of&nbsp;scale&nbsp;x</tt></dd></dl>
+
+<dl><dt><a name="Transform-positions"><strong>positions</strong></a>(self, x)</dt><dd><tt><a href="#Transform">Transform</a>&nbsp;the&nbsp;positions&nbsp;in&nbsp;x.</tt></dd></dl>
+
+<dl><dt><a name="Transform-scale"><strong>scale</strong></a>(self, s)</dt><dd><tt><a href="#Transform">Transform</a>&nbsp;the&nbsp;scale&nbsp;in&nbsp;s</tt></dd></dl>
+
+<dl><dt><a name="Transform-set_funcs"><strong>set_funcs</strong></a>(self, funcs)</dt><dd><tt>Set&nbsp;the&nbsp;func,&nbsp;ifunc&nbsp;to&nbsp;funcs</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TransformSize">class <strong>TransformSize</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="TransformSize-__init__"><strong>__init__</strong></a>(self, sin, sout, offset, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>transform&nbsp;size&nbsp;in&nbsp;<a href="#Size">Size</a>&nbsp;instance&nbsp;sin&nbsp;to&nbsp;<a href="#Size">Size</a>&nbsp;instance&nbsp;sout,<br>
+offsetting&nbsp;by&nbsp;<a href="#Bound1D">Bound1D</a>&nbsp;instance&nbsp;<a href="#RRef">RRef</a>&nbsp;instance&nbsp;offset.<br>
+transOffset&nbsp;is&nbsp;used&nbsp;to&nbsp;transform&nbsp;the&nbsp;offset&nbsp;if&nbsp;not&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="TransformSize-inverse_positions"><strong>inverse_positions</strong></a>(self, x)</dt></dl>
+
+<dl><dt><a name="TransformSize-inverse_scale"><strong>inverse_scale</strong></a>(self, x)</dt></dl>
+
+<dl><dt><a name="TransformSize-positions"><strong>positions</strong></a>(self, x)</dt></dl>
+
+<dl><dt><a name="TransformSize-scale"><strong>scale</strong></a>(self, x)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
+&nbsp;<br>
+&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
+specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
+ <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
+ <dl><dt><a name="-binadd"><strong>binadd</strong></a>(x, y)</dt></dl>
+ <dl><dt><a name="-binsub"><strong>binsub</strong></a>(x, y)</dt></dl>
+ <dl><dt><a name="-bintimes"><strong>bintimes</strong></a>(x, y)</dt></dl>
+ <dl><dt><a name="-bound1d_all"><strong>bound1d_all</strong></a>(bounds)</dt><dd><tt>Return&nbsp;a&nbsp;<a href="#Bound1D">Bound1D</a>&nbsp;instance&nbsp;that&nbsp;bounds&nbsp;all&nbsp;the&nbsp;<a href="#Bound1D">Bound1D</a>&nbsp;instances&nbsp;in<br>
+sequence&nbsp;bounds.<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;min&nbsp;or&nbsp;max&nbsp;val&nbsp;for&nbsp;any&nbsp;of&nbsp;the&nbsp;bounds&nbsp;is&nbsp;None,&nbsp;the<br>
+respective&nbsp;value&nbsp;for&nbsp;the&nbsp;returned&nbsp;bbox&nbsp;will&nbsp;also&nbsp;be&nbsp;None</tt></dd></dl>
+ <dl><dt><a name="-bound2d_all"><strong>bound2d_all</strong></a>(bounds)</dt><dd><tt>Return&nbsp;a&nbsp;<a href="#Bound2D">Bound2D</a>&nbsp;instance&nbsp;that&nbsp;bounds&nbsp;all&nbsp;the&nbsp;<a href="#Bound2D">Bound2D</a>&nbsp;instances&nbsp;in<br>
+sequence&nbsp;bounds.<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;min&nbsp;or&nbsp;max&nbsp;val&nbsp;for&nbsp;any&nbsp;of&nbsp;the&nbsp;bounds&nbsp;is&nbsp;None,&nbsp;the<br>
+respective&nbsp;value&nbsp;for&nbsp;the&nbsp;returned&nbsp;bbox&nbsp;will&nbsp;also&nbsp;be&nbsp;None</tt></dd></dl>
+ <dl><dt><a name="-identity"><strong>identity</strong></a>(x)</dt><dd><tt>The&nbsp;identity&nbsp;function</tt></dd></dl>
+ <dl><dt><a name="-inverse_transform_bound1d"><strong>inverse_transform_bound1d</strong></a>(bound, trans)</dt><dd><tt>Inverse&nbsp;transform&nbsp;a&nbsp;<a href="#Bound1D">Bound1D</a>&nbsp;instance&nbsp;using&nbsp;trans.inverse()</tt></dd></dl>
+ <dl><dt><a name="-inverse_transform_bound2d"><strong>inverse_transform_bound2d</strong></a>(bbox, transx, transy)</dt><dd><tt>Inverse&nbsp;transform&nbsp;a&nbsp;<a href="#Bound2D">Bound2D</a>&nbsp;instance&nbsp;using&nbsp;transforms&nbsp;transx,&nbsp;transy</tt></dd></dl>
+ <dl><dt><a name="-iterable_to_array"><strong>iterable_to_array</strong></a>(x)</dt></dl>
+ <dl><dt><a name="-logwarn"><strong>logwarn</strong></a>(x)</dt><dd><tt>Return&nbsp;log10&nbsp;for&nbsp;positive&nbsp;x</tt></dd></dl>
+ <dl><dt><a name="-pow10"><strong>pow10</strong></a>(x)</dt><dd><tt>the&nbsp;inverse&nbsp;of&nbsp;log10;&nbsp;10**x</tt></dd></dl>
+ <dl><dt><a name="-take"><strong>take</strong></a>(...)</dt><dd><tt><a href="#-take">take</a>(a,&nbsp;indices,&nbsp;axis=0).&nbsp;&nbsp;Selects&nbsp;the&nbsp;elements&nbsp;in&nbsp;indices&nbsp;from&nbsp;array&nbsp;a&nbsp;along&nbsp;the&nbsp;given&nbsp;axis.</tt></dd></dl>
+ <dl><dt><a name="-transform_bound1d"><strong>transform_bound1d</strong></a>(bound, trans)</dt><dd><tt><a href="#Transform">Transform</a>&nbsp;a&nbsp;<a href="#Bound1D">Bound1D</a>&nbsp;instance&nbsp;using&nbsp;transforms&nbsp;trans</tt></dd></dl>
+ <dl><dt><a name="-transform_bound2d"><strong>transform_bound2d</strong></a>(bbox, transx, transy)</dt><dd><tt><a href="#Transform">Transform</a>&nbsp;a&nbsp;<a href="#Bound2D">Bound2D</a>&nbsp;instance&nbsp;using&nbsp;transforms&nbsp;transx,&nbsp;transy</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>log10</strong> = &lt;ufunc 'log10'&gt;</td></tr></table>
+@footer@

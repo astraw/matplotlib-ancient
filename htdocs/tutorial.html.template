@@ -1,0 +1,416 @@
+plot_table_border = 'border=1 cellspacing=1 cellpadding=1'
+
+font_props = (
+    ('fontweight', 'normal | bold | heavy | light | normal | ultrabold | ultralight'),
+    ('fontangle', 'italic | normal | oblique'),
+    ('verticalalignment', 'bottom | center | top'),
+    ('horizontalalignment', 'left | center | right'),
+    ('fontname', 'Sans | Helvetica | Courier | Others'),
+    ('fontsize', 'an scalar, eg, 10'),
+    ('rotation', 'horizontal | vertical'),
+)
+
+ 
+@header@
+<h2>Using matplotlib</h2>
+Using matplotlib should come naturally if you have ever plotted with
+matlab.  The basic entity is a figure, which contains axes, which
+contain plots.  The axes are decorated with xlabels, ylabels, titles,
+ticklabels, and text.<p>
+
+
+matplotlib can be used either as a <a href=classdocs.html>class
+library</a>, in or in batch or <a
+href=interactive.html>interactive</a> mode with the <a
+href=matlab_commands.html>matlab compatibility interface</a>.  In
+interactive mode, you can create plots and manipulate them from the
+python shell.  However, because this requires some additional work to
+get a python interpreter working interactivly with a GUI toolkit (see
+<a href=interactive.html>interactive</a>), this tutorial will
+concentrate on using matplotlib in batch mode, where all the commands
+reside in a python script that creates the figure.<p>
+
+Here is about the simplest script you can use to create a figure with
+matplotlib<p>
+
+<table @plot_table_border@><tr><td>
+<table>
+    <caption><h4>A simple plot</h4></caption>
+    <tr><td valign=top><img src=tut/firstfig.png></td></tr>
+    <tr><td valign=top halign=left>
+<pre>
+from matplotlib.matlab import *
+plot([1,2,3,4])
+show()
+        </pre>
+    </td></tr>
+</table>
+</td></tr>
+</table><br>
+
+<a href=matplotlib.matlab.html#-plot>plot</a> is a versatile command, and will
+take an arbitrary number of arguments.  For example, to plot x versus
+y, you can issue the command<p>
+
+<pre>
+plot([1,2,3,4], [1,4,9,16])
+</pre>
+
+For every x, y pair of arguments, there is a optional third argument
+which is the format string that indicates the color and line type of
+the plot.  The letters and symbols of the format string are from
+matlab, and you concatenate a color string with a line style string.
+The default format string is 'b-', which is a solid blue line (don't
+ask me, talk to <a href=http://www.mathworks.com/products/matlab>The
+Mathworks</a>).  For example, to plot the above with red circles, you
+would issue<p>
+
+<table @plot_table_border@><tr><td>
+<table>
+    <caption><h4>Using format strings</h4></caption>
+    <tr><td valign=top><img src=tut/secondfig.png></td></tr>
+    <tr><td valign=top halign=left>
+<pre>
+from matplotlib.matlab import *
+plot([1,2,3,4], [1,4,9,16], 'ro')
+axis([0, 6, 0, 20])
+savefig('secondfig.png')
+show()
+</pre>
+    </td></tr>
+</table>
+</td></tr></table><br>
+
+See the <a href=matplotlib.matlab.html#-plot>plot</a> documentation for a
+complete list of line styles and format strings.  The <a
+href=matplotlib.matlab.html#-axis>axis</a> command in the example above takes a
+list of <tt>[xmin, xmax, ymin, ymax]</tt> and specifies the view port
+of the axes.<p>
+
+If matplotlib were limited to working with lists, it would be fairly
+useless for numeric processing.  Generally, you will use <a
+href=http://www.pfdubois.com/numpy>Numeric</a> arrays.  In fact, all
+sequences are converted to Numeric arrays internally.  The example
+below illustrates a plotting several lines with different format
+styles in one command using Numeric arrays.<p>
+
+<table @plot_table_border@><tr><td>
+<table>
+    <caption><h4>Multiple lines with one plot command</h4></caption>
+    <tr><td valign=top><img src=tut/thirdfig.png></td></tr>
+    <tr><td valign=top halign=left>
+<pre>
+from matplotlib.matlab import *
+t = arange(0.0, 5.2, 0.2)
+
+# red dashes, blue squares and green triangles
+plot(t, t, 'r--', t, t**2, 'bs', t, t**3, 'g^')
+show()
+</pre>
+    </td></tr>
+</table>
+</td></tr></table><br>
+
+<a name=figs_and_axes>
+<h3>Working with multiple figure and axes</h3>
+</a>
+
+Matlab, and matplotlib.matlab, have the concept of the current figure
+and the current axes.  All plot and text label commands apply to the
+current axes.  The function <a
+href=matplotlib.matlab.html#-gca>gca</a> returns the current axes as
+an <a href=matplotlib.axes.html#Axes>Axes</a> instance, and <a
+href=matplotlib.matlab.html#-gcf>gcf</a> returns the current figure as
+a <a href=matplotlib.backend_bases.html#FigureBase>Figure</a>
+instance.<p>
+
+Normally, you don't have to worry about this, because it is all taken
+care of behind the scenes.  Here is an script to create two subplots<p>
+
+<table @plot_table_border@><tr><td>
+<table>
+    <caption><h4>Multiple subplots</h4></caption>
+    <tr><td valign=top><img src=tut/subplot.png></td></tr>
+    <tr><td valign=top halign=left>
+<pre>
+from matplotlib.matlab import *
+
+def f(t):
+    s1 = cos(2*pi*t)
+    e1 = exp(-t)
+    return multiply(s1,e1)
+
+t1 = arange(0.0, 5.0, 0.1)
+t2 = arange(0.0, 5.0, 0.02)
+
+figure(1)
+subplot(211)
+plot(t1, f(t1), 'bo', t2, f(t2), 'k')
+
+subplot(212)
+plot(t2, cos(2*pi*t2), 'r--')
+show()
+</pre>
+    </td></tr>
+</table>
+</td></tr></table><br>
+
+The <a href=matplotlib.matlab.html#-figure>figure</a> command here is optional
+because 'figure(1)' will be created by default, just as a
+<tt>subplot(111)</tt> will be created by default if you don't manually
+specify an axes.  The <a href=matplotlib.matlab.html#-subplot>subplot</a> command
+specifies <tt>numrows, numcols, fignum</tt> where <tt>fignum</tt>
+ranges from 1 to <tt>numrows*numcols</tt>.  The commas in the subplot
+command are optional if <tt>numrows*numcols<10</tt>.  So
+<tt>subplot(211)</tt> is identical to<tt>subplot(2,1,1)</tt>.  You can
+create an arbitrary number of subplots and axes.  If you want to place
+an axes manually, ie, not on a rectangular grid, use the <a
+href=matplotlib.matlab.html#-axes>axes</a> command, which allows you to specify
+the location as <tt>axes([left, bottom, width, height])</tt> where all
+values are in fractional (0 to 1) coordinates.  See <a
+href=examples/axes_demo.py>axes_demo.py</a> for an example of placing
+axes manually and <a href=examples/line_styles.py>line_styles.py</a> for an example with
+lots-o-subplots.<p>
+
+
+You can create multiple figures by using multiple <a
+href=matplotlib.matlab.html#-figure>figure</a> calls with an
+increasing figure number.  Of course, each figure can contain as many
+axes and subplots as your heart desires.<p>
+
+<pre>
+from matplotlib.matlab import *
+
+figure(1)                # the first figure window
+plot([1,2,3]) 
+figure(2)                # a second figure window
+plot([4,5,6])
+
+figure(1)                # figure 1 is again the current figure
+title('Easy as 1,2,3')   # figure 1 title
+show()
+</pre>
+
+
+<a name="text">
+<h3>Working with text</h3>
+</a>
+
+All of the text commands (<a
+href=matplotlib.matlab.html#-xlabel>xlabel</a>, <a
+href=matplotlib.matlab.html#-ylabel>ylabel</a>, <a
+href=matplotlib.matlab.html#-title>title</a>, and <a
+href=matplotlib.matlab.html#-text>text</a>) take optional keyword arguments or
+dictionaries to specify the font properties.  There are three ways to
+specify font properties in matplotlib: handle graphics calls using <a
+href=matplotlib.matlab.html#-set>set</a>, object oriented methods, and font
+dictionaries.<p>
+
+The text commands return an <a
+href=matplotlib.backend_bases.html#AxisTextBase>AxisText</a> instance
+(or a list of instances if multiple text objects are created), and the
+following font properties can be set; these names are compatible with
+matlab handle graphics for text<p>
+
+<table @default_table@>
+    <tr><th >Property</th> <th>Values</th></tr>
+    + for prop,values in font_props:
+      <tr><td align=left>@prop@</td> <td align=left>@values@</td></tr>
+    -
+</table><br>
+
+Here is an example adding text to a simple plot<p>
+
+<table @plot_table_border@><tr><td>
+<table>
+    <caption><h4>Simple text handling</h4></caption>
+    <tr><td valign=top><img src=tut/text_simple.png></td></tr>
+    <tr><td valign=top halign=left>
+<pre>
+from matplotlib.matlab import *
+plot([1,2,3])
+xlabel('time')
+ylabel('volts')
+title('A line')
+show()
+</pre>
+    </td></tr>
+</table>
+</td></tr>
+</table><br>
+
+
+<h4>Controlling text properties with handle graphics</h4>
+
+If you want to change a text property, and you like to use matlab
+handle graphics, you can use the <a
+href=matplotlib.matlab.html#-set>set</a> command to set any of the
+properties listed in the table above.  For example, to make a red bold
+<a href=matplotlib.matlab.html#-xlabel>xlabel</a>, you would use<p>
+
+<pre>
+t = xlabel('time')
+set(t, 'color', 'r')
+set(t, 'fontweight', 'bold')
+</pre>
+
+<h4>Controlling text using object methods</h4>
+
+The <a href=matplotlib.matlab.html#-set>set</a> command is just a wrapper around
+the AxisText set methods.  If you prefer using instance methods, you
+just prepend <tt>set_</tt> to the text property and make a normal
+python instance method call, as in<p>
+
+<pre>
+t = xlabel('time')
+t.set_color('r')
+t.set_fontweight('bold')
+</pre>
+
+<h4>Controlling text using kwargs and dicts</h4>
+
+All of the text commands take an optional dictionary and keyword
+arguments to control font properties.  For example, if you want to set
+a default font theme, and override individual properties for given
+text commands, you could do something like<p>
+
+
+<table @plot_table_border@><tr><td>
+<table>
+    <caption><h4>Controlling fonts using dictionaries</h4></caption>
+    <tr><td valign=top><img src=tut/text_dict.png></td></tr>
+    <tr><td valign=top halign=left>
+<pre>
+from matplotlib.matlab import *
+font = {'fontname'   : 'Courier',
+        'color'      : 'r',
+        'fontweight' : 'bold',
+        'fontsize'   : 11}
+
+plot([1,2,3])
+title('A title', font, fontsize=12)
+text(0.5, 2.5, 'a line', font, color='k')
+xlabel('time (s)', font)
+ylabel('voltage (mV)', font)
+show()
+</pre>
+    </td></tr>
+</table>
+</td></tr></table><br>
+
+Now, all of the text has the default theme, which is set by the
+dictionary <tt>font</tt> (bold, Courier, red, 11 point), but
+individual pieces of text can selectively override properties by
+passing keyword arguments.  For example the <a
+href=matplotlib.matlab.html#-text>text</a> command uses color black
+with the color string 'k'.<p>
+
+<a name="navigation">
+<h3>Interactive navigation</h3>
+</a>
+
+All figure windows come with a navigation toolbar, which can be used
+to navigate through the data set.  You can pan and zoom on the X and Y
+axis for any combination of the axes that are plotted.  If you have a
+wheel mouse, you can move bidirectionally by scrolling the wheel over
+the controls.  For examples, the wheel mouse can be used to pan left
+or right by scrolling over <i>either</i> of the left arrow or right
+arrow buttons, so you never have to move the mouse to pan the x-axis
+left and right.  If you don't have a wheel mouse, buy one!<p>
+
+<table> <tr><td><img src=tut/navcontrols.png></td></tr> <tr><td
+width=400> <i>The left widget that says 'All' on the controls on the
+bottom of the figure is a drop down menu used to select which axes the
+controls affect.  You can select all, none, single, or combinations of
+axes.  The first set of 4 controls are used to pan left, pan right,
+zoom in and zoom out on the x axes.  The second set are used to pan
+up, pan down, zoom in and zoom out on the y axes.  The remaining
+buttons are used to redraw the figure, save (PNG or JPEG) the figure,
+or to close the figure window.</i> </td></tr> </table><br>
+
+matplotlib uses Numeric to clip (very fast) the data before they are
+plotted to the active viewport, so you can have a very large data set,
+plot the whole thing, set the view limits to a narrow range, and
+interactively scroll through the data with good interactive refersh
+rates.  I wrote an EEG viewer (see the screenshot) in matplotlib and
+routinely plot 25 MB data sets in matplotlib with good performance on
+a 800 MHz PC.  See the <a
+href=examples/stock_demo.py>stock_demo.py</a> that comes with the
+matplotlib src for an example of a longish data set with a limited
+data view -- only the first 3 of 60 days worth of minute by minute
+stock quotes for Intel and Apple are initially shown in the view
+port.<p>
+
+
+
+<a name="axes_prop">
+<h3>Controlling axes properties</h3>
+</a>
+
+The <a href=matplotlib.matlab.html#-axes>axes</a> and <a
+href=matplotlib.matlab.html#-subplot>subplot</a> commands return the
+Axes instance that is created, and you can use that to control
+properties of the axis, such as ticklines, ticklabels, gridlines, etc,
+using the set method calls from the <a href=figure.html#Axis>Axis</a>
+API.  Or if you prefer matlab handle graphics commands, you can use
+the <a href=matplotlib.matlab.html#-set>set</a> to control axis
+properties.<p>
+
+One thing that comes up a lot in my plots when I have multiple
+subplots is that I often want to turn off the xticklabels on all
+except the lowest subplot, if the scaling is the same.  Here's how to
+do it with handle graphics; recall that <a
+href=matplotlib.matlab.html#-gca>gca</a> returns a handle to the
+current axis<p>
+
+<pre>
+subplot(211)
+plot([1,2,3], [1,2,3])
+set(gca(), 'xticklabels', [])
+
+subplot(212)
+plot([1,2,3], [1,4,9])
+</pre>
+
+and the same with instance methods
+
+<pre>
+a1 = subplot(211)
+plot([1,2,3], [1,2,3])
+a1.set_xticklabels([])
+
+subplot(212)
+plot([1,2,3], [1,4,9])
+</pre>
+
+
+<a name="interactive">
+<h3>Using the interactive shell</h3>
+</a>
+
+The interactive shell <a
+href=examples/interactive2.py>interactive2.py</a> in the src
+distribution automatically imports all the symbols matplotlib.matlab,
+which include those from from Numeric, MLab, and matplotlib.mlab, so
+you can start plotting right out of the starting gate<p>
+
+<pre>
+examples> ./interactive2.py
+Welcome to matplotlib.
+
+    help(matlab)   -- shows a list of all matlab compatible commands provided
+    help(plotting) -- shows a list of plot specific commands
+
+>> plot([1,2,3])
+</pre>
+
+As described <a href=tutorial.html#figs_and_axes>above</a> in working
+with multiple figures and axes, you can create an arbitrary number of
+figures and use the <a href=matplotlib.matlab.html#-figure>figure</a>
+command to switch back and forth between them.<p>
+
+
+
+@footer@
+
+

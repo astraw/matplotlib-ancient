@@ -1,0 +1,154 @@
+td_done = 'bgcolor=#bfbfbf align="left"'
+td_partial = 'bgcolor=#eeefff align="left"'
+td_remaining = 'bgcolor=#efefef align="left"'
+
+
+@header@
+<h2>Goals for matplotlib</h2>
+
+Here is a growing list, and status updates, of things that I think
+need to be done to achieve a useful, publication quality 2D plotting
+library.  If you have any suggestions, additions or comments,
+email me @myemail@ or the mailing list.<p>
+
+<br>
+<table border=2 cellpadding=2 cellspacing=0>
+
+<tr >
+  <th width=50%>
+	Goals
+  </th>
+  <th width=50%>
+	Status
+  </th>
+</tr>
+
+
+<tr>
+    <td>
+	Allow arbitrary location, size and number of axes
+    </td>
+
+    <td @td_done@>
+
+	Done. Use <a href=matplotlib.matlab.html#-subplot>subplot</a> for making
+	regular grids of axes and <a href=matplotlib.matlab.html#-axes>axes</a>
+	for custom placment
+
+    </td>
+</tr>
+
+<tr>
+    <td>
+	Allow full control of axes lines, tick lines, and grid lines.
+        Eg, location, color, line style, line width, etc, should be
+        under full control
+    </td>
+
+    <td @td_done@>
+
+	Almost done.  You can specify the linewidth and color of the
+	tick lines, axis lines and grid lines.  You now have full
+	control of the line attributes for the axes lines.  
+    </td>
+</tr>
+
+<tr> <td> Support arbitrary location, rotation and fonts for axis text
+   </td> <td @td_partial@> Partially done.  This is backend dependent.
+   The GD and PS backends support arbitrary rotations.  The GTK
+   backend still only supports 'horizontal' and 'vertical'.  Full font
+   support (font family, font angle, font weight, font size) is
+   available for all backends; see <a href=fonts.html>fonts</a>.</td>
+
+</tr>
+    <td>
+       Plot legends
+    </td>
+
+    <td @td_done@>
+	Done, matlab compatible legends added in CVS after 0.29.  See
+	<a href=examples/legend_demo.py>legend_demo.py</a> and the <a
+	href=matplotlib.matlab.html#-legend>legend</a> command.
+    </td>
+
+</tr>
+
+
+<tr>
+    <td>
+      Allow high resolution printing to a variety of output formats
+    </td>
+
+    <td @td_done@> As of version 0.29, matplotlib now supports
+      multiple backend renders, including GTK, GD and postscript with
+      arbitrary resolutions-- see <a href="backends.html">output
+      devices</a> </td> </tr>
+
+<tr> <td> Allow interactive control of plot </td>
+
+    <td @td_partial@> An improved interactive command line environment
+        is provided interactive2.py, which allows you to use
+        matplotlib interactively from the prompt, though there are
+        still some problems with this interpreter in the way it
+        handles cutting and pasting of text directly into the
+        interpreter.  Also, it would be nicer if there were a way to
+        do this w/o forcing users to use a custom interpreter, but I
+        don't see how to right now.  See also interactive.py.</td>
+        </tr>
+
+<tr>
+
+    <td>
+      Support a richer char set for labeling, eg greek letters, as
+      well as sub and superscripts
+    </td>
+
+    <td @td_remaining@>
+      No progress here yet.  It would be nice to support a large
+      subset of LaTeX commands, as matlab does.
+    </td>
+</tr>
+
+<tr>
+    <td>
+      Support log scaling	
+    </td>
+
+    <td @td_done@> Added as of matplotlib-0.30.  See <a
+	href=matplotlib.matlab.html#-semilogx>semilogx</a>, <a
+	href=matplotlib.matlab.html#-semilogy>semilogy</a>, and <a
+	href=matplotlib.matlab.html#-loglog>loglog</a>, and demo <a
+	href=examples/log_demo.py>log_demo.py</a> </td> </tr>
+
+
+<tr>
+    <td>
+	Add more patch commands, like pcolor
+    </td>
+
+    <td @td_partial@> <a
+	href=matplotlib.matlab.html#-pcolor>pcolor</a> added.  See<a
+	href=screenshots.html#pcolor_demo>pcolor_demo</a> and <a
+	href=screenshots.html#mri_with_eeg>mri_with_eeg</a> for
+	screenshots and <a
+	href=examples/pcolor_demo.py>pcolor_demo.py</a> for some
+	example code.  On the list to do: contour.	
+    </td>
+</tr>
+
+
+<tr>
+    <td>
+	Add 3D plot commands
+    </td>
+
+    <td @td_remaining@>
+	After all the above goals are met (around matplotlib 1.0),
+	I'll add 3D plotting with a VTK backend.
+    </td>
+</tr>
+
+
+</table>
+
+@footer@

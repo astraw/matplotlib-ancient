@@ -1,0 +1,72 @@
+@header@
+<h2>Installing matplotlib</h2>
+matplotlib requires <a href=http://python.org>python 2.2+</a>, <a
+href=http://www.pfdubois.com/numpy>Numeric</a>.
+
+If these dependencies are satisfied, just do the usual thing:<p>
+
+  <pre>
+  > python setup.py install
+  </pre>
+
+I have installed and tested this on several linux and win32 platforms,
+but it should run anywhere that python and Numeric run.  The
+differnent output devices have different requirements.  See <a
+href=backends.html>matplotlib outputs</a>.
+
+Below is a quickguide to what you'll need to get matplotlib up and
+running with the GTK backend.  For more specific information regarding
+a particular output device (GTK, PS, GD or WX), see See <a
+href=backends.html>matplotlib outputs</a>.
+
+<h2> Win 32 Quickstart for GTK backend</h2>
+
+If you don't already have python installed, you may want to consider
+using the <a href=nthought.com/python/>enthought edition</a> of
+python, which has scipy, Numeric, and wxpython, plus a lot of other
+goodies, preinstalled.
+
+<li>Install <a
+href=http://sourceforge.net/project/showfiles.php?group_id=1369&release_id=176455>
+Numeric</a> (currently version 23.1).  Note, you'll want the "numpy",
+not "numarray" files.</li>
+
+<ul>
+<li>Install the <a href=http://prdownloads.sourceforge.net/gtk-win>
+GTK runtime</a> (currently version 2.2.4.1).</li>
+
+<li>Install <a
+href=http://www.pcpm.ucl.ac.be/~gustin/win32_ports/binaries/pygtk-2.0.0.win32-py2.3.exe>pygtk-2.0.0</a></li>
+
+<li>Modify your path.  For GTK, add the <tt>bin</tt> and <tt>lib</tt>
+subdirs of your GTK runtime install directory to the PATH environment
+variable.  For Windows 2000, NT or XP, right click My
+Computer->Properties->Advanced->Environment variables.  For older
+versions of windows, edit <tt>c:\autoexec.bat</tt></li>
+
+<li> Install matplotlib using the windows installer on the <a ref=http://sourceforge.net/projects/matplotlib>download page<a></li>
+
+</ul> 
+
+<h2>Linux quickstart</h2>
+<ul> 
+
+<li><b>Important:</b> To generate plots in the graphical user
+interface GTK, you need to have GNOME 2 and at least pygtk-1.99.16
+installed.  Don't assume that because you are running redhat 9 that
+you have the latest libs.  Redhat 8 and 9 come with the GNOME2, but
+you will still need to upgrade to at least pygtk-1.99.16.  The latest
+version (currently 2.0.0) is recommened.  I don't have specific
+information about the other linux distributions.  Debian users consult <a href=backends.html#Debian>matplotlib outputs</a>
+
+<li>For PS output, the only requirement is python2.3 and Numeric</li>
+<li>For GD output, see <a href=backends.html>matplotlib outputs</a></li>
+
+<li> Install matplotlib python setup.py install</li>
+
+</ul> 
+
+See <a href=backends.html>matplotlib outputs</a> for some debian
+specific information.
+
+@footer@

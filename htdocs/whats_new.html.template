@@ -1,0 +1,323 @@
+new_to_40 = (
+	('Wx python backend',
+"""
+Jeremy O'Donoghue has done an amazing job implementing the backend for
+<a href=http://www.wxpython.org>wxpython</a>.  
+"""),	
+
+	('New plotting functions',
+"""
+Several new plotting functions are added.  <a
+href=matplotlib.matlab.html#-psd>psd</a> plots the power spectral
+density of a time series, <a href=matplotlib.matlab.html#-csd>csd</a>
+plots the cross spectral density of two time series, and <a
+href=matplotlib.matlab.html#-cohere>cohere</a> plots the coherence.
+See the examples <a href=examples/psd_demo.py>psd_demo.py</a> and <a
+href=examples/csd_demo.py>csd_demo.py</a>
+"""),	
+
+	('Expanded legend capabilities',
+"""
+The legend class is improved, with a more sophisticated layout engine
+and the ability to accept lines or rectangle patches as an optional
+first argument to specify which lines/patches make up the legend.
+There are also additional legend placement locations, like 'upper
+center'.  See <a href=screenshots.html#legend_demo>legend_demo</a> and
+<a href=screenshots.html#barchart_demo>barchart_demo</a>.
+"""),
+
+        ('Expanded errorbar capabilities',
+"""
+Gary Ruben contributed some code to support x and y errorbars, either
+symmetrix or asymettric.  See <a
+href=examples/errorbar_demo.py>errorbar_demo.py</a> for examples of
+all the wild and wonderful errorbar styles.  Bar charts can now also
+display errorbars; see <a
+href=screenshots.html#barchart_demo>barchart_demo</a>
+"""),
+
+        ('Substantially improved transform architecture',
+"""
+The transform architecture was refactored, allowing much more precise
+layout.  Lines, patches, text, etc... can now be placed and scaled in
+arbitrary units, relative axes units, or physical size.  Applicaiton
+programmers who want to create lines, patches and text directly using
+the API should read the <a href=matplotlib.transforms.html>transform
+module</a> docs for more info.  See <a
+href=matplotlib.matlab.html#-text>text</a> for an example of how to
+specify text locations in axes coords (0,0 is lower left and 1,1 is
+upper right).
+"""),
+
+        )
+
+new_to_32 = ( 
+	('wx python backend -- development version',
+"""
+Jeremy O'Donoghue has done an amazing job implementing the backend for
+<a href=http://www.wxpython.org>wxpython</a>.  The code is still alpha
+and several of the features that will be available are under active
+development.  See the code matplotlib/backends/backend_wx.py for a
+report on existing features and known bugs.  If you have wxpython
+installed, you can take it for a test drive with <tt>python
+yourscript.py -dWX</tt> and please report any bugs not listed in the
+KNOWN BUGS section of the wx src to the <a
+href=http://sourceforge.net/mailarchive/forum.php?forum_id=36187>matplotlib-devel</a>
+mailing list.
+"""),	
+	('Pseudo color plots',
+"""
+The <a href=matplotlib.matlab.html#-pcolor>pcolor</a> command
+generates pseudo color plots.  See <a
+href=screenshots.html#pcolor_demo>pcolor_demo</a> and <a
+href=screenshots.html#mri_with_eeg>mri_with_eeg</a> for screenshots
+and <a href=examples/pcolor_demo.py>pcolor_demo.py</a> for some
+example code
+"""),
+	('Numerous small bugfixes',
+"""
+Fixed reversed zoom tools, bug in ticklabel setting, bug in AFM font
+path setting for PS backend, fixed a label position bug
+"""),
+        )
+
+new_to_29_2 = (
+    ('Log scaling',
+"""
+Andrew Straw chipped in provided some code to support log scaling.
+Many thanks.  matplotlib now has three new commands <a
+    href=matplotlib.matlab.html#-semilogx>semilogx</a>, <a
+    href=matplotlib.matlab.html#-semilogy>semilogy</a>, and <a
+    href=matplotlib.matlab.html#-loglog>loglog</a>, and a new demo
+   <a href=examples/log_demo.py>log_demo.py</a>
+"""),
+    )
+
+new_to_29_1 = (
+    ('GTK bugfixes and interactive mode',
+"""This includes several bug fixes in the GTK backend which affected
+interactive mode and figure resizing.  See <a href=examples/interactive2.py>interactive2.py</a> in
+the new src release.
+"""),
+    ('Figure legends',
+"""A matlab compatible legend command has been added.  See
+<a href=examples/legend_demo.py>legend_demo.py</a>
+"""),
+   ('Bug fixes in alterate color specifications',
+"""Some bugs regarding alternate ways of specifying colors have been
+ironed out (you can now use hex strings or 0-1 RGB tuples anywhere a
+color format string is supported ).  See <a
+href=examples/color_demo.py>color_demo.py</a>
+"""),
+)
+
+new_to_29 = ( 
+	('Multiple output devices', 
+"""The major improvement in matplotlib with this release is that the
+library no longer requires pygtk or GTK, and instead renders to an
+abstract drawing interface.  This allows you to use matplotlib even in
+environments with no X server (such as for a web application server to
+make dynamic charts), and to create publication quality postscript
+output.  See <a href=backends.html>output formats</a>.
+"""),
+        ('Improved scaling with high resolution outputs',
+"""
+Earlier versions of matplotlib did not properly handle the scaling of
+text and marker sizes with font resolution, so when you went from a
+100DPI screen image to a 600DPI output image, the text and marker
+sizes appeared too small.  This has been fixed for all of the
+matplotlib output formats.
+"""),
+
+        ('Reorganization of class library',
+"""
+The class library has been substantially refactored, to isolate the
+renderer and graphics context classes that backend writers must
+implement.  See backends/backend_template.py if you want to write a
+backend for your favorite GUI or output format.
+"""),
+
+        ('Line class rewritten for greater matlab compatibility',
+"""
+The line classes have all been reorganized into a single class that
+has greater matlab compatibity.  This enables you to change existing
+lines to a new line style (eg, from solid line to markers with
+circles) as well as supports lines with a combination of line styles
+and markers times (eg, data points marked with circles and a dash line
+interpolating them).
+"""),
+
+        ('Many small bug fixes',
+"""
+"""),
+)
+
+new_2_to_21 = (
+    ('Deprecation warnings',
+"""
+Several users reported Deprecation warnings with python2.3 and pygtk
+1.99.18.  These were all related to passing floats rather than ints to
+gtk drawing commands.  These have been cleaned up and none of the
+examples generate wanings.  Let me know if you get some!
+"""),
+    ('Improved interactive shell',
+"""
+Jon Anderson posted an improved GTK shell to the pygtk mailing list.
+Using this no longer requires that pygtk have threading built in.  See
+<a href="examples/interactive2.py">interactive2.py</a>.  Use this if you want to make plots
+interactively from the python shell.
+"""),
+    ('Specifying colors',
+"""
+You can now specify colors with color format strings, RGB tuples, or
+hex strings as in html.  See <a href="examples/color_demo.py">color_demo.py</a>
+"""),
+    ('Figure text',
+"""
+All text in matplotlib has been in axis (data coordinates).  Sometimes
+it's helpful to be able to specify text in relative figure
+coordinates.  Now figures have text.  When you scroll interactively,
+axis text moves with the data, figure text is fixed.  This is also
+useful for making a figure title when you have multiple columns of
+subplots.  See <a href="examples/figtext.py">figtext.py</a>
+"""),
+    ('Flicker free updates',
+"""
+All drawing is done to a pixmap and then updated.  This allows flicker
+free updates of the figure.  You can use this, for example, to build a
+system monitor, which continuously shows system resources such as RAM,
+CPU, etc...  See <a href="examples/system_monitor.py>system_monitor.py</a> for a demo. 
+"""),
+    )
+    
+
+
+new_1to2 = (
+('Font handling',
+"""
+Major improvements in font and text handling.  matplotlib 0.1 drew all
+text in the same, non-configurable font.  In 0.2, font name, size,
+weight, and angle, color, rotation, and more are easily configurable.
+See the <a href=tutorial.html#text>text tutorial</a>.
+"""),
+
+('Multiple figures',
+"""
+Multiple figures supported with the <a
+href=matplotlib.matlab.html#-figure>figure</a> command.  See the <a
+href=tutorial.html#figs_and_axes>Working with multiple figures and
+axes</a>.
+"""),
+
+('Interactive shell',
+"""
+Interactive use from the python shell if you have pygtk compiled with
+threads.  See <a href=interactive.html>Using matplotlib
+interactively</a>.
+"""),
+
+('Saving figures', 
+""" Ability to save figures in arbitrary resolution PNG or JPEG with a
+bug fix that caused saved figures to be corrupted by anything blocking
+the figure window.  A GUI widget has been added to the figure toolbar
+to save figures and a new comand <a
+href=matplotlib.matlab.html#-savefig>savefig</a> has been added.  """),
+
+('Navigation',
+"""
+A new and hopefully improved navigation toolbar has been added that
+doesn't require a wheel mouse, but still works with one.  See the <a
+href=tutorial.html#navigation>Navigation tutorial</a>.
+"""),
+
+('More examples and screenshots',
+"""
+New examples and screenshot illustrating the new text functionality,
+the new plot types, and new commands.  See the examples subdirectory
+in the src distribution.
+"""),
+
+('Patches',
+"""
+A <a href=matplotlib.patches.html#Patch>Patch</a> class added for drawing patches
+(rectangles, polygons, circles).  This supports three new plotting
+commands <a href=matplotlib.matlab.html#-scatter>scatter</a>, <a
+href=matplotlib.matlab.html#-hist>hist</a> and <a href=matplotlib.matlab.html#-bar>bar</a>,
+with more to come.
+"""),
+
+('New commands',
+"""
+New plotting commands <a href=matplotlib.matlab.html#-bar>bar</a>, <a href=matplotlib.matlab.html#-close>close</a>, <a href=matplotlib.matlab.html#-errorbar>errorbar</a>, <a href=matplotlib.matlab.html#-figure>figure</a>, <a href=matplotlib.matlab.html#-hist>hist</a>, <a href=matplotlib.matlab.html#-text>text</a>,
+  <a href=matplotlib.matlab.html#-scatter>scatter</a>, <a href=matplotlib.matlab.html#-savefig>savefig</a>, <a href=matplotlib.matlab.html#-ylabel>ylabel</a>.
+"""),
+
+('Matplotlib on sourceforge',
+"""
+matplotlib homepage moved to <a
+href=http://matplotlib.sourceforge.net>sourceforge</a> with a
+(hopefully) more useful homepage.
+"""),
+
+('Documentation',
+"""
+Much better documentation and a <a href=tutorial.html>tutorial</a>.
+"""),
+
+('Refactoring',
+"""
+Substantial rewrite of class library.  All text now handled by the <a
+href=text.html#AxisText>AxisText</a> class in text.py.  Axis handling
+refactored into dedicated class <a href=figure.html#Axis>Axis</a>
+defined in figure.py.
+"""),
+
+
+)
+
+@header@
+
+<h2> What's new in matplotlib 0.40</h2>
+ + for title, new in new_to_40:
+   <h4>@title@</h4>
+   @new@<br>
+ -
+
+<h2> What's new in matplotlib 0.32</h2>
+ + for title, new in new_to_32:
+   <h4>@title@</h4>
+   @new@<br>
+ -
+
+<h2> What's new in matplotlib 0.29.2</h2>
+ + for title, new in new_to_29_2:
+   <h4>@title@</h4>
+   @new@<br>
+ -
+
+
+<h2> What's new in matplotlib 0.29.1</h2>
+ + for title, new in new_to_29_1:
+   <h4>@title@</h4>
+   @new@<br>
+ -
+
+<h2> What's new in matplotlib 0.29</h2>
+ + for title, new in new_to_29:
+   <h4>@title@</h4>
+   @new@<br>
+ -
+
+<h2> What's new in matplotlib 0.21</h2>
+ + for title, new in new_2_to_21:
+   <h4>@title@</h4>
+   @new@<br>
+ -
+  
+<h2> What's new in matplotlib 0.2</h2>
+ + for title, new in new_1to2:
+   <h4>@title@</h4>
+   @new@<br>
+ - 
+
+@footer@

@@ -1,0 +1,24 @@
+# This file generates the matplotlib web page logo
+from matplotlib.matlab import *
+
+
+# convert data to mV
+x = 1000*0.1*fromstring(
+    file('data/membrane.dat', 'rb').read(), typecode=Float32)
+# 0.0005 is the sample interval
+t = 0.0005*arange(len(x))
+figure(1, figsize=(7,1), dpi=100)
+ax = subplot(111, axisbg='y')
+plot(t, x)
+text(0.5, 0.5,'matplotlib', color='r',
+     fontsize=40, fontname='Courier',
+     horizontalalignment='center',
+     verticalalignment='center',
+     transx = ax.xaxis.transAxis,
+     transy = ax.yaxis.transAxis,
+     )
+axis([1, 1.72,-60, 10])
+set(gca(), 'xticklabels', [])
+set(gca(), 'yticklabels', [])
+#savefig('logo2.png', dpi=300)
+show()

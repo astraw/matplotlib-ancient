@@ -1,0 +1,68 @@
+@header@ 
+<h2>Font handling</h2> 
+
+I have spent a lot of time trying to make text in matplotlib look
+good.  This has been a limitation of many pre-exisiting python
+graphing solutions, but with the rise of freetype and anti-aliased
+rendering for linux, it is now possible to have great looking fonts.
+
+<h3>GTK</h3>
+
+The most recent versions of GTK (2.2.4.1 and later) and pygtk-2.0.0
+and later on linux have freetype font support built-in by default.  If
+you are using an older version, set the environemnt variab;e
+<tt>GDK_USE_XFT</tt>
+
+<pre>
+export GDK_USE_XFT=1    # bash and friends
+</pre>
+
+or
+
+<pre>
+setenv GDK_USE_XFT 1    # csh and friends
+</pre>
+
+If you are using GTK under windows, see
+http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.011.htp.
+
+<h3>PS</h3>
+
+<a
+href="http://www.adobe.com/products/postscript/main.html">Postscript</a>,
+despite its age, is still a great output format.  Most publishers
+accept it, it scales to arbitrary resolutions, you can import it
+directly into LaTeX document, and send it directly to postscript
+printers.<p>
+
+The only requirements maplotlib has to generate postscript output is
+the Numeric module and some afm fonts on your system.  Even the latter
+is only a quasi-requirement because matplotlib comes with some of the
+most popular font files.  These are <it>Adobe Font Metric</it> files,
+which have the '*.afm' extension.  matplotlib comes with it's own AFM
+parser to read these files and select the best match for the font
+you've chosen.  If you want additional fonts, set the <tt>AFMPATH</tt>
+environment variable to point to the dir containing your AFM font
+files.  matplotlib willl recursively search any directory in
+<tt>AFMPATH</tt>, so you only need to specify a base directory if
+multiple subdirectories contaning '*.afm' files.<p>
+
+<h3><a href="http://newcenturycomputers.net/projects/gdmodule.html">GD
+module</a></h3>
+
+The python interface to the GD library provides high quality,
+anti-aliased font rendering to PNG and JPEG output without X support.
+This is particularly useful for batch processing over a dumb terminal,
+or for web application servers.  All of the font rendering using GD
+module is with true type.  Thus you need to have '*.ttf' files on your
+system to use this backend.  Set the environment variable
+<tt>GDFONTPATH</tt> to point to your TTF fonts.  A typical windows dir
+is <tt>C:\windows\fonts</tt>. matplotlib distributes the 'Vera' fonts
+from bitstream, which were released under a permissive license, and
+these are the defaults.  If you want more, set the environment
+variable to point to them.<p>
+
+If you are aware of other freely distributable ttf fonts, please
+contact me (John D. Hunter @myemail@)
+
+@footer@

@@ -1,0 +1,108 @@
+shots = (
+
+('simple_plot', 'The most basic plot, with text labels', 1),
+
+('subplot_demo', 
+"""Multiple regular axes are created with <a
+href=matlab.html#-subplot>subplot</a>.  This is a screenshot of the
+matplotlib figure window.  Navigation controls on the bottom of the
+figure let you pan and zoom the X and Y axis of any combination of
+subplots together or separately""", 0),
+
+('histogram_demo', 
+"""The <a href=matplotlib.matlab.html#-hist>hist</a> command
+automatically generates histograms and will return the bin counts
+or probabilities""", 1),
+
+('barchart_demo', 
+"""The <a href=matplotlib.matlab.html#-bar>bar</a> command
+takes error bars as an optional argument.
+""", 1),
+
+('scatter_demo2', 
+"""The <a href=matplotlib.matlab.html#-scatter>scatter</a> command
+makes a scatter plot with (optional) size and color arguments.  This
+example plots changes in Intel's stock price from one day to the next
+with the sizes coding trading volume and the colors coding price
+change in day i.
+""", 1),
+
+('log_shot', """The <a
+href=matplotlib.matlab.html#-semilogx>semilogx</a>, <a
+href=matplotlib.matlab.html#-semilogy>semilogy</a> and <a
+href=matplotlib.matlab.html#-loglog>loglog</a> commands generate log
+scaling on the respective axes.  Thanks to Andrew Straw for providing
+the log scaling infrastructure.""", 1),
+
+('legend_demo', """The <a
+href=matplotlib.matlab.html#-legend>legend</a> command automatically
+generates figure legends, with matltab compatible legend placement
+commands.  Thanks to Charles Twardy for input on the legend
+command""", 1),
+
+('pcolor_demo', """The <a
+href=matplotlib.matlab.html#-pcolor>pcolor</a> command generates
+pseudo color plots.""", 1),
+
+('mri_with_eeg', """A magnetic resonace image (MRI) displayed using <a
+href=matplotlib.matlab.html#-pcolor>pcolor</a>, image intensity in the
+MRI plotted with <a href=matplotlib.matlab.html#-hist>hist</a>, and
+some EEG channels plotted as <a
+href=matplotlib.lines.html#Line2D>lines</a> """, 1),
+
+('text_themes', """You can specify <i>themes</i> for your axis text by
+making a font dictionary.  Here the default font is <tt>courier</tt>
+and the default color is red, but you can override the defaults, as in
+the function label in the axes.  See <a
+href=matlab.html#-text>text</a> for more information.  This example
+uses a python dictionary to control text themes, but you can also use
+matlab handle graphics calls.  See the examples file
+examples/text_handles.py in the src distribution for a handle graphics
+demo.""", 1),
+
+('axes_demo', 
+"""Arbitrary placement of axes is possible with the <a
+href=matlab.html#-axes>axes</a> command.  Here, two inset axes are
+placed over a <a href=matplotlib.matlab.html#-subplot>subplot</a>.""", 1), 
+
+('eeg', """ You can embed matplotlib into a pygtk application.  The <a
+href=matplotlib.backends.backend_gtk.html#FigureGTK>FigureGTK</a>
+class is derived from <a
+href=http://www.gnome.org/~james/pygtk-docs/class-gtkdrawingarea.html>gtk.DrawingArea</a>.
+Here is a screenshot of an eeg viewer written in pygtk using
+matplotlib.  The code demo linked above is a much simpler example of
+embedding matplotlib in pygtk.  For an example of how to use the
+navigation toolbar in your applications, see
+examples/embedding_in_gtk2.py in the src distribution.""", 0),
+
+)
+
+@header@
+<h2>Matplotlib sample code and figures</h2>
+<h4><i>Click on any image to enlarge</i></h4>
+
+<table cellpadding=10>
++ for shot, desc, mat in shots:
+    <tr><td>
+      <table width=400 >
+      <tr><td>
+      <a name=@shot@><b>Code:</b></a> <a href=screenshots/@shot@.py>@shot@.py</a><br>
+      </tr></td>
+      <tr><td align=left >
+      + if mat:
+      <table bgcolor=#bfbfbf cellpadding=30 cellspacing=1><tr><td>
+      <a href=screenshots/@shot@_large.png><img src=screenshots/@shot@_small.png></a>
+      </tr></td></table>
+      = else:
+      <a href=screenshots/@shot@_large.png><img src=screenshots/@shot@_small.png></a>
+      - 
+      </tr></td>
+      <tr><td>
+     @desc@
+      </tr></td>
+     </table>
+	<br><br>
+    </td></tr>
+-
+</table>
+@footer@

@@ -1,0 +1,530 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_gd</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="matplotlib/backends/backend_gd.py">matplotlib/backends/backend_gd.py</a></font></td></tr></table>
+    <p><tt>A&nbsp;gd&nbsp;backend&nbsp;<a href="http://newcenturycomputers.net/projects/gdmodule.html">http://newcenturycomputers.net/projects/gdmodule.html</a></tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="distutils.html">distutils</a><br>
+<a href="gd.html">gd</a><br>
+</td><td width="25%" valign=top><a href="math.html">math</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gd.html#AxisTextGD">AxisTextGD</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gd.html#AxisTextGD">AxisTextGD</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#FigureBase">matplotlib.backend_bases.FigureBase</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gd.html#FigureGD">FigureGD</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gd.html#FigureGD">FigureGD</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gd.html#FigureManagerGD">FigureManagerGD</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gd.html#FigureManagerGD">FigureManagerGD</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gd.html#FontManager">FontManager</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gd.html#GraphicsContextGD">GraphicsContextGD</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gd.html#RendererGD">RendererGD</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>AxisText</strong> = <a name="AxisText">class AxisTextGD</a>(<a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Handle&nbsp;storing&nbsp;and&nbsp;drawing&nbsp;of&nbsp;text<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.backends.backend_gd.html#AxisTextGD">AxisTextGD</a></dd>
+<dd><a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="AxisTextGD-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="AxisTextGD-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>:<br>
+<dl><dt><a name="AxisTextGD-__del__"><strong>__del__</strong></a>(self)</dt><dd><tt>Bye&nbsp;bye</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-erase"><strong>erase</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="AxisTextGD-get_fontangle"><strong>get_fontangle</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;font&nbsp;angle&nbsp;as&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_fontname"><strong>get_fontname</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;name&nbsp;as&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_fontsize"><strong>get_fontsize</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;size&nbsp;as&nbsp;integer</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_fontweight"><strong>get_fontweight</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;font&nbsp;weight&nbsp;as&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_horizontalalignment"><strong>get_horizontalalignment</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;horizontal&nbsp;alignment&nbsp;as&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_position"><strong>get_position</strong></a>(self)</dt><dd><tt>Return&nbsp;x,&nbsp;y&nbsp;as&nbsp;tuple</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_text"><strong>get_text</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;as&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_verticalalignment"><strong>get_verticalalignment</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;vertical&nbsp;alignment&nbsp;as&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_backgroundcolor"><strong>set_backgroundcolor</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;background&nbsp;color&nbsp;of&nbsp;the&nbsp;text</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_color"><strong>set_color</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color&nbsp;of&nbsp;the&nbsp;text</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_fontangle"><strong>set_fontangle</strong></a>(self, angle)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;angle,&nbsp;one&nbsp;of&nbsp;'normal',&nbsp;'italic',&nbsp;'oblique'</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_fontname"><strong>set_fontname</strong></a>(self, fontname)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;name,&nbsp;eg,&nbsp;'Sans',&nbsp;'Courier',&nbsp;'Helvetica'</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_fontsize"><strong>set_fontsize</strong></a>(self, fontsize)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;size,&nbsp;eg,&nbsp;8,&nbsp;10,&nbsp;12,&nbsp;14...</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_fontweight"><strong>set_fontweight</strong></a>(self, weight)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;weight,&nbsp;one&nbsp;of:<br>
+'normal',&nbsp;'bold',&nbsp;'heavy',&nbsp;'light',&nbsp;'ultrabold',&nbsp;&nbsp;'ultralight'</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_horizontalalignment"><strong>set_horizontalalignment</strong></a>(self, align)</dt><dd><tt>Set&nbsp;the&nbsp;horizontal&nbsp;alignment&nbsp;to&nbsp;one&nbsp;of<br>
+'center',&nbsp;'right',&nbsp;or&nbsp;'left'</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_position"><strong>set_position</strong></a>(self, xy)</dt></dl>
+
+<dl><dt><a name="AxisTextGD-set_rotation"><strong>set_rotation</strong></a>(self, s)</dt><dd><tt>Currently&nbsp;only&nbsp;s='vertical',&nbsp;or&nbsp;s='horizontal'&nbsp;are&nbsp;supported</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_text"><strong>set_text</strong></a>(self, text)</dt><dd><tt>Set&nbsp;the&nbsp;text</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_verticalalignment"><strong>set_verticalalignment</strong></a>(self, align)</dt><dd><tt>Set&nbsp;the&nbsp;vertical&nbsp;alignment&nbsp;to&nbsp;one&nbsp;of<br>
+'center',&nbsp;'top',&nbsp;or&nbsp;'bottom'</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_x"><strong>set_x</strong></a>(self, x)</dt></dl>
+
+<dl><dt><a name="AxisTextGD-set_y"><strong>set_y</strong></a>(self, y)</dt></dl>
+
+<dl><dt><a name="AxisTextGD-update_properties"><strong>update_properties</strong></a>(self, d)</dt><dd><tt>Update&nbsp;the&nbsp;font&nbsp;attributes&nbsp;with&nbsp;the&nbsp;dictionary&nbsp;in&nbsp;d</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Flush&nbsp;all&nbsp;state&nbsp;vars&nbsp;and&nbsp;prepare&nbsp;for&nbsp;a&nbsp;clean&nbsp;redraw</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>:<br>
+<dl><dt><strong>fontangles</strong> = {'italic': None, 'normal': None, 'oblique': None}</dl>
+
+<dl><dt><strong>fontweights</strong> = {'bold': None, 'heavy': None, 'light': None, 'normal': None, 'ultrabold': None, 'ultralight': None}</dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="AxisTextGD-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;all&nbsp;artists&nbsp;contained&nbsp;in&nbsp;self</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="AxisTextGD">class <strong>AxisTextGD</strong></a>(<a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Handle&nbsp;storing&nbsp;and&nbsp;drawing&nbsp;of&nbsp;text<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.backends.backend_gd.html#AxisTextGD">AxisTextGD</a></dd>
+<dd><a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="AxisTextGD-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="AxisTextGD-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>:<br>
+<dl><dt><a name="AxisTextGD-__del__"><strong>__del__</strong></a>(self)</dt><dd><tt>Bye&nbsp;bye</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-erase"><strong>erase</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="AxisTextGD-get_fontangle"><strong>get_fontangle</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;font&nbsp;angle&nbsp;as&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_fontname"><strong>get_fontname</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;name&nbsp;as&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_fontsize"><strong>get_fontsize</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;size&nbsp;as&nbsp;integer</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_fontweight"><strong>get_fontweight</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;font&nbsp;weight&nbsp;as&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_horizontalalignment"><strong>get_horizontalalignment</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;horizontal&nbsp;alignment&nbsp;as&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_position"><strong>get_position</strong></a>(self)</dt><dd><tt>Return&nbsp;x,&nbsp;y&nbsp;as&nbsp;tuple</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_text"><strong>get_text</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;as&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_verticalalignment"><strong>get_verticalalignment</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;vertical&nbsp;alignment&nbsp;as&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_backgroundcolor"><strong>set_backgroundcolor</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;background&nbsp;color&nbsp;of&nbsp;the&nbsp;text</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_color"><strong>set_color</strong></a>(self, color)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color&nbsp;of&nbsp;the&nbsp;text</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_fontangle"><strong>set_fontangle</strong></a>(self, angle)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;angle,&nbsp;one&nbsp;of&nbsp;'normal',&nbsp;'italic',&nbsp;'oblique'</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_fontname"><strong>set_fontname</strong></a>(self, fontname)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;name,&nbsp;eg,&nbsp;'Sans',&nbsp;'Courier',&nbsp;'Helvetica'</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_fontsize"><strong>set_fontsize</strong></a>(self, fontsize)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;size,&nbsp;eg,&nbsp;8,&nbsp;10,&nbsp;12,&nbsp;14...</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_fontweight"><strong>set_fontweight</strong></a>(self, weight)</dt><dd><tt>Set&nbsp;the&nbsp;font&nbsp;weight,&nbsp;one&nbsp;of:<br>
+'normal',&nbsp;'bold',&nbsp;'heavy',&nbsp;'light',&nbsp;'ultrabold',&nbsp;&nbsp;'ultralight'</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_horizontalalignment"><strong>set_horizontalalignment</strong></a>(self, align)</dt><dd><tt>Set&nbsp;the&nbsp;horizontal&nbsp;alignment&nbsp;to&nbsp;one&nbsp;of<br>
+'center',&nbsp;'right',&nbsp;or&nbsp;'left'</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_position"><strong>set_position</strong></a>(self, xy)</dt></dl>
+
+<dl><dt><a name="AxisTextGD-set_rotation"><strong>set_rotation</strong></a>(self, s)</dt><dd><tt>Currently&nbsp;only&nbsp;s='vertical',&nbsp;or&nbsp;s='horizontal'&nbsp;are&nbsp;supported</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_text"><strong>set_text</strong></a>(self, text)</dt><dd><tt>Set&nbsp;the&nbsp;text</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_verticalalignment"><strong>set_verticalalignment</strong></a>(self, align)</dt><dd><tt>Set&nbsp;the&nbsp;vertical&nbsp;alignment&nbsp;to&nbsp;one&nbsp;of<br>
+'center',&nbsp;'top',&nbsp;or&nbsp;'bottom'</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_x"><strong>set_x</strong></a>(self, x)</dt></dl>
+
+<dl><dt><a name="AxisTextGD-set_y"><strong>set_y</strong></a>(self, y)</dt></dl>
+
+<dl><dt><a name="AxisTextGD-update_properties"><strong>update_properties</strong></a>(self, d)</dt><dd><tt>Update&nbsp;the&nbsp;font&nbsp;attributes&nbsp;with&nbsp;the&nbsp;dictionary&nbsp;in&nbsp;d</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Flush&nbsp;all&nbsp;state&nbsp;vars&nbsp;and&nbsp;prepare&nbsp;for&nbsp;a&nbsp;clean&nbsp;redraw</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.backend_bases.html#AxisTextBase">matplotlib.backend_bases.AxisTextBase</a>:<br>
+<dl><dt><strong>fontangles</strong> = {'italic': None, 'normal': None, 'oblique': None}</dl>
+
+<dl><dt><strong>fontweights</strong> = {'bold': None, 'heavy': None, 'light': None, 'normal': None, 'ultrabold': None, 'ultralight': None}</dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="AxisTextGD-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;all&nbsp;artists&nbsp;contained&nbsp;in&nbsp;self</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="AxisTextGD-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>Figure</strong> = <a name="Figure">class FigureGD</a>(<a href="matplotlib.backend_bases.html#FigureBase">matplotlib.backend_bases.FigureBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;figure&nbsp;is&nbsp;the&nbsp;main&nbsp;object&nbsp;--&nbsp;it&nbsp;contains&nbsp;the&nbsp;Axes&nbsp;and&nbsp;Text,<br>
+which&nbsp;in&nbsp;turn&nbsp;contain&nbsp;lines,&nbsp;patches,&nbsp;and&nbsp;more&nbsp;text<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="FigureGD-__init__"><strong>__init__</strong></a>(self, figsize, dpi, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>)</dt></dl>
+
+<dl><dt><a name="FigureGD-draw"><strong>draw</strong></a>(self, drawable, *args, **kwargs)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;using&nbsp;<a href="#RendererGD">RendererGD</a>&nbsp;instance&nbsp;drawable</tt></dd></dl>
+
+<dl><dt><a name="FigureGD-print_figure"><strong>print_figure</strong></a>(self, filename, dpi)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy&nbsp;using&nbsp;self.<strong>drawable</strong>&nbsp;as&nbsp;the<br>
+renderer&nbsp;if&nbsp;neccessary<br>
+&nbsp;<br>
+#&nbsp;todo&nbsp;--&nbsp;how&nbsp;should&nbsp;we&nbsp;handle&nbsp;dpi?</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#FigureBase">matplotlib.backend_bases.FigureBase</a>:<br>
+<dl><dt><a name="FigureGD-add_axis"><strong>add_axis</strong></a>(self, a)</dt></dl>
+
+<dl><dt><a name="FigureGD-clear"><strong>clear</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureGD-get_axes"><strong>get_axes</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureGD-realize"><strong>realize</strong></a>(self, *args)</dt><dd><tt>This&nbsp;method&nbsp;will&nbsp;be&nbsp;called&nbsp;when&nbsp;the&nbsp;system&nbsp;is&nbsp;ready&nbsp;to&nbsp;draw,<br>
+eg&nbsp;when&nbsp;a&nbsp;GUI&nbsp;window&nbsp;is&nbsp;realized</tt></dd></dl>
+
+<dl><dt><a name="FigureGD-text"><strong>text</strong></a>(self, x, y, s, *args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
+the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FigureGD">class <strong>FigureGD</strong></a>(<a href="matplotlib.backend_bases.html#FigureBase">matplotlib.backend_bases.FigureBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;figure&nbsp;is&nbsp;the&nbsp;main&nbsp;object&nbsp;--&nbsp;it&nbsp;contains&nbsp;the&nbsp;Axes&nbsp;and&nbsp;Text,<br>
+which&nbsp;in&nbsp;turn&nbsp;contain&nbsp;lines,&nbsp;patches,&nbsp;and&nbsp;more&nbsp;text<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="FigureGD-__init__"><strong>__init__</strong></a>(self, figsize, dpi, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>)</dt></dl>
+
+<dl><dt><a name="FigureGD-draw"><strong>draw</strong></a>(self, drawable, *args, **kwargs)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;using&nbsp;<a href="#RendererGD">RendererGD</a>&nbsp;instance&nbsp;drawable</tt></dd></dl>
+
+<dl><dt><a name="FigureGD-print_figure"><strong>print_figure</strong></a>(self, filename, dpi)</dt><dd><tt>Render&nbsp;the&nbsp;figure&nbsp;to&nbsp;hardcopy&nbsp;using&nbsp;self.<strong>drawable</strong>&nbsp;as&nbsp;the<br>
+renderer&nbsp;if&nbsp;neccessary<br>
+&nbsp;<br>
+#&nbsp;todo&nbsp;--&nbsp;how&nbsp;should&nbsp;we&nbsp;handle&nbsp;dpi?</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#FigureBase">matplotlib.backend_bases.FigureBase</a>:<br>
+<dl><dt><a name="FigureGD-add_axis"><strong>add_axis</strong></a>(self, a)</dt></dl>
+
+<dl><dt><a name="FigureGD-clear"><strong>clear</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureGD-get_axes"><strong>get_axes</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureGD-realize"><strong>realize</strong></a>(self, *args)</dt><dd><tt>This&nbsp;method&nbsp;will&nbsp;be&nbsp;called&nbsp;when&nbsp;the&nbsp;system&nbsp;is&nbsp;ready&nbsp;to&nbsp;draw,<br>
+eg&nbsp;when&nbsp;a&nbsp;GUI&nbsp;window&nbsp;is&nbsp;realized</tt></dd></dl>
+
+<dl><dt><a name="FigureGD-text"><strong>text</strong></a>(self, x, y, s, *args, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;figure&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(relative&nbsp;0-1&nbsp;coords)&nbsp;See<br>
+the&nbsp;help&nbsp;for&nbsp;Axis&nbsp;text&nbsp;for&nbsp;the&nbsp;meaning&nbsp;of&nbsp;the&nbsp;other&nbsp;arguments</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>FigureManager</strong> = <a name="FigureManager">class FigureManagerGD</a>(<a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;class&nbsp;manages&nbsp;all&nbsp;the&nbsp;figures&nbsp;for&nbsp;matlab&nbsp;mode<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>:<br>
+<dl><dt><a name="FigureManagerGD-__init__"><strong>__init__</strong></a>(self, figure, num)</dt></dl>
+
+<dl><dt><a name="FigureManagerGD-add_axes"><strong>add_axes</strong></a>(self, rect, axisbg)</dt><dd><tt>Add&nbsp;an&nbsp;axes&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
+
+<dl><dt><a name="FigureManagerGD-add_subplot"><strong>add_subplot</strong></a>(self, *args, **kwargs)</dt><dd><tt>Add&nbsp;a&nbsp;subplot&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
+
+<dl><dt><a name="FigureManagerGD-destroy"><strong>destroy</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureManagerGD-get_current_axis"><strong>get_current_axis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+
+<dl><dt><a name="FigureManagerGD-set_current_axes"><strong>set_current_axes</strong></a>(self, a)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;axes&nbsp;to&nbsp;be&nbsp;a</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FigureManagerGD">class <strong>FigureManagerGD</strong></a>(<a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;class&nbsp;manages&nbsp;all&nbsp;the&nbsp;figures&nbsp;for&nbsp;matlab&nbsp;mode<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>:<br>
+<dl><dt><a name="FigureManagerGD-__init__"><strong>__init__</strong></a>(self, figure, num)</dt></dl>
+
+<dl><dt><a name="FigureManagerGD-add_axes"><strong>add_axes</strong></a>(self, rect, axisbg)</dt><dd><tt>Add&nbsp;an&nbsp;axes&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
+
+<dl><dt><a name="FigureManagerGD-add_subplot"><strong>add_subplot</strong></a>(self, *args, **kwargs)</dt><dd><tt>Add&nbsp;a&nbsp;subplot&nbsp;to&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
+
+<dl><dt><a name="FigureManagerGD-destroy"><strong>destroy</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureManagerGD-get_current_axis"><strong>get_current_axis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+
+<dl><dt><a name="FigureManagerGD-set_current_axes"><strong>set_current_axes</strong></a>(self, a)</dt><dd><tt>Set&nbsp;the&nbsp;current&nbsp;axes&nbsp;to&nbsp;be&nbsp;a</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FontManager">class <strong>FontManager</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="FontManager-findfont"><strong>findfont</strong></a>(self, fontname, weight, italics)</dt></dl>
+
+<dl><dt><a name="FontManager-get_default_font"><strong>get_default_font</strong></a>(self, fontname)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>cache</strong> = {}</dl>
+
+<dl><dt><strong>describe</strong> = &lt;module 'ttfquery.describe' from '/usr/local/lib/python2.3/site-packages/ttfquery/describe.pyc'&gt;</dl>
+
+<dl><dt><strong>failed</strong> = []</dl>
+
+<dl><dt><strong>new</strong> = ['/usr/local/share/matplotlib/VeraMoIt.ttf', '/usr/local/share/matplotlib/VeraMoBI.ttf', '/usr/local/share/matplotlib/VeraSeBd.ttf', '/usr/local/share/matplotlib/VeraMono.ttf', '/usr/local/share/matplotlib/VeraBI.ttf', '/usr/local/share/matplotlib/VeraBd.ttf', '/usr/local/share/matplotlib/VeraIt.ttf', '/usr/local/share/matplotlib/Vera.ttf', '/usr/local/share/matplotlib/VeraSe.ttf', '/usr/local/share/matplotlib/VeraMoBd.ttf']</dl>
+
+<dl><dt><strong>paths</strong> = ['/usr/local/share/matplotlib']</dl>
+
+<dl><dt><strong>registry</strong> = &lt;ttfquery.ttffiles.Registry object&gt;</dl>
+
+<dl><dt><strong>registryFile</strong> = '/home/jdhunter/.font.cache'</dl>
+
+<dl><dt><strong>ttffiles</strong> = &lt;module 'ttfquery.ttffiles' from '/usr/local/lib/python2.3/site-packages/ttfquery/ttffiles.pyc'&gt;</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="GraphicsContextGD">class <strong>GraphicsContextGD</strong></a>(<a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;graphics&nbsp;context&nbsp;provides&nbsp;the&nbsp;color,&nbsp;line&nbsp;styles,&nbsp;etc...&nbsp;&nbsp;See<br>
+the&nbsp;gtk&nbsp;and&nbsp;postscript&nbsp;backends&nbsp;for&nbsp;examples&nbsp;of&nbsp;mapping&nbsp;the<br>
+graphics&nbsp;context&nbsp;attributes&nbsp;(cap&nbsp;styles,&nbsp;join&nbsp;styles,&nbsp;line&nbsp;widths,<br>
+colors)&nbsp;to&nbsp;a&nbsp;particular&nbsp;backend.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="GraphicsContextGD-__init__"><strong>__init__</strong></a>(self, im)</dt><dd><tt>Initialize&nbsp;with&nbsp;a&nbsp;gd&nbsp;image</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>:<br>
+<dl><dt><a name="GraphicsContextGD-copy_properties"><strong>copy_properties</strong></a>(self, gc)</dt><dd><tt>Copy&nbsp;properties&nbsp;from&nbsp;gc&nbsp;to&nbsp;self</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextGD-get_capstyle"><strong>get_capstyle</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;capstyle&nbsp;as&nbsp;a&nbsp;string&nbsp;in&nbsp;('butt',&nbsp;'round',&nbsp;'projecting')</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextGD-get_clip_rectangle"><strong>get_clip_rectangle</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;clip&nbsp;rectangle&nbsp;as&nbsp;(left,&nbsp;bottom,&nbsp;width,&nbsp;height)</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextGD-get_dashes"><strong>get_dashes</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;dash&nbsp;information&nbsp;as&nbsp;an&nbsp;offset&nbsp;dashlist&nbsp;tuple&nbsp;The<br>
+dash&nbsp;list&nbsp;is&nbsp;a&nbsp;even&nbsp;size&nbsp;list&nbsp;that&nbsp;gives&nbsp;the&nbsp;ink&nbsp;on,&nbsp;ink&nbsp;off<br>
+in&nbsp;pixels.&nbsp;&nbsp;See&nbsp;p107&nbsp;of&nbsp;to&nbsp;postscript&nbsp;BLUEBOOK&nbsp;for&nbsp;more&nbsp;info<br>
+&nbsp;<br>
+Default&nbsp;value&nbsp;is&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextGD-get_joinstyle"><strong>get_joinstyle</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;line&nbsp;join&nbsp;style&nbsp;as&nbsp;one&nbsp;of&nbsp;('miter',&nbsp;'round',&nbsp;'bevel')</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextGD-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;line&nbsp;width&nbsp;in&nbsp;points&nbsp;as&nbsp;a&nbsp;scalar</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextGD-get_rgb"><strong>get_rgb</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;tuple&nbsp;of&nbsp;three&nbsp;floats&nbsp;from&nbsp;0-1.&nbsp;&nbsp;color&nbsp;can&nbsp;be&nbsp;a<br>
+matlab&nbsp;format&nbsp;string,&nbsp;a&nbsp;html&nbsp;hex&nbsp;color&nbsp;string,&nbsp;or&nbsp;a&nbsp;rgb&nbsp;tuple</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextGD-set_capstyle"><strong>set_capstyle</strong></a>(self, cs)</dt><dd><tt>Set&nbsp;the&nbsp;capstyle&nbsp;as&nbsp;a&nbsp;string&nbsp;in&nbsp;('butt',&nbsp;'round',&nbsp;'projecting')</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextGD-set_clip_rectangle"><strong>set_clip_rectangle</strong></a>(self, rectangle)</dt><dd><tt>Set&nbsp;the&nbsp;clip&nbsp;rectangle&nbsp;with&nbsp;sequence&nbsp;(left,&nbsp;bottom,&nbsp;width,&nbsp;height)</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextGD-set_dashes"><strong>set_dashes</strong></a>(self, dash_offset, dash_list)</dt><dd><tt>Set&nbsp;the&nbsp;dash&nbsp;style&nbsp;for&nbsp;the&nbsp;gc.&nbsp;&nbsp;dash&nbsp;offset&nbsp;is&nbsp;the&nbsp;offset<br>
+(usually&nbsp;0).&nbsp;&nbsp;Dash&nbsp;list&nbsp;specifies&nbsp;the&nbsp;on-off&nbsp;sequence&nbsp;as<br>
+points</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextGD-set_foreground"><strong>set_foreground</strong></a>(self, fg)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color.&nbsp;&nbsp;fg&nbsp;can&nbsp;be&nbsp;a&nbsp;matlab&nbsp;format&nbsp;string,&nbsp;a<br>
+html&nbsp;hex&nbsp;color&nbsp;string,&nbsp;an&nbsp;rgb&nbsp;unit&nbsp;tuple,&nbsp;or&nbsp;a&nbsp;float&nbsp;between&nbsp;0<br>
+and&nbsp;1.&nbsp;&nbsp;In&nbsp;the&nbsp;latter&nbsp;case,&nbsp;grayscale&nbsp;is&nbsp;used.</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextGD-set_graylevel"><strong>set_graylevel</strong></a>(self, frac)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color&nbsp;to&nbsp;be&nbsp;a&nbsp;gray&nbsp;level&nbsp;with&nbsp;frac&nbsp;frac</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextGD-set_joinstyle"><strong>set_joinstyle</strong></a>(self, js)</dt><dd><tt>Set&nbsp;the&nbsp;join&nbsp;style&nbsp;to&nbsp;be&nbsp;one&nbsp;of&nbsp;('miter',&nbsp;'round',&nbsp;'bevel')</tt></dd></dl>
+
+<dl><dt><a name="GraphicsContextGD-set_linewidth"><strong>set_linewidth</strong></a>(self, w)</dt><dd><tt>Set&nbsp;the&nbsp;linewidth&nbsp;in&nbsp;points</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RendererGD">class <strong>RendererGD</strong></a>(<a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;renderer&nbsp;handles&nbsp;all&nbsp;the&nbsp;drawing&nbsp;primitives&nbsp;using&nbsp;a&nbsp;graphics<br>
+context&nbsp;instance&nbsp;that&nbsp;controls&nbsp;the&nbsp;colors/styles<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="RendererGD-__init__"><strong>__init__</strong></a>(self, im)</dt><dd><tt>Initialize&nbsp;the&nbsp;renderer&nbsp;with&nbsp;a&nbsp;gd&nbsp;image&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="RendererGD-draw_arc"><strong>draw_arc</strong></a>(self, gc, faceColor, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
+from&nbsp;0.0&nbsp;to&nbsp;360.0</tt></dd></dl>
+
+<dl><dt><a name="RendererGD-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;line&nbsp;from&nbsp;x1,y1&nbsp;to&nbsp;x2,y2</tt></dd></dl>
+
+<dl><dt><a name="RendererGD-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
+point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
+
+<dl><dt><a name="RendererGD-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;point&nbsp;at&nbsp;x,y</tt></dd></dl>
+
+<dl><dt><a name="RendererGD-draw_polygon"><strong>draw_polygon</strong></a>(self, gc, faceColor, points)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon.&nbsp;&nbsp;points&nbsp;is&nbsp;a&nbsp;len&nbsp;vertices&nbsp;tuple,&nbsp;each&nbsp;element<br>
+giving&nbsp;the&nbsp;x,y&nbsp;coords&nbsp;a&nbsp;vertex</tt></dd></dl>
+
+<dl><dt><a name="RendererGD-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gc, faceColor, x, y, width, height)</dt><dd><tt>Draw&nbsp;a&nbsp;rectangle&nbsp;at&nbsp;lower&nbsp;left&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height<br>
+If&nbsp;filled=True,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;the&nbsp;gc&nbsp;foreground<br>
+gc&nbsp;is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="RendererGD-finish"><strong>finish</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="RendererGD-get_gd_color"><strong>get_gd_color</strong></a>(self, rgb)</dt><dd><tt>RGB&nbsp;is&nbsp;a&nbsp;unit&nbsp;RGB&nbsp;tuple,&nbsp;return&nbsp;a&nbsp;gd&nbsp;color</tt></dd></dl>
+
+<dl><dt><a name="RendererGD-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;<a href="#GraphicsContextGD">GraphicsContextGD</a></tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-draw_if_interactive"><strong>draw_if_interactive</strong></a>()</dt></dl>
+ <dl><dt><a name="-error_msg"><strong>error_msg</strong></a> = error_msg_template(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
+ <dl><dt><a name="-error_msg_template"><strong>error_msg_template</strong></a>(msg, *args)</dt><dd><tt>Signal&nbsp;an&nbsp;error&nbsp;condition&nbsp;--&nbsp;in&nbsp;a&nbsp;GUI,&nbsp;popup&nbsp;a&nbsp;error&nbsp;dialog</tt></dd></dl>
+ <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, figsize, dpi)</dt><dd><tt>Add&nbsp;a&nbsp;new&nbsp;figure&nbsp;num&nbsp;(default&nbsp;autoincrement).&nbsp;&nbsp;For&nbsp;GUI<br>
+backends,&nbsp;you'll&nbsp;need&nbsp;to&nbsp;instantiate&nbsp;a&nbsp;new&nbsp;window&nbsp;and&nbsp;embed<br>
+the&nbsp;figure&nbsp;in&nbsp;it.</tt></dd></dl>
+ <dl><dt><a name="-show"><strong>show</strong></a>()</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>SCREENDPI</strong> = 75<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>fontManager</strong> = &lt;matplotlib.backends.backend_gd.FontManager instance&gt;</td></tr></table>
+@footer@

@@ -1,0 +1,124 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.afm</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="matplotlib/afm.py">matplotlib/afm.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;is&nbsp;a&nbsp;python&nbsp;interface&nbsp;to&nbsp;Adobe&nbsp;Font&nbsp;Metrics&nbsp;Files.&nbsp;&nbsp;Although&nbsp;a<br>
+number&nbsp;of&nbsp;other&nbsp;python&nbsp;implementations&nbsp;exist&nbsp;(and&nbsp;may&nbsp;be&nbsp;more&nbsp;complete<br>
+than&nbsp;mine)&nbsp;I&nbsp;decided&nbsp;not&nbsp;to&nbsp;go&nbsp;with&nbsp;them&nbsp;because&nbsp;either&nbsp;they&nbsp;were<br>
+either<br>
+&nbsp;<br>
+&nbsp;&nbsp;1)&nbsp;copyighted&nbsp;or&nbsp;used&nbsp;a&nbsp;non-BSD&nbsp;compatible&nbsp;license<br>
+&nbsp;<br>
+&nbsp;&nbsp;2)&nbsp;had&nbsp;too&nbsp;many&nbsp;dependencies&nbsp;and&nbsp;I&nbsp;wanted&nbsp;a&nbsp;free&nbsp;standing&nbsp;lib<br>
+&nbsp;<br>
+&nbsp;&nbsp;3)&nbsp;Did&nbsp;more&nbsp;than&nbsp;I&nbsp;needed&nbsp;and&nbsp;it&nbsp;was&nbsp;easier&nbsp;to&nbsp;write&nbsp;my&nbsp;own&nbsp;than<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;figure&nbsp;out&nbsp;how&nbsp;to&nbsp;just&nbsp;get&nbsp;what&nbsp;I&nbsp;needed&nbsp;from&nbsp;theirs<br>
+&nbsp;<br>
+It&nbsp;is&nbsp;pretty&nbsp;easy&nbsp;to&nbsp;use,&nbsp;and&nbsp;requires&nbsp;only&nbsp;built-in&nbsp;python&nbsp;libs<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;from&nbsp;afm&nbsp;import&nbsp;<a href="#AFM">AFM</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;fh&nbsp;=&nbsp;file('ptmr8a.afm')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;afm&nbsp;=&nbsp;<a href="#AFM">AFM</a>(fh)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;afm.string_width_height('What&nbsp;the&nbsp;heck?')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(6220.0,&nbsp;683)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;afm.get_fontname()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'Times-Roman'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;afm.get_kern_dist('A',&nbsp;'f')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;afm.get_kern_dist('A',&nbsp;'y')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-92.0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;afm.get_bbox_char('!')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[130,&nbsp;-9,&nbsp;238,&nbsp;676]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;afm.get_bbox_font()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[-168,&nbsp;-218,&nbsp;1000,&nbsp;898]<br>
+&nbsp;<br>
+&nbsp;<br>
+AUTHOR:<br>
+&nbsp;&nbsp;John&nbsp;D.&nbsp;Hunter&nbsp;&lt;jdhunter@ace.bsd.uchicago.edu&gt;</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.afm.html#AFM">AFM</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="AFM">class <strong>AFM</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="AFM-__init__"><strong>__init__</strong></a>(self, fh)</dt><dd><tt>Parse&nbsp;the&nbsp;<a href="#AFM">AFM</a>&nbsp;file&nbsp;in&nbsp;file&nbsp;object&nbsp;fh</tt></dd></dl>
+
+<dl><dt><a name="AFM-get_angle"><strong>get_angle</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;fontangle&nbsp;as&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="AFM-get_bbox_char"><strong>get_bbox_char</strong></a>(self, c)</dt><dd><tt>Get&nbsp;the&nbsp;llx,&nbsp;lly,&nbsp;urx,&nbsp;ury&nbsp;ink&nbsp;rectangle&nbsp;for&nbsp;the&nbsp;character</tt></dd></dl>
+
+<dl><dt><a name="AFM-get_bbox_font"><strong>get_bbox_font</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;llx,&nbsp;lly,&nbsp;urx,&nbsp;ury&nbsp;ink&nbsp;bounding&nbsp;box&nbsp;for&nbsp;the&nbsp;entire<br>
+font</tt></dd></dl>
+
+<dl><dt><a name="AFM-get_familyname"><strong>get_familyname</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;family&nbsp;name,&nbsp;eg,&nbsp;Times</tt></dd></dl>
+
+<dl><dt><a name="AFM-get_fontname"><strong>get_fontname</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;name,&nbsp;eg,&nbsp;Times-Roman</tt></dd></dl>
+
+<dl><dt><a name="AFM-get_fullname"><strong>get_fullname</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;full&nbsp;name,&nbsp;eg,&nbsp;Times-Roman</tt></dd></dl>
+
+<dl><dt><a name="AFM-get_height_char"><strong>get_height_char</strong></a>(self, c)</dt><dd><tt>Get&nbsp;the&nbsp;height&nbsp;of&nbsp;character&nbsp;c&nbsp;from&nbsp;the&nbsp;bounding&nbsp;box.&nbsp;&nbsp;This&nbsp;is<br>
+the&nbsp;ink&nbsp;height&nbsp;(space&nbsp;is&nbsp;0)</tt></dd></dl>
+
+<dl><dt><a name="AFM-get_kern_dist"><strong>get_kern_dist</strong></a>(self, c1, c2)</dt><dd><tt>Return&nbsp;the&nbsp;kerning&nbsp;pair&nbsp;distance&nbsp;(possibly&nbsp;0)&nbsp;for&nbsp;chars&nbsp;c1&nbsp;and<br>
+c2</tt></dd></dl>
+
+<dl><dt><a name="AFM-get_name_char"><strong>get_name_char</strong></a>(self, c)</dt><dd><tt>Get&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;character,&nbsp;ie,&nbsp;';'&nbsp;is&nbsp;'semicolon'</tt></dd></dl>
+
+<dl><dt><a name="AFM-get_str_bbox"><strong>get_str_bbox</strong></a>(self, s)</dt><dd><tt>Return&nbsp;the&nbsp;string&nbsp;bounding&nbsp;box</tt></dd></dl>
+
+<dl><dt><a name="AFM-get_weight"><strong>get_weight</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;font&nbsp;weight,&nbsp;eg,&nbsp;'Bold'&nbsp;or&nbsp;'Roman'</tt></dd></dl>
+
+<dl><dt><a name="AFM-get_width_char"><strong>get_width_char</strong></a>(self, c)</dt><dd><tt>Get&nbsp;the&nbsp;width&nbsp;of&nbsp;the&nbsp;character&nbsp;from&nbsp;the&nbsp;character&nbsp;metric&nbsp;WX<br>
+field</tt></dd></dl>
+
+<dl><dt><a name="AFM-string_width_height"><strong>string_width_height</strong></a>(self, s)</dt><dd><tt>Return&nbsp;the&nbsp;string&nbsp;width&nbsp;(including&nbsp;kerning)&nbsp;and&nbsp;string&nbsp;height<br>
+as&nbsp;a&nbsp;w,h&nbsp;tuple</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-parse_afm"><strong>parse_afm</strong></a>(fh)</dt><dd><tt>Parse&nbsp;the&nbsp;Adobe&nbsp;Font&nbsp;Metics&nbsp;file&nbsp;in&nbsp;file&nbsp;handle&nbsp;fh<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;(dhead,&nbsp;dcmetrics,&nbsp;dkernpairs,&nbsp;dcomposite)&nbsp;tuple&nbsp;where<br>
+&nbsp;<br>
+dhead&nbsp;:&nbsp;a&nbsp;parse_header&nbsp;dict<br>
+dcmetrics&nbsp;:&nbsp;&nbsp;a&nbsp;parse_composites&nbsp;dict<br>
+dkernpairs&nbsp;:&nbsp;a&nbsp;parse_kern_pairs&nbsp;dict,&nbsp;possibly&nbsp;{}<br>
+dcomposite&nbsp;:&nbsp;a&nbsp;parse_composites&nbsp;dict&nbsp;,&nbsp;possibly&nbsp;{}</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>False</strong> = 0<br>
+<strong>True</strong> = 1</td></tr></table>
+@footer@

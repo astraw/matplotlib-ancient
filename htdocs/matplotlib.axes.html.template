@@ -1,0 +1,1557 @@
+@header@
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.axes</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="matplotlib/axes.py">matplotlib/axes.py</a></font></td></tr></table>
+    <p><tt>API&nbsp;changes<br>
+&nbsp;<br>
+&nbsp;<br>
+-&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;__init__&nbsp;takes&nbsp;a&nbsp;DPI&nbsp;instance&nbsp;and&nbsp;a&nbsp;Bound2D&nbsp;instance&nbsp;which&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;bounding&nbsp;box&nbsp;of&nbsp;the&nbsp;artist&nbsp;in&nbsp;display&nbsp;coords<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;get_window_extent&nbsp;returns&nbsp;a&nbsp;Bound2D&nbsp;instance<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;set_size&nbsp;is&nbsp;removed;&nbsp;replaced&nbsp;by&nbsp;bbox&nbsp;and&nbsp;dpi<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;the&nbsp;clip_gc&nbsp;method&nbsp;is&nbsp;removed.&nbsp;&nbsp;Artists&nbsp;now&nbsp;clip&nbsp;themselves&nbsp;with<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;their&nbsp;box<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;added&nbsp;_clipOn&nbsp;boolean&nbsp;attribute.&nbsp;&nbsp;If&nbsp;True,&nbsp;gc&nbsp;clip&nbsp;to&nbsp;bbox.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+-&nbsp;AxisTextBase<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Initialized&nbsp;with&nbsp;a&nbsp;transx,&nbsp;transy&nbsp;which&nbsp;are&nbsp;Transform&nbsp;instances<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;set_drawing_area&nbsp;removed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;get_left_right&nbsp;and&nbsp;get_top_bottom&nbsp;are&nbsp;replaced&nbsp;by&nbsp;get_window_extent<br>
+&nbsp;<br>
+-&nbsp;Line2D&nbsp;Patches&nbsp;now&nbsp;take&nbsp;transx,&nbsp;transy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Initialized&nbsp;with&nbsp;a&nbsp;transx,&nbsp;transy&nbsp;which&nbsp;are&nbsp;Transform&nbsp;instances<br>
+&nbsp;<br>
+-&nbsp;Patches<br>
+&nbsp;&nbsp;&nbsp;*&nbsp;Initialized&nbsp;with&nbsp;a&nbsp;transx,&nbsp;transy&nbsp;which&nbsp;are&nbsp;Transform&nbsp;instances<br>
+&nbsp;<br>
+-&nbsp;FigureBase&nbsp;attributes&nbsp;dpi&nbsp;is&nbsp;a&nbsp;DPI&nbsp;intance&nbsp;rather&nbsp;than&nbsp;scalar&nbsp;and<br>
+&nbsp;&nbsp;new&nbsp;attribute&nbsp;bbox&nbsp;is&nbsp;a&nbsp;Bound2D&nbsp;in&nbsp;display&nbsp;coords,&nbsp;and&nbsp;I&nbsp;got&nbsp;rid&nbsp;of<br>
+&nbsp;&nbsp;the&nbsp;left,&nbsp;width,&nbsp;height,&nbsp;etc...&nbsp;attributes.&nbsp;&nbsp;These&nbsp;are&nbsp;now<br>
+&nbsp;&nbsp;accessible&nbsp;as,&nbsp;for&nbsp;example,&nbsp;bbox.x.min&nbsp;is&nbsp;left,&nbsp;bbox.x.interval()&nbsp;is<br>
+&nbsp;&nbsp;width,&nbsp;bbox.y.max&nbsp;is&nbsp;top,&nbsp;etc...<br>
+&nbsp;<br>
+-&nbsp;GcfBase&nbsp;attribute&nbsp;pagesize&nbsp;renamed&nbsp;to&nbsp;figsize<br>
+&nbsp;<br>
+-&nbsp;<a href="#Axes">Axes</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;removed&nbsp;figbg&nbsp;attribute<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;added&nbsp;fig&nbsp;instance&nbsp;to&nbsp;__init__<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;resizing&nbsp;is&nbsp;handled&nbsp;by&nbsp;figure&nbsp;call&nbsp;to&nbsp;resize.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+-&nbsp;<a href="#Subplot">Subplot</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;added&nbsp;fig&nbsp;instance&nbsp;to&nbsp;__init__<br>
+&nbsp;<br>
+-&nbsp;Renderer&nbsp;methods&nbsp;for&nbsp;patches&nbsp;now&nbsp;take&nbsp;gcEdge&nbsp;and&nbsp;gcFace&nbsp;instances.<br>
+&nbsp;&nbsp;gcFace=None&nbsp;takes&nbsp;the&nbsp;place&nbsp;of&nbsp;filled=False<br>
+&nbsp;<br>
+-&nbsp;True&nbsp;and&nbsp;False&nbsp;symbols&nbsp;provided&nbsp;by&nbsp;cbook&nbsp;in&nbsp;a&nbsp;python2.3&nbsp;compatible<br>
+&nbsp;&nbsp;way<br>
+&nbsp;<br>
+-&nbsp;new&nbsp;module&nbsp;transforms&nbsp;supplies&nbsp;Bound1D,&nbsp;Bound2D&nbsp;and&nbsp;Transform<br>
+&nbsp;&nbsp;instances&nbsp;and&nbsp;more<br>
+&nbsp;<br>
+-&nbsp;Changes&nbsp;to&nbsp;the&nbsp;matlab&nbsp;helpers&nbsp;API<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;_matlab_helpers.GcfBase&nbsp;is&nbsp;renamed&nbsp;by&nbsp;Gcf.&nbsp;&nbsp;Backends&nbsp;no&nbsp;longer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;need&nbsp;to&nbsp;derive&nbsp;from&nbsp;this&nbsp;class.&nbsp;&nbsp;Instead,&nbsp;they&nbsp;provide&nbsp;a&nbsp;factory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;new_figure_manager(num,&nbsp;figsize,&nbsp;dpi).&nbsp;&nbsp;The&nbsp;destroy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;method&nbsp;of&nbsp;the&nbsp;GcfDerived&nbsp;from&nbsp;the&nbsp;backends&nbsp;is&nbsp;moved&nbsp;to&nbsp;the&nbsp;derived<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FigureManager.<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;FigureManagerBase&nbsp;moved&nbsp;to&nbsp;backend_bases<br>
+&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;Gcf.get_all_figwins&nbsp;renamed&nbsp;to&nbsp;Gcf.get_all_fig_managers<br>
+&nbsp;<br>
+Jeremy:<br>
+&nbsp;<br>
+&nbsp;&nbsp;Make&nbsp;sure&nbsp;to&nbsp;self.<strong>_reset</strong>&nbsp;=&nbsp;False&nbsp;in&nbsp;AxisTextWX._set_font.&nbsp;&nbsp;This&nbsp;was<br>
+&nbsp;&nbsp;something&nbsp;missing&nbsp;in&nbsp;my&nbsp;backend&nbsp;code.<br>
+&nbsp;&nbsp;<br>
+KNOWN&nbsp;BUGS<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;DONE&nbsp;-&nbsp;Circle&nbsp;needs&nbsp;to&nbsp;provide&nbsp;window&nbsp;extent&nbsp;--&nbsp;see&nbsp;scatter&nbsp;demo<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;DONE&nbsp;-&nbsp;axes&nbsp;patch&nbsp;edge&nbsp;on&nbsp;gtk&nbsp;backend&nbsp;not&nbsp;complete<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;DONE&nbsp;-&nbsp;autoscale&nbsp;on&nbsp;y&nbsp;not&nbsp;satisfactory&nbsp;--&nbsp;see&nbsp;histogram&nbsp;demo<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;with&nbsp;multiple&nbsp;subplots&nbsp;there&nbsp;is&nbsp;a&nbsp;small&nbsp;gap&nbsp;between&nbsp;the&nbsp;bottom&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;xtick1&nbsp;line&nbsp;and&nbsp;the&nbsp;axes&nbsp;patch&nbsp;edge.&nbsp;see&nbsp;subplot_demo<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;DONE&nbsp;2003-11-14&nbsp;-&nbsp;&nbsp;lowest&nbsp;line&nbsp;position&nbsp;is&nbsp;off&nbsp;in&nbsp;legend_demo<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;the&nbsp;markers&nbsp;for&nbsp;circ&nbsp;and&nbsp;square&nbsp;in&nbsp;the&nbsp;gtk&nbsp;backend&nbsp;do&nbsp;not&nbsp;have&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;same&nbsp;center.&nbsp;&nbsp;See&nbsp;the&nbsp;stock_demo&nbsp;for&nbsp;example.<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;DONE&nbsp;2003-11-16&nbsp;-&nbsp;GD&nbsp;port&nbsp;of&nbsp;new&nbsp;API&nbsp;not&nbsp;done<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;DONE&nbsp;2003-11-16&nbsp;-&nbsp;xticklabels&nbsp;in&nbsp;PS&nbsp;backend&nbsp;need&nbsp;clip<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;x&nbsp;and&nbsp;y&nbsp;ticklabels&nbsp;overlap&nbsp;at&nbsp;origin<br>
+&nbsp;&nbsp;<br>
+OUTSTANDING&nbsp;ISSUES<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;rationalize&nbsp;DPI&nbsp;between&nbsp;backends&nbsp;-&nbsp;config&nbsp;file?<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;let&nbsp;the&nbsp;user&nbsp;pass&nbsp;the&nbsp;default&nbsp;font&nbsp;to&nbsp;the&nbsp;axes&nbsp;so&nbsp;that&nbsp;the&nbsp;text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;labels,&nbsp;tick&nbsp;labels,&nbsp;etc,&nbsp;can&nbsp;all&nbsp;be&nbsp;updated</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="MLab.html">MLab</a><br>
+<a href="matplotlib.backends.html">matplotlib.backends</a><br>
+</td><td width="25%" valign=top><a href="math.html">math</a><br>
+<a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#Axes">Axes</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#Subplot">Subplot</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#Axis">Axis</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#XAxis">XAxis</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.axes.html#YAxis">YAxis</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#Legend">Legend</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.axes.html#Tick">Tick</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#XTick">XTick</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.axes.html#YTick">YTick</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.axes.html#TickLocator">TickLocator</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Axes">class <strong>Axes</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Emulate&nbsp;matlab's&nbsp;axes&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#Axes">Axes</a>(position=[left,&nbsp;bottom,&nbsp;width,&nbsp;height])<br>
+&nbsp;<br>
+where&nbsp;all&nbsp;the&nbsp;arguments&nbsp;are&nbsp;fractions&nbsp;in&nbsp;[0,1]&nbsp;which&nbsp;specify&nbsp;the<br>
+fraction&nbsp;of&nbsp;the&nbsp;total&nbsp;figure&nbsp;window.&nbsp;&nbsp;<br>
+&nbsp;<br>
+axisbg&nbsp;is&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;axis&nbsp;background<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Axes-__init__"><strong>__init__</strong></a>(self, fig, position, axisbg<font color="#909090">='w'</font>)</dt></dl>
+
+<dl><dt><a name="Axes-add_line"><strong>add_line</strong></a>(self, line)</dt><dd><tt>Add&nbsp;a&nbsp;line&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;plot&nbsp;lines</tt></dd></dl>
+
+<dl><dt><a name="Axes-add_patch"><strong>add_patch</strong></a>(self, patch)</dt><dd><tt>Add&nbsp;a&nbsp;line&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;plot&nbsp;lines</tt></dd></dl>
+
+<dl><dt><a name="Axes-bar"><strong>bar</strong></a>(self, x, y, width<font color="#909090">=0.80000000000000004</font>, color<font color="#909090">='b'</font>, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at&nbsp;x,&nbsp;x+width,&nbsp;0,&nbsp;y<br>
+x&nbsp;and&nbsp;y&nbsp;are&nbsp;Numeric&nbsp;arrays<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>
+&nbsp;<br>
+xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
+on&nbsp;the&nbsp;bar&nbsp;chart</tt></dd></dl>
+
+<dl><dt><a name="Axes-clear"><strong>clear</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Axes-cohere"><strong>cohere</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>cohere&nbsp;the&nbsp;coherence&nbsp;between&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;Coherence&nbsp;is&nbsp;the&nbsp;normalized<br>
+cross&nbsp;spectral&nbsp;density<br>
+&nbsp;<br>
+Cxy&nbsp;=&nbsp;|Pxy|^2/(Pxx*Pyy)<br>
+&nbsp;<br>
+The&nbsp;return&nbsp;value&nbsp;is&nbsp;(Cxy,&nbsp;f),&nbsp;where&nbsp;f&nbsp;are&nbsp;the&nbsp;frequencies&nbsp;of&nbsp;the<br>
+coherence&nbsp;vector.&nbsp;&nbsp;See&nbsp;the&nbsp;docs&nbsp;for&nbsp;psd&nbsp;and&nbsp;csd&nbsp;for&nbsp;information<br>
+about&nbsp;the&nbsp;function&nbsp;arguments&nbsp;NFFT,&nbsp;detrend,&nbsp;windowm&nbsp;noverlap,&nbsp;as<br>
+well&nbsp;as&nbsp;the&nbsp;methods&nbsp;used&nbsp;to&nbsp;compute&nbsp;Pxy,&nbsp;Pxx&nbsp;and&nbsp;Pyy.<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Cxy,&nbsp;freqs<br>
+&nbsp;<br>
+Refs:<br>
+&nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+
+<dl><dt><a name="Axes-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram<br>
+method.&nbsp;&nbsp;The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length<br>
+segments.&nbsp;&nbsp;Each&nbsp;segment&nbsp;is&nbsp;detrended&nbsp;by&nbsp;function&nbsp;detrend&nbsp;and<br>
+windowed&nbsp;by&nbsp;function&nbsp;window.&nbsp;&nbsp;noverlap&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the<br>
+overlap&nbsp;between&nbsp;segments.&nbsp;&nbsp;The&nbsp;product&nbsp;of&nbsp;the&nbsp;direct&nbsp;FFTs&nbsp;of&nbsp;x&nbsp;and<br>
+y&nbsp;are&nbsp;averaged&nbsp;over&nbsp;each&nbsp;segment&nbsp;to&nbsp;compute&nbsp;Pxy,&nbsp;with&nbsp;a&nbsp;scaling&nbsp;to<br>
+correct&nbsp;for&nbsp;power&nbsp;loss&nbsp;due&nbsp;to&nbsp;windowing.&nbsp;&nbsp;Fs&nbsp;is&nbsp;the&nbsp;sampling<br>
+frequency.<br>
+&nbsp;<br>
+NFFT&nbsp;must&nbsp;be&nbsp;a&nbsp;power&nbsp;of&nbsp;2<br>
+&nbsp;<br>
+detrend&nbsp;and&nbsp;window&nbsp;are&nbsp;functions,&nbsp;unlike&nbsp;in&nbsp;matlab&nbsp;where&nbsp;they&nbsp;are<br>
+vectors.&nbsp;&nbsp;For&nbsp;detrending&nbsp;you&nbsp;can&nbsp;use&nbsp;detrend_none,&nbsp;detrend_mean,<br>
+detrend_linear&nbsp;or&nbsp;a&nbsp;custom&nbsp;function.&nbsp;&nbsp;For&nbsp;windowing,&nbsp;you&nbsp;can&nbsp;use<br>
+window_none,&nbsp;window_hanning,&nbsp;or&nbsp;a&nbsp;custom&nbsp;function<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Pxy,&nbsp;freqs.&nbsp;&nbsp;Pxy&nbsp;is&nbsp;the&nbsp;cross&nbsp;spectrum&nbsp;(complex<br>
+valued),&nbsp;and&nbsp;10*log10(|Pxy|)&nbsp;is&nbsp;plotted<br>
+&nbsp;<br>
+Refs:<br>
+&nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+
+<dl><dt><a name="Axes-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
+Vertical&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;yerr&nbsp;is&nbsp;not&nbsp;None<br>
+Horizontal&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;xerr&nbsp;is&nbsp;not&nbsp;None<br>
+&nbsp;<br>
+xerr&nbsp;and&nbsp;yerr&nbsp;may&nbsp;be&nbsp;any&nbsp;of:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;rank-0,&nbsp;Nx1&nbsp;Numpy&nbsp;array&nbsp;&nbsp;-&nbsp;symmetric&nbsp;errorbars&nbsp;+/-&nbsp;value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;an&nbsp;N-element&nbsp;list&nbsp;or&nbsp;tuple&nbsp;-&nbsp;symmetric&nbsp;errorbars&nbsp;+/-&nbsp;value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;rank-1,&nbsp;Nx2&nbsp;Numpy&nbsp;array&nbsp;&nbsp;-&nbsp;asymmetric&nbsp;errorbars&nbsp;-column1/+column2<br>
+&nbsp;<br>
+fmt&nbsp;is&nbsp;the&nbsp;plot&nbsp;format&nbsp;symbol&nbsp;for&nbsp;y.&nbsp;&nbsp;if&nbsp;fmt&nbsp;is&nbsp;None,&nbsp;just<br>
+plot&nbsp;the&nbsp;errorbars&nbsp;with&nbsp;no&nbsp;line&nbsp;symbols.&nbsp;&nbsp;This&nbsp;can&nbsp;be&nbsp;useful<br>
+for&nbsp;creating&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;errorbars<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&nbsp;first&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
+y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.<br>
+&nbsp;<br>
+capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps&nbsp;in&nbsp;points</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_axis_bgcolor"><strong>get_axis_bgcolor</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;background&nbsp;color</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Axes-get_xaxis"><strong>get_xaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;<a href="#XAxis">XAxis</a>&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_xlim"><strong>get_xlim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;x&nbsp;axis&nbsp;range&nbsp;[xmin,&nbsp;xmax]</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_xticklabels"><strong>get_xticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_xticks"><strong>get_xticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;x&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_yaxis"><strong>get_yaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;<a href="#YAxis">YAxis</a>&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_ylim"><strong>get_ylim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;y&nbsp;axis&nbsp;range&nbsp;[ymin,&nbsp;ymax]</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_yticklabels"><strong>get_yticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_yticks"><strong>get_yticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;y&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
+
+<dl><dt><a name="Axes-grid"><strong>grid</strong></a>(self, b)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;grids&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean</tt></dd></dl>
+
+<dl><dt><a name="Axes-hist"><strong>hist</strong></a>(self, x, bins<font color="#909090">=10</font>, normed<font color="#909090">=0</font>)</dt><dd><tt>Compute&nbsp;the&nbsp;histogram&nbsp;of&nbsp;x.&nbsp;&nbsp;bins&nbsp;is&nbsp;either&nbsp;an&nbsp;integer&nbsp;number&nbsp;of<br>
+bins&nbsp;or&nbsp;a&nbsp;sequence&nbsp;giving&nbsp;the&nbsp;bins.&nbsp;&nbsp;x&nbsp;are&nbsp;the&nbsp;data&nbsp;to&nbsp;be&nbsp;binned.<br>
+&nbsp;<br>
+if&nbsp;noplot&nbsp;is&nbsp;True,&nbsp;just&nbsp;compute&nbsp;the&nbsp;histogram&nbsp;and&nbsp;return&nbsp;the<br>
+number&nbsp;of&nbsp;observations&nbsp;and&nbsp;the&nbsp;bins&nbsp;as&nbsp;an&nbsp;(n,&nbsp;bins)&nbsp;tuple.<br>
+&nbsp;<br>
+If&nbsp;noplot&nbsp;is&nbsp;False,&nbsp;compute&nbsp;the&nbsp;histogram&nbsp;and&nbsp;plot&nbsp;it,&nbsp;returning<br>
+n,&nbsp;bins,&nbsp;patches<br>
+&nbsp;<br>
+If&nbsp;normed&nbsp;is&nbsp;true,&nbsp;the&nbsp;first&nbsp;element&nbsp;of&nbsp;the&nbsp;return&nbsp;tuple&nbsp;will&nbsp;be&nbsp;the<br>
+counts&nbsp;normalized&nbsp;to&nbsp;form&nbsp;a&nbsp;probability&nbsp;distribtion,&nbsp;ie,<br>
+n/(len(x)*dbin)</tt></dd></dl>
+
+<dl><dt><a name="Axes-hlines"><strong>hlines</strong></a>(self, y, xmin, xmax, fmt<font color="#909090">='k-'</font>)</dt><dd><tt>plot&nbsp;horizontal&nbsp;lines&nbsp;at&nbsp;each&nbsp;y&nbsp;from&nbsp;xmin&nbsp;to&nbsp;xmax.&nbsp;&nbsp;xmin&nbsp;or<br>
+xmax&nbsp;can&nbsp;be&nbsp;scalars&nbsp;or&nbsp;len(x)&nbsp;numpy&nbsp;arrays.&nbsp;&nbsp;If&nbsp;they&nbsp;are<br>
+scalars,&nbsp;then&nbsp;the&nbsp;respective&nbsp;values&nbsp;are&nbsp;constant,&nbsp;else&nbsp;the<br>
+widths&nbsp;of&nbsp;the&nbsp;lines&nbsp;are&nbsp;determined&nbsp;by&nbsp;xmin&nbsp;and&nbsp;xmax<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;line&nbsp;instances&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+
+<dl><dt><a name="Axes-in_axes"><strong>in_axes</strong></a>(self, xwin, ywin)</dt></dl>
+
+<dl><dt><a name="Axes-legend"><strong>legend</strong></a>(self, *args, **kwargs)</dt><dd><tt>Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;current&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
+sequence&nbsp;of&nbsp;strings&nbsp;and&nbsp;loc&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;or&nbsp;an&nbsp;integer<br>
+specifying&nbsp;the&nbsp;legend&nbsp;location<br>
+&nbsp;<br>
+USAGE:&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;Make&nbsp;a&nbsp;legend&nbsp;with&nbsp;existing&nbsp;lines<br>
+&nbsp;&nbsp;<a href="#Axes-legend">legend</a>(&nbsp;LABELS&nbsp;)<br>
+&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#Axes-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;Make&nbsp;a&nbsp;legend&nbsp;for&nbsp;Line2D&nbsp;instances&nbsp;lines1,&nbsp;line2,&nbsp;line3<br>
+&nbsp;&nbsp;<a href="#Axes-legend">legend</a>(&nbsp;LINES,&nbsp;LABELS&nbsp;)<br>
+&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#Axes-legend">legend</a>(&nbsp;(line1,&nbsp;line2,&nbsp;line3),&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)<br>
+&nbsp;<br>
+&nbsp;&nbsp;Make&nbsp;a&nbsp;legend&nbsp;at&nbsp;LOC<br>
+&nbsp;&nbsp;<a href="#Axes-legend">legend</a>(&nbsp;LABELS,&nbsp;LOC&nbsp;)&nbsp;&nbsp;or<br>
+&nbsp;&nbsp;<a href="#Axes-legend">legend</a>(&nbsp;LINES,&nbsp;LABELS,&nbsp;LOC&nbsp;)<br>
+&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#Axes-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),&nbsp;loc='upper&nbsp;left')<br>
+&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#Axes-legend">legend</a>(&nbsp;(line1,&nbsp;line2,&nbsp;line3),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loc=2)<br>
+&nbsp;<br>
+The&nbsp;LOC&nbsp;location&nbsp;codes&nbsp;are<br>
+&nbsp;<br>
+The&nbsp;location&nbsp;codes&nbsp;are<br>
+&nbsp;<br>
+&nbsp;&nbsp;'best'&nbsp;:&nbsp;0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(currently&nbsp;not&nbsp;supported,&nbsp;defaults&nbsp;to&nbsp;upper&nbsp;right)<br>
+&nbsp;&nbsp;'upper&nbsp;right'&nbsp;&nbsp;:&nbsp;1,&nbsp;&nbsp;(default)<br>
+&nbsp;&nbsp;'upper&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;2,<br>
+&nbsp;&nbsp;'lower&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;3,<br>
+&nbsp;&nbsp;'lower&nbsp;right'&nbsp;&nbsp;:&nbsp;4,<br>
+&nbsp;&nbsp;'right'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;5,<br>
+&nbsp;&nbsp;'center&nbsp;left'&nbsp;&nbsp;:&nbsp;6,<br>
+&nbsp;&nbsp;'center&nbsp;right'&nbsp;:&nbsp;7,<br>
+&nbsp;&nbsp;'lower&nbsp;center'&nbsp;:&nbsp;8,<br>
+&nbsp;&nbsp;'upper&nbsp;center'&nbsp;:&nbsp;9,<br>
+&nbsp;&nbsp;'center'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;text,&nbsp;line&nbsp;instances&nbsp;that&nbsp;make<br>
+up&nbsp;the&nbsp;legend</tt></dd></dl>
+
+<dl><dt><a name="Axes-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
+to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
+more&nbsp;info</tt></dd></dl>
+
+<dl><dt><a name="Axes-panx"><strong>panx</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;the&nbsp;x&nbsp;axis&nbsp;numsteps&nbsp;(plus&nbsp;pan&nbsp;right,&nbsp;minus&nbsp;pan&nbsp;left)</tt></dd></dl>
+
+<dl><dt><a name="Axes-pany"><strong>pany</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;the&nbsp;x&nbsp;axis&nbsp;numsteps&nbsp;(plus&nbsp;pan&nbsp;up,&nbsp;minus&nbsp;pan&nbsp;down)</tt></dd></dl>
+
+<dl><dt><a name="Axes-pcolor"><strong>pcolor</strong></a>(self, *args, **kwargs)</dt><dd><tt><a href="#Axes-pcolor">pcolor</a>(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
+&nbsp;<br>
+<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y&nbsp;&nbsp;<br>
+&nbsp;<br>
+Shading:<br>
+&nbsp;<br>
+&nbsp;&nbsp;The&nbsp;optional&nbsp;keyword&nbsp;arg&nbsp;shading&nbsp;('flat'&nbsp;or&nbsp;'faceted')&nbsp;will<br>
+&nbsp;&nbsp;determine&nbsp;whether&nbsp;a&nbsp;black&nbsp;grid&nbsp;is&nbsp;drawn&nbsp;around&nbsp;each&nbsp;pcolor<br>
+&nbsp;&nbsp;square.&nbsp;&nbsp;Default&nbsp;'faceteted'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.,&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(C,&nbsp;shading='flat')&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Axes-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C,&nbsp;shading='faceted')<br>
+&nbsp;<br>
+returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects</tt></dd></dl>
+
+<dl><dt><a name="Axes-plot"><strong>plot</strong></a>(self, *args)</dt><dd><tt>Emulate&nbsp;matlab's&nbsp;plot&nbsp;command.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
+argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional<br>
+format&nbsp;string.&nbsp;&nbsp;For&nbsp;example,&nbsp;all&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;legal,<br>
+assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;<a href="#Axis">Axis</a>&nbsp;instance:<br>
+&nbsp;<br>
+&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x<br>
+&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x&nbsp;with&nbsp;blue&nbsp;circles<br>
+&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(len(y))<br>
+&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto&nbsp;with&nbsp;red&nbsp;plusses<br>
+&nbsp;<br>
+An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x1,&nbsp;y1,&nbsp;'g^',&nbsp;x2,&nbsp;y2,&nbsp;'l-')&nbsp;&nbsp;<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+
+<dl><dt><a name="Axes-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
+The&nbsp;vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment<br>
+is&nbsp;detrended&nbsp;by&nbsp;function&nbsp;detrend&nbsp;and&nbsp;windowed&nbsp;by&nbsp;function&nbsp;window.<br>
+noperlap&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;overlap&nbsp;between&nbsp;segments.&nbsp;&nbsp;The<br>
+absolute(fft(segment))**2&nbsp;of&nbsp;each&nbsp;segment&nbsp;are&nbsp;averaged&nbsp;to&nbsp;compute&nbsp;Pxx,<br>
+with&nbsp;a&nbsp;scaling&nbsp;to&nbsp;correct&nbsp;for&nbsp;power&nbsp;loss&nbsp;due&nbsp;to&nbsp;windowing.&nbsp;&nbsp;Fs&nbsp;is<br>
+the&nbsp;sampling&nbsp;frequency.<br>
+&nbsp;<br>
+--&nbsp;NFFT&nbsp;must&nbsp;be&nbsp;a&nbsp;power&nbsp;of&nbsp;2<br>
+&nbsp;<br>
+--&nbsp;detrend&nbsp;and&nbsp;window&nbsp;are&nbsp;functions,&nbsp;unlike&nbsp;in&nbsp;matlab&nbsp;where&nbsp;they<br>
+&nbsp;&nbsp;&nbsp;are&nbsp;vectors.&nbsp;&nbsp;For&nbsp;detrending&nbsp;you&nbsp;can&nbsp;use&nbsp;detrend_none,<br>
+&nbsp;&nbsp;&nbsp;detrend_mean,&nbsp;detrend_linear&nbsp;or&nbsp;a&nbsp;custom&nbsp;function.&nbsp;&nbsp;For<br>
+&nbsp;&nbsp;&nbsp;windowing,&nbsp;you&nbsp;can&nbsp;use&nbsp;window_none,&nbsp;window_hanning,&nbsp;or&nbsp;a&nbsp;custom<br>
+&nbsp;&nbsp;&nbsp;function<br>
+&nbsp;<br>
+--&nbsp;if&nbsp;length&nbsp;x&nbsp;&lt;&nbsp;NFFT,&nbsp;it&nbsp;will&nbsp;be&nbsp;zero&nbsp;padded&nbsp;to&nbsp;NFFT<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Pxx,&nbsp;freqs<br>
+&nbsp;<br>
+For&nbsp;plotting,&nbsp;the&nbsp;power&nbsp;is&nbsp;plotted&nbsp;as&nbsp;10*log10(pxx))&nbsp;for&nbsp;decibels,<br>
+though&nbsp;pxx&nbsp;itself&nbsp;is&nbsp;returned<br>
+&nbsp;<br>
+Refs:<br>
+&nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+
+<dl><dt><a name="Axes-resize"><strong>resize</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Axes-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=None</font>, c<font color="#909090">='b'</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data<br>
+coords)&nbsp;and&nbsp;can&nbsp;be&nbsp;either&nbsp;a&nbsp;scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same<br>
+length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;color<br>
+format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array&nbsp;of&nbsp;intensities&nbsp;which&nbsp;will<br>
+be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;colormap&nbsp;jet.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+If&nbsp;size&nbsp;is&nbsp;None&nbsp;a&nbsp;default&nbsp;size&nbsp;will&nbsp;be&nbsp;used</tt></dd></dl>
+
+<dl><dt><a name="Axes-semilogx"><strong>semilogx</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;x&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
+semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
+more&nbsp;info</tt></dd></dl>
+
+<dl><dt><a name="Axes-semilogy"><strong>semilogy</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
+semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
+more&nbsp;info</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_axis_bgcolor"><strong>set_axis_bgcolor</strong></a>(self, color)</dt></dl>
+
+<dl><dt><a name="Axes-set_axis_off"><strong>set_axis_off</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Axes-set_axis_on"><strong>set_axis_on</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Axes-set_title"><strong>set_title</strong></a>(self, label, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;title&nbsp;for&nbsp;the&nbsp;xaxis<br>
+&nbsp;<br>
+See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information&nbsp;of&nbsp;how&nbsp;override&nbsp;and&nbsp;the<br>
+optional&nbsp;args&nbsp;work</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_xlabel"><strong>set_xlabel</strong></a>(self, xlabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;label&nbsp;for&nbsp;the&nbsp;xaxis<br>
+&nbsp;<br>
+See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information&nbsp;of&nbsp;how&nbsp;override&nbsp;and&nbsp;the<br>
+optional&nbsp;args&nbsp;work</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_xlim"><strong>set_xlim</strong></a>(self, v)</dt><dd><tt>Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[xmin,&nbsp;xmax]</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_xscale"><strong>set_xscale</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Axes-set_xticklabels"><strong>set_xticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels<br>
+Return&nbsp;a&nbsp;list&nbsp;of&nbsp;axis&nbsp;text&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_xticks"><strong>set_xticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_ylabel"><strong>set_ylabel</strong></a>(self, ylabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;label&nbsp;for&nbsp;the&nbsp;yaxis<br>
+&nbsp;<br>
+Defaults&nbsp;override&nbsp;is<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;override&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'fontsize'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'verticalalignment'&nbsp;&nbsp;&nbsp;:&nbsp;'center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'horizontalalignment'&nbsp;:&nbsp;'right',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rotation'='vertical'&nbsp;:&nbsp;}<br>
+&nbsp;<br>
+See&nbsp;the&nbsp;text&nbsp;doctstring&nbsp;for&nbsp;information&nbsp;of&nbsp;how&nbsp;override&nbsp;and<br>
+the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_ylim"><strong>set_ylim</strong></a>(self, v)</dt><dd><tt>Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[ymin,&nbsp;ymax]</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_yscale"><strong>set_yscale</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Axes-set_yticklabels"><strong>set_yticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels.<br>
+Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+
+<dl><dt><a name="Axes-text"><strong>text</strong></a>(self, x, y, text, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;axis&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(data&nbsp;coords)<br>
+&nbsp;<br>
+fontdict&nbsp;is&nbsp;a&nbsp;dictionary&nbsp;to&nbsp;override&nbsp;the&nbsp;default&nbsp;text&nbsp;properties.<br>
+If&nbsp;fontdict&nbsp;is&nbsp;None,&nbsp;the&nbsp;default&nbsp;is<br>
+&nbsp;<br>
+If&nbsp;len(args)&nbsp;the&nbsp;override&nbsp;dictionary&nbsp;will&nbsp;be:<br>
+&nbsp;<br>
+&nbsp;&nbsp;'fontsize'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
+&nbsp;&nbsp;'verticalalignment'&nbsp;&nbsp;&nbsp;:&nbsp;'bottom',<br>
+&nbsp;&nbsp;'horizontalalignment'&nbsp;:&nbsp;'left'<br>
+&nbsp;<br>
+&nbsp;<br>
+**kwargs&nbsp;can&nbsp;in&nbsp;turn&nbsp;be&nbsp;used&nbsp;to&nbsp;override&nbsp;the&nbsp;override,&nbsp;as&nbsp;in<br>
+&nbsp;<br>
+&nbsp;&nbsp;a.<a href="#Axes-text">text</a>(x,y,label,&nbsp;fontsize=12)<br>
+&nbsp;<br>
+will&nbsp;have&nbsp;verticalalignment=bottom&nbsp;and<br>
+horizontalalignment=left&nbsp;but&nbsp;will&nbsp;have&nbsp;a&nbsp;fontsize&nbsp;of&nbsp;12<br>
+&nbsp;<br>
+&nbsp;<br>
+The&nbsp;AxisText&nbsp;defaults&nbsp;are<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'color'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'k',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'fontname'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'Sans',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'fontsize'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'fontweight'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'bold',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'fontangle'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'normal',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'horizontalalignment'&nbsp;:&nbsp;'left'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'rotation'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'horizontal',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'verticalalignment'&nbsp;&nbsp;&nbsp;:&nbsp;'bottom',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'transx'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;self.<strong>xaxis</strong>.transData,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'transy'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;self.<strong>yaxis</strong>.transData,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+transx&nbsp;and&nbsp;transy&nbsp;specify&nbsp;that&nbsp;text&nbsp;is&nbsp;in&nbsp;data&nbsp;coords,<br>
+alternatively,&nbsp;you&nbsp;can&nbsp;specify&nbsp;text&nbsp;in&nbsp;axis&nbsp;coords&nbsp;(0,0&nbsp;lower<br>
+left&nbsp;and&nbsp;1,1&nbsp;upper&nbsp;right).&nbsp;&nbsp;The&nbsp;example&nbsp;below&nbsp;places&nbsp;text&nbsp;in<br>
+the&nbsp;center&nbsp;of&nbsp;the&nbsp;axes<br>
+&nbsp;<br>
+ax&nbsp;=&nbsp;subplot(111)<br>
+<a href="#Axes-text">text</a>(0.5,&nbsp;0.5,'matplotlib',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;horizontalalignment='center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verticalalignment='center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transx&nbsp;=&nbsp;ax.xaxis.transAxis,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transy&nbsp;=&nbsp;ax.yaxis.transAxis,<br>
+)</tt></dd></dl>
+
+<dl><dt><a name="Axes-update_viewlim"><strong>update_viewlim</strong></a>(self)</dt><dd><tt>Update&nbsp;the&nbsp;view&nbsp;limits&nbsp;with&nbsp;all&nbsp;the&nbsp;data&nbsp;in&nbsp;self</tt></dd></dl>
+
+<dl><dt><a name="Axes-vlines"><strong>vlines</strong></a>(self, x, ymin, ymax, color<font color="#909090">='k'</font>)</dt><dd><tt>Plot&nbsp;vertical&nbsp;lines&nbsp;at&nbsp;each&nbsp;x&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;ymin&nbsp;or&nbsp;ymax<br>
+can&nbsp;be&nbsp;scalars&nbsp;or&nbsp;len(x)&nbsp;numpy&nbsp;arrays.&nbsp;&nbsp;If&nbsp;they&nbsp;are&nbsp;scalars,<br>
+then&nbsp;the&nbsp;respective&nbsp;values&nbsp;are&nbsp;constant,&nbsp;else&nbsp;the&nbsp;heights&nbsp;of<br>
+the&nbsp;lines&nbsp;are&nbsp;determined&nbsp;by&nbsp;ymin&nbsp;and&nbsp;ymax<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+
+<dl><dt><a name="Axes-zoomx"><strong>zoomx</strong></a>(self, numsteps)</dt><dd><tt>Zoom&nbsp;in&nbsp;on&nbsp;the&nbsp;x&nbsp;xaxis&nbsp;numsteps&nbsp;(plus&nbsp;for&nbsp;zoom&nbsp;in,&nbsp;minus&nbsp;for&nbsp;zoom&nbsp;out)</tt></dd></dl>
+
+<dl><dt><a name="Axes-zoomy"><strong>zoomy</strong></a>(self, numsteps)</dt><dd><tt>Zoom&nbsp;in&nbsp;on&nbsp;the&nbsp;x&nbsp;xaxis&nbsp;numsteps&nbsp;(plus&nbsp;for&nbsp;zoom&nbsp;in,&nbsp;minus&nbsp;for&nbsp;zoom&nbsp;out)</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="Axes-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+
+<dl><dt><a name="Axes-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="Axes-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
+
+<dl><dt><a name="Axes-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Axis">class <strong>Axis</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Axis-__init__"><strong>__init__</strong></a>(self, axes)</dt><dd><tt>Init&nbsp;the&nbsp;axis&nbsp;with&nbsp;the&nbsp;parent&nbsp;<a href="#Axes">Axes</a>&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Axis-autoscale_view"><strong>autoscale_view</strong></a>(self)</dt><dd><tt>Try&nbsp;to&nbsp;choose&nbsp;the&nbsp;view&nbsp;limits&nbsp;intelligently</tt></dd></dl>
+
+<dl><dt><a name="Axis-build_artists"><strong>build_artists</strong></a>(self)</dt><dd><tt>Call&nbsp;only&nbsp;after&nbsp;xaxis&nbsp;and&nbsp;yaxis&nbsp;have&nbsp;been&nbsp;initialized&nbsp;in&nbsp;axes<br>
+since&nbsp;the&nbsp;trasnforms&nbsp;require&nbsp;both</tt></dd></dl>
+
+<dl><dt><a name="Axis-format_tickval"><strong>format_tickval</strong></a>(self, x)</dt><dd><tt>Format&nbsp;the&nbsp;number&nbsp;x&nbsp;as&nbsp;a&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="Axis-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;instances&nbsp;contained&nbsp;by&nbsp;<a href="#Axis">Axis</a></tt></dd></dl>
+
+<dl><dt><a name="Axis-get_cm_transform"><strong>get_cm_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;cm&nbsp;to&nbsp;dots<br>
+&nbsp;<br>
+offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
+displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
+offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="Axis-get_gridlines"><strong>get_gridlines</strong></a>()</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;for&nbsp;grid&nbsp;lines</tt></dd></dl>
+
+<dl><dt><a name="Axis-get_inches_transform"><strong>get_inches_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;inches&nbsp;to&nbsp;dots<br>
+&nbsp;<br>
+offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
+displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
+offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="Axis-get_label"><strong>get_label</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;label&nbsp;as&nbsp;an&nbsp;AxisText&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Axis-get_mm_transform"><strong>get_mm_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;mm&nbsp;to&nbsp;dots<br>
+&nbsp;<br>
+offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
+displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
+offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="Axis-get_numticks"><strong>get_numticks</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Axis-get_pts_transform"><strong>get_pts_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;points&nbsp;to&nbsp;dots<br>
+&nbsp;<br>
+offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
+displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
+offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="Axis-get_ticklabels"><strong>get_ticklabels</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances&nbsp;for&nbsp;ticklabels</tt></dd></dl>
+
+<dl><dt><a name="Axis-get_ticklocs"><strong>get_ticklocs</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;tick&nbsp;locations&nbsp;in&nbsp;data&nbsp;coordinates&nbsp;as&nbsp;a&nbsp;Numeric&nbsp;array</tt></dd></dl>
+
+<dl><dt><a name="Axis-get_ticks"><strong>get_ticks</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Axis-grid"><strong>grid</strong></a>(self, b)</dt><dd><tt>Set&nbsp;the&nbsp;axis&nbsp;grid&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean</tt></dd></dl>
+
+<dl><dt><a name="Axis-is_log"><strong>is_log</strong></a>(self)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;log&nbsp;scaling&nbsp;is&nbsp;on</tt></dd></dl>
+
+<dl><dt><a name="Axis-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
+
+<dl><dt><a name="Axis-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+
+<dl><dt><a name="Axis-set_scale"><strong>set_scale</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Axis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;&nbsp;ticklabels&nbsp;is&nbsp;a<br>
+sequence&nbsp;of&nbsp;strings.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Axis-set_ticks"><strong>set_ticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;tick&nbsp;marks&nbsp;from&nbsp;sequence&nbsp;ticks</tt></dd></dl>
+
+<dl><dt><a name="Axis-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>LABELPAD</strong> = -0.01</dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="Axis-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="Axis-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+
+<dl><dt><a name="Axis-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Axis-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+
+<dl><dt><a name="Axis-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Axis-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="Axis-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
+
+<dl><dt><a name="Axis-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Legend">class <strong>Legend</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
+sequence&nbsp;of&nbsp;strings&nbsp;and&nbsp;loc&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;or&nbsp;an&nbsp;integer<br>
+specifying&nbsp;the&nbsp;legend&nbsp;location<br>
+&nbsp;<br>
+The&nbsp;location&nbsp;codes&nbsp;are<br>
+&nbsp;<br>
+&nbsp;&nbsp;'best'&nbsp;:&nbsp;0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(currently&nbsp;not&nbsp;supported,&nbsp;defaults&nbsp;to&nbsp;upper&nbsp;right)<br>
+&nbsp;&nbsp;'upper&nbsp;right'&nbsp;&nbsp;:&nbsp;1,&nbsp;&nbsp;(default)<br>
+&nbsp;&nbsp;'upper&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;2,<br>
+&nbsp;&nbsp;'lower&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;3,<br>
+&nbsp;&nbsp;'lower&nbsp;right'&nbsp;&nbsp;:&nbsp;4,<br>
+&nbsp;&nbsp;'right'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;5,<br>
+&nbsp;&nbsp;'center&nbsp;left'&nbsp;&nbsp;:&nbsp;6,<br>
+&nbsp;&nbsp;'center&nbsp;right'&nbsp;:&nbsp;7,<br>
+&nbsp;&nbsp;'lower&nbsp;center'&nbsp;:&nbsp;8,<br>
+&nbsp;&nbsp;'upper&nbsp;center'&nbsp;:&nbsp;9,<br>
+&nbsp;&nbsp;'center'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;text,&nbsp;line&nbsp;instances&nbsp;that&nbsp;make<br>
+up&nbsp;the&nbsp;legend<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Legend-__init__"><strong>__init__</strong></a>(self, axis, handles, labels, loc)</dt></dl>
+
+<dl><dt><a name="Legend-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Legend-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>AXESPAD</strong> = 0.02</dl>
+
+<dl><dt><strong>FONTSIZE</strong> = 10</dl>
+
+<dl><dt><strong>HANDLELEN</strong> = 0.050000000000000003</dl>
+
+<dl><dt><strong>HANDLETEXTSEP</strong> = 0.02</dl>
+
+<dl><dt><strong>LABELSEP</strong> = 0.0050000000000000001</dl>
+
+<dl><dt><strong>NUMPOINTS</strong> = 4</dl>
+
+<dl><dt><strong>PAD</strong> = 0.20000000000000001</dl>
+
+<dl><dt><strong>codes</strong> = {'best': 0, 'center': 10, 'center left': 6, 'center right': 7, 'lower center': 8, 'lower left': 3, 'lower right': 4, 'right': 5, 'upper center': 9, 'upper left': 2, ...}</dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="Legend-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="Legend-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+
+<dl><dt><a name="Legend-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+
+<dl><dt><a name="Legend-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+
+<dl><dt><a name="Legend-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Legend-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="Legend-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
+
+<dl><dt><a name="Legend-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Subplot">class <strong>Subplot</strong></a>(<a href="matplotlib.axes.html#Axes">Axes</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Emulate&nbsp;matlab's&nbsp;subplot&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#Subplot">Subplot</a>(numRows,&nbsp;numCols,&nbsp;plotNum)<br>
+&nbsp;<br>
+where&nbsp;plotNum=1&nbsp;is&nbsp;the&nbsp;first&nbsp;plot&nbsp;number&nbsp;and&nbsp;increasing&nbsp;plotNums<br>
+fill&nbsp;rows&nbsp;first.&nbsp;&nbsp;max(plotNum)==numRows*numCols<br>
+&nbsp;<br>
+You&nbsp;can&nbsp;leave&nbsp;out&nbsp;the&nbsp;commas&nbsp;if&nbsp;numRows&lt;=numCols&lt;=plotNum&lt;10,&nbsp;as<br>
+in<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#Subplot">Subplot</a>(211)&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;2&nbsp;rows,&nbsp;1&nbsp;column,&nbsp;first&nbsp;(upper)&nbsp;plot<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.axes.html#Subplot">Subplot</a></dd>
+<dd><a href="matplotlib.axes.html#Axes">Axes</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Subplot-__init__"><strong>__init__</strong></a>(self, fig, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Subplot-is_first_col"><strong>is_first_col</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Subplot-is_first_row"><strong>is_first_row</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Subplot-is_last_col"><strong>is_last_col</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Subplot-is_last_row"><strong>is_last_row</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.axes.html#Axes">Axes</a>:<br>
+<dl><dt><a name="Subplot-add_line"><strong>add_line</strong></a>(self, line)</dt><dd><tt>Add&nbsp;a&nbsp;line&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;plot&nbsp;lines</tt></dd></dl>
+
+<dl><dt><a name="Subplot-add_patch"><strong>add_patch</strong></a>(self, patch)</dt><dd><tt>Add&nbsp;a&nbsp;line&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;plot&nbsp;lines</tt></dd></dl>
+
+<dl><dt><a name="Subplot-bar"><strong>bar</strong></a>(self, x, y, width<font color="#909090">=0.80000000000000004</font>, color<font color="#909090">='b'</font>, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Make&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;rectangles&nbsp;at&nbsp;x,&nbsp;x+width,&nbsp;0,&nbsp;y<br>
+x&nbsp;and&nbsp;y&nbsp;are&nbsp;Numeric&nbsp;arrays<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>
+&nbsp;<br>
+xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
+on&nbsp;the&nbsp;bar&nbsp;chart</tt></dd></dl>
+
+<dl><dt><a name="Subplot-clear"><strong>clear</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Subplot-cohere"><strong>cohere</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>cohere&nbsp;the&nbsp;coherence&nbsp;between&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;Coherence&nbsp;is&nbsp;the&nbsp;normalized<br>
+cross&nbsp;spectral&nbsp;density<br>
+&nbsp;<br>
+Cxy&nbsp;=&nbsp;|Pxy|^2/(Pxx*Pyy)<br>
+&nbsp;<br>
+The&nbsp;return&nbsp;value&nbsp;is&nbsp;(Cxy,&nbsp;f),&nbsp;where&nbsp;f&nbsp;are&nbsp;the&nbsp;frequencies&nbsp;of&nbsp;the<br>
+coherence&nbsp;vector.&nbsp;&nbsp;See&nbsp;the&nbsp;docs&nbsp;for&nbsp;psd&nbsp;and&nbsp;csd&nbsp;for&nbsp;information<br>
+about&nbsp;the&nbsp;function&nbsp;arguments&nbsp;NFFT,&nbsp;detrend,&nbsp;windowm&nbsp;noverlap,&nbsp;as<br>
+well&nbsp;as&nbsp;the&nbsp;methods&nbsp;used&nbsp;to&nbsp;compute&nbsp;Pxy,&nbsp;Pxx&nbsp;and&nbsp;Pyy.<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Cxy,&nbsp;freqs<br>
+&nbsp;<br>
+Refs:<br>
+&nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+
+<dl><dt><a name="Subplot-csd"><strong>csd</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;cross&nbsp;spectral&nbsp;density&nbsp;Pxy&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram<br>
+method.&nbsp;&nbsp;The&nbsp;vectors&nbsp;x&nbsp;and&nbsp;y&nbsp;are&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length<br>
+segments.&nbsp;&nbsp;Each&nbsp;segment&nbsp;is&nbsp;detrended&nbsp;by&nbsp;function&nbsp;detrend&nbsp;and<br>
+windowed&nbsp;by&nbsp;function&nbsp;window.&nbsp;&nbsp;noverlap&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the<br>
+overlap&nbsp;between&nbsp;segments.&nbsp;&nbsp;The&nbsp;product&nbsp;of&nbsp;the&nbsp;direct&nbsp;FFTs&nbsp;of&nbsp;x&nbsp;and<br>
+y&nbsp;are&nbsp;averaged&nbsp;over&nbsp;each&nbsp;segment&nbsp;to&nbsp;compute&nbsp;Pxy,&nbsp;with&nbsp;a&nbsp;scaling&nbsp;to<br>
+correct&nbsp;for&nbsp;power&nbsp;loss&nbsp;due&nbsp;to&nbsp;windowing.&nbsp;&nbsp;Fs&nbsp;is&nbsp;the&nbsp;sampling<br>
+frequency.<br>
+&nbsp;<br>
+NFFT&nbsp;must&nbsp;be&nbsp;a&nbsp;power&nbsp;of&nbsp;2<br>
+&nbsp;<br>
+detrend&nbsp;and&nbsp;window&nbsp;are&nbsp;functions,&nbsp;unlike&nbsp;in&nbsp;matlab&nbsp;where&nbsp;they&nbsp;are<br>
+vectors.&nbsp;&nbsp;For&nbsp;detrending&nbsp;you&nbsp;can&nbsp;use&nbsp;detrend_none,&nbsp;detrend_mean,<br>
+detrend_linear&nbsp;or&nbsp;a&nbsp;custom&nbsp;function.&nbsp;&nbsp;For&nbsp;windowing,&nbsp;you&nbsp;can&nbsp;use<br>
+window_none,&nbsp;window_hanning,&nbsp;or&nbsp;a&nbsp;custom&nbsp;function<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Pxy,&nbsp;freqs.&nbsp;&nbsp;Pxy&nbsp;is&nbsp;the&nbsp;cross&nbsp;spectrum&nbsp;(complex<br>
+valued),&nbsp;and&nbsp;10*log10(|Pxy|)&nbsp;is&nbsp;plotted<br>
+&nbsp;<br>
+Refs:<br>
+&nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+
+<dl><dt><a name="Subplot-errorbar"><strong>errorbar</strong></a>(self, x, y, yerr<font color="#909090">=None</font>, xerr<font color="#909090">=None</font>, fmt<font color="#909090">='b-'</font>, capsize<font color="#909090">=3</font>)</dt><dd><tt>Plot&nbsp;x&nbsp;versus&nbsp;y&nbsp;with&nbsp;error&nbsp;deltas&nbsp;in&nbsp;yerr&nbsp;and&nbsp;xerr.<br>
+Vertical&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;yerr&nbsp;is&nbsp;not&nbsp;None<br>
+Horizontal&nbsp;errorbars&nbsp;are&nbsp;plotted&nbsp;if&nbsp;xerr&nbsp;is&nbsp;not&nbsp;None<br>
+&nbsp;<br>
+xerr&nbsp;and&nbsp;yerr&nbsp;may&nbsp;be&nbsp;any&nbsp;of:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;rank-0,&nbsp;Nx1&nbsp;Numpy&nbsp;array&nbsp;&nbsp;-&nbsp;symmetric&nbsp;errorbars&nbsp;+/-&nbsp;value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;an&nbsp;N-element&nbsp;list&nbsp;or&nbsp;tuple&nbsp;-&nbsp;symmetric&nbsp;errorbars&nbsp;+/-&nbsp;value<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;rank-1,&nbsp;Nx2&nbsp;Numpy&nbsp;array&nbsp;&nbsp;-&nbsp;asymmetric&nbsp;errorbars&nbsp;-column1/+column2<br>
+&nbsp;<br>
+fmt&nbsp;is&nbsp;the&nbsp;plot&nbsp;format&nbsp;symbol&nbsp;for&nbsp;y.&nbsp;&nbsp;if&nbsp;fmt&nbsp;is&nbsp;None,&nbsp;just<br>
+plot&nbsp;the&nbsp;errorbars&nbsp;with&nbsp;no&nbsp;line&nbsp;symbols.&nbsp;&nbsp;This&nbsp;can&nbsp;be&nbsp;useful<br>
+for&nbsp;creating&nbsp;a&nbsp;bar&nbsp;plot&nbsp;with&nbsp;errorbars<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&nbsp;first&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
+y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.<br>
+&nbsp;<br>
+capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps&nbsp;in&nbsp;points</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_axis_bgcolor"><strong>get_axis_bgcolor</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;background&nbsp;color</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Subplot-get_xaxis"><strong>get_xaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;<a href="#XAxis">XAxis</a>&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_xlim"><strong>get_xlim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;x&nbsp;axis&nbsp;range&nbsp;[xmin,&nbsp;xmax]</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_xticklabels"><strong>get_xticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_xticks"><strong>get_xticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;x&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_yaxis"><strong>get_yaxis</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;<a href="#YAxis">YAxis</a>&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_ylim"><strong>get_ylim</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;y&nbsp;axis&nbsp;range&nbsp;[ymin,&nbsp;ymax]</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_yticklabels"><strong>get_yticklabels</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_yticks"><strong>get_yticks</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;y&nbsp;ticks&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;locations</tt></dd></dl>
+
+<dl><dt><a name="Subplot-grid"><strong>grid</strong></a>(self, b)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;grids&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean</tt></dd></dl>
+
+<dl><dt><a name="Subplot-hist"><strong>hist</strong></a>(self, x, bins<font color="#909090">=10</font>, normed<font color="#909090">=0</font>)</dt><dd><tt>Compute&nbsp;the&nbsp;histogram&nbsp;of&nbsp;x.&nbsp;&nbsp;bins&nbsp;is&nbsp;either&nbsp;an&nbsp;integer&nbsp;number&nbsp;of<br>
+bins&nbsp;or&nbsp;a&nbsp;sequence&nbsp;giving&nbsp;the&nbsp;bins.&nbsp;&nbsp;x&nbsp;are&nbsp;the&nbsp;data&nbsp;to&nbsp;be&nbsp;binned.<br>
+&nbsp;<br>
+if&nbsp;noplot&nbsp;is&nbsp;True,&nbsp;just&nbsp;compute&nbsp;the&nbsp;histogram&nbsp;and&nbsp;return&nbsp;the<br>
+number&nbsp;of&nbsp;observations&nbsp;and&nbsp;the&nbsp;bins&nbsp;as&nbsp;an&nbsp;(n,&nbsp;bins)&nbsp;tuple.<br>
+&nbsp;<br>
+If&nbsp;noplot&nbsp;is&nbsp;False,&nbsp;compute&nbsp;the&nbsp;histogram&nbsp;and&nbsp;plot&nbsp;it,&nbsp;returning<br>
+n,&nbsp;bins,&nbsp;patches<br>
+&nbsp;<br>
+If&nbsp;normed&nbsp;is&nbsp;true,&nbsp;the&nbsp;first&nbsp;element&nbsp;of&nbsp;the&nbsp;return&nbsp;tuple&nbsp;will&nbsp;be&nbsp;the<br>
+counts&nbsp;normalized&nbsp;to&nbsp;form&nbsp;a&nbsp;probability&nbsp;distribtion,&nbsp;ie,<br>
+n/(len(x)*dbin)</tt></dd></dl>
+
+<dl><dt><a name="Subplot-hlines"><strong>hlines</strong></a>(self, y, xmin, xmax, fmt<font color="#909090">='k-'</font>)</dt><dd><tt>plot&nbsp;horizontal&nbsp;lines&nbsp;at&nbsp;each&nbsp;y&nbsp;from&nbsp;xmin&nbsp;to&nbsp;xmax.&nbsp;&nbsp;xmin&nbsp;or<br>
+xmax&nbsp;can&nbsp;be&nbsp;scalars&nbsp;or&nbsp;len(x)&nbsp;numpy&nbsp;arrays.&nbsp;&nbsp;If&nbsp;they&nbsp;are<br>
+scalars,&nbsp;then&nbsp;the&nbsp;respective&nbsp;values&nbsp;are&nbsp;constant,&nbsp;else&nbsp;the<br>
+widths&nbsp;of&nbsp;the&nbsp;lines&nbsp;are&nbsp;determined&nbsp;by&nbsp;xmin&nbsp;and&nbsp;xmax<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;line&nbsp;instances&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+
+<dl><dt><a name="Subplot-in_axes"><strong>in_axes</strong></a>(self, xwin, ywin)</dt></dl>
+
+<dl><dt><a name="Subplot-legend"><strong>legend</strong></a>(self, *args, **kwargs)</dt><dd><tt>Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;current&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
+sequence&nbsp;of&nbsp;strings&nbsp;and&nbsp;loc&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;or&nbsp;an&nbsp;integer<br>
+specifying&nbsp;the&nbsp;legend&nbsp;location<br>
+&nbsp;<br>
+USAGE:&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;Make&nbsp;a&nbsp;legend&nbsp;with&nbsp;existing&nbsp;lines<br>
+&nbsp;&nbsp;<a href="#Subplot-legend">legend</a>(&nbsp;LABELS&nbsp;)<br>
+&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#Subplot-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;Make&nbsp;a&nbsp;legend&nbsp;for&nbsp;Line2D&nbsp;instances&nbsp;lines1,&nbsp;line2,&nbsp;line3<br>
+&nbsp;&nbsp;<a href="#Subplot-legend">legend</a>(&nbsp;LINES,&nbsp;LABELS&nbsp;)<br>
+&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#Subplot-legend">legend</a>(&nbsp;(line1,&nbsp;line2,&nbsp;line3),&nbsp;('label1',&nbsp;'label2',&nbsp;'label3')&nbsp;)<br>
+&nbsp;<br>
+&nbsp;&nbsp;Make&nbsp;a&nbsp;legend&nbsp;at&nbsp;LOC<br>
+&nbsp;&nbsp;<a href="#Subplot-legend">legend</a>(&nbsp;LABELS,&nbsp;LOC&nbsp;)&nbsp;&nbsp;or<br>
+&nbsp;&nbsp;<a href="#Subplot-legend">legend</a>(&nbsp;LINES,&nbsp;LABELS,&nbsp;LOC&nbsp;)<br>
+&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#Subplot-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),&nbsp;loc='upper&nbsp;left')<br>
+&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#Subplot-legend">legend</a>(&nbsp;(line1,&nbsp;line2,&nbsp;line3),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loc=2)<br>
+&nbsp;<br>
+The&nbsp;LOC&nbsp;location&nbsp;codes&nbsp;are<br>
+&nbsp;<br>
+The&nbsp;location&nbsp;codes&nbsp;are<br>
+&nbsp;<br>
+&nbsp;&nbsp;'best'&nbsp;:&nbsp;0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(currently&nbsp;not&nbsp;supported,&nbsp;defaults&nbsp;to&nbsp;upper&nbsp;right)<br>
+&nbsp;&nbsp;'upper&nbsp;right'&nbsp;&nbsp;:&nbsp;1,&nbsp;&nbsp;(default)<br>
+&nbsp;&nbsp;'upper&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;2,<br>
+&nbsp;&nbsp;'lower&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;3,<br>
+&nbsp;&nbsp;'lower&nbsp;right'&nbsp;&nbsp;:&nbsp;4,<br>
+&nbsp;&nbsp;'right'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;5,<br>
+&nbsp;&nbsp;'center&nbsp;left'&nbsp;&nbsp;:&nbsp;6,<br>
+&nbsp;&nbsp;'center&nbsp;right'&nbsp;:&nbsp;7,<br>
+&nbsp;&nbsp;'lower&nbsp;center'&nbsp;:&nbsp;8,<br>
+&nbsp;&nbsp;'upper&nbsp;center'&nbsp;:&nbsp;9,<br>
+&nbsp;&nbsp;'center'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;text,&nbsp;line&nbsp;instances&nbsp;that&nbsp;make<br>
+up&nbsp;the&nbsp;legend</tt></dd></dl>
+
+<dl><dt><a name="Subplot-loglog"><strong>loglog</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
+to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
+more&nbsp;info</tt></dd></dl>
+
+<dl><dt><a name="Subplot-panx"><strong>panx</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;the&nbsp;x&nbsp;axis&nbsp;numsteps&nbsp;(plus&nbsp;pan&nbsp;right,&nbsp;minus&nbsp;pan&nbsp;left)</tt></dd></dl>
+
+<dl><dt><a name="Subplot-pany"><strong>pany</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;the&nbsp;x&nbsp;axis&nbsp;numsteps&nbsp;(plus&nbsp;pan&nbsp;up,&nbsp;minus&nbsp;pan&nbsp;down)</tt></dd></dl>
+
+<dl><dt><a name="Subplot-pcolor"><strong>pcolor</strong></a>(self, *args, **kwargs)</dt><dd><tt><a href="#Subplot-pcolor">pcolor</a>(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
+&nbsp;<br>
+<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y&nbsp;&nbsp;<br>
+&nbsp;<br>
+Shading:<br>
+&nbsp;<br>
+&nbsp;&nbsp;The&nbsp;optional&nbsp;keyword&nbsp;arg&nbsp;shading&nbsp;('flat'&nbsp;or&nbsp;'faceted')&nbsp;will<br>
+&nbsp;&nbsp;determine&nbsp;whether&nbsp;a&nbsp;black&nbsp;grid&nbsp;is&nbsp;drawn&nbsp;around&nbsp;each&nbsp;pcolor<br>
+&nbsp;&nbsp;square.&nbsp;&nbsp;Default&nbsp;'faceteted'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.,&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(C,&nbsp;shading='flat')&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Subplot-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C,&nbsp;shading='faceted')<br>
+&nbsp;<br>
+returns&nbsp;a&nbsp;list&nbsp;of&nbsp;patch&nbsp;objects</tt></dd></dl>
+
+<dl><dt><a name="Subplot-plot"><strong>plot</strong></a>(self, *args)</dt><dd><tt>Emulate&nbsp;matlab's&nbsp;plot&nbsp;command.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length<br>
+argument,&nbsp;allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional<br>
+format&nbsp;string.&nbsp;&nbsp;For&nbsp;example,&nbsp;all&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;legal,<br>
+assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;<a href="#Axis">Axis</a>&nbsp;instance:<br>
+&nbsp;<br>
+&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x<br>
+&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x&nbsp;with&nbsp;blue&nbsp;circles<br>
+&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(len(y))<br>
+&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto&nbsp;with&nbsp;red&nbsp;plusses<br>
+&nbsp;<br>
+An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x1,&nbsp;y1,&nbsp;'g^',&nbsp;x2,&nbsp;y2,&nbsp;'l-')&nbsp;&nbsp;<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+
+<dl><dt><a name="Subplot-psd"><strong>psd</strong></a>(self, x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>The&nbsp;power&nbsp;spectral&nbsp;density&nbsp;by&nbsp;Welches&nbsp;average&nbsp;periodogram&nbsp;method.<br>
+The&nbsp;vector&nbsp;x&nbsp;is&nbsp;divided&nbsp;into&nbsp;NFFT&nbsp;length&nbsp;segments.&nbsp;&nbsp;Each&nbsp;segment<br>
+is&nbsp;detrended&nbsp;by&nbsp;function&nbsp;detrend&nbsp;and&nbsp;windowed&nbsp;by&nbsp;function&nbsp;window.<br>
+noperlap&nbsp;gives&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;overlap&nbsp;between&nbsp;segments.&nbsp;&nbsp;The<br>
+absolute(fft(segment))**2&nbsp;of&nbsp;each&nbsp;segment&nbsp;are&nbsp;averaged&nbsp;to&nbsp;compute&nbsp;Pxx,<br>
+with&nbsp;a&nbsp;scaling&nbsp;to&nbsp;correct&nbsp;for&nbsp;power&nbsp;loss&nbsp;due&nbsp;to&nbsp;windowing.&nbsp;&nbsp;Fs&nbsp;is<br>
+the&nbsp;sampling&nbsp;frequency.<br>
+&nbsp;<br>
+--&nbsp;NFFT&nbsp;must&nbsp;be&nbsp;a&nbsp;power&nbsp;of&nbsp;2<br>
+&nbsp;<br>
+--&nbsp;detrend&nbsp;and&nbsp;window&nbsp;are&nbsp;functions,&nbsp;unlike&nbsp;in&nbsp;matlab&nbsp;where&nbsp;they<br>
+&nbsp;&nbsp;&nbsp;are&nbsp;vectors.&nbsp;&nbsp;For&nbsp;detrending&nbsp;you&nbsp;can&nbsp;use&nbsp;detrend_none,<br>
+&nbsp;&nbsp;&nbsp;detrend_mean,&nbsp;detrend_linear&nbsp;or&nbsp;a&nbsp;custom&nbsp;function.&nbsp;&nbsp;For<br>
+&nbsp;&nbsp;&nbsp;windowing,&nbsp;you&nbsp;can&nbsp;use&nbsp;window_none,&nbsp;window_hanning,&nbsp;or&nbsp;a&nbsp;custom<br>
+&nbsp;&nbsp;&nbsp;function<br>
+&nbsp;<br>
+--&nbsp;if&nbsp;length&nbsp;x&nbsp;&lt;&nbsp;NFFT,&nbsp;it&nbsp;will&nbsp;be&nbsp;zero&nbsp;padded&nbsp;to&nbsp;NFFT<br>
+&nbsp;<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;tuple&nbsp;Pxx,&nbsp;freqs<br>
+&nbsp;<br>
+For&nbsp;plotting,&nbsp;the&nbsp;power&nbsp;is&nbsp;plotted&nbsp;as&nbsp;10*log10(pxx))&nbsp;for&nbsp;decibels,<br>
+though&nbsp;pxx&nbsp;itself&nbsp;is&nbsp;returned<br>
+&nbsp;<br>
+Refs:<br>
+&nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+
+<dl><dt><a name="Subplot-resize"><strong>resize</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Subplot-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=None</font>, c<font color="#909090">='b'</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data<br>
+coords)&nbsp;and&nbsp;can&nbsp;be&nbsp;either&nbsp;a&nbsp;scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same<br>
+length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;color<br>
+format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array&nbsp;of&nbsp;intensities&nbsp;which&nbsp;will<br>
+be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;colormap&nbsp;jet.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+If&nbsp;size&nbsp;is&nbsp;None&nbsp;a&nbsp;default&nbsp;size&nbsp;will&nbsp;be&nbsp;used</tt></dd></dl>
+
+<dl><dt><a name="Subplot-semilogx"><strong>semilogx</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;x&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
+semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
+more&nbsp;info</tt></dd></dl>
+
+<dl><dt><a name="Subplot-semilogy"><strong>semilogy</strong></a>(self, *args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;semilog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args&nbsp;to<br>
+semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
+more&nbsp;info</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_axis_bgcolor"><strong>set_axis_bgcolor</strong></a>(self, color)</dt></dl>
+
+<dl><dt><a name="Subplot-set_axis_off"><strong>set_axis_off</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Subplot-set_axis_on"><strong>set_axis_on</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Subplot-set_title"><strong>set_title</strong></a>(self, label, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;title&nbsp;for&nbsp;the&nbsp;xaxis<br>
+&nbsp;<br>
+See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information&nbsp;of&nbsp;how&nbsp;override&nbsp;and&nbsp;the<br>
+optional&nbsp;args&nbsp;work</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_xlabel"><strong>set_xlabel</strong></a>(self, xlabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;label&nbsp;for&nbsp;the&nbsp;xaxis<br>
+&nbsp;<br>
+See&nbsp;the&nbsp;text&nbsp;docstring&nbsp;for&nbsp;information&nbsp;of&nbsp;how&nbsp;override&nbsp;and&nbsp;the<br>
+optional&nbsp;args&nbsp;work</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_xlim"><strong>set_xlim</strong></a>(self, v)</dt><dd><tt>Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[xmin,&nbsp;xmax]</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_xscale"><strong>set_xscale</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Subplot-set_xticklabels"><strong>set_xticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;xtick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels<br>
+Return&nbsp;a&nbsp;list&nbsp;of&nbsp;axis&nbsp;text&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_xticks"><strong>set_xticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_ylabel"><strong>set_ylabel</strong></a>(self, ylabel, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;label&nbsp;for&nbsp;the&nbsp;yaxis<br>
+&nbsp;<br>
+Defaults&nbsp;override&nbsp;is<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;override&nbsp;=&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'fontsize'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'verticalalignment'&nbsp;&nbsp;&nbsp;:&nbsp;'center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'horizontalalignment'&nbsp;:&nbsp;'right',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'rotation'='vertical'&nbsp;:&nbsp;}<br>
+&nbsp;<br>
+See&nbsp;the&nbsp;text&nbsp;doctstring&nbsp;for&nbsp;information&nbsp;of&nbsp;how&nbsp;override&nbsp;and<br>
+the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_ylim"><strong>set_ylim</strong></a>(self, v)</dt><dd><tt>Set&nbsp;the&nbsp;limits&nbsp;for&nbsp;the&nbsp;xaxis;&nbsp;v&nbsp;=&nbsp;[ymin,&nbsp;ymax]</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_yscale"><strong>set_yscale</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Subplot-set_yticklabels"><strong>set_yticklabels</strong></a>(self, labels, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;ytick&nbsp;labels&nbsp;with&nbsp;list&nbsp;of&nbsp;strings&nbsp;labels.<br>
+Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_yticks"><strong>set_yticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;ticks&nbsp;with&nbsp;list&nbsp;of&nbsp;ticks</tt></dd></dl>
+
+<dl><dt><a name="Subplot-text"><strong>text</strong></a>(self, x, y, text, fontdict<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Add&nbsp;text&nbsp;to&nbsp;axis&nbsp;at&nbsp;location&nbsp;x,y&nbsp;(data&nbsp;coords)<br>
+&nbsp;<br>
+fontdict&nbsp;is&nbsp;a&nbsp;dictionary&nbsp;to&nbsp;override&nbsp;the&nbsp;default&nbsp;text&nbsp;properties.<br>
+If&nbsp;fontdict&nbsp;is&nbsp;None,&nbsp;the&nbsp;default&nbsp;is<br>
+&nbsp;<br>
+If&nbsp;len(args)&nbsp;the&nbsp;override&nbsp;dictionary&nbsp;will&nbsp;be:<br>
+&nbsp;<br>
+&nbsp;&nbsp;'fontsize'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
+&nbsp;&nbsp;'verticalalignment'&nbsp;&nbsp;&nbsp;:&nbsp;'bottom',<br>
+&nbsp;&nbsp;'horizontalalignment'&nbsp;:&nbsp;'left'<br>
+&nbsp;<br>
+&nbsp;<br>
+**kwargs&nbsp;can&nbsp;in&nbsp;turn&nbsp;be&nbsp;used&nbsp;to&nbsp;override&nbsp;the&nbsp;override,&nbsp;as&nbsp;in<br>
+&nbsp;<br>
+&nbsp;&nbsp;a.<a href="#Subplot-text">text</a>(x,y,label,&nbsp;fontsize=12)<br>
+&nbsp;<br>
+will&nbsp;have&nbsp;verticalalignment=bottom&nbsp;and<br>
+horizontalalignment=left&nbsp;but&nbsp;will&nbsp;have&nbsp;a&nbsp;fontsize&nbsp;of&nbsp;12<br>
+&nbsp;<br>
+&nbsp;<br>
+The&nbsp;AxisText&nbsp;defaults&nbsp;are<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'color'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'k',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'fontname'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'Sans',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'fontsize'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'fontweight'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'bold',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'fontangle'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'normal',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'horizontalalignment'&nbsp;:&nbsp;'left'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'rotation'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;'horizontal',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'verticalalignment'&nbsp;&nbsp;&nbsp;:&nbsp;'bottom',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'transx'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;self.<strong>xaxis</strong>.transData,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'transy'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;self.<strong>yaxis</strong>.transData,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+transx&nbsp;and&nbsp;transy&nbsp;specify&nbsp;that&nbsp;text&nbsp;is&nbsp;in&nbsp;data&nbsp;coords,<br>
+alternatively,&nbsp;you&nbsp;can&nbsp;specify&nbsp;text&nbsp;in&nbsp;axis&nbsp;coords&nbsp;(0,0&nbsp;lower<br>
+left&nbsp;and&nbsp;1,1&nbsp;upper&nbsp;right).&nbsp;&nbsp;The&nbsp;example&nbsp;below&nbsp;places&nbsp;text&nbsp;in<br>
+the&nbsp;center&nbsp;of&nbsp;the&nbsp;axes<br>
+&nbsp;<br>
+ax&nbsp;=&nbsp;subplot(111)<br>
+<a href="#Subplot-text">text</a>(0.5,&nbsp;0.5,'matplotlib',&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;horizontalalignment='center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;verticalalignment='center',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transx&nbsp;=&nbsp;ax.xaxis.transAxis,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transy&nbsp;=&nbsp;ax.yaxis.transAxis,<br>
+)</tt></dd></dl>
+
+<dl><dt><a name="Subplot-update_viewlim"><strong>update_viewlim</strong></a>(self)</dt><dd><tt>Update&nbsp;the&nbsp;view&nbsp;limits&nbsp;with&nbsp;all&nbsp;the&nbsp;data&nbsp;in&nbsp;self</tt></dd></dl>
+
+<dl><dt><a name="Subplot-vlines"><strong>vlines</strong></a>(self, x, ymin, ymax, color<font color="#909090">='k'</font>)</dt><dd><tt>Plot&nbsp;vertical&nbsp;lines&nbsp;at&nbsp;each&nbsp;x&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;ymin&nbsp;or&nbsp;ymax<br>
+can&nbsp;be&nbsp;scalars&nbsp;or&nbsp;len(x)&nbsp;numpy&nbsp;arrays.&nbsp;&nbsp;If&nbsp;they&nbsp;are&nbsp;scalars,<br>
+then&nbsp;the&nbsp;respective&nbsp;values&nbsp;are&nbsp;constant,&nbsp;else&nbsp;the&nbsp;heights&nbsp;of<br>
+the&nbsp;lines&nbsp;are&nbsp;determined&nbsp;by&nbsp;ymin&nbsp;and&nbsp;ymax<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+
+<dl><dt><a name="Subplot-zoomx"><strong>zoomx</strong></a>(self, numsteps)</dt><dd><tt>Zoom&nbsp;in&nbsp;on&nbsp;the&nbsp;x&nbsp;xaxis&nbsp;numsteps&nbsp;(plus&nbsp;for&nbsp;zoom&nbsp;in,&nbsp;minus&nbsp;for&nbsp;zoom&nbsp;out)</tt></dd></dl>
+
+<dl><dt><a name="Subplot-zoomy"><strong>zoomy</strong></a>(self, numsteps)</dt><dd><tt>Zoom&nbsp;in&nbsp;on&nbsp;the&nbsp;x&nbsp;xaxis&nbsp;numsteps&nbsp;(plus&nbsp;for&nbsp;zoom&nbsp;in,&nbsp;minus&nbsp;for&nbsp;zoom&nbsp;out)</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="Subplot-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+
+<dl><dt><a name="Subplot-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="Subplot-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
+
+<dl><dt><a name="Subplot-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Tick">class <strong>Tick</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Abstract&nbsp;base&nbsp;class&nbsp;for&nbsp;the&nbsp;axis&nbsp;ticks,&nbsp;grid&nbsp;lines&nbsp;and&nbsp;labels<br>
+&nbsp;<br>
+Publicly&nbsp;accessible&nbsp;attributes<br>
+&nbsp;<br>
+&nbsp;&nbsp;tickline&nbsp;&nbsp;:&nbsp;a&nbsp;Line2D&nbsp;instance<br>
+&nbsp;&nbsp;gridline&nbsp;&nbsp;:&nbsp;a&nbsp;Line2D&nbsp;instance<br>
+&nbsp;&nbsp;label&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;an&nbsp;AxisText&nbsp;instance<br>
+&nbsp;&nbsp;gridOn&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;tickline<br>
+&nbsp;&nbsp;tick1On&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;1st&nbsp;tickline<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(left&nbsp;for&nbsp;xtick&nbsp;and&nbsp;bottom&nbsp;for&nbsp;yticks)<br>
+&nbsp;&nbsp;tick2On&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;the&nbsp;2nd&nbsp;tickline<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(left&nbsp;for&nbsp;xtick&nbsp;and&nbsp;bottom&nbsp;for&nbsp;yticks)<br>
+&nbsp;&nbsp;labelOn&nbsp;&nbsp;&nbsp;:&nbsp;a&nbsp;boolean&nbsp;which&nbsp;determines&nbsp;whether&nbsp;to&nbsp;draw&nbsp;tick&nbsp;label<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Tick-__init__"><strong>__init__</strong></a>(self, axes, loc, label, size<font color="#909090">=4</font>, gridOn<font color="#909090">=False</font>, tick1On<font color="#909090">=True</font>, tick2On<font color="#909090">=True</font>, labelOn<font color="#909090">=True</font>)</dt><dd><tt>bbox&nbsp;is&nbsp;the&nbsp;Bound2D&nbsp;bounding&nbsp;box&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;<a href="#Axes">Axes</a><br>
+loc&nbsp;is&nbsp;the&nbsp;tick&nbsp;location&nbsp;in&nbsp;data&nbsp;coords<br>
+size&nbsp;is&nbsp;the&nbsp;tick&nbsp;size&nbsp;in&nbsp;relative,&nbsp;axes&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="Tick-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Tick-get_loc"><strong>get_loc</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;tick&nbsp;location&nbsp;(data&nbsp;coords)&nbsp;as&nbsp;a&nbsp;scalar</tt></dd></dl>
+
+<dl><dt><a name="Tick-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
+
+<dl><dt><a name="Tick-set_loc"><strong>set_loc</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="Tick-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="Tick-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+
+<dl><dt><a name="Tick-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="Tick-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+
+<dl><dt><a name="Tick-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+
+<dl><dt><a name="Tick-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Tick-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="Tick-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
+
+<dl><dt><a name="Tick-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TickLocator">class <strong>TickLocator</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Try&nbsp;and&nbsp;choose&nbsp;intelligent&nbsp;locations&nbsp;for&nbsp;ticks<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="TickLocator-__init__"><strong>__init__</strong></a>(self, bound)</dt><dd><tt>Bound&nbsp;is&nbsp;a&nbsp;Bound1d&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="TickLocator-get_locs"><strong>get_locs</strong></a>(self, num)</dt><dd><tt>Return&nbsp;num&nbsp;tick&nbsp;locs</tt></dd></dl>
+
+<dl><dt><a name="TickLocator-get_num_hint"><strong>get_num_hint</strong></a>(self, hint<font color="#909090">=5</font>)</dt><dd><tt>Pick&nbsp;a&nbsp;number&nbsp;of&nbsp;ticks&nbsp;close&nbsp;to&nbsp;hint&nbsp;that&nbsp;subdivide&nbsp;the&nbsp;axis&nbsp;nicely</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="XAxis">class <strong>XAxis</strong></a>(<a href="matplotlib.axes.html#Axis">Axis</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.axes.html#XAxis">XAxis</a></dd>
+<dd><a href="matplotlib.axes.html#Axis">Axis</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="matplotlib.axes.html#Axis">Axis</a>:<br>
+<dl><dt><a name="XAxis-__init__"><strong>__init__</strong></a>(self, axes)</dt><dd><tt>Init&nbsp;the&nbsp;axis&nbsp;with&nbsp;the&nbsp;parent&nbsp;<a href="#Axes">Axes</a>&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="XAxis-autoscale_view"><strong>autoscale_view</strong></a>(self)</dt><dd><tt>Try&nbsp;to&nbsp;choose&nbsp;the&nbsp;view&nbsp;limits&nbsp;intelligently</tt></dd></dl>
+
+<dl><dt><a name="XAxis-build_artists"><strong>build_artists</strong></a>(self)</dt><dd><tt>Call&nbsp;only&nbsp;after&nbsp;xaxis&nbsp;and&nbsp;yaxis&nbsp;have&nbsp;been&nbsp;initialized&nbsp;in&nbsp;axes<br>
+since&nbsp;the&nbsp;trasnforms&nbsp;require&nbsp;both</tt></dd></dl>
+
+<dl><dt><a name="XAxis-format_tickval"><strong>format_tickval</strong></a>(self, x)</dt><dd><tt>Format&nbsp;the&nbsp;number&nbsp;x&nbsp;as&nbsp;a&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="XAxis-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;instances&nbsp;contained&nbsp;by&nbsp;<a href="#Axis">Axis</a></tt></dd></dl>
+
+<dl><dt><a name="XAxis-get_cm_transform"><strong>get_cm_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;cm&nbsp;to&nbsp;dots<br>
+&nbsp;<br>
+offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
+displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
+offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="XAxis-get_gridlines"><strong>get_gridlines</strong></a>()</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;for&nbsp;grid&nbsp;lines</tt></dd></dl>
+
+<dl><dt><a name="XAxis-get_inches_transform"><strong>get_inches_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;inches&nbsp;to&nbsp;dots<br>
+&nbsp;<br>
+offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
+displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
+offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="XAxis-get_label"><strong>get_label</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;label&nbsp;as&nbsp;an&nbsp;AxisText&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="XAxis-get_mm_transform"><strong>get_mm_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;mm&nbsp;to&nbsp;dots<br>
+&nbsp;<br>
+offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
+displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
+offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="XAxis-get_numticks"><strong>get_numticks</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="XAxis-get_pts_transform"><strong>get_pts_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;points&nbsp;to&nbsp;dots<br>
+&nbsp;<br>
+offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
+displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
+offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="XAxis-get_ticklabels"><strong>get_ticklabels</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances&nbsp;for&nbsp;ticklabels</tt></dd></dl>
+
+<dl><dt><a name="XAxis-get_ticklocs"><strong>get_ticklocs</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;tick&nbsp;locations&nbsp;in&nbsp;data&nbsp;coordinates&nbsp;as&nbsp;a&nbsp;Numeric&nbsp;array</tt></dd></dl>
+
+<dl><dt><a name="XAxis-get_ticks"><strong>get_ticks</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="XAxis-grid"><strong>grid</strong></a>(self, b)</dt><dd><tt>Set&nbsp;the&nbsp;axis&nbsp;grid&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean</tt></dd></dl>
+
+<dl><dt><a name="XAxis-is_log"><strong>is_log</strong></a>(self)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;log&nbsp;scaling&nbsp;is&nbsp;on</tt></dd></dl>
+
+<dl><dt><a name="XAxis-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
+
+<dl><dt><a name="XAxis-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+
+<dl><dt><a name="XAxis-set_scale"><strong>set_scale</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="XAxis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;&nbsp;ticklabels&nbsp;is&nbsp;a<br>
+sequence&nbsp;of&nbsp;strings.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="XAxis-set_ticks"><strong>set_ticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;tick&nbsp;marks&nbsp;from&nbsp;sequence&nbsp;ticks</tt></dd></dl>
+
+<dl><dt><a name="XAxis-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.axes.html#Axis">Axis</a>:<br>
+<dl><dt><strong>LABELPAD</strong> = -0.01</dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="XAxis-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="XAxis-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+
+<dl><dt><a name="XAxis-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="XAxis-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+
+<dl><dt><a name="XAxis-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="XAxis-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="XAxis-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
+
+<dl><dt><a name="XAxis-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="XTick">class <strong>XTick</strong></a>(<a href="matplotlib.axes.html#Tick">Tick</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Contains&nbsp;all&nbsp;the&nbsp;Artists&nbsp;needed&nbsp;to&nbsp;make&nbsp;an&nbsp;x&nbsp;tick&nbsp;-&nbsp;the&nbsp;tick&nbsp;line,<br>
+the&nbsp;label&nbsp;text&nbsp;and&nbsp;the&nbsp;grid&nbsp;line<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.axes.html#XTick">XTick</a></dd>
+<dd><a href="matplotlib.axes.html#Tick">Tick</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="XTick-set_loc"><strong>set_loc</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.axes.html#Tick">Tick</a>:<br>
+<dl><dt><a name="XTick-__init__"><strong>__init__</strong></a>(self, axes, loc, label, size<font color="#909090">=4</font>, gridOn<font color="#909090">=False</font>, tick1On<font color="#909090">=True</font>, tick2On<font color="#909090">=True</font>, labelOn<font color="#909090">=True</font>)</dt><dd><tt>bbox&nbsp;is&nbsp;the&nbsp;Bound2D&nbsp;bounding&nbsp;box&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;<a href="#Axes">Axes</a><br>
+loc&nbsp;is&nbsp;the&nbsp;tick&nbsp;location&nbsp;in&nbsp;data&nbsp;coords<br>
+size&nbsp;is&nbsp;the&nbsp;tick&nbsp;size&nbsp;in&nbsp;relative,&nbsp;axes&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="XTick-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="XTick-get_loc"><strong>get_loc</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;tick&nbsp;location&nbsp;(data&nbsp;coords)&nbsp;as&nbsp;a&nbsp;scalar</tt></dd></dl>
+
+<dl><dt><a name="XTick-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="XTick-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="XTick-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+
+<dl><dt><a name="XTick-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="XTick-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+
+<dl><dt><a name="XTick-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+
+<dl><dt><a name="XTick-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="XTick-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="XTick-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
+
+<dl><dt><a name="XTick-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="YAxis">class <strong>YAxis</strong></a>(<a href="matplotlib.axes.html#Axis">Axis</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.axes.html#YAxis">YAxis</a></dd>
+<dd><a href="matplotlib.axes.html#Axis">Axis</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="matplotlib.axes.html#Axis">Axis</a>:<br>
+<dl><dt><a name="YAxis-__init__"><strong>__init__</strong></a>(self, axes)</dt><dd><tt>Init&nbsp;the&nbsp;axis&nbsp;with&nbsp;the&nbsp;parent&nbsp;<a href="#Axes">Axes</a>&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="YAxis-autoscale_view"><strong>autoscale_view</strong></a>(self)</dt><dd><tt>Try&nbsp;to&nbsp;choose&nbsp;the&nbsp;view&nbsp;limits&nbsp;intelligently</tt></dd></dl>
+
+<dl><dt><a name="YAxis-build_artists"><strong>build_artists</strong></a>(self)</dt><dd><tt>Call&nbsp;only&nbsp;after&nbsp;xaxis&nbsp;and&nbsp;yaxis&nbsp;have&nbsp;been&nbsp;initialized&nbsp;in&nbsp;axes<br>
+since&nbsp;the&nbsp;trasnforms&nbsp;require&nbsp;both</tt></dd></dl>
+
+<dl><dt><a name="YAxis-format_tickval"><strong>format_tickval</strong></a>(self, x)</dt><dd><tt>Format&nbsp;the&nbsp;number&nbsp;x&nbsp;as&nbsp;a&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;instances&nbsp;contained&nbsp;by&nbsp;<a href="#Axis">Axis</a></tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_cm_transform"><strong>get_cm_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;cm&nbsp;to&nbsp;dots<br>
+&nbsp;<br>
+offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
+displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
+offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_gridlines"><strong>get_gridlines</strong></a>()</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;for&nbsp;grid&nbsp;lines</tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_inches_transform"><strong>get_inches_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;inches&nbsp;to&nbsp;dots<br>
+&nbsp;<br>
+offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
+displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
+offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_label"><strong>get_label</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;label&nbsp;as&nbsp;an&nbsp;AxisText&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_mm_transform"><strong>get_mm_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;mm&nbsp;to&nbsp;dots<br>
+&nbsp;<br>
+offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
+displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
+offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_numticks"><strong>get_numticks</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="YAxis-get_pts_transform"><strong>get_pts_transform</strong></a>(self, offset<font color="#909090">=None</font>, transOffset<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>Transform&nbsp;val&nbsp;points&nbsp;to&nbsp;dots<br>
+&nbsp;<br>
+offset&nbsp;is&nbsp;a&nbsp;RRef&nbsp;instance&nbsp;for&nbsp;TransformSize.&nbsp;&nbsp;if&nbsp;None,&nbsp;use<br>
+displaylim&nbsp;min.&nbsp;&nbsp;transOffset&nbsp;is&nbsp;a&nbsp;transform&nbsp;to&nbsp;transform&nbsp;the<br>
+offset&nbsp;to&nbsp;display&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_ticklabels"><strong>get_ticklabels</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances&nbsp;for&nbsp;ticklabels</tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_ticklocs"><strong>get_ticklocs</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;tick&nbsp;locations&nbsp;in&nbsp;data&nbsp;coordinates&nbsp;as&nbsp;a&nbsp;Numeric&nbsp;array</tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_ticks"><strong>get_ticks</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="YAxis-grid"><strong>grid</strong></a>(self, b)</dt><dd><tt>Set&nbsp;the&nbsp;axis&nbsp;grid&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean</tt></dd></dl>
+
+<dl><dt><a name="YAxis-is_log"><strong>is_log</strong></a>(self)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;log&nbsp;scaling&nbsp;is&nbsp;on</tt></dd></dl>
+
+<dl><dt><a name="YAxis-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
+
+<dl><dt><a name="YAxis-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+
+<dl><dt><a name="YAxis-set_scale"><strong>set_scale</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="YAxis-set_ticklabels"><strong>set_ticklabels</strong></a>(self, ticklabels, *args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;values&nbsp;of&nbsp;the&nbsp;tick&nbsp;labels.&nbsp;&nbsp;ticklabels&nbsp;is&nbsp;a<br>
+sequence&nbsp;of&nbsp;strings.&nbsp;&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;AxisText&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="YAxis-set_ticks"><strong>set_ticks</strong></a>(self, ticks)</dt><dd><tt>Set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;tick&nbsp;marks&nbsp;from&nbsp;sequence&nbsp;ticks</tt></dd></dl>
+
+<dl><dt><a name="YAxis-zoom"><strong>zoom</strong></a>(self, direction)</dt><dd><tt>Zoom&nbsp;in/out&nbsp;on&nbsp;axis;&nbsp;if&nbsp;direction&nbsp;is&nbsp;&gt;0&nbsp;zoom&nbsp;in,&nbsp;else&nbsp;zoom&nbsp;out</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.axes.html#Axis">Axis</a>:<br>
+<dl><dt><strong>LABELPAD</strong> = -0.01</dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="YAxis-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="YAxis-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+
+<dl><dt><a name="YAxis-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="YAxis-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="YAxis-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
+
+<dl><dt><a name="YAxis-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="YTick">class <strong>YTick</strong></a>(<a href="matplotlib.axes.html#Tick">Tick</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Contains&nbsp;all&nbsp;the&nbsp;Artists&nbsp;needed&nbsp;to&nbsp;make&nbsp;a&nbsp;Y&nbsp;tick&nbsp;-&nbsp;the&nbsp;tick&nbsp;line,<br>
+the&nbsp;label&nbsp;text&nbsp;and&nbsp;the&nbsp;grid&nbsp;line<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.axes.html#YTick">YTick</a></dd>
+<dd><a href="matplotlib.axes.html#Tick">Tick</a></dd>
+<dd><a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="YTick-set_loc"><strong>set_loc</strong></a>(self, loc)</dt><dd><tt>Set&nbsp;the&nbsp;location&nbsp;of&nbsp;tick&nbsp;in&nbsp;data&nbsp;coords&nbsp;with&nbsp;scalar&nbsp;loc</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.axes.html#Tick">Tick</a>:<br>
+<dl><dt><a name="YTick-__init__"><strong>__init__</strong></a>(self, axes, loc, label, size<font color="#909090">=4</font>, gridOn<font color="#909090">=False</font>, tick1On<font color="#909090">=True</font>, tick2On<font color="#909090">=True</font>, labelOn<font color="#909090">=True</font>)</dt><dd><tt>bbox&nbsp;is&nbsp;the&nbsp;Bound2D&nbsp;bounding&nbsp;box&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;<a href="#Axes">Axes</a><br>
+loc&nbsp;is&nbsp;the&nbsp;tick&nbsp;location&nbsp;in&nbsp;data&nbsp;coords<br>
+size&nbsp;is&nbsp;the&nbsp;tick&nbsp;size&nbsp;in&nbsp;relative,&nbsp;axes&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="YTick-get_child_artists"><strong>get_child_artists</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="YTick-get_loc"><strong>get_loc</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;tick&nbsp;location&nbsp;(data&nbsp;coords)&nbsp;as&nbsp;a&nbsp;scalar</tt></dd></dl>
+
+<dl><dt><a name="YTick-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;text&nbsp;of&nbsp;ticklabel&nbsp;in&nbsp;with&nbsp;string&nbsp;s</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="YTick-draw"><strong>draw</strong></a>(self, drawable<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="YTick-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
+
+<dl><dt><a name="YTick-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="YTick-set_child_attr"><strong>set_child_attr</strong></a>(self, attr, val)</dt><dd><tt>Set&nbsp;attribute&nbsp;attr&nbsp;for&nbsp;self,&nbsp;and&nbsp;all&nbsp;child&nbsp;artists</tt></dd></dl>
+
+<dl><dt><a name="YTick-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;whether&nbsp;artist&nbsp;is&nbsp;clipped&nbsp;to&nbsp;bbox</tt></dd></dl>
+
+<dl><dt><a name="YTick-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="YTick-set_renderer"><strong>set_renderer</strong></a>(self, renderer)</dt><dd><tt>Set&nbsp;the&nbsp;renderer</tt></dd></dl>
+
+<dl><dt><a name="YTick-set_transform"><strong>set_transform</strong></a>(self, transform)</dt><dd><tt>Set&nbsp;the&nbsp;artist&nbsp;transform&nbsp;for&nbsp;self&nbsp;and&nbsp;all&nbsp;children</tt></dd></dl>
+
+<dl><dt><a name="YTick-wash_brushes"><strong>wash_brushes</strong></a>(self)</dt><dd><tt>Erase&nbsp;any&nbsp;state&nbsp;vars&nbsp;that&nbsp;would&nbsp;impair&nbsp;a&nbsp;draw&nbsp;to&nbsp;a&nbsp;clean&nbsp;palette</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
+&nbsp;<br>
+&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
+specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
+ <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
+ <dl><dt><a name="-take"><strong>take</strong></a>(...)</dt><dd><tt><a href="#-take">take</a>(a,&nbsp;indices,&nbsp;axis=0).&nbsp;&nbsp;Selects&nbsp;the&nbsp;elements&nbsp;in&nbsp;indices&nbsp;from&nbsp;array&nbsp;a&nbsp;along&nbsp;the&nbsp;given&nbsp;axis.</tt></dd></dl>
+ <dl><dt><a name="-zeros"><strong>zeros</strong></a>(...)</dt><dd><tt><a href="#-zeros">zeros</a>((d1,...,dn),typecode='l',savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;of&nbsp;shape&nbsp;(d1,...,dn)&nbsp;and&nbsp;type&nbsp;typecode&nbsp;with&nbsp;all&nbsp;it's&nbsp;entries&nbsp;initialized&nbsp;to&nbsp;zero.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero&nbsp;the&nbsp;array&nbsp;will&nbsp;be&nbsp;a&nbsp;spacesaver&nbsp;array.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>False</strong> = False<br>
+<strong>Float</strong> = 'd'<br>
+<strong>True</strong> = True<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>generators</strong> = _Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 4096)<br>
+<strong>lineMarkers</strong> = {'+': 1, ',': 1, '.': 1, '&lt;': 1, '&gt;': 1, '^': 1, 'o': 1, 's': 1, 'v': 1}<br>
+<strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1}<br>
+<strong>log10</strong> = &lt;ufunc 'log10'&gt;</td></tr></table>
+@footer@

@@ -1,0 +1,41 @@
+modfiles = (
+    ('afm', 'Parses Adobe Font Metrics files for the PS backend'), 
+    ('artist', 'The base class for anything that renders into a Figure'), 
+    ('axes', 'Axes, Subplot and Axis classes'), 
+    ('backend_bases', 'The base classed for all the classes the backend must override'),
+    ('cbook', 'Some cookbook utility functions'), 
+    ('lines', 'The Line2D classes'), 
+    ('matlab', 'The matlab functional interface'), 
+    ('mlab', 'Non-graphical matlab funcs to compliment MLab'), 
+    ('patches', 'Rectangles, polygons, circles, etc...'), 
+    ('transforms', 'Bounding boxes, transformations'), 
+    ('backends.backend_gd', 'The GD module backend'),
+    ('backends.backend_gtk', 'The pygtk backend'),
+    ('backends.backend_ps', 'The Postscript backend'),
+    ('backends.backend_template', 'A template for backend writers'),
+    ('backends.backend_wx', 'Development version of wx backend'),
+    )
+
+@header@
+
+<h2>The matplotlib class library</h2>
+
+        <br>
+<table @default_table@>
+    <caption>
+        <h4>The following modules are provided with matplotlib </h4>
+    </caption>
+    <tr><th>Module</th><th>Description</th></tr>
+    + for mod,desc in modfiles:
+        <tr>
+            <th align=left>
+            <a href=matplotlib.@mod@.html>@mod@</a>
+            </th>
+            <td>
+            @desc@
+            </td>
+        </tr>
+    -
+</table>
+
+@footer@

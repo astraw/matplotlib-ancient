@@ -1,0 +1,65 @@
+commands = (
+    ('axes', 'create a new axes'),
+    ('axis', 'set or return the current axis limits'),
+    ('bar', 'make a bar chart'),
+    ('close', 'close a figure window'),
+    ('cohere', 'make a plot of coherence'),
+    ('csd', 'make a plot of cross spectral density'),
+    ('errorbar', 'make an errorbar graph'),
+    ('figure', 'create or change active figure'),
+    ('gca', 'return the current axes'),
+    ('gcf', 'return the current figure'),
+    ('get', 'get a handle graphics property'),
+    ('grid', 'set the axis grid lines on or off'),	
+    ('hist', 'make a histogram'),
+    ('loglog', 'a log log plot'),
+    ('pcolor', 'generate pseudo color plots'),
+    ('plot', 'make a line plot'),
+    ('psd', 'make a plot of power spectral density'),
+    ('savefig', 'save the current figure'),
+    ('scatter', 'make a scatter plot'),
+    ('semilogx', 'log x axis'),
+    ('semilogy', 'log y axis'),
+    ('set', 'set a handle graphics property'),
+    ('show', 'show the figures'),
+    ('subplot', 'make a subplot (numrows, numcols, axesnum)'),
+    ('text', 'add some text at location x,y to the current axes'),
+    ('title', 'add a title to the current axes'),
+    ('xlabel', 'add an xlabel to the current axes'),
+    ('ylabel', 'add a ylabel to the current axes'),
+)
+
+@header@
+
+<h2>Matplotlib</h2> 
+
+  matplotlib is a pure python 2D plotting library with a matlab syntax
+  which produces publication quality figures using in a variety of
+  hardcopy formats (PNG, JPG, TIFF, PS) and interactive GUI
+  environments (WX, GTK) across platforms.  matplotlib can be used in
+  python scripts, interactively from the python shell (ala matlab or
+  mathematica), in web application servers generating dynamic charts,
+  or embedded in GTK or WX applications; see <a
+  href=backends.html>output formats</a>backends<p>
+
+  A summary of the goals of matplotlib and the progress so far can be
+  found <a href=goals.html>here</a>.
+
+  <br>
+  <table @default_table@>
+  <caption><h3>Plotting commands</h3></caption>
+  <tr><th>Function</th><th>Description</th></tr>
+  + for command, desc in commands:
+    <tr>
+      <th align="left">
+        <a href=matplotlib.matlab.html#-@command@>@command@</a>
+      </th>
+
+      <td align="left">
+        @desc@
+      </td>
+
+    </tr>
+  - 
+  </table>
+@footer@
