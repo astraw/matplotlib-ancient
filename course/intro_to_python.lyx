@@ -32,6 +32,15 @@ This is a quick-and-dirty introduction to the python language for the impatient
  scientist.
  There are many top notch, comprehensive introductions and tutorials for
  python.
+ For absolute beginners, ther is the Python Beginner's Guide.
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+http://www.python.org/moin/BeginnersGuide
+\end_inset 
+
  For a free tutorial, the best place to start is the official python tutorial,
  which can be read online
 \begin_inset Foot
@@ -137,34 +146,1116 @@ ipython
 \family typewriter 
 python
 \family default 
+ or 
+\family typewriter 
+ipython
+\family default 
  at the command line.
+ The 
+\family typewriter 
+>>>
+\family default 
+ is the default python shell prompt, so don't type it.
+\layout LyX-Code
+
+>>> print 'hello world'
+\layout LyX-Code
+
+hello world
+\layout LyX-Code
+
+\layout Standard
+
+Hello world in python is pretty easy -- one common phrase you hear in the
+ python community is that 
+\begin_inset Quotes eld
+\end_inset 
+
+it fits your brain
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ The basic idea is that coding in python feels natural.
+ Compare hello world in C++
+\layout LyX-Code
+
+// C++
+\layout LyX-Code
+
+#include <iostream>
+\layout LyX-Code
+
+int main ()
+\layout LyX-Code
+
+{   
+\layout LyX-Code
+
+  std::cout << "Hello World" << std::endl;
+\layout LyX-Code
+
+  return 0;
+\layout LyX-Code
+
+}
+\layout Section
+
+Python is a calculator
+\layout Standard
+
+Python is the only calculator I use.
+ From the python shell, you can type arbitrary arithmetic expressions.
+\layout LyX-Code
+
+>>> 2+2
+\layout LyX-Code
+
+4
+\layout LyX-Code
+
+>>> 2**10
+\layout LyX-Code
+
+1024
+\layout LyX-Code
+
+>>> 10/5
+\layout LyX-Code
+
+2
+\layout LyX-Code
+
+>>> 2/3
+\layout LyX-Code
+
+0
+\layout Standard
+
+The last line is a standard newbie gotcha -- if both the left and right
+ operands are integers, python returns and integer.
+ To do floating point division, make sure at least one of the numbers is
+ a float
+\layout LyX-Code
+
+>>> 2.0/3
+\layout LyX-Code
+
+0.66666666666666663
+\layout Standard
+
+The distinction between integer and floating point division is a common
+ source of frustration amojng newbies and is slated for destruction in the
+ mythical Python 3000.
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+Python 3000 is a future python release that will clean up several things
+ that Guido considers to be warts.
+\end_inset 
+
+ Since the removal of the distinction is slated for the future, you can
+ invoke the time machine with the 
+\family typewriter 
+from __future__
+\family default 
+ directive; these directives allow python programmers today to use features
+ that will become standard in future releases but are not included as the
+ default because they would break existing code.
+ From future directives should be among the first lines you type in your
+ python code if you are going to use them.
+ The future division operator will assume floating point division by default
+\begin_inset Foot
+collapsed false
+
+\layout Standard
+
+The astute reader will note that 2/3 is 0.66666666666666663 and not 0.666666666666
+66666 as might be expected.
+ This is, of course, because computers are binary calculators, and there
+ is no exact binary representation of 2/0=3, just as there is no exact binary
+ representation of 0.1
+\layout LyX-Code
+
+>>> 0.1
+\layout LyX-Code
+
+0.10000000000000001
+\layout Standard
+
+Some languages try and hide this from you, but python is explicit.
+\end_inset 
+
+, and provides another operator // to do classic integer division.
+\layout LyX-Code
+
+>>> from __future__ import division
+\layout LyX-Code
+
+>>> 2/3
+\layout LyX-Code
+
+0.66666666666666663
+\layout LyX-Code
+
+>>> 2//3
+\layout LyX-Code
+
+0
+\layout Standard
+
+python has four basic numeric types: int, long, float and complex, but unlike
+ C++, BASIC, FORTRAN or Java, you don't have to declare these types.
+ python can infer them
+\layout LyX-Code
+
+>>> type(1)
+\layout LyX-Code
+
+<type 'int'>
+\layout LyX-Code
+
+>>> type(1.0)
+\layout LyX-Code
+
+<type 'float'>
+\layout LyX-Code
+
+>>> type(2**200)
+\layout LyX-Code
+
+<type 'long'>
+\layout LyX-Code
+
+\layout Standard
+
+
+\begin_inset Formula $2^{\{200\}}$
+\end_inset 
+
+is a huge number!
+\layout LyX-Code
+
+>>> 2**200
+\layout LyX-Code
+
+1606938044258990275541962092341162602522202993782792835301376L
+\layout Standard
+
+but python will blithely compute it for you as long as you have CPU and
+ memory to handle it.
+ The integer type, if it overflows, will automatically convert to long (as
+ indicated by the appended 
+\family typewriter 
+L
+\family default 
+ above) and has no built-in upper bound on size, unlike C/C++ longs.
+\layout Standard
+
+Python has build in support for complex numbers.
+ Eg we can see if 
+\begin_inset Formula $i^{2}=1$
+\end_inset 
+
+ 
+\layout LyX-Code
+
+>>> x = complex(0,1)
+\layout LyX-Code
+
+>>> x*x
+\layout LyX-Code
+
+(-1+0j)
+\layout Standard
+
+To access the real and imaginary parts of a complex number, use the 
+\family typewriter 
+real
+\family default 
+ and 
+\family typewriter 
+imag
+\family default 
+ attributes
+\layout LyX-Code
+
+>>> x.real
+\layout LyX-Code
+
+0.0
+\layout LyX-Code
+
+>>> x.imag
+\layout LyX-Code
+
+1.0
+\layout Standard
+
+If you come from other languages like Matlab, the above may be new to you.
+ In matlab, you might do something like this (>> is the standard matlab
+ shell prompt)
+\layout LyX-Code
+
+>> x = 1+j
+\layout LyX-Code
+
+x =
+\layout LyX-Code
+
+   1.0000 + 1.0000i
+\layout LyX-Code
+
+\layout LyX-Code
+
+>> imag(x)
+\layout LyX-Code
+
+ans =
+\layout LyX-Code
+
+     1
+\layout LyX-Code
+
+\layout LyX-Code
+
+>> real(x)
+\layout LyX-Code
+
+ans =
+\layout LyX-Code
+
+     1
+\layout Standard
+
+That is, in Matlab you would use a function to access the real and imaginary
+ parts of the data, but in python these attributes are built-in.
+ This is a core feature of python (and other object oriented languages).
+ An object carries its data, and methods around with it.
+ One might say: 
+\begin_inset Quotes eld
+\end_inset 
+
+a complex number knows how to take its own conjugate
+\begin_inset Quotes erd
+\end_inset 
+
+, you don't need an external function for that
+\layout LyX-Code
+
+>>> x.conjugate
+\layout LyX-Code
+
+<built-in method conjugate of complex object at 0xb6a62368>
+\layout LyX-Code
+
+>>> x.conjugate()
+\layout LyX-Code
+
+-1j
+\layout Standard
+
+On the first line, I just followed along from the example above with 
+\family typewriter 
+real
+\family default 
+ and 
+\family typewriter 
+imag
+\family default 
+ and typed 
+\family typewriter 
+x.conjugate
+\family default 
+ and python printed the representation 
+\family typewriter 
+<built-in method conjugate of complex object at 0xb6a62368>.
+ 
+\family default 
+This means that 
+\family typewriter 
+conjugate
+\family default 
+ is a 
+\shape italic 
+method
+\shape default 
+, a.k.a a function, and in python we need to use parentheses to call a function.
+ If the method has arguments, like the 
+\family typewriter 
+x
+\family default 
+ in 
+\family typewriter 
+sin(x)
+\family default 
+, you place them inside the parentheses, and if it has no arguments, like
+ 
+\family typewriter 
+conjugate
+\family default 
+, you simply provide the open and closing parentheses.
+ All of 
+\family typewriter 
+real
+\family default 
+, 
+\family typewriter 
+imag
+\family default 
+ and 
+\family typewriter 
+conjugate
+\family default 
+ are attributes of the complex object, and 
+\family typewriter 
+conjugate
+\family default 
+ is a 
+\shape italic 
+callable
+\shape default 
+ attribute, known as a 
+\shape italic 
+method
+\shape default 
+.
+\layout Standard
+
+OK, now you are an object oriented programmer.
+ There are several key ideas in object oriented programming, and this is
+ one of them: an object carries around with it data (simple attributes)
+ and methods (callable attributes) that provide additional information about
+ the object and perform services.
+ It's one stop shopping -- no need to go to external functions and libraries
+ to deal with it -- the object knows how to deal with itself.
+\layout Section
+
+Accessing the standard library
+\layout Standard
+
+Arithmetic is fine, but before long you may find yourself wanting to compute
+ logarithms and exponents, sines and cosines.
+\layout LyX-Code
+
+>>> log(10)
+\layout LyX-Code
+
+Traceback (most recent call last):
+\layout LyX-Code
+
+  File "<stdin>", line 1, in ?
+\layout LyX-Code
+
+NameError: name 'log' is not defined
+\layout Standard
+
+These functions are not built into python, but don't despair.
+ They are built into the python standard library.
+ To access a function from the standard library, or any external library
+ for that matter, you must import it.
+\layout LyX-Code
+
+>>> import math
+\layout LyX-Code
+
+>>> math.log(10)
+\layout LyX-Code
+
+2.3025850929940459
+\layout LyX-Code
+
+>>> math.sin(math.pi)
+\layout LyX-Code
+
+1.2246063538223773e-16
+\layout Standard
+
+The astute will note that the default 
+\family typewriter 
+log
+\family default 
+ function must be a base 2 logarithm (use 
+\family typewriter 
+math.log10
+\family default 
+ for base 10 logs) and that floating point math is inherently imprecise
+ since 
+\begin_inset Formula $\sin(\pi)=0$
+\end_inset 
+
+.
+\layout Standard
+
+It's kind of a pain to keep typing 
+\family typewriter 
+math.log
+\family default 
+ and 
+\family typewriter 
+math.sin
+\family default 
+ and 
+\family typewriter 
+math.p
+\family default 
+i, and python is very accomodating.
+ There are additional forms of 
+\family typewriter 
+import
+\family default 
+ that will let you save more or less typing depending on your desires
 \layout LyX-Code
 
 
-\begin_inset ERT
-status Open
+\series bold 
+\color blue
+# Appreviate the module name: m is an alias
+\layout LyX-Code
+
+>>> import math as m
+\layout LyX-Code
+
+>>> m.cos(2*m.pi)
+\layout LyX-Code
+
+1.0
+\layout LyX-Code
+
+Help on built-in function sin:
+\layout LyX-Code
+
+ 
+\layout LyX-Code
+
+sin(...)
+\layout LyX-Code
+
+    sin(x)
+\layout LyX-Code
+
+     
+\layout LyX-Code
+
+    Return the sine of x (measured in radians).
+\layout LyX-Code
+
+\layout LyX-Code
+
+
+\series bold 
+\color blue
+# Import just the names you need
+\layout LyX-Code
+
+>>> from math import exp, log
+\layout LyX-Code
+
+>>> log(exp(1))
+\layout LyX-Code
+
+1.0
+\layout LyX-Code
+
+\layout LyX-Code
+
+
+\series bold 
+\color blue
+# Import everything - use with caution!
+\layout LyX-Code
+
+>>> from math import *
+\layout LyX-Code
+
+>>> sin(2*pi*10)
+\layout LyX-Code
+
+-2.4492127076447545e-15
+\layout Standard
+
+To help you learn more about what you can find in the math library, python
+ has very nice introspection capabilities -- introsepction is a way of asking
+ an object about itself.
+ For example, to find out what is available in the math library, we can
+ get a directory of everything available with the dir command
+\begin_inset Foot
+collapsed false
 
 \layout Standard
 
-\backslash 
-begin{lstlisting}
-\layout Standard
-
-\layout Standard
-1 >>> 2+2
-\layout Standard
-4
-\layout Standard
-2 >>> 2-2
-\layout Standard
-0
-\layout Standard
-3 >>>
-\layout Standard
-
-\backslash 
-end{lstlisting}
+In addition to the introdpection and help provided in the python interpreter,
+ the official documentation of the python standard library is very good
+ and up-to-date http://docs.python.org/lib/lib.html .
 \end_inset 
 
 
+\layout LyX-Code
+
+>>> dir(math)
+\layout LyX-Code
+
+['__doc__', '__file__', '__name__', 'acos', 'asin', 'atan', 'atan2', 'ceil',
+ 'cos', 'cosh', 'degrees', 'e', 'exp', 'fabs', 'floor', 'fmod', 'frexp',
+ 'hypot', 'ldexp', 'log', 'log10', 'modf', 'pi', 'pow', 'radians', 'sin',
+ 'sinh', 'sqrt', 'tan', 'tanh']
+\layout Standard
+
+This gives us just a listing of the names that are in the math module --
+ they are fairly self descriptive, but if you want more, you can call help
+ on any object
+\layout LyX-Code
+
+>>> help(math.sin) 
+\layout LyX-Code
+
+Help on built-in function sin:
+\layout LyX-Code
+
+sin(...)
+\layout LyX-Code
+
+sin(x)
+\layout LyX-Code
+
+Return the sine of x (measured in radians).
+\layout Standard
+
+and for the whole math library
+\layout LyX-Code
+
+>>> help(math) 
+\layout LyX-Code
+
+Help on module math:
+\layout LyX-Code
+
+ 
+\layout LyX-Code
+
+NAME
+\layout LyX-Code
+
+    math
+\layout LyX-Code
+
+ 
+\layout LyX-Code
+
+FILE
+\layout LyX-Code
+
+    /usr/local/lib/python2.3/lib-dynload/math.so
+\layout LyX-Code
+
+ 
+\layout LyX-Code
+
+DESCRIPTION
+\layout LyX-Code
+
+    This module is always available.
+  It provides access to the
+\layout LyX-Code
+
+    mathematical functions defined by the C standard.
+\layout LyX-Code
+
+ 
+\layout LyX-Code
+
+FUNCTIONS
+\layout LyX-Code
+
+    acos(...)
+\layout LyX-Code
+
+        acos(x)
+\layout LyX-Code
+
+         
+\layout LyX-Code
+
+        Return the arc cosine (measured in radians) of x.
+\layout LyX-Code
+
+     
+\layout LyX-Code
+
+    asin(...)
+\layout LyX-Code
+
+        asin(x)
+\layout LyX-Code
+
+         
+\layout LyX-Code
+
+        Return the arc sine (measured in radians) of x.
+\layout LyX-Code
+
+     
+\layout Standard
+
+And much more which is snipped.
+ Likewise, we can get information on the complex object in the same way
+\layout LyX-Code
+
+>>> x = complex(0,1)
+\layout LyX-Code
+
+>>> dir(x)
+\layout LyX-Code
+
+['__abs__', '__add__', '__class__', '__coerce__', '__delattr__', '__div__',
+ '__divmod__', '__doc__', '__eq__', '__float__', '__floordiv__', '__ge__',
+ '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__init__',
+ '__int__', '__le__', '__long__', '__lt__', '__mod__', '__mul__', '__ne__',
+ '__neg__', '__new__', '__nonzero__', '__pos__', '__pow__', '__radd__',
+ '__rdiv__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloor
+div__', '__rmod__', '__rmul__', '__rpow__', '__rsub__', '__rtruediv__',
+ '__setattr__', '__str__', '__sub__', '__truediv__', 'conjugate', 'imag',
+ 'real']
+\layout LyX-Code
+
+\layout Standard
+
+Notice that we can call 
+\family typewriter 
+dir
+\family default 
+ or help on the 
+\family typewriter 
+math
+\family default 
+ 
+\shape italic 
+module
+\shape default 
+, the 
+\family typewriter 
+math.sin
+\family default 
+ 
+\shape italic 
+function
+\shape default 
+ in the math module, or the 
+\family typewriter 
+complex
+\family default 
+ 
+\shape italic 
+number
+\shape default 
+ x.
+ That's because all of these things modules, functions and numbers are 
+\shape italic 
+objects
+\shape default 
+, and we use the same object introspection and help capabilites on them
+ all.
+ They are all objects, and we can find out what type of object they are
+ by calling 
+\family typewriter 
+type
+\family default 
+ on them, which is another function in python's introspection arsenal
+\layout LyX-Code
+
+>>> type(math)
+\layout LyX-Code
+
+<type 'module'>
+\layout LyX-Code
+
+>>> type(math.sin)
+\layout LyX-Code
+
+<type 'builtin_function_or_method'>
+\layout LyX-Code
+
+>>> type(x)
+\layout LyX-Code
+
+<type 'complex'>
+\layout LyX-Code
+
+\layout Standard
+
+Now, you may be wondering: what are all those god-awful looking double underscor
+e methods, like 
+\family typewriter 
+__abs__ 
+\family default 
+and 
+\family typewriter 
+__mul__
+\family default 
+? The answer is that these are the methods that define what it means to
+ be a numeric type in python, and the complex object implements these methods
+ so that complex numbers act like the way should, eg 
+\family typewriter 
+__mul__
+\family default 
+ implements the rules of complex multiplication.
+ The nice thing about this is that python specifies an application programming
+ interface (API) that is the definition of what it means to be a number
+ in python.
+ And this means you can define your own numeric types, as long as you implement
+ the required special double underscore methods for your custom type.
+ double underscore methods are very important in python -- the typical newbie
+ never sees them or thinks about them, but they are there under the hood,
+ providing all the python magic and more importantly, showing the way to
+ let you do your own magic.
+\layout Section
+
+Strings
+\layout Standard
+
+We've encountered a number of types of objects above: ints, floats, longs,
+ methods and functions, and modules.
+ We'll continue our tour with an introduction to strings, which are critical
+ components of almost every program.
+ You can create strings in a number of different ways, with single quotes,
+ double quotes, or triple quotes -- this diversity of methods makes it easy
+ if you need to embed string characters in the string itself
+\layout LyX-Code
+
+>>> s = 'Hi Mom!'
+\layout LyX-Code
+
+>>> s = "Hi Mom!"
+\layout LyX-Code
+
+>>> s = """Porky said, "That's all folks!" """
+\layout Standard
+
+You can add strings together to concatenate them
+\layout LyX-Code
+
+>>> first = 'John'
+\layout LyX-Code
+
+>>> last = 'Hunter'
+\layout LyX-Code
+
+>>> first+last
+\layout LyX-Code
+
+'JohnHunter'
+\layout Standard
+
+or call string methods to process them: upcase them or downcase them, or
+ replace one character with another
+\layout LyX-Code
+
+>>> last.lower()
+\layout LyX-Code
+
+'hunter'
+\layout LyX-Code
+
+>>> last.upper()
+\layout LyX-Code
+
+'HUNTER'
+\layout LyX-Code
+
+>>> last.replace('h', 'p')
+\layout LyX-Code
+
+'Hunter'
+\layout LyX-Code
+
+>>> last.replace('H', 'P')
+\layout LyX-Code
+
+'Punter' 
+\layout Standard
+
+Note that in all of these examples, 
+\family typewriter 
+last
+\family default 
+ was unchanged.
+ All of these methods operate on the string and return a new string, leaving
+ the original unchanged.
+ In fact, python strings cannot be changed by any python code at all: they
+ are 
+\shape italic 
+immutable
+\shape default 
+ (unchangeable).
+ The concept of mutable and immutable objects in python is an important
+ one, and it will come up again, because only immutable objects can be used
+ as keys in python dictionaries and elements of python sets.
+\layout Standard
+
+You can access individual characters, or slices of the string (substrings),
+ using indexing.
+ A string in sequence of characters, and strings implement the sequence
+ protocol in python -- we'll see more examples of python sequences later
+ -- and all sequences have the same syntax for accessing their elements.
+ Python uses 0 based indexing, that is the first element is at index 0;
+ a particularly convenient feature is that you can use negative indices
+ to access the last elements in the sequence
+\layout LyX-Code
+
+>>> last = 'Hunter'
+\layout LyX-Code
+
+>>> last[0]
+\layout LyX-Code
+
+'H'
+\layout LyX-Code
+
+>>> last[1]
+\layout LyX-Code
+
+'u'
+\layout LyX-Code
+
+>>> last[-1] 'r' 
+\layout Standard
+
+To access substrings, or generically in terms of the sequence protocol,
+ slices, you use a : to indicate a range
+\layout LyX-Code
+
+>>> last[0:2]
+\layout LyX-Code
+
+'Hu'
+\layout LyX-Code
+
+>>> last[2:4]
+\layout LyX-Code
+
+'nt'
+\layout Standard
+
+Python uses 
+\begin_inset Quotes eld
+\end_inset 
+
+one-past-the-end
+\begin_inset Quotes erd
+\end_inset 
+
+ indexing when indicating a range; eg, in the range 
+\family typewriter 
+imin:imax
+\family default 
+, the element of 
+\family typewriter 
+imax
+\family default 
+ is not included.
+ This is counter-intuitive at first, but turns out to be useful when combining
+ slices.
+ You can use negative indices when slicing too, to eget everything before
+ the last character
+\layout LyX-Code
+
+>>> last[0:-1]
+\layout LyX-Code
+
+'Hunte'
+\layout Standard
+
+You can also leave out either the min or max indicator; if they are left
+ out, 0 and the end of the slice are assumed respectively
+\layout LyX-Code
+
+>>> last[:3]
+\layout LyX-Code
+
+'Hun'
+\layout LyX-Code
+
+>>> last[3:]
+\layout LyX-Code
+
+'ter'
+\layout Standard
+
+Although this may be more that you want to know about slicing strings, the
+ time spent here is worthwhile.
+ As mentioned above, all python sequences obey these rules.
+ In addition to strings, lists and tuples, which are built-in python sequence
+ data types and are discussed in the next section, the numeric arrays which
+ are core to numeric computing in python implement the sequence protocol,
+ and thus have the same slicing rules.
+\layout Exercise
+
+What would you expect last[:] to return?
+\layout Standard
+
+One thing that comes up all the time is the need to create strings out of
+ other strings and numbers, eg to create filenames from a combination of
+ a base directory, some base filename, and some numbers.
+ Scientists like to create lots of data files like
+\layout LyX-Code
+
+data/myexp01.dat
+\layout LyX-Code
+
+data/myexp02.dat
+\layout LyX-Code
+
+data/myexp03.dat
+\layout LyX-Code
+
+data/myexp04.dat
+\layout Standard
+
+and then write code to loop over these files and analyze them.
+ We're going to show how to do that, starting with the newbie way and progressiv
+ely building up to the way of python zen master.
+ Now all of these methods work, but the zen master way will more efficient,
+ more scalable (eg to larger numbers of files) and cross-platform.
+ Here's the newbie way: we'll have to introdice the concept of a loop here
+ (out of order!) but in the spirit of Diving into Python, that should be
+ OK -- note that python uses whitespace indentation to delimit the for-loop
+ code block
+\layout LyX-Code
+
+
+\series bold 
+\color blue
+# The newbie way
+\layout LyX-Code
+
+for i in (1,2,3,4):
+\layout LyX-Code
+
+    fname = 'data/myexp0' + str(i) + '.dat'
+\layout LyX-Code
+
+    print fname
+\layout Standard
+
+Now as promised, this will print out the 4 file names above, but it has
+ three flaws: it doesn't scale to 10 or more files, it is inefficient, and
+ is not cross platform.
+ It doesn't scale because it hard-codes the '
+\family typewriter 
+0
+\family default 
+' after myexp, it is inefficient because to add all those strings requires
+ the creation of temporary strings, and it is not cross-platform because
+ it hard-codes the directory separator '/'.
+\layout LyX-Code
+
+
+\series bold 
+\color blue
+# On the path to elightenment
+\layout LyX-Code
+
+for i in (1,2,3,4):
+\layout LyX-Code
+
+    fname = 'data/myexp%02d.dat'%i
+\layout LyX-Code
+
+    print fname
+\layout Standard
+
+This example uses string interpolation, the funny % thing.
+ If you are familiar with C programming, this will be no surprise to you
+ (on linux/unix systems do 
+\family typewriter 
+man sprintf 
+\family default 
+at the unix shell).
+ The percent character is a string formatting character: 
+\family typewriter 
+%02d
+\family default 
+ means to take an integer (the 
+\family typewriter 
+d
+\family default 
+ part) and print it with a leading zero up and make it two characters long.
+ There is more to be said about string interpolation, but let's finish the
+ job here.
+ This example is better than the newbie way because is scales up to files
+ numbered 0-99, and it is more efficient because it avoids the creation
+ of temporary strings.
+ For the platform independent part, we go to the python standard library
+ 
+\family typewriter 
+os.path
+\family default 
+, which provides a host of functions for platform-independent manipulations
+ of filenames, extensions and paths.
+ Here we use os.path.join to combine the directory with the filename in a
+ platform independent way.
+ On windows, it will provide the windows path separator '
+\backslash 
+' and on unix it will be '/'.
+\layout LyX-Code
+
+
+\series bold 
+\color blue
+# the zen master approach
+\layout LyX-Code
+
+import os
+\layout LyX-Code
+
+for i in (1,2,3,4):
+\layout LyX-Code
+
+    fname = os.path.join('data', 'myexp%02d.dat'%i)
+\layout LyX-Code
+
+    print fname
+\layout LyX-Code
+
+\layout Standard
+
+OK, I promised to torture you a bit more with string interpolation -- don't
+ worry, I remembered.
+ The ability to properly format your data when printing it is crucial in
+ scientific endeavors: how many signficant digits do you want, do you want
+ to use integer, floating point representation or exponential notation?
+ These three choices are provided with 
+\family typewriter 
+%d
+\family default 
+, 
+\family typewriter 
+%f
+\family default 
+ and 
+\family typewriter 
+%e
+\family default 
+, with lots of variations on the theme
+\layout LyX-Code
+
+>>> '%d minutes at %1.1f C' % (175, 37.1)
+\layout LyX-Code
+
+'175 minutes at 37.1 C'
+\layout LyX-Code
+
+\layout LyX-Code
+
+>>> 'The mass of the sun is %1.4e kg'% (1.98892*10**30)
+\layout LyX-Code
+
+'The mass of the sun is 1.9889e+30 kg'
+\layout LyX-Code
+
+\layout Section
+
+The basic python data structures
 \the_end
