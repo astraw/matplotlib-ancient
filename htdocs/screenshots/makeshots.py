@@ -24,7 +24,7 @@ files = {
     'log_shot.py'       : default,
     'align_text.py'     : default,          
     'scatter_demo2.py'  : default, 
-
+    'polar_demo.py',  : default, 
     }
 
 figsize = 'figsize=(8,6)'

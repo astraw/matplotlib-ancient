@@ -68,6 +68,9 @@ on the xaxis and a base 4 log on the y.  Thanks to Andrew Straw,
 Darren Dale and Gregory Lielens for contributions to the log scaling
 infrastructure.""", 1),
 
+('polar_demo, """The <a href=matplotlib.matlab.html#-polar>polar</a>
+command generates polar plots.""", 1),
+
 ('legend_demo', """The <a
 href=matplotlib.matlab.html#-legend>legend</a> command automatically
 generates figure legends, with matltab compatible legend placement

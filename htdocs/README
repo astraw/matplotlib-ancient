@@ -39,7 +39,8 @@ OK, YOU'RE STILL HERE?
 
 BUILDING THE DOCS
 
-    All you need to do to build the html documentation is run 'python
-    make.py'.  This runs makeshots.py, process_docs.py and convert.py
-    for you.  A tar file site.tar.gz is created, which I ship off to
-    the sf website.
+    All you need to do to build the html documentation edit make.py to
+    poiint to your matplotlib src tree, and then run 'python make.py'.
+    This runs makeshots.py, process_docs.py and convert.py for you.  A
+    tar file site.tar.gz is created, which I ship off to the sf
+    website.
