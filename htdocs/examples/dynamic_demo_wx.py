@@ -20,7 +20,7 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.75  2004/10/18 15:14:04  jdh2358
+Revision 1.76  2004/10/18 15:23:31  jdh2358
 updated the build process
 
 Revision 1.5  2004/06/26 06:37:20  astraw
