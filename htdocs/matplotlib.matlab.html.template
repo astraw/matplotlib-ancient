@@ -21,11 +21,13 @@ Plotting&nbsp;commands<br>
 &nbsp;&nbsp;csd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;cross&nbsp;spectral&nbsp;density<br>
 &nbsp;&nbsp;errorbar&nbsp;-&nbsp;make&nbsp;an&nbsp;errorbar&nbsp;graph<br>
 &nbsp;&nbsp;figure&nbsp;&nbsp;&nbsp;-&nbsp;create&nbsp;or&nbsp;change&nbsp;active&nbsp;figure<br>
+&nbsp;&nbsp;fill&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;filled&nbsp;polygons<br>
 &nbsp;&nbsp;gca&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;current&nbsp;axes<br>
 &nbsp;&nbsp;gcf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;return&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;get&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;get&nbsp;a&nbsp;handle&nbsp;graphics&nbsp;property<br>
 &nbsp;&nbsp;hist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;histogram<br>
 &nbsp;&nbsp;loglog&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;log&nbsp;log&nbsp;plot<br>
+&nbsp;&nbsp;imshow&nbsp;&nbsp;&nbsp;-&nbsp;plot&nbsp;image&nbsp;data<br>
 &nbsp;&nbsp;pcolor&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot<br>
 &nbsp;&nbsp;plot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;line&nbsp;plot<br>
 &nbsp;&nbsp;psd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;power&nbsp;spectral&nbsp;density<br>
@@ -35,6 +37,7 @@ Plotting&nbsp;commands<br>
 &nbsp;&nbsp;semilogx&nbsp;-&nbsp;log&nbsp;x&nbsp;axis<br>
 &nbsp;&nbsp;semilogy&nbsp;-&nbsp;log&nbsp;y&nbsp;axis<br>
 &nbsp;&nbsp;show&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;show&nbsp;the&nbsp;figures<br>
+&nbsp;&nbsp;specgram&nbsp;-&nbsp;a&nbsp;spectrogram&nbsp;plot<br>
 &nbsp;&nbsp;subplot&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;subplot&nbsp;(numrows,&nbsp;numcols,&nbsp;axesnum)<br>
 &nbsp;&nbsp;text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;some&nbsp;text&nbsp;at&nbsp;location&nbsp;x,y&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
 &nbsp;&nbsp;title&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;add&nbsp;a&nbsp;title&nbsp;to&nbsp;the&nbsp;current&nbsp;axes<br>
@@ -299,7 +302,18 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&n
 y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.<br>
 &nbsp;<br>
 capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps&nbsp;in&nbsp;points</tt></dd></dl>
- <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=1</font>, figsize<font color="#909090">=[8.0, 6.0]</font>, dpi<font color="#909090">=80.0</font>, facecolor<font color="#909090">=0.75</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt><a href="#-figure">figure</a>(num&nbsp;=&nbsp;1figsize=(8,&nbsp;6),&nbsp;dpi=80,&nbsp;facecolor='w',&nbsp;edgecolor='k')<br>
+ <dl><dt><a name="-figlegend"><strong>figlegend</strong></a>(handles, labels, loc)</dt><dd><tt>Place&nbsp;a&nbsp;legend&nbsp;in&nbsp;the&nbsp;figure.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of<br>
+strings,&nbsp;handles&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;line&nbsp;or&nbsp;patch&nbsp;instances,&nbsp;and<br>
+loc&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;or&nbsp;an&nbsp;integer&nbsp;specifying&nbsp;the&nbsp;legend<br>
+location<br>
+&nbsp;<br>
+USAGE:&nbsp;<br>
+&nbsp;&nbsp;<a href="#-legend">legend</a>(&nbsp;(line1,&nbsp;line2,&nbsp;line3),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'upper&nbsp;right')<br>
+&nbsp;<br>
+See&nbsp;help(legend)&nbsp;for&nbsp;information&nbsp;about&nbsp;the&nbsp;location&nbsp;codes</tt></dd></dl>
+ <dl><dt><a name="-figure"><strong>figure</strong></a>(num<font color="#909090">=1</font>, figsize<font color="#909090">=[8.0, 6.0]</font>, dpi<font color="#909090">=80.0</font>, facecolor<font color="#909090">=0.75</font>, edgecolor<font color="#909090">='w'</font>)</dt><dd><tt><a href="#-figure">figure</a>(num&nbsp;=&nbsp;1,&nbsp;figsize=(8,&nbsp;6),&nbsp;dpi=80,&nbsp;facecolor='w',&nbsp;edgecolor='k')<br>
 &nbsp;<br>
 &nbsp;<br>
 Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;and&nbsp;return&nbsp;a&nbsp;handle&nbsp;to&nbsp;it<br>
@@ -315,6 +329,43 @@ facecolor&nbsp;-&nbsp;the&nbsp;background&nbsp;color&nbsp;&nbsp;&nbsp;&nbsp;<br>
 edgecolor&nbsp;-&nbsp;the&nbsp;border&nbsp;color<br>
 &nbsp;<br>
 rcParams&nbsp;gives&nbsp;the&nbsp;default&nbsp;values&nbsp;from&nbsp;the&nbsp;.matplotlibrc&nbsp;file</tt></dd></dl>
+ <dl><dt><a name="-fill"><strong>fill</strong></a>(*args, **kwargs)</dt><dd><tt>plot&nbsp;filled&nbsp;polygons.&nbsp;&nbsp;*args&nbsp;is&nbsp;a&nbsp;variable&nbsp;length&nbsp;argument,<br>
+allowing&nbsp;for&nbsp;multiple&nbsp;x,y&nbsp;pairs&nbsp;with&nbsp;an&nbsp;optional&nbsp;color&nbsp;format<br>
+string.&nbsp;&nbsp;For&nbsp;example,&nbsp;all&nbsp;of&nbsp;the&nbsp;following&nbsp;are&nbsp;legal,&nbsp;assuming&nbsp;a<br>
+is&nbsp;the&nbsp;Axis&nbsp;instance:<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#-fill">fill</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;polygon&nbsp;with&nbsp;vertices&nbsp;at&nbsp;x,y<br>
+&nbsp;&nbsp;<a href="#-fill">fill</a>(x,y,&nbsp;'b'&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;polygon&nbsp;with&nbsp;vertices&nbsp;at&nbsp;x,y&nbsp;in&nbsp;blue<br>
+&nbsp;<br>
+An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;color&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
+&nbsp;&nbsp;<a href="#-fill">fill</a>(x1,&nbsp;y1,&nbsp;'g',&nbsp;x2,&nbsp;y2,&nbsp;'r')&nbsp;&nbsp;<br>
+&nbsp;<br>
+Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;patches&nbsp;that&nbsp;were&nbsp;added<br>
+&nbsp;<br>
+The&nbsp;following&nbsp;color&nbsp;strings&nbsp;are&nbsp;supported<br>
+&nbsp;<br>
+&nbsp;&nbsp;b&nbsp;&nbsp;:&nbsp;blue<br>
+&nbsp;&nbsp;g&nbsp;&nbsp;:&nbsp;green<br>
+&nbsp;&nbsp;r&nbsp;&nbsp;:&nbsp;red<br>
+&nbsp;&nbsp;c&nbsp;&nbsp;:&nbsp;cyan<br>
+&nbsp;&nbsp;m&nbsp;&nbsp;:&nbsp;magenta<br>
+&nbsp;&nbsp;y&nbsp;&nbsp;:&nbsp;yellow<br>
+&nbsp;&nbsp;k&nbsp;&nbsp;:&nbsp;black&nbsp;<br>
+&nbsp;&nbsp;w&nbsp;&nbsp;:&nbsp;white<br>
+&nbsp;<br>
+The&nbsp;kwargs&nbsp;that&nbsp;are&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;set&nbsp;line&nbsp;properties&nbsp;(any<br>
+property&nbsp;that&nbsp;has&nbsp;a&nbsp;set_*&nbsp;method).&nbsp;&nbsp;You&nbsp;can&nbsp;use&nbsp;this&nbsp;to&nbsp;set&nbsp;edge<br>
+color,&nbsp;face&nbsp;color,&nbsp;etc.<br>
+&nbsp;<br>
+Example&nbsp;code:<br>
+&nbsp;<br>
+from&nbsp;matplotlib.matlab&nbsp;import&nbsp;*<br>
+t&nbsp;=&nbsp;<a href="#-arange">arange</a>(0.0,&nbsp;1.01,&nbsp;0.01)<br>
+s&nbsp;=&nbsp;sin(2*2*pi*t)<br>
+&nbsp;<br>
+<a href="#-fill">fill</a>(t,&nbsp;s,&nbsp;'r')<br>
+<a href="#-grid">grid</a>(True)<br>
+show()</tt></dd></dl>
  <dl><dt><a name="-fromstring"><strong>fromstring</strong></a>(...)</dt><dd><tt><a href="#-fromstring">fromstring</a>(string,&nbsp;typecode='l',&nbsp;count=-1)&nbsp;returns&nbsp;a&nbsp;new&nbsp;1d&nbsp;array&nbsp;initialized&nbsp;from&nbsp;the&nbsp;raw&nbsp;binary&nbsp;data&nbsp;in&nbsp;string.&nbsp;&nbsp;If&nbsp;count&nbsp;is&nbsp;positive,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;have&nbsp;count&nbsp;elements,&nbsp;otherwise&nbsp;it's&nbsp;size&nbsp;is&nbsp;determined&nbsp;by&nbsp;the&nbsp;size&nbsp;of&nbsp;string.</tt></dd></dl>
  <dl><dt><a name="-gca"><strong>gca</strong></a>()</dt><dd><tt>Return&nbsp;the&nbsp;current&nbsp;axis&nbsp;instance.&nbsp;&nbsp;This&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;control<br>
 axis&nbsp;properties&nbsp;either&nbsp;using&nbsp;set&nbsp;or&nbsp;the&nbsp;Axes&nbsp;methods.<br>
@@ -359,6 +410,21 @@ scalars,&nbsp;then&nbsp;the&nbsp;respective&nbsp;values&nbsp;are&nbsp;constant,&
 widths&nbsp;of&nbsp;the&nbsp;lines&nbsp;are&nbsp;determined&nbsp;by&nbsp;xmin&nbsp;and&nbsp;xmax<br>
 &nbsp;<br>
 Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;line&nbsp;instances&nbsp;that&nbsp;were&nbsp;added</tt></dd></dl>
+ <dl><dt><a name="-imshow"><strong>imshow</strong></a>(*args, **kwargs)</dt><dd><tt>Display&nbsp;the&nbsp;image&nbsp;in&nbsp;array&nbsp;X&nbsp;to&nbsp;current&nbsp;axes.&nbsp;&nbsp;X&nbsp;must&nbsp;be&nbsp;a<br>
+float&nbsp;array<br>
+&nbsp;<br>
+Usage:&nbsp;<br>
+&nbsp;<br>
+&nbsp;IMSHOW(X)<br>
+&nbsp;<br>
+&nbsp;If&nbsp;X&nbsp;is&nbsp;MxN,&nbsp;assume&nbsp;luminance&nbsp;(grayscale)<br>
+&nbsp;If&nbsp;X&nbsp;is&nbsp;MxNx3,&nbsp;assume&nbsp;RGB<br>
+&nbsp;If&nbsp;X&nbsp;is&nbsp;MxNx4,&nbsp;assume&nbsp;RGBA<br>
+&nbsp;<br>
+&nbsp;IMSHOW(X,&nbsp;cmap)<br>
+&nbsp;cmap&nbsp;is&nbsp;a&nbsp;ColorMap&nbsp;instance&nbsp;used&nbsp;to&nbsp;make&nbsp;a&nbsp;pseudo-color&nbsp;plot<br>
+&nbsp;<br>
+An&nbsp;Image&nbsp;instance&nbsp;is&nbsp;returned</tt></dd></dl>
  <dl><dt><a name="-legend"><strong>legend</strong></a>(*args, **kwargs)</dt><dd><tt>Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;current&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
 sequence&nbsp;of&nbsp;strings&nbsp;and&nbsp;loc&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;or&nbsp;an&nbsp;integer<br>
 specifying&nbsp;the&nbsp;legend&nbsp;location<br>
@@ -383,7 +449,7 @@ USAGE:&nbsp;<br>
 &nbsp;<br>
 The&nbsp;LOC&nbsp;location&nbsp;codes&nbsp;are<br>
 &nbsp;<br>
-The&nbsp;location&nbsp;codes&nbsp;are<br>
+The&nbsp;LOC&nbsp;location&nbsp;codes&nbsp;are<br>
 &nbsp;<br>
 &nbsp;&nbsp;'best'&nbsp;:&nbsp;0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(currently&nbsp;not&nbsp;supported,&nbsp;defaults&nbsp;to&nbsp;upper&nbsp;right)<br>
 &nbsp;&nbsp;'upper&nbsp;right'&nbsp;&nbsp;:&nbsp;1,&nbsp;&nbsp;(default)<br>
@@ -397,12 +463,20 @@ The&nbsp;location&nbsp;codes&nbsp;are<br>
 &nbsp;&nbsp;'upper&nbsp;center'&nbsp;:&nbsp;9,<br>
 &nbsp;&nbsp;'center'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;10,<br>
 &nbsp;<br>
-Return&nbsp;value&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;text,&nbsp;line&nbsp;instances&nbsp;that&nbsp;make<br>
-up&nbsp;the&nbsp;legend</tt></dd></dl>
+If&nbsp;none&nbsp;of&nbsp;these&nbsp;are&nbsp;suitable,&nbsp;loc&nbsp;can&nbsp;be&nbsp;a&nbsp;2-tuple&nbsp;giving&nbsp;x,y<br>
+in&nbsp;axes&nbsp;coords,&nbsp;ie,<br>
+&nbsp;<br>
+&nbsp;&nbsp;loc&nbsp;=&nbsp;0,&nbsp;1&nbsp;is&nbsp;left&nbsp;top<br>
+&nbsp;&nbsp;loc&nbsp;=&nbsp;0.5,&nbsp;0.5&nbsp;is&nbsp;center,&nbsp;center<br>
+&nbsp;<br>
+&nbsp;&nbsp;and&nbsp;so&nbsp;on<br>
+&nbsp;<br>
+&nbsp;<br>
+The&nbsp;legend&nbsp;instance&nbsp;is&nbsp;returned</tt></dd></dl>
  <dl><dt><a name="-loglog"><strong>loglog</strong></a>(*args, **kwargs)</dt><dd><tt>Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
 to&nbsp;semilog&nbsp;x&nbsp;are&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;args&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;help&nbsp;plot&nbsp;for<br>
 more&nbsp;info</tt></dd></dl>
- <dl><dt><a name="-pcolor"><strong>pcolor</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-pcolor">pcolor</a>(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
+ <dl><dt><a name="-pcolor"><strong>pcolor</strong></a>(*args, **kwargs)</dt><dd><tt>pcolor_patch(C)&nbsp;-&nbsp;make&nbsp;a&nbsp;pseudocolor&nbsp;plot&nbsp;of&nbsp;matrix&nbsp;C<br>
 &nbsp;<br>
 <a href="#-pcolor">pcolor</a>(X,&nbsp;Y,&nbsp;C)&nbsp;-&nbsp;a&nbsp;pseudo&nbsp;color&nbsp;plot&nbsp;of&nbsp;C&nbsp;on&nbsp;the&nbsp;matrices&nbsp;X&nbsp;and&nbsp;Y&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -599,6 +673,21 @@ is&nbsp;'somename',&nbsp;set&nbsp;function&nbsp;calls<br>
 &nbsp;&nbsp;o.set_somename(value)<br>
 &nbsp;<br>
 for&nbsp;every&nbsp;instance&nbsp;in&nbsp;h.</tt></dd></dl>
+ <dl><dt><a name="-specgram"><strong>specgram</strong></a>(x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>, cmap<font color="#909090">=&lt;matplotlib.colors.ColormapJet instance&gt;</font>)</dt><dd><tt>Compute&nbsp;a&nbsp;spectrogram&nbsp;of&nbsp;data&nbsp;in&nbsp;x.&nbsp;&nbsp;Data&nbsp;are&nbsp;split&nbsp;into&nbsp;NFFT<br>
+length&nbsp;segements&nbsp;and&nbsp;the&nbsp;PSD&nbsp;of&nbsp;each&nbsp;section&nbsp;is&nbsp;computed.&nbsp;&nbsp;The<br>
+windowing&nbsp;function&nbsp;window&nbsp;is&nbsp;applied&nbsp;to&nbsp;each&nbsp;segment,&nbsp;and&nbsp;the<br>
+amount&nbsp;of&nbsp;overlap&nbsp;of&nbsp;each&nbsp;segment&nbsp;is&nbsp;specified&nbsp;with&nbsp;noverlap<br>
+&nbsp;<br>
+cmap&nbsp;is&nbsp;a&nbsp;a&nbsp;matplotlib.colors.ColorMap<br>
+&nbsp;<br>
+See&nbsp;help(psd)&nbsp;for&nbsp;information&nbsp;on&nbsp;the&nbsp;other&nbsp;arguments<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;Pxx,&nbsp;freqs,&nbsp;bins,&nbsp;im<br>
+&nbsp;<br>
+bins&nbsp;are&nbsp;the&nbsp;time&nbsp;points&nbsp;the&nbsp;spectrogram&nbsp;is&nbsp;calculated&nbsp;over<br>
+freqs&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;frequencies<br>
+Pxx&nbsp;is&nbsp;a&nbsp;len(times)&nbsp;x&nbsp;len(freqs)&nbsp;array&nbsp;of&nbsp;power<br>
+im&nbsp;is&nbsp;a&nbsp;matplotlib&nbsp;image</tt></dd></dl>
  <dl><dt><a name="-subplot"><strong>subplot</strong></a>(*args, **kwargs)</dt><dd><tt>Create&nbsp;a&nbsp;subplot&nbsp;command,&nbsp;creating&nbsp;axes&nbsp;with<br>
 &nbsp;<br>
 &nbsp;&nbsp;<a href="#-subplot">subplot</a>(numRows,&nbsp;numCols,&nbsp;plotNum)<br>

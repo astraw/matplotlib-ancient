@@ -167,6 +167,8 @@ from&nbsp;0.0&nbsp;to&nbsp;360.0<br>
 If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
+<dl><dt><a name="RendererBase-draw_image"><strong>draw_image</strong></a>(self, x, y, im)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+
 <dl><dt><a name="RendererBase-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;line&nbsp;from&nbsp;x1,y1&nbsp;to&nbsp;x2,y2</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
@@ -186,6 +188,8 @@ If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbs
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, t)</dt><dd><tt>Draw&nbsp;a&nbsp;text&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="RendererBase-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
 

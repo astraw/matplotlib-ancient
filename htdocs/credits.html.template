@@ -11,7 +11,8 @@ matplotlib
 
   <li>Jeremy O'Donoghue wrote the wx backend</li>
 
-  <li>Andrew Straw provided much of the log scaling architecture</li>
+  <li>Andrew Straw provided much of the log scaling architecture and
+  the fill command</li>
 
   <li>Charles Twardy provided the impetus code for the legend class
   and has made countless bug reports and suggestions for

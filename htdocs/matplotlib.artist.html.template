@@ -59,6 +59,8 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Artist-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;<a href="#DPI">DPI</a>&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
+<dl><dt><a name="Artist-get_visible"><strong>get_visible</strong></a>(self, b)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
 <dl><dt><a name="Artist-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Artist-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
@@ -71,6 +73,8 @@ all&nbsp;backends</tt></dd></dl>
 <dl><dt><a name="Artist-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Artist-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>

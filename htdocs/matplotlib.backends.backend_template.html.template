@@ -320,6 +320,12 @@ coords&nbsp;using&nbsp;GraphicsContext&nbsp;gc</tt></dd></dl>
 some&nbsp;value&nbsp;for&nbsp;pixels&nbsp;per&nbsp;inch.&nbsp;&nbsp;Eg,&nbsp;suppose&nbsp;yours&nbsp;is&nbsp;96&nbsp;and<br>
 dpi&nbsp;=&nbsp;300.&nbsp;&nbsp;Then&nbsp;points&nbsp;to&nbsp;pixels&nbsp;is</tt></dd></dl>
 
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
+<dl><dt><a name="RendererTemplate-draw_image"><strong>draw_image</strong></a>(self, x, y, im)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+
+<dl><dt><a name="RendererTemplate-flipy"><strong>flipy</strong></a>(self)</dt><dd><tt>return&nbsp;true&nbsp;if&nbsp;y&nbsp;small&nbsp;numbers&nbsp;are&nbsp;top&nbsp;for&nbsp;renderer</tt></dd></dl>
+
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">

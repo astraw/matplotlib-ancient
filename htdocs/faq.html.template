@@ -256,7 +256,9 @@ improvement, let me know.  """),
     ('IMAGES',
     'Can matplotlib handle image data?',
      """
-Not currently, except as pcolor data.  It's in the works; stay tuned."""),
+Yes - you can now plot array images with <a
+href=matplotlib.matlab.html#-imshow>imshow</a>.  More image loaders
+coming soon """),
 
     ('ROTATETICKS',
      'How do I make vertical xticklabels?',

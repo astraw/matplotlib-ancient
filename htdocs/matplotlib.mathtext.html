@@ -98,6 +98,12 @@
 &nbsp;&nbsp;If&nbsp;you&nbsp;find&nbsp;TeX&nbsp;expressions&nbsp;that&nbsp;don't&nbsp;parse&nbsp;or&nbsp;render&nbsp;properly,<br>
 &nbsp;&nbsp;please&nbsp;email&nbsp;me,&nbsp;but&nbsp;please&nbsp;check&nbsp;KNOWN&nbsp;ISSUES&nbsp;below&nbsp;first.<br>
 &nbsp;<br>
+REQUIREMENTS<br>
+&nbsp;<br>
+&nbsp;&nbsp;mathtext&nbsp;requires&nbsp;matplotlib.ft2font.&nbsp;&nbsp;Set&nbsp;BUILD_FT2FONT=True&nbsp;in<br>
+&nbsp;&nbsp;setup.py.&nbsp;&nbsp;See&nbsp;BACKENDS&nbsp;below&nbsp;for&nbsp;a&nbsp;summary&nbsp;of&nbsp;availability&nbsp;by<br>
+&nbsp;&nbsp;backend.<br>
+&nbsp;<br>
 LICENSING:<br>
 &nbsp;<br>
 &nbsp;&nbsp;The&nbsp;computer&nbsp;modern&nbsp;fonts&nbsp;this&nbsp;package&nbsp;uses&nbsp;are&nbsp;part&nbsp;of&nbsp;the&nbsp;BaKoMa<br>
@@ -108,6 +114,9 @@ LICENSING:<br>
 &nbsp;<br>
 USAGE:<br>
 &nbsp;<br>
+&nbsp;&nbsp;See&nbsp;<a href="http://matplotlib.sourceforge.net/tutorial.html#mathtext">http://matplotlib.sourceforge.net/tutorial.html#mathtext</a>&nbsp;for&nbsp;a<br>
+&nbsp;&nbsp;tutorial&nbsp;introduction.<br>
+&nbsp;&nbsp;<br>
 &nbsp;&nbsp;Any&nbsp;text&nbsp;element&nbsp;(xlabel,&nbsp;ylabel,&nbsp;title,&nbsp;text,&nbsp;etc)&nbsp;can&nbsp;use&nbsp;TeX<br>
 &nbsp;&nbsp;markup,&nbsp;as&nbsp;in<br>
 &nbsp;<br>
@@ -126,9 +135,9 @@ USAGE:<br>
 &nbsp;<br>
 &nbsp;&nbsp;to&nbsp;achieve&nbsp;the&nbsp;same&nbsp;effect.<br>
 &nbsp;<br>
-&nbsp;&nbsp;A&nbsp;large&nbsp;set&nbsp;of&nbsp;the&nbsp;TeX&nbsp;symbols&nbsp;are&nbsp;provided&nbsp;(see&nbsp;below).<br>
-&nbsp;&nbsp;Subscripting&nbsp;and&nbsp;superscripting&nbsp;are&nbsp;supported,&nbsp;as&nbsp;well&nbsp;as&nbsp;the<br>
-&nbsp;&nbsp;over/under&nbsp;style&nbsp;of&nbsp;subscripting&nbsp;with&nbsp;\sum,&nbsp;\int,&nbsp;etc.<br>
+&nbsp;&nbsp;A&nbsp;large&nbsp;set&nbsp;of&nbsp;the&nbsp;TeX&nbsp;symbols&nbsp;are&nbsp;provided.&nbsp;&nbsp;Subscripting&nbsp;and<br>
+&nbsp;&nbsp;superscripting&nbsp;are&nbsp;supported,&nbsp;as&nbsp;well&nbsp;as&nbsp;the&nbsp;over/under&nbsp;style&nbsp;of<br>
+&nbsp;&nbsp;subscripting&nbsp;with&nbsp;\sum,&nbsp;\int,&nbsp;etc.<br>
 &nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;Allowed&nbsp;TeX&nbsp;symbols:<br>
@@ -158,18 +167,15 @@ USAGE:<br>
 &nbsp;&nbsp;\uparrow&nbsp;\updownarrow&nbsp;\uplus&nbsp;\upsilon&nbsp;\varepsilon&nbsp;\varphi&nbsp;\varphi<br>
 &nbsp;&nbsp;\varrho&nbsp;\varsigma&nbsp;\vartheta&nbsp;\vdash&nbsp;\vee&nbsp;\wedge&nbsp;\wp&nbsp;\wr&nbsp;\xi&nbsp;\zeta<br>
 &nbsp;<br>
-REQUIREMENTS<br>
-&nbsp;<br>
-&nbsp;&nbsp;mathtext&nbsp;requires&nbsp;matplotlib.ft2font.&nbsp;&nbsp;Set&nbsp;BUILD_FT2FONT=True&nbsp;in<br>
-&nbsp;&nbsp;setup.py<br>
 &nbsp;&nbsp;<br>
 BACKENDS<br>
 &nbsp;<br>
 &nbsp;&nbsp;mathtext&nbsp;currently&nbsp;works&nbsp;with&nbsp;GTK,&nbsp;Agg,&nbsp;GTKAgg&nbsp;and&nbsp;TkAgg.&nbsp;&nbsp;If&nbsp;David<br>
-&nbsp;&nbsp;incorporates&nbsp;ft2font&nbsp;into&nbsp;paint,&nbsp;it&nbsp;will&nbsp;be&nbsp;easy&nbsp;to&nbsp;add&nbsp;to&nbsp;Paint.&nbsp;&nbsp;I<br>
-&nbsp;&nbsp;think&nbsp;I&nbsp;can&nbsp;also&nbsp;add&nbsp;it&nbsp;to&nbsp;GTK&nbsp;rather&nbsp;straightforwardly,&nbsp;since&nbsp;it's<br>
-&nbsp;&nbsp;just&nbsp;a&nbsp;matter&nbsp;of&nbsp;rendering&nbsp;from&nbsp;the&nbsp;ft2font&nbsp;pixel&nbsp;buffers;&nbsp;ditto&nbsp;for<br>
-&nbsp;&nbsp;wx.&nbsp;&nbsp;PS&nbsp;will&nbsp;require&nbsp;more&nbsp;substantial&nbsp;work,&nbsp;doing&nbsp;the&nbsp;metrics&nbsp;and<br>
+&nbsp;&nbsp;incorporates&nbsp;ft2font&nbsp;into&nbsp;paint,&nbsp;it&nbsp;will&nbsp;be&nbsp;easy&nbsp;to&nbsp;add&nbsp;to&nbsp;Paint.<br>
+&nbsp;&nbsp;WX&nbsp;can&nbsp;follow&nbsp;the&nbsp;lead&nbsp;of&nbsp;GTK&nbsp;and&nbsp;use&nbsp;pixels&nbsp;API&nbsp;calls&nbsp;to&nbsp;use<br>
+&nbsp;&nbsp;mathtext.<br>
+&nbsp;<br>
+&nbsp;&nbsp;PS&nbsp;will&nbsp;require&nbsp;more&nbsp;substantial&nbsp;work,&nbsp;doing&nbsp;the&nbsp;metrics&nbsp;and<br>
 &nbsp;&nbsp;layouts&nbsp;with&nbsp;the&nbsp;AFM&nbsp;versions&nbsp;of&nbsp;the&nbsp;computer&nbsp;modern&nbsp;fonts.<br>
 &nbsp;&nbsp;Backends&nbsp;which&nbsp;don't&nbsp;support&nbsp;mathtext&nbsp;will&nbsp;just&nbsp;render&nbsp;the&nbsp;TeX<br>
 &nbsp;&nbsp;string&nbsp;as&nbsp;a&nbsp;literal.&nbsp;&nbsp;Stay&nbsp;tuned.<br>
@@ -178,10 +184,9 @@ BACKENDS<br>
 KNOWN&nbsp;ISSUES:<br>
 &nbsp;<br>
 &nbsp;-&nbsp;some&nbsp;hackish&nbsp;ways&nbsp;I&nbsp;deal&nbsp;with&nbsp;a&nbsp;strange&nbsp;offset&nbsp;in&nbsp;cmex10<br>
-&nbsp;-&nbsp;bbox&nbsp;is&nbsp;a&nbsp;bit&nbsp;large&nbsp;in&nbsp;vertical&nbsp;direction&nbsp;and&nbsp;small&nbsp;in&nbsp;horizontal&nbsp;direction<br>
 &nbsp;-&nbsp;nested&nbsp;subscripts,&nbsp;eg,&nbsp;x_i_i&nbsp;not&nbsp;working<br>
 &nbsp;-&nbsp;nesting&nbsp;fonts&nbsp;changes&nbsp;in&nbsp;sub/superscript&nbsp;groups&nbsp;not&nbsp;parsing<br>
-&nbsp;-&nbsp;I&nbsp;would&nbsp;also&nbsp;like&nbsp;to&nbsp;add&nbsp;a&nbsp;fre&nbsp;more&nbsp;layout&nbsp;commands,&nbsp;like&nbsp;\frac.<br>
+&nbsp;-&nbsp;I&nbsp;would&nbsp;also&nbsp;like&nbsp;to&nbsp;add&nbsp;a&nbsp;few&nbsp;more&nbsp;layout&nbsp;commands,&nbsp;like&nbsp;\frac.<br>
 &nbsp;<br>
 Author&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;John&nbsp;Hunter&nbsp;&lt;jdhunter@ace.bsd.uchicago.edu&gt;<br>
 Copyright&nbsp;:&nbsp;John&nbsp;Hunter&nbsp;(2004)<br>
@@ -590,13 +595,13 @@ fonts:&nbsp;a&nbsp;seq&nbsp;of&nbsp;FT2Fonts</tt></dd></dl>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>equals</strong> = "="<br>
 <strong>exclamation</strong> = "!"<br>
-<strong>expr</strong> = OneOrMore:(MatchFirst:([MatchFirst:([MatchFirst:...d:([...])))]))]), Suppress:("}")]))]))])])))])]))<br>
+<strong>expr</strong> = OneOrMore:(Or:([Or:([Or:([Or:([Or:([Or:([Or:([Or...Optional:(Forward:(Group:(And:([...]))))])))])]))<br>
 <strong>fontgrp</strong> = Group:(And:([Combine:(And:(["\", MatchFirst:([Ma...:(Group:(And:([...])))]))]), Suppress:("}")]))]))<br>
 <strong>fontname</strong> = MatchFirst:([MatchFirst:([MatchFirst:(["rm", "cal"]), "it"]), "tt"])<br>
 <strong>fonttable</strong> = {'(': ('cmex10.ttf', 'A1'), ')': ('cmex10.ttf', 'A2'), '*': ('cmsy10.ttf', 'A4'), '+': ('cmr10.ttf', '2B'), ',': ('cmmi10.ttf', '3B'), '-': ('cmsy10.ttf', 'A1'), '.': ('cmmi10.ttf', '3A'), '/': ('cmmi10.ttf', '3D'), '0': ('cmr10.ttf', '30'), '1': ('cmr10.ttf', '31'), ...}<br>
-<strong>group</strong> = MatchFirst:([MatchFirst:([Group:(And:([And:([Sup...(And:([...])))]))]), Suppress:("}")]))]))])])))])<br>
+<strong>group</strong> = Or:([Or:([Group:(And:([And:([Suppress:("{"), One...), Optional:(Forward:(Group:(And:([...]))))])))])<br>
 <strong>grouping</strong> = MatchFirst:([MatchFirst:([MatchFirst:(["[", "]"]), "("]), ")"])<br>
-<strong>grp</strong> = Group:(And:([And:([Suppress:("{"), OneOrMore:(MatchFirst:([...]))]), Suppress:("}")]))<br>
+<strong>grp</strong> = Group:(And:([And:([Suppress:("{"), OneOrMore:(Or:([...]))]), Suppress:("}")]))<br>
 <strong>handler</strong> = &lt;matplotlib.mathtext.Handler instance&gt;<br>
 <strong>italics</strong> = "it"<br>
 <strong>langle</strong> = "&lt;"<br>
@@ -618,10 +623,10 @@ fonts:&nbsp;a&nbsp;seq&nbsp;of&nbsp;FT2Fonts</tt></dd></dl>
 <strong>roman</strong> = "rm"<br>
 <strong>rparen</strong> = ")"<br>
 <strong>semicolon</strong> = ";"<br>
-<strong>singlesym</strong> = MatchFirst:([MatchFirst:([MatchFirst:([MatchFirs...chFirst:([MatchFirst:(["[", "]"]), "("]), ")"])])<br>
-<strong>subsupgrp</strong> = Forward:(Group:(And:([MatchFirst:(["_", "^"]), M...p:(And:([...])))]))]), Suppress:("}")]))]))])])))<br>
+<strong>singlesym</strong> = Or:([Or:([Or:([Or:([Or:([Or:([Combine:(And:([And...chFirst:([MatchFirst:(["[", "]"]), "("]), ")"])])<br>
+<strong>subsupgrp</strong> = Forward:(Group:(And:([And:([Or:(["_", "^"]), Or:...)]), Optional:(Forward:(Group:(And:([...]))))])))<br>
 <strong>superscript</strong> = "^"<br>
-<strong>symbol</strong> = MatchFirst:([MatchFirst:([MatchFirst:([MatchFirs...(And:([...])))]))]), Suppress:("}")]))]))])])))])<br>
+<strong>symbol</strong> = Or:([Or:([Or:([Or:([Or:([Or:([Or:([Combine:(And:...), Optional:(Forward:(Group:(And:([...]))))])))])<br>
 <strong>texsym</strong> = Combine:(And:([And:(["\", W:(abcd...)]), NotAny:(Suppress:("{"))]))<br>
 <strong>times</strong> = "*"<br>
 <strong>typewriter</strong> = "tt"<br>

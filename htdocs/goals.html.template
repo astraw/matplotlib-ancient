@@ -133,8 +133,8 @@ mailing list</a>.<p>
     <td>
 	Add image support
     </td>
-    <td @td_remaining@> 
-      Near the top of the list of things to do
+    <td @td_partial@> 
+      Support for images from arrays with <a href=matplotlib.matlab.html#-imshow>imshow</a>
    </td> </tr>
 
 

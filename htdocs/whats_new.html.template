@@ -1,20 +1,39 @@
 new_to_52 = ( 
     ('Image support', """
 Basic image support.  Images can be specified by Numeric float arrays
-
+<pre>
+     imshow(X)
      If X is MxN, assume luminance (grayscale)
      If X is MxNx3, assume RGB
      If X is MxNx4, assume RGBA
 
+     imshow(X, cmap)  # plot X using colormap; see examples/pcolor_demo2.py
+</pre>
+
 see <a href=matplotlib.matlab.html#-imshow>imshow</a> and the
 image_demo*.py examples in the matplotlib src distribution.  Set
 BUILD_IMAGE in setup.py for image support.  Currently available on
-Agg, GTKAgg, TkAgg and GTK backends.
+Agg, GTKAgg, TkAgg and GTK backends.  win32 GTK users should use
+GTKAgg unless pygtk is compiled with Numeric support.
+
+The pseudocolor images generated with imshow are 8 million times
+faster than pcolors.
 """),
 
     ('Figure legends', """
 In addition to adding legends to the axes with the legend command, you
-can place legends anywhere in the figure with figlegend
+can place legends anywhere in the figure with <a href=matplotlib.matlab.html#-figlegend>figlegend</a>
+"""),
+
+    ('fill command', """
+Andrew Straw wrote a <a href=matplotlib.matlab.html#-fill>fill</a>
+command to plot filled polygons.  See <a
+href=examples/fill_demo.py>fill_demo.py</a>
+"""),
+
+    ('specgram command', """ Make 2D spectrograms with <a
+href=matplotlib.matlab.html#-specgram>specgram</a>.  Requires image
+support; see <a href=examples/specgram_demo.py>specgram_demo.py</a>
 """),
 
 	('Bugfixes and minor improvements', """\
@@ -22,6 +41,7 @@ can place legends anywhere in the figure with figlegend
 <ul>
   <li> Tk : Fixed a close figure bug in interactive mode</li>
   <li> GTK : Much improved mathtext performance thanks to patch by Trevor Blackwell</li>
+    <li> All : Fixed a bug that showed up in successive calls to plot with just one plot argument</li>
 </ul>
 """),
      )
@@ -569,6 +589,12 @@ defined in figure.py.
 )
 
 @header@
+
+<h2> What's new in matplotlib 0.52</h2>
+ + for title, new in new_to_52:
+   <h4>@title@</h4>
+   @new@<br>
+ -
 
 <h2> What's new in matplotlib 0.51</h2>
  + for title, new in new_to_51:

@@ -16,12 +16,10 @@ if 1:   # load the data
     dfile = 'data/s1045.ima'
     im = fromstring(file(dfile, 'rb').read(), Int16).astype(Float)
     im.shape = 256, 256
-    # flip upside down
-    im = array([im[i] for i in arange(255,-1,-1)])
 
 if 1: # plot the MRI in pcolor
     subplot(221)
-    pcolor(im, shading='flat')
+    imshow(im, ColormapJet(256))
     axis('off')
 
 if 1:  # plot the histogram of MRI intensity

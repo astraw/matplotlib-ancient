@@ -201,6 +201,15 @@ Refs:<br>
  <dl><dt><a name="-detrend_mean"><strong>detrend_mean</strong></a>(x)</dt><dd><tt>Return&nbsp;x&nbsp;minus&nbsp;the&nbsp;<a href="#-mean">mean</a>(x)</tt></dd></dl>
  <dl><dt><a name="-detrend_none"><strong>detrend_none</strong></a>(x)</dt><dd><tt>Return&nbsp;x:&nbsp;no&nbsp;detrending</tt></dd></dl>
  <dl><dt><a name="-donothing_callback"><strong>donothing_callback</strong></a>(*args)</dt></dl>
+ <dl><dt><a name="-entropy"><strong>entropy</strong></a>(y, bins)</dt><dd><tt>Return&nbsp;the&nbsp;entropy&nbsp;of&nbsp;the&nbsp;data&nbsp;in&nbsp;y<br>
+&nbsp;<br>
+\sum&nbsp;p_i&nbsp;log2(p_i)&nbsp;where&nbsp;p_i&nbsp;is&nbsp;the&nbsp;probability&nbsp;of&nbsp;observing&nbsp;y&nbsp;in<br>
+the&nbsp;ith&nbsp;bin&nbsp;of&nbsp;bins.&nbsp;&nbsp;bins&nbsp;can&nbsp;be&nbsp;a&nbsp;number&nbsp;of&nbsp;bins&nbsp;or&nbsp;a&nbsp;range&nbsp;of<br>
+bins;&nbsp;see&nbsp;hist<br>
+&nbsp;<br>
+Compare&nbsp;S&nbsp;with&nbsp;analytic&nbsp;calculation&nbsp;for&nbsp;a&nbsp;Gaussian<br>
+x&nbsp;=&nbsp;mu&nbsp;+&nbsp;sigma*randn(200000)<br>
+Sanalytic&nbsp;=&nbsp;0.5&nbsp;&nbsp;*&nbsp;(&nbsp;1.0&nbsp;+&nbsp;log(2*pi*sigma**2.0)&nbsp;)</tt></dd></dl>
  <dl><dt><a name="-find"><strong>find</strong></a>(condition)</dt><dd><tt>Return&nbsp;the&nbsp;indices&nbsp;where&nbsp;condition&nbsp;is&nbsp;true</tt></dd></dl>
  <dl><dt><a name="-fix"><strong>fix</strong></a>(x)</dt><dd><tt>Rounds&nbsp;towards&nbsp;zero.<br>
 x_rounded&nbsp;=&nbsp;<a href="#-fix">fix</a>(x)&nbsp;rounds&nbsp;the&nbsp;elements&nbsp;of&nbsp;x&nbsp;to&nbsp;the&nbsp;nearest&nbsp;integers<br>

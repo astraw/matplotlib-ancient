@@ -89,6 +89,8 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Circle-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
+<dl><dt><a name="Circle-get_visible"><strong>get_visible</strong></a>(self, b)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
 <dl><dt><a name="Circle-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
@@ -99,6 +101,8 @@ all&nbsp;backends</tt></dd></dl>
 <dl><dt><a name="Circle-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Circle-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
@@ -151,6 +155,8 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Patch-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
+<dl><dt><a name="Patch-get_visible"><strong>get_visible</strong></a>(self, b)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
 <dl><dt><a name="Patch-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Patch-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
@@ -163,6 +169,8 @@ all&nbsp;backends</tt></dd></dl>
 <dl><dt><a name="Patch-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Patch-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
@@ -191,6 +199,10 @@ transy&nbsp;&nbsp;:&nbsp;a&nbsp;Transform&nbsp;for&nbsp;the&nbsp;y&nbsp;data<br>
 <hr>
 Methods defined here:<br>
 <dl><dt><a name="Polygon-__init__"><strong>__init__</strong></a>(self, dpi, bbox, xy, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=0</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt></dl>
+
+<dl><dt><a name="Polygon-get_xlim"><strong>get_xlim</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Polygon-get_ylim"><strong>get_ylim</strong></a>(self)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.patches.html#Patch">Patch</a>:<br>
@@ -223,6 +235,8 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Polygon-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
+<dl><dt><a name="Polygon-get_visible"><strong>get_visible</strong></a>(self, b)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
 <dl><dt><a name="Polygon-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;window&nbsp;extent&nbsp;of&nbsp;the&nbsp;<a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;as&nbsp;a&nbsp;Bound2D&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Polygon-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
@@ -235,6 +249,8 @@ all&nbsp;backends</tt></dd></dl>
 <dl><dt><a name="Polygon-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Polygon-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
@@ -265,7 +281,7 @@ transh&nbsp;:&nbsp;a&nbsp;Transform&nbsp;instance&nbsp;for&nbsp;height&nbsp;data
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Rectangle-__init__"><strong>__init__</strong></a>(self, dpi, bbox, xy, width, height, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=True</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transw<font color="#909090">=None</font>, transh<font color="#909090">=None</font>)</dt><dd><tt>dpi&nbsp;&nbsp;isa&nbsp;DPI&nbsp;instance<br>
+<dl><dt><a name="Rectangle-__init__"><strong>__init__</strong></a>(self, dpi, bbox, xy, width, height, edgecolor<font color="#909090">='k'</font>, facecolor<font color="#909090">='b'</font>, fill<font color="#909090">=True</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transw<font color="#909090">=None</font>, transh<font color="#909090">=None</font>)</dt><dd><tt>dpi&nbsp;is&nbsp;a&nbsp;DPI&nbsp;instance<br>
 bbox&nbsp;is&nbsp;the&nbsp;display&nbsp;Bound2D&nbsp;bounding&nbsp;boc<br>
 xy&nbsp;is&nbsp;an&nbsp;x,y&nbsp;tuple;&nbsp;width&nbsp;and&nbsp;height&nbsp;are&nbsp;width&nbsp;and&nbsp;height&nbsp;of&nbsp;rectangle<br>
 fill&nbsp;is&nbsp;a&nbsp;boolean&nbsp;indicating&nbsp;whether&nbsp;to&nbsp;fill&nbsp;the&nbsp;rectangle<br>
@@ -277,7 +293,7 @@ transw&nbsp;and&nbsp;hccords&nbsp;are&nbsp;the&nbsp;transforms&nbsp;of&nbsp;the&
 
 <dl><dt><a name="Rectangle-get_width"><strong>get_width</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;width&nbsp;of&nbsp;the&nbsp;&nbsp;rectangle</tt></dd></dl>
 
-<dl><dt><a name="Rectangle-get_window_extent"><strong>get_window_extent</strong></a>(self)</dt></dl>
+<dl><dt><a name="Rectangle-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="Rectangle-get_x"><strong>get_x</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;left&nbsp;coord&nbsp;of&nbsp;the&nbsp;rectangle</tt></dd></dl>
 
@@ -324,6 +340,8 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="Rectangle-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
+<dl><dt><a name="Rectangle-get_visible"><strong>get_visible</strong></a>(self, b)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
 <dl><dt><a name="Rectangle-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
@@ -334,6 +352,8 @@ all&nbsp;backends</tt></dd></dl>
 <dl><dt><a name="Rectangle-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="Rectangle-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
@@ -400,6 +420,8 @@ all&nbsp;backends</tt></dd></dl>
 
 <dl><dt><a name="RegularPolygon-get_dpi"><strong>get_dpi</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;DPI&nbsp;of&nbsp;the&nbsp;display</tt></dd></dl>
 
+<dl><dt><a name="RegularPolygon-get_visible"><strong>get_visible</strong></a>(self, b)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
 <dl><dt><a name="RegularPolygon-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends</tt></dd></dl>
 
@@ -410,6 +432,8 @@ all&nbsp;backends</tt></dd></dl>
 <dl><dt><a name="RegularPolygon-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
 things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
 their&nbsp;contents&nbsp;accordingly</tt></dd></dl>
+
+<dl><dt><a name="RegularPolygon-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
