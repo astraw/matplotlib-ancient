@@ -11,7 +11,10 @@ If these dependencies are satisfied, just do the usual thing:<p>
 
 Matplotlib is known to work on several linux, win32 and OS X
 platforms; it should run anywhere that python and Numeric run.  The
-different output devices have different requirements.
+different output devices have different requirements.  Note that if
+you install matplotlib anywhere other than the default locatio, you
+will need to set the MATPLOTLIBDATA environment variable to point to
+the install base dir.
 
 Below is a quickguide to what you'll need to get matplotlib up and
 running with the GTK backend.  For more specific information regarding
