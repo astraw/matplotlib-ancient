@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_template</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="matplotlib/backends/backend_template.py">matplotlib/backends/backend_template.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/backends/backend_template.py">/matplotlib/backends/backend_template.py</a></font></td></tr></table>
     <p><tt>This&nbsp;is&nbsp;a&nbsp;fully&nbsp;functional&nbsp;do&nbsp;nothing&nbsp;backend&nbsp;to&nbsp;provide&nbsp;a&nbsp;template&nbsp;to<br>
 backend&nbsp;writers.&nbsp;&nbsp;It&nbsp;is&nbsp;fully&nbsp;functional&nbsp;in&nbsp;that&nbsp;you&nbsp;can&nbsp;select&nbsp;it&nbsp;as<br>
 a&nbsp;backend&nbsp;with<br>

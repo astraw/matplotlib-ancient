@@ -1,0 +1,42 @@
+The html for the matplotlib web site is generated using yaptu, a
+simple (71 lines of code!) but powerful templating engine
+
+  http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/52305
+
+All of the web pages are templates, eg, index.html.template in which I
+combine arbitrary python data structures with yaptu templating.
+
+process_docs.py is a script to generate the pydocs for the class
+   library, and munge the generated output into a format suitable for
+   inclusion into the web page.  
+
+convert.py is the workhorse that runs all the templates and generates
+  the html with the appropriate headers and footers.
+
+screenshots/makeshots.py is a script that creates all the screenshots
+  that can be generated dyamically (some cannot be because, for
+  example, they are screenshots of figure windows with the navigation
+  toolbar).  Caution, the mri and pcolor screenshots currently take a
+  long time to generate because the are high resolution.  Best run on
+  a fast computer!
+
+So in a nutshell, here is what you need to do to generate the docs.
+  
+  1) Make sure the CVS matplotlib tree is in your PYTHONPATH and 
+     > cd htdocs
+
+  2) > python process_docs.py
+
+  3) > python convert.py
+
+  4) > cd screenshots
+  
+  5) > python makeshots.py  # this could take a while for pcolor and  mri
+
+  6) Point your browser at file:///your/dev/matplotlb/htdocs/index.html
+
+You can also run
+
+  # in the matplotlib dev root (doesn't rebuild screenshots)
+  > make htmldocs 
+

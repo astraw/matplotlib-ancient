@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.backend_bases</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="matplotlib/backend_bases.py">matplotlib/backend_bases.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/backend_bases.py">/matplotlib/backend_bases.py</a></font></td></tr></table>
     <p><tt>Abstract&nbsp;base&nbsp;classes&nbsp;definine&nbsp;the&nbsp;primitives&nbsp;that&nbsp;renderers&nbsp;and<br>
 graphics&nbsp;contexts&nbsp;must&nbsp;implement&nbsp;to&nbsp;serve&nbsp;as&nbsp;a&nbsp;matplotlib&nbsp;backend</tt></p>
 <p>

@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.matlab</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="matplotlib/matlab.py">matplotlib/matlab.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="/matplotlib/matlab.py">/matplotlib/matlab.py</a></font></td></tr></table>
     <p><tt>This&nbsp;is&nbsp;a&nbsp;matlab&nbsp;style&nbsp;functional&nbsp;interface&nbsp;the&nbsp;matplotlib.<br>
 &nbsp;<br>
 The&nbsp;following&nbsp;matlab&nbsp;compatible&nbsp;commands&nbsp;are&nbsp;provided<br>

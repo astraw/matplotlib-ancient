@@ -11,14 +11,15 @@ files = ( 'matplotlib.cbook.html', 'matplotlib.afm.html',
           'matplotlib.backends.backend_ps.html',
           'matplotlib.backends.backend_template.html',
           'matplotlib.backends.backend_wx.html',
-
           )
 
+
+devTree, thisDir = os.path.split( os.getcwd() )
 for fname in files:
     print '\tConverting %s to template' % fname
     s = file('../docs/' + fname).read()
-    s = s.replace('file:/hunter/jdhunter/python/projects/matplotlib/', '')
-    s = s.replace('/hunter/jdhunter/python/projects/matplotlib/', '')
+    s = s.replace('file:%s' % devTree, '')
+    s = s.replace(devTree, '')
     lines = s.split('\n')
     outLines = ['@header@']
     outLines.extend(lines[5:-1])
