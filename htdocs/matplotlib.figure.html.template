@@ -34,7 +34,9 @@ DPI&nbsp;is&nbsp;dots&nbsp;per&nbsp;inch</tt></dd></dl>
 
 <dl><dt><a name="Figure-add_axis"><strong>add_axis</strong></a>(self, a)</dt></dl>
 
-<dl><dt><a name="Figure-clear"><strong>clear</strong></a>(self)</dt></dl>
+<dl><dt><a name="Figure-clear"><strong>clear</strong></a>(self)</dt><dd><tt>Clear&nbsp;the&nbsp;figure</tt></dd></dl>
+
+<dl><dt><a name="Figure-clf"><strong>clf</strong></a>(self)</dt><dd><tt>Clear&nbsp;the&nbsp;figure</tt></dd></dl>
 
 <dl><dt><a name="Figure-copy_properties"><strong>copy_properties</strong></a>(self, other)</dt></dl>
 

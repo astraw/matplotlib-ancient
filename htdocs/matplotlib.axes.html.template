@@ -87,6 +87,8 @@ scalars&nbsp;or&nbsp;len(x)&nbsp;sequences<br>
 This&nbsp;enables&nbsp;you&nbsp;to&nbsp;use&nbsp;bar&nbsp;as&nbsp;the&nbsp;basis&nbsp;for&nbsp;stacked&nbsp;bar<br>
 charts,&nbsp;or&nbsp;candlestick&nbsp;plots</tt></dd></dl>
 
+<dl><dt><a name="Axes-cla"><strong>cla</strong></a>(self)</dt><dd><tt>Clear&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
+
 <dl><dt><a name="Axes-clear"><strong>clear</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Axes-cohere"><strong>cohere</strong></a>(self, x, y, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=0</font>)</dt><dd><tt>cohere&nbsp;the&nbsp;coherence&nbsp;between&nbsp;x&nbsp;and&nbsp;y.&nbsp;&nbsp;Coherence&nbsp;is&nbsp;the&nbsp;normalized<br>
@@ -554,6 +556,8 @@ scalars&nbsp;or&nbsp;len(x)&nbsp;sequences<br>
 &nbsp;<br>
 This&nbsp;enables&nbsp;you&nbsp;to&nbsp;use&nbsp;bar&nbsp;as&nbsp;the&nbsp;basis&nbsp;for&nbsp;stacked&nbsp;bar<br>
 charts,&nbsp;or&nbsp;candlestick&nbsp;plots</tt></dd></dl>
+
+<dl><dt><a name="Subplot-cla"><strong>cla</strong></a>(self)</dt><dd><tt>Clear&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
 
 <dl><dt><a name="Subplot-clear"><strong>clear</strong></a>(self)</dt></dl>
 

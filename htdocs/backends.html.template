@@ -4,11 +4,12 @@
 
 The matplotlib core graphics routines interact with an abstract
 renderer and graphics context to allow device independent ouput.
-Currently, output to pygtk, wxpython, postscript, gdmodule and
-libart/paint are supported.  With not too much effort, you can port
-matplotlib to your favorite display; high on my list of priorities are
-SVG, PDF, Tkinter and PIL.  If you are interested in porting to one of
-these platforms, please contact me!<p>
+Currently, output to pygtk, wxpython, postscript, gdmodule,
+libart/paint and agg (antigrain geometry) are supported.  With not too
+much effort, you can port matplotlib to your favorite display; high on
+my list of priorities are SVG, PDF, Tkinter (coming soon) and PIL.  If
+you are interested in porting to one of these platforms, please
+contact me!<p>
  
 You can choose your backend renderer from the command line prompt.
 Most if not all matplotlib scripts can generate output to any of the
@@ -18,6 +19,7 @@ line with the <tt>-d</tt> flag, as in
 
 <pre>
 > python subplot_demo.py -dGTK     # the GTK backend
+> python subplot_demo.py -dAgg     # the antigrain geometry backend
 > python subplot_demo.py -dPS      # the postscript backend
 > python subplot_demo.py -dGD      # the GD backend
 > python subplot_demo.py -dWX      # the WX backend
@@ -46,6 +48,7 @@ matplotlib.use('PS')
 The current backend strings that are supported are 
 <a
 href=matplotlib.backends.backend_gd.html>GD</a>, <a
+href=matplotlib.backends.backend_agg.html>Agg</a>, <a
 href=matplotlib.backends.backend_gtk.html>GTK</a>, <a
 href=matplotlib.backends.backend_ps.html>PS</a> <a
 href=matplotlib.backends.backend_ps.html>WX</a> <a
@@ -66,14 +69,14 @@ Each of the backends have a different set of requirements, listed
 below.  All require the <a
 href=http://sourceforge.net/projects/numpy>Numeric</a> module.  Note,
 matplotlib can also be made to work with numarray with minor changes;
-see the <a href=faq.html#NUMARRAY>FAQ</a>.
-<p>
+see the <a href=faq.html#NUMARRAY>FAQ</a>.<p>
 
 
 Specific information for installing the other backends can be found on
 this page below or by clicking
 <ul>
 <li><a href=backends.html#GTK>GTK</a></li>
+<li><a href=backends.html#Agg>Agg</a></li>
 <li><a href=backends.html#WX>WX</a></li>
 <li><a href=backends.html#PS>PS</a></li>
 <li><a href=backends.html#Paint>Paint</a></li>
@@ -132,17 +135,35 @@ GTK runtime</a></li>
 
 <a name=WX><h3>WX</h3></a>
 
-
 Requires <a href=http://www.wxpython.org>wxpython</a>.  Windows users
 may want to consider the <a
 href=http://www.enthought.com/python>enthought edition</a> of python,
 which comes with wxpython and Numeric built in, so matplotlib will
 work right out of the box.  matplotlib under WX has been tested on
-linux, win32 and OSX.
+linux, win32 and OSX.<p>
 
+<a name=Agg><h3>Agg output</h3></a>
 
+The <a href=http://antigrain.com>antigrain geometry</a> library is a
+platform independent library that provides efficient antialiased
+rendering with a vector model.  This is a sophisticated libary that we
+hope will provide the basis for more sophisticated drawing and image
+handling in future versions of matplotlib.  Because is doesn't depend
+on a GUI framework, it is suitable for use in web application servers
+generating images for html inclusion or for generating images in batch
+scripts.  Agg can also be embedded in GUI applications, as in the
+GTKAgg backend -- see <tt>setup.py</tt><p>
 
-<a name=GD><h3>GD output</h3></a>
+The windows installer comes with Agg prebuilt.  To compile Agg from
+src, set the <tt>BUILD_AGG</tt> flag in <tt>setup.py</tt>.  Like the
+other freetype image modules GD and Paint, Agg uses TTFQuery and
+fonttools for cross-platform font finding.  These modules, too, are
+included in the windows installer, and will be build automatically by
+setting BUILD_AGG.  See <a href=fonts.html#TTFFONTS>ttf fonts</a> for
+information about setting your paths to find your <tt>*.ttf</tt> font
+files.<p>
+
+<h3><a name=GD>GD output</a></h3>
   
 The GD module can be used to create images with no X11 server, and is
 particularly useful for web application developers who want dynamic
@@ -173,6 +194,7 @@ instructions for building gdmoule.
   <li><a href="http://fonttools.sourceforge.net/">font tools</a> -- Base
   library for handling TTF fonts -- required by TTF query.</li>  
 
+</ul>
    <h4>Quick install guide for GD module: linux and friends</h4>
  
    The latest snapshot of matplotlib requires a patch to
@@ -194,7 +216,7 @@ instructions for building gdmoule.
 </ul>
 
 
-<h4>Quick install guide for GD output: Windows</h4>
+<h4><a name=GDWIN32>Quick install guide for GD output: Windows</a></h4>
 
 The windows installer for matplotlib comes with fonttools and TTFQuery
 built in.  In addition to that package and Numeric, you'll need
@@ -216,7 +238,7 @@ the formerly named <tt>GDFONTPATH</tt> is now called
 <a name=PS><h3>Postscript</h3></a>
 
 The only requirement is <a
-href=http://sourceforge.net/projects/numpy>Numeric</a>
+href=http://sourceforge.net/projects/numpy>Numeric</a><p>
 
 See the <a href=fonts.html#PSFONTS>fonts page</a> for more information
 about getting the postscript backend setup for proper font rendering;
@@ -231,19 +253,19 @@ David Moore has written a paint backend for matplotlib.  paint is a <a
 href=http://www.levien.com/libart>libart</a> wrapper</a>. In a
 nutshell, libart is a svg oriented, high performance, 2D graphics
 engine that supports lots of nifty features.  The paint backend
-exposes some of them, and David has been extending it to expose more.
+exposes some of them, and David has been extending it to expose more.<p>
 
 The paint backend requires <a
 href=http://sourceforge.net/projects/numpy>Numeric</a>, <a
-href=http://pypaint.sourceforge.net>pypaint</a> version 0.3.  If you
-want cross-platform freetype font selection support, you'll also need
-TTFQuery and fonttools - these now ship with matplotlib in both the
-src and windows binary distributions.  See <a
-href=fonts.html#TTFFONTS> for more information.
+href=http://sourceforge.net/projects/pypaint>pypaint</a> version 0.3.
+If you want cross-platform freetype font selection support, you'll
+also need TTFQuery and fonttools - these now ship with matplotlib in
+both the src and windows binary distributions.  See <a
+href=fonts.html#TTFFONTS>freetype fonts</a> for more information.<p>
 
 libart is highly portable, and the paint backend has been confirmed to
-work on win32 and linux.
-
+work on win32 and linux.  The pypaint web site has a src distribution
+and a windows installer.<p>
 
 @footer@
 

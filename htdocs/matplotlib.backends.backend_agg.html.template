@@ -140,18 +140,7 @@ override&nbsp;this&nbsp;on&nbsp;hardcopy<br>
 &nbsp;<br>
 If&nbsp;the&nbsp;extension&nbsp;matches&nbsp;PNG,&nbsp;write&nbsp;a&nbsp;PNG&nbsp;file<br>
 &nbsp;<br>
-If&nbsp;the&nbsp;extension&nbsp;matches&nbsp;BMP&nbsp;or&nbsp;RAW,&nbsp;write&nbsp;an&nbsp;RGBA&nbsp;bitmap&nbsp;file<br>
-Here&nbsp;is&nbsp;an&nbsp;example&nbsp;PIL&nbsp;script&nbsp;to&nbsp;read&nbsp;and&nbsp;sisplay&nbsp;an&nbsp;RGBA&nbsp;file<br>
-created&nbsp;by&nbsp;backend_agg<br>
-&nbsp;<br>
-&nbsp;&nbsp;import&nbsp;Image<br>
-&nbsp;<br>
-&nbsp;&nbsp;fname&nbsp;=&nbsp;"somefile.rgba"<br>
-&nbsp;&nbsp;s&nbsp;=&nbsp;file(fname).read()<br>
-&nbsp;<br>
-&nbsp;&nbsp;M,N&nbsp;=&nbsp;576,&nbsp;432&nbsp;&nbsp;#&nbsp;the&nbsp;image&nbsp;dimensions<br>
-&nbsp;&nbsp;im&nbsp;=&nbsp;Image.fromstring("RGBA",&nbsp;(M,N),&nbsp;s)<br>
-&nbsp;&nbsp;im.show()</tt></dd></dl>
+If&nbsp;the&nbsp;extension&nbsp;matches&nbsp;BMP&nbsp;or&nbsp;RAW,&nbsp;write&nbsp;an&nbsp;RGBA&nbsp;bitmap&nbsp;file</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
@@ -180,10 +169,10 @@ context&nbsp;instance&nbsp;that&nbsp;controls&nbsp;the&nbsp;colors/styles<br>&nb
 <dl><dt><a name="RendererAgg-compute_text_offsets"><strong>compute_text_offsets</strong></a>(self, t, props)</dt><dd><tt>Return&nbsp;the&nbsp;(x,y)&nbsp;offsets&nbsp;to&nbsp;adjust&nbsp;for&nbsp;the&nbsp;alignment<br>
 specifications</tt></dd></dl>
 
-<dl><dt><a name="RendererAgg-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, gcFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
+<dl><dt><a name="RendererAgg-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, rgbFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
 from&nbsp;0.0&nbsp;to&nbsp;360.0<br>
 &nbsp;<br>
-If&nbsp;gcFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;it.&nbsp;&nbsp;gcEdge<br>
+If&nbsp;rgbFace&nbsp;is&nbsp;not&nbsp;None,&nbsp;fill&nbsp;the&nbsp;rectangle&nbsp;with&nbsp;that&nbsp;color.&nbsp;&nbsp;gcEdge<br>
 is&nbsp;a&nbsp;GraphicsContext&nbsp;instance<br>
 &nbsp;<br>
 Currently,&nbsp;I'm&nbsp;only&nbsp;supporting&nbsp;ellipses,&nbsp;ie&nbsp;angle&nbsp;args&nbsp;are<br>
@@ -252,7 +241,7 @@ Load&nbsp;the&nbsp;named&nbsp;font&nbsp;and&nbsp;return&nbsp;the&nbsp;font&nbsp;
 <td width="100%"><strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
 <strong>PIXELS_PER_INCH</strong> = 96<br>
-<strong>TEMPFONTCONST</strong> = '/usr/local/share/matplotlib/Vera.ttf'<br>
 <strong>True</strong> = True<br>
-<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)</td></tr></table>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>fontManager</strong> = &lt;matplotlib.backends.ttf_font_manager.FontManager instance&gt;</td></tr></table>
 @footer@

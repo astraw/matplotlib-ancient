@@ -15,6 +15,7 @@ files = (
     'matplotlib.backends.backend_template.html',
     'matplotlib.backends.backend_wx.html',
     'matplotlib.cbook.html',
+    'matplotlib.colors.html',
     'matplotlib.figure.html',            
     'matplotlib.legend.html',        
     'matplotlib.lines.html',

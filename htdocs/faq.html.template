@@ -38,6 +38,30 @@ works nicely and is not too hard to setup.  Contact
 jdhunter@ace.bsd.uchicago.edu for more information if you are
 interested setting this up."""),
 
+    ('APPSERVER',
+     'Can I just matplotlib in a web application server?',
+     """\
+Yes.  matplotlb can be used with any web application server that can
+call python.  It has been used with mod_python, xml_rpc, and other
+frameworks.  You'll want to use one of the image backends; <a
+href=faq.html#BATCHMODE>see batch mode</a>.  Also to make small images
+appropriate for use on a web page, you may want to consider the GD
+backend, since it renders small font rasters using freetype2 better
+than Agg or Paint, which currently use freetype1.  You can work around
+the problem of small raster sizes by making your fonts appear larger
+for a given by decreasing the figure size and increasing the dpi.  Eg,
+
+<pre>
+figure(figsize=(6,4))
+plot(blah, blah)
+savefig('myfile', dpi=75)
+</pre>
+
+See <a href=fonts.html#TTFFONTS>ttf fonts</a> for more information.
+"""
+
+     ),
+
     ('SHOW',
      "What's up with 'show'?  Do I have to use it?",
      """\
@@ -157,7 +181,7 @@ times = "times new roman,angsana new,mingliu,simsun,gulimche,ms gothic,latha,man
 <h2> matplotlib FAQ </h2>
 
  + for name,q,a, in FAQs:
-   <h4><a name=@name@>@q@</h4>
+   <h4><a name=@name@>@q@</a></h4>
      @a@
    <p>
  -

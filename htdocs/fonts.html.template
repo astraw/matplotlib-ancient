@@ -13,14 +13,14 @@ provide high quality, anti-aliased font rendering to PNG and JPEG
 output without X support.  This is particularly useful for batch
 processing over terminal, or for web application servers. <p> 
 
-You need to have '*.ttf' files on your system to use this backend.
-Set the environment variable <tt>TTFFONTPATH</tt> to point to your TTF
+You need to have '*.ttf' files on your system to use these fonts.  Set
+the environment variable <tt>TTFPATH</tt> to point to your TTF
 fonts.  A typical windows dir is <tt>C:\windows\fonts</tt>. matplotlib
 distributes the 'Vera' fonts from bitstream, which were released under
 a permissive license, and these are the defaults.  If you want more,
 set the environment variable to point to them.  Note, if you are on
 linux but have access to a licensed copy of windows ttf fonts, the
-same <tt>*.ttf</t>fonts in <tt>C:\windows\fonts</tt> will work with
+same <tt>*.ttf</tt> fonts in <tt>C:\windows\fonts</tt> will work with
 matplotlib on linux if you place them in your TTFPATH.  Consult your
 Windows EULA.<p>
 
@@ -29,14 +29,16 @@ resolutions but render poorly for lower resolutions.  If you are using
 matplotlib to generate images for html, you may want to consider using
 the gd backend, which supports freetype2.  freetype 2 tends to render
 fonts better at very small raster sizes.  Look for freetype2 font
-support in Paint and Agg in the near future.
+support in Paint and Agg in the near future.  See <a
+href=faq.html#APPSERVER>matplotlib images in html</a> for more
+information.<p>
 
 For platform independent font finding, matplotlib uses fonttools and
 TTFQuery.  Since several of the matplotlib backends now depend on
 those packages, they are distributed with the src distribution and
 will be installed automatically by the matplotlib windows installer.
 If you want to build them with matplotlib yourself from src, set the
-<tt>BUILD_TONTTOOLS</tt> flag in the matplotlib setup.py file.
+<tt>BUILD_TONTTOOLS</tt> flag in the matplotlib setup.py file.<p>
 
 If you are aware of other freely distributable ttf fonts, please
 contact me -  @myemail@.

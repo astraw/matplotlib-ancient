@@ -38,7 +38,7 @@ variety&nbsp;of&nbsp;line&nbsp;styles,&nbsp;markers&nbsp;and&nbsp;colors</tt></p
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="Line2D-__init__"><strong>__init__</strong></a>(self, dpi, bbox, xdata, ydata, linewidth<font color="#909090">=0.5</font>, linestyle<font color="#909090">='-'</font>, color<font color="#909090">='b'</font>, marker<font color="#909090">=None</font>, markersize<font color="#909090">=6</font>, markeredgecolor<font color="#909090">=None</font>, markerfacecolor<font color="#909090">=None</font>, antialiased<font color="#909090">=False</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>dpi&nbsp;is&nbsp;a&nbsp;DPI&nbsp;instance<br>
+<dl><dt><a name="Line2D-__init__"><strong>__init__</strong></a>(self, dpi, bbox, xdata, ydata, linewidth<font color="#909090">=0.5</font>, linestyle<font color="#909090">='-'</font>, color<font color="#909090">='b'</font>, marker<font color="#909090">=None</font>, markersize<font color="#909090">=6</font>, markeredgecolor<font color="#909090">=None</font>, markerfacecolor<font color="#909090">=None</font>, antialiased<font color="#909090">=True</font>, transx<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>, transy<font color="#909090">=Transform: Bound1D: 0 1 to Bound1D: 0 1</font>)</dt><dd><tt>dpi&nbsp;is&nbsp;a&nbsp;DPI&nbsp;instance<br>
 bbox&nbsp;is&nbsp;a&nbsp;Bound2D&nbsp;instance&nbsp;with&nbsp;the&nbsp;display&nbsp;bounding&nbsp;box&nbsp;xdata<br>
 xdata&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;x&nbsp;data<br>
 ydata&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;y&nbsp;data<br>
@@ -158,6 +158,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <td width="100%"><strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
 <strong>True</strong> = True<br>
+<strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>lineMarkers</strong> = {'+': 1, ',': 1, '.': 1, '&lt;': 1, '&gt;': 1, '^': 1, 'o': 1, 's': 1, 'v': 1, 'x': 1}<br>
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1}<br>

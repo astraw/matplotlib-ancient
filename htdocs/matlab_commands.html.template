@@ -4,6 +4,8 @@ plotcommands = (
     ('axes', 'Create a new axes'),
     ('axis', 'Set or return the current axis limits'),
     ('bar', 'make a bar chart'),
+    ('cla', 'clear the current axes'),
+    ('clf', 'clear the current figure'),
     ('close', 'close a figure window'),
     ('cohere', 'make a plot of coherence'),
     ('csd', 'make a plot of cross spectral density'),

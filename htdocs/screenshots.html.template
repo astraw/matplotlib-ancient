@@ -25,13 +25,13 @@ is an interface to the <a href=matplotlib.table.html>Table</a> class
 to build tables on the axes. 
 """, 1),
 
-('scatter_demo2', 
-"""The <a href=matplotlib.matlab.html#-scatter>scatter</a> command
-makes a scatter plot with (optional) size and color arguments.  This
-example plots changes in Intel's stock price from one day to the next
-with the sizes coding trading volume and the colors coding price
-change in day i.
-""", 1),
+('scatter_demo2', """The <a
+href=matplotlib.matlab.html#-scatter>scatter</a> command makes a
+scatter plot with (optional) size and color arguments.  This example
+plots changes in Intel's stock price from one day to the next with the
+sizes coding trading volume and the colors coding price change in day
+i.  Here the alpha attribute is used to make semitransparent circle
+markers with the <a href=backends.html#Agg>Agg backend</a> """, 1),
 
 ('log_shot', """The <a
 href=matplotlib.matlab.html#-semilogx>semilogx</a>, <a

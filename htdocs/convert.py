@@ -93,6 +93,7 @@ docs = (
     'matplotlib.backends.backend_ps.html.template',
     'matplotlib.backends.backend_template.html.template',
     'matplotlib.backends.backend_wx.html.template',
+    'matplotlib.colors.html.template',
     'matplotlib.cbook.html.template',
     'matplotlib.figure.html.template',        
     'matplotlib.legend.html.template',        

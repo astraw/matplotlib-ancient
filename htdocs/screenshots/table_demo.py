@@ -3,7 +3,7 @@ import matplotlib
 from matplotlib.matlab import *
 from colours import get_colours
 
-axes([0.2, 0.2, 0.7, 0.6])   # leave room below the axes for the table
+axes([0.2, 0.3, 0.7, 0.6])   # leave room below the axes for the table
 
 data = [[  66386,  174296,   75131,  577908,   32015],
         [  58230,  381139,   78045,   99308,  160454],

@@ -9,9 +9,9 @@ everything you need except Numeric to use the agg backend out of the
 box; for other platforms see <a href=backends.html#Agg>The Agg
 Backend</a> """ ),
 
-    #TODO: pypaint?
+
     ('Paint/libart backend', """David Moore wrote a backend for <a
-href=http://pypaint.sourceforge.net>pypaint</a>, a <a
+href=http://sourceforge.net/projects/pypaint>pypaint</a>, a <a
 href=http://www.levien.com/libart>libart</a> wrapper.  libart is a
 high quality, cross platform image renderer that supports antialiased
 lines, freetype fonts, and other capabilities to soon be exploited.
@@ -28,12 +28,13 @@ Agg, but Paint should be able to support this soon - see the scatter
 <a href=screenshots.html#scatter_demo2>screenshot</a> for an example
 of alpha at work."""),
 
-
-        ('Table class added', """John Gill has developed a very nice
-<a href=matplotlib.table.html>Table</a> class and
-href=matplotlib.matlab.html#-table>table</a>function that plays well
+        ('Table class added', """John Gill has developed a very nice <a
+href=matplotlib.table.html>Table</a> class and <a
+href=matplotlib.matlab.html#-table>table</a> function that plays well
 with bar charts and stacked bar charts.  See example code and
-screenshot <a href=screenshots.html#table_demo>table_demo</a>.  """),
+screenshot <a href=screenshots.html#table_demo>table_demo</a>."""),
+
+	('new plot commands <a href=matplotlib.matlab.html#-cla>cla</a> and <a href=matplotlib.matlab.html#-clf>clf</a>', """Clear the current axes or figure.  Useful in interactive plotting from a python shell""" ),
 
 	('Added x linesyle', """Matt MacMahon submitted a patch for an
 'x' linestyle.  Thanks Matt! """ ),
@@ -42,8 +43,8 @@ screenshot <a href=screenshots.html#table_demo>table_demo</a>.  """),
 With much weeping and gnashing of teeth and help from half the people
 on this globe, built a gdmodule win32 installer.  Special thanks to
 Stefan Kuzminski for putting up with my endless windows confusions.
-The the win32 quickstart at <a href=backends.html#GD>installing</a>
-the GD backend."""
+See the win32 quickstart at <a
+href=backends.html#GDWIN32>installing</a> the GD backend."""
 ),	
 
 	('GD supports clipping and antialiased line drawing', """\
@@ -105,12 +106,17 @@ migrating applications to the new API."""),
 
   <li> GTK : Lots of optimizations using cacheing in GTK backend for
   improved performace for monitoring / animation scripts.  Discovered
-  and patched a memory leak in pygtk -
-  http://bugzilla.gnome.org/show_bug.cgi?id=133681 which was causing
-  repeat calls to draw() to leak memory.</li>
+  and patched a memory leak in pygtk -- see <a
+  href=http://bugzilla.gnome.org/show_bug.cgi?id=133681>bugzilla</a>
+  which was causing repeat calls to draw() to leak memory.</li>
 
   <li>GTK on win32.  Fixed a problem where pygtk couldn't find Times.
-  See FAQ entry <a href=faq.html#WINFONT>.  
+  See FAQ entry <a href=faq.html#WINFONTS>GTK/Win32 font
+  problem</a>.</li>
+
+  <li>Fixed some bugs and added some features that make wx and gtk
+work better interactively from a python shell</li>
+
 </ul>
 
 """),
