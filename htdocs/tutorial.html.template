@@ -15,7 +15,7 @@ font_props = (
 line_props = (
     ('alpha', 'The alpha transparency on 0-1 scale'),
     ('antialiased', 'True | False -  use antialised rendering'),
-    ('color', 'a matplotlib <a href=matplotlib.matlab#-colors>color</a> arg'),
+    ('color', 'a matplotlib <a href=matplotlib.matlab.html#-colors>color</a> arg'),
     ('data_clipping', 'Whether to use numeric to clip data'),
     ('label', 'a string optionally used for legend'),
     ('linestyle', "One of -- :  -.  -"),
