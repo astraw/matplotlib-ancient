@@ -598,30 +598,7 @@ Data and other attributes inherited from <a href="matplotlib.mathtext.html#Eleme
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-FT2Font"><strong>FT2Font</strong></a>(...)</dt><dd><tt><a href="#-FT2Font">FT2Font</a>(ttffile)<br>
-&nbsp;<br>
-Create&nbsp;a&nbsp;new&nbsp;FT2Font&nbsp;object<br>
-The&nbsp;following&nbsp;global&nbsp;font&nbsp;attributes&nbsp;are&nbsp;defined:<br>
-&nbsp;&nbsp;num_faces&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;faces&nbsp;in&nbsp;file<br>
-&nbsp;&nbsp;face_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;flags&nbsp;&nbsp;(int&nbsp;type);&nbsp;see&nbsp;the&nbsp;ft2font&nbsp;constants<br>
-&nbsp;&nbsp;style_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style&nbsp;flags&nbsp;&nbsp;(int&nbsp;type);&nbsp;see&nbsp;the&nbsp;ft2font&nbsp;constants<br>
-&nbsp;&nbsp;num_glyphs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;glyphs&nbsp;in&nbsp;the&nbsp;face<br>
-&nbsp;&nbsp;family_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;family&nbsp;name<br>
-&nbsp;&nbsp;style_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;syle&nbsp;name<br>
-&nbsp;&nbsp;num_fixed_sizes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;bitmap&nbsp;in&nbsp;the&nbsp;face<br>
-&nbsp;&nbsp;scalable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;is&nbsp;scalable<br>
-&nbsp;<br>
-The&nbsp;following&nbsp;are&nbsp;available,&nbsp;if&nbsp;scalable&nbsp;is&nbsp;true:<br>
-&nbsp;&nbsp;bbox&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;global&nbsp;bounding&nbsp;box&nbsp;(xmin,&nbsp;ymin,&nbsp;xmax,&nbsp;ymax)<br>
-&nbsp;&nbsp;units_per_EM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;font&nbsp;units&nbsp;covered&nbsp;by&nbsp;the&nbsp;EM<br>
-&nbsp;&nbsp;ascender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ascender&nbsp;in&nbsp;26.6&nbsp;units<br>
-&nbsp;&nbsp;descender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;descender&nbsp;in&nbsp;26.6&nbsp;units<br>
-&nbsp;&nbsp;height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;in&nbsp;26.6&nbsp;units;&nbsp;used&nbsp;to&nbsp;compute&nbsp;a&nbsp;default<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line&nbsp;spacing&nbsp;(baseline-to-baseline&nbsp;distance)<br>
-&nbsp;&nbsp;max_advance_width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maximum&nbsp;horizontal&nbsp;cursor&nbsp;advance&nbsp;for&nbsp;all&nbsp;glyphs<br>
-&nbsp;&nbsp;max_advance_height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;same&nbsp;for&nbsp;vertical&nbsp;layout<br>
-&nbsp;&nbsp;underline_position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;position&nbsp;of&nbsp;the&nbsp;underline&nbsp;bar<br>
-&nbsp;&nbsp;underline_thickness&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;thickness&nbsp;of&nbsp;the&nbsp;underline</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-FT2Font"><strong>FT2Font</strong></a>(...)</dt><dd><tt>FT2Font</tt></dd></dl>
  <dl><dt><a name="-StringIO"><strong>StringIO</strong></a>(...)</dt><dd><tt><a href="#-StringIO">StringIO</a>([s])&nbsp;--&nbsp;Return&nbsp;a&nbsp;StringIO-like&nbsp;stream&nbsp;for&nbsp;reading&nbsp;or&nbsp;writing</tt></dd></dl>
  <dl><dt><a name="-math_parse_s_ft2font"><strong>math_parse_s_ft2font</strong></a>(s, dpi, fontsize)</dt><dd><tt>Parse&nbsp;the&nbsp;math&nbsp;expression&nbsp;s,&nbsp;return&nbsp;the&nbsp;(bbox,&nbsp;fonts)&nbsp;tuple&nbsp;needed<br>
 to&nbsp;render&nbsp;it.<br>

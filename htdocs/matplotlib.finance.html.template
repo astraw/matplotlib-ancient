@@ -54,7 +54,12 @@ colorup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp
 colordown&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;lines&nbsp;where&nbsp;close&nbsp;&lt;&nbsp;&nbsp;open&nbsp;&nbsp;&nbsp;&nbsp;<br>
 alpha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;bar&nbsp;transparency<br>
 &nbsp;<br>
-return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;added</tt></dd></dl>
+return&nbsp;value&nbsp;is&nbsp;lineCollection,&nbsp;barCollection</tt></dd></dl>
+ <dl><dt><a name="-index_bar"><strong>index_bar</strong></a>(ax, vals, facecolor<font color="#909090">='b'</font>, edgecolor<font color="#909090">='l'</font>, width<font color="#909090">=4</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>Add&nbsp;a&nbsp;bar&nbsp;collection&nbsp;graph&nbsp;with&nbsp;height&nbsp;vals&nbsp;(-1&nbsp;is&nbsp;missing).<br>
+&nbsp;<br>
+ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;an&nbsp;Axes&nbsp;instance&nbsp;to&nbsp;plot&nbsp;to<br>
+width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;bar&nbsp;width&nbsp;in&nbsp;points<br>
+alpha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;bar&nbsp;transparency</tt></dd></dl>
  <dl><dt><a name="-plot_day_summary"><strong>plot_day_summary</strong></a>(ax, quotes, ticksize<font color="#909090">=3</font>, colorup<font color="#909090">='k'</font>, colordown<font color="#909090">='r'</font>, converter<font color="#909090">=&lt;matplotlib.dates.EpochConverter instance&gt;</font>)</dt><dd><tt>quotes&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;(time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low,&nbsp;...)&nbsp;tuples<br>
 &nbsp;<br>
 Represent&nbsp;the&nbsp;time,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low&nbsp;as&nbsp;a&nbsp;vertical&nbsp;line<br>
@@ -87,6 +92,15 @@ d,&nbsp;open,&nbsp;close,&nbsp;high,&nbsp;low,&nbsp;volume<br>
 &nbsp;<br>
 &nbsp;<br>
 where&nbsp;d&nbsp;is&nbsp;an&nbsp;instnace&nbsp;of&nbsp;your&nbsp;datetime&nbsp;supplied&nbsp;by&nbsp;the&nbsp;converter</tt></dd></dl>
+ <dl><dt><a name="-volume_overlay"><strong>volume_overlay</strong></a>(ax, opens, closes, volumes, colorup<font color="#909090">='k'</font>, colordown<font color="#909090">='r'</font>, width<font color="#909090">=4</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>Add&nbsp;a&nbsp;volume&nbsp;overlay&nbsp;to&nbsp;the&nbsp;current&nbsp;axes.&nbsp;&nbsp;The&nbsp;opens&nbsp;and&nbsp;closes<br>
+are&nbsp;used&nbsp;to&nbsp;determine&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;bar.&nbsp;&nbsp;-1&nbsp;is&nbsp;missing.&nbsp;&nbsp;If&nbsp;a<br>
+value&nbsp;is&nbsp;missing&nbsp;on&nbsp;one&nbsp;it&nbsp;must&nbsp;be&nbsp;missing&nbsp;on&nbsp;all<br>
+&nbsp;<br>
+ax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;an&nbsp;Axes&nbsp;instance&nbsp;to&nbsp;plot&nbsp;to<br>
+width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;bar&nbsp;width&nbsp;in&nbsp;points<br>
+colorup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;lines&nbsp;where&nbsp;close&nbsp;&gt;=&nbsp;open<br>
+colordown&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;lines&nbsp;where&nbsp;close&nbsp;&lt;&nbsp;&nbsp;open&nbsp;&nbsp;&nbsp;&nbsp;<br>
+alpha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;bar&nbsp;transparency</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">

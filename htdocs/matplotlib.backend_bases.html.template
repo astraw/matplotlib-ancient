@@ -161,6 +161,8 @@ avoid&nbsp;the&nbsp;performace&nbsp;hit&nbsp;of&nbsp;the&nbsp;conversion</tt></d
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
+<dl><dt><a name="RendererBase-close_group"><strong>close_group</strong></a>(self, s)</dt><dd><tt>close&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s</tt></dd></dl>
+
 <dl><dt><a name="RendererBase-draw_arc"><strong>draw_arc</strong></a>(self, gcEdge, gcFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;an&nbsp;arc&nbsp;centered&nbsp;at&nbsp;x,y&nbsp;with&nbsp;width&nbsp;and&nbsp;height&nbsp;and&nbsp;angles<br>
 from&nbsp;0.0&nbsp;to&nbsp;360.0<br>
 &nbsp;<br>
@@ -256,6 +258,8 @@ instance&nbsp;prop&nbsp;at&nbsp;angle&nbsp;in&nbsp;degrees</tt></dd></dl>
 with&nbsp;fontsize&nbsp;in&nbsp;points</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;<a href="#GraphicsContextBase">GraphicsContextBase</a></tt></dd></dl>
+
+<dl><dt><a name="RendererBase-open_group"><strong>open_group</strong></a>(self, s)</dt><dd><tt>open&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s</tt></dd></dl>
 
 <dl><dt><a name="RendererBase-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>convert&nbsp;points&nbsp;to&nbsp;display&nbsp;units;&nbsp;unless&nbsp;your&nbsp;backend&nbsp;doesn't<br>
 have&nbsp;dpi,&nbsp;eg,&nbsp;postscript,&nbsp;you&nbsp;need&nbsp;to&nbsp;overrride&nbsp;this&nbsp;function</tt></dd></dl>

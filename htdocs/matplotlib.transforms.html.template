@@ -93,12 +93,12 @@ where&nbsp;funcx&nbsp;and&nbsp;funcy&nbsp;operatate&nbsp;on&nbsp;x&nbsp;and&nbsp
 coordinate&nbsp;transformation&nbsp;maps&nbsp;one&nbsp;bounding&nbsp;box&nbsp;to&nbsp;another,&nbsp;with&nbsp;funcx<br>
 and&nbsp;funcy&nbsp;both&nbsp;identity.&nbsp;&nbsp;Eg,<br>
 &nbsp;<br>
-&nbsp;&nbsp;transData&nbsp;=&nbsp;Transformation(viewLim,&nbsp;displayLim,&nbsp;<a href="#-Identity">Identity</a>(),&nbsp;<a href="#-Identity">Identity</a>()<br>
+&nbsp;&nbsp;transData&nbsp;=&nbsp;Transformation(viewLim,&nbsp;displayLim,&nbsp;<a href="#-Func">Func</a>(IDENTITY),&nbsp;<a href="#-Func">Func</a>(IDENTITY))<br>
 &nbsp;<br>
 maps&nbsp;the&nbsp;axes&nbsp;view&nbsp;limits&nbsp;to&nbsp;display&nbsp;limits.&nbsp;&nbsp;If&nbsp;the&nbsp;xaxis&nbsp;scaling&nbsp;is<br>
 changed&nbsp;to&nbsp;log,&nbsp;one&nbsp;simply&nbsp;calls<br>
 &nbsp;<br>
-&nbsp;&nbsp;transData.set_funcx(<a href="#-Log">Log</a>())<br>
+&nbsp;&nbsp;transData.get_funcx.set_type(LOG10)<br>
 &nbsp;<br>
 For&nbsp;more&nbsp;general&nbsp;transformations&nbsp;including&nbsp;rotation,&nbsp;the&nbsp;Affine&nbsp;class<br>
 is&nbsp;provided,&nbsp;which&nbsp;is&nbsp;constructed&nbsp;with&nbsp;6&nbsp;LazyValue&nbsp;instances:<br>
@@ -190,9 +190,8 @@ The&nbsp;units/transform_unit.py&nbsp;code&nbsp;has&nbsp;many&nbsp;examples.</tt
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-Affine"><strong>Affine</strong></a>(...)</dt><dd><tt><a href="#-Affine">Affine</a>(a,b,c,d,tx,ty)</tt></dd></dl>
  <dl><dt><a name="-Bbox"><strong>Bbox</strong></a>(...)</dt><dd><tt><a href="#-Bbox">Bbox</a>(ll,&nbsp;ur)</tt></dd></dl>
+ <dl><dt><a name="-Func"><strong>Func</strong></a>(...)</dt><dd><tt><a href="#-Func">Func</a>(typecode)</tt></dd></dl>
  <dl><dt><a name="-FuncXY"><strong>FuncXY</strong></a>(...)</dt><dd><tt><a href="#-FuncXY">FuncXY</a>(funcx,&nbsp;funcy)</tt></dd></dl>
- <dl><dt><a name="-Identity"><strong>Identity</strong></a>(...)</dt><dd><tt><a href="#-Identity">Identity</a>())</tt></dd></dl>
- <dl><dt><a name="-Log"><strong>Log</strong></a>(...)</dt><dd><tt><a href="#-Log">Log</a>())</tt></dd></dl>
  <dl><dt><a name="-Point"><strong>Point</strong></a>(...)</dt><dd><tt><a href="#-Point">Point</a>(x,&nbsp;y)</tt></dd></dl>
  <dl><dt><a name="-PolarXY"><strong>PolarXY</strong></a>(...)</dt><dd><tt>PolarXY</tt></dd></dl>
  <dl><dt><a name="-SeparableTransformation"><strong>SeparableTransformation</strong></a>(...)</dt><dd><tt><a href="#-SeparableTransformation">SeparableTransformation</a>(box1,&nbsp;box2,&nbsp;funcx,&nbsp;funcy))</tt></dd></dl>
@@ -231,5 +230,13 @@ values)</tt></dd></dl>
 instances&nbsp;(Values&nbsp;or&nbsp;binary&nbsp;opertations&nbsp;on&nbsp;values)</tt></dd></dl>
  <dl><dt><a name="-unit_bbox"><strong>unit_bbox</strong></a>()</dt><dd><tt>Get&nbsp;a&nbsp;0,0&nbsp;-&gt;&nbsp;1,1&nbsp;Bbox&nbsp;instance</tt></dd></dl>
  <dl><dt><a name="-zero"><strong>zero</strong></a>()</dt></dl>
-</td></tr></table>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>IDENTITY</strong> = 0<br>
+<strong>LOG10</strong> = 1</td></tr></table>
 @footer@

@@ -408,7 +408,7 @@ assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;Axis&nbsp;instance:<br>
 &nbsp;<br>
 &nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x<br>
 &nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x&nbsp;with&nbsp;blue&nbsp;circles<br>
-&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(len(y))<br>
+&nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;as&nbsp;index&nbsp;array&nbsp;0..N-1<br>
 &nbsp;&nbsp;a.<a href="#Axes-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto&nbsp;with&nbsp;red&nbsp;plusses<br>
 &nbsp;<br>
 An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
@@ -454,7 +454,7 @@ Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
 
-<dl><dt><a name="Axes-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=3</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=&lt;matplotlib.colors.ColormapJet instance&gt;</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a<br>
+<dl><dt><a name="Axes-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=3</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a<br>
 scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color<br>
 and&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array<br>
 of&nbsp;intensities&nbsp;which&nbsp;will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the<br>
@@ -1056,7 +1056,7 @@ assuming&nbsp;a&nbsp;is&nbsp;the&nbsp;Axis&nbsp;instance:<br>
 &nbsp;<br>
 &nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x,y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x<br>
 &nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(x,y,&nbsp;'bo')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;Numeric&nbsp;arrays&nbsp;y&nbsp;vs&nbsp;x&nbsp;with&nbsp;blue&nbsp;circles<br>
-&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;=&nbsp;<a href="#-arange">arange</a>(len(y))<br>
+&nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;plot&nbsp;y&nbsp;using&nbsp;x&nbsp;as&nbsp;index&nbsp;array&nbsp;0..N-1<br>
 &nbsp;&nbsp;a.<a href="#Subplot-plot">plot</a>(y,&nbsp;'r+')&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;ditto&nbsp;with&nbsp;red&nbsp;plusses<br>
 &nbsp;<br>
 An&nbsp;arbitrary&nbsp;number&nbsp;of&nbsp;x,&nbsp;y,&nbsp;fmt&nbsp;groups&nbsp;can&nbsp;be&nbsp;specified,&nbsp;as&nbsp;in&nbsp;<br>
@@ -1102,7 +1102,7 @@ Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
 
-<dl><dt><a name="Subplot-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=3</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=&lt;matplotlib.colors.ColormapJet instance&gt;</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a<br>
+<dl><dt><a name="Subplot-scatter"><strong>scatter</strong></a>(self, x, y, s<font color="#909090">=3</font>, c<font color="#909090">='b'</font>, marker<font color="#909090">='o'</font>, cmap<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt><dd><tt>Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a<br>
 scalar&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color<br>
 and&nbsp;can&nbsp;be&nbsp;a&nbsp;single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array<br>
 of&nbsp;intensities&nbsp;which&nbsp;will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the<br>
@@ -1323,8 +1323,7 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-Affine"><strong>Affine</strong></a>(...)</dt><dd><tt><a href="#-Affine">Affine</a>(a,b,c,d,tx,ty)</tt></dd></dl>
  <dl><dt><a name="-Bbox"><strong>Bbox</strong></a>(...)</dt><dd><tt><a href="#-Bbox">Bbox</a>(ll,&nbsp;ur)</tt></dd></dl>
- <dl><dt><a name="-Identity"><strong>Identity</strong></a>(...)</dt><dd><tt><a href="#-Identity">Identity</a>())</tt></dd></dl>
- <dl><dt><a name="-Log"><strong>Log</strong></a>(...)</dt><dd><tt><a href="#-Log">Log</a>())</tt></dd></dl>
+ <dl><dt><a name="-Func"><strong>Func</strong></a>(...)</dt><dd><tt><a href="#-Func">Func</a>(typecode)</tt></dd></dl>
  <dl><dt><a name="-Point"><strong>Point</strong></a>(...)</dt><dd><tt><a href="#-Point">Point</a>(x,&nbsp;y)</tt></dd></dl>
  <dl><dt><a name="-Value"><strong>Value</strong></a>(...)</dt><dd><tt><a href="#-Value">Value</a>(x)</tt></dd></dl>
  <dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
@@ -1341,6 +1340,8 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>False</strong> = False<br>
 <strong>Float</strong> = 'd'<br>
+<strong>IDENTITY</strong> = 0<br>
+<strong>LOG10</strong> = 1<br>
 <strong>SEC_PER_DAY</strong> = 86400<br>
 <strong>SEC_PER_HOUR</strong> = 3600<br>
 <strong>SEC_PER_WEEK</strong> = 604800<br>

@@ -17,6 +17,7 @@ Plotting&nbsp;commands<br>
 &nbsp;&nbsp;cla&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;current&nbsp;axes<br>
 &nbsp;&nbsp;clf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;a&nbsp;figure&nbsp;window<br>
 &nbsp;&nbsp;close&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;close&nbsp;a&nbsp;figure&nbsp;window<br>
+&nbsp;&nbsp;colorbar&nbsp;-&nbsp;add&nbsp;a&nbsp;colorbar&nbsp;to&nbsp;the&nbsp;current&nbsp;figure<br>
 &nbsp;&nbsp;cohere&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;coherence<br>
 &nbsp;&nbsp;csd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;cross&nbsp;spectral&nbsp;density<br>
 &nbsp;&nbsp;errorbar&nbsp;-&nbsp;make&nbsp;an&nbsp;errorbar&nbsp;graph<br>
@@ -241,6 +242,11 @@ Returns&nbsp;the&nbsp;tuple&nbsp;Cxy,&nbsp;freqs<br>
 Refs:<br>
 &nbsp;&nbsp;Bendat&nbsp;&amp;&nbsp;Piersol&nbsp;--&nbsp;Random&nbsp;Data:&nbsp;Analysis&nbsp;and&nbsp;Measurement<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Procedures,&nbsp;John&nbsp;Wiley&nbsp;&amp;&nbsp;Sons&nbsp;(1986)</tt></dd></dl>
+ <dl><dt><a name="-colorbar"><strong>colorbar</strong></a>(ax<font color="#909090">=None</font>, tickfmt<font color="#909090">='%1.1f'</font>)</dt><dd><tt>Create&nbsp;a&nbsp;colorbar&nbsp;for&nbsp;axes&nbsp;ax&nbsp;(default&nbsp;<a href="#-gca">gca</a>())<br>
+&nbsp;<br>
+tickfmt&nbsp;is&nbsp;a&nbsp;format&nbsp;string&nbsp;to&nbsp;format&nbsp;the&nbsp;colorbar&nbsp;ticks<br>
+&nbsp;<br>
+return&nbsp;value&nbsp;is&nbsp;the&nbsp;colorbar&nbsp;axes&nbsp;instance</tt></dd></dl>
  <dl><dt><a name="-colors"><strong>colors</strong></a>()</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;do&nbsp;nothing&nbsp;function&nbsp;to&nbsp;provide&nbsp;you&nbsp;with&nbsp;help&nbsp;on&nbsp;how<br>
 matplotlib&nbsp;handles&nbsp;colors.<br>
 &nbsp;<br>
@@ -410,7 +416,16 @@ n,&nbsp;bins,&nbsp;patches<br>
 &nbsp;<br>
 If&nbsp;normed&nbsp;is&nbsp;true,&nbsp;the&nbsp;first&nbsp;element&nbsp;of&nbsp;the&nbsp;return&nbsp;tuple&nbsp;will&nbsp;be&nbsp;the<br>
 counts&nbsp;normalized&nbsp;to&nbsp;form&nbsp;a&nbsp;probability&nbsp;distribtion,&nbsp;ie,<br>
-n/(len(x)*dbin)</tt></dd></dl>
+n/(len(x)*dbin)<br>
+&nbsp;<br>
+&nbsp;<br>
+To&nbsp;control&nbsp;the&nbsp;properties&nbsp;of&nbsp;the&nbsp;returned&nbsp;patches,&nbsp;you&nbsp;can&nbsp;can<br>
+call&nbsp;any&nbsp;of&nbsp;the&nbsp;patch&nbsp;methods&nbsp;on&nbsp;those&nbsp;patches;&nbsp;see<br>
+matplotlib.patches&nbsp;and&nbsp;matplotlib.artist&nbsp;(the&nbsp;base&nbsp;class&nbsp;for<br>
+patches).&nbsp;&nbsp;Eg<br>
+&nbsp;<br>
+n,&nbsp;bins,&nbsp;patches&nbsp;=&nbsp;<a href="#-hist">hist</a>(x,&nbsp;50,&nbsp;normed=1)<br>
+<a href="#-set">set</a>(patches,&nbsp;'facecolor',&nbsp;'g',&nbsp;'alpha',&nbsp;0.75)</tt></dd></dl>
  <dl><dt><a name="-hlines"><strong>hlines</strong></a>(*args, **kwargs)</dt><dd><tt>lines&nbsp;=&nbsp;<a href="#-hlines">hlines</a>(self,&nbsp;y,&nbsp;xmin,&nbsp;xmax,&nbsp;fmt='k-')<br>
 &nbsp;<br>
 plot&nbsp;horizontal&nbsp;lines&nbsp;at&nbsp;each&nbsp;y&nbsp;from&nbsp;xmin&nbsp;to&nbsp;xmax.&nbsp;&nbsp;xmin&nbsp;or<br>
@@ -668,6 +683,7 @@ bar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;bar&nbsp;chart<br
 cla&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;current&nbsp;axes<br>
 clf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;clear&nbsp;a&nbsp;figure&nbsp;window<br>
 close&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;close&nbsp;a&nbsp;figure&nbsp;window<br>
+colorbar&nbsp;-&nbsp;add&nbsp;a&nbsp;colorbar&nbsp;to&nbsp;the&nbsp;current&nbsp;figure<br>
 cohere&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;coherence<br>
 csd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;plot&nbsp;of&nbsp;cross&nbsp;spectral&nbsp;density<br>
 errorbar&nbsp;-&nbsp;make&nbsp;an&nbsp;errorbar&nbsp;graph<br>
@@ -975,7 +991,6 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 <strong>Int8</strong> = '1'<br>
 <strong>LittleEndian</strong> = True<br>
 <strong>NewAxis</strong> = None<br>
-<strong>PrecisionError</strong> = 'PrecisionError'<br>
 <strong>PyObject</strong> = 'O'<br>
 <strong>True</strong> = True<br>
 <strong>UInt</strong> = 'u'<br>

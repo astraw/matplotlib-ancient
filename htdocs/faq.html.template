@@ -28,7 +28,17 @@ Yes.  Todd Miller has added a numerix module which allows you to
 choose between Numeric or numarray at the promptw, in a config file,
 or using an environment variable.  For the most part, this works
 seamlessly.  See <a href=matplotlib.numerix.html>numerix module</a>
-for more information.
+for more information.<p>
+
+Some of the matplotlib extension code operates on Numeric/numarray
+arrays, eg the image and transforms modules.  To get optimum
+performance, you should compile matplotlib with the proper flag for
+the library you will be using most.  Set the <i>NUMERIX</i> variable
+in setup.py.  Note that this is different from the <i>numerix</i>
+variable in <a href=.matplotlibrc>.matplotlibrc</a>.  The former
+affects the matplotlib at compile time, the latter at run time.  All
+of your matplotlib scripts should run without error regardless of
+these two settings, but to get optimum performance, they should agree.
 """),
 
     ('MATPLOTLIBRC', 

@@ -30,8 +30,7 @@ im = imshow(Z2-Z1)
 # set the interpolation method: 'nearest', 'bilinear', 'bicubic' and much more
 im.set_interpolation('bilinear')
 
-
 axis('off')
-#savefig('test')
+savefig('image_demo')
 show()
 

@@ -190,6 +190,8 @@ Data and other attributes defined here:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
+<dl><dt><a name="RendererAgg-close_group"><strong>close_group</strong></a>(self, s)</dt><dd><tt>close&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s</tt></dd></dl>
+
 <dl><dt><a name="RendererAgg-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, transform, clipbox, colors, linewidths, antialiaseds, offsets, transOffset)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;&nbsp;If&nbsp;you&nbsp;need&nbsp;to<br>
 draw&nbsp;many&nbsp;line&nbsp;segments&nbsp;with&nbsp;similar&nbsp;properties,&nbsp;it&nbsp;is&nbsp;faster<br>
 to&nbsp;avoid&nbsp;the&nbsp;overhead&nbsp;of&nbsp;all&nbsp;the&nbsp;object&nbsp;creation&nbsp;etc.&nbsp;&nbsp;The<br>
@@ -266,6 +268,8 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
 
 <dl><dt><a name="RendererAgg-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;GraphicsContextBase</tt></dd></dl>
 
+<dl><dt><a name="RendererAgg-open_group"><strong>open_group</strong></a>(self, s)</dt><dd><tt>open&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s</tt></dd></dl>
+
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -273,30 +277,7 @@ antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;w
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-FT2Font"><strong>FT2Font</strong></a>(...)</dt><dd><tt><a href="#-FT2Font">FT2Font</a>(ttffile)<br>
-&nbsp;<br>
-Create&nbsp;a&nbsp;new&nbsp;FT2Font&nbsp;object<br>
-The&nbsp;following&nbsp;global&nbsp;font&nbsp;attributes&nbsp;are&nbsp;defined:<br>
-&nbsp;&nbsp;num_faces&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;faces&nbsp;in&nbsp;file<br>
-&nbsp;&nbsp;face_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;flags&nbsp;&nbsp;(int&nbsp;type);&nbsp;see&nbsp;the&nbsp;ft2font&nbsp;constants<br>
-&nbsp;&nbsp;style_flags&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style&nbsp;flags&nbsp;&nbsp;(int&nbsp;type);&nbsp;see&nbsp;the&nbsp;ft2font&nbsp;constants<br>
-&nbsp;&nbsp;num_glyphs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;glyphs&nbsp;in&nbsp;the&nbsp;face<br>
-&nbsp;&nbsp;family_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;family&nbsp;name<br>
-&nbsp;&nbsp;style_name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;syle&nbsp;name<br>
-&nbsp;&nbsp;num_fixed_sizes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;bitmap&nbsp;in&nbsp;the&nbsp;face<br>
-&nbsp;&nbsp;scalable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;is&nbsp;scalable<br>
-&nbsp;<br>
-The&nbsp;following&nbsp;are&nbsp;available,&nbsp;if&nbsp;scalable&nbsp;is&nbsp;true:<br>
-&nbsp;&nbsp;bbox&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;face&nbsp;global&nbsp;bounding&nbsp;box&nbsp;(xmin,&nbsp;ymin,&nbsp;xmax,&nbsp;ymax)<br>
-&nbsp;&nbsp;units_per_EM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;of&nbsp;font&nbsp;units&nbsp;covered&nbsp;by&nbsp;the&nbsp;EM<br>
-&nbsp;&nbsp;ascender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ascender&nbsp;in&nbsp;26.6&nbsp;units<br>
-&nbsp;&nbsp;descender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;descender&nbsp;in&nbsp;26.6&nbsp;units<br>
-&nbsp;&nbsp;height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;in&nbsp;26.6&nbsp;units;&nbsp;used&nbsp;to&nbsp;compute&nbsp;a&nbsp;default<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line&nbsp;spacing&nbsp;(baseline-to-baseline&nbsp;distance)<br>
-&nbsp;&nbsp;max_advance_width&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maximum&nbsp;horizontal&nbsp;cursor&nbsp;advance&nbsp;for&nbsp;all&nbsp;glyphs<br>
-&nbsp;&nbsp;max_advance_height&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;same&nbsp;for&nbsp;vertical&nbsp;layout<br>
-&nbsp;&nbsp;underline_position&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;position&nbsp;of&nbsp;the&nbsp;underline&nbsp;bar<br>
-&nbsp;&nbsp;underline_thickness&nbsp;&nbsp;&nbsp;&nbsp;vertical&nbsp;thickness&nbsp;of&nbsp;the&nbsp;underline</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-FT2Font"><strong>FT2Font</strong></a>(...)</dt><dd><tt>FT2Font</tt></dd></dl>
  <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
  <dl><dt><a name="-new_figure_manager"><strong>new_figure_manager</strong></a>(num, *args, **kwargs)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;figure&nbsp;manager&nbsp;instance</tt></dd></dl>
 </td></tr></table><p>

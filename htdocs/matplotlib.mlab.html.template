@@ -448,7 +448,6 @@ None&nbsp;it&nbsp;defaults&nbsp;to&nbsp;len(x).</tt></dd></dl>
 <strong>Int8</strong> = '1'<br>
 <strong>LittleEndian</strong> = True<br>
 <strong>NewAxis</strong> = None<br>
-<strong>PrecisionError</strong> = 'PrecisionError'<br>
 <strong>PyObject</strong> = 'O'<br>
 <strong>True</strong> = True<br>
 <strong>UInt</strong> = 'u'<br>

@@ -323,6 +323,8 @@ dpi&nbsp;=&nbsp;300.&nbsp;&nbsp;Then&nbsp;points&nbsp;to&nbsp;pixels&nbsp;is</tt
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
+<dl><dt><a name="RendererTemplate-close_group"><strong>close_group</strong></a>(self, s)</dt><dd><tt>close&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s</tt></dd></dl>
+
 <dl><dt><a name="RendererTemplate-draw_image"><strong>draw_image</strong></a>(self, x, y, im)</dt><dd><tt>Draw&nbsp;the&nbsp;Image&nbsp;instance&nbsp;into&nbsp;the&nbsp;current&nbsp;axes</tt></dd></dl>
 
 <dl><dt><a name="RendererTemplate-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, transform, clipbox, colors, linewidths, antialiaseds, offsets, transOffset)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;&nbsp;If&nbsp;you&nbsp;need&nbsp;to<br>
@@ -382,6 +384,8 @@ linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
 antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
 
 <dl><dt><a name="RendererTemplate-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="RendererTemplate-open_group"><strong>open_group</strong></a>(self, s)</dt><dd><tt>open&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s</tt></dd></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

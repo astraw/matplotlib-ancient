@@ -137,7 +137,7 @@ Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137114048)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDialog (137139248)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.Dialog' objects&gt;</dl>
 
@@ -811,7 +811,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137076960)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137101160)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -1230,7 +1230,7 @@ Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase"
 
 <dl><dt><a name="GraphicsContextGTK-set_dashes"><strong>set_dashes</strong></a>(self, dash_offset, dash_list)</dt></dl>
 
-<dl><dt><a name="GraphicsContextGTK-set_foreground"><strong>set_foreground</strong></a>(self, fg)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color.&nbsp;&nbsp;fg&nbsp;can&nbsp;be&nbsp;a&nbsp;matlab&nbsp;format&nbsp;string,&nbsp;a<br>
+<dl><dt><a name="GraphicsContextGTK-set_foreground"><strong>set_foreground</strong></a>(self, fg, isRGB<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color.&nbsp;&nbsp;fg&nbsp;can&nbsp;be&nbsp;a&nbsp;matlab&nbsp;format&nbsp;string,&nbsp;a<br>
 html&nbsp;hex&nbsp;color&nbsp;string,&nbsp;an&nbsp;rgb&nbsp;unit&nbsp;tuple,&nbsp;or&nbsp;a&nbsp;float&nbsp;between&nbsp;0<br>
 and&nbsp;1.&nbsp;&nbsp;In&nbsp;the&nbsp;latter&nbsp;case,&nbsp;grayscale&nbsp;is&nbsp;used.</tt></dd></dl>
 
@@ -1372,7 +1372,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137079696)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137104928)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -1847,6 +1847,8 @@ Data and other attributes defined here:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
+<dl><dt><a name="RendererGTK-close_group"><strong>close_group</strong></a>(self, s)</dt><dd><tt>close&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s</tt></dd></dl>
+
 <dl><dt><a name="RendererGTK-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, transform, clipbox, colors, linewidths, antialiaseds, offsets, transOffset)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;&nbsp;If&nbsp;you&nbsp;need&nbsp;to<br>
 draw&nbsp;many&nbsp;line&nbsp;segments&nbsp;with&nbsp;similar&nbsp;properties,&nbsp;it&nbsp;is&nbsp;faster<br>
 to&nbsp;avoid&nbsp;the&nbsp;overhead&nbsp;of&nbsp;all&nbsp;the&nbsp;object&nbsp;creation&nbsp;etc.&nbsp;&nbsp;The<br>
@@ -1904,6 +1906,8 @@ linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
 antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
 
 <dl><dt><a name="RendererGTK-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="RendererGTK-open_group"><strong>open_group</strong></a>(self, s)</dt><dd><tt>open&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s</tt></dd></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

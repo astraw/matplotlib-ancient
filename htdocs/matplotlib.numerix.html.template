@@ -96,7 +96,6 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>Int8</strong> = '1'<br>
 <strong>LittleEndian</strong> = True<br>
 <strong>NewAxis</strong> = None<br>
-<strong>PrecisionError</strong> = 'PrecisionError'<br>
 <strong>PyObject</strong> = 'O'<br>
 <strong>UInt</strong> = 'u'<br>
 <strong>UInt16</strong> = 'w'<br>

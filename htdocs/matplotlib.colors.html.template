@@ -91,13 +91,15 @@ Data and other attributes defined here:<br>
 <dl><dt><a name="Colormap-array_as_rgb"><strong>array_as_rgb</strong></a>(self, X)</dt><dd><tt>X&nbsp;is&nbsp;an&nbsp;MxN&nbsp;array&nbsp;of&nbsp;floats.&nbsp;&nbsp;Set&nbsp;the&nbsp;clim&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
 control&nbsp;the&nbsp;color&nbsp;range&nbsp;(default&nbsp;min&nbsp;t&nbsp;max)</tt></dd></dl>
 
-<dl><dt><a name="Colormap-get_color"><strong>get_color</strong></a>(self, val, valmin, valmax)</dt></dl>
+<dl><dt><a name="Colormap-auto_clim"><strong>auto_clim</strong></a>(self, X)</dt><dd><tt>auto&nbsp;set&nbsp;the&nbsp;clim&nbsp;with&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;X</tt></dd></dl>
 
-<dl><dt><a name="Colormap-get_color_alpha"><strong>get_color_alpha</strong></a>(self, val, valmin, valmax, alpha<font color="#909090">=1.0</font>)</dt></dl>
+<dl><dt><a name="Colormap-get_color"><strong>get_color</strong></a>(self, val)</dt></dl>
 
-<dl><dt><a name="Colormap-get_colors"><strong>get_colors</strong></a>(self, vals, valmin<font color="#909090">=None</font>, valmax<font color="#909090">=None</font>)</dt></dl>
+<dl><dt><a name="Colormap-get_color_alpha"><strong>get_color_alpha</strong></a>(self, val, alpha<font color="#909090">=1.0</font>)</dt></dl>
 
-<dl><dt><a name="Colormap-get_colors_alpha"><strong>get_colors_alpha</strong></a>(self, vals, valmin<font color="#909090">=None</font>, valmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt></dl>
+<dl><dt><a name="Colormap-get_colors"><strong>get_colors</strong></a>(self, vals, alpha<font color="#909090">=1.0</font>)</dt></dl>
+
+<dl><dt><a name="Colormap-get_colors_alpha"><strong>get_colors_alpha</strong></a>(self, vals, alpha<font color="#909090">=1.0</font>)</dt></dl>
 
 <dl><dt><a name="Colormap-set_clim"><strong>set_clim</strong></a>(self, cmin, cmax)</dt><dd><tt>Set&nbsp;the&nbsp;color&nbsp;limits&nbsp;for&nbsp;mapping&nbsp;scalar&nbsp;data&nbsp;to&nbsp;colormap</tt></dd></dl>
 
@@ -114,13 +116,15 @@ control&nbsp;the&nbsp;color&nbsp;range&nbsp;(default&nbsp;min&nbsp;t&nbsp;max)</
 <dl><dt><a name="ColormapJet-array_as_rgb"><strong>array_as_rgb</strong></a>(self, X)</dt><dd><tt>X&nbsp;is&nbsp;an&nbsp;MxN&nbsp;array&nbsp;of&nbsp;floats.&nbsp;&nbsp;Set&nbsp;the&nbsp;clim&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
 control&nbsp;the&nbsp;color&nbsp;range&nbsp;(default&nbsp;min&nbsp;t&nbsp;max)</tt></dd></dl>
 
-<dl><dt><a name="ColormapJet-get_color"><strong>get_color</strong></a>(self, val, valmin, valmax)</dt></dl>
+<dl><dt><a name="ColormapJet-auto_clim"><strong>auto_clim</strong></a>(self, X)</dt><dd><tt>auto&nbsp;set&nbsp;the&nbsp;clim&nbsp;with&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;X</tt></dd></dl>
 
-<dl><dt><a name="ColormapJet-get_color_alpha"><strong>get_color_alpha</strong></a>(self, val, valmin, valmax, alpha<font color="#909090">=1.0</font>)</dt></dl>
+<dl><dt><a name="ColormapJet-get_color"><strong>get_color</strong></a>(self, val)</dt></dl>
 
-<dl><dt><a name="ColormapJet-get_colors"><strong>get_colors</strong></a>(self, vals, valmin<font color="#909090">=None</font>, valmax<font color="#909090">=None</font>)</dt></dl>
+<dl><dt><a name="ColormapJet-get_color_alpha"><strong>get_color_alpha</strong></a>(self, val, alpha<font color="#909090">=1.0</font>)</dt></dl>
 
-<dl><dt><a name="ColormapJet-get_colors_alpha"><strong>get_colors_alpha</strong></a>(self, vals, valmin<font color="#909090">=None</font>, valmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt></dl>
+<dl><dt><a name="ColormapJet-get_colors"><strong>get_colors</strong></a>(self, vals, alpha<font color="#909090">=1.0</font>)</dt></dl>
+
+<dl><dt><a name="ColormapJet-get_colors_alpha"><strong>get_colors_alpha</strong></a>(self, vals, alpha<font color="#909090">=1.0</font>)</dt></dl>
 
 <dl><dt><a name="ColormapJet-set_clim"><strong>set_clim</strong></a>(self, cmin, cmax)</dt><dd><tt>Set&nbsp;the&nbsp;color&nbsp;limits&nbsp;for&nbsp;mapping&nbsp;scalar&nbsp;data&nbsp;to&nbsp;colormap</tt></dd></dl>
 
@@ -139,13 +143,15 @@ Methods inherited from <a href="matplotlib.colors.html#Colormap">Colormap</a>:<b
 <dl><dt><a name="Grayscale-array_as_rgb"><strong>array_as_rgb</strong></a>(self, X)</dt><dd><tt>X&nbsp;is&nbsp;an&nbsp;MxN&nbsp;array&nbsp;of&nbsp;floats.&nbsp;&nbsp;Set&nbsp;the&nbsp;clim&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
 control&nbsp;the&nbsp;color&nbsp;range&nbsp;(default&nbsp;min&nbsp;t&nbsp;max)</tt></dd></dl>
 
-<dl><dt><a name="Grayscale-get_color"><strong>get_color</strong></a>(self, val, valmin, valmax)</dt></dl>
+<dl><dt><a name="Grayscale-auto_clim"><strong>auto_clim</strong></a>(self, X)</dt><dd><tt>auto&nbsp;set&nbsp;the&nbsp;clim&nbsp;with&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;X</tt></dd></dl>
 
-<dl><dt><a name="Grayscale-get_color_alpha"><strong>get_color_alpha</strong></a>(self, val, valmin, valmax, alpha<font color="#909090">=1.0</font>)</dt></dl>
+<dl><dt><a name="Grayscale-get_color"><strong>get_color</strong></a>(self, val)</dt></dl>
 
-<dl><dt><a name="Grayscale-get_colors"><strong>get_colors</strong></a>(self, vals, valmin<font color="#909090">=None</font>, valmax<font color="#909090">=None</font>)</dt></dl>
+<dl><dt><a name="Grayscale-get_color_alpha"><strong>get_color_alpha</strong></a>(self, val, alpha<font color="#909090">=1.0</font>)</dt></dl>
 
-<dl><dt><a name="Grayscale-get_colors_alpha"><strong>get_colors_alpha</strong></a>(self, vals, valmin<font color="#909090">=None</font>, valmax<font color="#909090">=None</font>, alpha<font color="#909090">=1.0</font>)</dt></dl>
+<dl><dt><a name="Grayscale-get_colors"><strong>get_colors</strong></a>(self, vals, alpha<font color="#909090">=1.0</font>)</dt></dl>
+
+<dl><dt><a name="Grayscale-get_colors_alpha"><strong>get_colors_alpha</strong></a>(self, vals, alpha<font color="#909090">=1.0</font>)</dt></dl>
 
 <dl><dt><a name="Grayscale-set_clim"><strong>set_clim</strong></a>(self, cmin, cmax)</dt><dd><tt>Set&nbsp;the&nbsp;color&nbsp;limits&nbsp;for&nbsp;mapping&nbsp;scalar&nbsp;data&nbsp;to&nbsp;colormap</tt></dd></dl>
 

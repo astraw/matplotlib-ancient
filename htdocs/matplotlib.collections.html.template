@@ -59,9 +59,9 @@ property&nbsp;of&nbsp;the&nbsp;ith&nbsp;element&nbsp;of&nbsp;the&nbsp;collection
 &nbsp;<br>
 &nbsp;&nbsp;prop[i&nbsp;%&nbsp;len(props)].<br>
 &nbsp;<br>
-This&nbsp;implies&nbsp;that&nbsp;the&nbsp;properties&nbsp;cycle&nbsp;if&nbsp;the&nbsp;len&nbsp;of&nbsp;props&nbsp;is<br>
-less&nbsp;than&nbsp;the&nbsp;number&nbsp;of&nbsp;elements&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;A&nbsp;length<br>
-1&nbsp;property&nbsp;is&nbsp;shared&nbsp;by&nbsp;all&nbsp;the&nbsp;elements&nbsp;of&nbsp;the&nbsp;collection<br>
+This&nbsp;implies&nbsp;that&nbsp;the&nbsp;properties&nbsp;cycle&nbsp;if&nbsp;the&nbsp;len&nbsp;of&nbsp;props&nbsp;is&nbsp;less<br>
+than&nbsp;the&nbsp;number&nbsp;of&nbsp;elements&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;A&nbsp;length&nbsp;1<br>
+property&nbsp;is&nbsp;shared&nbsp;by&nbsp;all&nbsp;the&nbsp;elements&nbsp;of&nbsp;the&nbsp;collection<br>
 &nbsp;<br>
 All&nbsp;color&nbsp;args&nbsp;to&nbsp;a&nbsp;collection&nbsp;are&nbsp;sequences&nbsp;of&nbsp;rgba&nbsp;tuples<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
