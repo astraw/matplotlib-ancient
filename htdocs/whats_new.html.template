@@ -59,6 +59,13 @@ font manager to increase performance.  This and other changes have
 dramatically improved postscript backend performance.
 """),
 
+    ('Axes hold', """\
+matlab compatible hold command determines whether subsequent plot
+commands overlay current plot or clear the axes by default.  Default
+setting is set in matplotlibrc and toggled by the <a
+href=matplotlib.matlab.html#-hold>hold</a> command.
+"""),
+
     ('New rc file options', """\
 You can control grid properties and tick padding (the space between
 the axes and tick label) in matplotlibrc.  The new options and
