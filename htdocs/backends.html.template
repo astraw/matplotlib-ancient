@@ -133,7 +133,7 @@ GTK runtime</a></li>
    Basically, you need to install the <a
    href=http://www.pcpm.ucl.ac.be/~gustin/win32_ports/>GTK 2.2.4
    Runtime</a> and <a
-   href=http://www.pcpm.ucl.ac.be/~gustin/win32_ports/binaries/pygtk-2.0.0.win32-py2.3.exe>pygtk-2.0.0</a>
+href=http://www.pcpm.ucl.ac.be/~gustin/win32_ports/binaries/pygtk-2.2.0-1.win32-py2.3.exe>pygtk-2.2.0</a>
    both of which have friendly windows installers.  After you install
    the runtime, you need to add the bin and lib subdirs of your
    install dir to your PATH.  Cedric's website also provides

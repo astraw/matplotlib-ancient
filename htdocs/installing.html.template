@@ -59,7 +59,7 @@ the default install location as it makes it difficult to set your
 path; use C:\GTk instead</i></li>
 
 <li>Install <a
-href=http://www.pcpm.ucl.ac.be/~gustin/win32_ports/binaries/pygtk-2.0.0.win32-py2.3.exe>pygtk-2.0.0</a></li>
+href=http://www.pcpm.ucl.ac.be/~gustin/win32_ports/binaries/pygtk-2.2.0-1.win32-py2.3.exe>pygtk-2.2.0</a></li>
 
 <li>Modify your path.  Check <a
 href=http://www.async.com.br/faq/pygtk/index.py?req=show&file=faq21.012.htp>this
