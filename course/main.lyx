@@ -5,6 +5,7 @@
 \usepackage{ae,aecompl}
 %\usepackage{hyperref}
 \usepackage{html}
+\usepackage{color}
 
 % Use and configure listings package for nicely formatted code
 \usepackage{listings}
@@ -134,45 +135,128 @@ bodytext{bgcolor=#ffffff}}
 
 \layout Section
 \pagebreak_top 
-Overview
+Why python?
 \layout Standard
 
-Blah blah 
-\begin_inset LatexCommand \cite{IPython,JDH04,MayaVi,PMV,PYTHON,SciPy,f2py}
+
+\begin_inset Include \input{why_python.lyx}
+preview false
 
 \end_inset 
 
 
 \layout Section
 
-Some code examples
-\layout Standard
-
-A code listing
+A whirlwind tour of python and the standard library
 \layout Standard
 
 
-\begin_inset ERT
-status Open
+\begin_inset Include \input{intro_to_python.lyx}
+preview false
 
-\layout Standard
-
-\backslash 
-lstinputlisting{code/WallisPi.py}
 \end_inset 
 
 
 \layout Section
 
-Another example
+Introduction to numerix arrays
 \layout Standard
 
-A long listing
+
+\begin_inset Include \input{numeric_tut.lyx}
+preview false
+
+\end_inset 
+
+
+\layout Section
+
+Introduction to plotting with matplotlib / pylab
+\layout Standard
+
+
+\begin_inset Include \input{matplotlib_tut.lyx}
+preview false
+
+\end_inset 
+
+
+\layout Section
+
+3D visualization with VTK
+\layout Standard
+
+
+\begin_inset Include \input{vtk_tut.lyx}
+preview false
+
+\end_inset 
+
+
+\layout Section
+
+3D visualization with MayaVi
+\layout Standard
+
+
+\begin_inset Include \input{mayavi_tut.lyx}
+preview false
+
+\end_inset 
+
+
+\layout Section
+
+Interfacing with external libraries
+\layout Standard
+
+
+\begin_inset Include \input{wrapping.lyx}
+preview false
+
+\end_inset 
+
+
+\layout Section
+
+A tour of ipython
+\layout Standard
+
+
+\begin_inset Include \input{ipython_tut.lyx}
+preview false
+
+\end_inset 
+
+
+\layout Section
+
+A tour of scipy
+\layout Standard
+
+
+\begin_inset Include \input{scipy_tour.py.lyx}
+preview false
+
+\end_inset 
+
+
+\layout Section
+
+lyx examples
+\layout Standard
+
+See a
+\begin_inset LatexCommand \cite{JDH04,PYTHON}
+
+\end_inset 
+
+
 \layout Standard
 
 
 \begin_inset ERT
-status Open
+status Collapsed
 
 \layout Standard
 
@@ -192,15 +276,15 @@ And we can also have a figure of a person's head, as shown in Fig.\SpecialChar ~
 .
 \begin_inset Float figure
 wide false
-collapsed false
+collapsed true
 
 \layout Standard
 \align center 
 
 \begin_inset Graphics
-        filename fig/skin.gif
-        lyxscale 50
-        width 80text%
+	filename fig/skin.gif
+	lyxscale 50
+	width 80text%
 
 \end_inset 
 

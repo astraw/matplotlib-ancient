@@ -18,7 +18,6 @@
 \usepackage{ae,aecompl}
 %\usepackage{hyperref}
 \usepackage{html}
-\usepackage{color}
 
 % Use and configure listings package for nicely formatted code
 \usepackage{listings}
@@ -83,30 +82,56 @@ Fernando Perez}
 
 
 \newpage
-\section{Overview}
+\section{Why python?}
+
+\input{why_python.tex}
 
 Blah blah \cite{IPython,JDH04,MayaVi,PMV,PYTHON,SciPy,f2py}
 
 
-\section{Some code examples}
+\section{A whirlwind tour of python and the standard library}
+
+\input{intro_to_python.tex}
 
 A code listing
 
 \lstinputlisting{code/WallisPi.py}
 
 
-\section{Another example}
+\section{Introduction to numerix arrays}
 
-A long listing
+\input{numeric_tut.tex}
+
+
+\section{Introduction to plotting with matplotlib / pylab}
+
+\input{matplotlib_tut.tex}
+
+
+\section{3D visualization with VTK}
+
+\input{vtk_tut.tex}
+
+
+\section{3D visualization with MayaVi}
+
+\input{mayavi_tut.tex}
+
+
+\section{Interfacing with external libraries}
+
+\input{wrapping.tex}
 
 \lstinputlisting{code/weave_examples.py}
 
 And we can also have a figure of a person's head, as shown in Fig.~\ref{fig:mayavi-head}.%
-%\begin{figure}
-%\begin{center}\includegraphics[%
-%  width=0.80\textwidth]{fig/skin.gif}\end{center}
-%\caption{\label{fig:mayavi-head}Somebody's head}
-%\end{figure}
+\begin{figure}
+\begin{center}\includegraphics[%
+  width=0.80\textwidth]{fig/skin.gif}\end{center}
+
+
+\caption{\label{fig:mayavi-head}Somebody's head}
+\end{figure}
 
 
 \bibliographystyle{plain}
