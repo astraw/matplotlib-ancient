@@ -35,7 +35,7 @@ href=matplotlib.matlab.html#-load>load</a> and See <a
 href=matplotlib.matlab.html#-save>save</a>.
 """),
 
-)
+				  )
 
 new_to_52 = ( 
     ('Image support', """
