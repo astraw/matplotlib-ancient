@@ -13,7 +13,7 @@ n, bins, patches = hist(x, 100, normed=1)
 y = normpdf( bins, mu, sigma)
 l = plot(bins, y, 'r--')
 set(l, 'linewidth', 2)
-set(gca(), 'xlim', [40, 160])  
+xlim(40, 160)
 
 xlabel('Smarts')
 ylabel('P')
