@@ -39,6 +39,7 @@ _Plotting&nbsp;commands<br>
 &nbsp;&nbsp;get&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;get&nbsp;a&nbsp;handle&nbsp;graphics&nbsp;property<br>
 &nbsp;&nbsp;gray&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;current&nbsp;colormap&nbsp;to&nbsp;gray<br>
 &nbsp;&nbsp;jet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;current&nbsp;colormap&nbsp;to&nbsp;jet<br>
+&nbsp;&nbsp;hbar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;a&nbsp;horizontal&nbsp;bar&nbsp;chart<br>
 &nbsp;&nbsp;hist&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;a&nbsp;histogram<br>
 &nbsp;&nbsp;hold&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;set&nbsp;the&nbsp;axes&nbsp;hold&nbsp;state<br>
 &nbsp;&nbsp;legend&nbsp;&nbsp;&nbsp;-&nbsp;make&nbsp;an&nbsp;axes&nbsp;legend<br>
@@ -599,6 +600,32 @@ if&nbsp;s&nbsp;is&nbsp;'somename',&nbsp;this&nbsp;function&nbsp;returns<br>
  <dl><dt><a name="-grid"><strong>grid</strong></a>(b<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;grid&nbsp;to&nbsp;be&nbsp;on&nbsp;or&nbsp;off&nbsp;(b&nbsp;is&nbsp;a&nbsp;boolean)<br>
 &nbsp;<br>
 if&nbsp;b&nbsp;is&nbsp;None,&nbsp;toggle&nbsp;the&nbsp;grid&nbsp;state</tt></dd></dl>
+ <dl><dt><a name="-hbar"><strong>hbar</strong></a>(*args, **kwargs)</dt><dd><tt>&nbsp;&nbsp;&nbsp;&nbsp;HBAR(x,&nbsp;y)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;y&nbsp;values&nbsp;give&nbsp;the&nbsp;heights&nbsp;of&nbsp;the&nbsp;center&nbsp;of&nbsp;the&nbsp;bars.&nbsp;&nbsp;The<br>
+&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;values&nbsp;give&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;bars.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;Rectangle&nbsp;patch&nbsp;instances<br>
+&nbsp;<br>
+Optional&nbsp;arguments<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height&nbsp;-&nbsp;the&nbsp;height&nbsp;(thickness)&nbsp;&nbsp;of&nbsp;the&nbsp;bar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left&nbsp;&nbsp;-&nbsp;the&nbsp;x&nbsp;coordinate&nbsp;of&nbsp;the&nbsp;left&nbsp;side&nbsp;of&nbsp;the&nbsp;bar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;bar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xerr&nbsp;and&nbsp;yerr,&nbsp;if&nbsp;not&nbsp;None,&nbsp;will&nbsp;be&nbsp;used&nbsp;to&nbsp;generate&nbsp;errorbars<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;the&nbsp;bar&nbsp;chart<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ecolor&nbsp;specifies&nbsp;the&nbsp;color&nbsp;of&nbsp;any&nbsp;errorbar<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;capsize&nbsp;determines&nbsp;the&nbsp;length&nbsp;in&nbsp;points&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;optional&nbsp;arguments&nbsp;color,&nbsp;height&nbsp;and&nbsp;left&nbsp;can&nbsp;be&nbsp;either<br>
+&nbsp;&nbsp;&nbsp;&nbsp;scalars&nbsp;or&nbsp;len(x)&nbsp;sequences</tt></dd></dl>
  <dl><dt><a name="-hist"><strong>hist</strong></a>(x, bins<font color="#909090">=10</font>, noplot<font color="#909090">=0</font>, normed<font color="#909090">=0</font>, bottom<font color="#909090">=0</font>)</dt><dd><tt>Compute&nbsp;the&nbsp;histogram&nbsp;of&nbsp;x.&nbsp;&nbsp;bins&nbsp;is&nbsp;either&nbsp;an&nbsp;integer&nbsp;number&nbsp;of<br>
 bins&nbsp;or&nbsp;a&nbsp;sequence&nbsp;giving&nbsp;the&nbsp;bins.&nbsp;&nbsp;x&nbsp;are&nbsp;the&nbsp;data&nbsp;to&nbsp;be&nbsp;binned.<br>
 &nbsp;<br>

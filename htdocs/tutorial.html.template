@@ -49,7 +49,7 @@ it too.  In particular, you need to take a look at the customization
 file <a href=.matplotlibrc>.matplotlibrc<a/>, in which you can set
 whether you want to just create images or use a GUI (the
 <tt>backend</tt> setting), and whether you want to work interactively
-from the shell (the <tt>interactive</tt>) setting.  Also, please read
+from the shell (the <tt>interactive</tt> setting).  Also, please read
 <a href=interactive.html>interactive use</a>, <a
 href=faq.html#SHOW>What's up with show?</a>, and <a
 href=faq.html#FREEZE>My matplotlib window is freezing</a> before

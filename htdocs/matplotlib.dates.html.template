@@ -85,8 +85,10 @@ Date&nbsp;formatters<br>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="datetime.html">datetime</a><br>
-</td><td width="25%" valign=top><a href="matplotlib.html">matplotlib</a><br>
-</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="matplotlib.html">matplotlib</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
 </td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
@@ -134,7 +136,12 @@ Date&nbsp;formatters<br>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>Tick&nbsp;location&nbsp;is&nbsp;seconds&nbsp;since&nbsp;the&nbsp;epoch.&nbsp;&nbsp;Use&nbsp;a&nbsp;strftime&nbsp;format<br>
-string<br>&nbsp;</tt></td></tr>
+string<br>
+&nbsp;<br>
+python&nbsp;only&nbsp;supports&nbsp;datetime&nbsp;strftime&nbsp;formatting&nbsp;for&nbsp;years<br>
+greater&nbsp;than&nbsp;1900.&nbsp;&nbsp;Thanks&nbsp;to&nbsp;Andrew&nbsp;Dalke,&nbsp;Dalke&nbsp;Scientific<br>
+Software&nbsp;who&nbsp;contributed&nbsp;the&nbsp;strftime&nbsp;code&nbsp;below&nbsp;to&nbsp;include&nbsp;dates<br>
+earlier&nbsp;than&nbsp;this&nbsp;year<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="matplotlib.dates.html#DateFormatter">DateFormatter</a></dd>
@@ -148,6 +155,12 @@ Methods defined here:<br>
 <dl><dt><a name="DateFormatter-__init__"><strong>__init__</strong></a>(self, fmt, tz<font color="#909090">=None</font>)</dt><dd><tt>fmt&nbsp;is&nbsp;an&nbsp;strftime&nbsp;format&nbsp;string;&nbsp;tz&nbsp;is&nbsp;the&nbsp;tzinfo&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="DateFormatter-set_tzinfo"><strong>set_tzinfo</strong></a>(self, tz)</dt></dl>
+
+<dl><dt><a name="DateFormatter-strftime"><strong>strftime</strong></a>(self, dt, fmt)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>illegal_s</strong> = &lt;_sre.SRE_Pattern object&gt;</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Formatter">matplotlib.ticker.Formatter</a>:<br>
