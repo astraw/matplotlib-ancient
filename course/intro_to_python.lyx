@@ -32,7 +32,11 @@ This is a quick-and-dirty introduction to the python language for the impatient
  scientist.
  There are many top notch, comprehensive introductions and tutorials for
  python.
- For absolute beginners, ther is the Python Beginner's Guide.
+ For absolute beginners, there is the 
+\shape italic 
+Python Beginner's Guide
+\shape default 
+.
 \begin_inset Foot
 collapsed true
 
@@ -41,8 +45,11 @@ collapsed true
 http://www.python.org/moin/BeginnersGuide
 \end_inset 
 
- For a free tutorial, the best place to start is the official python tutorial,
- which can be read online
+ The official 
+\shape italic 
+Python Tutorial
+\shape default 
+ can be read online
 \begin_inset Foot
 collapsed true
 
@@ -74,8 +81,11 @@ http://www.awaretek.com/tutorials.html
 \layout Standard
 
 There are also many excellent books.
- Oriented to newbies is Mark Pilgrim's Dive into Python which can also be
- read online
+ Targetting newbies is Mark Pilgrim's 
+\shape italic 
+Dive into Python
+\shape default 
+ which in available in print and for free online
 \begin_inset Foot
 collapsed true
 
@@ -90,23 +100,32 @@ http://diveintopython.org/toc/index.html
 \end_inset 
 
 .
- For experienced programmers, David Beasley's Python Essential Reference
- is an excellent instroduciton to python, but is a bit dated since it only
+ For experienced programmers, David Beasley's 
+\shape italic 
+Python Essential Reference
+\shape default 
+ is an excellent introduction to python, but is a bit dated since it only
  covers python2.1 
 \begin_inset LatexCommand \cite{Beasley}
 
 \end_inset 
 
 .
- Likwise Alex Martelli's Python in a Nutshell is highly regarded and a bit
- more current -- a 2nd edition is in the works
+ Likwise Alex Martelli's 
+\shape italic 
+Python in a Nutshell
+\shape default 
+ is highly regarded and a bit more current -- a 2nd edition is in the works
 \begin_inset LatexCommand \cite{Nutshell}
 
 \end_inset 
 
 .
- And The Python Cookbook is an extremely useful collection of python idioms,
- tips and tricks 
+ And 
+\shape italic 
+The Python Cookbook
+\shape default 
+ is an extremely useful collection of python idioms, tips and tricks 
 \begin_inset LatexCommand \cite{Cookbook}
 
 \end_inset 
@@ -115,12 +134,11 @@ http://diveintopython.org/toc/index.html
 \layout Standard
 
 But the typical scientist I encounter wants to solve a specific problem,
- eg to make a certain kind of graph, or numerically integrate an equation,
- or fit some data to a parametric model, and don't have the time or interest
- to read several books or tutorials to get what they want.
+ eg, to make a certain kind of graph, to numerically integrate an equation,
+ or to fit some data to a parametric model, and doesn't have the time or
+ interest to read several books or tutorials to get what they want.
  This guide is for them: a short overview of the language to help them get
- to what they want (numeric, scipy, matplotlib, mayavi, vtk) as quickly
- as possible.
+ to what they want as quickly as possible.
 \layout Section
 
 Hello Python
@@ -131,9 +149,9 @@ Python is a dynamically typed, object oriented, interpreted language.
  similar to Matlab, Perl, Tcl and Java, and unlike FORTRAN, C, or C++ which
  are compiled.
  So let's fire up the python interpreter and get started.
- I'm not going to cover installing python -- it's standard on linux boxes
- and for windows there is a friendly GUI installer.
- On windows, you can click 
+ I'm not going to cover installing python -- it's standard on most linux
+ boxes and for windows there is a friendly GUI installer.
+ To run the python interpreter, on windows, you can click 
 \family typewriter 
 Start->All Programs->Python 2.4->Python (command line)
 \family default 
@@ -155,7 +173,7 @@ ipython
 \family typewriter 
 >>>
 \family default 
- is the default python shell prompt, so don't type it.
+ is the default python shell prompt, so don't type it in the examples below
 \layout LyX-Code
 
 >>> print 'hello world'
@@ -166,8 +184,12 @@ hello world
 
 \layout Standard
 
-Hello world in python is pretty easy -- one common phrase you hear in the
- python community is that 
+As this example shows, 
+\shape italic 
+hello world
+\shape default 
+ in python is pretty easy -- one common phrase you hear in the python community
+ is that 
 \begin_inset Quotes eld
 \end_inset 
 
@@ -176,8 +198,12 @@ it fits your brain
 \end_inset 
 
 .
- The basic idea is that coding in python feels natural.
- Compare hello world in C++
+ -- the basic idea is that coding in python feels natural.
+ Compare python's version with 
+\shape italic 
+hello world
+\shape default 
+ in C++
 \layout LyX-Code
 
 // C++
@@ -204,7 +230,8 @@ int main ()
 Python is a calculator
 \layout Standard
 
-Python is the only calculator I use.
+Aside from my daughter's solar powered cash-register calculator, Python
+ is the only calculator I use.
  From the python shell, you can type arbitrary arithmetic expressions.
 \layout LyX-Code
 
@@ -226,6 +253,12 @@ Python is the only calculator I use.
 2
 \layout LyX-Code
 
+>>> 2+(24.3 + .9)/.24
+\layout LyX-Code
+
+107.0
+\layout LyX-Code
+
 >>> 2/3
 \layout LyX-Code
 
@@ -233,7 +266,7 @@ Python is the only calculator I use.
 \layout Standard
 
 The last line is a standard newbie gotcha -- if both the left and right
- operands are integers, python returns and integer.
+ operands are integers, python returns an integer.
  To do floating point division, make sure at least one of the numbers is
  a float
 \layout LyX-Code
@@ -245,7 +278,7 @@ The last line is a standard newbie gotcha -- if both the left and right
 \layout Standard
 
 The distinction between integer and floating point division is a common
- source of frustration amojng newbies and is slated for destruction in the
+ source of frustration among newbies and is slated for destruction in the
  mythical Python 3000.
 \begin_inset Foot
 collapsed true
@@ -256,26 +289,26 @@ Python 3000 is a future python release that will clean up several things
  that Guido considers to be warts.
 \end_inset 
 
- Since the removal of the distinction is slated for the future, you can
- invoke the time machine with the 
+ Since the removal of the distinction is slated, you can invoke the time
+ machine with the 
 \family typewriter 
 from __future__
 \family default 
  directive; these directives allow python programmers today to use features
- that will become standard in future releases but are not included as the
- default because they would break existing code.
+ that will become standard in future releases but are not included by default
+ because they would break existing code.
  From future directives should be among the first lines you type in your
- python code if you are going to use them.
- The future division operator will assume floating point division by default
+ python code if you are going to use them, otherwise they may not work The
+ future division operator will assume floating point division by default,
 \begin_inset Foot
 collapsed false
 
 \layout Standard
 
-The astute reader will note that 2/3 is 0.66666666666666663 and not 0.666666666666
-66666 as might be expected.
+The astute reader will note that 2/3 was represented as 0.66666666666666663
+ and not 0.66666666666666666 as might be expected.
  This is, of course, because computers are binary calculators, and there
- is no exact binary representation of 2/0=3, just as there is no exact binary
+ is no exact binary representation of 2/3, just as there is no exact binary
  representation of 0.1
 \layout LyX-Code
 
@@ -288,7 +321,7 @@ The astute reader will note that 2/3 is 0.66666666666666663 and not 0.6666666666
 Some languages try and hide this from you, but python is explicit.
 \end_inset 
 
-, and provides another operator // to do classic integer division.
+and provides another operator // to do classic integer division.
 \layout LyX-Code
 
 >>> from __future__ import division
@@ -332,7 +365,7 @@ python has four basic numeric types: int, long, float and complex, but unlike
 \layout Standard
 
 
-\begin_inset Formula $2^{\{200\}}$
+\begin_inset Formula $2^{200}$
 \end_inset 
 
 is a huge number!
@@ -344,19 +377,24 @@ is a huge number!
 1606938044258990275541962092341162602522202993782792835301376L
 \layout Standard
 
-but python will blithely compute it for you as long as you have CPU and
- memory to handle it.
- The integer type, if it overflows, will automatically convert to long (as
- indicated by the appended 
+but python will blithely compute it and much larger numbers for you as long
+ as you have CPU and memory to handle them.
+ The integer type, if it overflows, will automatically convert to a python
+ 
+\family typewriter 
+long
+\family default 
+ (as indicated by the appended 
 \family typewriter 
 L
 \family default 
- above) and has no built-in upper bound on size, unlike C/C++ longs.
+ in the output above) and has no built-in upper bound on size, unlike C/C++
+ longs.
 \layout Standard
 
-Python has build in support for complex numbers.
- Eg we can see if 
-\begin_inset Formula $i^{2}=1$
+Python has built in support for complex numbers.
+ Eg, we can verify 
+\begin_inset Formula $i^{2}=-1$
 \end_inset 
 
  
@@ -399,13 +437,24 @@ If you come from other languages like Matlab, the above may be new to you.
  shell prompt)
 \layout LyX-Code
 
->> x = 1+j
+>> x = 0+j
 \layout LyX-Code
 
 x =
 \layout LyX-Code
 
-   1.0000 + 1.0000i
+   0.0000 + 1.0000i
+\layout LyX-Code
+
+\layout LyX-Code
+
+>> real(x)
+\layout LyX-Code
+
+ans =
+\layout LyX-Code
+
+     0
 \layout LyX-Code
 
 \layout LyX-Code
@@ -421,28 +470,33 @@ ans =
 
 \layout LyX-Code
 
->> real(x)
-\layout LyX-Code
-
-ans =
-\layout LyX-Code
-
-     1
 \layout Standard
 
-That is, in Matlab you would use a function to access the real and imaginary
- parts of the data, but in python these attributes are built-in.
- This is a core feature of python (and other object oriented languages).
- An object carries its data, and methods around with it.
+That is, in Matlab, you use a 
+\shape italic 
+function
+\shape default 
+ to access the real and imaginary parts of the data, but in python these
+ are attributes of the complex object itself.
+ This is a core feature of python and other object oriented languages: an
+ object carries its data and methods around with it.
  One might say: 
 \begin_inset Quotes eld
 \end_inset 
 
-a complex number knows how to take its own conjugate
+a complex number knows it's real and imaginary parts
 \begin_inset Quotes erd
 \end_inset 
 
-, you don't need an external function for that
+ or 
+\begin_inset Quotes eld
+\end_inset 
+
+a complex number knows how to take its conjugate
+\begin_inset Quotes erd
+\end_inset 
+
+, you don't need external functions for these operations
 \layout LyX-Code
 
 >>> x.conjugate
@@ -497,7 +551,7 @@ sin(x)
 conjugate
 \family default 
 , you simply provide the open and closing parentheses.
- All of 
+ 
 \family typewriter 
 real
 \family default 
@@ -536,8 +590,8 @@ OK, now you are an object oriented programmer.
 Accessing the standard library
 \layout Standard
 
-Arithmetic is fine, but before long you may find yourself wanting to compute
- logarithms and exponents, sines and cosines.
+Arithmetic is fine, but before long you may find yourself tiring of it and
+ wanting to compute logarithms and exponents, sines and cosines
 \layout LyX-Code
 
 >>> log(10)
@@ -552,9 +606,9 @@ Traceback (most recent call last):
 NameError: name 'log' is not defined
 \layout Standard
 
-These functions are not built into python, but don't despair.
- They are built into the python standard library.
- To access a function from the standard library, or any external library
+These functions are not built into python, but don't despair, they are built
+ into the python standard library.
+ To access a function from the standard library, or an external library
  for that matter, you must import it.
 \layout LyX-Code
 
@@ -573,16 +627,16 @@ These functions are not built into python, but don't despair.
 1.2246063538223773e-16
 \layout Standard
 
-The astute will note that the default 
+Note that the default 
 \family typewriter 
 log
 \family default 
- function must be a base 2 logarithm (use 
+ function is a base 2 logarithm (use 
 \family typewriter 
 math.log10
 \family default 
- for base 10 logs) and that floating point math is inherently imprecise
- since 
+ for base 10 logs) and that floating point math is inherently imprecise,
+ since analytically
 \begin_inset Formula $\sin(\pi)=0$
 \end_inset 
 
@@ -601,7 +655,7 @@ math.sin
 \family typewriter 
 math.p
 \family default 
-i, and python is very accomodating.
+i, and python is accomodating.
  There are additional forms of 
 \family typewriter 
 import
@@ -622,24 +676,6 @@ import
 \layout LyX-Code
 
 1.0
-\layout LyX-Code
-
-Help on built-in function sin:
-\layout LyX-Code
-
- 
-\layout LyX-Code
-
-sin(...)
-\layout LyX-Code
-
-    sin(x)
-\layout LyX-Code
-
-     
-\layout LyX-Code
-
-    Return the sine of x (measured in radians).
 \layout LyX-Code
 
 \layout LyX-Code
@@ -677,10 +713,14 @@ sin(...)
 \layout Standard
 
 To help you learn more about what you can find in the math library, python
- has very nice introspection capabilities -- introsepction is a way of asking
+ has nice introspection capabilities -- introspection is a way of asking
  an object about itself.
  For example, to find out what is available in the math library, we can
- get a directory of everything available with the dir command
+ get a directory of everything available with the 
+\family typewriter 
+dir
+\family default 
+ command
 \begin_inset Foot
 collapsed false
 
@@ -704,8 +744,11 @@ In addition to the introdpection and help provided in the python interpreter,
 \layout Standard
 
 This gives us just a listing of the names that are in the math module --
- they are fairly self descriptive, but if you want more, you can call help
- on any object
+ they are fairly self descriptive, but if you want more, you can call 
+\family typewriter 
+help
+\family default 
+ on any of these functions for more information
 \layout LyX-Code
 
 >>> help(math.sin) 
@@ -822,11 +865,15 @@ div__', '__rmod__', '__rmul__', '__rpow__', '__rsub__', '__rtruediv__',
 
 \layout Standard
 
-Notice that we can call 
+Notice that called 
 \family typewriter 
 dir
 \family default 
- or help on the 
+ or 
+\family typewriter 
+help
+\family default 
+ on the 
 \family typewriter 
 math
 \family default 
@@ -842,7 +889,7 @@ math.sin
 \shape italic 
 function
 \shape default 
- in the math module, or the 
+, and the 
 \family typewriter 
 complex
 \family default 
@@ -850,15 +897,17 @@ complex
 \shape italic 
 number
 \shape default 
- x.
- That's because all of these things modules, functions and numbers are 
+ 
+\family typewriter 
+x
+\family default 
+.
+ That's because modules, functions and numbers are all 
 \shape italic 
 objects
 \shape default 
-, and we use the same object introspection and help capabilites on them
- all.
- They are all objects, and we can find out what type of object they are
- by calling 
+, and we use the same object introspection and help capabilites on them.
+ We can find out what type of object they are by calling 
 \family typewriter 
 type
 \family default 
@@ -885,8 +934,8 @@ type
 
 \layout Standard
 
-Now, you may be wondering: what are all those god-awful looking double underscor
-e methods, like 
+Now, you may be wondering: what were all those god-awful looking double
+ underscore methods, like 
 \family typewriter 
 __abs__ 
 \family default 
@@ -894,9 +943,13 @@ and
 \family typewriter 
 __mul__
 \family default 
-? The answer is that these are the methods that define what it means to
- be a numeric type in python, and the complex object implements these methods
- so that complex numbers act like the way should, eg 
+ in the 
+\family typewriter 
+dir
+\family default 
+ listing of the complex object above? These are methods that define what
+ it means to be a numeric type in python, and the complex object implements
+ these methods so that complex numbers act like the way should, eg 
 \family typewriter 
 __mul__
 \family default 
@@ -906,17 +959,17 @@ __mul__
  in python.
  And this means you can define your own numeric types, as long as you implement
  the required special double underscore methods for your custom type.
- double underscore methods are very important in python -- the typical newbie
- never sees them or thinks about them, but they are there under the hood,
- providing all the python magic and more importantly, showing the way to
- let you do your own magic.
+ double underscore methods are very important in python; although the typical
+ newbie never sees them or thinks about them, they are there under the hood
+ providing all the python magic, and more importantly, showing the way to
+ let you make magic.
 \layout Section
 
 Strings
 \layout Standard
 
-We've encountered a number of types of objects above: ints, floats, longs,
- methods and functions, and modules.
+We've encountered a number of types of objects above: int, float, long,
+ complex, method/function and module.
  We'll continue our tour with an introduction to strings, which are critical
  components of almost every program.
  You can create strings in a number of different ways, with single quotes,
@@ -976,11 +1029,11 @@ or call string methods to process them: upcase them or downcase them, or
 'Punter' 
 \layout Standard
 
-Note that in all of these examples, 
+Note that in all of these examples, the string 
 \family typewriter 
 last
 \family default 
- was unchanged.
+ is unchanged.
  All of these methods operate on the string and return a new string, leaving
  the original unchanged.
  In fact, python strings cannot be changed by any python code at all: they
@@ -999,9 +1052,8 @@ You can access individual characters, or slices of the string (substrings),
  A string in sequence of characters, and strings implement the sequence
  protocol in python -- we'll see more examples of python sequences later
  -- and all sequences have the same syntax for accessing their elements.
- Python uses 0 based indexing, that is the first element is at index 0;
- a particularly convenient feature is that you can use negative indices
- to access the last elements in the sequence
+ Python uses 0 based indexing which means the first element is at index
+ 0; you can use negative indices to access the last elements in the sequence
 \layout LyX-Code
 
 >>> last = 'Hunter'
@@ -1019,11 +1071,14 @@ You can access individual characters, or slices of the string (substrings),
 'u'
 \layout LyX-Code
 
->>> last[-1] 'r' 
+>>> last[-1] 
+\layout LyX-Code
+
+'r' 
 \layout Standard
 
 To access substrings, or generically in terms of the sequence protocol,
- slices, you use a : to indicate a range
+ slices, you use a colon to indicate a range
 \layout LyX-Code
 
 >>> last[0:2]
@@ -1038,7 +1093,7 @@ To access substrings, or generically in terms of the sequence protocol,
 'nt'
 \layout Standard
 
-Python uses 
+As this example shows, python uses 
 \begin_inset Quotes eld
 \end_inset 
 
@@ -1046,18 +1101,16 @@ one-past-the-end
 \begin_inset Quotes erd
 \end_inset 
 
- indexing when indicating a range; eg, in the range 
+ indexing when defining a range; eg, in the range 
 \family typewriter 
-imin:imax
+indmin:indmax
 \family default 
 , the element of 
 \family typewriter 
 imax
 \family default 
  is not included.
- This is counter-intuitive at first, but turns out to be useful when combining
- slices.
- You can use negative indices when slicing too, to eget everything before
+ You can use negative indices when slicing too; eg, to get everything before
  the last character
 \layout LyX-Code
 
@@ -1068,7 +1121,13 @@ imax
 \layout Standard
 
 You can also leave out either the min or max indicator; if they are left
- out, 0 and the end of the slice are assumed respectively
+ out, 0 is assumed to be the 
+\family typewriter 
+indmin
+\family default 
+ and one past the end of the sequence is assumed to be 
+\family typewriter 
+indmax
 \layout LyX-Code
 
 >>> last[:3]
@@ -1087,9 +1146,9 @@ Although this may be more that you want to know about slicing strings, the
  time spent here is worthwhile.
  As mentioned above, all python sequences obey these rules.
  In addition to strings, lists and tuples, which are built-in python sequence
- data types and are discussed in the next section, the numeric arrays which
- are core to numeric computing in python implement the sequence protocol,
- and thus have the same slicing rules.
+ data types and are discussed in the next section, the numeric arrays widely
+ used in scientific computing also implement the sequence protocol, and
+ thus have the same slicing rules.
 \layout Exercise
 
 What would you expect last[:] to return?
@@ -1116,12 +1175,40 @@ data/myexp04.dat
 and then write code to loop over these files and analyze them.
  We're going to show how to do that, starting with the newbie way and progressiv
 ely building up to the way of python zen master.
- Now all of these methods work, but the zen master way will more efficient,
- more scalable (eg to larger numbers of files) and cross-platform.
- Here's the newbie way: we'll have to introdice the concept of a loop here
- (out of order!) but in the spirit of Diving into Python, that should be
- OK -- note that python uses whitespace indentation to delimit the for-loop
- code block
+ All of the methods below 
+\shape italic 
+work
+\shape default 
+, but the zen master way will more efficient, more scalable (eg to larger
+ numbers of files) and cross-platform.
+\begin_inset Foot
+collapsed false
+
+\layout Standard
+
+
+\begin_inset Quotes eld
+\end_inset 
+
+But it works
+\begin_inset Quotes erd
+\end_inset 
+
+ is a common defense of bad code; my rejoinder to this is 
+\begin_inset Quotes eld
+\end_inset 
+
+A computer scientist is someone who fixes things that aren't broken
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ 
+\end_inset 
+
+ Here's the newbie way: we also introduce the for-loop here in the spirit
+ of diving into python -- note that python uses whitespace indentation to
+ delimit the for-loop code block
 \layout LyX-Code
 
 
@@ -1141,14 +1228,18 @@ for i in (1,2,3,4):
 
 Now as promised, this will print out the 4 file names above, but it has
  three flaws: it doesn't scale to 10 or more files, it is inefficient, and
- is not cross platform.
+ it is not cross platform.
  It doesn't scale because it hard-codes the '
 \family typewriter 
 0
 \family default 
-' after myexp, it is inefficient because to add all those strings requires
- the creation of temporary strings, and it is not cross-platform because
- it hard-codes the directory separator '/'.
+' after 
+\family typewriter 
+myexp
+\family default 
+, it is inefficient because to add several strings requires the creation
+ of temporary strings, and it is not cross-platform because it hard-codes
+ the directory separator '/'.
 \layout LyX-Code
 
 
@@ -1181,9 +1272,13 @@ at the unix shell).
 \family typewriter 
 d
 \family default 
- part) and print it with a leading zero up and make it two characters long.
+ part) and print it with two digits, padding zero on the left (the
+\family typewriter 
+ %02
+\family default 
+ part).
  There is more to be said about string interpolation, but let's finish the
- job here.
+ job at hand.
  This example is better than the newbie way because is scales up to files
  numbered 0-99, and it is more efficient because it avoids the creation
  of temporary strings.
@@ -1194,11 +1289,14 @@ os.path
 \family default 
 , which provides a host of functions for platform-independent manipulations
  of filenames, extensions and paths.
- Here we use os.path.join to combine the directory with the filename in a
- platform independent way.
- On windows, it will provide the windows path separator '
+ Here we use 
+\family typewriter 
+os.path.join
+\family default 
+ to combine the directory with the filename in a platform independent way.
+ On windows, it will use the windows path separator '
 \backslash 
-' and on unix it will be '/'.
+' and on unix it will use '/'.
 \layout LyX-Code
 
 
@@ -1238,13 +1336,13 @@ OK, I promised to torture you a bit more with string interpolation -- don't
 \family typewriter 
 %e
 \family default 
-, with lots of variations on the theme
+, with lots of variations on the theme to indicate precision and more
 \layout LyX-Code
 
->>> '%d minutes at %1.1f C' % (175, 37.1)
+>>> 'warm for %d minutes at %1.1f C' % (30, 37.5)
 \layout LyX-Code
 
-'175 minutes at 37.1 C'
+'warm for 30 minutes at 37.5 C'
 \layout LyX-Code
 
 \layout LyX-Code
