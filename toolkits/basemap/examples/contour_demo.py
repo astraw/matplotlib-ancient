@@ -1,23 +1,21 @@
 from matplotlib.toolkits.basemap import Basemap, interp
 from pylab import *
 import cPickle
-from matplotlib import __version__
-
-if __version__ <= '0.70':
-    print 'warning - contour example will not work with this version of matplotlib if axes.patch is not applied'
 
 # read in data on lat/lon grid.
 datadict = cPickle.load(open('500hgt.pickle','rb'))
 hgt = datadict['data']; lons = datadict['lons']; lats = datadict['lats']
 
 # set up map projection (lambert azimuthal equal area).
-m = Basemap(-150.,-20.,30.,-20.,
+m = Basemap(-135.,-20.,45.,-20.,
              resolution='c',area_thresh=10000.,projection='laea',
-             lat_0=90.,lon_0=-105.)
+             lat_0=90.,lon_0=-90.)
 # interpolate to map projection grid.
 nx = 101
 ny = 101
 lonsout, latsout = m.makegrid(nx,ny)
+# get rid of negative lons.
+lonsout = where(lonsout < 0., lonsout + 360., lonsout)
 hgt = interp(hgt,lons,lats,lonsout,latsout)
 dx = (m.xmax-m.xmin)/(nx-1)
 dy = (m.ymax-m.ymin)/(ny-1)  
@@ -64,17 +62,16 @@ for np,plot in enumerate(plots):
 	
     # draw parallels
     delat = 30.
-    delon = 30.
-    circles = arange(0.,90.+delat,delat).tolist()+\
-	   arange(-delat,-90.-delat,-delat).tolist()
-    m.drawparallels(ax,circles)
+    delon = 90.
+    circles = arange(10.,90.+delat,delat).tolist()
+    m.drawparallels(ax,circles,labels=[0,0,1,1])
 
     # draw meridians
     meridians = arange(0.,360.,delon)
-    m.drawmeridians(ax,meridians)
+    m.drawmeridians(ax,meridians,labels=[1,1,1,1],fontsize=10)
 
     ax.set_xticks([]) # no ticks
     ax.set_yticks([])
-    title('500 hPa Height - '+plot)
+    title('500 hPa Height - '+plot,y=1.075)
 
 show()

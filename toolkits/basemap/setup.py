@@ -36,14 +36,13 @@ extensions = [Extension("proj4",
                         include_dirs = ['src'],)]
 
 setup(
-  name = "basemap",
-  version           = "20050130",
+  name              = "basemap",
+  version           = "0.2.1",
   description       = "Plot data on map projections with matplotlib",
+  url               = "http://matplotlib.sourceforge.net/toolkits.html",
   author            = "Jeff Whitaker",
   author_email      = "jeffrey.s.whitaker@noaa.gov",
-  url               = "http://www.cdc.noaa.gov/people/jeffrey.s.whitaker/python/basemap/",
-  download_url      = "http://www.cdc.noaa.gov/people/jeffrey.s.whitaker/python/basemap/basemap-20050130.tar.gz",
-  data_files        = [('share/basemap',['data/countries_c.txt','data/states_c.txt','data/countries_l.txt','data/states_l.txt','data/gshhs_c.txt','data/gshhs_l.txt'])],
+  data_files        = [('share/basemap',['data/countries_c.txt','data/states_c.txt','data/countries_l.txt','data/states_l.txt','data/gshhs_c.txt','data/gshhs_l.txt','data/countries_i.txt','data/states_i.txt','data/gshhs_i.txt'])],
   packages          = ['matplotlib/toolkits','matplotlib/toolkits/basemap'],
   package_dir       = {'':'lib'},
   ext_modules       = extensions)
