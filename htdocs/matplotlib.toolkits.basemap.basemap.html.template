@@ -13,10 +13,10 @@
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="MLab.html">MLab</a><br>
-<a href="numarray.html">numarray</a><br>
-</td><td width="25%" valign=top><a href="numarray.nd_image.html">numarray.nd_image</a><br>
-<a href="os.html">os</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numarray.html">numarray</a><br>
+<a href="numarray.nd_image.html">numarray.nd_image</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="pylab.html">pylab</a><br>
 </td><td width="25%" valign=top><a href="sys.html">sys</a><br>
 </td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -58,7 +58,7 @@
 &nbsp;<br>
 &gt;&gt;&gt;&nbsp;from&nbsp;matplotlib.toolkits.basemap&nbsp;import&nbsp;<a href="#Basemap">Basemap</a><br>
 &gt;&gt;&gt;&nbsp;import&nbsp;cPickle<br>
-&gt;&gt;&gt;&nbsp;from&nbsp;pylab&nbsp;import&nbsp;*<br>
+&gt;&gt;&gt;&nbsp;from&nbsp;import&nbsp;*<br>
 &gt;&gt;&gt;&nbsp;#&nbsp;read&nbsp;in&nbsp;topo&nbsp;data&nbsp;from&nbsp;pickle&nbsp;(on&nbsp;a&nbsp;regular&nbsp;lat/lon&nbsp;grid)<br>
 &gt;&gt;&gt;&nbsp;topodict&nbsp;=&nbsp;cPickle.load(open('etopo20.pickle','rb'))<br>
 &gt;&gt;&gt;&nbsp;etopo&nbsp;=&nbsp;topodict['data'];&nbsp;lons&nbsp;=&nbsp;topodict['lons'];&nbsp;lats&nbsp;=&nbsp;topodict['lats']<br>
@@ -82,7 +82,7 @@
 &gt;&gt;&gt;&nbsp;title('Cylindrical&nbsp;Equidistant')<br>
 &gt;&gt;&gt;&nbsp;show()<br>
 &nbsp;<br>
-&nbsp;Version:&nbsp;0.1&nbsp;(20050203)<br>
+&nbsp;Version:&nbsp;0.2.1&nbsp;(20050410)<br>
 &nbsp;Contact:&nbsp;Jeff&nbsp;Whitaker&nbsp;&lt;jeffrey.s.whitaker@noaa.gov&gt;<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
@@ -111,9 +111,10 @@ urcrnrlon&nbsp;-&nbsp;latitude&nbsp;of&nbsp;upper&nbsp;right&nbsp;hand&nbsp;corn
 &nbsp;<br>
 optional&nbsp;keyword&nbsp;parameters:<br>
 &nbsp;<br>
-resolution&nbsp;-&nbsp;resolution&nbsp;of&nbsp;coastline&nbsp;database&nbsp;to&nbsp;use.&nbsp;Can&nbsp;be&nbsp;'c'&nbsp;(crude,&nbsp;<br>
-&nbsp;roughly&nbsp;25&nbsp;km&nbsp;resolution)&nbsp;or&nbsp;'l'&nbsp;(low,&nbsp;roughly&nbsp;5&nbsp;km&nbsp;resolution).&nbsp;Default&nbsp;'c'.<br>
-&nbsp;Coastline&nbsp;data&nbsp;is&nbsp;from&nbsp;the&nbsp;GSHHS&nbsp;<br>
+resolution&nbsp;-&nbsp;resolution&nbsp;of&nbsp;coastline&nbsp;database&nbsp;to&nbsp;use.&nbsp;Can&nbsp;be&nbsp;'c'&nbsp;(crude),&nbsp;<br>
+&nbsp;'l'&nbsp;(low),&nbsp;or&nbsp;'i'&nbsp;(intermediate).&nbsp;Resolution&nbsp;drops&nbsp;off&nbsp;by&nbsp;roughly&nbsp;80%<br>
+&nbsp;between&nbsp;datasets.&nbsp;&nbsp;Higher&nbsp;res&nbsp;datasets&nbsp;are&nbsp;much&nbsp;slower&nbsp;to&nbsp;draw.<br>
+&nbsp;Default&nbsp;'c'.&nbsp;Coastline&nbsp;data&nbsp;is&nbsp;from&nbsp;the&nbsp;GSHHS<br>
 &nbsp;(<a href="http://www.soest.hawaii.edu/wessel/gshhs/gshhs.html">http://www.soest.hawaii.edu/wessel/gshhs/gshhs.html</a>).<br>
 area_thresh&nbsp;-&nbsp;coastline&nbsp;with&nbsp;an&nbsp;area&nbsp;smaller&nbsp;than&nbsp;area_thresh&nbsp;in&nbsp;km^2<br>
 &nbsp;will&nbsp;not&nbsp;be&nbsp;plotted.&nbsp;&nbsp;Default&nbsp;10,000.<br>
@@ -152,7 +153,21 @@ linewidth&nbsp;-&nbsp;country&nbsp;boundary&nbsp;line&nbsp;width&nbsp;(default&n
 color&nbsp;-&nbsp;country&nbsp;boundary&nbsp;line&nbsp;color&nbsp;(default&nbsp;black)<br>
 antialiased&nbsp;-&nbsp;antialiasing&nbsp;switch&nbsp;for&nbsp;country&nbsp;boundaries&nbsp;(default&nbsp;True).</tt></dd></dl>
 
-<dl><dt><a name="Basemap-drawmeridians"><strong>drawmeridians</strong></a>(self, ax, meridians, color<font color="#909090">='k'</font>, linewidth<font color="#909090">=1.0</font>, linestyle<font color="#909090">='--'</font>, dashes<font color="#909090">=[1, 1]</font>)</dt><dd><tt>draw&nbsp;meridians&nbsp;(longitude&nbsp;lines).<br>
+<dl><dt><a name="Basemap-drawgreatcircle"><strong>drawgreatcircle</strong></a>(self, ax, lon1, lat1, lon2, lat2, dtheta<font color="#909090">=0.02</font>, color<font color="#909090">='k'</font>, linewidth<font color="#909090">=1.0</font>, linestyle<font color="#909090">='-'</font>, dashes<font color="#909090">=[None, None]</font>)</dt><dd><tt>draw&nbsp;a&nbsp;great&nbsp;circle&nbsp;on&nbsp;the&nbsp;map.<br>
+&nbsp;<br>
+ax&nbsp;-&nbsp;current&nbsp;axis&nbsp;instance.<br>
+lon1,lat1&nbsp;-&nbsp;longitude,latitude&nbsp;of&nbsp;one&nbsp;endpoint&nbsp;of&nbsp;the&nbsp;great&nbsp;circle.<br>
+lon2,lat2&nbsp;-&nbsp;longitude,latitude&nbsp;of&nbsp;the&nbsp;other&nbsp;endpoint&nbsp;of&nbsp;the&nbsp;great&nbsp;circle.<br>
+dtheta&nbsp;-&nbsp;interval&nbsp;between&nbsp;points&nbsp;on&nbsp;arc&nbsp;in&nbsp;radians&nbsp;(default=0.02).<br>
+color&nbsp;-&nbsp;color&nbsp;to&nbsp;draw&nbsp;great&nbsp;circle&nbsp;(default&nbsp;black).<br>
+linewidth&nbsp;-&nbsp;line&nbsp;width&nbsp;for&nbsp;great&nbsp;circle&nbsp;(default&nbsp;1.)<br>
+linestyle&nbsp;-&nbsp;line&nbsp;style&nbsp;for&nbsp;great&nbsp;circle&nbsp;(default&nbsp;'-',&nbsp;i.e.&nbsp;solid).<br>
+dashes&nbsp;-&nbsp;dash&nbsp;pattern&nbsp;for&nbsp;great&nbsp;circle&nbsp;(default&nbsp;[None,None],&nbsp;i.e.&nbsp;solid).<br>
+&nbsp;<br>
+Note:&nbsp;&nbsp;cannot&nbsp;handle&nbsp;situations&nbsp;in&nbsp;which&nbsp;the&nbsp;great&nbsp;circle&nbsp;intersects<br>
+the&nbsp;edge&nbsp;of&nbsp;the&nbsp;map&nbsp;projection&nbsp;domain,&nbsp;and&nbsp;then&nbsp;re-enters&nbsp;the&nbsp;domain.</tt></dd></dl>
+
+<dl><dt><a name="Basemap-drawmeridians"><strong>drawmeridians</strong></a>(self, ax, meridians, color<font color="#909090">='k'</font>, linewidth<font color="#909090">=1.0</font>, linestyle<font color="#909090">='--'</font>, dashes<font color="#909090">=[1, 1]</font>, labels<font color="#909090">=[0, 0, 0, 0]</font>, font<font color="#909090">='rm'</font>, fontsize<font color="#909090">=12</font>)</dt><dd><tt>draw&nbsp;meridians&nbsp;(longitude&nbsp;lines).<br>
 &nbsp;<br>
 ax&nbsp;-&nbsp;current&nbsp;axis&nbsp;instance.<br>
 meridians&nbsp;-&nbsp;list&nbsp;containing&nbsp;longitude&nbsp;values&nbsp;to&nbsp;draw&nbsp;(in&nbsp;degrees).<br>
@@ -160,9 +175,16 @@ color&nbsp;-&nbsp;color&nbsp;to&nbsp;draw&nbsp;meridians&nbsp;(default&nbsp;blac
 linewidth&nbsp;-&nbsp;line&nbsp;width&nbsp;for&nbsp;meridians&nbsp;(default&nbsp;1.)<br>
 linestyle&nbsp;-&nbsp;line&nbsp;style&nbsp;for&nbsp;meridians&nbsp;(default&nbsp;'--',&nbsp;i.e.&nbsp;dashed).<br>
 dashes&nbsp;-&nbsp;dash&nbsp;pattern&nbsp;for&nbsp;meridians&nbsp;(default&nbsp;[1,1],&nbsp;i.e.&nbsp;1&nbsp;pixel&nbsp;on,<br>
-&nbsp;1&nbsp;pixel&nbsp;off).</tt></dd></dl>
+&nbsp;1&nbsp;pixel&nbsp;off).<br>
+labels&nbsp;-&nbsp;list&nbsp;of&nbsp;4&nbsp;values&nbsp;(default&nbsp;[0,0,0,0])&nbsp;that&nbsp;control&nbsp;whether<br>
+&nbsp;meridians&nbsp;are&nbsp;labelled&nbsp;where&nbsp;they&nbsp;intersect&nbsp;the&nbsp;left,&nbsp;right,&nbsp;top&nbsp;or&nbsp;<br>
+&nbsp;bottom&nbsp;of&nbsp;the&nbsp;plot.&nbsp;For&nbsp;example&nbsp;labels=[1,0,0,1]&nbsp;will&nbsp;cause&nbsp;meridians<br>
+&nbsp;to&nbsp;be&nbsp;labelled&nbsp;where&nbsp;they&nbsp;intersect&nbsp;the&nbsp;left&nbsp;and&nbsp;bottom&nbsp;of&nbsp;the&nbsp;plot,<br>
+&nbsp;but&nbsp;not&nbsp;the&nbsp;right&nbsp;and&nbsp;top.&nbsp;Labels&nbsp;are&nbsp;drawn&nbsp;using&nbsp;mathtext.<br>
+font&nbsp;-&nbsp;mathtext&nbsp;font&nbsp;used&nbsp;for&nbsp;labels&nbsp;('rm','tt','it'&nbsp;or&nbsp;'cal',&nbsp;default&nbsp;'rm').<br>
+fontsize&nbsp;-&nbsp;font&nbsp;size&nbsp;in&nbsp;points&nbsp;for&nbsp;labels&nbsp;(default&nbsp;12).</tt></dd></dl>
 
-<dl><dt><a name="Basemap-drawparallels"><strong>drawparallels</strong></a>(self, ax, circles, color<font color="#909090">='k'</font>, linewidth<font color="#909090">=1.0</font>, linestyle<font color="#909090">='--'</font>, dashes<font color="#909090">=[1, 1]</font>)</dt><dd><tt>draw&nbsp;parallels&nbsp;(latitude&nbsp;lines).<br>
+<dl><dt><a name="Basemap-drawparallels"><strong>drawparallels</strong></a>(self, ax, circles, color<font color="#909090">='k'</font>, linewidth<font color="#909090">=1.0</font>, linestyle<font color="#909090">='--'</font>, dashes<font color="#909090">=[1, 1]</font>, labels<font color="#909090">=[0, 0, 0, 0]</font>, font<font color="#909090">='rm'</font>, fontsize<font color="#909090">=12</font>)</dt><dd><tt>draw&nbsp;parallels&nbsp;(latitude&nbsp;lines).<br>
 &nbsp;<br>
 ax&nbsp;-&nbsp;current&nbsp;axis&nbsp;instance.<br>
 circles&nbsp;-&nbsp;list&nbsp;containing&nbsp;latitude&nbsp;values&nbsp;to&nbsp;draw&nbsp;(in&nbsp;degrees).<br>
@@ -170,7 +192,14 @@ color&nbsp;-&nbsp;color&nbsp;to&nbsp;draw&nbsp;parallels&nbsp;(default&nbsp;blac
 linewidth&nbsp;-&nbsp;line&nbsp;width&nbsp;for&nbsp;parallels&nbsp;(default&nbsp;1.)<br>
 linestyle&nbsp;-&nbsp;line&nbsp;style&nbsp;for&nbsp;parallels&nbsp;(default&nbsp;'--',&nbsp;i.e.&nbsp;dashed).<br>
 dashes&nbsp;-&nbsp;dash&nbsp;pattern&nbsp;for&nbsp;parallels&nbsp;(default&nbsp;[1,1],&nbsp;i.e.&nbsp;1&nbsp;pixel&nbsp;on,<br>
-&nbsp;1&nbsp;pixel&nbsp;off).</tt></dd></dl>
+&nbsp;1&nbsp;pixel&nbsp;off).<br>
+labels&nbsp;-&nbsp;list&nbsp;of&nbsp;4&nbsp;values&nbsp;(default&nbsp;[0,0,0,0])&nbsp;that&nbsp;control&nbsp;whether<br>
+&nbsp;parallels&nbsp;are&nbsp;labelled&nbsp;where&nbsp;they&nbsp;intersect&nbsp;the&nbsp;left,&nbsp;right,&nbsp;top&nbsp;or&nbsp;<br>
+&nbsp;bottom&nbsp;of&nbsp;the&nbsp;plot.&nbsp;For&nbsp;example&nbsp;labels=[1,0,0,1]&nbsp;will&nbsp;cause&nbsp;parallels<br>
+&nbsp;to&nbsp;be&nbsp;labelled&nbsp;where&nbsp;they&nbsp;intersect&nbsp;the&nbsp;left&nbsp;and&nbsp;bottom&nbsp;of&nbsp;the&nbsp;plot,<br>
+&nbsp;but&nbsp;not&nbsp;the&nbsp;right&nbsp;and&nbsp;top.&nbsp;Labels&nbsp;are&nbsp;drawn&nbsp;using&nbsp;mathtext.<br>
+font&nbsp;-&nbsp;mathtext&nbsp;font&nbsp;used&nbsp;for&nbsp;labels&nbsp;('rm','tt','it'&nbsp;or&nbsp;'cal',&nbsp;default&nbsp;'rm').<br>
+fontsize&nbsp;-&nbsp;font&nbsp;size&nbsp;in&nbsp;points&nbsp;for&nbsp;labels&nbsp;(default&nbsp;12).</tt></dd></dl>
 
 <dl><dt><a name="Basemap-drawstates"><strong>drawstates</strong></a>(self, ax, linewidth<font color="#909090">=0.5</font>, color<font color="#909090">='k'</font>, antialiased<font color="#909090">=1</font>)</dt><dd><tt>Draw&nbsp;state&nbsp;boundaries&nbsp;in&nbsp;Americas.<br>
 &nbsp;<br>
@@ -184,6 +213,10 @@ antialiased&nbsp;-&nbsp;antialiasing&nbsp;switch&nbsp;for&nbsp;state&nbsp;bounda
 ax&nbsp;-&nbsp;current&nbsp;axis&nbsp;instance.<br>
 color&nbsp;-&nbsp;color&nbsp;to&nbsp;fill&nbsp;continents&nbsp;(default&nbsp;gray).</tt></dd></dl>
 
+<dl><dt><a name="Basemap-gcpoints"><strong>gcpoints</strong></a>(self, lon1, lat1, lon2, lat2, npoints)</dt><dd><tt>compute&nbsp;npoints&nbsp;points&nbsp;along&nbsp;a&nbsp;great&nbsp;circle&nbsp;with&nbsp;endpoints<br>
+(lon1,lat1)&nbsp;and&nbsp;(lon2,lat2).&nbsp;&nbsp;Returns&nbsp;numarrays&nbsp;x,y<br>
+with&nbsp;map&nbsp;projection&nbsp;coordinates.</tt></dd></dl>
+
 <dl><dt><a name="Basemap-makegrid"><strong>makegrid</strong></a>(self, nx, ny)</dt><dd><tt>return&nbsp;arrays&nbsp;of&nbsp;shape&nbsp;(ny,nx)&nbsp;containing&nbsp;lon,lat&nbsp;coordinates&nbsp;of<br>
 an&nbsp;equally&nbsp;spaced&nbsp;native&nbsp;projection&nbsp;grid.</tt></dd></dl>
 
@@ -196,7 +229,7 @@ an&nbsp;equally&nbsp;spaced&nbsp;native&nbsp;projection&nbsp;grid.</tt></dd></dl
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-interp"><strong>interp</strong></a>(datain, lonsin, latsin, lonsout, latsout, checkbounds<font color="#909090">=False</font>, mode<font color="#909090">='nearest'</font>, cval<font color="#909090">=0.0</font>, order<font color="#909090">=3</font>)</dt><dd><tt>dataout&nbsp;=&nbsp;<a href="#-interp">interp</a>(datain,lonsin,latsin,lonsout,latsout,mode='constant',cval=0.0,order=3)<br>
 &nbsp;<br>
-interpolate&nbsp;data&nbsp;(datain)&nbsp;on&nbsp;a&nbsp;regularly&nbsp;spaced&nbsp;lat/lon&nbsp;grid&nbsp;(with&nbsp;lons=lonsin<br>
+interpolate&nbsp;data&nbsp;(datain)&nbsp;on&nbsp;a&nbsp;rectilinear&nbsp;lat/lon&nbsp;grid&nbsp;(with&nbsp;lons=lonsin<br>
 lats=latsin)&nbsp;to&nbsp;a&nbsp;grid&nbsp;with&nbsp;lons=lonsout,&nbsp;lats=latsout.<br>
 &nbsp;<br>
 datain&nbsp;is&nbsp;a&nbsp;rank-2&nbsp;array&nbsp;with&nbsp;1st&nbsp;dimension&nbsp;corresponding&nbsp;to&nbsp;longitude,<br>

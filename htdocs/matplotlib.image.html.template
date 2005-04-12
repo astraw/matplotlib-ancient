@@ -115,8 +115,12 @@ ACCEPTS:&nbsp;['bicubic'&nbsp;|&nbsp;'bilinear'&nbsp;|&nbsp;'blackman100'&nbsp;|
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="AxesImage-add_callback"><strong>add_callback</strong></a>(self, func)</dt></dl>
+
 <dl><dt><a name="AxesImage-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on&nbsp;all<br>
 backends</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-get_clip_box"><strong>get_clip_box</strong></a>(self)</dt><dd><tt>Return&nbsp;artist&nbsp;clipbox</tt></dd></dl>
 
 <dl><dt><a name="AxesImage-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
@@ -133,6 +137,10 @@ backends</tt></dd></dl>
 <dl><dt><a name="AxesImage-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="AxesImage-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-pchanged"><strong>pchanged</strong></a>(self)</dt><dd><tt>fire&nbsp;event&nbsp;when&nbsp;property&nbsp;changed</tt></dd></dl>
+
+<dl><dt><a name="AxesImage-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
 
 <dl><dt><a name="AxesImage-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox<br>
 &nbsp;<br>
@@ -231,8 +239,12 @@ norm&nbsp;is&nbsp;a&nbsp;colors.normalize&nbsp;instance&nbsp;to&nbsp;map&nbsp;lu
 
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="FigureImage-add_callback"><strong>add_callback</strong></a>(self, func)</dt></dl>
+
 <dl><dt><a name="FigureImage-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on&nbsp;all<br>
 backends</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-get_clip_box"><strong>get_clip_box</strong></a>(self)</dt><dd><tt>Return&nbsp;artist&nbsp;clipbox</tt></dd></dl>
 
 <dl><dt><a name="FigureImage-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
@@ -249,6 +261,10 @@ backends</tt></dd></dl>
 <dl><dt><a name="FigureImage-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="FigureImage-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-pchanged"><strong>pchanged</strong></a>(self)</dt><dd><tt>fire&nbsp;event&nbsp;when&nbsp;property&nbsp;changed</tt></dd></dl>
+
+<dl><dt><a name="FigureImage-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
 
 <dl><dt><a name="FigureImage-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends<br>
@@ -354,5 +370,5 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;MxNx4&nbsp;array&nbsp;of&nbsp;0-1&nbsp;nor
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'WXAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
 @footer@

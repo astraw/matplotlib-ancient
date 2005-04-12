@@ -2,7 +2,7 @@ from pylab import *
 
 # data are 256x256 16 bit integers
 dfile = '../../examples/data/s1045.ima'
-im = fromstring(file(dfile).read(), Int16).astype(Float)
+im = fromstring(file(dfile).read(), UInt16).astype(Float)
 im.shape = 256, 256
 
 imshow(im)

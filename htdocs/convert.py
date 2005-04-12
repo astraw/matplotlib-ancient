@@ -175,9 +175,12 @@ def isNewEntry(line):
     else:
         return 0
 
-news = NewsBox("""\
-matplotlib now has domain specific <a href=toolkits.html>toolkits</>.
-""")
+# re-add news to the params dict 'tables' entry below for news
+#news = NewsBox("""\
+#matplotlib now has domain specific <a href=toolkits.html>toolkits</>.
+#""")
+
+
 
 table1 =  LinkBox(header='Matplotlib', links=(
     ('Home', 'http://matplotlib.sourceforge.net'),
@@ -210,7 +213,7 @@ table3 =  LinkBox(header='Other', links=(
 
 params = {
     'myemail' : '<a href=mailto:jdhunter@ace.bsd.uchicago.edu> (jdhunter@ace.bsd.uchicago.edu)</a>',
-    'tables' : (news, table1, table2, table3),
+    'tables' : (table1, table2, table3),
     'default_table' :  'border=1 cellpadding=3 cellspacing=2', 
           }
 

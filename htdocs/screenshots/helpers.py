@@ -2,8 +2,6 @@ import time, datetime
 from matplotlib.numerix import *
 from matplotlib.numerix.mlab import *
 from matplotlib.dates import date2num
-import zlib
-import sys
 
 
 def load_quotes(fname, maxq=None):
@@ -32,6 +30,32 @@ def load_quotes(fname, maxq=None):
     return quotes
 
 
+def ema(s, n):
+    """
+    returns an n period exponential moving average for
+    the time series s
+
+    s is a list ordered from oldest (index 0) to most recent (index
+    -1) n is an integer
+
+    returns a numeric array of the exponential moving average
+    """
+    s = array(s)
+    ema = []
+    j = 1
+    #get n sma first and calculate the next n period ema
+    sma = sum(s[:n]) / n
+    multiplier = 2 / float(1 + n)
+    ema.append(sma)
+    #EMA(current) = ( (Price(current) - EMA(prev) ) xMultiplier) + EMA(prev)
+    ema.append(( (s[n] - sma) * multiplier) + sma)
+    #now calculate the rest of the values
+    for i in s[n+1:]:
+        tmp = ( (i - ema[j]) * multiplier) + ema[j]
+        j = j + 1
+        ema.append(tmp)
+    return ema
+
 def movavg(s, n):
     """
     returns an n period moving average for the time series s
@@ -40,6 +64,8 @@ def movavg(s, n):
     n is an integer
 
         returns a numeric array of the moving average
+
+    See also ema in this module for the exponential moving average.
     """
     s = array(s)
     c = cumsum(s)
@@ -75,19 +101,3 @@ def random_signal(N, tau):
     filter = exp(-t/tau)
     return convolve( randn(N), filter, mode=2)[:len(t)]
 
-def load_hst_data():
-    """reconstruct the numerix arrays from the data files"""
-    import matplotlib.numerix as n
-    #hst = n.fromfile('hst.dat',typecode=n.UInt8, shape=(812,592,3))/255.
-    str = open('data/hst.zdat').read()
-    dstr = zlib.decompress(str)
-    hst = n.fromstring(dstr, n.UInt8)
-    hst.shape = (812, 592, 3)
-    hst = hst/255.
-    str = open('data/chandra.dat').read()
-    chandra = n.fromstring(str, n.Int16)
-    chandra.shape = (812,592)
-    if sys.byteorder == 'little':
-        chandra.byteswapped()
-    # note that both HST and Chandra data are normalized to be between 0 and 1
-    return hst, chandra/16000.

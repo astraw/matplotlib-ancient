@@ -286,7 +286,7 @@ Return&nbsp;value&nbsp;is&nbsp;the&nbsp;patches.Polygon&nbsp;instance.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-axhspan">axhspan</a>(0.25,&nbsp;0.75,&nbsp;facecolor=0.5,&nbsp;alpha=0.5)<br>
 &nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
- <dl><dt><a name="-axis"><strong>axis</strong></a>(*v)</dt><dd><tt>Set/Get&nbsp;the&nbsp;axis&nbsp;properties::<br>
+ <dl><dt><a name="-axis"><strong>axis</strong></a>(*v, **kwargs)</dt><dd><tt>Set/Get&nbsp;the&nbsp;axis&nbsp;properties::<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-axis">axis</a>()&nbsp;&nbsp;returns&nbsp;the&nbsp;current&nbsp;axis&nbsp;as&nbsp;a&nbsp;length&nbsp;a&nbsp;length&nbsp;4&nbsp;vector<br>
 &nbsp;<br>
@@ -296,7 +296,14 @@ Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;def
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-axis">axis</a>('off')&nbsp;turns&nbsp;off&nbsp;the&nbsp;axis&nbsp;lines&nbsp;and&nbsp;labels<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-axis">axis</a>('equal')&nbsp;sets&nbsp;the&nbsp;xlim&nbsp;width&nbsp;and&nbsp;ylim&nbsp;height&nbsp;to&nbsp;be&nbsp;to&nbsp;be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;identical.&nbsp;&nbsp;The&nbsp;longer&nbsp;of&nbsp;the&nbsp;two&nbsp;intervals&nbsp;is&nbsp;chosen</tt></dd></dl>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;identical.&nbsp;&nbsp;The&nbsp;longer&nbsp;of&nbsp;the&nbsp;two&nbsp;intervals&nbsp;is&nbsp;chosen<br>
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;if&nbsp;len(*v)==0,&nbsp;you&nbsp;can&nbsp;pass&nbsp;in&nbsp;xmin,&nbsp;xmax,&nbsp;ymin,&nbsp;ymax&nbsp;as&nbsp;kwargs<br>
+&nbsp;&nbsp;&nbsp;selectively&nbsp;to&nbsp;alter&nbsp;just&nbsp;those&nbsp;limits&nbsp;w/o&nbsp;changing&nbsp;the&nbsp;others.<br>
+&nbsp;&nbsp;&nbsp;See&nbsp;help(xlim)&nbsp;and&nbsp;help(ylim)&nbsp;for&nbsp;more&nbsp;information<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;The&nbsp;xmin,&nbsp;xmax,&nbsp;ymin,&nbsp;ymax&nbsp;tuple&nbsp;is&nbsp;returned</tt></dd></dl>
  <dl><dt><a name="-axvline"><strong>axvline</strong></a>(*args, **kwargs)</dt><dd><tt>AXVLINE(x=0,&nbsp;ymin=0,&nbsp;ymax=1,&nbsp;**kwargs)<br>
 Axis&nbsp;Vertical&nbsp;Line<br>
 Draw&nbsp;a&nbsp;vertical&nbsp;line&nbsp;at&nbsp;x&nbsp;from&nbsp;ymin&nbsp;to&nbsp;ymax.&nbsp;&nbsp;With&nbsp;the&nbsp;default&nbsp;values<br>
@@ -907,8 +914,8 @@ USAGE:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-legend">legend</a>(&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),&nbsp;loc='upper&nbsp;left')<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-legend">legend</a>(&nbsp;(line1,&nbsp;line2,&nbsp;line3),&nbsp;&nbsp;('label1',&nbsp;'label2',&nbsp;'label3'),&nbsp;loc=2)<br>
 The&nbsp;location&nbsp;codes&nbsp;are<br>
-&nbsp;&nbsp;'best'&nbsp;:&nbsp;0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(default)<br>
-&nbsp;&nbsp;'upper&nbsp;right'&nbsp;&nbsp;:&nbsp;1,<br>
+&nbsp;&nbsp;'best'&nbsp;:&nbsp;0,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;'upper&nbsp;right'&nbsp;&nbsp;:&nbsp;1,&nbsp;(default)<br>
 &nbsp;&nbsp;'upper&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;2,<br>
 &nbsp;&nbsp;'lower&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;3,<br>
 &nbsp;&nbsp;'lower&nbsp;right'&nbsp;&nbsp;:&nbsp;4,<br>
@@ -1706,7 +1713,15 @@ the&nbsp;optional&nbsp;args&nbsp;work</tt></dd></dl>
 &nbsp;<br>
 xmin,&nbsp;xmax&nbsp;=&nbsp;<a href="#-xlim">xlim</a>()&nbsp;&nbsp;&nbsp;:&nbsp;return&nbsp;the&nbsp;current&nbsp;xlim<br>
 <a href="#-xlim">xlim</a>(&nbsp;(xmin,&nbsp;xmax)&nbsp;)&nbsp;&nbsp;:&nbsp;set&nbsp;the&nbsp;xlim&nbsp;to&nbsp;xmin,&nbsp;xmax<br>
-<a href="#-xlim">xlim</a>(&nbsp;xmin,&nbsp;xmax&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;set&nbsp;the&nbsp;xlim&nbsp;to&nbsp;xmin,&nbsp;xmax</tt></dd></dl>
+<a href="#-xlim">xlim</a>(&nbsp;xmin,&nbsp;xmax&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;set&nbsp;the&nbsp;xlim&nbsp;to&nbsp;xmin,&nbsp;xmax<br>
+&nbsp;<br>
+If&nbsp;you&nbsp;do&nbsp;not&nbsp;specify&nbsp;args,&nbsp;you&nbsp;can&nbsp;pass&nbsp;the&nbsp;xmin&nbsp;and&nbsp;xmax&nbsp;as<br>
+kwargs,&nbsp;eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#-xlim">xlim</a>(xmax=3)&nbsp;#&nbsp;adjust&nbsp;the&nbsp;max&nbsp;leaving&nbsp;min&nbsp;unchanged<br>
+&nbsp;&nbsp;<a href="#-xlim">xlim</a>(xmin=1)&nbsp;#&nbsp;adjust&nbsp;the&nbsp;min&nbsp;leaving&nbsp;max&nbsp;unchanged<br>
+&nbsp;<br>
+The&nbsp;new&nbsp;axis&nbsp;limits&nbsp;are&nbsp;returned&nbsp;as&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple</tt></dd></dl>
  <dl><dt><a name="-xticks"><strong>xticks</strong></a>(*args, **kwargs)</dt><dd><tt>Set/Get&nbsp;the&nbsp;xlimits&nbsp;of&nbsp;the&nbsp;current&nbsp;ticklocs,&nbsp;labels<br>
 &nbsp;<br>
 #&nbsp;return&nbsp;locs,&nbsp;labels&nbsp;where&nbsp;locs&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;tick&nbsp;locations&nbsp;and<br>
@@ -1737,7 +1752,15 @@ optional&nbsp;args&nbsp;work</tt></dd></dl>
 &nbsp;<br>
 ymin,&nbsp;ymax&nbsp;=&nbsp;<a href="#-ylim">ylim</a>()&nbsp;&nbsp;&nbsp;:&nbsp;return&nbsp;the&nbsp;current&nbsp;ylim<br>
 <a href="#-ylim">ylim</a>(&nbsp;(ymin,&nbsp;ymax)&nbsp;)&nbsp;&nbsp;:&nbsp;set&nbsp;the&nbsp;ylim&nbsp;to&nbsp;ymin,&nbsp;ymax<br>
-<a href="#-ylim">ylim</a>(&nbsp;ymin,&nbsp;ymax&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;set&nbsp;the&nbsp;ylim&nbsp;to&nbsp;ymin,&nbsp;ymax</tt></dd></dl>
+<a href="#-ylim">ylim</a>(&nbsp;ymin,&nbsp;ymax&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;set&nbsp;the&nbsp;ylim&nbsp;to&nbsp;ymin,&nbsp;ymax<br>
+&nbsp;<br>
+If&nbsp;you&nbsp;do&nbsp;not&nbsp;specify&nbsp;args,&nbsp;you&nbsp;can&nbsp;pass&nbsp;the&nbsp;ymin&nbsp;and&nbsp;ymax&nbsp;as<br>
+kwargs,&nbsp;eg<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#-ylim">ylim</a>(ymax=3)&nbsp;#&nbsp;adjust&nbsp;the&nbsp;max&nbsp;leaving&nbsp;min&nbsp;unchanged<br>
+&nbsp;&nbsp;<a href="#-ylim">ylim</a>(ymin=1)&nbsp;#&nbsp;adjust&nbsp;the&nbsp;min&nbsp;leaving&nbsp;max&nbsp;unchanged<br>
+&nbsp;<br>
+The&nbsp;new&nbsp;axis&nbsp;limits&nbsp;are&nbsp;returned&nbsp;as&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple</tt></dd></dl>
  <dl><dt><a name="-yticks"><strong>yticks</strong></a>(*args, **kwargs)</dt><dd><tt>Set/Get&nbsp;the&nbsp;ylimits&nbsp;of&nbsp;the&nbsp;current&nbsp;ticklocs,&nbsp;labels<br>
 &nbsp;<br>
 #&nbsp;return&nbsp;locs,&nbsp;labels&nbsp;where&nbsp;locs&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;tick&nbsp;locations&nbsp;and<br>
@@ -1828,8 +1851,8 @@ information&nbsp;on&nbsp;text&nbsp;properties.</tt></dd></dl>
 <strong>not_equal</strong> = &lt;ufunc 'not_equal'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
-<strong>rcParamsDefault</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'WXAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParamsDefault</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'WXAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
 <strong>sinh</strong> = &lt;ufunc 'sinh'&gt;<br>
 <strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>

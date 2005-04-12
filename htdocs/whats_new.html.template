@@ -3,7 +3,39 @@
 # tuple of (name, description) tuples
 
 versioninfo = {}
+versioninfo['0.80'] = (
 
+    ('kwargs to xlim, ylim, axis', """
+
+Applied a variant of Rick Muller's xlim/ylim/axis patch.  These
+functions now take kwargs to let you selectively alter only the min or
+max if desired.  Eg xlim(xmin=2) or axis(ymax=3).  They always return
+the new lim.  See, eg <a
+href=matplotlib.pylab.html#-xlim>help(xlim)</a>.  The same
+functionality is available in the API with <tt>ax.set_xlim</tt> and
+<tt>ax.set_ylim </tt>.
+    """),
+
+    ('wx fixes',
+     """
+Fixed a problem with wx app instantiation.  Incorporated Werner's wx
+patch -- wx backend should be compatible with wxpython2.4 and recent
+versions of 2.5.  Some early versions of wxpython 2.5 will not work
+because there was a temporary change in the dc API that was rolled
+back to make it 2.4 compliant"""),
+
+    ('Polygon editors',
+
+     """
+Added some proof of concept code to show how to use matplotlib to
+interact with plot elements in a GUI neutral way.  The editable
+polygon allows you to insert, delete and move vertices.  See <a
+href=examples/poly_editor.py>examples/poly_editor.py</a>.  The idea it
+to add interactor classes to support editable lines, text, polygons,
+etc.  This could support a cross GUI colormap editor, or spline
+editor, for example.
+     """),
+    )
 
 versioninfo['0.74'] = (
 

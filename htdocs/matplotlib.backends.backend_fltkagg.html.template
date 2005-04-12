@@ -140,6 +140,8 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</
 <dl><dt><a name="FigureCanvasFltkAgg-draw_cursor"><strong>draw_cursor</strong></a>(self, event)</dt><dd><tt>Draw&nbsp;a&nbsp;cursor&nbsp;in&nbsp;the&nbsp;event.axes&nbsp;if&nbsp;inaxes&nbsp;is&nbsp;not&nbsp;None.&nbsp;&nbsp;Use<br>
 native&nbsp;GUI&nbsp;drawing&nbsp;for&nbsp;efficiency&nbsp;if&nbsp;possible</tt></dd></dl>
 
+<dl><dt><a name="FigureCanvasFltkAgg-draw_idle"><strong>draw_idle</strong></a>(self, *args, **kwargs)</dt><dd><tt>draw&nbsp;only&nbsp;if&nbsp;idle;&nbsp;defaults&nbsp;to&nbsp;draw&nbsp;but&nbsp;backends&nbsp;can&nbsp;overrride</tt></dd></dl>
+
 <dl><dt><a name="FigureCanvasFltkAgg-key_press_event"><strong>key_press_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="FigureCanvasFltkAgg-key_release_event"><strong>key_release_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
@@ -519,7 +521,7 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
 <strong>cursord</strong> = {0: 31, 1: 35, 2: 66, 3: 27}<br>
 <strong>cursors</strong> = &lt;matplotlib.backend_bases.Cursors instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'WXAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>special_key</strong> = {65505: 'shift', 65506: 'shift', 65507: 'control', 65508: 'control', 65515: 'win', 65516: 'win'}<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

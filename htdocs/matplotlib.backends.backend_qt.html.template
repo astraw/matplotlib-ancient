@@ -1865,6 +1865,8 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</
 <dl><dt><a name="FigureCanvasQT-draw_cursor"><strong>draw_cursor</strong></a>(self, event)</dt><dd><tt>Draw&nbsp;a&nbsp;cursor&nbsp;in&nbsp;the&nbsp;event.axes&nbsp;if&nbsp;inaxes&nbsp;is&nbsp;not&nbsp;None.&nbsp;&nbsp;Use<br>
 native&nbsp;GUI&nbsp;drawing&nbsp;for&nbsp;efficiency&nbsp;if&nbsp;possible</tt></dd></dl>
 
+<dl><dt><a name="FigureCanvasQT-draw_idle"><strong>draw_idle</strong></a>(self, *args, **kwargs)</dt><dd><tt>draw&nbsp;only&nbsp;if&nbsp;idle;&nbsp;defaults&nbsp;to&nbsp;draw&nbsp;but&nbsp;backends&nbsp;can&nbsp;overrride</tt></dd></dl>
+
 <dl><dt><a name="FigureCanvasQT-key_press_event"><strong>key_press_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="FigureCanvasQT-key_release_event"><strong>key_release_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>

@@ -2,7 +2,8 @@
 
 <h2>Credits</h2>
 
-matplotlib was written by John Hunter<p>
+matplotlib was written by <a
+href=mailto://jdhunter@ace.bsd.uchicago.edu>John Hunter</a><p>
 
 <h4>Special thanks to those who have made valuable contributions
 (roughly in order of contribution by date)</h4>
@@ -114,7 +115,7 @@ matplotlib was written by John Hunter<p>
   href=matplotlib.pylab.html#-quiver>quiver</a> code and <a href=examples/quiver_demo.py>examples</a></li>
 
   <li>David Haas contributed the <a
-  href=matplotlib.pylab.html#-boxplot>boxplot</a> code <a
+  href=matplotlib.pylab.html#-boxplot>boxplot</a> code and <a
   href=examples/boxplot_demo.py>examples</a></li>
 
 </ul>

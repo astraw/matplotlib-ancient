@@ -2,11 +2,10 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr bgcolor="#7799ee">
 <td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_ps</strong></big></big> (version 0.74)</font></td
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_ps</strong></big></big> (version 0.80)</font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_ps.py">/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_ps.py</a></font></td></tr></table>
-    <p><tt>A&nbsp;PostScript&nbsp;backend,&nbsp;which&nbsp;can&nbsp;produce&nbsp;both&nbsp;PostScript&nbsp;.ps&nbsp;and<br>
-Encapsulated&nbsp;PostScript&nbsp;.eps&nbsp;files.</tt></p>
+    <p><tt>A&nbsp;PostScript&nbsp;backend,&nbsp;which&nbsp;can&nbsp;produce&nbsp;both&nbsp;PostScript&nbsp;.ps&nbsp;and</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -14,11 +13,12 @@ Encapsulated&nbsp;PostScript&nbsp;.eps&nbsp;files.</tt></p>
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="binascii.html">binascii</a><br>
-<a href="os.html">os</a><br>
-</td><td width="25%" valign=top><a href="re.html">re</a><br>
-<a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top><a href="time.html">time</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="matplotlib.agg.html">matplotlib.agg</a><br>
+<a href="binascii.html">binascii</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="re.html">re</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="time.html">time</a><br>
 </td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
@@ -93,6 +93,8 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</
 
 <dl><dt><a name="FigureCanvasPS-draw_cursor"><strong>draw_cursor</strong></a>(self, event)</dt><dd><tt>Draw&nbsp;a&nbsp;cursor&nbsp;in&nbsp;the&nbsp;event.axes&nbsp;if&nbsp;inaxes&nbsp;is&nbsp;not&nbsp;None.&nbsp;&nbsp;Use<br>
 native&nbsp;GUI&nbsp;drawing&nbsp;for&nbsp;efficiency&nbsp;if&nbsp;possible</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasPS-draw_idle"><strong>draw_idle</strong></a>(self, *args, **kwargs)</dt><dd><tt>draw&nbsp;only&nbsp;if&nbsp;idle;&nbsp;defaults&nbsp;to&nbsp;draw&nbsp;but&nbsp;backends&nbsp;can&nbsp;overrride</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasPS-key_press_event"><strong>key_press_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
@@ -272,10 +274,15 @@ None</tt></dd></dl>
 
 <dl><dt><a name="RendererPS-draw_line"><strong>draw_line</strong></a>(self, gc, x0, y0, x1, y1)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;line&nbsp;from&nbsp;x0,y0&nbsp;to&nbsp;x1,y1</tt></dd></dl>
 
-<dl><dt><a name="RendererPS-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
+<dl><dt><a name="RendererPS-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y, transform<font color="#909090">=None</font>)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
+point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
+
+<dl><dt><a name="RendererPS-draw_lines_old"><strong>draw_lines_old</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
 point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
 
 <dl><dt><a name="RendererPS-draw_mathtext"><strong>draw_mathtext</strong></a>(self, gc, x, y, s, prop, angle)</dt><dd><tt>Draw&nbsp;the&nbsp;math&nbsp;text&nbsp;using&nbsp;matplotlib.mathtext</tt></dd></dl>
+
+<dl><dt><a name="RendererPS-draw_path"><strong>draw_path</strong></a>(self, gc, rgbFace, path, trans)</dt></dl>
 
 <dl><dt><a name="RendererPS-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;point&nbsp;at&nbsp;x,y</tt></dd></dl>
 
@@ -421,14 +428,14 @@ elements</tt></dd></dl>
 <strong>KERNING_UNFITTED</strong> = 1<br>
 <strong>KERNING_UNSCALED</strong> = 2<br>
 <strong>UInt8</strong> = 'b'<br>
-<strong>__version__</strong> = '0.74'<br>
+<strong>__version__</strong> = '0.80'<br>
 <strong>backend_version</strong> = 'Level II'<br>
 <strong>bakoma_fonts</strong> = []<br>
-<strong>debugPS</strong> = 0<br>
+<strong>debugPS</strong> = 1<br>
 <strong>defaultPaperSize</strong> = (8.5, 11)<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>equal</strong> = &lt;ufunc 'equal'&gt;<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'WXAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

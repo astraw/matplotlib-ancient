@@ -207,6 +207,13 @@ Refs:<br>
  <dl><dt><a name="-detrend_none"><strong>detrend_none</strong></a>(x)</dt><dd><tt>Return&nbsp;x:&nbsp;no&nbsp;detrending</tt></dd></dl>
  <dl><dt><a name="-diagonal_matrix"><strong>diagonal_matrix</strong></a>(diag)</dt><dd><tt>Return&nbsp;square&nbsp;diagonal&nbsp;matrix&nbsp;whose&nbsp;non-zero&nbsp;elements&nbsp;are&nbsp;given&nbsp;by&nbsp;the<br>
 input&nbsp;array.</tt></dd></dl>
+ <dl><dt><a name="-dist"><strong>dist</strong></a>(x, y)</dt><dd><tt>return&nbsp;the&nbsp;distance&nbsp;between&nbsp;two&nbsp;points</tt></dd></dl>
+ <dl><dt><a name="-dist_point_to_segment"><strong>dist_point_to_segment</strong></a>(p, s0, s1)</dt><dd><tt>get&nbsp;the&nbsp;distance&nbsp;of&nbsp;a&nbsp;point&nbsp;to&nbsp;a&nbsp;segment.<br>
+&nbsp;<br>
+p,&nbsp;s0,&nbsp;s1&nbsp;are&nbsp;xy&nbsp;sequences<br>
+&nbsp;<br>
+This&nbsp;algorithm&nbsp;from<br>
+<a href="http://softsurfer.com/Archive/algorithm_0102/algorithm_0102.htm#Distance%20to%20Ray%20or%20Segment">http://softsurfer.com/Archive/algorithm_0102/algorithm_0102.htm#Distance%20to%20Ray%20or%20Segment</a></tt></dd></dl>
  <dl><dt><a name="-donothing_callback"><strong>donothing_callback</strong></a>(*args)</dt></dl>
  <dl><dt><a name="-entropy"><strong>entropy</strong></a>(y, bins)</dt><dd><tt>Return&nbsp;the&nbsp;entropy&nbsp;of&nbsp;the&nbsp;data&nbsp;in&nbsp;y<br>
 &nbsp;<br>

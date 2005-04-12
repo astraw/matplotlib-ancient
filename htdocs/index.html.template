@@ -6,21 +6,23 @@ commands = all_commands[0][1]
 
 
 @header@
+<a href=matplotlib.toolkits.basemap.basemap.html><img align=right src=screenshots/contour_small.png></a>
 
 <h2>Matplotlib</h2> 
 
   matplotlib is a python 2D plotting library which produces
-  publication quality figures using in a variety of hardcopy formats
-  and interactive GUI environments across platforms.  matplotlib can
-  be used in python scripts, interactively from the python shell (ala
+  publication quality figures in a variety of hardcopy formats and
+  interactive GUI environments across platforms.  matplotlib can be
+  used in python scripts, interactively from the python shell (ala
   matlab or mathematica), in web application servers generating
-  dynamic charts, or embedded in GUI applications; see <a
+  dynamic charts, and embedded in GUI applications; see <a
   href=backends.html>backends</a>. <p>
 
   matplotlib trys to make easy things easy and hard things possible.
   You can generate plots, histograms, power spectra, bar charts,
   errorcharts, scatterplots, etc, with just a few lines of code.  For
-  example, to make a histogram of data in x, you simply need to type
+  example, to make a histogram plot of data in x, you simply need to
+  type
 
   <pre>
   >>> hist(x, 100)   # use 100 bins

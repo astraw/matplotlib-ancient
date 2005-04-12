@@ -28,7 +28,6 @@ files = {
     'pie_demo.py'     : default,
     'plotmap.py'     : default,         
     'hstdemo.py' : default,
-    'hstdemo_contour.py' : default,
     }
 
 dpi1 = 60

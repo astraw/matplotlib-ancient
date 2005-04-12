@@ -71,6 +71,22 @@ at the same level as regular lines and patches, respectively.  See <a
 href=examples/zorder_demo.py>examples/zorder_demo.py</a>.
 """),
 
+
+    ('LEGEND',
+    "Why does the legend text appear vertical when I have only one entry?" , """\
+    You must past a list or tuple of strings to legend, even if you
+    have only one string.  In other words write
+    <pre>
+    ('my label', )
+    </pre>
+
+    not
+
+    <pre>
+    ('my label')
+    </pre>    
+"""),
+
     ('TOOLBAR2',
     'Nothing happens when I click the new toolbar buttons', """\
 The Home, Forward and back buttons on the new toolbar are used to
@@ -254,10 +270,10 @@ obvious filenames like <a
 href=examples/date_demo1.py>examples/date_demo1.py</a>.  Likewise,
 you'll find examples for images (<a
 href=examples/image_demo.py>examples/image_demo.py</a>), contouring
-(<a href=examples/contour_demo.py>examples/contour_demo.py</a>, using
+(<a href=examples/contour_demo.py>examples/contour_demo.py</a>), using
 matplotlib with a graphical user interface (<a
-href=examples/embedding_in_wx.py>examples/embedding_in_wx.py</a> and
-many more.  At last count, there were 116 examples.  Because these are
+href=examples/embedding_in_wx.py>examples/embedding_in_wx.py</a>) and
+many more.  At last count, there were 136 examples.  Because these are
 not included with the standard windows installer, they are often
 overlooked, which is why I emphasize them here.<p>
 
@@ -429,18 +445,24 @@ sample config file and information on how to use it.  """),
 
 """
 
-There is no official documentation yet, but there are a few resources
-
+While we need more documentation here, there are several resources for
+API developers
 <ul>
 
   <li>The class documentation at <a href=classdocs.html>classdocs</a>.
       </li>
 
+
+  <li>Robert Leftwich's matplotlib API <a href=leftwich_tut.txt>tutorial</a>.
+      </li>
+
+  <li>The matplotlib User's Guide has a chapter "Matplotlib API"</li>
+
   <li>the examples embedding_in*.py in the <a
       href=examples>examples</a> directory in the matplotlib src
       distribution.</li>
 
-  <li><a
+  <li><a href=examples/agg_oo.py>agg_oo.py</a> and <a
       href=examples/pythonic_matplotlib.py>pythonic_matplotlib.py</a>
       describes the translation from the matlab style interface to the
       pythonic, OO interface.</li>
@@ -451,6 +473,7 @@ There is no official documentation yet, but there are a few resources
       done there, translating all the gcf() calls to your figure
       instance, all the gca() calls to your axes instance, and so
       on.</li>
+
 
   <li>You can always post questions to <a
       href=http://sourceforge.net/mailarchive/forum.php?forum_id=33405>matplotlib-users</a></li>
@@ -466,42 +489,43 @@ I'm working on some additional documentation but it is not ready yet.
 
 Yes.  I have successfully frozen example scripts using the TkAgg,
 GTKAgg and WxAgg backends.  One trick is to make sure that py2exe can
-find all the matplotlib data files.  Recent versions of matplotlib
-(0.54.3 and later) support py2exe by looking in the py2exe dist dir
-for a <tt>matplotlibdata</tt> subdir.  Thus if your <tt>setup.py</tt>
-script looks like
+find all the matplotlib data files.  matplotlib looks in the py2exe
+dist dir for a <tt>matplotlibdata</tt> subdir.  Thus your
+py2exe <tt>setup.py</tt> script should have lines like this
 
 <pre>
-from distutils.core import setup
-import glob
-import py2exe
 
 data = glob.glob(r'C:\Python23\share\matplotlib\*')
 data.append(r'C:\Python23\share\matplotlib\.matplotlibrc')
 
 setup( console    = ["simple_plot.py"],
        data_files = [("matplotlibdata", data)],
-      )
+       options = {"py2exe":	
+                 # optimize may break pylab docstring handling
+                 {"packages": ['encodings', 'pytz', 'dateutil', 'numarray']
+                  }}      
+	)
 
 </pre>
 
-You don't need anything special in your plotting script.  Eg, the
-following works fine with recent versions of py2exe
 
-<pre>
-from pylab import *
-plot([1,2,3])
-show()
-</pre>
-
-matplotlib should be able to find your matplotlib data directory.  You
-can still configure the defaults in
+and matplotlib should be able to find your matplotlib data directory.
+You can still configure the defaults in
 <tt>dist/matplotlibdata/.matplotlibrc</tt> after the application has
 been frozen.<p>
 
-Note you may get warnings like "The following modules appear to be
-missing" but in general I have found these to be harmless for freezing
-matplotlib.<p>
+A could of examples freezing matplotlib version 0.74 are available <a
+href=py2exe_examples.zip>here</a>.  This link was updated to include
+new features of matplotlib ,eg date, timezone and numerix handling.
+I find py2exe's handling of the timezone modules a bit flaky.  To be
+on the safe side, you may want to explicitly import the timezone
+modules you need for your application in the script you are freezing,
+eg
+
+<pre>
+import pytz.zoneinfo.UTC
+import pytz.zoneinfo.US.Eastern
+</pre>
 
 To freeze GTK or GTKAgg, you need to do a couple of extra things,
 including creating a <tt>setup.cfg</tt> file and copying the
@@ -513,9 +537,13 @@ zip file.<p>
 If you want to reduce the size of your application by excluding
 certain backends, see the <a
 href=http://starship.python.net/crew/theller/moin.cgi/MatPlotLib>matplotlib
-py2exe wiki entry</a>.
+py2exe wiki entry</a> though some of this information may be old.
 
-"""),
+
+There have been several discussions of freezing matplotlib with py2exe
+on the mailing list <a
+href=http://sourceforge.net/mailarchive/forum.php?forum_id=33405>archives</a>,
+so please read those threads for more information.  """),
 
     ('CUSTOM',
     'How do I dynamically change the rc defaults?',

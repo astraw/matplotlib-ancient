@@ -70,6 +70,8 @@ Methods inherited from <a href="matplotlib.backends.backend_gtk.html#FigureCanva
 
 <dl><dt><a name="FigureCanvasGTKAgg-draw"><strong>draw</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="FigureCanvasGTKAgg-draw_idle"><strong>draw_idle</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="FigureCanvasGTKAgg-expose_event"><strong>expose_event</strong></a>(self, widget, event)</dt><dd><tt>Expose_event&nbsp;for&nbsp;all&nbsp;GTK&nbsp;backends<br>
 Should&nbsp;not&nbsp;be&nbsp;overridden.</tt></dd></dl>
 
@@ -89,7 +91,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137368896)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (139076664)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>

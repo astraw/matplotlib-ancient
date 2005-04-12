@@ -97,6 +97,8 @@ Methods defined here:<br>
 
 <dl><dt><a name="FigureCanvasGTK-draw"><strong>draw</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="FigureCanvasGTK-draw_idle"><strong>draw_idle</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="FigureCanvasGTK-expose_event"><strong>expose_event</strong></a>(self, widget, event)</dt><dd><tt>Expose_event&nbsp;for&nbsp;all&nbsp;GTK&nbsp;backends<br>
 Should&nbsp;not&nbsp;be&nbsp;overridden.</tt></dd></dl>
 
@@ -118,7 +120,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137368896)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (139075712)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -591,7 +593,7 @@ Methods inherited from <a href="gtk.html#FileSelection">gtk.FileSelection</a>:<b
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#FileSelection">gtk.FileSelection</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileSelection (137414744)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileSelection (139121560)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.FileSelection' objects&gt;</dl>
 
@@ -1365,7 +1367,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137371632)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (139078448)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -1890,7 +1892,7 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137371632)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (139078448)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>

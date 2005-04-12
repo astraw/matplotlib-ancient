@@ -37,10 +37,14 @@
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Artist-__init__"><strong>__init__</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="Artist-add_callback"><strong>add_callback</strong></a>(self, func)</dt></dl>
+
 <dl><dt><a name="Artist-draw"><strong>draw</strong></a>(self, renderer, *args, **kwargs)</dt><dd><tt>Derived&nbsp;classes&nbsp;drawing&nbsp;method</tt></dd></dl>
 
 <dl><dt><a name="Artist-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on&nbsp;all<br>
 backends</tt></dd></dl>
+
+<dl><dt><a name="Artist-get_clip_box"><strong>get_clip_box</strong></a>(self)</dt><dd><tt>Return&nbsp;artist&nbsp;clipbox</tt></dd></dl>
 
 <dl><dt><a name="Artist-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
 
@@ -57,6 +61,10 @@ backends</tt></dd></dl>
 <dl><dt><a name="Artist-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="Artist-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
+
+<dl><dt><a name="Artist-pchanged"><strong>pchanged</strong></a>(self)</dt><dd><tt>fire&nbsp;event&nbsp;when&nbsp;property&nbsp;changed</tt></dd></dl>
+
+<dl><dt><a name="Artist-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
 
 <dl><dt><a name="Artist-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends<br>

@@ -116,13 +116,7 @@ href=matplotlib.pylab.html#-imshow>imshow</a> command.""", 1),
 This example shows how you can plot an rgb image with the aspect ratio
 preserved.  Thanks to Perry Greenfield and the <a
 href=http://www.stsci.edu>Space Telescope Science Institute</a> for
-this example.  See the following example which shows how to overlay
-contours on images.
-""", 1),
-
-('hstdemo_contour', """
-This example shows the HST image data above with contour lines
-superimposed
+this example.  The Chandra contours overlay the image.
 """, 1),
 
 
