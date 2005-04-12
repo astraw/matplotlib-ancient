@@ -1,9 +1,0 @@
-In [2]: x = rand(20); y = rand(20)
- 
-In [3]: lines = plot(x,y,'o')
- 
-In [4]: type(lines)        # plot always returns a list
-Out[4]: <type 'list'>
- 
-In [5]: len(lines)         # even if it is length 1
-Out[5]: 1
