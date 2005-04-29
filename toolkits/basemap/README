@@ -5,7 +5,7 @@ using matplotlib.
 
 **Requirements**
 
-numarray 1.1 (or higher), matplotlib 0.71 (or higher) extension modules.
+numarray 1.1 (or higher)
 
 **Copyright**
 
@@ -31,9 +31,18 @@ PERFORMANCE OF THIS SOFTWARE.
 
 **Documentation** 
 
-see Lib/basemap.py docstrings.
+see basemap.py docstrings.
 
 see scripts in 'examples' directory for example usage.
+
+**Install**
+
+just run 'python setup.py install' 
+
+for a non-standard install (python setup.py install --home=<dir>,
+or python setup.py install --prefix=<dir>), the environment
+variable BASEMAP_DATA_PATH must be set to the directory where the
+data files (gshhs*.txt, countries*.txt and states*.txt) are installed. 
 
 **Contact**
 
