@@ -1,11 +1,65 @@
-20041229:  initial release
-20050119:  fixed glitches in drawing of parallels and meridians.
-20050121:  proj.4 is now called via a C-library interface, instead
-           of using the proj command-line tool via os.popen.
+20050511:  version 0.4.3
+           Added Oblique Mercator.
+           great circle calculations now use vincenty's equations
+           for an ellipsoid.
+20050510:  version 0.4.2
+           transform_vector now does a simple rotation of the vector
+           from geographic to map coordinates, preserving the vector
+           magnitude (removed 'preserve_magnitude' keyword).
+           Minor bugs in Miller and Mercator projections fixed.
+           Added Gnomonic, Cassini-Soldner and Polyconic projections
+           (now 13 projections supported).
+20050509:  version 0.4.1
+           Miller projection was erroneously referred to by the name
+           'miller' (instead of 'mill') - fixed.  Added the ability
+           to specify the major and minor sphere radii by specifying
+           the 'rsphere' keyword in __init__ to be a tuple instead of
+           a scalar.
+20050505:  version 0.4
+           added support for miller cylindrical, equidistant conic,
+           and azimuthal equidistant projections.  Bugs fixed in 
+           coastline drawing and continent filling methods.
+20050427:  version 0.3.3
+           fillcontinents modified to not fill lakes (they
+           are actually still filled, but with axis background color).
+20050420:  version 0.3.2 - code cleanups and docstring typo fixes.
+           env var BASEMAP_DATA_PATH can now be used to point to
+           data files in a non-standard install (i.e using --prefix
+           or --home).
+20050415:  version 0.3
+           Added transform_scalar and transform_vector methods for
+           interpolating scalar and vector fields to a map projection
+           grid.  Added shiftgrid and addcyclic convenience functions.
+           Added quiver_demo.py example illustrating how to plot
+           wind vectors on a map. Updated examples to use 
+           transform_scalar instead of calling interp directly.
+           Mercator x coordinate units changed from degrees to meters
+           setup.py now installs data in python-version-numbered directory.
+           (so you can have separate copies for different python versions).
+           Fixed aspect ratio of mercator plots.
+           Added set_axes_limits,plot,scatter,contourf,contour,
+           pcolor and quiver methods.
+           axes instance no longer a method argument (API change).
+20050410:  version 0.2.1 - add gcpoints and drawgreatcircles methods.
+           Added intermediate resolution coastline and political 
+           boundary databases. Fixed bug in filling continents,
+           and another bug in drawing parallels/meridians. Added
+           'ireland.py' example.
+20050404:  version 0.2 - drawparallels and drawmeridians can now
+           draw labels at edge of map.
+20050331:  version 0.1.2 - now can handle negative longitudes (patch
+           from Michael Brady). basemap.interp can now handle irregular
+           (but still rectilinear) lat/lon grids.
+20050203:  version 0.1 released on SF.
+20050202:  Changed LineCollections.color to set_color in a try/except block.
+           (color was a typo in 0.71 and is deprecated).
+20050130:  no user visible changes.  Uses new pyrex generated
+           C extension interface to proj.4 which is twice as
+           fast as the Thuban one.
 20050124:  some code reorg, fixed bugs in S. Hem. projections.
            xmin,xmax,ymin,ymax Basemap instance variables renamed
            to llcrnrx,urcrnrx,llcrnry,urcrnry. Added __call__
            and makegrid methods to Basemap class.
-20050130:  no user visible changes.  Uses new pyrex generated
-           C extension interface to proj.4 which is twice as
-           fast as the Thuban one.
+20050121:  proj.4 is now called via a C-library interface, instead
+           of using the proj command-line tool via os.popen.
+20050119:  fixed glitches in drawing of parallels and meridians.
