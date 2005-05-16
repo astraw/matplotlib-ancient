@@ -3,6 +3,7 @@
 from pylab import *
 
 figure(1)
+ax = axes([0.1, 0.1, 0.8, 0.7])
 t = arange(0.0, 1.0+0.01, 0.01)
 s = cos(2*2*pi*t)
 plot(t, s)
@@ -12,6 +13,6 @@ ylabel('voltage (mV)')
 title('About as simple as it gets, folks')
 grid(True)
 #axis([0,1,-1,1])
-savefig('simple_plot')
+#savefig('simple_plot')
 
 show()
