@@ -16,6 +16,13 @@ def ps():
     print 'making ps'
     #os.system('lyx -e pdf main.lyx')
     os.system('./lyxport2 --ps main')
+
+def dist():
+    pdf()
+    try:
+        os.symlink('main.pdf','practical_scicomp_py.pdf')
+    except OSError:
+        pass
     
 for arg in sys.argv[1:]:
     try:
