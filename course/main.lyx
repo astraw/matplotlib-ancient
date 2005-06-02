@@ -48,7 +48,7 @@
 \graphics default
 \paperfontsize default
 \spacing single 
-\papersize Default
+\papersize letterpaper
 \paperpackage a4
 \use_geometry 1
 \use_amsmath 1
@@ -157,6 +157,8 @@ Prabhu Ramachandran
 
 \layout Standard
 
+\layout Standard
+
 
 \begin_inset Include \input{why_python.lyx}
 preview false
@@ -239,7 +241,7 @@ preview false
 \layout Standard
 
 
-\begin_inset LatexCommand \BibTeX[plain]{python,python2}
+\begin_inset LatexCommand \BibTeX[plain]{python,python2,cyber}
 
 \end_inset 
 

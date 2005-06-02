@@ -1,0 +1,10 @@
+In [1]: import pylab as p
+In [2]: X = p.load('data/ascii_data.dat') # X is an array
+In [3]: t = X[:,0]  # extract the first column
+In [4]: v = X[:,1]  # extract the second column
+In [5]: len(t)
+Out[5]: 20
+In [6]: len(v)
+Out[6]: 20
+In [7]: p.plot(t,v) # plot the data
+Out[7]: [<matplotlib.lines.Line2D instance at 0xb6a817ac>]
