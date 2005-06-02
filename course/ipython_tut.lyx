@@ -745,7 +745,7 @@ collapsed false
 \begin_inset Graphics
 	filename fig/ipscr_code.png
 	lyxscale 40
-	width 45line%
+	width 48line%
 
 \end_inset 
 
@@ -754,7 +754,7 @@ collapsed false
 \begin_inset Graphics
 	filename fig/ipscr_meth_src.png
 	lyxscale 40
-	width 45line%
+	width 48line%
 
 \end_inset 
 
@@ -1741,7 +1741,7 @@ $
 \family default 
 ' get expanded.
  For details of the semantic rules, see PEP-215: 
-\begin_inset LatexCommand \htmlurl{ not found, performing expensive initialization..."}
+\begin_inset LatexCommand \htmlurl{http://www.python.org/peps/pep-0215.html}
 
 \end_inset 
 
@@ -2344,6 +2344,68 @@ The Python standard library includes powerful facilities for debugging and
  IPython tries to automate their use to the point where, with a single command,
  you can use either of these subsystems in a transparent manner.
  Hopefully they will become part of your daily workflow.
+\layout Standard
+
+At its most basic, for debugging your programs, you can rely on using 
+\family typewriter 
+%run
+\family default 
+ to execute them, see the results, play with all variables loaded into the
+ interactive namespace, etc.
+ A typical working session involves keeping your favorite editor open with
+ the file you are working on, and repeatedly calling 
+\family typewriter 
+%run
+\family default 
+ on it as you make changes and save them.
+\layout Standard
+
+
+\begin_inset Float figure
+wide false
+collapsed false
+
+\layout Standard
+\align center 
+
+\begin_inset Graphics
+	filename fig/ipscr_traceback.png
+	lyxscale 40
+	width 70line%
+
+\end_inset 
+
+
+\layout Caption
+
+
+\begin_inset LatexCommand \label{fig:ipscr_traceback}
+
+\end_inset 
+
+IPython can provide extremely detailed tracebacks.
+\end_inset 
+
+
+\layout Standard
+
+If your program raises an exception, IPython will provide you with a more
+ detailed traceback than the default Python ones.
+ You can even increase the level of detail further by using 
+\family typewriter 
+%xmode Verbose
+\family default 
+, which forces the printing of variable values at all stack frames.
+ This option should be used with care though (and that's why it is not the
+ default), as printing a ten-million-entry array can lock up your computer
+ for a very long time.
+ An example of this kind of very informative traceback is shown in Fig.\SpecialChar ~
+
+\begin_inset LatexCommand \ref{fig:ipscr_traceback}
+
+\end_inset 
+
+.
 \layout Subsection
 
 Automatic invocation of 
@@ -2405,8 +2467,9 @@ For stand-alone use of the feature in your programs which do not use IPython
 import sys,IPython.ultraTB
 \layout LyX-Code
 
-sys.excepthook = IPython.ultraTB.FormattedTB(mode=`Verbose', color_scheme=`Linux',
- call_pdb=1)
+sys.excepthook = IPython.ultraTB.FormattedTB(mode=`Verbose', 
+\newline 
+color_scheme=`Linux', call_pdb=1)
 \layout Standard
 
 The 

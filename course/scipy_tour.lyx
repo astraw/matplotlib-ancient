@@ -511,6 +511,15 @@ Because of their ubiquitousness, some of the functions in these subpackages
 \layout Section
 
 Basic functions in scipy_base and top-level scipy
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Basic functions
+\end_inset 
+
+
 \layout Subsection
 
 Interaction with Numeric
@@ -746,17 +755,25 @@ One familiar with Matlab may complain that it is difficult to construct
  to 1 (inclusive on both ends).
  Before SciPy, you would need to enter something like the following 
 \family typewriter 
+
+\newline 
 >>> concatenate(([3],[0]*5,arange(-1,1.002,2/9.0))
 \family default 
 .
- With the 
+ 
+\newline 
+With the 
 \series bold 
 r_
 \series default 
  command one can enter this as
 \family typewriter 
- >>> r_[3,[0]*5,-1:1:10j] 
+ 
+\newline 
+>>> r_[3,[0]*5,-1:1:10j] 
 \family default 
+
+\newline 
 which can ease typing and make for more readable code.
  Notice how objects are concatenated, and the slicing syntax is (ab)used
  to construct ranges.
@@ -1176,6 +1193,15 @@ derivative
 \layout Section
 
 Special functions (special)
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Special functions
+\end_inset 
+
+
 \layout Standard
 
 The main feature of the 
@@ -1213,6 +1239,15 @@ Each function also has it's own documentation accessible using help.
 \layout Section
 
 Integration (integrate)
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Integration
+\end_inset 
+
+
 \layout Standard
 
 The 
@@ -2379,6 +2414,15 @@ fixed_point
 \layout Section
 
 Interpolation (interpolate)
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Interpolation
+\end_inset 
+
+
 \layout Standard
 
 There are two general interpolation facilities available in SciPy.
@@ -2883,6 +2927,15 @@ Example of two-dimensional spline interpolation.
 \layout Section
 
 Signal Processing (signal)
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+Signal Processing
+\end_inset 
+
+
 \layout Standard
 
 The signal processing toolbox currently contains some filtering functions,
@@ -5559,12 +5612,21 @@ yx and discrete.lyx in the stats sub-directories.
  
 \layout Section
 
-Interfacing with Python Imaging Library
+Interfacing with the Python Imaging Library
+\begin_inset OptArg
+collapsed true
+
 \layout Standard
 
-If you have the Python Imaging Library installed, SciPy provides some convenient
- functions that make use of it's facilities particularly for reading, writing,
- displaying, and rotating images.
+Interfacing with the PIL
+\end_inset 
+
+
+\layout Standard
+
+If you have the Python Imaging Library (PIL) installed, SciPy provides some
+ convenient functions that make use of it's facilities particularly for
+ reading, writing, displaying, and rotating images.
  In SciPy an image is always a two- or three-dimensional array.
  Gray-scale, and colormap images are always two-dimensional arrays while
  RGB images are three-dimensional with the third dimension specifying the
