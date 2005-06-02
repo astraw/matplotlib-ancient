@@ -458,7 +458,7 @@ sub run_pdflatex {
     # make all changes in a temp tex file
     ($texbase=$tex) =~ s/\.tex$//;
     $tmpbase = "${texbase}_#tmp_pdf#";
-    @extensions=qw(tex aux out toc log);
+    @extensions=qw(tex aux out toc log bbl blg);
     ($textmp,@tmpfiles)= map { "${tmpbase}.$_" } @extensions;
 
     push(@tmpfiles,improve_tex_figs($tex,$textmp));

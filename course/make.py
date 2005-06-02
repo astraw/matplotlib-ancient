@@ -11,8 +11,16 @@ def pdf():
     print 'making pdf'
     #os.system('lyx -e pdf main.lyx')
     os.system('./lyxport2 --pdf main')
+
+def ps():
+    print 'making ps'
+    #os.system('lyx -e pdf main.lyx')
+    os.system('./lyxport2 --ps main')
     
 for arg in sys.argv[1:]:
-    if arg=='clean': clean()
-    elif arg=='pdf': pdf()  
-    else: raise ValueError('Unrecognized command "%s"' % arg)
+    try:
+        exec arg
+    except NameError:
+        raise NameError('Unrecognized command "%s"' % arg)
+    else:
+        exec arg+'()'

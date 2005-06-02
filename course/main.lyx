@@ -71,11 +71,35 @@
 
 \layout Title
 
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+vspace{3cm}
+\end_inset 
+
+
+\newline 
 Practical Scientific Computing
 \newline 
 in Python
 \layout Author
 
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+vspace{1cm}
+\end_inset 
+
+
+\newline 
 John D.
  Hunter
 \newline 
@@ -90,6 +114,39 @@ status Collapsed
 \end_inset 
 
 rez
+\newline 
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+vspace{1cm}
+\end_inset 
+
+
+\newline 
+with contributions from
+\newline 
+
+\begin_inset ERT
+status Collapsed
+
+\layout Standard
+
+\backslash 
+vspace{1cm}
+\end_inset 
+
+
+\newline 
+Perry Greenfield
+\newline 
+Travis E.
+ Oliphant
+\newline 
+Prabhu Ramachandran
 \layout Standard
 
 
@@ -155,7 +212,7 @@ preview false
 \layout Standard
 
 
-\begin_inset Include \input{vtk_tut.lyx}
+\begin_inset Include \input{mayavi_tut.lyx}
 preview false
 
 \end_inset 
@@ -164,7 +221,7 @@ preview false
 \layout Standard
 
 
-\begin_inset Include \input{mayavi_tut.lyx}
+\begin_inset Include \input{vtk_tut.lyx}
 preview false
 
 \end_inset 
@@ -182,7 +239,7 @@ preview false
 \layout Standard
 
 
-\begin_inset LatexCommand \BibTeX[plain]{python}
+\begin_inset LatexCommand \BibTeX[plain]{python,python2}
 
 \end_inset 
 

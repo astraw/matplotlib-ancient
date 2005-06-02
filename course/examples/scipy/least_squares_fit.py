@@ -1,6 +1,9 @@
+"""Simple data fitting and smoothing example"""
+
 from scipy import exp, arange,array
 from RandomArray import normal
 from scipy.optimize import leastsq
+from scipy.interpolate import splrep,splev
 
 import pylab as P
 
@@ -26,9 +29,18 @@ best, info, ier, mesg = leastsq(errfunc, guess, full_output=1)
 print 'true', parsTrue
 print 'best', best
 
+print 'Spline smoothing of the data'
+sp = splrep(distance,data)
+smooth = splev(distance,sp)
+print 'Spline information (see splrep and splev for details):',sp
+
 # Now use pylab to plot
 P.figure()
-P.plot(data,label='Noisy data')
-P.plot(func(best),lw=2,label='Best fit')
+P.plot(distance,data,label='Noisy data')
+P.plot(distance,func(best),lw=2,label='Best fit')
+P.legend()
+P.figure()
+P.plot(distance,data,label='Noisy data')
+P.plot(distance,smooth,lw=2,label='Spline-smoothing')
 P.legend()
 P.show()

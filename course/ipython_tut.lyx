@@ -737,7 +737,7 @@ The magic commands
 
 \begin_inset Float figure
 wide false
-collapsed true
+collapsed false
 
 \layout Standard
 \align center 
@@ -745,7 +745,7 @@ collapsed true
 \begin_inset Graphics
 	filename fig/ipscr_code.png
 	lyxscale 40
-	width 2.9in
+	width 45line%
 
 \end_inset 
 
@@ -754,7 +754,7 @@ collapsed true
 \begin_inset Graphics
 	filename fig/ipscr_meth_src.png
 	lyxscale 40
-	width 2.9in
+	width 45line%
 
 \end_inset 
 
@@ -1455,6 +1455,15 @@ Thanks to all of its various control options,
 \layout Section
 
 Access to the underlying Operating System
+\begin_inset OptArg
+collapsed true
+
+\layout Standard
+
+OS access
+\end_inset 
+
+
 \layout Subsection
 
 Basic usage
