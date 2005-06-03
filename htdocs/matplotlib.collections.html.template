@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.collections</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/collections.py">/usr/local/lib/python2.3/site-packages/matplotlib/collections.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/collections.py">/usr/lib/python2.4/site-packages/matplotlib/collections.py</a></font></td></tr></table>
     <p><tt>Classes&nbsp;for&nbsp;the&nbsp;efficient&nbsp;drawing&nbsp;of&nbsp;large&nbsp;collections&nbsp;of&nbsp;objects&nbsp;that<br>
 share&nbsp;most&nbsp;properties,&nbsp;eg&nbsp;a&nbsp;large&nbsp;number&nbsp;of&nbsp;line&nbsp;segments&nbsp;or&nbsp;polygons<br>
 &nbsp;<br>
@@ -102,6 +102,8 @@ backends</tt></dd></dl>
 
 <dl><dt><a name="Collection-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
 
+<dl><dt><a name="Collection-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
+
 <dl><dt><a name="Collection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends<br>
 &nbsp;<br>
@@ -185,9 +187,10 @@ linestyles&nbsp;is&nbsp;a&nbsp;string&nbsp;or&nbsp;dash&nbsp;tuple.&nbsp;Legal&n
 if&nbsp;linewidths,&nbsp;colors,&nbsp;or&nbsp;antialiaseds&nbsp;is&nbsp;None,&nbsp;they&nbsp;default&nbsp;to<br>
 their&nbsp;rc&nbsp;params&nbsp;setting,&nbsp;in&nbsp;sequence&nbsp;form</tt></dd></dl>
 
-<dl><dt><a name="LineCollection-color"><strong>color</strong></a>(self, c)</dt><dd><tt>Set&nbsp;the&nbsp;<a href="#LineCollection-color">color</a>(s)&nbsp;of&nbsp;the&nbsp;line&nbsp;collection.&nbsp;&nbsp;c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg<br>
-(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),&nbsp;or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it<br>
-is&nbsp;a&nbsp;sequence&nbsp;the&nbsp;patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence<br>
+<dl><dt><a name="LineCollection-color"><strong>color</strong></a>(self, c)</dt><dd><tt>Set&nbsp;the&nbsp;<a href="#LineCollection-color">color</a>(s)&nbsp;of&nbsp;the&nbsp;line&nbsp;collection.&nbsp;&nbsp;c&nbsp;can&nbsp;be&nbsp;a<br>
+matplotlib&nbsp;color&nbsp;arg&nbsp;(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),&nbsp;or&nbsp;a&nbsp;a<br>
+sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the&nbsp;patches&nbsp;will<br>
+cycle&nbsp;through&nbsp;the&nbsp;sequence<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;or&nbsp;sequence&nbsp;of&nbsp;rgba&nbsp;tuples</tt></dd></dl>
 
@@ -197,20 +200,24 @@ ACCEPTS:&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;or&nbsp;sequence&nbsp;of&nbsp;
 
 <dl><dt><a name="LineCollection-get_dashes"><strong>get_dashes</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="LineCollection-get_lines"><strong>get_lines</strong></a>(self)</dt><dd><tt>return&nbsp;seq&nbsp;of&nbsp;lines&nbsp;in&nbsp;collection</tt></dd></dl>
+
 <dl><dt><a name="LineCollection-get_linestyle"><strong>get_linestyle</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="LineCollection-get_linewidths"><strong>get_linewidths</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="LineCollection-get_verts"><strong>get_verts</strong></a>(self)</dt><dd><tt>return&nbsp;seq&nbsp;of&nbsp;(x,y)&nbsp;in&nbsp;collection</tt></dd></dl>
 
-<dl><dt><a name="LineCollection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;tranpancies&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;Alpha&nbsp;can&nbsp;be&nbsp;a&nbsp;float,&nbsp;in<br>
-which&nbsp;case&nbsp;it&nbsp;is&nbsp;applied&nbsp;to&nbsp;the&nbsp;entire&nbsp;collection,&nbsp;or&nbsp;a&nbsp;sequence&nbsp;of&nbsp;floats<br>
+<dl><dt><a name="LineCollection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;tranpancies&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;Alpha&nbsp;can&nbsp;be&nbsp;a<br>
+float,&nbsp;in&nbsp;which&nbsp;case&nbsp;it&nbsp;is&nbsp;applied&nbsp;to&nbsp;the&nbsp;entire&nbsp;collection,<br>
+or&nbsp;a&nbsp;sequence&nbsp;of&nbsp;floats<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;float&nbsp;or&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
-<dl><dt><a name="LineCollection-set_color"><strong>set_color</strong></a>(self, c)</dt><dd><tt>Set&nbsp;the&nbsp;<a href="#LineCollection-color">color</a>(s)&nbsp;of&nbsp;the&nbsp;line&nbsp;collection.&nbsp;&nbsp;c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg<br>
-(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),&nbsp;or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it<br>
-is&nbsp;a&nbsp;sequence&nbsp;the&nbsp;patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence<br>
+<dl><dt><a name="LineCollection-set_color"><strong>set_color</strong></a>(self, c)</dt><dd><tt>Set&nbsp;the&nbsp;<a href="#LineCollection-color">color</a>(s)&nbsp;of&nbsp;the&nbsp;line&nbsp;collection.&nbsp;&nbsp;c&nbsp;can&nbsp;be&nbsp;a<br>
+matplotlib&nbsp;color&nbsp;arg&nbsp;(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),&nbsp;or&nbsp;a&nbsp;a<br>
+sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the&nbsp;patches&nbsp;will<br>
+cycle&nbsp;through&nbsp;the&nbsp;sequence<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;or&nbsp;sequence&nbsp;of&nbsp;rgba&nbsp;tuples</tt></dd></dl>
 
@@ -255,6 +262,8 @@ backends</tt></dd></dl>
 <dl><dt><a name="LineCollection-pchanged"><strong>pchanged</strong></a>(self)</dt><dd><tt>fire&nbsp;event&nbsp;when&nbsp;property&nbsp;changed</tt></dd></dl>
 
 <dl><dt><a name="LineCollection-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
+
+<dl><dt><a name="LineCollection-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
 
 <dl><dt><a name="LineCollection-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox<br>
 &nbsp;<br>
@@ -327,8 +336,9 @@ colors.<br>&nbsp;</tt></td></tr>
 Methods defined here:<br>
 <dl><dt><a name="PatchCollection-__init__"><strong>__init__</strong></a>(self, edgecolors<font color="#909090">=None</font>, facecolors<font color="#909090">=None</font>, linewidths<font color="#909090">=None</font>, antialiaseds<font color="#909090">=None</font>, offsets<font color="#909090">=None</font>, transOffset<font color="#909090">=&lt;Affine object&gt;</font>, norm<font color="#909090">=None</font>, cmap<font color="#909090">=None</font>)</dt></dl>
 
-<dl><dt><a name="PatchCollection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;tranpancies&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;Alpha&nbsp;can&nbsp;be&nbsp;a&nbsp;float,&nbsp;in<br>
-which&nbsp;case&nbsp;it&nbsp;is&nbsp;applied&nbsp;to&nbsp;the&nbsp;entire&nbsp;collection,&nbsp;or&nbsp;a&nbsp;sequence&nbsp;of&nbsp;floats<br>
+<dl><dt><a name="PatchCollection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;tranpancies&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;Alpha&nbsp;can&nbsp;be&nbsp;a<br>
+float,&nbsp;in&nbsp;which&nbsp;case&nbsp;it&nbsp;is&nbsp;applied&nbsp;to&nbsp;the&nbsp;entire&nbsp;collection,<br>
+or&nbsp;a&nbsp;sequence&nbsp;of&nbsp;floats<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;float&nbsp;or&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
@@ -343,9 +353,10 @@ it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the&nbsp;patches&nbsp;will&nbsp;cycle&nbsp;
 &nbsp;<br>
 ACCEPTS:&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;or&nbsp;sequence&nbsp;of&nbsp;rgba&nbsp;tuples</tt></dd></dl>
 
-<dl><dt><a name="PatchCollection-set_facecolor"><strong>set_facecolor</strong></a>(self, c)</dt><dd><tt>Set&nbsp;the&nbsp;facecolor(s)&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg<br>
-(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),&nbsp;or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it<br>
-is&nbsp;a&nbsp;sequence&nbsp;the&nbsp;patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence<br>
+<dl><dt><a name="PatchCollection-set_facecolor"><strong>set_facecolor</strong></a>(self, c)</dt><dd><tt>Set&nbsp;the&nbsp;facecolor(s)&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib<br>
+color&nbsp;arg&nbsp;(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),&nbsp;or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or<br>
+rgba&nbsp;tuples;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the&nbsp;patches&nbsp;will&nbsp;cycle<br>
+through&nbsp;the&nbsp;sequence<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;or&nbsp;sequence&nbsp;of&nbsp;rgba&nbsp;tuples</tt></dd></dl>
 
@@ -396,6 +407,8 @@ backends</tt></dd></dl>
 <dl><dt><a name="PatchCollection-pchanged"><strong>pchanged</strong></a>(self)</dt><dd><tt>fire&nbsp;event&nbsp;when&nbsp;property&nbsp;changed</tt></dd></dl>
 
 <dl><dt><a name="PatchCollection-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
+
+<dl><dt><a name="PatchCollection-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
 
 <dl><dt><a name="PatchCollection-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox<br>
 &nbsp;<br>
@@ -506,8 +519,9 @@ Optional&nbsp;kwargs&nbsp;from&nbsp;Patch&nbsp;collection&nbsp;include<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.collections.html#PatchCollection">PatchCollection</a>:<br>
-<dl><dt><a name="PolyCollection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;tranpancies&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;Alpha&nbsp;can&nbsp;be&nbsp;a&nbsp;float,&nbsp;in<br>
-which&nbsp;case&nbsp;it&nbsp;is&nbsp;applied&nbsp;to&nbsp;the&nbsp;entire&nbsp;collection,&nbsp;or&nbsp;a&nbsp;sequence&nbsp;of&nbsp;floats<br>
+<dl><dt><a name="PolyCollection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;tranpancies&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;Alpha&nbsp;can&nbsp;be&nbsp;a<br>
+float,&nbsp;in&nbsp;which&nbsp;case&nbsp;it&nbsp;is&nbsp;applied&nbsp;to&nbsp;the&nbsp;entire&nbsp;collection,<br>
+or&nbsp;a&nbsp;sequence&nbsp;of&nbsp;floats<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;float&nbsp;or&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
@@ -522,9 +536,10 @@ it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the&nbsp;patches&nbsp;will&nbsp;cycle&nbsp;
 &nbsp;<br>
 ACCEPTS:&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;or&nbsp;sequence&nbsp;of&nbsp;rgba&nbsp;tuples</tt></dd></dl>
 
-<dl><dt><a name="PolyCollection-set_facecolor"><strong>set_facecolor</strong></a>(self, c)</dt><dd><tt>Set&nbsp;the&nbsp;facecolor(s)&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg<br>
-(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),&nbsp;or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it<br>
-is&nbsp;a&nbsp;sequence&nbsp;the&nbsp;patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence<br>
+<dl><dt><a name="PolyCollection-set_facecolor"><strong>set_facecolor</strong></a>(self, c)</dt><dd><tt>Set&nbsp;the&nbsp;facecolor(s)&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib<br>
+color&nbsp;arg&nbsp;(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),&nbsp;or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or<br>
+rgba&nbsp;tuples;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the&nbsp;patches&nbsp;will&nbsp;cycle<br>
+through&nbsp;the&nbsp;sequence<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;or&nbsp;sequence&nbsp;of&nbsp;rgba&nbsp;tuples</tt></dd></dl>
 
@@ -569,6 +584,8 @@ backends</tt></dd></dl>
 <dl><dt><a name="PolyCollection-pchanged"><strong>pchanged</strong></a>(self)</dt><dd><tt>fire&nbsp;event&nbsp;when&nbsp;property&nbsp;changed</tt></dd></dl>
 
 <dl><dt><a name="PolyCollection-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
+
+<dl><dt><a name="PolyCollection-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
 
 <dl><dt><a name="PolyCollection-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox<br>
 &nbsp;<br>
@@ -659,13 +676,14 @@ Update&nbsp;the&nbsp;cmap,&nbsp;norm&nbsp;accordingly</tt></dd></dl>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="RegularPolyCollection-__init__"><strong>__init__</strong></a>(self, dpi, numsides, rotation<font color="#909090">=0</font>, sizes<font color="#909090">=(1,)</font>, **kwargs)</dt><dd><tt>Draw&nbsp;a&nbsp;regular&nbsp;polygon&nbsp;with&nbsp;numsides.&nbsp;&nbsp;sizes&nbsp;gives&nbsp;the&nbsp;area&nbsp;of&nbsp;the<br>
-circle&nbsp;circumscribing&nbsp;the&nbsp;regular&nbsp;polygon&nbsp;and&nbsp;rotation&nbsp;is&nbsp;the&nbsp;rotation<br>
-of&nbsp;the&nbsp;polygon&nbsp;in&nbsp;radians.<br>
+<dl><dt><a name="RegularPolyCollection-__init__"><strong>__init__</strong></a>(self, dpi, numsides, rotation<font color="#909090">=0</font>, sizes<font color="#909090">=(1,)</font>, **kwargs)</dt><dd><tt>Draw&nbsp;a&nbsp;regular&nbsp;polygon&nbsp;with&nbsp;numsides.&nbsp;&nbsp;sizes&nbsp;gives&nbsp;the&nbsp;area&nbsp;of<br>
+the&nbsp;circle&nbsp;circumscribing&nbsp;the&nbsp;regular&nbsp;polygon&nbsp;and&nbsp;rotation&nbsp;is<br>
+the&nbsp;rotation&nbsp;of&nbsp;the&nbsp;polygon&nbsp;in&nbsp;radians.<br>
 &nbsp;<br>
-offsets&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;x,y&nbsp;tuples&nbsp;that&nbsp;give&nbsp;the&nbsp;centers&nbsp;of&nbsp;the<br>
-polygon&nbsp;in&nbsp;data&nbsp;coordinates,&nbsp;and&nbsp;transOffset&nbsp;is&nbsp;the&nbsp;Transformation<br>
-instance&nbsp;used&nbsp;to&nbsp;transform&nbsp;the&nbsp;centers&nbsp;onto&nbsp;the&nbsp;canvas.<br>
+offsets&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;x,y&nbsp;tuples&nbsp;that&nbsp;give&nbsp;the&nbsp;centers&nbsp;of<br>
+the&nbsp;polygon&nbsp;in&nbsp;data&nbsp;coordinates,&nbsp;and&nbsp;transOffset&nbsp;is&nbsp;the<br>
+Transformation&nbsp;instance&nbsp;used&nbsp;to&nbsp;transform&nbsp;the&nbsp;centers&nbsp;onto&nbsp;the<br>
+canvas.<br>
 &nbsp;<br>
 dpi&nbsp;is&nbsp;the&nbsp;figure&nbsp;dpi&nbsp;instance,&nbsp;and&nbsp;is&nbsp;required&nbsp;to&nbsp;do&nbsp;the&nbsp;area<br>
 scaling.</tt></dd></dl>
@@ -676,8 +694,9 @@ scaling.</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.collections.html#PatchCollection">PatchCollection</a>:<br>
-<dl><dt><a name="RegularPolyCollection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;tranpancies&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;Alpha&nbsp;can&nbsp;be&nbsp;a&nbsp;float,&nbsp;in<br>
-which&nbsp;case&nbsp;it&nbsp;is&nbsp;applied&nbsp;to&nbsp;the&nbsp;entire&nbsp;collection,&nbsp;or&nbsp;a&nbsp;sequence&nbsp;of&nbsp;floats<br>
+<dl><dt><a name="RegularPolyCollection-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;tranpancies&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;Alpha&nbsp;can&nbsp;be&nbsp;a<br>
+float,&nbsp;in&nbsp;which&nbsp;case&nbsp;it&nbsp;is&nbsp;applied&nbsp;to&nbsp;the&nbsp;entire&nbsp;collection,<br>
+or&nbsp;a&nbsp;sequence&nbsp;of&nbsp;floats<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;float&nbsp;or&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 
@@ -692,9 +711,10 @@ it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the&nbsp;patches&nbsp;will&nbsp;cycle&nbsp;
 &nbsp;<br>
 ACCEPTS:&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;or&nbsp;sequence&nbsp;of&nbsp;rgba&nbsp;tuples</tt></dd></dl>
 
-<dl><dt><a name="RegularPolyCollection-set_facecolor"><strong>set_facecolor</strong></a>(self, c)</dt><dd><tt>Set&nbsp;the&nbsp;facecolor(s)&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib&nbsp;color&nbsp;arg<br>
-(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),&nbsp;or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or&nbsp;rgba&nbsp;tuples;&nbsp;if&nbsp;it<br>
-is&nbsp;a&nbsp;sequence&nbsp;the&nbsp;patches&nbsp;will&nbsp;cycle&nbsp;through&nbsp;the&nbsp;sequence<br>
+<dl><dt><a name="RegularPolyCollection-set_facecolor"><strong>set_facecolor</strong></a>(self, c)</dt><dd><tt>Set&nbsp;the&nbsp;facecolor(s)&nbsp;of&nbsp;the&nbsp;collection.&nbsp;&nbsp;c&nbsp;can&nbsp;be&nbsp;a&nbsp;matplotlib<br>
+color&nbsp;arg&nbsp;(all&nbsp;patches&nbsp;have&nbsp;same&nbsp;color),&nbsp;or&nbsp;a&nbsp;a&nbsp;sequence&nbsp;or<br>
+rgba&nbsp;tuples;&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;sequence&nbsp;the&nbsp;patches&nbsp;will&nbsp;cycle<br>
+through&nbsp;the&nbsp;sequence<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;matplotlib&nbsp;color&nbsp;arg&nbsp;or&nbsp;sequence&nbsp;of&nbsp;rgba&nbsp;tuples</tt></dd></dl>
 
@@ -739,6 +759,8 @@ backends</tt></dd></dl>
 <dl><dt><a name="RegularPolyCollection-pchanged"><strong>pchanged</strong></a>(self)</dt><dd><tt>fire&nbsp;event&nbsp;when&nbsp;property&nbsp;changed</tt></dd></dl>
 
 <dl><dt><a name="RegularPolyCollection-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
+
+<dl><dt><a name="RegularPolyCollection-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
 
 <dl><dt><a name="RegularPolyCollection-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox<br>
 &nbsp;<br>
@@ -834,7 +856,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <td width="100%"><strong>colorConverter</strong> = &lt;matplotlib.colors.ColorConverter instance&gt;<br>
 <strong>cos</strong> = &lt;ufunc 'cos'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'WXAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
 <strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
 <strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>

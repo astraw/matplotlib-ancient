@@ -176,9 +176,9 @@ def isNewEntry(line):
         return 0
 
 # re-add news to the params dict 'tables' entry below for news
-#news = NewsBox("""\
-#matplotlib now has domain specific <a href=toolkits.html>toolkits</>.
-#""")
+news = NewsBox("""\
+You can now use TeX or LaTeX to create all matplotlib text instances for the anigrain and postscript backends.  See <a href=screenshots.html#tex_demo>TeX deo</a> and <a href=matplotlib.texmanager.html>texmanager</a>.
+""")
 
 
 

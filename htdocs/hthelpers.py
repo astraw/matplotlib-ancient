@@ -38,6 +38,7 @@ modules = (
     'matplotlib.patches',
     'matplotlib.pylab',    
     'matplotlib.table',
+    'matplotlib.texmanager',    
     'matplotlib.text',
     'matplotlib.ticker',
     'matplotlib.toolkits.basemap.basemap',

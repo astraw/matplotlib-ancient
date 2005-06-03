@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.cbook</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/cbook.py">/usr/local/lib/python2.3/site-packages/matplotlib/cbook.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/cbook.py">/usr/lib/python2.4/site-packages/matplotlib/cbook.py</a></font></td></tr></table>
     <p><tt>A&nbsp;collection&nbsp;of&nbsp;utility&nbsp;functions&nbsp;and&nbsp;classes.&nbsp;&nbsp;Many&nbsp;(but&nbsp;not&nbsp;all)<br>
 from&nbsp;the&nbsp;Python&nbsp;Cookbook&nbsp;--&nbsp;hence&nbsp;the&nbsp;name&nbsp;cbook</tt></p>
 <p>
@@ -30,12 +30,7 @@ from&nbsp;the&nbsp;Python&nbsp;Cookbook&nbsp;--&nbsp;hence&nbsp;the&nbsp;name&nb
     
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.cbook.html#Bunch">Bunch</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.cbook.html#Null">Null</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.cbook.html#RingBuffer">RingBuffer</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.cbook.html#Sorter">Sorter</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.cbook.html#Stack">Stack</a>
-</font></dt><dt><font face="helvetica, arial"><a href="__builtin__.html#dict">__builtin__.dict</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+<dt><font face="helvetica, arial"><a href="__builtin__.html#dict">__builtin__.dict</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.cbook.html#Xlator">Xlator</a>
@@ -47,7 +42,12 @@ from&nbsp;the&nbsp;Python&nbsp;Cookbook&nbsp;--&nbsp;hence&nbsp;the&nbsp;name&nb
 <dt><font face="helvetica, arial"><a href="matplotlib.cbook.html#silent_list">silent_list</a>
 </font></dt></dl>
 </dd>
-</dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.cbook.html#Bunch">Bunch</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.cbook.html#Null">Null</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.cbook.html#RingBuffer">RingBuffer</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.cbook.html#Sorter">Sorter</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.cbook.html#Stack">Stack</a>
+</font></dt></dl>
  <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
@@ -220,7 +220,7 @@ Data and other attributes defined here:<br>
 Methods inherited from <a href="__builtin__.html#dict">__builtin__.dict</a>:<br>
 <dl><dt><a name="Xlator-__cmp__"><strong>__cmp__</strong></a>(...)</dt><dd><tt>x.<a href="#Xlator-__cmp__">__cmp__</a>(y)&nbsp;&lt;==&gt;&nbsp;cmp(x,y)</tt></dd></dl>
 
-<dl><dt><a name="Xlator-__contains__"><strong>__contains__</strong></a>(...)</dt><dd><tt>x.<a href="#Xlator-__contains__">__contains__</a>(y)&nbsp;&lt;==&gt;&nbsp;y&nbsp;in&nbsp;x</tt></dd></dl>
+<dl><dt><a name="Xlator-__contains__"><strong>__contains__</strong></a>(...)</dt><dd><tt>D.<a href="#Xlator-__contains__">__contains__</a>(k)&nbsp;-&gt;&nbsp;True&nbsp;if&nbsp;D&nbsp;has&nbsp;a&nbsp;key&nbsp;k,&nbsp;else&nbsp;False</tt></dd></dl>
 
 <dl><dt><a name="Xlator-__delitem__"><strong>__delitem__</strong></a>(...)</dt><dd><tt>x.<a href="#Xlator-__delitem__">__delitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;del&nbsp;x[y]</tt></dd></dl>
 
@@ -278,7 +278,8 @@ If&nbsp;key&nbsp;is&nbsp;not&nbsp;found,&nbsp;d&nbsp;is&nbsp;returned&nbsp;if&nb
 
 <dl><dt><a name="Xlator-setdefault"><strong>setdefault</strong></a>(...)</dt><dd><tt>D.<a href="#Xlator-setdefault">setdefault</a>(k[,d])&nbsp;-&gt;&nbsp;D.<a href="#Xlator-get">get</a>(k,d),&nbsp;also&nbsp;set&nbsp;D[k]=d&nbsp;if&nbsp;k&nbsp;not&nbsp;in&nbsp;D</tt></dd></dl>
 
-<dl><dt><a name="Xlator-update"><strong>update</strong></a>(...)</dt><dd><tt>D.<a href="#Xlator-update">update</a>(E)&nbsp;-&gt;&nbsp;None.&nbsp;&nbsp;Update&nbsp;D&nbsp;from&nbsp;E:&nbsp;for&nbsp;k&nbsp;in&nbsp;E.<a href="#Xlator-keys">keys</a>():&nbsp;D[k]&nbsp;=&nbsp;E[k]</tt></dd></dl>
+<dl><dt><a name="Xlator-update"><strong>update</strong></a>(...)</dt><dd><tt>D.<a href="#Xlator-update">update</a>(E,&nbsp;**F)&nbsp;-&gt;&nbsp;None.&nbsp;&nbsp;Update&nbsp;D&nbsp;from&nbsp;E&nbsp;and&nbsp;F:&nbsp;for&nbsp;k&nbsp;in&nbsp;E:&nbsp;D[k]&nbsp;=&nbsp;E[k]<br>
+(if&nbsp;E&nbsp;has&nbsp;keys&nbsp;else:&nbsp;for&nbsp;(k,&nbsp;v)&nbsp;in&nbsp;E:&nbsp;D[k]&nbsp;=&nbsp;v)&nbsp;then:&nbsp;for&nbsp;k&nbsp;in&nbsp;F:&nbsp;D[k]&nbsp;=&nbsp;F[k]</tt></dd></dl>
 
 <dl><dt><a name="Xlator-values"><strong>values</strong></a>(...)</dt><dd><tt>D.<a href="#Xlator-values">values</a>()&nbsp;-&gt;&nbsp;<a href="__builtin__.html#list">list</a>&nbsp;of&nbsp;D's&nbsp;values</tt></dd></dl>
 
@@ -363,6 +364,8 @@ Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd
 
 <dl><dt><a name="silent_list-__ne__"><strong>__ne__</strong></a>(...)</dt><dd><tt>x.<a href="#silent_list-__ne__">__ne__</a>(y)&nbsp;&lt;==&gt;&nbsp;x!=y</tt></dd></dl>
 
+<dl><dt><a name="silent_list-__reversed__"><strong>__reversed__</strong></a>(...)</dt><dd><tt>L.<a href="#silent_list-__reversed__">__reversed__</a>()&nbsp;--&nbsp;return&nbsp;a&nbsp;reverse&nbsp;iterator&nbsp;over&nbsp;the&nbsp;<a href="__builtin__.html#list">list</a></tt></dd></dl>
+
 <dl><dt><a name="silent_list-__rmul__"><strong>__rmul__</strong></a>(...)</dt><dd><tt>x.<a href="#silent_list-__rmul__">__rmul__</a>(n)&nbsp;&lt;==&gt;&nbsp;n*x</tt></dd></dl>
 
 <dl><dt><a name="silent_list-__setitem__"><strong>__setitem__</strong></a>(...)</dt><dd><tt>x.<a href="#silent_list-__setitem__">__setitem__</a>(i,&nbsp;y)&nbsp;&lt;==&gt;&nbsp;x[i]=y</tt></dd></dl>
@@ -387,7 +390,8 @@ Use&nbsp;&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</t
 
 <dl><dt><a name="silent_list-reverse"><strong>reverse</strong></a>(...)</dt><dd><tt>L.<a href="#silent_list-reverse">reverse</a>()&nbsp;--&nbsp;reverse&nbsp;*IN&nbsp;PLACE*</tt></dd></dl>
 
-<dl><dt><a name="silent_list-sort"><strong>sort</strong></a>(...)</dt><dd><tt>L.<a href="#silent_list-sort">sort</a>(cmpfunc=None)&nbsp;--&nbsp;stable&nbsp;sort&nbsp;*IN&nbsp;PLACE*;&nbsp;cmpfunc(x,&nbsp;y)&nbsp;-&gt;&nbsp;-1,&nbsp;0,&nbsp;1</tt></dd></dl>
+<dl><dt><a name="silent_list-sort"><strong>sort</strong></a>(...)</dt><dd><tt>L.<a href="#silent_list-sort">sort</a>(cmp=None,&nbsp;key=None,&nbsp;reverse=False)&nbsp;--&nbsp;stable&nbsp;sort&nbsp;*IN&nbsp;PLACE*;<br>
+cmp(x,&nbsp;y)&nbsp;-&gt;&nbsp;-1,&nbsp;0,&nbsp;1</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="__builtin__.html#list">__builtin__.list</a>:<br>
@@ -460,8 +464,8 @@ val&nbsp;=&nbsp;<a href="#-popd">popd</a>(d,&nbsp;key,&nbsp;default)</tt></dd></
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>generators</strong> = _Feature((2, 2, 0, 'alpha', 1), (2, 3, 0, 'final', 0), 4096)<br>
 <strong>major</strong> = 2<br>
-<strong>minor1</strong> = 3<br>
-<strong>minor2</strong> = 3<br>
+<strong>minor1</strong> = 4<br>
+<strong>minor2</strong> = 1<br>
 <strong>s</strong> = 'final'<br>
 <strong>tmp</strong> = 0</td></tr></table>
 @footer@

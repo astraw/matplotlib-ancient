@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.transforms</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/transforms.py">/usr/local/lib/python2.3/site-packages/matplotlib/transforms.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/transforms.py">/usr/lib/python2.4/site-packages/matplotlib/transforms.py</a></font></td></tr></table>
     <p><tt>The&nbsp;transforms&nbsp;module&nbsp;is&nbsp;broken&nbsp;into&nbsp;two&nbsp;parts,&nbsp;a&nbsp;collection&nbsp;of<br>
 classes&nbsp;written&nbsp;in&nbsp;the&nbsp;extension&nbsp;module&nbsp;_transforms&nbsp;to&nbsp;handle<br>
 efficient&nbsp;transformation&nbsp;of&nbsp;data,&nbsp;and&nbsp;some&nbsp;helper&nbsp;functions&nbsp;in<br>
@@ -192,6 +192,14 @@ but&nbsp;should&nbsp;use&nbsp;the&nbsp;helper&nbsp;functions&nbsp;defined&nbsp;i
 The&nbsp;units/transform_unit.py&nbsp;code&nbsp;has&nbsp;many&nbsp;examples.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
@@ -206,6 +214,7 @@ The&nbsp;units/transform_unit.py&nbsp;code&nbsp;has&nbsp;many&nbsp;examples.</tt
  <dl><dt><a name="-Point"><strong>Point</strong></a>(...)</dt><dd><tt><a href="#-Point">Point</a>(x,&nbsp;y)</tt></dd></dl>
  <dl><dt><a name="-SeparableTransformation"><strong>SeparableTransformation</strong></a>(...)</dt><dd><tt><a href="#-SeparableTransformation">SeparableTransformation</a>(box1,&nbsp;box2,&nbsp;funcx,&nbsp;funcy))</tt></dd></dl>
  <dl><dt><a name="-Value"><strong>Value</strong></a>(...)</dt><dd><tt><a href="#-Value">Value</a>(x)</tt></dd></dl>
+ <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
  <dl><dt><a name="-bbox_all"><strong>bbox_all</strong></a>(bboxes)</dt><dd><tt>Return&nbsp;the&nbsp;Bbox&nbsp;that&nbsp;bounds&nbsp;all&nbsp;bboxes</tt></dd></dl>
  <dl><dt><a name="-blend_xy_sep_transform"><strong>blend_xy_sep_transform</strong></a>(trans1, trans2)</dt><dd><tt>If&nbsp;trans1&nbsp;and&nbsp;trans2&nbsp;are&nbsp;SeparableTransformation&nbsp;instances,&nbsp;you&nbsp;can<br>
 build&nbsp;a&nbsp;new&nbsp;SeparableTransformation&nbsp;from&nbsp;them&nbsp;by&nbsp;extracting&nbsp;the&nbsp;x&nbsp;and&nbsp;y<br>
@@ -219,9 +228,17 @@ and&nbsp;y&nbsp;in&nbsp;axes&nbsp;coordinates.</tt></dd></dl>
  <dl><dt><a name="-copy_bbox_transform"><strong>copy_bbox_transform</strong></a>(trans)</dt><dd><tt>return&nbsp;a&nbsp;deep&nbsp;copy&nbsp;of&nbsp;the&nbsp;bbox&nbsp;transform</tt></dd></dl>
  <dl><dt><a name="-get_bbox_transform"><strong>get_bbox_transform</strong></a>(boxin, boxout)</dt><dd><tt>return&nbsp;the&nbsp;transform&nbsp;that&nbsp;maps&nbsp;transform&nbsp;one&nbsp;bounding&nbsp;box&nbsp;to<br>
 another</tt></dd></dl>
+ <dl><dt><a name="-get_vec6_rotation"><strong>get_vec6_rotation</strong></a>(v)</dt><dd><tt>v&nbsp;is&nbsp;an&nbsp;affine&nbsp;vec6&nbsp;a,b,c,d,tx,ty;&nbsp;return&nbsp;rotation&nbsp;in&nbsp;degrees</tt></dd></dl>
+ <dl><dt><a name="-get_vec6_scales"><strong>get_vec6_scales</strong></a>(v)</dt><dd><tt>v&nbsp;is&nbsp;an&nbsp;affine&nbsp;vec6&nbsp;a,b,c,d,tx,ty;&nbsp;return&nbsp;sx,&nbsp;sy</tt></dd></dl>
  <dl><dt><a name="-identity_affine"><strong>identity_affine</strong></a>()</dt><dd><tt>Get&nbsp;an&nbsp;affine&nbsp;transformation&nbsp;that&nbsp;maps&nbsp;x,y&nbsp;-&gt;&nbsp;x,y</tt></dd></dl>
  <dl><dt><a name="-identity_transform"><strong>identity_transform</strong></a>()</dt><dd><tt>Get&nbsp;an&nbsp;affine&nbsp;transformation&nbsp;that&nbsp;maps&nbsp;x,y&nbsp;-&gt;&nbsp;x,y</tt></dd></dl>
  <dl><dt><a name="-inverse_transform_bbox"><strong>inverse_transform_bbox</strong></a>(trans, bbox)</dt><dd><tt>inverse&nbsp;transform&nbsp;the&nbsp;bbox</tt></dd></dl>
+ <dl><dt><a name="-invert_vec6"><strong>invert_vec6</strong></a>(v)</dt><dd><tt>v&nbsp;is&nbsp;a,b,c,d,tx,ty&nbsp;vec6&nbsp;repr&nbsp;of&nbsp;a&nbsp;matrix<br>
+[&nbsp;a&nbsp;&nbsp;b&nbsp;&nbsp;0<br>
+&nbsp;&nbsp;c&nbsp;&nbsp;d&nbsp;&nbsp;0<br>
+&nbsp;&nbsp;tx&nbsp;ty&nbsp;1]<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;inverse&nbsp;of&nbsp;v&nbsp;as&nbsp;a&nbsp;vec6</tt></dd></dl>
  <dl><dt><a name="-lbwh_to_bbox"><strong>lbwh_to_bbox</strong></a>(l, b, w, h)</dt></dl>
  <dl><dt><a name="-multiply_affines"><strong>multiply_affines</strong></a>(v1, v2)</dt><dd><tt>v1&nbsp;and&nbsp;v2&nbsp;are&nbsp;Affine&nbsp;instances</tt></dd></dl>
  <dl><dt><a name="-one"><strong>one</strong></a>()</dt></dl>
@@ -244,7 +261,8 @@ instances&nbsp;(Values&nbsp;or&nbsp;binary&nbsp;opertations&nbsp;on&nbsp;values)
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>IDENTITY</strong> = 0<br>
+<td width="100%"><strong>Float</strong> = 'd'<br>
+<strong>IDENTITY</strong> = 0<br>
 <strong>LOG10</strong> = 1<br>
 <strong>POLAR</strong> = 0</td></tr></table>
 @footer@

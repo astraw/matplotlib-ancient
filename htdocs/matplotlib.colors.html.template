@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.colors</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/colors.py">/usr/local/lib/python2.3/site-packages/matplotlib/colors.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/colors.py">/usr/lib/python2.4/site-packages/matplotlib/colors.py</a></font></td></tr></table>
     <p><tt>A&nbsp;class&nbsp;for&nbsp;converting&nbsp;color&nbsp;arguments&nbsp;to&nbsp;RGB<br>
 &nbsp;<br>
 This&nbsp;class&nbsp;instantiates&nbsp;a&nbsp;single&nbsp;instance&nbsp;colorConverter&nbsp;that&nbsp;is&nbsp;used<br>

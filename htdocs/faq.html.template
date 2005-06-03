@@ -61,6 +61,22 @@ bug</a>.  The patch is in pygtk CVS.  You basically need to add the
 </pre>
 """),
 
+
+
+    ('CLICKMAPS', "Can I use matplotlib to make clickable images?" ,
+    """\ 
+Yes.  Andrew Dalke of <a href=http://www.dalkescientific.com>Dalke
+Scientific</a> has written a nice <a
+href=http://www.dalkescientific.com/writings/diary/archive/2005/04/24/interactive_html.html>article</a>
+on how to make html click maps with matplotlib agg PNGs.  We would
+also like to add this functionality to SVG and add a SWF backend to
+support these kind of images.  If you are interested in contributing
+to these efforts that would be great.  If you need them but aren't up
+to making the contribution yourself, please contact us on the <a href=http://sourceforge.net/mail/?group_id=80706>mailing
+list</a> and fill out a <a href=http://sourceforge.net/tracker/?group_id=80706&atid=560721>support request</a>.
+
+"""),
+
     ('ZORDER',
     "How can I control the order that my plot elements appear" , """\
 Within an axes, the order that the various lines, markers, text,
@@ -69,22 +85,6 @@ collections, etc appear is determined by the <tt>zorder</tt> property
 text, with collections of lines and collections of patches appearing
 at the same level as regular lines and patches, respectively.  See <a
 href=examples/zorder_demo.py>examples/zorder_demo.py</a>.
-"""),
-
-
-    ('LEGEND',
-    "Why does the legend text appear vertical when I have only one entry?" , """\
-    You must past a list or tuple of strings to legend, even if you
-    have only one string.  In other words write
-    <pre>
-    ('my label', )
-    </pre>
-
-    not
-
-    <pre>
-    ('my label')
-    </pre>    
 """),
 
     ('TOOLBAR2',
@@ -255,6 +255,27 @@ for fname in files: os.remove(fname)
 """),
 
 
+    ('WRONGDIR',
+    "When I try to import pylab, I get an error about no _transform.so or ft2font.so",
+
+"""
+If you are trying to run matplotlib from the matplotlib build dir, you
+will fail.  This is because the matplotlib python src dir is in your
+module path, but it does not include the compiled extension modules
+which are in site-packages/matplotlib.  Change into another directory
+and try again.<p>
+
+If the problem persists, see if the required object files are in
+site-packages/matplotlib.  If not, something is wrong with your
+install.  You may want to try rebuilding with
+<pre>
+   > rm -rf build
+   > python setup.py build > build.out 
+</pre>
+
+and post the results to the matplotlib-devel or matplotlib-users
+<a href=http://sourceforge.net/mail/?group_id=80706>mailing lists</a>.
+"""),
     
 
     ('EXAMPLES',
@@ -270,10 +291,10 @@ obvious filenames like <a
 href=examples/date_demo1.py>examples/date_demo1.py</a>.  Likewise,
 you'll find examples for images (<a
 href=examples/image_demo.py>examples/image_demo.py</a>), contouring
-(<a href=examples/contour_demo.py>examples/contour_demo.py</a>), using
+(<a href=examples/contour_demo.py>examples/contour_demo.py</a>, using
 matplotlib with a graphical user interface (<a
-href=examples/embedding_in_wx.py>examples/embedding_in_wx.py</a>) and
-many more.  At last count, there were 136 examples.  Because these are
+href=examples/embedding_in_wx.py>examples/embedding_in_wx.py</a> and
+many more.  At last count, there were 116 examples.  Because these are
 not included with the standard windows installer, they are often
 overlooked, which is why I emphasize them here.<p>
 
@@ -445,35 +466,48 @@ sample config file and information on how to use it.  """),
 
 """
 
-While we need more documentation here, there are several resources for
-API developers
+There is no official documentation yet, but there are a few resources
+
 <ul>
 
   <li>The class documentation at <a href=classdocs.html>classdocs</a>.
       </li>
 
+  <li>Andrew Dalke has a nice tutorial style <a
+  href=http://www.dalkescientific.com/writings/diary/archive/2005/04/23/matplotlib_without_gui.html>article</a>
+  on the API on the <a href=http://www.dalkescientific.com>Dalke
+  Scientific</a> website.
 
-  <li>Robert Leftwich's matplotlib API <a href=leftwich_tut.txt>tutorial</a>.
-      </li>
+  <li>Many examples in the <a href=examples>examples</a> directory in
+      the matplotlib src distribution illustrate the use of the API.
+      Eg, 
 
-  <li>The matplotlib User's Guide has a chapter "Matplotlib API"</li>
+     <pre>
+    
+      > grep -l FigureCanvas *.py
 
-  <li>the examples embedding_in*.py in the <a
-      href=examples>examples</a> directory in the matplotlib src
-      distribution.</li>
+      agg_oo.py dynamic_demo_wx.py dynamic_image_wxagg.py
+      embedding_in_gtk2.py embedding_in_gtk.py embedding_in_qt.py
+      embedding_in_tk2.py embedding_in_tk.py embedding_in_wx2.py
+      embedding_in_wx3.py embedding_in_wx4.py embedding_in_wx.py
+      gtk_spreadsheet.py histogram_demo_canvasagg.py mpl_with_glade.py
+      object_picker.py printing_in_wx.py to_numeric.py webapp_demo.py
+      wxcursor_demo.py
 
-  <li><a href=examples/agg_oo.py>agg_oo.py</a> and <a
+     </pre>
+ </li>
+
+  <li><a
       href=examples/pythonic_matplotlib.py>pythonic_matplotlib.py</a>
       describes the translation from the matlab style interface to the
       pythonic, OO interface.</li>
 
-  <li> matplotlib.pylab.py in site-packages or the matplotlib src
-      directory is a useful resource.  The pylab interface is just a
-      thin wrapper around the API, so you can look and see how it is
-      done there, translating all the gcf() calls to your figure
-      instance, all the gca() calls to your axes instance, and so
-      on.</li>
-
+  <li> <tt>matplotlib/pylab.py </tt> in <tt>site-packages</tt> or the
+      matplotlib src directory <tt>lib</tt> is a useful resource.  The
+      pylab interface is just a thin wrapper around the API, so you
+      can look and see how it is done there, translating all the gcf()
+      calls to your figure instance, all the gca() calls to your axes
+      instance, and so on.</li>
 
   <li>You can always post questions to <a
       href=http://sourceforge.net/mailarchive/forum.php?forum_id=33405>matplotlib-users</a></li>
@@ -489,43 +523,42 @@ I'm working on some additional documentation but it is not ready yet.
 
 Yes.  I have successfully frozen example scripts using the TkAgg,
 GTKAgg and WxAgg backends.  One trick is to make sure that py2exe can
-find all the matplotlib data files.  matplotlib looks in the py2exe
-dist dir for a <tt>matplotlibdata</tt> subdir.  Thus your
-py2exe <tt>setup.py</tt> script should have lines like this
+find all the matplotlib data files.  Recent versions of matplotlib
+(0.54.3 and later) support py2exe by looking in the py2exe dist dir
+for a <tt>matplotlibdata</tt> subdir.  Thus if your <tt>setup.py</tt>
+script looks like
 
 <pre>
+from distutils.core import setup
+import glob
+import py2exe
 
 data = glob.glob(r'C:\Python23\share\matplotlib\*')
 data.append(r'C:\Python23\share\matplotlib\.matplotlibrc')
 
 setup( console    = ["simple_plot.py"],
        data_files = [("matplotlibdata", data)],
-       options = {"py2exe":	
-                 # optimize may break pylab docstring handling
-                 {"packages": ['encodings', 'pytz', 'dateutil', 'numarray']
-                  }}      
-	)
+      )
 
 </pre>
 
+You don't need anything special in your plotting script.  Eg, the
+following works fine with recent versions of py2exe
 
-and matplotlib should be able to find your matplotlib data directory.
-You can still configure the defaults in
+<pre>
+from pylab import *
+plot([1,2,3])
+show()
+</pre>
+
+matplotlib should be able to find your matplotlib data directory.  You
+can still configure the defaults in
 <tt>dist/matplotlibdata/.matplotlibrc</tt> after the application has
 been frozen.<p>
 
-A could of examples freezing matplotlib version 0.74 are available <a
-href=py2exe_examples.zip>here</a>.  This link was updated to include
-new features of matplotlib ,eg date, timezone and numerix handling.
-I find py2exe's handling of the timezone modules a bit flaky.  To be
-on the safe side, you may want to explicitly import the timezone
-modules you need for your application in the script you are freezing,
-eg
-
-<pre>
-import pytz.zoneinfo.UTC
-import pytz.zoneinfo.US.Eastern
-</pre>
+Note you may get warnings like "The following modules appear to be
+missing" but in general I have found these to be harmless for freezing
+matplotlib.<p>
 
 To freeze GTK or GTKAgg, you need to do a couple of extra things,
 including creating a <tt>setup.cfg</tt> file and copying the
@@ -537,13 +570,9 @@ zip file.<p>
 If you want to reduce the size of your application by excluding
 certain backends, see the <a
 href=http://starship.python.net/crew/theller/moin.cgi/MatPlotLib>matplotlib
-py2exe wiki entry</a> though some of this information may be old.
+py2exe wiki entry</a>.
 
-
-There have been several discussions of freezing matplotlib with py2exe
-on the mailing list <a
-href=http://sourceforge.net/mailarchive/forum.php?forum_id=33405>archives</a>,
-so please read those threads for more information.  """),
+"""),
 
     ('CUSTOM',
     'How do I dynamically change the rc defaults?',
@@ -685,23 +714,36 @@ interested setting this up."""),
     ('APPSERVER',
      'Can I use matplotlib in a web application server?',
      """
+
 Yes.  matplotlb can be used with any web application server that can
 call python.  It has been used with mod_python, xml_rpc, and other
 frameworks.  You'll want to use one of the image backends; <a
-href=faq.html#BATCHMODE>see image backends</a>.  Also to make small images
-appropriate for use on a web page, you may want to consider the Agg, Cairo or GD
-backends, since they render small font rasters using freetype2 better
-than Paint, which currently use freetype1.  You can work around
-the problem of small raster sizes by making your fonts appear larger
-for a given by decreasing the figure size and increasing the dpi.  Eg,
+href=faq.html#BATCHMODE>see image backends</a>.  Also to make small
+images appropriate for use on a web page, you may want to consider the
+Agg, Cairo or GD backends, since they render small font rasters using
+freetype2 better than Paint, which currently use freetype1.  You can
+work around the problem of small raster sizes by making your fonts
+appear larger for a given by decreasing the figure size and increasing
+the dpi. See <a href=fonts.html#TTFFONTS>ttf fonts</a> for more
+information.
 
-<pre>
-figure(figsize=(6,4))
-plot(blah, blah)
-savefig('myfile', dpi=75)
-</pre>
+matplotlib keeps a cache of the font information it finds on your
+system, so it needs a writable directory.  It first tries
+<tt>HOME</tt> and if it is not found falls back on it's data path,
+which can be set with the <tt>MATPLOTLIBDATA</tt> environment
+variable.  <tt>MATPLOTLIBDATA</tt> is the directory in which all of
+matplotlib's fonts, etc, live, and is not writable on a typical
+install, so the best approach is to set <tt>HOME</tt> to a writable
+directory.
 
-See <a href=fonts.html#TTFFONTS>ttf fonts</a> for more information.
+Also, I advise you not to use the pylab interface in a web application
+server (though you can).  pylab does a fair amount of work under the
+hood, managing the current figure and so on, and in an application
+server you might rather have full control of the whole process.  pylab
+is simply a thin wrapper to the object oriented matplotlib API; see
+the <a href=faq.html#OO>API FAQ</a>.
+
+
 """
 
      ),

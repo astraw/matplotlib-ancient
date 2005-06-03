@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.ticker</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/ticker.py">/usr/local/lib/python2.3/site-packages/matplotlib/ticker.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/ticker.py">/usr/lib/python2.4/site-packages/matplotlib/ticker.py</a></font></td></tr></table>
     <p><tt>Tick&nbsp;locating&nbsp;and&nbsp;formatting<br>
 ============================<br>
 &nbsp;<br>
@@ -129,8 +129,7 @@ multiple&nbsp;axes&nbsp;can&nbsp;share&nbsp;the&nbsp;same&nbsp;locator&nbsp;w/o&
     
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#Base">Base</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#TickHelper">TickHelper</a>
+<dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#TickHelper">TickHelper</a>
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#Formatter">Formatter</a>
@@ -139,20 +138,16 @@ multiple&nbsp;axes&nbsp;can&nbsp;share&nbsp;the&nbsp;same&nbsp;locator&nbsp;w/o&
 <dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#FixedFormatter">FixedFormatter</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#FormatStrFormatter">FormatStrFormatter</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#FuncFormatter">FuncFormatter</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#NullFormatter">NullFormatter</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#ScalarFormatter">ScalarFormatter</a>
-</font></dt><dd>
-<dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#LogFormatter">LogFormatter</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#LogFormatter">LogFormatter</a>
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#LogFormatterExponent">LogFormatterExponent</a>
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#LogFormatterMathtext">LogFormatterMathtext</a>
 </font></dt></dl>
 </dd>
-</dl>
-</dd>
-</dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#NullFormatter">NullFormatter</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#ScalarFormatter">ScalarFormatter</a>
+</font></dt></dl>
 </dd>
 <dt><font face="helvetica, arial"><a href="matplotlib.ticker.html#Locator">Locator</a>
 </font></dt><dd>
@@ -222,28 +217,6 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="Base">class <strong>Base</strong></a></font></td></tr>
-    
-<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>this&nbsp;solution&nbsp;has&nbsp;some&nbsp;hacks&nbsp;to&nbsp;deal&nbsp;with&nbsp;floating&nbsp;point&nbsp;inaccuracies<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="Base-__init__"><strong>__init__</strong></a>(self, base)</dt></dl>
-
-<dl><dt><a name="Base-ge"><strong>ge</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;largest&nbsp;multiple&nbsp;of&nbsp;base&nbsp;&gt;=&nbsp;x</tt></dd></dl>
-
-<dl><dt><a name="Base-get_base"><strong>get_base</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="Base-gt"><strong>gt</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;largest&nbsp;multiple&nbsp;of&nbsp;base&nbsp;&gt;&nbsp;x</tt></dd></dl>
-
-<dl><dt><a name="Base-le"><strong>le</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;largest&nbsp;multiple&nbsp;of&nbsp;base&nbsp;&lt;=&nbsp;x</tt></dd></dl>
-
-<dl><dt><a name="Base-lt"><strong>lt</strong></a>(self, x)</dt><dd><tt>return&nbsp;the&nbsp;largest&nbsp;multiple&nbsp;of&nbsp;base&nbsp;&lt;&nbsp;x</tt></dd></dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="FixedFormatter">class <strong>FixedFormatter</strong></a>(<a href="matplotlib.ticker.html#Formatter">Formatter</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
@@ -263,11 +236,15 @@ seq[i]&nbsp;regardless&nbsp;of&nbsp;x.&nbsp;&nbsp;Otherwise&nbsp;return&nbsp;''<
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="FixedFormatter-format_data"><strong>format_data</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="FixedFormatter-get_offset"><strong>get_offset</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="FixedFormatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
-<dl><dt><strong>locs</strong> = None</dl>
+<dl><dt><strong>locs</strong> = []</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -351,11 +328,15 @@ Methods defined here:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="FormatStrFormatter-format_data"><strong>format_data</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="FormatStrFormatter-get_offset"><strong>get_offset</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="FormatStrFormatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
-<dl><dt><strong>locs</strong> = None</dl>
+<dl><dt><strong>locs</strong> = []</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -383,11 +364,15 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Formatter-__call__"><strong>__call__</strong></a>(self, x, pos<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
 
+<dl><dt><a name="Formatter-format_data"><strong>format_data</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="Formatter-get_offset"><strong>get_offset</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="Formatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
 
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>locs</strong> = None</dl>
+<dl><dt><strong>locs</strong> = []</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -425,11 +410,15 @@ Methods defined here:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="FuncFormatter-format_data"><strong>format_data</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="FuncFormatter-get_offset"><strong>get_offset</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="FuncFormatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
-<dl><dt><strong>locs</strong> = None</dl>
+<dl><dt><strong>locs</strong> = []</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -585,7 +574,7 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="LogFormatter">class <strong>LogFormatter</strong></a>(<a href="matplotlib.ticker.html#ScalarFormatter">ScalarFormatter</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="LogFormatter">class <strong>LogFormatter</strong></a>(<a href="matplotlib.ticker.html#Formatter">Formatter</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>Format&nbsp;values&nbsp;for&nbsp;log&nbsp;axis;&nbsp;<br>
@@ -594,7 +583,6 @@ if&nbsp;attribute&nbsp;decadeOnly&nbsp;is&nbsp;True,&nbsp;only&nbsp;the&nbsp;dec
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="matplotlib.ticker.html#LogFormatter">LogFormatter</a></dd>
-<dd><a href="matplotlib.ticker.html#ScalarFormatter">ScalarFormatter</a></dd>
 <dd><a href="matplotlib.ticker.html#Formatter">Formatter</a></dd>
 <dd><a href="matplotlib.ticker.html#TickHelper">TickHelper</a></dd>
 </dl>
@@ -608,23 +596,25 @@ is&nbsp;False</tt></dd></dl>
 
 <dl><dt><a name="LogFormatter-base"><strong>base</strong></a>(self, base)</dt><dd><tt>change&nbsp;the&nbsp;base&nbsp;for&nbsp;labeling&nbsp;-&nbsp;warning:&nbsp;should&nbsp;always&nbsp;match&nbsp;the&nbsp;base&nbsp;used&nbsp;for&nbsp;<a href="#LogLocator">LogLocator</a></tt></dd></dl>
 
+<dl><dt><a name="LogFormatter-format_data"><strong>format_data</strong></a>(self, value)</dt></dl>
+
 <dl><dt><a name="LogFormatter-is_decade"><strong>is_decade</strong></a>(self, x)</dt></dl>
 
 <dl><dt><a name="LogFormatter-label_minor"><strong>label_minor</strong></a>(self, labelOnlyBase)</dt><dd><tt>switch&nbsp;on/off&nbsp;minor&nbsp;ticks&nbsp;labeling</tt></dd></dl>
 
 <dl><dt><a name="LogFormatter-nearest_long"><strong>nearest_long</strong></a>(self, x)</dt></dl>
 
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#ScalarFormatter">ScalarFormatter</a>:<br>
 <dl><dt><a name="LogFormatter-pprint_val"><strong>pprint_val</strong></a>(self, x, d)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="LogFormatter-get_offset"><strong>get_offset</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="LogFormatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
-<dl><dt><strong>locs</strong> = None</dl>
+<dl><dt><strong>locs</strong> = []</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -652,7 +642,6 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="matplotlib.ticker.html#LogFormatterExponent">LogFormatterExponent</a></dd>
 <dd><a href="matplotlib.ticker.html#LogFormatter">LogFormatter</a></dd>
-<dd><a href="matplotlib.ticker.html#ScalarFormatter">ScalarFormatter</a></dd>
 <dd><a href="matplotlib.ticker.html#Formatter">Formatter</a></dd>
 <dd><a href="matplotlib.ticker.html#TickHelper">TickHelper</a></dd>
 </dl>
@@ -668,23 +657,25 @@ is&nbsp;False</tt></dd></dl>
 
 <dl><dt><a name="LogFormatterExponent-base"><strong>base</strong></a>(self, base)</dt><dd><tt>change&nbsp;the&nbsp;base&nbsp;for&nbsp;labeling&nbsp;-&nbsp;warning:&nbsp;should&nbsp;always&nbsp;match&nbsp;the&nbsp;base&nbsp;used&nbsp;for&nbsp;<a href="#LogLocator">LogLocator</a></tt></dd></dl>
 
+<dl><dt><a name="LogFormatterExponent-format_data"><strong>format_data</strong></a>(self, value)</dt></dl>
+
 <dl><dt><a name="LogFormatterExponent-is_decade"><strong>is_decade</strong></a>(self, x)</dt></dl>
 
 <dl><dt><a name="LogFormatterExponent-label_minor"><strong>label_minor</strong></a>(self, labelOnlyBase)</dt><dd><tt>switch&nbsp;on/off&nbsp;minor&nbsp;ticks&nbsp;labeling</tt></dd></dl>
 
 <dl><dt><a name="LogFormatterExponent-nearest_long"><strong>nearest_long</strong></a>(self, x)</dt></dl>
 
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#ScalarFormatter">ScalarFormatter</a>:<br>
 <dl><dt><a name="LogFormatterExponent-pprint_val"><strong>pprint_val</strong></a>(self, x, d)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="LogFormatterExponent-get_offset"><strong>get_offset</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="LogFormatterExponent-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
-<dl><dt><strong>locs</strong> = None</dl>
+<dl><dt><strong>locs</strong> = []</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -712,7 +703,6 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="matplotlib.ticker.html#LogFormatterMathtext">LogFormatterMathtext</a></dd>
 <dd><a href="matplotlib.ticker.html#LogFormatter">LogFormatter</a></dd>
-<dd><a href="matplotlib.ticker.html#ScalarFormatter">ScalarFormatter</a></dd>
 <dd><a href="matplotlib.ticker.html#Formatter">Formatter</a></dd>
 <dd><a href="matplotlib.ticker.html#TickHelper">TickHelper</a></dd>
 </dl>
@@ -728,23 +718,25 @@ is&nbsp;False</tt></dd></dl>
 
 <dl><dt><a name="LogFormatterMathtext-base"><strong>base</strong></a>(self, base)</dt><dd><tt>change&nbsp;the&nbsp;base&nbsp;for&nbsp;labeling&nbsp;-&nbsp;warning:&nbsp;should&nbsp;always&nbsp;match&nbsp;the&nbsp;base&nbsp;used&nbsp;for&nbsp;<a href="#LogLocator">LogLocator</a></tt></dd></dl>
 
+<dl><dt><a name="LogFormatterMathtext-format_data"><strong>format_data</strong></a>(self, value)</dt></dl>
+
 <dl><dt><a name="LogFormatterMathtext-is_decade"><strong>is_decade</strong></a>(self, x)</dt></dl>
 
 <dl><dt><a name="LogFormatterMathtext-label_minor"><strong>label_minor</strong></a>(self, labelOnlyBase)</dt><dd><tt>switch&nbsp;on/off&nbsp;minor&nbsp;ticks&nbsp;labeling</tt></dd></dl>
 
 <dl><dt><a name="LogFormatterMathtext-nearest_long"><strong>nearest_long</strong></a>(self, x)</dt></dl>
 
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#ScalarFormatter">ScalarFormatter</a>:<br>
 <dl><dt><a name="LogFormatterMathtext-pprint_val"><strong>pprint_val</strong></a>(self, x, d)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="LogFormatterMathtext-get_offset"><strong>get_offset</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="LogFormatterMathtext-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
-<dl><dt><strong>locs</strong> = None</dl>
+<dl><dt><strong>locs</strong> = []</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -878,11 +870,15 @@ Methods defined here:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
+<dl><dt><a name="NullFormatter-format_data"><strong>format_data</strong></a>(self, value)</dt></dl>
+
+<dl><dt><a name="NullFormatter-get_offset"><strong>get_offset</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="NullFormatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
-<dl><dt><strong>locs</strong> = None</dl>
+<dl><dt><strong>locs</strong> = []</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -949,9 +945,10 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 <font color="#000000" face="helvetica, arial"><a name="ScalarFormatter">class <strong>ScalarFormatter</strong></a>(<a href="matplotlib.ticker.html#Formatter">Formatter</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Tick&nbsp;location&nbsp;is&nbsp;a&nbsp;plain&nbsp;old&nbsp;number.&nbsp;&nbsp;If&nbsp;viewInterval&nbsp;is&nbsp;set,&nbsp;the<br>
-formatter&nbsp;will&nbsp;use&nbsp;%d,&nbsp;%1.#f&nbsp;or&nbsp;%1.ef&nbsp;as&nbsp;appropriate.&nbsp;&nbsp;If&nbsp;it&nbsp;is<br>
-not&nbsp;set,&nbsp;the&nbsp;formatter&nbsp;will&nbsp;do&nbsp;str&nbsp;conversion<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>Tick&nbsp;location&nbsp;is&nbsp;a&nbsp;plain&nbsp;old&nbsp;number.&nbsp;&nbsp;If&nbsp;useOffset==True&nbsp;and&nbsp;the&nbsp;data&nbsp;range<br>
+is&nbsp;much&nbsp;smaller&nbsp;than&nbsp;the&nbsp;data&nbsp;average,&nbsp;then&nbsp;an&nbsp;offset&nbsp;will&nbsp;be&nbsp;determined&nbsp;<br>
+such&nbsp;that&nbsp;the&nbsp;tick&nbsp;labels&nbsp;are&nbsp;meaningful.&nbsp;Scientific&nbsp;notation&nbsp;is&nbsp;used&nbsp;for&nbsp;<br>
+data&nbsp;&lt;&nbsp;1e-3&nbsp;or&nbsp;data&nbsp;&gt;=&nbsp;1e4.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="matplotlib.ticker.html#ScalarFormatter">ScalarFormatter</a></dd>
@@ -962,15 +959,20 @@ not&nbsp;set,&nbsp;the&nbsp;formatter&nbsp;will&nbsp;do&nbsp;str&nbsp;conversion
 Methods defined here:<br>
 <dl><dt><a name="ScalarFormatter-__call__"><strong>__call__</strong></a>(self, x, pos<font color="#909090">=0</font>)</dt><dd><tt>Return&nbsp;the&nbsp;format&nbsp;for&nbsp;tick&nbsp;val&nbsp;x&nbsp;at&nbsp;position&nbsp;pos</tt></dd></dl>
 
-<dl><dt><a name="ScalarFormatter-pprint_val"><strong>pprint_val</strong></a>(self, x, d)</dt></dl>
+<dl><dt><a name="ScalarFormatter-__init__"><strong>__init__</strong></a>(self, useOffset<font color="#909090">=True</font>, useMathText<font color="#909090">=False</font>)</dt><dd><tt>#&nbsp;To&nbsp;use,&nbsp;rename&nbsp;<a href="#ScalarFormatter">ScalarFormatter</a>&nbsp;to&nbsp;OldScalarFormatter,&nbsp;<br>
+#&nbsp;and&nbsp;rename&nbsp;NewScalarFormatter&nbsp;to&nbsp;<a href="#ScalarFormatter">ScalarFormatter</a>.</tt></dd></dl>
 
-<hr>
-Methods inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
-<dl><dt><a name="ScalarFormatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt></dl>
+<dl><dt><a name="ScalarFormatter-format_data"><strong>format_data</strong></a>(self, value)</dt><dd><tt>return&nbsp;a&nbsp;formatted&nbsp;string&nbsp;representation&nbsp;of&nbsp;a&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="ScalarFormatter-get_offset"><strong>get_offset</strong></a>(self)</dt><dd><tt>Return&nbsp;scientific&nbsp;notation,&nbsp;plus&nbsp;offset</tt></dd></dl>
+
+<dl><dt><a name="ScalarFormatter-pprint_val"><strong>pprint_val</strong></a>(self, x)</dt></dl>
+
+<dl><dt><a name="ScalarFormatter-set_locs"><strong>set_locs</strong></a>(self, locs)</dt><dd><tt>set&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;ticks</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.ticker.html#Formatter">Formatter</a>:<br>
-<dl><dt><strong>locs</strong> = None</dl>
+<dl><dt><strong>locs</strong> = []</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#TickHelper">TickHelper</a>:<br>
@@ -1008,33 +1010,10 @@ Data and other attributes defined here:<br>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#eeaa77">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
-    
-<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-arange"><strong>arange</strong></a>(...)</dt><dd><tt><a href="#-arange">arange</a>(start,&nbsp;stop=None,&nbsp;step=1,&nbsp;typecode=None)<br>
-&nbsp;<br>
-&nbsp;Just&nbsp;like&nbsp;range()&nbsp;except&nbsp;it&nbsp;returns&nbsp;an&nbsp;array&nbsp;whose&nbsp;type&nbsp;can&nbsp;be<br>
-specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></dl>
- <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
- <dl><dt><a name="-closeto"><strong>closeto</strong></a>(x, y)</dt></dl>
- <dl><dt><a name="-decade_down"><strong>decade_down</strong></a>(x, base<font color="#909090">=10</font>)</dt><dd><tt>floor&nbsp;x&nbsp;to&nbsp;the&nbsp;nearest&nbsp;lower&nbsp;decade</tt></dd></dl>
- <dl><dt><a name="-decade_up"><strong>decade_up</strong></a>(x, base<font color="#909090">=10</font>)</dt><dd><tt>ceil&nbsp;x&nbsp;to&nbsp;the&nbsp;nearest&nbsp;higher&nbsp;decade</tt></dd></dl>
- <dl><dt><a name="-is_decade"><strong>is_decade</strong></a>(x, base<font color="#909090">=10</font>)</dt></dl>
- <dl><dt><a name="-take"><strong>take</strong></a>(...)</dt><dd><tt><a href="#-take">take</a>(a,&nbsp;indices,&nbsp;axis=0).&nbsp;&nbsp;Selects&nbsp;the&nbsp;elements&nbsp;in&nbsp;indices&nbsp;from&nbsp;array&nbsp;a&nbsp;along&nbsp;the&nbsp;given&nbsp;axis.</tt></dd></dl>
- <dl><dt><a name="-zeros"><strong>zeros</strong></a>(...)</dt><dd><tt><a href="#-zeros">zeros</a>((d1,...,dn),typecode='l',savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;of&nbsp;shape&nbsp;(d1,...,dn)&nbsp;and&nbsp;type&nbsp;typecode&nbsp;with&nbsp;all&nbsp;it's&nbsp;entries&nbsp;initialized&nbsp;to&nbsp;zero.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero&nbsp;the&nbsp;array&nbsp;will&nbsp;be&nbsp;a&nbsp;spacesaver&nbsp;array.</tt></dd></dl>
-</td></tr></table><p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>Float</strong> = 'd'<br>
-<strong>__all__</strong> = ('TickHelper', 'Formatter', 'FixedFormatter', 'NullFormatter', 'FuncFormatter', 'FormatStrFormatter', 'ScalarFormatter', 'LogFormatter', 'LogFormatterExponent', 'LogFormatterMathtext', 'Locator', 'IndexLocator', 'FixedLocator', 'NullLocator', 'LinearLocator', 'LogLocator', 'AutoLocator', 'MultipleLocator')<br>
-<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>log</strong> = &lt;ufunc 'log'&gt;<br>
-<strong>logical_and</strong> = &lt;ufunc 'logical_and'&gt;<br>
-<strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
+<td width="100%"><strong>__all__</strong> = ('TickHelper', 'Formatter', 'FixedFormatter', 'NullFormatter', 'FuncFormatter', 'FormatStrFormatter', 'ScalarFormatter', 'LogFormatter', 'LogFormatterExponent', 'LogFormatterMathtext', 'Locator', 'IndexLocator', 'FixedLocator', 'NullLocator', 'LinearLocator', 'LogLocator', 'AutoLocator', 'MultipleLocator')</td></tr></table>
 @footer@

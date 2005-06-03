@@ -3,7 +3,7 @@ import os, sys
 from hthelpers import modules
 os.system('rm -rf docs matplotlib; mkdir docs')
 for m in modules:
-    os.system('cd docs; /usr/local/bin/pydoc -w %s' % m)
+    os.system('cd docs; pydoc -w %s' % m)
 
 devTree, thisDir = os.path.split( os.getcwd() )
 for modname in modules:

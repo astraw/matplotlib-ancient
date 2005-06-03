@@ -208,7 +208,7 @@ if 1:  ############### Lower axes #################
 
     # make sure everyone has the same axes limits
 
-    set(axLower.get_xticklabels(), 'rotation', 45,
+    setp(axLower.get_xticklabels(), 'rotation', 45,
         'horizontalalignment', 'right', fontsize=8)
 
 # force all the axes to have the same x data limits

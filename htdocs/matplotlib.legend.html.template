@@ -4,14 +4,14 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.legend</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/legend.py">/usr/local/lib/python2.3/site-packages/matplotlib/legend.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/legend.py">/usr/lib/python2.4/site-packages/matplotlib/legend.py</a></font></td></tr></table>
     <p><tt>Place&nbsp;a&nbsp;legend&nbsp;on&nbsp;the&nbsp;axes&nbsp;at&nbsp;location&nbsp;loc.&nbsp;&nbsp;Labels&nbsp;are&nbsp;a<br>
 sequence&nbsp;of&nbsp;strings&nbsp;and&nbsp;loc&nbsp;can&nbsp;be&nbsp;a&nbsp;string&nbsp;or&nbsp;an&nbsp;integer<br>
 specifying&nbsp;the&nbsp;legend&nbsp;location<br>
 &nbsp;<br>
 The&nbsp;location&nbsp;codes&nbsp;are<br>
 &nbsp;<br>
-&nbsp;&nbsp;'best'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;0,&nbsp;&nbsp;<br>
+&nbsp;&nbsp;'best'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;0,<br>
 &nbsp;&nbsp;'upper&nbsp;right'&nbsp;&nbsp;:&nbsp;1,&nbsp;&nbsp;(default)<br>
 &nbsp;&nbsp;'upper&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;2,<br>
 &nbsp;&nbsp;'lower&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;3,<br>
@@ -62,7 +62,7 @@ specifying&nbsp;the&nbsp;legend&nbsp;location<br>
 &nbsp;<br>
 The&nbsp;location&nbsp;codes&nbsp;are<br>
 &nbsp;<br>
-&nbsp;&nbsp;'best'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;0,&nbsp;<br>
+&nbsp;&nbsp;'best'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;0,<br>
 &nbsp;&nbsp;'upper&nbsp;right'&nbsp;&nbsp;:&nbsp;1,&nbsp;&nbsp;(default)<br>
 &nbsp;&nbsp;'upper&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;2,<br>
 &nbsp;&nbsp;'lower&nbsp;left'&nbsp;&nbsp;&nbsp;:&nbsp;3,<br>
@@ -80,14 +80,14 @@ up&nbsp;the&nbsp;legend<br>&nbsp;</tt></td></tr>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Legend-__init__"><strong>__init__</strong></a>(self, parent, handles, labels, loc, isaxes<font color="#909090">=True</font>, numpoints<font color="#909090">=4</font>, prop<font color="#909090">=&lt;matplotlib.font_manager.FontProperties instance&gt;</font>, pad<font color="#909090">=0.20000000000000001</font>, markerscale<font color="#909090">=0.59999999999999998</font>, labelsep<font color="#909090">=0.0050000000000000001</font>, handlelen<font color="#909090">=0.050000000000000003</font>, handletextsep<font color="#909090">=0.02</font>, axespad<font color="#909090">=0.02</font>, shadow<font color="#909090">=False</font>)</dt><dd><tt>&nbsp;&nbsp;parent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;artist&nbsp;that&nbsp;contains&nbsp;the&nbsp;legend<br>
 &nbsp;&nbsp;handles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;list&nbsp;of&nbsp;artists&nbsp;(lines,&nbsp;patches)&nbsp;to&nbsp;add&nbsp;to&nbsp;the&nbsp;legend<br>
-&nbsp;&nbsp;labels&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;to&nbsp;label&nbsp;the&nbsp;legend&nbsp;<br>
+&nbsp;&nbsp;labels&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;list&nbsp;of&nbsp;strings&nbsp;to&nbsp;label&nbsp;the&nbsp;legend<br>
 &nbsp;&nbsp;loc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;a&nbsp;location&nbsp;code<br>
 &nbsp;&nbsp;isaxes=True&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;whether&nbsp;this&nbsp;is&nbsp;an&nbsp;axes&nbsp;legend<br>
 &nbsp;&nbsp;numpoints&nbsp;=&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;number&nbsp;of&nbsp;points&nbsp;in&nbsp;the&nbsp;legend&nbsp;line<br>
 &nbsp;&nbsp;fontprop&nbsp;=&nbsp;FontProperties(size='smaller')&nbsp;&nbsp;#&nbsp;the&nbsp;font&nbsp;property<br>
 &nbsp;&nbsp;pad&nbsp;=&nbsp;0.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;fractional&nbsp;whitespace&nbsp;inside&nbsp;the&nbsp;legend&nbsp;border<br>
 &nbsp;&nbsp;markerscale&nbsp;=&nbsp;0.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;relative&nbsp;size&nbsp;of&nbsp;legend&nbsp;markers&nbsp;vs.&nbsp;original<br>
-&nbsp;&nbsp;shadow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;if&nbsp;True,&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;behind&nbsp;legend&nbsp;<br>
+&nbsp;&nbsp;shadow&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;if&nbsp;True,&nbsp;draw&nbsp;a&nbsp;shadow&nbsp;behind&nbsp;legend<br>
 &nbsp;<br>
 The&nbsp;following&nbsp;dimensions&nbsp;are&nbsp;in&nbsp;axes&nbsp;coords<br>
 &nbsp;&nbsp;labelsep&nbsp;=&nbsp;0.005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;vertical&nbsp;space&nbsp;between&nbsp;the&nbsp;legend&nbsp;entries<br>
@@ -141,6 +141,8 @@ backends</tt></dd></dl>
 <dl><dt><a name="Legend-pchanged"><strong>pchanged</strong></a>(self)</dt><dd><tt>fire&nbsp;event&nbsp;when&nbsp;property&nbsp;changed</tt></dd></dl>
 
 <dl><dt><a name="Legend-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
+
+<dl><dt><a name="Legend-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
 
 <dl><dt><a name="Legend-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends<br>
@@ -202,6 +204,7 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
  <dl><dt><a name="-Point"><strong>Point</strong></a>(...)</dt><dd><tt><a href="#-Point">Point</a>(x,&nbsp;y)</tt></dd></dl>
  <dl><dt><a name="-Value"><strong>Value</strong></a>(...)</dt><dd><tt><a href="#-Value">Value</a>(x)</tt></dd></dl>
  <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
+ <dl><dt><a name="-line_cuts_bbox"><strong>line_cuts_bbox</strong></a>(line, bbox)</dt><dd><tt>Return&nbsp;True&nbsp;if&nbsp;and&nbsp;only&nbsp;if&nbsp;line&nbsp;cuts&nbsp;bbox.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">

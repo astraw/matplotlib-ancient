@@ -14,8 +14,8 @@ quality 2D library that supports fast antialiasing, alpha blending and
 much more.  If you want to produce PNGs or GUI images that support all
 of matplotlib's features, you should compile matplotlib with agg
 support and use one of the GUI agg backends as described below:
-GTKAgg, WXAgg, TkAgg, FLTKAgg or QtAgg.  All of these features are
-included in the windows installer<p>
+GTKAgg, WXAgg, TkAgg or FLTKAgg.  All of these features are included
+in the windows installer<p>
 
 <h2><a name=compiling>Compiling</a></h2>
 
@@ -25,14 +25,13 @@ manager, also make sure the devel versions of these packages are also
 installed (eg freetype-devel).<p>
 
 The top of setup.py contains some flags controlling which backends
-will be built.  If you want to use a GUI backend, you will obviously
-need the GUI toolkit and python extension installed on your system,
-and for some GUIs you'll need the devel packages as well.  You can
-choose which backends to enable by setting the flags in setup.py, but
-the 'auto' flags will work in most cases, as matplotlib tries to find
-a GUI and build the backend acccordingly.  If you know you don't want
-a particular backend or extension, you can set that flag to
-<tt>False</tt>.<p>
+will be built.  If you want to use a GUI backend, you will need either
+Tkinter, pygtk or wxpython installed on your system, from src or from
+a package manager including the devel packages.  You can choose which
+backends to enable by setting the flags in setup.py, but the 'auto'
+flags will work in most cases, as matplotlib tries to find a GUI and
+build the backend acccordingly.  If you know you don't want a
+particular backend or extension, you can set that flag to False.<p>
 
 As discussed above, most users will want to set <tt>BUILD_AGG = 1</tt>
 and one or more of the GUI backends to True.  Exceptions to this are
@@ -44,7 +43,7 @@ inform matplotlib where they are, edit <tt>setupext.py</tt> an add the
 base dirs to the <tt>basedir</tt> dictionary entry for your
 <tt>sys.platform</tt>.  Eg, if the header to some required library is
 in <tt>/some/path/include/somheader.h</tt>, put <tt>/some/path</tt> in
-the <tt>basedir</tt> list for your platform.<p>
+the basedir list for your platform.<p>
 
 matplotlib works with with Numeric or numarray.  At compile time,
 setup.py will look for both packages and compile the appropriate
@@ -78,8 +77,11 @@ svg.<p>
 
 For standard python installations, you will also need to install
 either Numeric or numarray in addition to the matplotlib installer.
-matplotlib has a <tt>numerix</tt> setting in the matplotlib rc file
-(which by default resides in
+matplotlib provides installers for Numeric and numarray users.  It is
+important that you pick the matplotlib installer that corresponds to
+your array package.  Ie, if you mostly work with numarray arrays, use
+the matplotlib numarray installer.  matplotlib has a <tt>numerix</tt>
+setting in the matplotlib rc file (which by default resides in
 <tt>c:\python23\share\matplotlitb\.matplotlibrc</tt>) and you should
 make sure this setting corresponds to your preferred array package.<p>
 
@@ -190,16 +192,6 @@ packages at http://mentors.debian.net
 </pre>         
   </li>
 </ul>
-
-<h3><a name=gentoo>Gentoo</a></h3>
-
-The gentoo packagers do a good job of keeping current matplotlib
-builds <a href=http://www.gentoo-portage.com/dev-python/matplotlib>here</a>
-
-<h3><a name=freebsd>FreeBSD</a></h3>
-
-The FreeBSD matplotlib repository is <a
-href=http://www.freshports.org/math/py-matplotlib/>here</a>.
 
 
 <h3><a name=fink>Fink</a></h3>

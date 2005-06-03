@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_wx</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_wx.py">/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_wx.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/backends/backend_wx.py">/usr/lib/python2.4/site-packages/matplotlib/backends/backend_wx.py</a></font></td></tr></table>
     <p></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -27,12 +27,6 @@
     
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="wx._controls.html#Button">wx._controls.Button</a>(<a href="wx._core.html#Control">wx._core.Control</a>)
-</font></dt><dd>
-<dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#MenuButtonWx">MenuButtonWx</a>
-</font></dt></dl>
-</dd>
 <dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>
 </font></dt><dd>
 <dl>
@@ -46,19 +40,7 @@
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#FigureManagerWx">FigureManagerWx</a>
 </font></dt></dl>
 </dd>
-<dt><font face="helvetica, arial"><a href="wx._windows.html#Frame">wx._windows.Frame</a>(<a href="wx._windows.html#TopLevelWindow">wx._windows.TopLevelWindow</a>)
-</font></dt><dd>
-<dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#FigureFrameWx">FigureFrameWx</a>
-</font></dt></dl>
-</dd>
 <dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>
-</font></dt><dd>
-<dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#GraphicsContextWx">GraphicsContextWx</a>(<a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>, <a href="wx._gdi.html#MemoryDC">wx._gdi.MemoryDC</a>)
-</font></dt></dl>
-</dd>
-<dt><font face="helvetica, arial"><a href="wx._gdi.html#MemoryDC">wx._gdi.MemoryDC</a>(<a href="wx._gdi.html#DC">wx._gdi.DC</a>)
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#GraphicsContextWx">GraphicsContextWx</a>(<a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>, <a href="wx._gdi.html#MemoryDC">wx._gdi.MemoryDC</a>)
@@ -68,6 +50,39 @@
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#NavigationToolbar2Wx">NavigationToolbar2Wx</a>(<a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>, <a href="wx._controls.html#ToolBar">wx._controls.ToolBar</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#RendererWx">RendererWx</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#fake_stderr">fake_stderr</a>
+</font></dt><dt><font face="helvetica, arial"><a href="wx._controls.html#Button">wx._controls.Button</a>(<a href="wx._core.html#Control">wx._core.Control</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#MenuButtonWx">MenuButtonWx</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="wx._controls.html#ToolBar">wx._controls.ToolBar</a>(<a href="wx._controls.html#ToolBarBase">wx._controls.ToolBarBase</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#NavigationToolbar2Wx">NavigationToolbar2Wx</a>(<a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>, <a href="wx._controls.html#ToolBar">wx._controls.ToolBar</a>)
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#NavigationToolbarWx">NavigationToolbarWx</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#NavigationToolbarWx">NavigationToolbarWx</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="wx._gdi.html#MemoryDC">wx._gdi.MemoryDC</a>(<a href="wx._gdi.html#DC">wx._gdi.DC</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#GraphicsContextWx">GraphicsContextWx</a>(<a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>, <a href="wx._gdi.html#MemoryDC">wx._gdi.MemoryDC</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="wx._windows.html#Frame">wx._windows.Frame</a>(<a href="wx._windows.html#TopLevelWindow">wx._windows.TopLevelWindow</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#FigureFrameWx">FigureFrameWx</a>
 </font></dt></dl>
 </dd>
 <dt><font face="helvetica, arial"><a href="wx._windows.html#Panel">wx._windows.Panel</a>(<a href="wx._core.html#Window">wx._core.Window</a>)
@@ -82,28 +97,13 @@
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#PrintoutWx">PrintoutWx</a>
 </font></dt></dl>
 </dd>
-<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>
-</font></dt><dd>
-<dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#RendererWx">RendererWx</a>
-</font></dt></dl>
-</dd>
 <dt><font face="helvetica, arial"><a href="wx._windows.html#StatusBar">wx._windows.StatusBar</a>(<a href="wx._core.html#Window">wx._core.Window</a>)
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#StatusBarWx">StatusBarWx</a>
 </font></dt></dl>
 </dd>
-<dt><font face="helvetica, arial"><a href="wx._controls.html#ToolBar">wx._controls.ToolBar</a>(<a href="wx._controls.html#ToolBarBase">wx._controls.ToolBarBase</a>)
-</font></dt><dd>
-<dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#NavigationToolbar2Wx">NavigationToolbar2Wx</a>(<a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>, <a href="wx._controls.html#ToolBar">wx._controls.ToolBar</a>)
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#NavigationToolbarWx">NavigationToolbarWx</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#NavigationToolbarWx">NavigationToolbarWx</a>
-</font></dt></dl>
-</dd>
-<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#fake_stderr">fake_stderr</a>
-</font></dt></dl>
+</dl>
  <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
@@ -164,7 +164,7 @@ eg&nbsp;when&nbsp;a&nbsp;GUI&nbsp;window&nbsp;is&nbsp;realized</tt></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>keyvald</strong> = {306: 'shift', 307: 'alt', 308: 'control'}</dl>
+<dl><dt><strong>keyvald</strong> = {306: 'shift', 307: 'alt', 308: 'control', 316: 'left', 317: 'up', 318: 'right', 319: 'down'}</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
@@ -235,20 +235,6 @@ Create&nbsp;the&nbsp;GUI&nbsp;part&nbsp;of&nbsp;the&nbsp;Window&nbsp;for&nbsp;2-
 &nbsp;<br>
 Sends&nbsp;an&nbsp;EVT_INIT_DIALOG&nbsp;event,&nbsp;whose&nbsp;handler&nbsp;usually&nbsp;transfers&nbsp;data<br>
 to&nbsp;the&nbsp;dialog&nbsp;via&nbsp;validators.</tt></dd></dl>
-
-<dl><dt><a name="FigureCanvasWx-SetFocus"><strong>SetFocus</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWx-SetFocus">SetFocus</a>(self)<br>
-&nbsp;<br>
-Overrides&nbsp;`wx.Window.SetFocus`.&nbsp;&nbsp;This&nbsp;method&nbsp;uses&nbsp;the&nbsp;(undocumented)<br>
-mix-in&nbsp;class&nbsp;wxControlContainer&nbsp;which&nbsp;manages&nbsp;the&nbsp;focus&nbsp;and&nbsp;TAB&nbsp;logic<br>
-for&nbsp;controls&nbsp;which&nbsp;usually&nbsp;have&nbsp;child&nbsp;controls.&nbsp;&nbsp;In&nbsp;practice,&nbsp;if&nbsp;you<br>
-call&nbsp;this&nbsp;method&nbsp;and&nbsp;the&nbsp;panel&nbsp;has&nbsp;at&nbsp;least&nbsp;one&nbsp;child&nbsp;window,&nbsp;then&nbsp;the<br>
-focus&nbsp;will&nbsp;be&nbsp;given&nbsp;to&nbsp;the&nbsp;child&nbsp;window.</tt></dd></dl>
-
-<dl><dt><a name="FigureCanvasWx-SetFocusIgnoringChildren"><strong>SetFocusIgnoringChildren</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWx-SetFocusIgnoringChildren">SetFocusIgnoringChildren</a>(self)<br>
-&nbsp;<br>
-In&nbsp;contrast&nbsp;to&nbsp;`SetFocus`&nbsp;(see&nbsp;above)&nbsp;this&nbsp;will&nbsp;set&nbsp;the&nbsp;focus&nbsp;to&nbsp;the<br>
-panel&nbsp;even&nbsp;of&nbsp;there&nbsp;are&nbsp;child&nbsp;windows&nbsp;in&nbsp;the&nbsp;panel.&nbsp;This&nbsp;is&nbsp;only<br>
-rarely&nbsp;needed.</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasWx-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
 
@@ -769,17 +755,6 @@ Test&nbsp;if&nbsp;the&nbsp;given&nbsp;style&nbsp;is&nbsp;set&nbsp;for&nbsp;this&
 &nbsp;<br>
 Does&nbsp;the&nbsp;window&nbsp;have&nbsp;the&nbsp;scrollbar&nbsp;for&nbsp;this&nbsp;orientation?</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasWx-HasTransparentBackground"><strong>HasTransparentBackground</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWx-HasTransparentBackground">HasTransparentBackground</a>(self)&nbsp;-&gt;&nbsp;bool<br>
-&nbsp;<br>
-Returns&nbsp;True&nbsp;if&nbsp;this&nbsp;window's&nbsp;background&nbsp;is&nbsp;transparent&nbsp;(as,&nbsp;for<br>
-example,&nbsp;for&nbsp;`wx.StaticText`)&nbsp;and&nbsp;should&nbsp;show&nbsp;the&nbsp;parent&nbsp;window's<br>
-background.<br>
-&nbsp;<br>
-This&nbsp;method&nbsp;is&nbsp;mostly&nbsp;used&nbsp;internally&nbsp;by&nbsp;the&nbsp;library&nbsp;itself&nbsp;and&nbsp;you<br>
-normally&nbsp;shouldn't&nbsp;have&nbsp;to&nbsp;call&nbsp;it.&nbsp;You&nbsp;may,&nbsp;however,&nbsp;have&nbsp;to&nbsp;override<br>
-it&nbsp;in&nbsp;your&nbsp;custom&nbsp;control&nbsp;classes&nbsp;to&nbsp;ensure&nbsp;that&nbsp;background&nbsp;is&nbsp;painted<br>
-correctly.</tt></dd></dl>
-
 <dl><dt><a name="FigureCanvasWx-Hide"><strong>Hide</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWx-Hide">Hide</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Equivalent&nbsp;to&nbsp;calling&nbsp;<a href="#FigureCanvasWx-Show">Show</a>(False).</tt></dd></dl>
@@ -817,8 +792,6 @@ parent.&nbsp;However&nbsp;it&nbsp;was&nbsp;also&nbsp;deemed&nbsp;desirable&nbsp;
 the&nbsp;attributes&nbsp;of&nbsp;all&nbsp;children&nbsp;at&nbsp;once&nbsp;by&nbsp;just&nbsp;changing&nbsp;the&nbsp;font&nbsp;or<br>
 colour&nbsp;of&nbsp;their&nbsp;common&nbsp;parent,&nbsp;hence&nbsp;in&nbsp;this&nbsp;case&nbsp;we&nbsp;do&nbsp;inherit&nbsp;the<br>
 parents&nbsp;attributes.</tt></dd></dl>
-
-<dl><dt><a name="FigureCanvasWx-InheritsBackgroundColour"><strong>InheritsBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWx-InheritsBackgroundColour">InheritsBackgroundColour</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasWx-InvalidateBestSize"><strong>InvalidateBestSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWx-InvalidateBestSize">InvalidateBestSize</a>(self)<br>
 &nbsp;<br>
@@ -987,7 +960,7 @@ Mark&nbsp;the&nbsp;specified&nbsp;rectangle&nbsp;(or&nbsp;the&nbsp;whole&nbsp;wi
 will&nbsp;be&nbsp;repainted.&nbsp;&nbsp;Causes&nbsp;an&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;be&nbsp;generated&nbsp;and&nbsp;sent<br>
 to&nbsp;the&nbsp;window.</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasWx-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWx-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect,&nbsp;bool&nbsp;eraseBackground=True)<br>
+<dl><dt><a name="FigureCanvasWx-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWx-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect)<br>
 &nbsp;<br>
 Redraws&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;given&nbsp;rectangle:&nbsp;the&nbsp;area&nbsp;inside&nbsp;it&nbsp;will<br>
 be&nbsp;repainted.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;Refresh&nbsp;but&nbsp;has&nbsp;a&nbsp;nicer&nbsp;syntax.</tt></dd></dl>
@@ -1172,17 +1145,11 @@ Set&nbsp;this&nbsp;child&nbsp;as&nbsp;default,&nbsp;return&nbsp;the&nbsp;old&nbs
 &nbsp;<br>
 Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;The&nbsp;sizeFlags<br>
 parameter&nbsp;indicates&nbsp;the&nbsp;interpretation&nbsp;of&nbsp;the&nbsp;other&nbsp;params&nbsp;if&nbsp;they&nbsp;are<br>
-equal&nbsp;to&nbsp;-1.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_AUTO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;should&nbsp;be&nbsp;used.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_USE_EXISTING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axisting&nbsp;dimensions&nbsp;should&nbsp;be&nbsp;used&nbsp;if<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE&nbsp;&nbsp;&nbsp;&nbsp;Allow&nbsp;dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;values.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================</tt></dd></dl>
+-1.&nbsp;&nbsp;wx.SIZE_AUTO*:&nbsp;a&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific&nbsp;default<br>
+shoudl&nbsp;be&nbsp;used.&nbsp;&nbsp;wx.SIZE_USE_EXISTING:&nbsp;existing&nbsp;dimensions&nbsp;should&nbsp;be<br>
+used&nbsp;if&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE:&nbsp;allow<br>
+dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
+default&nbsp;values.</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasWx-SetDropTarget"><strong>SetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWx-SetDropTarget">SetDropTarget</a>(self,&nbsp;DropTarget&nbsp;dropTarget)<br>
 &nbsp;<br>
@@ -1206,6 +1173,10 @@ handler&nbsp;is&nbsp;handed&nbsp;to&nbsp;the&nbsp;next&nbsp;one&nbsp;in&nbsp;the
 Sets&nbsp;the&nbsp;extra&nbsp;style&nbsp;bits&nbsp;for&nbsp;the&nbsp;window.&nbsp;&nbsp;Extra&nbsp;styles&nbsp;are&nbsp;the&nbsp;less<br>
 often&nbsp;used&nbsp;style&nbsp;bits&nbsp;which&nbsp;can't&nbsp;be&nbsp;set&nbsp;with&nbsp;the&nbsp;constructor&nbsp;or&nbsp;with<br>
 <a href="#FigureCanvasWx-SetWindowStyleFlag">SetWindowStyleFlag</a>()</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasWx-SetFocus"><strong>SetFocus</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWx-SetFocus">SetFocus</a>(self)<br>
+&nbsp;<br>
+Set's&nbsp;the&nbsp;focus&nbsp;to&nbsp;this&nbsp;window,&nbsp;allowing&nbsp;it&nbsp;to&nbsp;receive&nbsp;keyboard&nbsp;input.</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasWx-SetFocusFromKbd"><strong>SetFocusFromKbd</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWx-SetFocusFromKbd">SetFocusFromKbd</a>(self)<br>
 &nbsp;<br>
@@ -1471,8 +1442,6 @@ wx.UpdateUIEvent.SetMode&nbsp;or&nbsp;wx.UpdateUIEvent.SetUpdateInterval&nbsp;to
 limit&nbsp;the&nbsp;overhead&nbsp;that&nbsp;wxWindows&nbsp;incurs&nbsp;by&nbsp;sending&nbsp;update&nbsp;UI&nbsp;events<br>
 in&nbsp;idle&nbsp;time.</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasWx-UseBgCol"><strong>UseBgCol</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWx-UseBgCol">UseBgCol</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
-
 <dl><dt><a name="FigureCanvasWx-Validate"><strong>Validate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWx-Validate">Validate</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Validates&nbsp;the&nbsp;current&nbsp;values&nbsp;of&nbsp;the&nbsp;child&nbsp;controls&nbsp;using&nbsp;their<br>
@@ -1611,8 +1580,8 @@ Methods inherited from <a href="wx._windows.html#Frame">wx._windows.Frame</a>:<b
 &nbsp;&nbsp;&nbsp;&nbsp;Point&nbsp;pos=DefaultPosition,&nbsp;Size&nbsp;size=DefaultSize,&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;long&nbsp;style=DEFAULT_FRAME_STYLE,&nbsp;String&nbsp;name=FrameNameStr)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
 
-<dl><dt><a name="FigureFrameWx-CreateStatusBar"><strong>CreateStatusBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-CreateStatusBar">CreateStatusBar</a>(self,&nbsp;int&nbsp;number=1,&nbsp;long&nbsp;style=DEFAULT_STATUSBAR_STYLE,&nbsp;int&nbsp;winid=0,&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;name=StatusLineNameStr)&nbsp;-&gt;&nbsp;<a href="wx._windows.html#StatusBar">StatusBar</a></tt></dd></dl>
+<dl><dt><a name="FigureFrameWx-CreateStatusBar"><strong>CreateStatusBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-CreateStatusBar">CreateStatusBar</a>(self,&nbsp;int&nbsp;number=1,&nbsp;long&nbsp;style=wxST_SIZEGRIP|wxFULL_REPAINT_ON_RESIZE,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;winid=0,&nbsp;String&nbsp;name=StatusLineNameStr)&nbsp;-&gt;&nbsp;<a href="wx._windows.html#StatusBar">StatusBar</a></tt></dd></dl>
 
 <dl><dt><a name="FigureFrameWx-CreateToolBar"><strong>CreateToolBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-CreateToolBar">CreateToolBar</a>(self,&nbsp;long&nbsp;style=-1,&nbsp;int&nbsp;winid=-1,&nbsp;String&nbsp;name=ToolBarNameStr)&nbsp;-&gt;&nbsp;wxToolBar</tt></dd></dl>
 
@@ -1648,7 +1617,7 @@ the&nbsp;borders,&nbsp;scrollbars,&nbsp;other&nbsp;decorations...)</tt></dd></dl
 
 <dl><dt><a name="FigureFrameWx-SetStatusText"><strong>SetStatusText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-SetStatusText">SetStatusText</a>(self,&nbsp;String&nbsp;text,&nbsp;int&nbsp;number=0)</tt></dd></dl>
 
-<dl><dt><a name="FigureFrameWx-SetStatusWidths"><strong>SetStatusWidths</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-SetStatusWidths">SetStatusWidths</a>(self,&nbsp;int&nbsp;widths)</tt></dd></dl>
+<dl><dt><a name="FigureFrameWx-SetStatusWidths"><strong>SetStatusWidths</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-SetStatusWidths">SetStatusWidths</a>(self,&nbsp;int&nbsp;widths,&nbsp;int&nbsp;widths_field)</tt></dd></dl>
 
 <dl><dt><a name="FigureFrameWx-SetToolBar"><strong>SetToolBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-SetToolBar">SetToolBar</a>(self,&nbsp;wxToolBar&nbsp;toolbar)</tt></dd></dl>
 
@@ -2201,17 +2170,6 @@ Test&nbsp;if&nbsp;the&nbsp;given&nbsp;style&nbsp;is&nbsp;set&nbsp;for&nbsp;this&
 &nbsp;<br>
 Does&nbsp;the&nbsp;window&nbsp;have&nbsp;the&nbsp;scrollbar&nbsp;for&nbsp;this&nbsp;orientation?</tt></dd></dl>
 
-<dl><dt><a name="FigureFrameWx-HasTransparentBackground"><strong>HasTransparentBackground</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-HasTransparentBackground">HasTransparentBackground</a>(self)&nbsp;-&gt;&nbsp;bool<br>
-&nbsp;<br>
-Returns&nbsp;True&nbsp;if&nbsp;this&nbsp;window's&nbsp;background&nbsp;is&nbsp;transparent&nbsp;(as,&nbsp;for<br>
-example,&nbsp;for&nbsp;`wx.StaticText`)&nbsp;and&nbsp;should&nbsp;show&nbsp;the&nbsp;parent&nbsp;window's<br>
-background.<br>
-&nbsp;<br>
-This&nbsp;method&nbsp;is&nbsp;mostly&nbsp;used&nbsp;internally&nbsp;by&nbsp;the&nbsp;library&nbsp;itself&nbsp;and&nbsp;you<br>
-normally&nbsp;shouldn't&nbsp;have&nbsp;to&nbsp;call&nbsp;it.&nbsp;You&nbsp;may,&nbsp;however,&nbsp;have&nbsp;to&nbsp;override<br>
-it&nbsp;in&nbsp;your&nbsp;custom&nbsp;control&nbsp;classes&nbsp;to&nbsp;ensure&nbsp;that&nbsp;background&nbsp;is&nbsp;painted<br>
-correctly.</tt></dd></dl>
-
 <dl><dt><a name="FigureFrameWx-Hide"><strong>Hide</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-Hide">Hide</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Equivalent&nbsp;to&nbsp;calling&nbsp;<a href="#FigureFrameWx-Show">Show</a>(False).</tt></dd></dl>
@@ -2249,8 +2207,6 @@ parent.&nbsp;However&nbsp;it&nbsp;was&nbsp;also&nbsp;deemed&nbsp;desirable&nbsp;
 the&nbsp;attributes&nbsp;of&nbsp;all&nbsp;children&nbsp;at&nbsp;once&nbsp;by&nbsp;just&nbsp;changing&nbsp;the&nbsp;font&nbsp;or<br>
 colour&nbsp;of&nbsp;their&nbsp;common&nbsp;parent,&nbsp;hence&nbsp;in&nbsp;this&nbsp;case&nbsp;we&nbsp;do&nbsp;inherit&nbsp;the<br>
 parents&nbsp;attributes.</tt></dd></dl>
-
-<dl><dt><a name="FigureFrameWx-InheritsBackgroundColour"><strong>InheritsBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-InheritsBackgroundColour">InheritsBackgroundColour</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
 
 <dl><dt><a name="FigureFrameWx-InitDialog"><strong>InitDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-InitDialog">InitDialog</a>(self)<br>
 &nbsp;<br>
@@ -2424,7 +2380,7 @@ Mark&nbsp;the&nbsp;specified&nbsp;rectangle&nbsp;(or&nbsp;the&nbsp;whole&nbsp;wi
 will&nbsp;be&nbsp;repainted.&nbsp;&nbsp;Causes&nbsp;an&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;be&nbsp;generated&nbsp;and&nbsp;sent<br>
 to&nbsp;the&nbsp;window.</tt></dd></dl>
 
-<dl><dt><a name="FigureFrameWx-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect,&nbsp;bool&nbsp;eraseBackground=True)<br>
+<dl><dt><a name="FigureFrameWx-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect)<br>
 &nbsp;<br>
 Redraws&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;given&nbsp;rectangle:&nbsp;the&nbsp;area&nbsp;inside&nbsp;it&nbsp;will<br>
 be&nbsp;repainted.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;Refresh&nbsp;but&nbsp;has&nbsp;a&nbsp;nicer&nbsp;syntax.</tt></dd></dl>
@@ -2609,17 +2565,11 @@ Set&nbsp;this&nbsp;child&nbsp;as&nbsp;default,&nbsp;return&nbsp;the&nbsp;old&nbs
 &nbsp;<br>
 Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;The&nbsp;sizeFlags<br>
 parameter&nbsp;indicates&nbsp;the&nbsp;interpretation&nbsp;of&nbsp;the&nbsp;other&nbsp;params&nbsp;if&nbsp;they&nbsp;are<br>
-equal&nbsp;to&nbsp;-1.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_AUTO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;should&nbsp;be&nbsp;used.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_USE_EXISTING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axisting&nbsp;dimensions&nbsp;should&nbsp;be&nbsp;used&nbsp;if<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE&nbsp;&nbsp;&nbsp;&nbsp;Allow&nbsp;dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;values.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================</tt></dd></dl>
+-1.&nbsp;&nbsp;wx.SIZE_AUTO*:&nbsp;a&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific&nbsp;default<br>
+shoudl&nbsp;be&nbsp;used.&nbsp;&nbsp;wx.SIZE_USE_EXISTING:&nbsp;existing&nbsp;dimensions&nbsp;should&nbsp;be<br>
+used&nbsp;if&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE:&nbsp;allow<br>
+dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
+default&nbsp;values.</tt></dd></dl>
 
 <dl><dt><a name="FigureFrameWx-SetDropTarget"><strong>SetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-SetDropTarget">SetDropTarget</a>(self,&nbsp;DropTarget&nbsp;dropTarget)<br>
 &nbsp;<br>
@@ -2907,8 +2857,6 @@ concerned).&nbsp;This&nbsp;may&nbsp;be&nbsp;necessary&nbsp;if&nbsp;you&nbsp;have
 wx.UpdateUIEvent.SetMode&nbsp;or&nbsp;wx.UpdateUIEvent.SetUpdateInterval&nbsp;to<br>
 limit&nbsp;the&nbsp;overhead&nbsp;that&nbsp;wxWindows&nbsp;incurs&nbsp;by&nbsp;sending&nbsp;update&nbsp;UI&nbsp;events<br>
 in&nbsp;idle&nbsp;time.</tt></dd></dl>
-
-<dl><dt><a name="FigureFrameWx-UseBgCol"><strong>UseBgCol</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-UseBgCol">UseBgCol</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
 
 <dl><dt><a name="FigureFrameWx-Validate"><strong>Validate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWx-Validate">Validate</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
@@ -3230,12 +3178,6 @@ with&nbsp;`MinX`,&nbsp;`MaxX`&nbsp;and&nbsp;`MinY`,&nbsp;`MaxY`&nbsp;or&nbsp;`Ge
 <dl><dt><a name="GraphicsContextWx-Clear"><strong>Clear</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#GraphicsContextWx-Clear">Clear</a>(self)<br>
 &nbsp;<br>
 Clears&nbsp;the&nbsp;device&nbsp;context&nbsp;using&nbsp;the&nbsp;current&nbsp;background&nbsp;brush.</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextWx-ComputeScaleAndOrigin"><strong>ComputeScaleAndOrigin</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#GraphicsContextWx-ComputeScaleAndOrigin">ComputeScaleAndOrigin</a>(self)<br>
-&nbsp;<br>
-Performs&nbsp;all&nbsp;necessary&nbsp;computations&nbsp;for&nbsp;given&nbsp;platform&nbsp;and&nbsp;context<br>
-type&nbsp;after&nbsp;each&nbsp;change&nbsp;of&nbsp;scale&nbsp;and&nbsp;origin&nbsp;parameters.&nbsp;Usually&nbsp;called<br>
-automatically&nbsp;internally&nbsp;after&nbsp;such&nbsp;changes.</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextWx-CrossHair"><strong>CrossHair</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#GraphicsContextWx-CrossHair">CrossHair</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y)<br>
 &nbsp;<br>
@@ -3729,7 +3671,10 @@ Get&nbsp;the&nbsp;width,&nbsp;height,&nbsp;decent&nbsp;and&nbsp;leading&nbsp;of&
 current&nbsp;or&nbsp;specified&nbsp;font.&nbsp;Works&nbsp;for&nbsp;single&nbsp;as&nbsp;well&nbsp;as&nbsp;multi-line<br>
 strings.</tt></dd></dl>
 
-<dl><dt><a name="GraphicsContextWx-GetOptimization"><strong>GetOptimization</strong></a> = deprecatedWrapper(*args, **kwargs)</dt><dd><tt>&lt;function&nbsp;GetOptimization&nbsp;at&nbsp;0x416c90d4&gt;&nbsp;is&nbsp;deprecated</tt></dd></dl>
+<dl><dt><a name="GraphicsContextWx-GetOptimization"><strong>GetOptimization</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#GraphicsContextWx-GetOptimization">GetOptimization</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;device&nbsp;context&nbsp;optimization&nbsp;is&nbsp;on.&nbsp;See<br>
+`SetOptimization`&nbsp;for&nbsp;.</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextWx-GetPPI"><strong>GetPPI</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#GraphicsContextWx-GetPPI">GetPPI</a>(self)&nbsp;-&gt;&nbsp;Size<br>
 &nbsp;<br>
@@ -3742,7 +3687,7 @@ pixels&nbsp;from&nbsp;the&nbsp;begining&nbsp;of&nbsp;text&nbsp;to&nbsp;the&nbsp;
 *text*.&nbsp;The&nbsp;generic&nbsp;version&nbsp;simply&nbsp;builds&nbsp;a&nbsp;running&nbsp;total&nbsp;of&nbsp;the&nbsp;widths<br>
 of&nbsp;each&nbsp;character&nbsp;using&nbsp;GetTextExtent,&nbsp;however&nbsp;if&nbsp;the&nbsp;various<br>
 platforms&nbsp;have&nbsp;a&nbsp;native&nbsp;API&nbsp;function&nbsp;that&nbsp;is&nbsp;faster&nbsp;or&nbsp;more&nbsp;accurate<br>
-than&nbsp;the&nbsp;generic&nbsp;implementation&nbsp;then&nbsp;it&nbsp;will&nbsp;be&nbsp;used&nbsp;instead.</tt></dd></dl>
+than&nbsp;the&nbsp;generic&nbsp;implementaiton&nbsp;then&nbsp;it&nbsp;will&nbsp;be&nbsp;used&nbsp;instead.</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextWx-GetPen"><strong>GetPen</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#GraphicsContextWx-GetPen">GetPen</a>(self)&nbsp;-&gt;&nbsp;Pen<br>
 &nbsp;<br>
@@ -3993,7 +3938,18 @@ mapping&nbsp;mode&nbsp;can&nbsp;be&nbsp;one&nbsp;of&nbsp;the&nbsp;following:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;wx.MM_TEXT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Each&nbsp;logical&nbsp;unit&nbsp;is&nbsp;1&nbsp;pixel.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;================&nbsp;&nbsp;&nbsp;&nbsp;=============================================</tt></dd></dl>
 
-<dl><dt><a name="GraphicsContextWx-SetOptimization"><strong>SetOptimization</strong></a> = deprecatedWrapper(*args, **kwargs)</dt><dd><tt>&lt;function&nbsp;SetOptimization&nbsp;at&nbsp;0x416c909c&gt;&nbsp;is&nbsp;deprecated</tt></dd></dl>
+<dl><dt><a name="GraphicsContextWx-SetOptimization"><strong>SetOptimization</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#GraphicsContextWx-SetOptimization">SetOptimization</a>(self,&nbsp;bool&nbsp;optimize)<br>
+&nbsp;<br>
+If&nbsp;*optimize*&nbsp;is&nbsp;true&nbsp;this&nbsp;function&nbsp;sets&nbsp;optimization&nbsp;mode&nbsp;on.&nbsp;This<br>
+currently&nbsp;means&nbsp;that&nbsp;under&nbsp;X,&nbsp;the&nbsp;device&nbsp;context&nbsp;will&nbsp;not&nbsp;try&nbsp;to&nbsp;set&nbsp;a<br>
+pen&nbsp;or&nbsp;brush&nbsp;property&nbsp;if&nbsp;it&nbsp;is&nbsp;known&nbsp;to&nbsp;be&nbsp;set&nbsp;already.&nbsp;This&nbsp;approach<br>
+can&nbsp;fall&nbsp;down&nbsp;if&nbsp;non-wxWidgets&nbsp;code&nbsp;is&nbsp;using&nbsp;the&nbsp;same&nbsp;device&nbsp;context<br>
+or&nbsp;window,&nbsp;for&nbsp;example&nbsp;when&nbsp;the&nbsp;window&nbsp;is&nbsp;a&nbsp;panel&nbsp;on&nbsp;which&nbsp;the<br>
+windowing&nbsp;system&nbsp;draws&nbsp;panel&nbsp;items.&nbsp;The&nbsp;wxWidgets&nbsp;device&nbsp;context<br>
+'memory'&nbsp;will&nbsp;now&nbsp;be&nbsp;out&nbsp;of&nbsp;step&nbsp;with&nbsp;reality.<br>
+&nbsp;<br>
+Setting&nbsp;optimization&nbsp;off,&nbsp;drawing,&nbsp;then&nbsp;setting&nbsp;it&nbsp;back&nbsp;on&nbsp;again,&nbsp;is&nbsp;a<br>
+trick&nbsp;that&nbsp;must&nbsp;occasionally&nbsp;be&nbsp;employed.</tt></dd></dl>
 
 <dl><dt><a name="GraphicsContextWx-SetPalette"><strong>SetPalette</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#GraphicsContextWx-SetPalette">SetPalette</a>(self,&nbsp;Palette&nbsp;palette)<br>
 &nbsp;<br>
@@ -4627,17 +4583,6 @@ Test&nbsp;if&nbsp;the&nbsp;given&nbsp;style&nbsp;is&nbsp;set&nbsp;for&nbsp;this&
 &nbsp;<br>
 Does&nbsp;the&nbsp;window&nbsp;have&nbsp;the&nbsp;scrollbar&nbsp;for&nbsp;this&nbsp;orientation?</tt></dd></dl>
 
-<dl><dt><a name="MenuButtonWx-HasTransparentBackground"><strong>HasTransparentBackground</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#MenuButtonWx-HasTransparentBackground">HasTransparentBackground</a>(self)&nbsp;-&gt;&nbsp;bool<br>
-&nbsp;<br>
-Returns&nbsp;True&nbsp;if&nbsp;this&nbsp;window's&nbsp;background&nbsp;is&nbsp;transparent&nbsp;(as,&nbsp;for<br>
-example,&nbsp;for&nbsp;`wx.StaticText`)&nbsp;and&nbsp;should&nbsp;show&nbsp;the&nbsp;parent&nbsp;window's<br>
-background.<br>
-&nbsp;<br>
-This&nbsp;method&nbsp;is&nbsp;mostly&nbsp;used&nbsp;internally&nbsp;by&nbsp;the&nbsp;library&nbsp;itself&nbsp;and&nbsp;you<br>
-normally&nbsp;shouldn't&nbsp;have&nbsp;to&nbsp;call&nbsp;it.&nbsp;You&nbsp;may,&nbsp;however,&nbsp;have&nbsp;to&nbsp;override<br>
-it&nbsp;in&nbsp;your&nbsp;custom&nbsp;control&nbsp;classes&nbsp;to&nbsp;ensure&nbsp;that&nbsp;background&nbsp;is&nbsp;painted<br>
-correctly.</tt></dd></dl>
-
 <dl><dt><a name="MenuButtonWx-Hide"><strong>Hide</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#MenuButtonWx-Hide">Hide</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Equivalent&nbsp;to&nbsp;calling&nbsp;<a href="#MenuButtonWx-Show">Show</a>(False).</tt></dd></dl>
@@ -4675,8 +4620,6 @@ parent.&nbsp;However&nbsp;it&nbsp;was&nbsp;also&nbsp;deemed&nbsp;desirable&nbsp;
 the&nbsp;attributes&nbsp;of&nbsp;all&nbsp;children&nbsp;at&nbsp;once&nbsp;by&nbsp;just&nbsp;changing&nbsp;the&nbsp;font&nbsp;or<br>
 colour&nbsp;of&nbsp;their&nbsp;common&nbsp;parent,&nbsp;hence&nbsp;in&nbsp;this&nbsp;case&nbsp;we&nbsp;do&nbsp;inherit&nbsp;the<br>
 parents&nbsp;attributes.</tt></dd></dl>
-
-<dl><dt><a name="MenuButtonWx-InheritsBackgroundColour"><strong>InheritsBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#MenuButtonWx-InheritsBackgroundColour">InheritsBackgroundColour</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
 
 <dl><dt><a name="MenuButtonWx-InitDialog"><strong>InitDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#MenuButtonWx-InitDialog">InitDialog</a>(self)<br>
 &nbsp;<br>
@@ -4850,7 +4793,7 @@ Mark&nbsp;the&nbsp;specified&nbsp;rectangle&nbsp;(or&nbsp;the&nbsp;whole&nbsp;wi
 will&nbsp;be&nbsp;repainted.&nbsp;&nbsp;Causes&nbsp;an&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;be&nbsp;generated&nbsp;and&nbsp;sent<br>
 to&nbsp;the&nbsp;window.</tt></dd></dl>
 
-<dl><dt><a name="MenuButtonWx-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#MenuButtonWx-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect,&nbsp;bool&nbsp;eraseBackground=True)<br>
+<dl><dt><a name="MenuButtonWx-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#MenuButtonWx-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect)<br>
 &nbsp;<br>
 Redraws&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;given&nbsp;rectangle:&nbsp;the&nbsp;area&nbsp;inside&nbsp;it&nbsp;will<br>
 be&nbsp;repainted.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;Refresh&nbsp;but&nbsp;has&nbsp;a&nbsp;nicer&nbsp;syntax.</tt></dd></dl>
@@ -5035,17 +4978,11 @@ Set&nbsp;this&nbsp;child&nbsp;as&nbsp;default,&nbsp;return&nbsp;the&nbsp;old&nbs
 &nbsp;<br>
 Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;The&nbsp;sizeFlags<br>
 parameter&nbsp;indicates&nbsp;the&nbsp;interpretation&nbsp;of&nbsp;the&nbsp;other&nbsp;params&nbsp;if&nbsp;they&nbsp;are<br>
-equal&nbsp;to&nbsp;-1.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_AUTO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;should&nbsp;be&nbsp;used.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_USE_EXISTING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axisting&nbsp;dimensions&nbsp;should&nbsp;be&nbsp;used&nbsp;if<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE&nbsp;&nbsp;&nbsp;&nbsp;Allow&nbsp;dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;values.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================</tt></dd></dl>
+-1.&nbsp;&nbsp;wx.SIZE_AUTO*:&nbsp;a&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific&nbsp;default<br>
+shoudl&nbsp;be&nbsp;used.&nbsp;&nbsp;wx.SIZE_USE_EXISTING:&nbsp;existing&nbsp;dimensions&nbsp;should&nbsp;be<br>
+used&nbsp;if&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE:&nbsp;allow<br>
+dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
+default&nbsp;values.</tt></dd></dl>
 
 <dl><dt><a name="MenuButtonWx-SetDropTarget"><strong>SetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#MenuButtonWx-SetDropTarget">SetDropTarget</a>(self,&nbsp;DropTarget&nbsp;dropTarget)<br>
 &nbsp;<br>
@@ -5334,8 +5271,6 @@ wx.UpdateUIEvent.SetMode&nbsp;or&nbsp;wx.UpdateUIEvent.SetUpdateInterval&nbsp;to
 limit&nbsp;the&nbsp;overhead&nbsp;that&nbsp;wxWindows&nbsp;incurs&nbsp;by&nbsp;sending&nbsp;update&nbsp;UI&nbsp;events<br>
 in&nbsp;idle&nbsp;time.</tt></dd></dl>
 
-<dl><dt><a name="MenuButtonWx-UseBgCol"><strong>UseBgCol</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#MenuButtonWx-UseBgCol">UseBgCol</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
-
 <dl><dt><a name="MenuButtonWx-Validate"><strong>Validate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#MenuButtonWx-Validate">Validate</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Validates&nbsp;the&nbsp;current&nbsp;values&nbsp;of&nbsp;the&nbsp;child&nbsp;controls&nbsp;using&nbsp;their<br>
@@ -5464,15 +5399,21 @@ Methods defined here:<br>
 
 <dl><dt><a name="NavigationToolbar2Wx-dynamic_update"><strong>dynamic_update</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="NavigationToolbar2Wx-pan"><strong>pan</strong></a>(self, *args)</dt></dl>
+
 <dl><dt><a name="NavigationToolbar2Wx-release"><strong>release</strong></a>(self, event)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2Wx-save"><strong>save</strong></a>(self, evt)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2Wx-set_cursor"><strong>set_cursor</strong></a>(self, cursor)</dt></dl>
 
+<dl><dt><a name="NavigationToolbar2Wx-set_history_buttons"><strong>set_history_buttons</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="NavigationToolbar2Wx-set_message"><strong>set_message</strong></a>(self, s)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2Wx-set_status_bar"><strong>set_status_bar</strong></a>(self, statbar)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Wx-zoom"><strong>zoom</strong></a>(self, *args)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>:<br>
@@ -5487,8 +5428,6 @@ Methods inherited from <a href="matplotlib.backend_bases.html#NavigationToolbar2
 <dl><dt><a name="NavigationToolbar2Wx-home"><strong>home</strong></a>(self, *args)</dt><dd><tt>restore&nbsp;the&nbsp;original&nbsp;view</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbar2Wx-mouse_move"><strong>mouse_move</strong></a>(self, event)</dt></dl>
-
-<dl><dt><a name="NavigationToolbar2Wx-pan"><strong>pan</strong></a>(self, *args)</dt><dd><tt>Activate&nbsp;the&nbsp;pan/zoom&nbsp;tool.&nbsp;pan&nbsp;with&nbsp;left&nbsp;button,&nbsp;zoom&nbsp;with&nbsp;right</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbar2Wx-press"><strong>press</strong></a>(self, event)</dt><dd><tt>this&nbsp;will&nbsp;be&nbsp;called&nbsp;whenver&nbsp;a&nbsp;mouse&nbsp;button&nbsp;is&nbsp;pressed</tt></dd></dl>
 
@@ -5505,8 +5444,6 @@ Methods inherited from <a href="matplotlib.backend_bases.html#NavigationToolbar2
 <dl><dt><a name="NavigationToolbar2Wx-save_figure"><strong>save_figure</strong></a>(self, *args)</dt><dd><tt>save&nbsp;the&nbsp;current&nbsp;figure</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbar2Wx-update"><strong>update</strong></a>(self)</dt><dd><tt>reset&nbsp;the&nbsp;axes&nbsp;stack</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2Wx-zoom"><strong>zoom</strong></a>(self, *args)</dt><dd><tt>activate&nbsp;zoom&nbsp;to&nbsp;rect&nbsp;mode</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="wx._controls.html#ToolBar">wx._controls.ToolBar</a>:<br>
@@ -6173,17 +6110,6 @@ Test&nbsp;if&nbsp;the&nbsp;given&nbsp;style&nbsp;is&nbsp;set&nbsp;for&nbsp;this&
 &nbsp;<br>
 Does&nbsp;the&nbsp;window&nbsp;have&nbsp;the&nbsp;scrollbar&nbsp;for&nbsp;this&nbsp;orientation?</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbar2Wx-HasTransparentBackground"><strong>HasTransparentBackground</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbar2Wx-HasTransparentBackground">HasTransparentBackground</a>(self)&nbsp;-&gt;&nbsp;bool<br>
-&nbsp;<br>
-Returns&nbsp;True&nbsp;if&nbsp;this&nbsp;window's&nbsp;background&nbsp;is&nbsp;transparent&nbsp;(as,&nbsp;for<br>
-example,&nbsp;for&nbsp;`wx.StaticText`)&nbsp;and&nbsp;should&nbsp;show&nbsp;the&nbsp;parent&nbsp;window's<br>
-background.<br>
-&nbsp;<br>
-This&nbsp;method&nbsp;is&nbsp;mostly&nbsp;used&nbsp;internally&nbsp;by&nbsp;the&nbsp;library&nbsp;itself&nbsp;and&nbsp;you<br>
-normally&nbsp;shouldn't&nbsp;have&nbsp;to&nbsp;call&nbsp;it.&nbsp;You&nbsp;may,&nbsp;however,&nbsp;have&nbsp;to&nbsp;override<br>
-it&nbsp;in&nbsp;your&nbsp;custom&nbsp;control&nbsp;classes&nbsp;to&nbsp;ensure&nbsp;that&nbsp;background&nbsp;is&nbsp;painted<br>
-correctly.</tt></dd></dl>
-
 <dl><dt><a name="NavigationToolbar2Wx-Hide"><strong>Hide</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbar2Wx-Hide">Hide</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Equivalent&nbsp;to&nbsp;calling&nbsp;<a href="#NavigationToolbar2Wx-Show">Show</a>(False).</tt></dd></dl>
@@ -6221,8 +6147,6 @@ parent.&nbsp;However&nbsp;it&nbsp;was&nbsp;also&nbsp;deemed&nbsp;desirable&nbsp;
 the&nbsp;attributes&nbsp;of&nbsp;all&nbsp;children&nbsp;at&nbsp;once&nbsp;by&nbsp;just&nbsp;changing&nbsp;the&nbsp;font&nbsp;or<br>
 colour&nbsp;of&nbsp;their&nbsp;common&nbsp;parent,&nbsp;hence&nbsp;in&nbsp;this&nbsp;case&nbsp;we&nbsp;do&nbsp;inherit&nbsp;the<br>
 parents&nbsp;attributes.</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2Wx-InheritsBackgroundColour"><strong>InheritsBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbar2Wx-InheritsBackgroundColour">InheritsBackgroundColour</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbar2Wx-InitDialog"><strong>InitDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbar2Wx-InitDialog">InitDialog</a>(self)<br>
 &nbsp;<br>
@@ -6396,7 +6320,7 @@ Mark&nbsp;the&nbsp;specified&nbsp;rectangle&nbsp;(or&nbsp;the&nbsp;whole&nbsp;wi
 will&nbsp;be&nbsp;repainted.&nbsp;&nbsp;Causes&nbsp;an&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;be&nbsp;generated&nbsp;and&nbsp;sent<br>
 to&nbsp;the&nbsp;window.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbar2Wx-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbar2Wx-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect,&nbsp;bool&nbsp;eraseBackground=True)<br>
+<dl><dt><a name="NavigationToolbar2Wx-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbar2Wx-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect)<br>
 &nbsp;<br>
 Redraws&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;given&nbsp;rectangle:&nbsp;the&nbsp;area&nbsp;inside&nbsp;it&nbsp;will<br>
 be&nbsp;repainted.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;Refresh&nbsp;but&nbsp;has&nbsp;a&nbsp;nicer&nbsp;syntax.</tt></dd></dl>
@@ -6581,17 +6505,11 @@ Set&nbsp;this&nbsp;child&nbsp;as&nbsp;default,&nbsp;return&nbsp;the&nbsp;old&nbs
 &nbsp;<br>
 Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;The&nbsp;sizeFlags<br>
 parameter&nbsp;indicates&nbsp;the&nbsp;interpretation&nbsp;of&nbsp;the&nbsp;other&nbsp;params&nbsp;if&nbsp;they&nbsp;are<br>
-equal&nbsp;to&nbsp;-1.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_AUTO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;should&nbsp;be&nbsp;used.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_USE_EXISTING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axisting&nbsp;dimensions&nbsp;should&nbsp;be&nbsp;used&nbsp;if<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE&nbsp;&nbsp;&nbsp;&nbsp;Allow&nbsp;dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;values.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================</tt></dd></dl>
+-1.&nbsp;&nbsp;wx.SIZE_AUTO*:&nbsp;a&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific&nbsp;default<br>
+shoudl&nbsp;be&nbsp;used.&nbsp;&nbsp;wx.SIZE_USE_EXISTING:&nbsp;existing&nbsp;dimensions&nbsp;should&nbsp;be<br>
+used&nbsp;if&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE:&nbsp;allow<br>
+dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
+default&nbsp;values.</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbar2Wx-SetDropTarget"><strong>SetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbar2Wx-SetDropTarget">SetDropTarget</a>(self,&nbsp;DropTarget&nbsp;dropTarget)<br>
 &nbsp;<br>
@@ -6879,8 +6797,6 @@ concerned).&nbsp;This&nbsp;may&nbsp;be&nbsp;necessary&nbsp;if&nbsp;you&nbsp;have
 wx.UpdateUIEvent.SetMode&nbsp;or&nbsp;wx.UpdateUIEvent.SetUpdateInterval&nbsp;to<br>
 limit&nbsp;the&nbsp;overhead&nbsp;that&nbsp;wxWindows&nbsp;incurs&nbsp;by&nbsp;sending&nbsp;update&nbsp;UI&nbsp;events<br>
 in&nbsp;idle&nbsp;time.</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2Wx-UseBgCol"><strong>UseBgCol</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbar2Wx-UseBgCol">UseBgCol</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbar2Wx-Validate"><strong>Validate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbar2Wx-Validate">Validate</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
@@ -7686,17 +7602,6 @@ Test&nbsp;if&nbsp;the&nbsp;given&nbsp;style&nbsp;is&nbsp;set&nbsp;for&nbsp;this&
 &nbsp;<br>
 Does&nbsp;the&nbsp;window&nbsp;have&nbsp;the&nbsp;scrollbar&nbsp;for&nbsp;this&nbsp;orientation?</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-HasTransparentBackground"><strong>HasTransparentBackground</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbarWx-HasTransparentBackground">HasTransparentBackground</a>(self)&nbsp;-&gt;&nbsp;bool<br>
-&nbsp;<br>
-Returns&nbsp;True&nbsp;if&nbsp;this&nbsp;window's&nbsp;background&nbsp;is&nbsp;transparent&nbsp;(as,&nbsp;for<br>
-example,&nbsp;for&nbsp;`wx.StaticText`)&nbsp;and&nbsp;should&nbsp;show&nbsp;the&nbsp;parent&nbsp;window's<br>
-background.<br>
-&nbsp;<br>
-This&nbsp;method&nbsp;is&nbsp;mostly&nbsp;used&nbsp;internally&nbsp;by&nbsp;the&nbsp;library&nbsp;itself&nbsp;and&nbsp;you<br>
-normally&nbsp;shouldn't&nbsp;have&nbsp;to&nbsp;call&nbsp;it.&nbsp;You&nbsp;may,&nbsp;however,&nbsp;have&nbsp;to&nbsp;override<br>
-it&nbsp;in&nbsp;your&nbsp;custom&nbsp;control&nbsp;classes&nbsp;to&nbsp;ensure&nbsp;that&nbsp;background&nbsp;is&nbsp;painted<br>
-correctly.</tt></dd></dl>
-
 <dl><dt><a name="NavigationToolbarWx-Hide"><strong>Hide</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbarWx-Hide">Hide</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Equivalent&nbsp;to&nbsp;calling&nbsp;<a href="#NavigationToolbarWx-Show">Show</a>(False).</tt></dd></dl>
@@ -7734,8 +7639,6 @@ parent.&nbsp;However&nbsp;it&nbsp;was&nbsp;also&nbsp;deemed&nbsp;desirable&nbsp;
 the&nbsp;attributes&nbsp;of&nbsp;all&nbsp;children&nbsp;at&nbsp;once&nbsp;by&nbsp;just&nbsp;changing&nbsp;the&nbsp;font&nbsp;or<br>
 colour&nbsp;of&nbsp;their&nbsp;common&nbsp;parent,&nbsp;hence&nbsp;in&nbsp;this&nbsp;case&nbsp;we&nbsp;do&nbsp;inherit&nbsp;the<br>
 parents&nbsp;attributes.</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbarWx-InheritsBackgroundColour"><strong>InheritsBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbarWx-InheritsBackgroundColour">InheritsBackgroundColour</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-InitDialog"><strong>InitDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbarWx-InitDialog">InitDialog</a>(self)<br>
 &nbsp;<br>
@@ -7909,7 +7812,7 @@ Mark&nbsp;the&nbsp;specified&nbsp;rectangle&nbsp;(or&nbsp;the&nbsp;whole&nbsp;wi
 will&nbsp;be&nbsp;repainted.&nbsp;&nbsp;Causes&nbsp;an&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;be&nbsp;generated&nbsp;and&nbsp;sent<br>
 to&nbsp;the&nbsp;window.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbarWx-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect,&nbsp;bool&nbsp;eraseBackground=True)<br>
+<dl><dt><a name="NavigationToolbarWx-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbarWx-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect)<br>
 &nbsp;<br>
 Redraws&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;given&nbsp;rectangle:&nbsp;the&nbsp;area&nbsp;inside&nbsp;it&nbsp;will<br>
 be&nbsp;repainted.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;Refresh&nbsp;but&nbsp;has&nbsp;a&nbsp;nicer&nbsp;syntax.</tt></dd></dl>
@@ -8094,17 +7997,11 @@ Set&nbsp;this&nbsp;child&nbsp;as&nbsp;default,&nbsp;return&nbsp;the&nbsp;old&nbs
 &nbsp;<br>
 Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;The&nbsp;sizeFlags<br>
 parameter&nbsp;indicates&nbsp;the&nbsp;interpretation&nbsp;of&nbsp;the&nbsp;other&nbsp;params&nbsp;if&nbsp;they&nbsp;are<br>
-equal&nbsp;to&nbsp;-1.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_AUTO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;should&nbsp;be&nbsp;used.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_USE_EXISTING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axisting&nbsp;dimensions&nbsp;should&nbsp;be&nbsp;used&nbsp;if<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE&nbsp;&nbsp;&nbsp;&nbsp;Allow&nbsp;dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;values.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================</tt></dd></dl>
+-1.&nbsp;&nbsp;wx.SIZE_AUTO*:&nbsp;a&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific&nbsp;default<br>
+shoudl&nbsp;be&nbsp;used.&nbsp;&nbsp;wx.SIZE_USE_EXISTING:&nbsp;existing&nbsp;dimensions&nbsp;should&nbsp;be<br>
+used&nbsp;if&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE:&nbsp;allow<br>
+dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
+default&nbsp;values.</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-SetDropTarget"><strong>SetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbarWx-SetDropTarget">SetDropTarget</a>(self,&nbsp;DropTarget&nbsp;dropTarget)<br>
 &nbsp;<br>
@@ -8393,8 +8290,6 @@ wx.UpdateUIEvent.SetMode&nbsp;or&nbsp;wx.UpdateUIEvent.SetUpdateInterval&nbsp;to
 limit&nbsp;the&nbsp;overhead&nbsp;that&nbsp;wxWindows&nbsp;incurs&nbsp;by&nbsp;sending&nbsp;update&nbsp;UI&nbsp;events<br>
 in&nbsp;idle&nbsp;time.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-UseBgCol"><strong>UseBgCol</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbarWx-UseBgCol">UseBgCol</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
-
 <dl><dt><a name="NavigationToolbarWx-Validate"><strong>Validate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#NavigationToolbarWx-Validate">Validate</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Validates&nbsp;the&nbsp;current&nbsp;values&nbsp;of&nbsp;the&nbsp;child&nbsp;controls&nbsp;using&nbsp;their<br>
@@ -8649,6 +8544,12 @@ Data and other attributes defined here:<br>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
+<dl><dt><a name="RendererWx-blit"><strong>blit</strong></a>(self)</dt><dd><tt>blit&nbsp;the&nbsp;cached&nbsp;copy&nbsp;of&nbsp;the&nbsp;canvas,&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;conjunction<br>
+with&nbsp;blit&nbsp;in&nbsp;support&nbsp;of&nbsp;animation</tt></dd></dl>
+
+<dl><dt><a name="RendererWx-cache"><strong>cache</strong></a>(self)</dt><dd><tt>save&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;canvas,&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;conjunction&nbsp;with&nbsp;blit<br>
+in&nbsp;support&nbsp;of&nbsp;animation</tt></dd></dl>
+
 <dl><dt><a name="RendererWx-close_group"><strong>close_group</strong></a>(self, s)</dt><dd><tt>close&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s<br>
 Is&nbsp;only&nbsp;currently&nbsp;used&nbsp;by&nbsp;backend_svg</tt></dd></dl>
 
@@ -8773,11 +8674,11 @@ Methods inherited from <a href="wx._windows.html#StatusBar">wx._windows.StatusBa
 
 <dl><dt><a name="StatusBarWx-SetMinHeight"><strong>SetMinHeight</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-SetMinHeight">SetMinHeight</a>(self,&nbsp;int&nbsp;height)</tt></dd></dl>
 
-<dl><dt><a name="StatusBarWx-SetStatusStyles"><strong>SetStatusStyles</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-SetStatusStyles">SetStatusStyles</a>(self,&nbsp;int&nbsp;styles)</tt></dd></dl>
+<dl><dt><a name="StatusBarWx-SetStatusStyles"><strong>SetStatusStyles</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-SetStatusStyles">SetStatusStyles</a>(self,&nbsp;int&nbsp;styles,&nbsp;int&nbsp;styles_field)</tt></dd></dl>
 
 <dl><dt><a name="StatusBarWx-SetStatusText"><strong>SetStatusText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-SetStatusText">SetStatusText</a>(self,&nbsp;String&nbsp;text,&nbsp;int&nbsp;number=0)</tt></dd></dl>
 
-<dl><dt><a name="StatusBarWx-SetStatusWidths"><strong>SetStatusWidths</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-SetStatusWidths">SetStatusWidths</a>(self,&nbsp;int&nbsp;widths)</tt></dd></dl>
+<dl><dt><a name="StatusBarWx-SetStatusWidths"><strong>SetStatusWidths</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-SetStatusWidths">SetStatusWidths</a>(self,&nbsp;int&nbsp;widths,&nbsp;int&nbsp;widths_field)</tt></dd></dl>
 
 <dl><dt><a name="StatusBarWx-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
 
@@ -9309,17 +9210,6 @@ Test&nbsp;if&nbsp;the&nbsp;given&nbsp;style&nbsp;is&nbsp;set&nbsp;for&nbsp;this&
 &nbsp;<br>
 Does&nbsp;the&nbsp;window&nbsp;have&nbsp;the&nbsp;scrollbar&nbsp;for&nbsp;this&nbsp;orientation?</tt></dd></dl>
 
-<dl><dt><a name="StatusBarWx-HasTransparentBackground"><strong>HasTransparentBackground</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-HasTransparentBackground">HasTransparentBackground</a>(self)&nbsp;-&gt;&nbsp;bool<br>
-&nbsp;<br>
-Returns&nbsp;True&nbsp;if&nbsp;this&nbsp;window's&nbsp;background&nbsp;is&nbsp;transparent&nbsp;(as,&nbsp;for<br>
-example,&nbsp;for&nbsp;`wx.StaticText`)&nbsp;and&nbsp;should&nbsp;show&nbsp;the&nbsp;parent&nbsp;window's<br>
-background.<br>
-&nbsp;<br>
-This&nbsp;method&nbsp;is&nbsp;mostly&nbsp;used&nbsp;internally&nbsp;by&nbsp;the&nbsp;library&nbsp;itself&nbsp;and&nbsp;you<br>
-normally&nbsp;shouldn't&nbsp;have&nbsp;to&nbsp;call&nbsp;it.&nbsp;You&nbsp;may,&nbsp;however,&nbsp;have&nbsp;to&nbsp;override<br>
-it&nbsp;in&nbsp;your&nbsp;custom&nbsp;control&nbsp;classes&nbsp;to&nbsp;ensure&nbsp;that&nbsp;background&nbsp;is&nbsp;painted<br>
-correctly.</tt></dd></dl>
-
 <dl><dt><a name="StatusBarWx-Hide"><strong>Hide</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-Hide">Hide</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Equivalent&nbsp;to&nbsp;calling&nbsp;<a href="#StatusBarWx-Show">Show</a>(False).</tt></dd></dl>
@@ -9357,8 +9247,6 @@ parent.&nbsp;However&nbsp;it&nbsp;was&nbsp;also&nbsp;deemed&nbsp;desirable&nbsp;
 the&nbsp;attributes&nbsp;of&nbsp;all&nbsp;children&nbsp;at&nbsp;once&nbsp;by&nbsp;just&nbsp;changing&nbsp;the&nbsp;font&nbsp;or<br>
 colour&nbsp;of&nbsp;their&nbsp;common&nbsp;parent,&nbsp;hence&nbsp;in&nbsp;this&nbsp;case&nbsp;we&nbsp;do&nbsp;inherit&nbsp;the<br>
 parents&nbsp;attributes.</tt></dd></dl>
-
-<dl><dt><a name="StatusBarWx-InheritsBackgroundColour"><strong>InheritsBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-InheritsBackgroundColour">InheritsBackgroundColour</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
 
 <dl><dt><a name="StatusBarWx-InitDialog"><strong>InitDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-InitDialog">InitDialog</a>(self)<br>
 &nbsp;<br>
@@ -9532,7 +9420,7 @@ Mark&nbsp;the&nbsp;specified&nbsp;rectangle&nbsp;(or&nbsp;the&nbsp;whole&nbsp;wi
 will&nbsp;be&nbsp;repainted.&nbsp;&nbsp;Causes&nbsp;an&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;be&nbsp;generated&nbsp;and&nbsp;sent<br>
 to&nbsp;the&nbsp;window.</tt></dd></dl>
 
-<dl><dt><a name="StatusBarWx-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect,&nbsp;bool&nbsp;eraseBackground=True)<br>
+<dl><dt><a name="StatusBarWx-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect)<br>
 &nbsp;<br>
 Redraws&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;given&nbsp;rectangle:&nbsp;the&nbsp;area&nbsp;inside&nbsp;it&nbsp;will<br>
 be&nbsp;repainted.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;Refresh&nbsp;but&nbsp;has&nbsp;a&nbsp;nicer&nbsp;syntax.</tt></dd></dl>
@@ -9717,17 +9605,11 @@ Set&nbsp;this&nbsp;child&nbsp;as&nbsp;default,&nbsp;return&nbsp;the&nbsp;old&nbs
 &nbsp;<br>
 Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;The&nbsp;sizeFlags<br>
 parameter&nbsp;indicates&nbsp;the&nbsp;interpretation&nbsp;of&nbsp;the&nbsp;other&nbsp;params&nbsp;if&nbsp;they&nbsp;are<br>
-equal&nbsp;to&nbsp;-1.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_AUTO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;should&nbsp;be&nbsp;used.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_USE_EXISTING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axisting&nbsp;dimensions&nbsp;should&nbsp;be&nbsp;used&nbsp;if<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE&nbsp;&nbsp;&nbsp;&nbsp;Allow&nbsp;dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;values.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================</tt></dd></dl>
+-1.&nbsp;&nbsp;wx.SIZE_AUTO*:&nbsp;a&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific&nbsp;default<br>
+shoudl&nbsp;be&nbsp;used.&nbsp;&nbsp;wx.SIZE_USE_EXISTING:&nbsp;existing&nbsp;dimensions&nbsp;should&nbsp;be<br>
+used&nbsp;if&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE:&nbsp;allow<br>
+dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
+default&nbsp;values.</tt></dd></dl>
 
 <dl><dt><a name="StatusBarWx-SetDropTarget"><strong>SetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-SetDropTarget">SetDropTarget</a>(self,&nbsp;DropTarget&nbsp;dropTarget)<br>
 &nbsp;<br>
@@ -10019,8 +9901,6 @@ concerned).&nbsp;This&nbsp;may&nbsp;be&nbsp;necessary&nbsp;if&nbsp;you&nbsp;have
 wx.UpdateUIEvent.SetMode&nbsp;or&nbsp;wx.UpdateUIEvent.SetUpdateInterval&nbsp;to<br>
 limit&nbsp;the&nbsp;overhead&nbsp;that&nbsp;wxWindows&nbsp;incurs&nbsp;by&nbsp;sending&nbsp;update&nbsp;UI&nbsp;events<br>
 in&nbsp;idle&nbsp;time.</tt></dd></dl>
-
-<dl><dt><a name="StatusBarWx-UseBgCol"><strong>UseBgCol</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-UseBgCol">UseBgCol</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
 
 <dl><dt><a name="StatusBarWx-Validate"><strong>Validate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-Validate">Validate</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
@@ -10826,17 +10706,6 @@ Test&nbsp;if&nbsp;the&nbsp;given&nbsp;style&nbsp;is&nbsp;set&nbsp;for&nbsp;this&
 &nbsp;<br>
 Does&nbsp;the&nbsp;window&nbsp;have&nbsp;the&nbsp;scrollbar&nbsp;for&nbsp;this&nbsp;orientation?</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-HasTransparentBackground"><strong>HasTransparentBackground</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Toolbar-HasTransparentBackground">HasTransparentBackground</a>(self)&nbsp;-&gt;&nbsp;bool<br>
-&nbsp;<br>
-Returns&nbsp;True&nbsp;if&nbsp;this&nbsp;window's&nbsp;background&nbsp;is&nbsp;transparent&nbsp;(as,&nbsp;for<br>
-example,&nbsp;for&nbsp;`wx.StaticText`)&nbsp;and&nbsp;should&nbsp;show&nbsp;the&nbsp;parent&nbsp;window's<br>
-background.<br>
-&nbsp;<br>
-This&nbsp;method&nbsp;is&nbsp;mostly&nbsp;used&nbsp;internally&nbsp;by&nbsp;the&nbsp;library&nbsp;itself&nbsp;and&nbsp;you<br>
-normally&nbsp;shouldn't&nbsp;have&nbsp;to&nbsp;call&nbsp;it.&nbsp;You&nbsp;may,&nbsp;however,&nbsp;have&nbsp;to&nbsp;override<br>
-it&nbsp;in&nbsp;your&nbsp;custom&nbsp;control&nbsp;classes&nbsp;to&nbsp;ensure&nbsp;that&nbsp;background&nbsp;is&nbsp;painted<br>
-correctly.</tt></dd></dl>
-
 <dl><dt><a name="NavigationToolbarWx-Hide"><strong>Hide</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Toolbar-Hide">Hide</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Equivalent&nbsp;to&nbsp;calling&nbsp;<a href="#Toolbar-Show">Show</a>(False).</tt></dd></dl>
@@ -10874,8 +10743,6 @@ parent.&nbsp;However&nbsp;it&nbsp;was&nbsp;also&nbsp;deemed&nbsp;desirable&nbsp;
 the&nbsp;attributes&nbsp;of&nbsp;all&nbsp;children&nbsp;at&nbsp;once&nbsp;by&nbsp;just&nbsp;changing&nbsp;the&nbsp;font&nbsp;or<br>
 colour&nbsp;of&nbsp;their&nbsp;common&nbsp;parent,&nbsp;hence&nbsp;in&nbsp;this&nbsp;case&nbsp;we&nbsp;do&nbsp;inherit&nbsp;the<br>
 parents&nbsp;attributes.</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbarWx-InheritsBackgroundColour"><strong>InheritsBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Toolbar-InheritsBackgroundColour">InheritsBackgroundColour</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-InitDialog"><strong>InitDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Toolbar-InitDialog">InitDialog</a>(self)<br>
 &nbsp;<br>
@@ -11049,7 +10916,7 @@ Mark&nbsp;the&nbsp;specified&nbsp;rectangle&nbsp;(or&nbsp;the&nbsp;whole&nbsp;wi
 will&nbsp;be&nbsp;repainted.&nbsp;&nbsp;Causes&nbsp;an&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;be&nbsp;generated&nbsp;and&nbsp;sent<br>
 to&nbsp;the&nbsp;window.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Toolbar-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect,&nbsp;bool&nbsp;eraseBackground=True)<br>
+<dl><dt><a name="NavigationToolbarWx-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Toolbar-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect)<br>
 &nbsp;<br>
 Redraws&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;given&nbsp;rectangle:&nbsp;the&nbsp;area&nbsp;inside&nbsp;it&nbsp;will<br>
 be&nbsp;repainted.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;Refresh&nbsp;but&nbsp;has&nbsp;a&nbsp;nicer&nbsp;syntax.</tt></dd></dl>
@@ -11234,17 +11101,11 @@ Set&nbsp;this&nbsp;child&nbsp;as&nbsp;default,&nbsp;return&nbsp;the&nbsp;old&nbs
 &nbsp;<br>
 Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;The&nbsp;sizeFlags<br>
 parameter&nbsp;indicates&nbsp;the&nbsp;interpretation&nbsp;of&nbsp;the&nbsp;other&nbsp;params&nbsp;if&nbsp;they&nbsp;are<br>
-equal&nbsp;to&nbsp;-1.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_AUTO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;should&nbsp;be&nbsp;used.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_USE_EXISTING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axisting&nbsp;dimensions&nbsp;should&nbsp;be&nbsp;used&nbsp;if<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE&nbsp;&nbsp;&nbsp;&nbsp;Allow&nbsp;dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;values.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================</tt></dd></dl>
+-1.&nbsp;&nbsp;wx.SIZE_AUTO*:&nbsp;a&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific&nbsp;default<br>
+shoudl&nbsp;be&nbsp;used.&nbsp;&nbsp;wx.SIZE_USE_EXISTING:&nbsp;existing&nbsp;dimensions&nbsp;should&nbsp;be<br>
+used&nbsp;if&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE:&nbsp;allow<br>
+dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
+default&nbsp;values.</tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbarWx-SetDropTarget"><strong>SetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Toolbar-SetDropTarget">SetDropTarget</a>(self,&nbsp;DropTarget&nbsp;dropTarget)<br>
 &nbsp;<br>
@@ -11533,8 +11394,6 @@ wx.UpdateUIEvent.SetMode&nbsp;or&nbsp;wx.UpdateUIEvent.SetUpdateInterval&nbsp;to
 limit&nbsp;the&nbsp;overhead&nbsp;that&nbsp;wxWindows&nbsp;incurs&nbsp;by&nbsp;sending&nbsp;update&nbsp;UI&nbsp;events<br>
 in&nbsp;idle&nbsp;time.</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbarWx-UseBgCol"><strong>UseBgCol</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Toolbar-UseBgCol">UseBgCol</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
-
 <dl><dt><a name="NavigationToolbarWx-Validate"><strong>Validate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Toolbar-Validate">Validate</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Validates&nbsp;the&nbsp;current&nbsp;values&nbsp;of&nbsp;the&nbsp;child&nbsp;controls&nbsp;using&nbsp;their<br>
@@ -11682,12 +11541,12 @@ into&nbsp;this&nbsp;in&nbsp;a&nbsp;later&nbsp;release.</tt></dd></dl>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>PIXELS_PER_INCH</strong> = 75<br>
-<strong>backend_version</strong> = '2.5.5.1'<br>
+<strong>backend_version</strong> = '2.5.3.2pre'<br>
 <strong>cursord</strong> = {0: 6, 1: 1, 2: 5, 3: 6}<br>
 <strong>cursors</strong> = &lt;matplotlib.backend_bases.Cursors instance&gt;<br>
 <strong>cvs_id</strong> = '$Id$'<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'WXAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;<br>
 <strong>wxapp</strong> = None</td></tr></table>
 @footer@

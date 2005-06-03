@@ -1,9 +1,147 @@
 New entries should be added at the top
 
+2005-06-03 Improved support for tex handling of text in backend_ps. - DSD 
+
+2005-06-03 Added rc options to render text with tex or latex, and to select 
+           the latex font package. - DSD
+
+2005-06-03 Fixed a bug in ticker.py causing a ZeroDivisionError
+
+2005-06-02 backend_gtk.py remove DBL_BUFFER, add line to expose_event to
+           try to fix pygtk 2.6 redraw problem - SC
+
+2005-06-01 The default behavior of ScalarFormatter now renders scientific 
+           notation and large numerical offsets in a label at the end of 
+           the axis. - DSD
+
+2005-06-01 Added Nicholas' frombyte image patch - JDH
+
+2005-05-31 Added vertical TeX support for agg - JDH
+
+2005-05-31 Applied Eric's cntr patch - JDH
+
+2005-05-27 Finally found the pesky agg bug (which Maxim was kind
+           enough to fix within hours) that was causing a segfault in
+           the win32 cached marker drawing.  Now windows users can get
+           the enormouse performance benefits of caced markers w/o
+           those occasional pesy screenshots. - JDH
+
+2005-05-27 Got win32 build system working again, using a more recent
+           version of gtk and pygtk in the win32 build, gtk 2.6 from
+           http://www.gimp.org/~tml/gimp/win32/downloads.html (you
+           will also need libpng12.dll to use these).  I haven't
+           tested whether this binary build of mpl for win32 will work
+           with older gtk runtimes, so you may need to upgrade.
+
+2005-05-27 Fixed bug where 2nd wxapp could be started if using wxagg
+           backend. - ADS
+
+2005-05-26 Added Daishi text with dash patch -- see examples/dashtick.py
+
+2005-05-26 Moved backend_latex functionality into backend_ps. If 
+           text.usetex=True, the PostScript backend will use LaTeX to 
+           generate the .ps or .eps file. Ghostscript is required for 
+           eps output. - DSD
+
+2005-05-24 Fixed alignment and color issues in latex backend. - DSD
+
+2005-05-21 Fixed raster problem for small rasters with dvipng -- looks
+           like it was a premultipled alpha problem - JDH
+
+2005-05-20 Added linewidth and faceted kwarg to scatter to control
+           edgewidth and color.  Also added autolegend patch to
+           inspect line segments.
+
+2005-05-18 Added Orsay and JPL qt fixes - JDH
+
+2005-05-17 Added a psfrag latex backend -- some alignment issues need
+           to be worked out. Run with -dLaTeX and a *.tex file and
+           *.eps file are generated.  latex and dvips the generated
+           latex file to get ps output.  Note xdvi *does* not work,
+           you must generate ps.- JDH
+
+2005-05-13 Added Florent Rougon's Axis set_label1
+           patch
+
+2005-05-17 pcolor optimization, fixed bug in previous pcolor patch - JSWHIT
+
+2005-05-16 Added support for masked arrays in pcolor - JSWHIT
+
+
+2005-05-12 Started work on TeX text for antigrain using pngdvi -- see
+           examples/tex_demo.py and the new module
+           matplotlib.texmanager.  Rotated text not supported and
+           rendering small glyps is not working right yet.  BUt large
+           fontsizes and/or high dpi saved figs work great.
+
+2005-05-10 New image resize options interpolation options.  New values
+           for the interp kwarg are   
+        
+           'nearest', 'bilinear', 'bicubic', 'spline16', 'spline36',
+	   'hanning', 'hamming', 'hermite', 'kaiser', 'quadric',
+	   'catrom', 'gaussian', 'bessel', 'mitchell', 'sinc',
+	   'lanczos', 'blackman'
+
+           See help(imshow) for details, particularly the
+           interpolation, filternorm and filterrad kwargs
+
+
+2005-05-10 Applied Eric's contour mem leak fixes - JDH
+
+2005-05-10 Extended python agg wrapper and started implementing
+           backend_agg2, an agg renderer based on the python wrapper.
+           This will be more flexible and easier to extend than the
+           current backend_agg.  See also examples/agg_test.py - JDH
+
+2005-05-09 Added Marcin's no legend patch to exclude lines from the
+           autolegend builder
+
+           plot(x, y, label='nolegend')
+
+2005-05-05 Upgraded to agg23
+
+2005-05-05 Added newscalarformatter_demo.py to examples. -DSD 
+
+2005-05-04 Added NewScalarFormatter. Improved formatting of ticklabels, 
+           scientific notation, and the ability to plot large large 
+           numbers with small ranges, by determining a numerical offset. 
+           See ticker.NewScalarFormatter for more details. -DSD 
+
+2005-05-03 Added the option to specify a delimiter in pylab.load -DSD
+
+2005-04-28 Added Darren's line collection example
+
+2005-04-28 Fixed aa property in agg - JDH
+
+2005-04-27 Set postscript page size in .matplotlibrc - DSD
+
+2005-04-26 Added embedding in qt example. - JDH
+
+2005-04-14 Applied Michael Brady's qt backend patch: 1) fix a bug
+           where keyboard input was grabbed by the figure and not
+           released  2) turn on cursor changes  3) clean up a typo
+           and commented-out print statement. - JDH
+
+
+2005-04-14 Applied Eric Firing's masked data lines patch and contour
+           patch.  Support for masked arrays has been added to the
+           plot command and to the Line2D object.  Only the valid
+           points are plotted.  A "valid_only" kwarg was added to the
+           get_xdata() and get_ydata() methods of Line2D; by default
+           it is False, so that the original data arrays are
+           returned. Setting it to True returns the plottable points.
+           - see examples/masked_demo.py - JDH
+
+2005-04-13 Applied Tim Leslie's arrow key event handling patch - JDH
+
+
+=================================================================
+0.80 released
+
 2005-04-11 Applied a variant of rick's xlim/ylim/axis patch.  These
            functions now take kwargs to let you selectively alter only
            the min or max if desired.  Eg xlim(xmin=2) or
-           axis(ymax=3).  They always return the new lim
+           axis(ymax=3).  They always return the new lim. - JDH
 
 
 2005-04-11 Incorporated Werner's wx patch -- wx backend should be

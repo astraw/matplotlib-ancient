@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.text</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/text.py">/usr/local/lib/python2.3/site-packages/matplotlib/text.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/text.py">/usr/lib/python2.4/site-packages/matplotlib/text.py</a></font></td></tr></table>
     <p><tt>Figure&nbsp;and&nbsp;Axes&nbsp;text</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -28,6 +28,7 @@
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.text.html#Text">Text</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.text.html#TextWithDash">TextWithDash</a>
 </font></dt></dl>
 </dd>
 </dl>
@@ -216,6 +217,8 @@ backends</tt></dd></dl>
 
 <dl><dt><a name="Text-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
 
+<dl><dt><a name="Text-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
+
 <dl><dt><a name="Text-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends<br>
 &nbsp;<br>
@@ -261,6 +264,207 @@ ACCEPTS:&nbsp;any&nbsp;number</tt></dd></dl>
 Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><strong>aname</strong> = 'Artist'</dl>
 
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TextWithDash">class <strong>TextWithDash</strong></a>(<a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;is&nbsp;basically&nbsp;a&nbsp;<a href="#Text">Text</a>&nbsp;with&nbsp;a&nbsp;dash&nbsp;(drawn&nbsp;with&nbsp;a&nbsp;Line2D)<br>
+before/after&nbsp;it.&nbsp;It&nbsp;is&nbsp;intended&nbsp;to&nbsp;be&nbsp;a&nbsp;drop-in&nbsp;replacement<br>
+for&nbsp;<a href="#Text">Text</a>&nbsp;(implemented&nbsp;using&nbsp;delegation&nbsp;and&nbsp;get/setattr),<br>
+and&nbsp;should&nbsp;behave&nbsp;identically&nbsp;to&nbsp;<a href="#Text">Text</a>&nbsp;when&nbsp;dashlength=0.0.<br>
+&nbsp;<br>
+The&nbsp;dash&nbsp;always&nbsp;comes&nbsp;between&nbsp;the&nbsp;point&nbsp;specified&nbsp;by<br>
+<a href="#TextWithDash-set_position">set_position</a>()&nbsp;and&nbsp;the&nbsp;text.&nbsp;When&nbsp;a&nbsp;dash&nbsp;exists,&nbsp;the<br>
+text&nbsp;alignment&nbsp;arguments&nbsp;(horizontalalignment,<br>
+verticalalignment)&nbsp;are&nbsp;ignored.<br>
+&nbsp;<br>
+dashlength&nbsp;is&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;dash&nbsp;in&nbsp;canvas&nbsp;units.<br>
+(default=0.0).<br>
+&nbsp;<br>
+dashdirection&nbsp;is&nbsp;one&nbsp;of&nbsp;0&nbsp;or&nbsp;1,&nbsp;where&nbsp;0&nbsp;draws&nbsp;the&nbsp;dash<br>
+after&nbsp;the&nbsp;text&nbsp;and&nbsp;1&nbsp;before.<br>
+(default=0).<br>
+&nbsp;<br>
+dashrotation&nbsp;specifies&nbsp;the&nbsp;rotation&nbsp;of&nbsp;the&nbsp;dash,&nbsp;and<br>
+should&nbsp;generally&nbsp;stay&nbsp;None.&nbsp;In&nbsp;this&nbsp;case<br>
+<a href="#TextWithDash-get_dashrotation">get_dashrotation</a>()&nbsp;returns&nbsp;<a href="#-get_rotation">get_rotation</a>().<br>
+(I.e.,&nbsp;the&nbsp;dash&nbsp;takes&nbsp;its&nbsp;rotation&nbsp;from&nbsp;the&nbsp;text's<br>
+rotation).&nbsp;Because&nbsp;the&nbsp;text&nbsp;center&nbsp;is&nbsp;projected&nbsp;onto<br>
+the&nbsp;dash,&nbsp;major&nbsp;deviations&nbsp;in&nbsp;the&nbsp;rotation&nbsp;cause<br>
+what&nbsp;may&nbsp;be&nbsp;considered&nbsp;visually&nbsp;unappealing&nbsp;results.<br>
+(default=None).<br>
+&nbsp;<br>
+dashpad&nbsp;is&nbsp;a&nbsp;padding&nbsp;length&nbsp;to&nbsp;add&nbsp;(or&nbsp;subtract)&nbsp;space<br>
+between&nbsp;the&nbsp;text&nbsp;and&nbsp;the&nbsp;dash,&nbsp;in&nbsp;canvas&nbsp;units.<br>
+(default=3).<br>
+&nbsp;<br>
+dashpush&nbsp;"pushes"&nbsp;the&nbsp;dash&nbsp;and&nbsp;text&nbsp;away&nbsp;from&nbsp;the&nbsp;point<br>
+specified&nbsp;by&nbsp;<a href="#TextWithDash-set_position">set_position</a>()&nbsp;by&nbsp;the&nbsp;amount&nbsp;in&nbsp;canvas&nbsp;units.<br>
+(default=0)<br>
+&nbsp;<br>
+NOTE:&nbsp;The&nbsp;alignment&nbsp;of&nbsp;the&nbsp;two&nbsp;objects&nbsp;is&nbsp;based&nbsp;on&nbsp;the<br>
+bbox&nbsp;of&nbsp;the&nbsp;<a href="#Text">Text</a>,&nbsp;as&nbsp;obtained&nbsp;by&nbsp;<a href="#TextWithDash-get_window_extent">get_window_extent</a>().<br>
+This,&nbsp;in&nbsp;turn,&nbsp;appears&nbsp;to&nbsp;depend&nbsp;on&nbsp;the&nbsp;font&nbsp;metrics<br>
+as&nbsp;given&nbsp;by&nbsp;the&nbsp;rendering&nbsp;backend.&nbsp;Hence&nbsp;the&nbsp;quality<br>
+of&nbsp;the&nbsp;"centering"&nbsp;of&nbsp;the&nbsp;label&nbsp;text&nbsp;with&nbsp;respect&nbsp;to<br>
+the&nbsp;dash&nbsp;varies&nbsp;depending&nbsp;on&nbsp;the&nbsp;backend&nbsp;used.<br>
+&nbsp;<br>
+NOTE2:&nbsp;I'm&nbsp;not&nbsp;sure&nbsp;that&nbsp;I&nbsp;got&nbsp;the&nbsp;<a href="#TextWithDash-get_window_extent">get_window_extent</a>()<br>
+right,&nbsp;or&nbsp;whether&nbsp;that's&nbsp;sufficient&nbsp;for&nbsp;providing&nbsp;the<br>
+object&nbsp;bbox.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="TextWithDash-__getattr__"><strong>__getattr__</strong></a>(self, name)</dt><dd><tt>Delegate&nbsp;most&nbsp;things&nbsp;to&nbsp;self.<strong>_mytext</strong>.</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-__init__"><strong>__init__</strong></a>(self, x<font color="#909090">=0</font>, y<font color="#909090">=0</font>, text<font color="#909090">=''</font>, color<font color="#909090">=None</font>, verticalalignment<font color="#909090">='center'</font>, horizontalalignment<font color="#909090">='center'</font>, multialignment<font color="#909090">=None</font>, fontproperties<font color="#909090">=None</font>, rotation<font color="#909090">=None</font>, dashlength<font color="#909090">=0.0</font>, dashdirection<font color="#909090">=0</font>, dashrotation<font color="#909090">=None</font>, dashpad<font color="#909090">=3</font>, dashpush<font color="#909090">=0</font>, xaxis<font color="#909090">=True</font>)</dt></dl>
+
+<dl><dt><a name="TextWithDash-__setattr__"><strong>__setattr__</strong></a>(self, name, value)</dt><dd><tt>Capture&nbsp;only&nbsp;a&nbsp;few&nbsp;things&nbsp;as&nbsp;necessary<br>
+and&nbsp;send&nbsp;the&nbsp;rest&nbsp;off&nbsp;to&nbsp;self.<strong>_mytext</strong></tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
+
+<dl><dt><a name="TextWithDash-get_dashdirection"><strong>get_dashdirection</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TextWithDash-get_dashlength"><strong>get_dashlength</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TextWithDash-get_dashpad"><strong>get_dashpad</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TextWithDash-get_dashpush"><strong>get_dashpush</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TextWithDash-get_dashrotation"><strong>get_dashrotation</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TextWithDash-get_figure"><strong>get_figure</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-get_position"><strong>get_position</strong></a>(self)</dt><dd><tt>Return&nbsp;x,&nbsp;y&nbsp;as&nbsp;tuple</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="TextWithDash-set_dashdirection"><strong>set_dashdirection</strong></a>(self, dd)</dt><dd><tt>Set&nbsp;the&nbsp;direction&nbsp;of&nbsp;the&nbsp;dash&nbsp;following&nbsp;the&nbsp;text.<br>
+1&nbsp;is&nbsp;before&nbsp;the&nbsp;text&nbsp;and&nbsp;0&nbsp;is&nbsp;after.&nbsp;The&nbsp;default<br>
+is&nbsp;0,&nbsp;which&nbsp;is&nbsp;what&nbsp;you'd&nbsp;want&nbsp;for&nbsp;the&nbsp;typical<br>
+case&nbsp;of&nbsp;ticks&nbsp;below&nbsp;and&nbsp;on&nbsp;the&nbsp;left&nbsp;of&nbsp;the&nbsp;figure.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_dashlength"><strong>set_dashlength</strong></a>(self, dl)</dt><dd><tt>Set&nbsp;the&nbsp;length&nbsp;of&nbsp;the&nbsp;dash.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_dashpad"><strong>set_dashpad</strong></a>(self, dp)</dt><dd><tt>Set&nbsp;the&nbsp;"pad"&nbsp;of&nbsp;the&nbsp;<a href="#TextWithDash">TextWithDash</a>,&nbsp;which<br>
+is&nbsp;the&nbsp;extra&nbsp;spacing&nbsp;between&nbsp;the&nbsp;dash&nbsp;and<br>
+the&nbsp;text,&nbsp;in&nbsp;canvas&nbsp;units.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_dashpush"><strong>set_dashpush</strong></a>(self, dp)</dt><dd><tt>Set&nbsp;the&nbsp;"push"&nbsp;of&nbsp;the&nbsp;<a href="#TextWithDash">TextWithDash</a>,&nbsp;which<br>
+is&nbsp;the&nbsp;extra&nbsp;spacing&nbsp;between&nbsp;the&nbsp;beginning<br>
+of&nbsp;the&nbsp;dash&nbsp;and&nbsp;the&nbsp;specified&nbsp;position.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_dashrotation"><strong>set_dashrotation</strong></a>(self, dr)</dt><dd><tt>Set&nbsp;the&nbsp;rotation&nbsp;of&nbsp;the&nbsp;dash.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_figure"><strong>set_figure</strong></a>(self, fig)</dt><dd><tt>Set&nbsp;the&nbsp;figure&nbsp;instance&nbsp;the&nbsp;artist&nbsp;belong&nbsp;to.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.figure.Figure&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_position"><strong>set_position</strong></a>(self, xy)</dt><dd><tt>Set&nbsp;the&nbsp;xy&nbsp;position&nbsp;of&nbsp;the&nbsp;<a href="#TextWithDash">TextWithDash</a>.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;(x,y)</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_transform"><strong>set_transform</strong></a>(self, t)</dt><dd><tt>Set&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.transform&nbsp;transformation&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_x"><strong>set_x</strong></a>(self, x)</dt><dd><tt>Set&nbsp;the&nbsp;x&nbsp;position&nbsp;of&nbsp;the&nbsp;<a href="#TextWithDash">TextWithDash</a>.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_y"><strong>set_y</strong></a>(self, y)</dt><dd><tt>Set&nbsp;the&nbsp;y&nbsp;position&nbsp;of&nbsp;the&nbsp;<a href="#TextWithDash">TextWithDash</a>.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-update_coords"><strong>update_coords</strong></a>(self, renderer)</dt><dd><tt>Computes&nbsp;the&nbsp;actual&nbsp;x,y&nbsp;coordinates&nbsp;for<br>
+self.<strong>_mytext</strong>&nbsp;based&nbsp;on&nbsp;the&nbsp;input&nbsp;x,y&nbsp;and&nbsp;the<br>
+dashlength.&nbsp;Since&nbsp;the&nbsp;rotation&nbsp;is&nbsp;with&nbsp;respect<br>
+to&nbsp;the&nbsp;actual&nbsp;canvas's&nbsp;coordinates&nbsp;we&nbsp;need&nbsp;to<br>
+map&nbsp;back&nbsp;and&nbsp;forth.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><a name="TextWithDash-add_callback"><strong>add_callback</strong></a>(self, func)</dt></dl>
+
+<dl><dt><a name="TextWithDash-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on&nbsp;all<br>
+backends</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-get_clip_box"><strong>get_clip_box</strong></a>(self)</dt><dd><tt>Return&nbsp;artist&nbsp;clipbox</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-get_clip_on"><strong>get_clip_on</strong></a>(self)</dt><dd><tt>Return&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-get_label"><strong>get_label</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TextWithDash-get_transform"><strong>get_transform</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Transformation&nbsp;instance&nbsp;used&nbsp;by&nbsp;this&nbsp;artist</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-get_visible"><strong>get_visible</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;artist's&nbsp;visiblity</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-get_zorder"><strong>get_zorder</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TextWithDash-is_figure_set"><strong>is_figure_set</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="TextWithDash-is_transform_set"><strong>is_transform_set</strong></a>(self)</dt><dd><tt><a href="matplotlib.artist.html#Artist">Artist</a>&nbsp;has&nbsp;transform&nbsp;explicity&nbsp;let</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-pchanged"><strong>pchanged</strong></a>(self)</dt><dd><tt>fire&nbsp;event&nbsp;when&nbsp;property&nbsp;changed</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
+
+<dl><dt><a name="TextWithDash-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
+all&nbsp;backends<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;float</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_clip_box"><strong>set_clip_box</strong></a>(self, clipbox)</dt><dd><tt>Set&nbsp;the&nbsp;artist's&nbsp;clip&nbsp;Bbox<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;a&nbsp;matplotlib.transform.Bbox&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_clip_on"><strong>set_clip_on</strong></a>(self, b)</dt><dd><tt>Set&nbsp;&nbsp;whether&nbsp;artist&nbsp;uses&nbsp;clipping<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_label"><strong>set_label</strong></a>(self, s)</dt><dd><tt>Set&nbsp;the&nbsp;line&nbsp;label&nbsp;to&nbsp;s&nbsp;for&nbsp;auto&nbsp;legend<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_lod"><strong>set_lod</strong></a>(self, on)</dt><dd><tt>Set&nbsp;Level&nbsp;of&nbsp;Detail&nbsp;on&nbsp;or&nbsp;off.&nbsp;&nbsp;If&nbsp;on,&nbsp;the&nbsp;artists&nbsp;may&nbsp;examine<br>
+things&nbsp;like&nbsp;the&nbsp;pixel&nbsp;width&nbsp;of&nbsp;the&nbsp;axes&nbsp;and&nbsp;draw&nbsp;a&nbsp;subset&nbsp;of<br>
+their&nbsp;contents&nbsp;accordingly<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_visible"><strong>set_visible</strong></a>(self, b)</dt><dd><tt>set&nbsp;the&nbsp;artist's&nbsp;visiblity<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[True&nbsp;|&nbsp;False]</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-set_zorder"><strong>set_zorder</strong></a>(self, level)</dt><dd><tt>Set&nbsp;the&nbsp;zorder&nbsp;for&nbsp;the&nbsp;artist<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;any&nbsp;number</tt></dd></dl>
+
+<dl><dt><a name="TextWithDash-update"><strong>update</strong></a>(self, props)</dt></dl>
+
+<dl><dt><a name="TextWithDash-update_from"><strong>update_from</strong></a>(self, other)</dt><dd><tt>copy&nbsp;properties&nbsp;from&nbsp;other&nbsp;to&nbsp;self</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
+<dl><dt><strong>aname</strong> = 'Artist'</dl>
+
+<dl><dt><strong>zorder</strong> = 0</dl>
+
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -269,6 +473,7 @@ Data and other attributes inherited from <a href="matplotlib.artist.html#Artist"
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
+ <dl><dt><a name="-get_rotation"><strong>get_rotation</strong></a>(rotation)</dt><dd><tt>return&nbsp;the&nbsp;text&nbsp;angle&nbsp;as&nbsp;float</tt></dd></dl>
  <dl><dt><a name="-scanner"><strong>scanner</strong></a>(s)</dt><dd><tt>Split&nbsp;a&nbsp;string&nbsp;into&nbsp;mathtext&nbsp;and&nbsp;non-mathtext&nbsp;parts.&nbsp;&nbsp;mathtext&nbsp;is<br>
 surrounded&nbsp;by&nbsp;$&nbsp;symbols.&nbsp;&nbsp;quoted&nbsp;\$&nbsp;are&nbsp;ignored<br>
 &nbsp;<br>
@@ -288,7 +493,8 @@ Return&nbsp;value&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;(substring,&nbsp;inmath)
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>equal</strong> = &lt;ufunc 'equal'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'WXAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
 <strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
+<strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

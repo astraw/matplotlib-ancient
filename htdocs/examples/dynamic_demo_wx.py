@@ -20,8 +20,8 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.92  2005/04/12 16:24:50  jdh2358
-sync to 0.80
+Revision 1.93  2005/06/03 18:47:35  jdh2358
+updated for 0.81
 
 Revision 1.6  2004/10/26 18:08:13  astraw
 Converted to use new NavigationToolbar2 (from old Toolbar).

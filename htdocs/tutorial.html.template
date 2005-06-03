@@ -215,12 +215,12 @@ line.set_antialiased(False) # turn off antialising
 # style command to set multiple properties on a list of lines.  Set
 # works transparently with a list of objects or a single object
 lines = plot(x1, y1, x2, y2) 
-set(lines, color='r', linewidth=2.0)
+setp(lines, color='r', linewidth=2.0)
 
 
 # set also accepts matlab style pairs of arguments with property names
 # as strings, though I prefer the pythonic keyword arguments above
-set(lines, 'color', 'r', 'linewidth', 2.0)
+setp(lines, 'color', 'r', 'linewidth', 2.0)
 </pre>
 
 <h4>Line Properties</h4>
@@ -232,12 +232,12 @@ set(lines, 'color', 'r', 'linewidth', 2.0)
 </table><br>
 
 To get a list of settable line properties, call the <a
-href=matplotlib.pylab.html#-set>set</a> function with a line or lines
+href=matplotlib.pylab.html#-setp>setp</a> function with a line or lines
 as argument
 
 <pre>
 >>> lines = plot([1,2,3])
->>> set(lines)
+>>> setp(lines)
 
 </pre>
 
@@ -338,7 +338,7 @@ href=pylab.html#-title>title</a>, and <a
 href=pylab.html#-text>text</a>) take optional keyword arguments or
 dictionaries to specify the font properties.  There are three ways to
 specify font properties in matplotlib: handle graphics calls using <a
-href=pylab.html#-set>set</a>, object oriented methods, and font
+href=pylab.html#-setp>setp</a>, object oriented methods, and font
 dictionaries.<p>
 
 The text commands return an <a href=matplotlib.text.html>Text</a>
@@ -382,26 +382,26 @@ show()
 
 If you want to change a text property, and you like to use matlab
 handle graphics, you can use the <a
-href=pylab.html#-set>set</a> command to set any of the
+href=pylab.html#-setp>setp</a> command to set any of the
 properties listed in the table above.  For example, to make a red bold
 <a href=pylab.html#-xlabel>xlabel</a>, you would use<p>
 
 <pre>
 t = xlabel('time')
-set(t, color='r', fontweight='bold')
+setp(t, color='r', fontweight='bold')
 </pre>
 
 Set also works with a list of text instances.  The following changes
 the properties of all the tick labels.
 <pre>
-labels = get(gca(), 'xticklabels')
-set(labels, color='r', fontweight='bold')
+labels = getp(gca(), 'xticklabels')
+setp(labels, color='r', fontweight='bold')
 </pre>
 
 
 <h4><a name=oo>Controlling text using object methods</a></h4>
 
-The <a href=pylab.html#-set>set</a> command is just a
+The <a href=pylab.html#-setp>setp</a> command is just a
 wrapper around the <a href=matplotlib.text.html>Text</a> set methods.
 If you prefer using instance methods, you just prepend <tt>set_</tt>
 to the text property and make a normal python instance method call, as
@@ -686,21 +686,21 @@ Axes instance that is created, and you can use that to control
 properties of the axis, such as ticklines, ticklabels, gridlines, etc,
 using the set method calls from the <a href=axis.html#Axis>Axis</a>
 API.  Or if you prefer matlab handle graphics commands, you can use
-the <a href=pylab.html#-set>set</a> to control axis
+the <a href=pylab.html#-setp>setp</a> to control axis
 properties.<p>
 
 
 <pre>
 subplot(111)
 plot([1,2,3])
-glines = get(gca(), 'gridlines')
+glines = getp(gca(), 'gridlines')
 # make the gridlines blue and thicker
-set(glines, 'color', 'b', 'linewidth', 2)  
+setp(glines, 'color', 'b', 'linewidth', 2)  
 
 # get the patches.Rectangle instance increase 
 # the linewidth of the rectangular axis frame
 frame = gca(gca(), 'frame')  
-set(frame, 'linewidth', 2) 
+setp(frame, 'linewidth', 2) 
                              
 </pre>
 
@@ -715,7 +715,7 @@ current axis<p>
 <pre>
 subplot(211)
 plot([1,2,3], [1,2,3])
-set(gca(), 'xticklabels', [])
+setp(gca(), xticklabels=[])
 
 subplot(212)
 plot([1,2,3], [1,4,9])

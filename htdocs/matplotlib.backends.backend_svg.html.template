@@ -2,9 +2,9 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr bgcolor="#7799ee">
 <td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_svg</strong></big></big> (version 0.80)</font></td
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_svg</strong></big></big> (version 0.81alpha)</font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_svg.py">/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_svg.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/backends/backend_svg.py">/usr/lib/python2.4/site-packages/matplotlib/backends/backend_svg.py</a></font></td></tr></table>
     <p></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -273,6 +273,12 @@ with&nbsp;FontPropertry&nbsp;prop</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
+<dl><dt><a name="RendererSVG-blit"><strong>blit</strong></a>(self)</dt><dd><tt>blit&nbsp;the&nbsp;cached&nbsp;copy&nbsp;of&nbsp;the&nbsp;canvas,&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;conjunction<br>
+with&nbsp;blit&nbsp;in&nbsp;support&nbsp;of&nbsp;animation</tt></dd></dl>
+
+<dl><dt><a name="RendererSVG-cache"><strong>cache</strong></a>(self)</dt><dd><tt>save&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;canvas,&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;conjunction&nbsp;with&nbsp;blit<br>
+in&nbsp;support&nbsp;of&nbsp;animation</tt></dd></dl>
+
 <dl><dt><a name="RendererSVG-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, transform, clipbox, colors, linewidths, linestyle, antialiaseds, offsets, transOffset)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;If&nbsp;you&nbsp;need&nbsp;to&nbsp;draw<br>
 many&nbsp;line&nbsp;segments&nbsp;with&nbsp;similar&nbsp;properties,&nbsp;it&nbsp;is&nbsp;faster&nbsp;to&nbsp;avoid&nbsp;the<br>
 overhead&nbsp;of&nbsp;all&nbsp;the&nbsp;object&nbsp;creation&nbsp;etc.&nbsp;The&nbsp;lack&nbsp;of&nbsp;total<br>
@@ -358,11 +364,11 @@ points&nbsp;to&nbsp;pixels&nbsp;=&nbsp;points&nbsp;*&nbsp;pixels_per_inch/72.0&n
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>__version__</strong> = '0.80'<br>
-<strong>backend_version</strong> = '0.80'<br>
+<td width="100%"><strong>__version__</strong> = '0.81alpha'<br>
+<strong>backend_version</strong> = '0.81alpha'<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'WXAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
 <strong>svgProlog</strong> = '&lt;?xml version="1.0" standalone="no"?&gt;<font color="#c040c0">\n</font>&lt;!DOCTYPE ...0"<font color="#c040c0">\n</font>   width="%f"<font color="#c040c0">\n</font>   height="%f"   <font color="#c040c0">\n</font>   id="svg1"&gt;<font color="#c040c0">\n</font>'<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

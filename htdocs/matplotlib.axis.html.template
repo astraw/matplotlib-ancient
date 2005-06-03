@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.axis</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/axis.py">/usr/local/lib/python2.3/site-packages/matplotlib/axis.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/axis.py">/usr/lib/python2.4/site-packages/matplotlib/axis.py</a></font></td></tr></table>
     <p><tt>Classes&nbsp;for&nbsp;the&nbsp;ticks&nbsp;and&nbsp;x&nbsp;and&nbsp;y&nbsp;axis</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -14,10 +14,11 @@
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="copy.html">copy</a><br>
-</td><td width="25%" valign=top><a href="math.html">math</a><br>
-</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="pdb.html">pdb</a><br>
+<a href="re.html">re</a><br>
 </td><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -68,7 +69,7 @@
 
 <dl><dt><a name="Axis-get_gridlines"><strong>get_gridlines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="Axis-get_label"><strong>get_label</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;label&nbsp;as&nbsp;an&nbsp;Text&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="Axis-get_label"><strong>get_label</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;label&nbsp;as&nbsp;a&nbsp;Text&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Axis-get_major_formatter"><strong>get_major_formatter</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker</tt></dd></dl>
 
@@ -81,6 +82,8 @@
 <dl><dt><a name="Axis-get_minor_locator"><strong>get_minor_locator</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker</tt></dd></dl>
 
 <dl><dt><a name="Axis-get_minor_ticks"><strong>get_minor_ticks</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;minor&nbsp;tick&nbsp;instances;&nbsp;grow&nbsp;as&nbsp;necessary</tt></dd></dl>
+
+<dl><dt><a name="Axis-get_offset_text"><strong>get_offset_text</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;offsetText&nbsp;as&nbsp;a&nbsp;Text&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="Axis-get_ticklabels"><strong>get_ticklabels</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances&nbsp;for&nbsp;ticklabels</tt></dd></dl>
 
@@ -128,6 +131,8 @@ ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 Data and other attributes defined here:<br>
 <dl><dt><strong>LABELPAD</strong> = 5</dl>
 
+<dl><dt><strong>OFFSETTEXTPAD</strong> = 3</dl>
+
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><a name="Axis-add_callback"><strong>add_callback</strong></a>(self, func)</dt></dl>
@@ -154,6 +159,8 @@ backends</tt></dd></dl>
 <dl><dt><a name="Axis-pchanged"><strong>pchanged</strong></a>(self)</dt><dd><tt>fire&nbsp;event&nbsp;when&nbsp;property&nbsp;changed</tt></dd></dl>
 
 <dl><dt><a name="Axis-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
+
+<dl><dt><a name="Axis-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
 
 <dl><dt><a name="Axis-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends<br>
@@ -291,6 +298,8 @@ backends</tt></dd></dl>
 
 <dl><dt><a name="Tick-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
 
+<dl><dt><a name="Tick-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
+
 <dl><dt><a name="Tick-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends<br>
 &nbsp;<br>
@@ -386,7 +395,7 @@ Methods inherited from <a href="matplotlib.axis.html#Axis">Axis</a>:<br>
 
 <dl><dt><a name="XAxis-get_gridlines"><strong>get_gridlines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="XAxis-get_label"><strong>get_label</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;label&nbsp;as&nbsp;an&nbsp;Text&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="XAxis-get_label"><strong>get_label</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;label&nbsp;as&nbsp;a&nbsp;Text&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="XAxis-get_major_formatter"><strong>get_major_formatter</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker</tt></dd></dl>
 
@@ -399,6 +408,8 @@ Methods inherited from <a href="matplotlib.axis.html#Axis">Axis</a>:<br>
 <dl><dt><a name="XAxis-get_minor_locator"><strong>get_minor_locator</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker</tt></dd></dl>
 
 <dl><dt><a name="XAxis-get_minor_ticks"><strong>get_minor_ticks</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;minor&nbsp;tick&nbsp;instances;&nbsp;grow&nbsp;as&nbsp;necessary</tt></dd></dl>
+
+<dl><dt><a name="XAxis-get_offset_text"><strong>get_offset_text</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;offsetText&nbsp;as&nbsp;a&nbsp;Text&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="XAxis-get_ticklabels"><strong>get_ticklabels</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances&nbsp;for&nbsp;ticklabels</tt></dd></dl>
 
@@ -444,6 +455,8 @@ ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 Data and other attributes inherited from <a href="matplotlib.axis.html#Axis">Axis</a>:<br>
 <dl><dt><strong>LABELPAD</strong> = 5</dl>
 
+<dl><dt><strong>OFFSETTEXTPAD</strong> = 3</dl>
+
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><a name="XAxis-add_callback"><strong>add_callback</strong></a>(self, func)</dt></dl>
@@ -470,6 +483,8 @@ backends</tt></dd></dl>
 <dl><dt><a name="XAxis-pchanged"><strong>pchanged</strong></a>(self)</dt><dd><tt>fire&nbsp;event&nbsp;when&nbsp;property&nbsp;changed</tt></dd></dl>
 
 <dl><dt><a name="XAxis-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
+
+<dl><dt><a name="XAxis-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
 
 <dl><dt><a name="XAxis-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends<br>
@@ -604,6 +619,8 @@ backends</tt></dd></dl>
 
 <dl><dt><a name="XTick-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
 
+<dl><dt><a name="XTick-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
+
 <dl><dt><a name="XTick-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends<br>
 &nbsp;<br>
@@ -687,7 +704,7 @@ Methods inherited from <a href="matplotlib.axis.html#Axis">Axis</a>:<br>
 
 <dl><dt><a name="YAxis-get_gridlines"><strong>get_gridlines</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;grid&nbsp;lines&nbsp;as&nbsp;a&nbsp;list&nbsp;of&nbsp;Line2D&nbsp;instance</tt></dd></dl>
 
-<dl><dt><a name="YAxis-get_label"><strong>get_label</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;label&nbsp;as&nbsp;an&nbsp;Text&nbsp;instance</tt></dd></dl>
+<dl><dt><a name="YAxis-get_label"><strong>get_label</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;label&nbsp;as&nbsp;a&nbsp;Text&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="YAxis-get_major_formatter"><strong>get_major_formatter</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;formatter&nbsp;of&nbsp;the&nbsp;major&nbsp;ticker</tt></dd></dl>
 
@@ -700,6 +717,8 @@ Methods inherited from <a href="matplotlib.axis.html#Axis">Axis</a>:<br>
 <dl><dt><a name="YAxis-get_minor_locator"><strong>get_minor_locator</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;locator&nbsp;of&nbsp;the&nbsp;minor&nbsp;ticker</tt></dd></dl>
 
 <dl><dt><a name="YAxis-get_minor_ticks"><strong>get_minor_ticks</strong></a>(self)</dt><dd><tt>get&nbsp;the&nbsp;minor&nbsp;tick&nbsp;instances;&nbsp;grow&nbsp;as&nbsp;necessary</tt></dd></dl>
+
+<dl><dt><a name="YAxis-get_offset_text"><strong>get_offset_text</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;axis&nbsp;offsetText&nbsp;as&nbsp;a&nbsp;Text&nbsp;instance</tt></dd></dl>
 
 <dl><dt><a name="YAxis-get_ticklabels"><strong>get_ticklabels</strong></a>(self)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;Text&nbsp;instances&nbsp;for&nbsp;ticklabels</tt></dd></dl>
 
@@ -745,6 +764,8 @@ ACCEPTS:&nbsp;sequence&nbsp;of&nbsp;floats</tt></dd></dl>
 Data and other attributes inherited from <a href="matplotlib.axis.html#Axis">Axis</a>:<br>
 <dl><dt><strong>LABELPAD</strong> = 5</dl>
 
+<dl><dt><strong>OFFSETTEXTPAD</strong> = 3</dl>
+
 <hr>
 Methods inherited from <a href="matplotlib.artist.html#Artist">matplotlib.artist.Artist</a>:<br>
 <dl><dt><a name="YAxis-add_callback"><strong>add_callback</strong></a>(self, func)</dt></dl>
@@ -771,6 +792,8 @@ backends</tt></dd></dl>
 <dl><dt><a name="YAxis-pchanged"><strong>pchanged</strong></a>(self)</dt><dd><tt>fire&nbsp;event&nbsp;when&nbsp;property&nbsp;changed</tt></dd></dl>
 
 <dl><dt><a name="YAxis-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
+
+<dl><dt><a name="YAxis-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
 
 <dl><dt><a name="YAxis-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends<br>
@@ -905,6 +928,8 @@ backends</tt></dd></dl>
 
 <dl><dt><a name="YTick-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
 
+<dl><dt><a name="YTick-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
+
 <dl><dt><a name="YTick-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends<br>
 &nbsp;<br>
@@ -977,8 +1002,13 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>TICKLEFT</strong> = 0<br>
 <strong>TICKRIGHT</strong> = 1<br>
 <strong>TICKUP</strong> = 2<br>
+<strong>cos</strong> = &lt;ufunc 'cos'&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
 <strong>logical_and</strong> = &lt;ufunc 'logical_and'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'WXAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
+<strong>pi</strong> = 3.1415926535897931<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
+<strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
+<strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>
+<strong>tan</strong> = &lt;ufunc 'tan'&gt;</td></tr></table>
 @footer@

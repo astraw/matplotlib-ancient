@@ -1,10 +1,14 @@
 #!/usr/bin/env python
-# show how to add a matplotlib FigureCanvasGTK widget to a gtk.Window
+"""
+show how to add a matplotlib FigureCanvasGTK or FigureCanvasGTKAgg widget to a
+gtk.Window
+"""
 
 from matplotlib.numerix import arange, sin, pi
 
 import matplotlib
-matplotlib.use('GTKAgg')  # or 'GTK'
+#matplotlib.use('GTK')
+matplotlib.use('GTKAgg')
 
 from matplotlib.axes import Subplot
 

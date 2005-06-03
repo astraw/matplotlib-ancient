@@ -35,6 +35,7 @@ files = (
     'layer_images.py',
     'legend_demo.py',
     'legend_demo2.py',
+    'line_collection.py',
     'line_styles.py',
     'log_demo.py',
     'log_test.py',
@@ -75,7 +76,7 @@ fail22  = (
     'finance_demo.py',
     )
 
-def drive(backend, python='python2.3'):
+def drive(backend, python='python2.4'):
     
     for fname in files:
         if python=='python2.2' and fname in fail22:
@@ -116,7 +117,7 @@ if __name__ == '__main__':
     backends = ['Agg', 'PS', 'SVG', 'Template']
     # backends = [ 'GTK', 'WX', 'TkAgg']
     # backends = ['PS']
-    python = 'python2.3'
+    python = 'python2.4'
     for backend in backends:
         print 'testing %s' % backend
         t0 = time.time()

@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.font_manager</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/font_manager.py">/usr/local/lib/python2.3/site-packages/matplotlib/font_manager.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/font_manager.py">/usr/lib/python2.4/site-packages/matplotlib/font_manager.py</a></font></td></tr></table>
     <p><tt>A&nbsp;module&nbsp;for&nbsp;finding,&nbsp;managing,&nbsp;and&nbsp;using&nbsp;fonts&nbsp;across-platforms.<br>
 &nbsp;<br>
 This&nbsp;module&nbsp;provides&nbsp;a&nbsp;single&nbsp;<a href="#FontManager">FontManager</a>&nbsp;that&nbsp;can&nbsp;be&nbsp;shared&nbsp;across<br>
@@ -59,15 +59,15 @@ License&nbsp;&nbsp;&nbsp;:&nbsp;matplotlib&nbsp;license&nbsp;(PSF&nbsp;compatibl
     
 <tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.font_manager.html#FontManager">FontManager</a>
-</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.font_manager.html#FontProperties">FontProperties</a>
-</font></dt><dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.font_manager.html#FontKey">FontKey</a>
 </font></dt></dl>
 </dd>
-</dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.font_manager.html#FontManager">FontManager</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.font_manager.html#FontProperties">FontProperties</a>
+</font></dt></dl>
  <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
@@ -284,7 +284,7 @@ returned&nbsp;by&nbsp;default&nbsp;with&nbsp;AFM&nbsp;fonts&nbsp;as&nbsp;an&nbsp
 <strong>font_scalings</strong> = {'large': 1.2, 'medium': 1.0, 'small': 0.83299999999999996, 'x-large': 1.4399999999999999, 'x-small': 0.69399999999999995, 'xx-large': 1.728, 'xx-small': 0.57899999999999996}<br>
 <strong>home</strong> = '/home/jdhunter'<br>
 <strong>path</strong> = '/home/jdhunter/Library/Fonts'<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'WXAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;<br>
 <strong>weight_dict</strong> = {'black': 900, 'bold': 700, 'book': 400, 'demi': 600, 'demibold': 600, 'extra bold': 800, 'heavy': 800, 'light': 200, 'medium': 500, 'normal': 400, ...}</td></tr></table>
 @footer@

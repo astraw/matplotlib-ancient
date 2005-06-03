@@ -3,85 +3,108 @@
 # tuple of (name, description) tuples
 
 versioninfo = {}
-versioninfo['0.80'] = (
+versioninfo['0.81'] = (
+  ('TeX support', """\
+Now you can (optionally) use TeX to handle *all* of the text elements
+in your figure with the rc param <tt>text.usetex</tt> (*Agg and PS
+only).  PS support requires tex, dvips and ps2epsi.  Agg support
+requires tex and dvipng.  A directory <tt>~/.tex.cache</tt> is created
+where support files are cached for later reuse.  We opted to ues TeX
+rather than LaTeX because it is faster and can do all the things we
+thought useful for figure text snippets.  See
+<a href=examples/tex_demo.py>tex_demo.py</a>.
+"""),
 
-    ('kwargs to xlim, ylim, axis', """
+  ('Masked arrays', """\
+Support for masked arrays in line plots, pcolor and contours.  There
+are some problems with filled contours and masked arrays.  Thanks Eric
+Firing and Jeffrey Whitaker.  Note that the <tt>levels</tt> argument
+to the contour functions has changes slightly.  See <a
+href=API_CHANGES>API_CHANGES</a>.
+"""),
 
-Applied a variant of Rick Muller's xlim/ylim/axis patch.  These
-functions now take kwargs to let you selectively alter only the min or
-max if desired.  Eg xlim(xmin=2) or axis(ymax=3).  They always return
-the new lim.  See, eg <a
-href=matplotlib.pylab.html#-xlim>help(xlim)</a>.  The same
-functionality is available in the API with <tt>ax.set_xlim</tt> and
-<tt>ax.set_ylim </tt>.
-    """),
+  ('Byte images', """\
+Much faster image loading for MxNx4 or MxNx3 UInt8 images, which
+bypasses the memory and CPU intensive integer/floating point
+conversions.  Thanks Nicolas Girard.
+"""),
 
-    ('wx fixes',
-     """
-Fixed a problem with wx app instantiation.  Incorporated Werner's wx
-patch -- wx backend should be compatible with wxpython2.4 and recent
-versions of 2.5.  Some early versions of wxpython 2.5 will not work
-because there was a temporary change in the dc API that was rolled
-back to make it 2.4 compliant"""),
+    ('New image interpolation options', """\
+New values for the interp kwarg are:'nearest', 'bilinear', 'bicubic',
+'spline16', 'spline36', 'hanning', 'hamming', 'hermite', 'kaiser',
+'quadric', 'catrom', 'gaussian', 'bessel', 'mitchell', 'sinc',
+'lanczos', 'blackman'.  See <a
+href=matplotlib.pylab.html#-imshow>help(imshow)</a> for details,
+particularly the <tt>interpolation</tt>, <tt>filternorm</tt> and
+<tt>filterrad</tt> kwargs.
+"""),
 
-    ('Polygon editors',
+    ('Text and dashes', """\
+Daishi Harada contributed a patch for connecting text to points with lines.
+See <a href=examples/dashpointlabel.py>dashpointlabel.py</a> and <a
+href=examples/dashtick.py>dashtick.py</a>
+"""),
 
-     """
-Added some proof of concept code to show how to use matplotlib to
-interact with plot elements in a GUI neutral way.  The editable
-polygon allows you to insert, delete and move vertices.  See <a
-href=examples/poly_editor.py>examples/poly_editor.py</a>.  The idea it
-to add interactor classes to support editable lines, text, polygons,
-etc.  This could support a cross GUI colormap editor, or spline
-editor, for example.
-     """),
-    )
+    ('Fast markers on win32', """\
+The marker cache optimization is finally available for win32, after an
+agg bug was found and fixed (thanks Maxim!).  Line marker plots should
+be considerably faster now on win32.  The original optimization
+announcement is <a
+href=whats_new.html#0.72-line_marker_optimizations_in_agg>here</a>.
+"""),
 
-versioninfo['0.74'] = (
+    ('set deprecated', """\
+<tt>set</tt> clashes with the python2.4 builtin <tt>set</tt>.  Use <a
+href=matplotlib.pylab.html#-setp>setp</a> and <a
+href=matplotlib.pylab.html#-getp>getp</a> instead (<tt>get</tt> still
+works but I added <tt>getp</tt> for consistency).  A simple conversion
+script to recursive replace uses of set and get with setp and getp is
+provided in <a href=set_begone.py>set_begone.py</a>.  Use with
+caution.
+"""),
 
-    ('unicode', """
-See <a href=examples/unicode_demo.py>unicode_demo.py</a>.  Unicode
-strings are rendered in the agg and postscript backends.  Currently,
-all the symbols in the unicode string have to be in the active font
-file.  In later releases we'll try and support symbols from multiple
-ttf files in one string.  No support yet for unicode ttf filenames"""),
+      ('Qt in ipython/pylab', """\
+You can now use qt in <a href=http://ipython.scipy.org>ipython<a/>
+pylab mode.  Thanks Fernando Perez and the <a
+href=http://brainvisa.info>brainvisa</a> Orsay team
+"""),
 
-    ('Auto-legends',"""
-The automatic placement of legends is now supported with loc='best' --
-; see <a href=examples/legend_auto.py>legend_auto.py</a>.  We did this
-at the matplotlib sprint at pycon -- thanks John Gill and Phil! Note
-that your legend will move if you interact with your data and you
-force data under the legend line.  If this is not what you want, use a
-designated location code."""),
+    ('agg wrapper', """\
+Started work on a proper agg wrapper to expose more general agg
+functionality in mpl.  See <a
+href=examples/agg_test.py>agg_test.py</a>.  Lots of wrapping remains
+to be done.
+"""),
 
-    ('vector fields', """
-Ludovic Aubry contributed a patch for the matlab compatible <a
-href=matplotlib.pylab.html#-quiver>quiver</a> method.  This makes a
-direction field with arrows.  See <a
-href=examples/quiver_demo.py>quiver_demo.py</a>."""),
 
-    ('boxplot', """
-David Haas contributed a matlab-compatible <a
-href=matplotlib.pylab.html#-boxplot>boxplot</a> function -- see <a
-href=examples/boxplot_demo.py>boxplot_demo.py</a>.  This currently
-returns all the boxplot boxes, whiskers, flyer points, etc as a list
-of lines.  This will soon be refactored to return multiple lists so
-that the different elements can be more readily configured."""),
+    ('New scalar formatter', """\
+Darren Dale did a lot of work to make scalar formatting smarter in
+pathalogical cases.  See <a
+href=examples/newscalarformatter_demo.py>newscalarformatter_demo.py</a>.
+"""),
 
-    ('Hubble data example',"""
-Perry Greenfield of the <a href=http://www.stsci.edu>Space Telescope
-Science Institute</a> contributed this nice <a
-href=screenshots.html#hstdemo>example</a> showing Hubble data with
-overlayed contours.
-    """),
-     
-     
-    ('minor enhancements and bug-fixes', """
-Some ticker locations bugs were fixed including a problem causing a
-memory error in psd, an ellipse bug in backend ps that was causing
-errant lines was fixed, svg text enhanced, added label kwarg to axes
-constructor to support creation of otherwise identical axes, fixed the
-NULL string pointer causing some Japanses fonts to segfault mpl"""),
+    ('Small features', """\
+<tt>linewidth</tt> and <tt>faceted</tt> kwargs to <a
+href=matplotlib.pylab.html#-scatter>scatter</a> to control edgewidth
+and color, autolegending now inspects line segments in addition to
+vertices, upgraded to agg23, new example showing how to use line
+collections <a
+href=examples/line_collection.py>line_collection.py</a>, fixed
+antialiased property setting in agg, added a postscript papersize <a
+href=.matplotlibrc>rc</a> option <tt>ps.papersize</tt>, added an
+example showing how to embed mpl in a qt app <a
+href=examples/embedding_in_qt.py>embedding_in_qt.py</a>, arrow keys
+now exposed in mpl's GUI neutral event handling.
+"""),
+
+    ('Bug fixes', """\
+Fixed a contour masked array bug, contour memory leak.
+"""),
+
+
+
+
+
 )
 
 versioninfo['0.73'] = (
@@ -89,9 +112,7 @@ versioninfo['0.73'] = (
 Filled contours (polygons) with <a
 href=matplotlib.pylab.html#-contourf>contourf</a> and <a
 href=matplotlib.pylab.html#-clabel>clabel</a> .  See <a
-href=examples/contour_demo.py>contour_demo.py</a>, 
-<a
-href=examples/contourf_demo.py>contourf_demo.py</a>, <a
+href=examples/contour_demo.py>contour_demo.py</a>, <a
 href=examples/contour_image.py>contour_image.py</a> and this <a
 href=screenshots.html#pcolor_demo>screenshot</a>.  Thanks Nadia and
 Eric for lots of hard work.  This code is not perfect, so please let
@@ -101,18 +122,14 @@ us know if you find bugs or problems.
 Added new rc param param ps.useafm so ps backend can use native fonts; this currently breaks mathtext but makes for smaller files"""),
   ('colorbar now a figure method', """\
 Refactored colorbar code out of pylab into <a
-href=matplotlib.figure.html#Figure-colorbar>Figure API</a> for API
-developers.  <a
+href=matplotlib.figure.html#Figure-add_subplot>Figure API</a> for API
+developers.  < a
 href=matplotlib.pylab.html#-colorbar>pylab.colorbar</a> is now a thin
 wrapper to this function."""),
 
-    ('minor enhancements and bug-fixes', """Experimental support for
-GTK w/o double buffering, added double buffering to gtkagg, exposed
-some core agg functionality in matplotlib.agg, upgraded wrapper
-generator to CXX 5.3.1, added a custom pixel transfer function for GTK
-which works for Numeric and numarray, added patch for problem with
-Japanse fonts in windows registry, fixed ticks for horizontal
-colorbars, fixed labelsep legend bug"""), )
+    ('minor enhancements and bug-fixes', """\
+Experimental support for GTK w/o double buffering, added double buffering to gtkagg, exposed some core agg functionality in matplotlib.agg, upgraded wrapper generator to CXX 5.3.1, added a custom pixel transfer function for GTK which works for Numeric and numarray, added patch for problem with Japanse fonts in windows registry, fixed ticks for horizontal colorbars"""),
+  )
 
 
 versioninfo['0.72'] = (

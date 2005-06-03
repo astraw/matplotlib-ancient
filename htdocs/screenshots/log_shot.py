@@ -7,7 +7,7 @@ subplot(211)
 semilogx(t, sin(2*pi*t))
 ylabel('semilog')
 xticks([])
-set(gca(), 'xticklabels', [])
+setp(gca(), 'xticklabels', [])
 grid(True)
 
 subplot(212)

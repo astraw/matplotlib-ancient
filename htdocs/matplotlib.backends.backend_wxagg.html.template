@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_wxagg</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_wxagg.py">/usr/local/lib/python2.3/site-packages/matplotlib/backends/backend_wxagg.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/backends/backend_wxagg.py">/usr/lib/python2.4/site-packages/matplotlib/backends/backend_wxagg.py</a></font></td></tr></table>
     <p></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -111,7 +111,7 @@ eg&nbsp;when&nbsp;a&nbsp;GUI&nbsp;window&nbsp;is&nbsp;realized</tt></dd></dl>
 
 <hr>
 Data and other attributes inherited from <a href="matplotlib.backends.backend_wx.html#FigureCanvasWx">matplotlib.backends.backend_wx.FigureCanvasWx</a>:<br>
-<dl><dt><strong>keyvald</strong> = {306: 'shift', 307: 'alt', 308: 'control'}</dl>
+<dl><dt><strong>keyvald</strong> = {306: 'shift', 307: 'alt', 308: 'control', 316: 'left', 317: 'up', 318: 'right', 319: 'down'}</dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backends.backend_agg.html#FigureCanvasAgg">matplotlib.backends.backend_agg.FigureCanvasAgg</a>:<br>
@@ -192,20 +192,6 @@ Create&nbsp;the&nbsp;GUI&nbsp;part&nbsp;of&nbsp;the&nbsp;Window&nbsp;for&nbsp;2-
 &nbsp;<br>
 Sends&nbsp;an&nbsp;EVT_INIT_DIALOG&nbsp;event,&nbsp;whose&nbsp;handler&nbsp;usually&nbsp;transfers&nbsp;data<br>
 to&nbsp;the&nbsp;dialog&nbsp;via&nbsp;validators.</tt></dd></dl>
-
-<dl><dt><a name="FigureCanvasWxAgg-SetFocus"><strong>SetFocus</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWxAgg-SetFocus">SetFocus</a>(self)<br>
-&nbsp;<br>
-Overrides&nbsp;`wx.Window.SetFocus`.&nbsp;&nbsp;This&nbsp;method&nbsp;uses&nbsp;the&nbsp;(undocumented)<br>
-mix-in&nbsp;class&nbsp;wxControlContainer&nbsp;which&nbsp;manages&nbsp;the&nbsp;focus&nbsp;and&nbsp;TAB&nbsp;logic<br>
-for&nbsp;controls&nbsp;which&nbsp;usually&nbsp;have&nbsp;child&nbsp;controls.&nbsp;&nbsp;In&nbsp;practice,&nbsp;if&nbsp;you<br>
-call&nbsp;this&nbsp;method&nbsp;and&nbsp;the&nbsp;panel&nbsp;has&nbsp;at&nbsp;least&nbsp;one&nbsp;child&nbsp;window,&nbsp;then&nbsp;the<br>
-focus&nbsp;will&nbsp;be&nbsp;given&nbsp;to&nbsp;the&nbsp;child&nbsp;window.</tt></dd></dl>
-
-<dl><dt><a name="FigureCanvasWxAgg-SetFocusIgnoringChildren"><strong>SetFocusIgnoringChildren</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWxAgg-SetFocusIgnoringChildren">SetFocusIgnoringChildren</a>(self)<br>
-&nbsp;<br>
-In&nbsp;contrast&nbsp;to&nbsp;`SetFocus`&nbsp;(see&nbsp;above)&nbsp;this&nbsp;will&nbsp;set&nbsp;the&nbsp;focus&nbsp;to&nbsp;the<br>
-panel&nbsp;even&nbsp;of&nbsp;there&nbsp;are&nbsp;child&nbsp;windows&nbsp;in&nbsp;the&nbsp;panel.&nbsp;This&nbsp;is&nbsp;only<br>
-rarely&nbsp;needed.</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasWxAgg-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
 
@@ -726,17 +712,6 @@ Test&nbsp;if&nbsp;the&nbsp;given&nbsp;style&nbsp;is&nbsp;set&nbsp;for&nbsp;this&
 &nbsp;<br>
 Does&nbsp;the&nbsp;window&nbsp;have&nbsp;the&nbsp;scrollbar&nbsp;for&nbsp;this&nbsp;orientation?</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasWxAgg-HasTransparentBackground"><strong>HasTransparentBackground</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWxAgg-HasTransparentBackground">HasTransparentBackground</a>(self)&nbsp;-&gt;&nbsp;bool<br>
-&nbsp;<br>
-Returns&nbsp;True&nbsp;if&nbsp;this&nbsp;window's&nbsp;background&nbsp;is&nbsp;transparent&nbsp;(as,&nbsp;for<br>
-example,&nbsp;for&nbsp;`wx.StaticText`)&nbsp;and&nbsp;should&nbsp;show&nbsp;the&nbsp;parent&nbsp;window's<br>
-background.<br>
-&nbsp;<br>
-This&nbsp;method&nbsp;is&nbsp;mostly&nbsp;used&nbsp;internally&nbsp;by&nbsp;the&nbsp;library&nbsp;itself&nbsp;and&nbsp;you<br>
-normally&nbsp;shouldn't&nbsp;have&nbsp;to&nbsp;call&nbsp;it.&nbsp;You&nbsp;may,&nbsp;however,&nbsp;have&nbsp;to&nbsp;override<br>
-it&nbsp;in&nbsp;your&nbsp;custom&nbsp;control&nbsp;classes&nbsp;to&nbsp;ensure&nbsp;that&nbsp;background&nbsp;is&nbsp;painted<br>
-correctly.</tt></dd></dl>
-
 <dl><dt><a name="FigureCanvasWxAgg-Hide"><strong>Hide</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWxAgg-Hide">Hide</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Equivalent&nbsp;to&nbsp;calling&nbsp;<a href="#FigureCanvasWxAgg-Show">Show</a>(False).</tt></dd></dl>
@@ -774,8 +749,6 @@ parent.&nbsp;However&nbsp;it&nbsp;was&nbsp;also&nbsp;deemed&nbsp;desirable&nbsp;
 the&nbsp;attributes&nbsp;of&nbsp;all&nbsp;children&nbsp;at&nbsp;once&nbsp;by&nbsp;just&nbsp;changing&nbsp;the&nbsp;font&nbsp;or<br>
 colour&nbsp;of&nbsp;their&nbsp;common&nbsp;parent,&nbsp;hence&nbsp;in&nbsp;this&nbsp;case&nbsp;we&nbsp;do&nbsp;inherit&nbsp;the<br>
 parents&nbsp;attributes.</tt></dd></dl>
-
-<dl><dt><a name="FigureCanvasWxAgg-InheritsBackgroundColour"><strong>InheritsBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWxAgg-InheritsBackgroundColour">InheritsBackgroundColour</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasWxAgg-InvalidateBestSize"><strong>InvalidateBestSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWxAgg-InvalidateBestSize">InvalidateBestSize</a>(self)<br>
 &nbsp;<br>
@@ -944,7 +917,7 @@ Mark&nbsp;the&nbsp;specified&nbsp;rectangle&nbsp;(or&nbsp;the&nbsp;whole&nbsp;wi
 will&nbsp;be&nbsp;repainted.&nbsp;&nbsp;Causes&nbsp;an&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;be&nbsp;generated&nbsp;and&nbsp;sent<br>
 to&nbsp;the&nbsp;window.</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasWxAgg-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWxAgg-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect,&nbsp;bool&nbsp;eraseBackground=True)<br>
+<dl><dt><a name="FigureCanvasWxAgg-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWxAgg-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect)<br>
 &nbsp;<br>
 Redraws&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;given&nbsp;rectangle:&nbsp;the&nbsp;area&nbsp;inside&nbsp;it&nbsp;will<br>
 be&nbsp;repainted.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;Refresh&nbsp;but&nbsp;has&nbsp;a&nbsp;nicer&nbsp;syntax.</tt></dd></dl>
@@ -1129,17 +1102,11 @@ Set&nbsp;this&nbsp;child&nbsp;as&nbsp;default,&nbsp;return&nbsp;the&nbsp;old&nbs
 &nbsp;<br>
 Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;The&nbsp;sizeFlags<br>
 parameter&nbsp;indicates&nbsp;the&nbsp;interpretation&nbsp;of&nbsp;the&nbsp;other&nbsp;params&nbsp;if&nbsp;they&nbsp;are<br>
-equal&nbsp;to&nbsp;-1.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_AUTO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;should&nbsp;be&nbsp;used.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_USE_EXISTING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axisting&nbsp;dimensions&nbsp;should&nbsp;be&nbsp;used&nbsp;if<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE&nbsp;&nbsp;&nbsp;&nbsp;Allow&nbsp;dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;values.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================</tt></dd></dl>
+-1.&nbsp;&nbsp;wx.SIZE_AUTO*:&nbsp;a&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific&nbsp;default<br>
+shoudl&nbsp;be&nbsp;used.&nbsp;&nbsp;wx.SIZE_USE_EXISTING:&nbsp;existing&nbsp;dimensions&nbsp;should&nbsp;be<br>
+used&nbsp;if&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE:&nbsp;allow<br>
+dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
+default&nbsp;values.</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasWxAgg-SetDropTarget"><strong>SetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWxAgg-SetDropTarget">SetDropTarget</a>(self,&nbsp;DropTarget&nbsp;dropTarget)<br>
 &nbsp;<br>
@@ -1163,6 +1130,10 @@ handler&nbsp;is&nbsp;handed&nbsp;to&nbsp;the&nbsp;next&nbsp;one&nbsp;in&nbsp;the
 Sets&nbsp;the&nbsp;extra&nbsp;style&nbsp;bits&nbsp;for&nbsp;the&nbsp;window.&nbsp;&nbsp;Extra&nbsp;styles&nbsp;are&nbsp;the&nbsp;less<br>
 often&nbsp;used&nbsp;style&nbsp;bits&nbsp;which&nbsp;can't&nbsp;be&nbsp;set&nbsp;with&nbsp;the&nbsp;constructor&nbsp;or&nbsp;with<br>
 <a href="#FigureCanvasWxAgg-SetWindowStyleFlag">SetWindowStyleFlag</a>()</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-SetFocus"><strong>SetFocus</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWxAgg-SetFocus">SetFocus</a>(self)<br>
+&nbsp;<br>
+Set's&nbsp;the&nbsp;focus&nbsp;to&nbsp;this&nbsp;window,&nbsp;allowing&nbsp;it&nbsp;to&nbsp;receive&nbsp;keyboard&nbsp;input.</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasWxAgg-SetFocusFromKbd"><strong>SetFocusFromKbd</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWxAgg-SetFocusFromKbd">SetFocusFromKbd</a>(self)<br>
 &nbsp;<br>
@@ -1428,8 +1399,6 @@ wx.UpdateUIEvent.SetMode&nbsp;or&nbsp;wx.UpdateUIEvent.SetUpdateInterval&nbsp;to
 limit&nbsp;the&nbsp;overhead&nbsp;that&nbsp;wxWindows&nbsp;incurs&nbsp;by&nbsp;sending&nbsp;update&nbsp;UI&nbsp;events<br>
 in&nbsp;idle&nbsp;time.</tt></dd></dl>
 
-<dl><dt><a name="FigureCanvasWxAgg-UseBgCol"><strong>UseBgCol</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWxAgg-UseBgCol">UseBgCol</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
-
 <dl><dt><a name="FigureCanvasWxAgg-Validate"><strong>Validate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureCanvasWxAgg-Validate">Validate</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Validates&nbsp;the&nbsp;current&nbsp;values&nbsp;of&nbsp;the&nbsp;child&nbsp;controls&nbsp;using&nbsp;their<br>
@@ -1571,8 +1540,8 @@ Methods inherited from <a href="wx._windows.html#Frame">wx._windows.Frame</a>:<b
 &nbsp;&nbsp;&nbsp;&nbsp;Point&nbsp;pos=DefaultPosition,&nbsp;Size&nbsp;size=DefaultSize,&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;long&nbsp;style=DEFAULT_FRAME_STYLE,&nbsp;String&nbsp;name=FrameNameStr)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
 
-<dl><dt><a name="FigureFrameWxAgg-CreateStatusBar"><strong>CreateStatusBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-CreateStatusBar">CreateStatusBar</a>(self,&nbsp;int&nbsp;number=1,&nbsp;long&nbsp;style=DEFAULT_STATUSBAR_STYLE,&nbsp;int&nbsp;winid=0,&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;name=StatusLineNameStr)&nbsp;-&gt;&nbsp;StatusBar</tt></dd></dl>
+<dl><dt><a name="FigureFrameWxAgg-CreateStatusBar"><strong>CreateStatusBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-CreateStatusBar">CreateStatusBar</a>(self,&nbsp;int&nbsp;number=1,&nbsp;long&nbsp;style=wxST_SIZEGRIP|wxFULL_REPAINT_ON_RESIZE,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;winid=0,&nbsp;String&nbsp;name=StatusLineNameStr)&nbsp;-&gt;&nbsp;StatusBar</tt></dd></dl>
 
 <dl><dt><a name="FigureFrameWxAgg-CreateToolBar"><strong>CreateToolBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-CreateToolBar">CreateToolBar</a>(self,&nbsp;long&nbsp;style=-1,&nbsp;int&nbsp;winid=-1,&nbsp;String&nbsp;name=ToolBarNameStr)&nbsp;-&gt;&nbsp;wxToolBar</tt></dd></dl>
 
@@ -1608,7 +1577,7 @@ the&nbsp;borders,&nbsp;scrollbars,&nbsp;other&nbsp;decorations...)</tt></dd></dl
 
 <dl><dt><a name="FigureFrameWxAgg-SetStatusText"><strong>SetStatusText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-SetStatusText">SetStatusText</a>(self,&nbsp;String&nbsp;text,&nbsp;int&nbsp;number=0)</tt></dd></dl>
 
-<dl><dt><a name="FigureFrameWxAgg-SetStatusWidths"><strong>SetStatusWidths</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-SetStatusWidths">SetStatusWidths</a>(self,&nbsp;int&nbsp;widths)</tt></dd></dl>
+<dl><dt><a name="FigureFrameWxAgg-SetStatusWidths"><strong>SetStatusWidths</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-SetStatusWidths">SetStatusWidths</a>(self,&nbsp;int&nbsp;widths,&nbsp;int&nbsp;widths_field)</tt></dd></dl>
 
 <dl><dt><a name="FigureFrameWxAgg-SetToolBar"><strong>SetToolBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-SetToolBar">SetToolBar</a>(self,&nbsp;wxToolBar&nbsp;toolbar)</tt></dd></dl>
 
@@ -2161,17 +2130,6 @@ Test&nbsp;if&nbsp;the&nbsp;given&nbsp;style&nbsp;is&nbsp;set&nbsp;for&nbsp;this&
 &nbsp;<br>
 Does&nbsp;the&nbsp;window&nbsp;have&nbsp;the&nbsp;scrollbar&nbsp;for&nbsp;this&nbsp;orientation?</tt></dd></dl>
 
-<dl><dt><a name="FigureFrameWxAgg-HasTransparentBackground"><strong>HasTransparentBackground</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-HasTransparentBackground">HasTransparentBackground</a>(self)&nbsp;-&gt;&nbsp;bool<br>
-&nbsp;<br>
-Returns&nbsp;True&nbsp;if&nbsp;this&nbsp;window's&nbsp;background&nbsp;is&nbsp;transparent&nbsp;(as,&nbsp;for<br>
-example,&nbsp;for&nbsp;`wx.StaticText`)&nbsp;and&nbsp;should&nbsp;show&nbsp;the&nbsp;parent&nbsp;window's<br>
-background.<br>
-&nbsp;<br>
-This&nbsp;method&nbsp;is&nbsp;mostly&nbsp;used&nbsp;internally&nbsp;by&nbsp;the&nbsp;library&nbsp;itself&nbsp;and&nbsp;you<br>
-normally&nbsp;shouldn't&nbsp;have&nbsp;to&nbsp;call&nbsp;it.&nbsp;You&nbsp;may,&nbsp;however,&nbsp;have&nbsp;to&nbsp;override<br>
-it&nbsp;in&nbsp;your&nbsp;custom&nbsp;control&nbsp;classes&nbsp;to&nbsp;ensure&nbsp;that&nbsp;background&nbsp;is&nbsp;painted<br>
-correctly.</tt></dd></dl>
-
 <dl><dt><a name="FigureFrameWxAgg-Hide"><strong>Hide</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-Hide">Hide</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Equivalent&nbsp;to&nbsp;calling&nbsp;<a href="#FigureFrameWxAgg-Show">Show</a>(False).</tt></dd></dl>
@@ -2209,8 +2167,6 @@ parent.&nbsp;However&nbsp;it&nbsp;was&nbsp;also&nbsp;deemed&nbsp;desirable&nbsp;
 the&nbsp;attributes&nbsp;of&nbsp;all&nbsp;children&nbsp;at&nbsp;once&nbsp;by&nbsp;just&nbsp;changing&nbsp;the&nbsp;font&nbsp;or<br>
 colour&nbsp;of&nbsp;their&nbsp;common&nbsp;parent,&nbsp;hence&nbsp;in&nbsp;this&nbsp;case&nbsp;we&nbsp;do&nbsp;inherit&nbsp;the<br>
 parents&nbsp;attributes.</tt></dd></dl>
-
-<dl><dt><a name="FigureFrameWxAgg-InheritsBackgroundColour"><strong>InheritsBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-InheritsBackgroundColour">InheritsBackgroundColour</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
 
 <dl><dt><a name="FigureFrameWxAgg-InitDialog"><strong>InitDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-InitDialog">InitDialog</a>(self)<br>
 &nbsp;<br>
@@ -2384,7 +2340,7 @@ Mark&nbsp;the&nbsp;specified&nbsp;rectangle&nbsp;(or&nbsp;the&nbsp;whole&nbsp;wi
 will&nbsp;be&nbsp;repainted.&nbsp;&nbsp;Causes&nbsp;an&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;be&nbsp;generated&nbsp;and&nbsp;sent<br>
 to&nbsp;the&nbsp;window.</tt></dd></dl>
 
-<dl><dt><a name="FigureFrameWxAgg-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect,&nbsp;bool&nbsp;eraseBackground=True)<br>
+<dl><dt><a name="FigureFrameWxAgg-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect)<br>
 &nbsp;<br>
 Redraws&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;given&nbsp;rectangle:&nbsp;the&nbsp;area&nbsp;inside&nbsp;it&nbsp;will<br>
 be&nbsp;repainted.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;Refresh&nbsp;but&nbsp;has&nbsp;a&nbsp;nicer&nbsp;syntax.</tt></dd></dl>
@@ -2569,17 +2525,11 @@ Set&nbsp;this&nbsp;child&nbsp;as&nbsp;default,&nbsp;return&nbsp;the&nbsp;old&nbs
 &nbsp;<br>
 Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;The&nbsp;sizeFlags<br>
 parameter&nbsp;indicates&nbsp;the&nbsp;interpretation&nbsp;of&nbsp;the&nbsp;other&nbsp;params&nbsp;if&nbsp;they&nbsp;are<br>
-equal&nbsp;to&nbsp;-1.<br>
-&nbsp;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_AUTO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;should&nbsp;be&nbsp;used.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_USE_EXISTING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Axisting&nbsp;dimensions&nbsp;should&nbsp;be&nbsp;used&nbsp;if<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE&nbsp;&nbsp;&nbsp;&nbsp;Allow&nbsp;dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;values.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================</tt></dd></dl>
+-1.&nbsp;&nbsp;wx.SIZE_AUTO*:&nbsp;a&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific&nbsp;default<br>
+shoudl&nbsp;be&nbsp;used.&nbsp;&nbsp;wx.SIZE_USE_EXISTING:&nbsp;existing&nbsp;dimensions&nbsp;should&nbsp;be<br>
+used&nbsp;if&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE:&nbsp;allow<br>
+dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
+default&nbsp;values.</tt></dd></dl>
 
 <dl><dt><a name="FigureFrameWxAgg-SetDropTarget"><strong>SetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-SetDropTarget">SetDropTarget</a>(self,&nbsp;DropTarget&nbsp;dropTarget)<br>
 &nbsp;<br>
@@ -2868,8 +2818,6 @@ wx.UpdateUIEvent.SetMode&nbsp;or&nbsp;wx.UpdateUIEvent.SetUpdateInterval&nbsp;to
 limit&nbsp;the&nbsp;overhead&nbsp;that&nbsp;wxWindows&nbsp;incurs&nbsp;by&nbsp;sending&nbsp;update&nbsp;UI&nbsp;events<br>
 in&nbsp;idle&nbsp;time.</tt></dd></dl>
 
-<dl><dt><a name="FigureFrameWxAgg-UseBgCol"><strong>UseBgCol</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-UseBgCol">UseBgCol</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
-
 <dl><dt><a name="FigureFrameWxAgg-Validate"><strong>Validate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#FigureFrameWxAgg-Validate">Validate</a>(self)&nbsp;-&gt;&nbsp;bool<br>
 &nbsp;<br>
 Validates&nbsp;the&nbsp;current&nbsp;values&nbsp;of&nbsp;the&nbsp;child&nbsp;controls&nbsp;using&nbsp;their<br>
@@ -2987,7 +2935,7 @@ Data and other attributes inherited from <a href="wx._core.html#Object">wx._core
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>backend_version</strong> = '2.5.5.1'<br>
+<td width="100%"><strong>backend_version</strong> = '2.5.3.2pre'<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'WXAgg', 'datapath': '/usr/local/share/matplotlib', ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}</td></tr></table>
 @footer@

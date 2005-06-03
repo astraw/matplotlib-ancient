@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.cm</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/cm.py">/usr/local/lib/python2.3/site-packages/matplotlib/cm.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/cm.py">/usr/lib/python2.4/site-packages/matplotlib/cm.py</a></font></td></tr></table>
     <p><tt>This&nbsp;module&nbsp;contains&nbsp;the&nbsp;instantiations&nbsp;of&nbsp;color&nbsp;mapping&nbsp;classes</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -97,7 +97,7 @@ Update&nbsp;the&nbsp;cmap,&nbsp;norm&nbsp;accordingly</tt></dd></dl>
 <strong>nx</strong> = &lt;matplotlib.numerix._nc_imports._TypeNamespace instance&gt;<br>
 <strong>pink</strong> = &lt;matplotlib.colors.LinearSegmentedColormap instance&gt;<br>
 <strong>prism</strong> = &lt;matplotlib.colors.LinearSegmentedColormap instance&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'WXAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
 <strong>spring</strong> = &lt;matplotlib.colors.LinearSegmentedColormap instance&gt;<br>
 <strong>summer</strong> = &lt;matplotlib.colors.LinearSegmentedColormap instance&gt;<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;<br>

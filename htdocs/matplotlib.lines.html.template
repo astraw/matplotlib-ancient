@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.lines</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/lines.py">/usr/local/lib/python2.3/site-packages/matplotlib/lines.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/lines.py">/usr/lib/python2.4/site-packages/matplotlib/lines.py</a></font></td></tr></table>
     <p><tt>This&nbsp;module&nbsp;contains&nbsp;all&nbsp;the&nbsp;2D&nbsp;line&nbsp;class&nbsp;which&nbsp;can&nbsp;draw&nbsp;with&nbsp;a<br>
 variety&nbsp;of&nbsp;line&nbsp;styles,&nbsp;markers&nbsp;and&nbsp;colors</tt></p>
 <p>
@@ -15,10 +15,11 @@ variety&nbsp;of&nbsp;line&nbsp;styles,&nbsp;markers&nbsp;and&nbsp;colors</tt></p
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="matplotlib.agg.html">matplotlib.agg</a><br>
+<a href="matplotlib.numerix.ma.html">matplotlib.numerix.ma</a><br>
 </td><td width="25%" valign=top><a href="math.html">math</a><br>
-</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="sys.html">sys</a><br>
 </td><td width="25%" valign=top><a href="warnings.html">warnings</a><br>
-</td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -47,7 +48,7 @@ linewidth&nbsp;is&nbsp;the&nbsp;width&nbsp;of&nbsp;the&nbsp;line&nbsp;in&nbsp;po
 linestyle&nbsp;is&nbsp;one&nbsp;of&nbsp;lineStyles<br>
 marker&nbsp;is&nbsp;one&nbsp;of&nbsp;lineMarkers&nbsp;or&nbsp;None<br>
 markersize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;marker&nbsp;in&nbsp;points<br>
-markeredgecolor&nbsp;&nbsp;and&nbsp;markerfacecolor&nbsp;can&nbsp;be&nbsp;any&nbsp;color&nbsp;arg&nbsp;<br>
+markeredgecolor&nbsp;&nbsp;and&nbsp;markerfacecolor&nbsp;can&nbsp;be&nbsp;any&nbsp;color&nbsp;arg<br>
 markeredgewidth&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;markter&nbsp;edge&nbsp;in&nbsp;points</tt></dd></dl>
 
 <dl><dt><a name="Line2D-draw"><strong>draw</strong></a>(self, renderer)</dt></dl>
@@ -88,9 +89,9 @@ markeredgewidth&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;markter&nbsp;ed
 
 <dl><dt><a name="Line2D-get_window_extent"><strong>get_window_extent</strong></a>(self, renderer)</dt></dl>
 
-<dl><dt><a name="Line2D-get_xdata"><strong>get_xdata</strong></a>(self)</dt></dl>
+<dl><dt><a name="Line2D-get_xdata"><strong>get_xdata</strong></a>(self, valid_only<font color="#909090">=False</font>)</dt></dl>
 
-<dl><dt><a name="Line2D-get_ydata"><strong>get_ydata</strong></a>(self)</dt></dl>
+<dl><dt><a name="Line2D-get_ydata"><strong>get_ydata</strong></a>(self, valid_only<font color="#909090">=False</font>)</dt></dl>
 
 <dl><dt><a name="Line2D-set_aa"><strong>set_aa</strong></a>(self, val)</dt><dd><tt>alias&nbsp;for&nbsp;set_antialiased</tt></dd></dl>
 
@@ -207,6 +208,8 @@ backends</tt></dd></dl>
 
 <dl><dt><a name="Line2D-remove_callback"><strong>remove_callback</strong></a>(self, oid)</dt></dl>
 
+<dl><dt><a name="Line2D-set"><strong>set</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;tkstyle&nbsp;set&nbsp;command,&nbsp;pass&nbsp;kwargs&nbsp;to&nbsp;set&nbsp;properties</tt></dd></dl>
+
 <dl><dt><a name="Line2D-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends<br>
 &nbsp;<br>
@@ -266,6 +269,33 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
  <dl><dt><a name="-array"><strong>array</strong></a>(...)</dt><dd><tt><a href="#-array">array</a>(sequence,&nbsp;typecode=None,&nbsp;copy=1,&nbsp;savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;formed&nbsp;from&nbsp;the&nbsp;given&nbsp;(potentially&nbsp;nested)&nbsp;sequence&nbsp;with&nbsp;type&nbsp;given&nbsp;by&nbsp;typecode.&nbsp;&nbsp;If&nbsp;no&nbsp;typecode&nbsp;is&nbsp;given,&nbsp;then&nbsp;the&nbsp;type&nbsp;will&nbsp;be&nbsp;determined&nbsp;as&nbsp;the&nbsp;minimum&nbsp;type&nbsp;required&nbsp;to&nbsp;hold&nbsp;the&nbsp;objects&nbsp;in&nbsp;sequence.&nbsp;&nbsp;If&nbsp;copy&nbsp;is&nbsp;zero&nbsp;and&nbsp;sequence&nbsp;is&nbsp;already&nbsp;an&nbsp;array,&nbsp;a&nbsp;reference&nbsp;will&nbsp;be&nbsp;returned.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero,&nbsp;the&nbsp;new&nbsp;array&nbsp;will&nbsp;maintain&nbsp;its&nbsp;precision&nbsp;in&nbsp;operations.</tt></dd></dl>
  <dl><dt><a name="-searchsorted"><strong>searchsorted</strong></a> = binarysearch(...)</dt><dd><tt>binarysearch(a,v)</tt></dd></dl>
  <dl><dt><a name="-take"><strong>take</strong></a>(...)</dt><dd><tt><a href="#-take">take</a>(a,&nbsp;indices,&nbsp;axis=0).&nbsp;&nbsp;Selects&nbsp;the&nbsp;elements&nbsp;in&nbsp;indices&nbsp;from&nbsp;array&nbsp;a&nbsp;along&nbsp;the&nbsp;given&nbsp;axis.</tt></dd></dl>
+ <dl><dt><a name="-unmasked_index_ranges"><strong>unmasked_index_ranges</strong></a>(mask, compressed<font color="#909090">=True</font>)</dt><dd><tt>Calculate&nbsp;the&nbsp;good&nbsp;data&nbsp;ranges&nbsp;in&nbsp;a&nbsp;masked&nbsp;1-D&nbsp;array,&nbsp;based&nbsp;on&nbsp;mask.<br>
+&nbsp;<br>
+Returns&nbsp;Nx2&nbsp;array&nbsp;with&nbsp;each&nbsp;row&nbsp;the&nbsp;start&nbsp;and&nbsp;stop&nbsp;indices<br>
+for&nbsp;slices&nbsp;of&nbsp;the&nbsp;compressed&nbsp;array&nbsp;corresponding&nbsp;to&nbsp;each&nbsp;of&nbsp;N<br>
+uninterrupted&nbsp;runs&nbsp;of&nbsp;unmasked&nbsp;values.<br>
+If&nbsp;optional&nbsp;argument&nbsp;compressed&nbsp;is&nbsp;False,&nbsp;it&nbsp;returns&nbsp;the<br>
+start&nbsp;and&nbsp;stop&nbsp;indices&nbsp;into&nbsp;the&nbsp;original&nbsp;array,&nbsp;not&nbsp;the<br>
+compressed&nbsp;array.<br>
+In&nbsp;either&nbsp;case,&nbsp;an&nbsp;empty&nbsp;array&nbsp;is&nbsp;returned&nbsp;if&nbsp;there&nbsp;are&nbsp;no<br>
+unmasked&nbsp;values.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;<br>
+y&nbsp;=&nbsp;ma.<a href="#-array">array</a>(<a href="#-arange">arange</a>(5),&nbsp;mask&nbsp;=&nbsp;[0,0,1,0,0])<br>
+ii&nbsp;=&nbsp;<a href="#-unmasked_index_ranges">unmasked_index_ranges</a>(y.mask())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;returns&nbsp;[[0,2,]&nbsp;[2,4,]]<br>
+&nbsp;<br>
+y.compressed().filled()[ii[1,0]:ii[1,1]]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;returns&nbsp;array&nbsp;[3,4,]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;(The&nbsp;'filled()'&nbsp;method&nbsp;converts&nbsp;the&nbsp;masked&nbsp;array&nbsp;to&nbsp;a&nbsp;numerix&nbsp;array.)<br>
+&nbsp;<br>
+i0,&nbsp;i1&nbsp;=&nbsp;<a href="#-unmasked_index_ranges">unmasked_index_ranges</a>(y.mask(),&nbsp;compressed=False)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;returns&nbsp;[[0,3,]&nbsp;[2,5,]]<br>
+&nbsp;<br>
+y.filled()[ii[1,0]:ii[1,1]]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;returns&nbsp;array&nbsp;[3,4,]</tt></dd></dl>
+ <dl><dt><a name="-zeros"><strong>zeros</strong></a>(...)</dt><dd><tt><a href="#-zeros">zeros</a>((d1,...,dn),typecode='l',savespace=0)&nbsp;will&nbsp;return&nbsp;a&nbsp;new&nbsp;array&nbsp;of&nbsp;shape&nbsp;(d1,...,dn)&nbsp;and&nbsp;type&nbsp;typecode&nbsp;with&nbsp;all&nbsp;it's&nbsp;entries&nbsp;initialized&nbsp;to&nbsp;zero.&nbsp;&nbsp;If&nbsp;savespace&nbsp;is&nbsp;nonzero&nbsp;the&nbsp;array&nbsp;will&nbsp;be&nbsp;a&nbsp;spacesaver&nbsp;array.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -288,7 +318,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>lineStyles</strong> = {'-': 1, '--': 1, '-.': 1, ':': 1, 'None': 1, 'steps': 1}<br>
 <strong>logical_and</strong> = &lt;ufunc 'logical_and'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'WXAgg', 'datapath': '/usr/local/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
 <strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

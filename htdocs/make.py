@@ -28,10 +28,10 @@ print >> file('license.html.template','w'), fmt%d
 
 
 print 'Making screenshots'
-#os.system('cd screenshots; python makeshots.py; rm -f _tmp*.py')
+os.system('cd screenshots; python makeshots.py; rm -f _tmp*.py')
 
 print 'Making tutorial images'
-#os.system('cd tut; python runall.py')
+os.system('cd tut; python runall.py')
 
 print 'Running process_docs'
 os.system('python process_docs.py')
@@ -41,4 +41,4 @@ os.system('python convert.py')
 
 print 'Building archive'
 version = matplotlib.__version__
-os.system('tar cfz site.tar.gz *.html users_guide_%(version)s.pdf matplotlib_examples_%(version)s.zip screenshots tut examples gd .matplotlibrc CHANGELOG NUMARRAY_ISSUES  API_CHANGES'%locals())
+os.system('tar cfz site.tar.gz *.html users_guide_%(version)s.pdf matplotlib_examples_%(version)s.zip screenshots tut examples gd .matplotlibrc CHANGELOG NUMARRAY_ISSUES  API_CHANGES set_begone.py'%locals())

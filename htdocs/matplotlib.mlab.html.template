@@ -4,7 +4,7 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.mlab</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.3/site-packages/matplotlib/mlab.py">/usr/local/lib/python2.3/site-packages/matplotlib/mlab.py</a></font></td></tr></table>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/mlab.py">/usr/lib/python2.4/site-packages/matplotlib/mlab.py</a></font></td></tr></table>
     <p><tt>Numerical&nbsp;python&nbsp;functions&nbsp;written&nbsp;for&nbsp;compatability&nbsp;with&nbsp;matlab(TM)<br>
 commands&nbsp;with&nbsp;the&nbsp;same&nbsp;names.&nbsp;&nbsp;<br>
 &nbsp;<br>
@@ -477,6 +477,11 @@ Example&nbsp;2:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;yout&nbsp;=&nbsp;<a href="#-rk4">rk4</a>(derivs,&nbsp;y0,&nbsp;t)</tt></dd></dl>
  <dl><dt><a name="-rms_flat"><strong>rms_flat</strong></a>(a)</dt><dd><tt>Return&nbsp;the&nbsp;root&nbsp;mean&nbsp;square&nbsp;of&nbsp;all&nbsp;the&nbsp;elements&nbsp;of&nbsp;a,&nbsp;flattened&nbsp;out.</tt></dd></dl>
  <dl><dt><a name="-searchsorted"><strong>searchsorted</strong></a> = binarysearch(...)</dt><dd><tt>binarysearch(a,v)</tt></dd></dl>
+ <dl><dt><a name="-segments_intersect"><strong>segments_intersect</strong></a>(s1, s2)</dt><dd><tt>Return&nbsp;True&nbsp;if&nbsp;s1&nbsp;and&nbsp;s2&nbsp;intersect.<br>
+s1&nbsp;and&nbsp;s2&nbsp;are&nbsp;defines&nbsp;as<br>
+&nbsp;<br>
+s1:&nbsp;(x1,&nbsp;y1),&nbsp;(x2,&nbsp;y2)<br>
+s2:&nbsp;(x3,&nbsp;y3),&nbsp;(x4,&nbsp;y4)</tt></dd></dl>
  <dl><dt><a name="-specgram"><strong>specgram</strong></a>(x, NFFT<font color="#909090">=256</font>, Fs<font color="#909090">=2</font>, detrend<font color="#909090">=&lt;function detrend_none&gt;</font>, window<font color="#909090">=&lt;function window_hanning&gt;</font>, noverlap<font color="#909090">=128</font>)</dt><dd><tt>Compute&nbsp;a&nbsp;spectrogram&nbsp;of&nbsp;data&nbsp;in&nbsp;x.&nbsp;&nbsp;Data&nbsp;are&nbsp;split&nbsp;into&nbsp;NFFT<br>
 length&nbsp;segements&nbsp;and&nbsp;the&nbsp;PSD&nbsp;of&nbsp;each&nbsp;section&nbsp;is&nbsp;computed.&nbsp;&nbsp;The<br>
 windowing&nbsp;function&nbsp;window&nbsp;is&nbsp;applied&nbsp;to&nbsp;each&nbsp;segment,&nbsp;and&nbsp;the<br>
