@@ -364,7 +364,13 @@ sub run_latex2html {
     ($htmldir=$tex) =~ s/\.tex$//;
     $l2h_file="${tex}_#tmp_2html#";
     improve_tex4html($tex,$l2h_file);
-    safe_system("$cmd{latex2html} $latex2html_opts $l2h_file");
+    # add index support
+    my $xtraargs = "";
+    my $idx = "$htmldir.idx";
+    if(-e $idx ) {
+            $xtraargs .= "-index $idx";
+    }
+    safe_system("$cmd{latex2html} $xtraargs $latex2html_opts $l2h_file");
     unless ($opt{debug}) {
 	unlink($l2h_file,"$htmldir/labels.pl");
     }

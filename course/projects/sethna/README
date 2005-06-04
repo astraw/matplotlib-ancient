@@ -1,0 +1,27 @@
+These are the four exercises on the logistic map from
+
+http://www.physics.cornell.edu/sethna/StatMech/ComputerExercises/ChaosLyapunov/ChaosLyapunov.html
+http://www.physics.cornell.edu/sethna/StatMech/ComputerExercises/InvariantMeasure/InvariantMeasure.html
+http://www.physics.cornell.edu/sethna/StatMech/ComputerExercises/PeriodDoubling/PeriodDoubling.html
+http://www.physics.cornell.edu/sethna/StatMech/ComputerExercises/FractalDimensions/FractalDimensions.html
+
+The src_ori.tgz contains the original Python sources only, without any of
+the exercise PDF sheets.
+
+
+Changes notes
+=============
+
+C. Myers is interested in improvements to their code.  Let's keep track here
+of what why we do certain things, to have a mini-changelog for them later.
+
+- Use docstrings with the first line being non-empty, and non-continuing.
+Many automated tools extract the first docstring line for library summaries.
+
+- the args=() trick is very non-standard.  Better use *args if needed.  But
+the logistic map examples are much more cleanly done via a closure or a
+callable class.
+
+- Instead of scipy.arange, use pylab.frange.  It's easier to use, the npts
+parameter makes it clearer in most cases, and it defaults to closed intervals
+so there's no need to have warnings about edge effects.
