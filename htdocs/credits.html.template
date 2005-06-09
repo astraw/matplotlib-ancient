@@ -99,7 +99,7 @@ matplotlib was written by John Hunter<p>
   href=examples/dashpointlabel.py>dashpointlabel.py</a> and <a
   href=matplotlib.text.html#TextWithDash>TextWithDash</a></li>
 
-  <li>Nicolas Girard added support for byte images to imshow, which
+  <li>Nicolas Young added support for byte images to imshow, which
   are more efficient in CPU and memory.</li>
   
  <li>The <a href=http://brainvisa.info>brainvisa</a> Orsay team and

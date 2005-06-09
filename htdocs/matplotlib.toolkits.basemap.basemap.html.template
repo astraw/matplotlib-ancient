@@ -124,7 +124,8 @@ urcrnrlat&nbsp;-&nbsp;latitude&nbsp;of&nbsp;upper&nbsp;right&nbsp;hand&nbsp;corn
 &nbsp;(Default&nbsp;90).<br>
 &nbsp;<br>
 If&nbsp;the&nbsp;orthographic,&nbsp;mollweide&nbsp;or&nbsp;robinson&nbsp;projection&nbsp;is&nbsp;chosen&nbsp;<br>
-the&nbsp;values&nbsp;of&nbsp;llcrnrlon,llcrnrlat,urcrnrlon&nbsp;and&nbsp;urcrnrlat&nbsp;are&nbsp;not&nbsp;used.<br>
+the&nbsp;values&nbsp;of&nbsp;llcrnrlon,llcrnrlat,urcrnrlon&nbsp;and&nbsp;urcrnrlat&nbsp;are&nbsp;ignored,<br>
+and&nbsp;the&nbsp;entire&nbsp;projection&nbsp;domain&nbsp;will&nbsp;be&nbsp;always&nbsp;be&nbsp;plotted.<br>
 &nbsp;<br>
 resolution&nbsp;-&nbsp;resolution&nbsp;of&nbsp;coastline&nbsp;database&nbsp;to&nbsp;use.&nbsp;Can&nbsp;be&nbsp;'c'&nbsp;(crude),&nbsp;<br>
 &nbsp;'l'&nbsp;(low),&nbsp;or&nbsp;'i'&nbsp;(intermediate).&nbsp;Resolution&nbsp;drops&nbsp;off&nbsp;by&nbsp;roughly&nbsp;80%<br>
@@ -199,10 +200,7 @@ Other&nbsp;keyword&nbsp;arguments&nbsp;(**kwargs)&nbsp;control&nbsp;plotting&nbs
 see&nbsp;pylab&nbsp;plot&nbsp;documentation&nbsp;for&nbsp;details.<br>
 &nbsp;<br>
 Note:&nbsp;&nbsp;cannot&nbsp;handle&nbsp;situations&nbsp;in&nbsp;which&nbsp;the&nbsp;great&nbsp;circle&nbsp;intersects<br>
-the&nbsp;edge&nbsp;of&nbsp;the&nbsp;map&nbsp;projection&nbsp;domain,&nbsp;and&nbsp;then&nbsp;re-enters&nbsp;the&nbsp;domain.<br>
-Assumes&nbsp;a&nbsp;perfect&nbsp;sphere,&nbsp;doesn't&nbsp;take&nbsp;into&nbsp;account&nbsp;eccentricity&nbsp;of&nbsp;the<br>
-ellipsoid&nbsp;(this&nbsp;implies&nbsp;an&nbsp;O(10km)&nbsp;error&nbsp;for&nbsp;a&nbsp;great&nbsp;circle&nbsp;extending<br>
-all&nbsp;the&nbsp;way&nbsp;around&nbsp;the&nbsp;earth).</tt></dd></dl>
+the&nbsp;edge&nbsp;of&nbsp;the&nbsp;map&nbsp;projection&nbsp;domain,&nbsp;and&nbsp;then&nbsp;re-enters&nbsp;the&nbsp;domain.</tt></dd></dl>
 
 <dl><dt><a name="Basemap-drawmapboundary"><strong>drawmapboundary</strong></a>(self, color<font color="#909090">='k'</font>, linewidth<font color="#909090">=1.0</font>)</dt><dd><tt>draw&nbsp;boundary&nbsp;around&nbsp;map&nbsp;projection&nbsp;region</tt></dd></dl>
 
@@ -392,6 +390,6 @@ returns&nbsp;dataout,lonsout&nbsp;(data&nbsp;and&nbsp;longitudes&nbsp;on&nbsp;sh
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>matplotlib_version</strong> = '0.81alpha'<br>
+<td width="100%"><strong>matplotlib_version</strong> = '0.81'<br>
 <strong>numarray_version</strong> = '1.3.2'</td></tr></table>
 @footer@

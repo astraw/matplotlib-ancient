@@ -16,6 +16,19 @@ Plot Functionality
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Math text
 *******************
+Support TeX/LaTeX rendering
+
+mostly done
+
+Although matplotlib has it's own mathematical rendering engine of TeX
+expressions, it cannpt compete with true TeX rendering.  In <a
+href="whats_new.html#0.81-TeX_support">matplotlib-0.81</a>, support
+was added for using TeX to render all tex in a figure, with support in
+the antigrain and postscript backends.  See <a
+href=screenshots.html#tex_demo>tex demo</a> and <a
+href=matplotlib.texmanager.html>texmanager</a>.
+
+*******************
 Support special symbols
 
 mostly done

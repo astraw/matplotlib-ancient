@@ -7,12 +7,15 @@ versioninfo['0.81'] = (
   ('TeX support', """\
 Now you can (optionally) use TeX to handle *all* of the text elements
 in your figure with the rc param <tt>text.usetex</tt> (*Agg and PS
-only).  PS support requires tex, dvips and ps2epsi.  Agg support
-requires tex and dvipng.  A directory <tt>~/.tex.cache</tt> is created
-where support files are cached for later reuse.  We opted to ues TeX
-rather than LaTeX because it is faster and can do all the things we
-thought useful for figure text snippets.  See
-<a href=examples/tex_demo.py>tex_demo.py</a>.
+only).  PS support requires tex, dvips and Ghostscript 8.51 (older
+versions do not work properly -- test your version with <tt>gs --version</tt>).  Agg support requires tex and dvipng.
+A directory <tt>~/.tex.cache</tt> is created where support files are
+cached for later reuse.  We opted to ues TeX rather than LaTeX because
+it is faster and can do all the things we thought useful for figure
+text snippets.  See <a href=screenshots.html#tex_demo>tex demo screenshot</a> and
+<a href=matplotlib.texmanager.html>texmanager</a>.  Special thanks to
+Darren Dale for lots of hair-pulling work customizing, enhancing and
+debugging the ps backend for LaTeX support.
 """),
 
   ('Masked arrays', """\
@@ -94,7 +97,9 @@ antialiased property setting in agg, added a postscript papersize <a
 href=.matplotlibrc>rc</a> option <tt>ps.papersize</tt>, added an
 example showing how to embed mpl in a qt app <a
 href=examples/embedding_in_qt.py>embedding_in_qt.py</a>, arrow keys
-now exposed in mpl's GUI neutral event handling.
+now exposed in mpl's GUI neutral event handling, added"among" kwarg to axes picker function
+  to limit picks, added autoscale_on property to Axes to control
+  whether or not autoscaling is done.
 """),
 
     ('Bug fixes', """\

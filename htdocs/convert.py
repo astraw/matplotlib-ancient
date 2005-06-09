@@ -177,7 +177,7 @@ def isNewEntry(line):
 
 # re-add news to the params dict 'tables' entry below for news
 news = NewsBox("""\
-You can now use TeX or LaTeX to create all matplotlib text instances for the anigrain and postscript backends.  See <a href=screenshots.html#tex_demo>TeX deo</a> and <a href=matplotlib.texmanager.html>texmanager</a>.
+You can now use TeX or LaTeX to create all matplotlib text instances for the anigrain and postscript backends.  See <a href=screenshots.html#tex_demo>TeX demo</a> and <a href=matplotlib.texmanager.html>texmanager</a>.
 """)
 
 
@@ -213,7 +213,7 @@ table3 =  LinkBox(header='Other', links=(
 
 params = {
     'myemail' : '<a href=mailto:jdhunter@ace.bsd.uchicago.edu> (jdhunter@ace.bsd.uchicago.edu)</a>',
-    'tables' : (table1, table2, table3),
+    'tables' : (news, table1, table2, table3),
     'default_table' :  'border=1 cellpadding=3 cellspacing=2', 
           }
 

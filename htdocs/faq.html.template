@@ -1,6 +1,51 @@
 
 FAQs = (
 
+
+('How do I report a problem?',
+"""\
+OK, this is not a FAQ, but I wish it were <wink>.<p>
+
+If you are having a problem <i>compiling<i/> matplotlib, provide your
+operating system and matplotlib version, any changes you may have made
+to <tt>setup.py</tt> or <tt>setupext.py</tt>, and the output of
+
+<pre>
+  > rm -rf build
+  > python setup.py build 
+</pre>
+
+
+If matplotlib compiled fine, but <i>no scripts run</i>, see <a
+href=faq.html#FAILURE>failure</a>.<p>
+
+If the matplotlib example scripts are running fine, and you have a
+script that doesn't work that <i>you think may be a bug<i/>, please
+provide as much information as possible in your bug report, in
+particular which matplotlib version and backend you are using,
+operating system, and any nonstandard <a href=.matplotlibrc>rc</a>
+options.  Some of this information is provided simply by running your
+script with <tt>python myscript.py --verbose-helpful</tt> and posting
+the output along with your problem description.  Ideally, you should
+provide a standalone script that runs on our system and exposes the
+bug -- if you do this there is a very good chance the problem will be
+fixed.  If we can't replicate the bug, it is much harder to fix.
+Sometimes you cannot do this because the code or data is proprietary
+-- in this case it is often helpful to post an image along with your
+description that shows the problem.
+
+You can post problems either to the <a
+href=http://lists.sourceforge.net/mailman/listinfo/matplotlib-users>matplotlib-users</a>
+mailing list, or the sourceforge <a
+href=http://sourceforge.net/tracker/?group_id=80706&atid=560720>bugs</a>
+page.  I prefer the mailing list, because it gets read by more people,
+and if it is a real and pesky bug I'll ask you to post it to the
+sourceforge site.  But some people don't want the extra email traffic
+of the mailing list, which is understandable, so it is fine to just
+post to the sourceforge site.
+"""),
+
+
     ('FAILURE',
     "matplotlib compiled fine, but I can't get anything to plot" , """\
 The first thing to try is to remove <tt>site-packages/matplotlib</tt>

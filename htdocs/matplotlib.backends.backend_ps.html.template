@@ -2,7 +2,7 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr bgcolor="#7799ee">
 <td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_ps</strong></big></big> (version 0.81alpha)</font></td
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_ps</strong></big></big> (version 0.81)</font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/backends/backend_ps.py">/usr/lib/python2.4/site-packages/matplotlib/backends/backend_ps.py</a></font></td></tr></table>
     <p><tt>A&nbsp;PostScript&nbsp;backend,&nbsp;which&nbsp;can&nbsp;produce&nbsp;both&nbsp;PostScript&nbsp;.ps&nbsp;and</tt></p>
@@ -15,9 +15,12 @@
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="matplotlib.agg.html">matplotlib.agg</a><br>
 <a href="binascii.html">binascii</a><br>
+<a href="glob.html">glob</a><br>
 </td><td width="25%" valign=top><a href="math.html">math</a><br>
+<a href="md5.html">md5</a><br>
 <a href="os.html">os</a><br>
 </td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="shutil.html">shutil</a><br>
 <a href="sys.html">sys</a><br>
 </td><td width="25%" valign=top><a href="time.html">time</a><br>
 </td></tr></table></td></tr></table><p>
@@ -74,7 +77,11 @@ If&nbsp;the&nbsp;extension&nbsp;matches&nbsp;.ep*&nbsp;write&nbsp;encapsulated&n
 otherwise&nbsp;write&nbsp;a&nbsp;stand-alone&nbsp;PostScript&nbsp;file.<br>
 &nbsp;<br>
 If&nbsp;outfile&nbsp;is&nbsp;a&nbsp;file&nbsp;object,&nbsp;a&nbsp;stand-alone&nbsp;PostScript&nbsp;file&nbsp;is<br>
-written&nbsp;into&nbsp;this&nbsp;file&nbsp;object.</tt></dd></dl>
+written&nbsp;into&nbsp;this&nbsp;file&nbsp;object.<br>
+&nbsp;<br>
+If&nbsp;text.usetex&nbsp;is&nbsp;True&nbsp;in&nbsp;rc,&nbsp;a&nbsp;temporary&nbsp;pair&nbsp;of&nbsp;tex/eps&nbsp;files&nbsp;<br>
+are&nbsp;created&nbsp;to&nbsp;allow&nbsp;tex&nbsp;to&nbsp;handle&nbsp;the&nbsp;text.&nbsp;The&nbsp;final&nbsp;output&nbsp;<br>
+is&nbsp;a&nbsp;simple&nbsp;ps&nbsp;or&nbsp;eps&nbsp;file.</tt></dd></dl>
 
 <hr>
 Data and other attributes defined here:<br>
@@ -440,7 +447,7 @@ elements</tt></dd></dl>
 <strong>KERNING_UNFITTED</strong> = 1<br>
 <strong>KERNING_UNSCALED</strong> = 2<br>
 <strong>UInt8</strong> = 'b'<br>
-<strong>__version__</strong> = '0.81alpha'<br>
+<strong>__version__</strong> = '0.81'<br>
 <strong>backend_version</strong> = 'Level II'<br>
 <strong>bakoma_fonts</strong> = []<br>
 <strong>debugPS</strong> = 1<br>
@@ -451,6 +458,6 @@ elements</tt></dd></dl>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
 <strong>papersize</strong> = {'a0': (33.109999999999999, 46.810000000000002), 'a1': (23.390000000000001, 33.109999999999999), 'a10': (1.02, 1.4570000000000001), 'a2': (16.539999999999999, 23.390000000000001), 'a3': (11.69, 16.539999999999999), 'a4': (8.2699999999999996, 11.69), 'a5': (5.8300000000000001, 8.2699999999999996), 'a6': (4.1299999999999999, 5.8300000000000001), 'a7': (2.9100000000000001, 4.1299999999999999), 'a8': (2.0699999999999998, 2.9100000000000001), ...}<br>
 <strong>psDefs</strong> = ['/m { moveto } bind def', '/l { lineto } bind def', '/r { rlineto } bind def', '/box {<font color="#c040c0">\n</font>      m<font color="#c040c0">\n</font>      1 index 0 r<font color="#c040c0">\n</font>      0 exch r<font color="#c040c0">\n</font>      neg 0 r<font color="#c040c0">\n</font>      closepath<font color="#c040c0">\n</font>    } bind def', '/clipbox {<font color="#c040c0">\n</font>      box<font color="#c040c0">\n</font>      clip<font color="#c040c0">\n</font>      newpath<font color="#c040c0">\n</font>    } bind def', '/ellipse {<font color="#c040c0">\n</font>      newpath<font color="#c040c0">\n</font>      matrix currentmat...rc<font color="#c040c0">\n</font>      setmatrix<font color="#c040c0">\n</font>      closepath<font color="#c040c0">\n</font>    } bind def']<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@
