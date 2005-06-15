@@ -20,7 +20,7 @@ embedding_in_wx.py, which provides these features.
 
 Modification History:
 $Log$
-Revision 1.95  2005/06/15 18:29:33  jdh2358
+Revision 1.96  2005/06/15 19:37:27  jdh2358
 syncing for 82
 
 Revision 1.6  2004/10/26 18:08:13  astraw
@@ -98,7 +98,7 @@ class PlotFigure(wxFrame):
         EVT_TIMER(self, TIMER_ID, self.onTimer)
         
     def init_plot_data(self):
-        a = self.figmgr.add_subplot(111)
+        a = self.fig.add_subplot(111)
         self.ind = numpy.arange(60)
         tmp = []
         for i in range(60):

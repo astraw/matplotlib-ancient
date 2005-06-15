@@ -7,7 +7,7 @@ FAQs = (
 """\
 OK, this is not a FAQ, but I wish it were <wink>.<p>
 
-If you are having a problem <i>compiling<i/> matplotlib, provide your
+If you are having a problem <i>compiling</i> matplotlib, provide your
 operating system and matplotlib version, any changes you may have made
 to <tt>setup.py</tt> or <tt>setupext.py</tt>, and the output of
 
@@ -21,7 +21,7 @@ If matplotlib compiled fine, but <i>no scripts run</i>, see <a
 href=faq.html#FAILURE>failure</a>.<p>
 
 If the matplotlib example scripts are running fine, and you have a
-script that doesn't work that <i>you think may be a bug<i/>, please
+script that doesn't work that <i>you think may be a bug</i>, please
 provide as much information as possible in your bug report, in
 particular which matplotlib version and backend you are using,
 operating system, and any nonstandard <a href=.matplotlibrc>rc</a>
@@ -33,7 +33,7 @@ bug -- if you do this there is a very good chance the problem will be
 fixed.  If we can't replicate the bug, it is much harder to fix.
 Sometimes you cannot do this because the code or data is proprietary
 -- in this case it is often helpful to post an image along with your
-description that shows the problem.
+description that shows the problem.<p>
 
 You can post problems either to the <a
 href=http://lists.sourceforge.net/mailman/listinfo/matplotlib-users>matplotlib-users</a>
@@ -43,7 +43,7 @@ page.  I prefer the mailing list, because it gets read by more people,
 and if it is a real and pesky bug I'll ask you to post it to the
 sourceforge site.  But some people don't want the extra email traffic
 of the mailing list, which is understandable, so it is fine to just
-post to the sourceforge site.
+post to the sourceforge site.<p>
 """),
 
 
@@ -154,7 +154,7 @@ min/max for the data coordinates, and will round down or up to
 facilitate nice integer ticking.  When you plot with linear coords,
 the autoscaler makes its pick according to linear scaling, and if when
 you change scales the old scaling is in effect and the log transform
-fails when converting the viewport.
+fails when converting the viewport.<p>
 
 Solution: The best solution is to upgrade your matplotlib to >= 0.72.
 If this is not a good option, rescale the axes after changing coords,
@@ -270,7 +270,7 @@ mencoder 'mf://*.png' -mf type=png:fps=10 -ovc \\
 
 The swiss army knife of image tools, ImageMagick's <a
 href=http://imagemagick.sourceforge.net/www/convert.html>convert</a>,
-works for this as well 
+works for this as well.<p> 
 
 Here is a simple example script that saves some PNGs, makes them into
 a movie, and then cleans up.

@@ -21,9 +21,12 @@ new toolbar button on GTK*, WX* and TkAgg to launch the subplot
 configuration tool (which uses the new matplotlib cross GUI classes
 discussed below).<p>
 
+This also makes it easier to make ganged plots -- see
+<a href=examples/ganged_plots.py>ganged_plots.py</a>.<p>
+
 Note this required a small change to how the toolbar on some GUIs are
 imported; if you are using the mpl API in WXAgg and GTKAgg, see <a
-hred=API_CHANGES>API_CHANGES</a>.
+href=API_CHANGES>API_CHANGES</a>.
 """),
 
   ('GUI neutral widgets', """\
