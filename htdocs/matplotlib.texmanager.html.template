@@ -41,11 +41,12 @@ text.usetex&nbsp;in&nbsp;your&nbsp;matplotlibrc&nbsp;file<br>
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="md5.html">md5</a><br>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="glob.html">glob</a><br>
+<a href="md5.html">md5</a><br>
 </td><td width="25%" valign=top><a href="os.html">os</a><br>
-</td><td width="25%" valign=top><a href="shutil.html">shutil</a><br>
+<a href="shutil.html">shutil</a><br>
 </td><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td></tr></table></td></tr></table><p>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -75,6 +76,8 @@ working&nbsp;dir<br>&nbsp;</tt></td></tr>
 <dl><dt><a name="TexManager-get_ps_bbox"><strong>get_ps_bbox</strong></a>(self, tex)</dt></dl>
 
 <dl><dt><a name="TexManager-get_rgba"><strong>get_rgba</strong></a>(self, tex, fontsize<font color="#909090">=10</font>, dpi<font color="#909090">=80</font>, rgb<font color="#909090">=(0, 0, 0)</font>)</dt><dd><tt>Return&nbsp;tex&nbsp;string&nbsp;as&nbsp;an&nbsp;rgba&nbsp;array</tt></dd></dl>
+
+<dl><dt><a name="TexManager-get_tex_command"><strong>get_tex_command</strong></a>(self, tex, fname)</dt></dl>
 
 <dl><dt><a name="TexManager-make_dvi"><strong>make_dvi</strong></a>(self, tex, force<font color="#909090">=0</font>)</dt></dl>
 

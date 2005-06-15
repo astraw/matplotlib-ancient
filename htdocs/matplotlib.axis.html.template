@@ -375,11 +375,21 @@ Methods defined here:<br>
 
 <dl><dt><a name="XAxis-get_label_position"><strong>get_label_position</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;label&nbsp;position&nbsp;(top&nbsp;or&nbsp;bottom)</tt></dd></dl>
 
+<dl><dt><a name="XAxis-get_ticks_position"><strong>get_ticks_position</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;ticks&nbsp;position&nbsp;(top,&nbsp;bottom,&nbsp;default&nbsp;or&nbsp;unknown)</tt></dd></dl>
+
 <dl><dt><a name="XAxis-get_view_interval"><strong>get_view_interval</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Interval&nbsp;instance&nbsp;for&nbsp;this&nbsp;axis&nbsp;view&nbsp;limits</tt></dd></dl>
 
 <dl><dt><a name="XAxis-set_label_position"><strong>set_label_position</strong></a>(self, position)</dt><dd><tt>Set&nbsp;the&nbsp;label&nbsp;position&nbsp;(top&nbsp;or&nbsp;bottom)<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;[&nbsp;'top'&nbsp;|&nbsp;'bottom'&nbsp;]</tt></dd></dl>
+
+<dl><dt><a name="XAxis-set_ticks_position"><strong>set_ticks_position</strong></a>(self, position)</dt><dd><tt>Set&nbsp;the&nbsp;ticks&nbsp;position&nbsp;(top,&nbsp;bottom,&nbsp;both&nbsp;or&nbsp;default)<br>
+both&nbsp;sets&nbsp;the&nbsp;ticks&nbsp;to&nbsp;appear&nbsp;on&nbsp;both&nbsp;positions,&nbsp;but&nbsp;<br>
+does&nbsp;not&nbsp;change&nbsp;the&nbsp;tick&nbsp;labels.<br>
+default&nbsp;resets&nbsp;the&nbsp;tick&nbsp;positions&nbsp;to&nbsp;the&nbsp;default:<br>
+ticks&nbsp;on&nbsp;both&nbsp;positions,&nbsp;labels&nbsp;at&nbsp;bottom.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[&nbsp;'top'&nbsp;|&nbsp;'bottom'&nbsp;|&nbsp;'both'&nbsp;|&nbsp;'default'&nbsp;]</tt></dd></dl>
 
 <dl><dt><a name="XAxis-tick_bottom"><strong>tick_bottom</strong></a>(self)</dt><dd><tt>use&nbsp;ticks&nbsp;only&nbsp;on&nbsp;bottom</tt></dd></dl>
 
@@ -684,11 +694,21 @@ Methods defined here:<br>
 
 <dl><dt><a name="YAxis-get_label_position"><strong>get_label_position</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;label&nbsp;position&nbsp;(left&nbsp;or&nbsp;right)</tt></dd></dl>
 
+<dl><dt><a name="YAxis-get_ticks_position"><strong>get_ticks_position</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;ticks&nbsp;position&nbsp;(left,&nbsp;right,&nbsp;both&nbsp;or&nbsp;unknown)</tt></dd></dl>
+
 <dl><dt><a name="YAxis-get_view_interval"><strong>get_view_interval</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;Interval&nbsp;instance&nbsp;for&nbsp;this&nbsp;axis&nbsp;view&nbsp;limits</tt></dd></dl>
 
 <dl><dt><a name="YAxis-set_label_position"><strong>set_label_position</strong></a>(self, position)</dt><dd><tt>Set&nbsp;the&nbsp;label&nbsp;position&nbsp;(left&nbsp;or&nbsp;right)<br>
 &nbsp;<br>
 ACCEPTS:&nbsp;[&nbsp;'left'&nbsp;|&nbsp;'right'&nbsp;]</tt></dd></dl>
+
+<dl><dt><a name="YAxis-set_ticks_position"><strong>set_ticks_position</strong></a>(self, position)</dt><dd><tt>Set&nbsp;the&nbsp;ticks&nbsp;position&nbsp;(left,&nbsp;right,&nbsp;both&nbsp;or&nbsp;default)<br>
+both&nbsp;sets&nbsp;the&nbsp;ticks&nbsp;to&nbsp;appear&nbsp;on&nbsp;both&nbsp;positions,&nbsp;but<br>
+does&nbsp;not&nbsp;change&nbsp;the&nbsp;tick&nbsp;labels.<br>
+default&nbsp;resets&nbsp;the&nbsp;tick&nbsp;positions&nbsp;to&nbsp;the&nbsp;default:<br>
+ticks&nbsp;on&nbsp;both&nbsp;positions,&nbsp;labels&nbsp;on&nbsp;the&nbsp;left.<br>
+&nbsp;<br>
+ACCEPTS:&nbsp;[&nbsp;'left'&nbsp;|&nbsp;'right'&nbsp;|&nbsp;'both'&nbsp;|&nbsp;'default'&nbsp;]</tt></dd></dl>
 
 <dl><dt><a name="YAxis-tick_left"><strong>tick_left</strong></a>(self)</dt><dd><tt>use&nbsp;ticks&nbsp;only&nbsp;on&nbsp;left</tt></dd></dl>
 

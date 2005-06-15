@@ -9,6 +9,16 @@ for pathname in glob.glob(os.path.join(MPL_SRC, 'examples', '*.py')):
     newname = os.path.join('examples', fname)
     print 'copying %s to %s' % (pathname, newname)
     shutil.copy(pathname, newname)
+
+widgetfiles = glob.glob(os.path.join(MPL_SRC, 'examples', 'widgets', '*.py'))
+widgetfiles.append(os.path.join(MPL_SRC, 'examples', 'widgets', 'README'))
+for pathname in widgetfiles:
+    path, fname = os.path.split(pathname)
+    if fname.startswith('_tmp'): continue
+    newname = os.path.join('examples', 'widgets', fname)
+    print 'copying %s to %s' % (pathname, newname)
+    shutil.copy(pathname, newname)
+    
 os.system('zip -r -o matplotlib_examples_%s.zip examples'%matplotlib.__version__)
 
 os.system('cp ../users_guide/users_guide.pdf users_guide_%s.pdf'%matplotlib.__version__)

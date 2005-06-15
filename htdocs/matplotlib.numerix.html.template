@@ -121,12 +121,14 @@ nonzero,&nbsp;the&nbsp;array&nbsp;will&nbsp;be&nbsp;a&nbsp;spacesaver&nbsp;array
 <strong>floor</strong> = &lt;ufunc 'floor'&gt;<br>
 <strong>floor_divide</strong> = &lt;ufunc 'floor_divide'&gt;<br>
 <strong>fmod</strong> = &lt;ufunc 'fmod'&gt;<br>
+<strong>g</strong> = {'ArrayType': &lt;type 'array'&gt;, 'Character': 'c', 'Complex': 'D', 'Complex0': 'F', 'Complex16': 'F', 'Complex32': 'F', 'Complex64': 'D', 'Complex8': 'F', 'DumpArray': &lt;function DumpArray&gt;, 'Float': 'd', ...}<br>
 <strong>greater</strong> = &lt;ufunc 'greater'&gt;<br>
 <strong>greater_equal</strong> = &lt;ufunc 'greater_equal'&gt;<br>
 <strong>hypot</strong> = &lt;ufunc 'hypot'&gt;<br>
 <strong>inf</strong> = inf<br>
 <strong>infinity</strong> = inf<br>
 <strong>invert</strong> = &lt;ufunc 'invert'&gt;<br>
+<strong>l</strong> = {'ArrayType': &lt;type 'array'&gt;, 'Character': 'c', 'Complex': 'D', 'Complex0': 'F', 'Complex16': 'F', 'Complex32': 'F', 'Complex64': 'D', 'Complex8': 'F', 'DumpArray': &lt;function DumpArray&gt;, 'Float': 'd', ...}<br>
 <strong>left_shift</strong> = &lt;ufunc 'left_shift'&gt;<br>
 <strong>less</strong> = &lt;ufunc 'less'&gt;<br>
 <strong>less_equal</strong> = &lt;ufunc 'less_equal'&gt;<br>

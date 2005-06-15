@@ -541,7 +541,11 @@ Data and other attributes inherited from <a href="matplotlib.ticker.html#TickHel
 <font color="#000000" face="helvetica, arial"><a name="Locator">class <strong>Locator</strong></a>(<a href="matplotlib.ticker.html#TickHelper">TickHelper</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Determine&nbsp;the&nbsp;tick&nbsp;locations<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>Determine&nbsp;the&nbsp;tick&nbsp;locations;<br>
+&nbsp;<br>
+Note,&nbsp;you&nbsp;should&nbsp;not&nbsp;use&nbsp;the&nbsp;same&nbsp;locator&nbsp;between&nbsp;different&nbsp;Axis<br>
+because&nbsp;the&nbsp;locator&nbsp;stores&nbsp;references&nbsp;to&nbsp;the&nbsp;Axis&nbsp;data&nbsp;and&nbsp;view<br>
+limits<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="Locator-__call__"><strong>__call__</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;ticks</tt></dd></dl>

@@ -40,6 +40,12 @@ sizes coding trading volume and the colors coding price change in day
 i.  Here the alpha attribute is used to make semitransparent circle
 markers with the <a href=backends.html#Agg>Agg backend</a> """, 1),
 
+('slider_demo', """Matplotlib has basic GUI widgets that are independent of the graphical
+user interface you are using, allowing you to write cross GUI figures
+and widgets.  See <a href=matplotlib.widgets.html>widgets
+classdocs</a> and <tt>examples/widgets/*.py</tt>""", 1),
+
+
 ('fill_demo', """The <a href=matplotlib.pylab.html#-fill>fill</a>, command lets you
 plot filled polygons.  Thanks to Andrew Straw for providing this
 function.""", 1),

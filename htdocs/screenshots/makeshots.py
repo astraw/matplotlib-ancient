@@ -19,6 +19,7 @@ files = {
     'table_demo.py'     : default,
     'tex_demo.py'     : default, 
     'legend_demo.py'    : default,
+    'slider_demo.py'    : default,    
     'mathtext_demo.py'  : default,     
     'pcolor_demo.py'    : default, 
     'text_themes.py'    : default, 

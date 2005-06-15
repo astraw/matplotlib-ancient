@@ -2,7 +2,8 @@
 FAQs = (
 
 
-('How do I report a problem?',
+    ('BUGREPORT', 
+     'How do I report a problem?',
 """\
 OK, this is not a FAQ, but I wish it were <wink>.<p>
 
@@ -1091,6 +1092,7 @@ embed matplotlib in your GUI of choice.
 """),
     
      )
+     
 @header@
 <h2> matplotlib FAQ </h2>
 

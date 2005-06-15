@@ -310,7 +310,7 @@ This&nbsp;function&nbsp;could&nbsp;be&nbsp;overridden&nbsp;in&nbsp;the&nbsp;back
 faster&nbsp;drawing,&nbsp;but&nbsp;it&nbsp;is&nbsp;already&nbsp;much&nbsp;faster&nbsp;than&nbsp;using&nbsp;<a href="#RendererAgg-draw_lines">draw_lines</a>()<br>
 by&nbsp;itself.</tt></dd></dl>
 
-<dl><dt><a name="RendererAgg-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
+<dl><dt><a name="RendererAgg-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y, transform<font color="#909090">=None</font>)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
 point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
 
 <dl><dt><a name="RendererAgg-draw_poly_collection"><strong>draw_poly_collection</strong></a>(self, verts, transform, clipbox, facecolors, edgecolors, linewidths, antialiaseds, offsets, transOffset)</dt><dd><tt>Draw&nbsp;a&nbsp;polygon&nbsp;collection<br>

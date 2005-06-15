@@ -120,10 +120,8 @@ USAGE:<br>
 BACKENDS<br>
 &nbsp;<br>
 &nbsp;&nbsp;mathtext&nbsp;currently&nbsp;works&nbsp;with&nbsp;GTK,&nbsp;Agg,&nbsp;GTKAgg,&nbsp;TkAgg&nbsp;and&nbsp;WxAgg&nbsp;and<br>
-&nbsp;&nbsp;PS,&nbsp;though&nbsp;only&nbsp;horizontal&nbsp;and&nbsp;vertical&nbsp;rotations&nbsp;are&nbsp;supported.&nbsp;&nbsp;If<br>
-&nbsp;&nbsp;David&nbsp;incorporates&nbsp;ft2font&nbsp;into&nbsp;paint,&nbsp;it&nbsp;will&nbsp;be&nbsp;easy&nbsp;to&nbsp;add&nbsp;to<br>
-&nbsp;&nbsp;Paint.&nbsp;&nbsp;WX&nbsp;can&nbsp;follow&nbsp;the&nbsp;lead&nbsp;of&nbsp;GTK&nbsp;and&nbsp;use&nbsp;pixels&nbsp;API&nbsp;calls&nbsp;to<br>
-&nbsp;&nbsp;use&nbsp;mathtext.<br>
+&nbsp;&nbsp;PS,&nbsp;though&nbsp;only&nbsp;horizontal&nbsp;and&nbsp;vertical&nbsp;rotations&nbsp;are&nbsp;supported&nbsp;in<br>
+&nbsp;&nbsp;*Agg<br>
 &nbsp;<br>
 &nbsp;&nbsp;mathtext&nbsp;now&nbsp;embeds&nbsp;the&nbsp;TrueType&nbsp;computer&nbsp;modern&nbsp;fonts&nbsp;into&nbsp;the&nbsp;PS<br>
 &nbsp;&nbsp;file,&nbsp;so&nbsp;what&nbsp;you&nbsp;see&nbsp;on&nbsp;the&nbsp;screen&nbsp;should&nbsp;be&nbsp;what&nbsp;you&nbsp;get&nbsp;on&nbsp;paper.<br>
@@ -134,13 +132,12 @@ BACKENDS<br>
 &nbsp;<br>
 KNOWN&nbsp;ISSUES:<br>
 &nbsp;<br>
-&nbsp;-&nbsp;FIXED&nbsp;in&nbsp;0.54&nbsp;-&nbsp;some&nbsp;hackish&nbsp;ways&nbsp;I&nbsp;deal&nbsp;with&nbsp;a&nbsp;strange&nbsp;offset&nbsp;in&nbsp;cmex10<br>
 &nbsp;-&nbsp;nested&nbsp;subscripts,&nbsp;eg,&nbsp;x_i_j&nbsp;not&nbsp;working;&nbsp;but&nbsp;you&nbsp;can&nbsp;do&nbsp;x_{i_j}<br>
 &nbsp;-&nbsp;nesting&nbsp;fonts&nbsp;changes&nbsp;in&nbsp;sub/superscript&nbsp;groups&nbsp;not&nbsp;parsing<br>
 &nbsp;-&nbsp;I&nbsp;would&nbsp;also&nbsp;like&nbsp;to&nbsp;add&nbsp;a&nbsp;few&nbsp;more&nbsp;layout&nbsp;commands,&nbsp;like&nbsp;\frac.<br>
 &nbsp;<br>
 Author&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;John&nbsp;Hunter&nbsp;&lt;jdhunter@ace.bsd.uchicago.edu&gt;<br>
-Copyright&nbsp;:&nbsp;John&nbsp;Hunter&nbsp;(2004)<br>
+Copyright&nbsp;:&nbsp;John&nbsp;Hunter&nbsp;(2004,2005)<br>
 License&nbsp;&nbsp;&nbsp;:&nbsp;matplotlib&nbsp;license&nbsp;(PSF&nbsp;compatible)</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

@@ -31,9 +31,9 @@ KNOWN&nbsp;ISSUES<br>
 &nbsp;&nbsp;-&nbsp;update_fonts&nbsp;not&nbsp;implemented<br>
 &nbsp;<br>
 &nbsp;<br>
-Authors&nbsp;&nbsp;&nbsp;:&nbsp;John&nbsp;Hunter&nbsp;&lt;jdhunter@nitace.bsd.uchicago.edu&gt;<br>
+Authors&nbsp;&nbsp;&nbsp;:&nbsp;John&nbsp;Hunter&nbsp;&lt;jdhunter@ace.bsd.uchicago.edu&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Paul&nbsp;Barrett&nbsp;&lt;Barrett@STScI.Edu&gt;<br>
-Copyright&nbsp;:&nbsp;John&nbsp;Hunter&nbsp;(2004),&nbsp;Paul&nbsp;Barrett&nbsp;(2004)<br>
+Copyright&nbsp;:&nbsp;John&nbsp;Hunter&nbsp;(2004,2005),&nbsp;Paul&nbsp;Barrett&nbsp;(2004,2005)<br>
 License&nbsp;&nbsp;&nbsp;:&nbsp;matplotlib&nbsp;license&nbsp;(PSF&nbsp;compatible)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;font&nbsp;directory&nbsp;code&nbsp;is&nbsp;from&nbsp;ttfquery,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;see&nbsp;license/LICENSE_TTFQUERY.</tt></p>

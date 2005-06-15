@@ -3,6 +3,72 @@
 # tuple of (name, description) tuples
 
 versioninfo = {}
+versioninfo['0.82'] = (
+
+  ('Subplot configuration', """\
+
+All of the parameters of the subplots are now exposed at the rc,pylab
+and API layout.  These are left, right, bottom, top, wspace and hspace
+which control how the subplots are placed on the screen.  See <a
+href=matplotlib.figure.html#SubplotParams>SubplotParams</a>, <a
+href=matplotlib.figure.html#Figure-subplots_adjust>Figure.subplots_adjust</a>
+and the pylab method <a
+href=matplotlib.pylab.html#-subplots_adjust>subplots_adjust</a> and <a
+href=examples/subplots_adjust.py>subplots_adjust.py</a> .  Also added
+a GUI neutral widget for adjusting subplots, see <a
+href=examples/subplot_toolbar.py>subplot_toolbar.py</a>.  There is a
+new toolbar button on GTK*, WX* and TkAgg to launch the subplot
+configuration tool (which uses the new matplotlib cross GUI classes
+discussed below).<p>
+
+Note this required a small change to how the toolbar on some GUIs are
+imported; if you are using the mpl API in WXAgg and GTKAgg, see <a
+hred=API_CHANGES>API_CHANGES</a>.
+"""),
+
+  ('GUI neutral widgets', """\
+Matplotlib now has cross-GUI widgets (buttons, check buttons, radio
+buttons and sliders).  You have to manually create properly sized Axes
+for them to live in, but otherwise they are pretty easy to use.  See
+<a href=examples/widgets>examples/widgets</a> and <a
+href=screenshots.html#slider_demo>slider_demo</a>.  This makes it
+easier to create interactive figures that run across backends.
+"""),
+
+  ('Cap and join style', """\
+Exposes line cap and join style via new rc params and Line2D
+properties
+
+<pre>
+    lines.dash_joinstyle : miter        # miter|round|bevel
+    lines.dash_capstyle : butt          # butt|round|projecting
+    lines.solid_joinstyle : miter       # miter|round|bevel
+    lines.solid_capstyle : projecting   # butt|round|projecting
+</pre>
+  
+"""),
+
+  ('Axes kwargs', """\
+All Axes properties are now exposed via kwargs, so you can do, for
+example
+
+<pre>
+  subplot(111, xlabel='time', ylabel='volts', autoscale_on=False,
+         xlim=(-1,1), ylim =(0,10) )
+</pre>         
+
+"""),
+
+
+  ('Small bugfixes and features', """\
+Fixed a upper/right tick bug (thanks Baptiste), fixed invalid rc
+docstring vis-a-vis aliases, fixed bug #1217637 in ticker.py and a
+cleanup bug in usetex (thanks Darren), added Sean Richards hist bin
+fix (see <a href=API_CHANGES>API_CHANGES</a>)
+"""),
+
+)
+
 versioninfo['0.81'] = (
   ('TeX support', """\
 Now you can (optionally) use TeX to handle *all* of the text elements

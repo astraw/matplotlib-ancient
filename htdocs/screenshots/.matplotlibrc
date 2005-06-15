@@ -29,7 +29,7 @@
 
 #### CONFIGURATION BEGINS HERE
 backend      : GTKAgg    # the default backend
-numerix      : Numeric   # Numeric or numarray
+numerix      : numarray   # Numeric or numarray
 interactive  : False     # see http://matplotlib.sourceforge.net/interactive.html
 toolbar      : toolbar2   # None | classic | toolbar2
 timezone     : UTC        # a pytz timezone string, eg US/Central or Europe/Paris

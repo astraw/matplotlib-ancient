@@ -42,7 +42,9 @@ modules = (
     'matplotlib.text',
     'matplotlib.ticker',
     'matplotlib.toolkits.basemap.basemap',
-    'matplotlib.transforms' )
+    'matplotlib.transforms',
+    'matplotlib.widgets',
+    )
 
 
 def get_mpl_commands():

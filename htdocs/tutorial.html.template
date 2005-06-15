@@ -625,6 +625,10 @@ rectangle you have defined.  There is also an experimental 'zoom out
 to rectangle' in this mode with the right button, which will place
 your entire axes in the region defined by the zoom out rectangle.<p>
 
+<b>Subplot configuration</b> Use this tool to configure the parameters
+of the subplot: the left, right, top, bottom, space between the rows
+and space between the columns.<p>
+
 <b>Save</b>: click this button to launch a file save dialog.  All the *Agg
 backends know how to save the following image types: PNG, PS, EPS,
 SVG.  There is no support currently in Agg for writing to JPEG, TIFF

@@ -62,6 +62,7 @@ files = (
     'text_handles.py',
     'text_rotation.py',
     'text_themes.py',
+    'tex_demo.py',    
     'two_scales.py',
     'unicode_demo.py',
     'vline_demo.py',
@@ -116,7 +117,7 @@ if __name__ == '__main__':
     # backends = ['Agg', 'Cairo', 'GDK', 'PS', 'SVG', 'Template']
     backends = ['Agg', 'PS', 'SVG', 'Template']
     # backends = [ 'GTK', 'WX', 'TkAgg']
-    # backends = ['PS']
+    backends = ['Agg', 'PS']
     python = 'python2.4'
     for backend in backends:
         print 'testing %s' % backend

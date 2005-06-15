@@ -38,6 +38,18 @@ Author:&nbsp;Steve&nbsp;Chaplin</tt></p>
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtkcairo.html#FigureCanvasGTKCairo">FigureCanvasGTKCairo</a>
 </font></dt></dl>
 </dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#FigureManagerGTK">matplotlib.backends.backend_gtk.FigureManagerGTK</a>(<a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtkcairo.html#FigureManagerGTKAgg">FigureManagerGTKAgg</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtk.html#NavigationToolbar2GTK">matplotlib.backends.backend_gtk.NavigationToolbar2GTK</a>(<a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>, <a href="gtk.html#Toolbar">gtk.Toolbar</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_gtkcairo.html#NavigationToolbar2Cairo">NavigationToolbar2Cairo</a>
+</font></dt></dl>
+</dd>
 </dl>
  <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -91,7 +103,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137926592)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137956272)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -480,6 +492,592 @@ figure&nbsp;size&nbsp;or&nbsp;line&nbsp;props),&nbsp;will&nbsp;be&nbsp;reflected
 Data and other attributes inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
 <dl><dt><strong>events</strong> = ('key_press_event', 'key_release_event', 'button_press_event', 'button_release_event', 'motion_notify_event')</dl>
 
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FigureManagerGTKAgg">class <strong>FigureManagerGTKAgg</strong></a>(<a href="matplotlib.backends.backend_gtk.html#FigureManagerGTK">matplotlib.backends.backend_gtk.FigureManagerGTK</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.backends.backend_gtkcairo.html#FigureManagerGTKAgg">FigureManagerGTKAgg</a></dd>
+<dd><a href="matplotlib.backends.backend_gtk.html#FigureManagerGTK">matplotlib.backends.backend_gtk.FigureManagerGTK</a></dd>
+<dd><a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="matplotlib.backends.backend_gtk.html#FigureManagerGTK">matplotlib.backends.backend_gtk.FigureManagerGTK</a>:<br>
+<dl><dt><a name="FigureManagerGTKAgg-__init__"><strong>__init__</strong></a>(self, canvas, num)</dt></dl>
+
+<dl><dt><a name="FigureManagerGTKAgg-destroy"><strong>destroy</strong></a>(self, *args)</dt></dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>:<br>
+<dl><dt><a name="FigureManagerGTKAgg-key_press"><strong>key_press</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="FigureManagerGTKAgg-show_popup"><strong>show_popup</strong></a>(self, msg)</dt><dd><tt>Display&nbsp;message&nbsp;in&nbsp;a&nbsp;popup&nbsp;--&nbsp;GUI&nbsp;only</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="NavigationToolbar2Cairo">class <strong>NavigationToolbar2Cairo</strong></a>(<a href="matplotlib.backends.backend_gtk.html#NavigationToolbar2GTK">matplotlib.backends.backend_gtk.NavigationToolbar2GTK</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.backends.backend_gtkcairo.html#NavigationToolbar2Cairo">NavigationToolbar2Cairo</a></dd>
+<dd><a href="matplotlib.backends.backend_gtk.html#NavigationToolbar2GTK">matplotlib.backends.backend_gtk.NavigationToolbar2GTK</a></dd>
+<dd><a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a></dd>
+<dd><a href="gtk.html#Toolbar">gtk.Toolbar</a></dd>
+<dd><a href="gtk.html#Container">gtk.Container</a></dd>
+<dd><a href="gtk.html#Widget">gtk.Widget</a></dd>
+<dd><a href="gtk.html#Object">gtk.Object</a></dd>
+<dd><a href="gobject.html#GObject">gobject.GObject</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="matplotlib.backends.backend_gtk.html#NavigationToolbar2GTK">matplotlib.backends.backend_gtk.NavigationToolbar2GTK</a>:<br>
+<dl><dt><a name="NavigationToolbar2Cairo-__init__"><strong>__init__</strong></a>(self, canvas, window)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-configure_subplots"><strong>configure_subplots</strong></a>(self, button)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-draw_rubberband"><strong>draw_rubberband</strong></a>(self, event, x0, y0, x1, y1)</dt><dd><tt>adapted&nbsp;from&nbsp;<a href="http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/189744">http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/189744</a></tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-dynamic_update"><strong>dynamic_update</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-release"><strong>release</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-save_figure"><strong>save_figure</strong></a>(self, button)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_cursor"><strong>set_cursor</strong></a>(self, cursor)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_message"><strong>set_message</strong></a>(self, s)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="matplotlib.backends.backend_gtk.html#NavigationToolbar2GTK">matplotlib.backends.backend_gtk.NavigationToolbar2GTK</a>:<br>
+<dl><dt><strong>toolitems</strong> = (('Home', 'Reset original view', 'home.png', 'home'), ('Back', 'Back to  previous view', 'back.png', 'back'), ('Forward', 'Forward to next view', 'forward.png', 'forward'), ('Pan', 'Pan axes with left mouse, zoom with right', 'move.png', 'pan'), ('Zoom', 'Zoom to rectangle', 'zoom_to_rect.png', 'zoom'), (None, None, None, None), ('Subplots', 'Configure subplots', 'subplots.png', 'configure_subplots'), ('Save', 'Save the figure', 'filesave.png', 'save_figure'))</dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>:<br>
+<dl><dt><a name="NavigationToolbar2Cairo-back"><strong>back</strong></a>(self, *args)</dt><dd><tt>move&nbsp;back&nbsp;up&nbsp;the&nbsp;view&nbsp;lim&nbsp;stack</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_pan"><strong>drag_pan</strong></a>(self, event)</dt><dd><tt>the&nbsp;drag&nbsp;callback&nbsp;in&nbsp;pan/zoom&nbsp;mode</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-draw"><strong>draw</strong></a>(self)</dt><dd><tt>redraw&nbsp;the&nbsp;canvases,&nbsp;update&nbsp;the&nbsp;locators</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-forward"><strong>forward</strong></a>(self, *args)</dt><dd><tt>move&nbsp;forward&nbsp;in&nbsp;the&nbsp;view&nbsp;lim&nbsp;stack</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-home"><strong>home</strong></a>(self, *args)</dt><dd><tt>restore&nbsp;the&nbsp;original&nbsp;view</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-mouse_move"><strong>mouse_move</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-pan"><strong>pan</strong></a>(self, *args)</dt><dd><tt>Activate&nbsp;the&nbsp;pan/zoom&nbsp;tool.&nbsp;pan&nbsp;with&nbsp;left&nbsp;button,&nbsp;zoom&nbsp;with&nbsp;right</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-press"><strong>press</strong></a>(self, event)</dt><dd><tt>this&nbsp;will&nbsp;be&nbsp;called&nbsp;whenver&nbsp;a&nbsp;mouse&nbsp;button&nbsp;is&nbsp;pressed</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-press_pan"><strong>press_pan</strong></a>(self, event)</dt><dd><tt>the&nbsp;press&nbsp;mouse&nbsp;button&nbsp;in&nbsp;pan/zoom&nbsp;mode&nbsp;callback</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-press_zoom"><strong>press_zoom</strong></a>(self, event)</dt><dd><tt>the&nbsp;press&nbsp;mouse&nbsp;button&nbsp;in&nbsp;zoom&nbsp;to&nbsp;rect&nbsp;mode&nbsp;callback</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-push_current"><strong>push_current</strong></a>(self)</dt><dd><tt>push&nbsp;the&nbsp;current&nbsp;view&nbsp;limits&nbsp;onto&nbsp;the&nbsp;stack</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-release_pan"><strong>release_pan</strong></a>(self, event)</dt><dd><tt>the&nbsp;release&nbsp;mouse&nbsp;button&nbsp;callback&nbsp;in&nbsp;pan/zoom&nbsp;mode</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-release_zoom"><strong>release_zoom</strong></a>(self, event)</dt><dd><tt>the&nbsp;release&nbsp;mouse&nbsp;button&nbsp;callback&nbsp;in&nbsp;zoom&nbsp;to&nbsp;rect&nbsp;mode</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_history_buttons"><strong>set_history_buttons</strong></a>(self)</dt><dd><tt>enable&nbsp;or&nbsp;disable&nbsp;back/forward&nbsp;button</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-update"><strong>update</strong></a>(self)</dt><dd><tt>reset&nbsp;the&nbsp;axes&nbsp;stack</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-zoom"><strong>zoom</strong></a>(self, *args)</dt><dd><tt>activate&nbsp;zoom&nbsp;to&nbsp;rect&nbsp;mode</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
+<dl><dt><a name="NavigationToolbar2Cairo-append_element"><strong>append_element</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-append_item"><strong>append_item</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-append_space"><strong>append_space</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-append_widget"><strong>append_widget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_drop_index"><strong>get_drop_index</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_icon_size"><strong>get_icon_size</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_item_index"><strong>get_item_index</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_n_items"><strong>get_n_items</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_nth_item"><strong>get_nth_item</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_orientation"><strong>get_orientation</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_relief_style"><strong>get_relief_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_show_arrow"><strong>get_show_arrow</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_style"><strong>get_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_tooltips"><strong>get_tooltips</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-insert"><strong>insert</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-insert_element"><strong>insert_element</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-insert_item"><strong>insert_item</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-insert_space"><strong>insert_space</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-insert_stock"><strong>insert_stock</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-insert_widget"><strong>insert_widget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-prepend_element"><strong>prepend_element</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-prepend_item"><strong>prepend_item</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-prepend_space"><strong>prepend_space</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-prepend_widget"><strong>prepend_widget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-remove_space"><strong>remove_space</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_drop_highlight_item"><strong>set_drop_highlight_item</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_icon_size"><strong>set_icon_size</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_orientation"><strong>set_orientation</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_show_arrow"><strong>set_show_arrow</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_style"><strong>set_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_tooltips"><strong>set_tooltips</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-unset_icon_size"><strong>unset_icon_size</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-unset_style"><strong>unset_style</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137960392)&gt;</dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
+<dl><dt><a name="NavigationToolbar2Cairo-add"><strong>add</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-add_with_properties"><strong>add_with_properties</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-check_resize"><strong>check_resize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-child_get"><strong>child_get</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-child_get_property"><strong>child_get_property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-child_set"><strong>child_set</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-child_set_property"><strong>child_set_property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-child_type"><strong>child_type</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-children"><strong>children</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-forall"><strong>forall</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-foreach"><strong>foreach</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_border_width"><strong>get_border_width</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_children"><strong>get_children</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_focus_chain"><strong>get_focus_chain</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_focus_hadjustment"><strong>get_focus_hadjustment</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_focus_vadjustment"><strong>get_focus_vadjustment</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_resize_mode"><strong>get_resize_mode</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-propagate_expose"><strong>propagate_expose</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-remove"><strong>remove</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-resize_children"><strong>resize_children</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_border_width"><strong>set_border_width</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_focus_chain"><strong>set_focus_chain</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_focus_child"><strong>set_focus_child</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_focus_hadjustment"><strong>set_focus_hadjustment</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_focus_vadjustment"><strong>set_focus_vadjustment</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_reallocate_redraws"><strong>set_reallocate_redraws</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_resize_mode"><strong>set_resize_mode</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-unset_focus_chain"><strong>unset_focus_chain</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
+<dl><dt><strong>border_width</strong> = &lt;attribute 'border_width' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>focus_child</strong> = &lt;attribute 'focus_child' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>has_focus_chain</strong> = &lt;attribute 'has_focus_chain' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>need_resize</strong> = &lt;attribute 'need_resize' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>reallocate_redraws</strong> = &lt;attribute 'reallocate_redraws' of 'gtk.Container' objects&gt;</dl>
+
+<dl><dt><strong>resize_mode</strong> = &lt;attribute 'resize_mode' of 'gtk.Container' objects&gt;</dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
+<dl><dt><a name="NavigationToolbar2Cairo-activate"><strong>activate</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-add_accelerator"><strong>add_accelerator</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-add_events"><strong>add_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-add_mnemonic_label"><strong>add_mnemonic_label</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-can_activate_accel"><strong>can_activate_accel</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-child_focus"><strong>child_focus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-child_notify"><strong>child_notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-class_path"><strong>class_path</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-create_pango_context"><strong>create_pango_context</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-create_pango_layout"><strong>create_pango_layout</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-destroy"><strong>destroy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_begin"><strong>drag_begin</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_check_threshold"><strong>drag_check_threshold</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_dest_find_target"><strong>drag_dest_find_target</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_dest_get_target_list"><strong>drag_dest_get_target_list</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_dest_set"><strong>drag_dest_set</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_dest_set_proxy"><strong>drag_dest_set_proxy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_dest_set_target_list"><strong>drag_dest_set_target_list</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_dest_unset"><strong>drag_dest_unset</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_get_data"><strong>drag_get_data</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_highlight"><strong>drag_highlight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_source_set"><strong>drag_source_set</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_source_set_icon"><strong>drag_source_set_icon</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_source_set_icon_pixbuf"><strong>drag_source_set_icon_pixbuf</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_source_set_icon_stock"><strong>drag_source_set_icon_stock</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_source_unset"><strong>drag_source_unset</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-drag_unhighlight"><strong>drag_unhighlight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-ensure_style"><strong>ensure_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-event"><strong>event</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-freeze_child_notify"><strong>freeze_child_notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_accessible"><strong>get_accessible</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_allocation"><strong>get_allocation</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_ancestor"><strong>get_ancestor</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_child_requisition"><strong>get_child_requisition</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_child_visible"><strong>get_child_visible</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_clipboard"><strong>get_clipboard</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_colormap"><strong>get_colormap</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_composite_name"><strong>get_composite_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_direction"><strong>get_direction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_display"><strong>get_display</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_events"><strong>get_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_extension_events"><strong>get_extension_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_modifier_style"><strong>get_modifier_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_name"><strong>get_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_no_show_all"><strong>get_no_show_all</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_pango_context"><strong>get_pango_context</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_parent"><strong>get_parent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_parent_window"><strong>get_parent_window</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_pointer"><strong>get_pointer</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_root_window"><strong>get_root_window</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_screen"><strong>get_screen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_settings"><strong>get_settings</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_size_request"><strong>get_size_request</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_toplevel"><strong>get_toplevel</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_visual"><strong>get_visual</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-grab_add"><strong>grab_add</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-grab_default"><strong>grab_default</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-grab_focus"><strong>grab_focus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-grab_remove"><strong>grab_remove</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-has_screen"><strong>has_screen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-hide"><strong>hide</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-hide_all"><strong>hide_all</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-hide_on_delete"><strong>hide_on_delete</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-intersect"><strong>intersect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-is_ancestor"><strong>is_ancestor</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-is_focus"><strong>is_focus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-list_mnemonic_labels"><strong>list_mnemonic_labels</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-map"><strong>map</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-mnemonic_activate"><strong>mnemonic_activate</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-modify_base"><strong>modify_base</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-modify_bg"><strong>modify_bg</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-modify_fg"><strong>modify_fg</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-modify_font"><strong>modify_font</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-modify_style"><strong>modify_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-modify_text"><strong>modify_text</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-path"><strong>path</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-queue_clear"><strong>queue_clear</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-queue_clear_area"><strong>queue_clear_area</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-queue_draw"><strong>queue_draw</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-queue_draw_area"><strong>queue_draw_area</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-queue_resize"><strong>queue_resize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-queue_resize_no_redraw"><strong>queue_resize_no_redraw</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-rc_get_style"><strong>rc_get_style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-realize"><strong>realize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-remove_accelerator"><strong>remove_accelerator</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-remove_mnemonic_label"><strong>remove_mnemonic_label</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-render_icon"><strong>render_icon</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-reparent"><strong>reparent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-reset_rc_styles"><strong>reset_rc_styles</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-reset_shapes"><strong>reset_shapes</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-selection_add_target"><strong>selection_add_target</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-selection_add_targets"><strong>selection_add_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-selection_clear_targets"><strong>selection_clear_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-selection_convert"><strong>selection_convert</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-selection_owner_set"><strong>selection_owner_set</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-selection_remove_all"><strong>selection_remove_all</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-send_expose"><strong>send_expose</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_accel_path"><strong>set_accel_path</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_app_paintable"><strong>set_app_paintable</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_child_visible"><strong>set_child_visible</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_colormap"><strong>set_colormap</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_composite_name"><strong>set_composite_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_direction"><strong>set_direction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_double_buffered"><strong>set_double_buffered</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_events"><strong>set_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_extension_events"><strong>set_extension_events</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_name"><strong>set_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_no_show_all"><strong>set_no_show_all</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_parent"><strong>set_parent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_parent_window"><strong>set_parent_window</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_redraw_on_allocate"><strong>set_redraw_on_allocate</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_scroll_adjustments"><strong>set_scroll_adjustments</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_sensitive"><strong>set_sensitive</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_size_request"><strong>set_size_request</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_state"><strong>set_state</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_uposition"><strong>set_uposition</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_usize"><strong>set_usize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-shape_combine_mask"><strong>shape_combine_mask</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-show"><strong>show</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-show_all"><strong>show_all</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-show_now"><strong>show_now</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-size_allocate"><strong>size_allocate</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-size_request"><strong>size_request</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-style_get_property"><strong>style_get_property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-thaw_child_notify"><strong>thaw_child_notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-translate_coordinates"><strong>translate_coordinates</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-unmap"><strong>unmap</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-unparent"><strong>unparent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-unrealize"><strong>unrealize</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
+<dl><dt><strong>allocation</strong> = &lt;attribute 'allocation' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>name</strong> = &lt;attribute 'name' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>parent</strong> = &lt;attribute 'parent' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>saved_state</strong> = &lt;attribute 'saved_state' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>state</strong> = &lt;attribute 'state' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>style</strong> = &lt;attribute 'style' of 'gtk.Widget' objects&gt;</dl>
+
+<dl><dt><strong>window</strong> = &lt;attribute 'window' of 'gtk.Widget' objects&gt;</dl>
+
+<hr>
+Methods inherited from <a href="gtk.html#Object">gtk.Object</a>:<br>
+<dl><dt><a name="NavigationToolbar2Cairo-flags"><strong>flags</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_flags"><strong>set_flags</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-unset_flags"><strong>unset_flags</strong></a>(...)</dt></dl>
+
+<hr>
+Methods inherited from <a href="gobject.html#GObject">gobject.GObject</a>:<br>
+<dl><dt><a name="NavigationToolbar2Cairo-__cmp__"><strong>__cmp__</strong></a>(...)</dt><dd><tt>x.<a href="#NavigationToolbar2Cairo-__cmp__">__cmp__</a>(y)&nbsp;&lt;==&gt;&nbsp;cmp(x,y)</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-__gobject_init__"><strong>__gobject_init__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-__hash__"><strong>__hash__</strong></a>(...)</dt><dd><tt>x.<a href="#NavigationToolbar2Cairo-__hash__">__hash__</a>()&nbsp;&lt;==&gt;&nbsp;hash(x)</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#NavigationToolbar2Cairo-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-chain"><strong>chain</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-connect"><strong>connect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-connect_after"><strong>connect_after</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-connect_object"><strong>connect_object</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-connect_object_after"><strong>connect_object_after</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-disconnect"><strong>disconnect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-emit"><strong>emit</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-emit_stop_by_name"><strong>emit_stop_by_name</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-freeze_notify"><strong>freeze_notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_data"><strong>get_data</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-get_property"><strong>get_property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-handler_block"><strong>handler_block</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-handler_disconnect"><strong>handler_disconnect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-handler_is_connected"><strong>handler_is_connected</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-handler_unblock"><strong>handler_unblock</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-notify"><strong>notify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_data"><strong>set_data</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-set_property"><strong>set_property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-stop_emission"><strong>stop_emission</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Cairo-thaw_notify"><strong>thaw_notify</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gobject.html#GObject">gobject.GObject</a>:<br>
+<dl><dt><strong>__dict__</strong> = &lt;dictproxy object&gt;</dl>
+
+<dl><dt><strong>__gdoc__</strong> = "Object GtkToolbar<font color="#c040c0">\n\n</font>Signals from GObject:<font color="#c040c0">\n</font>  notif...rrow should be shown if the toolbar doesn't fit<font color="#c040c0">\n\n</font>"</dl>
+
+<dl><dt><strong>__grefcount__</strong> = &lt;attribute '__grefcount__' of 'gobject.GObject' objects&gt;</dl>
+
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#NavigationToolbar2Cairo-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -502,7 +1100,7 @@ Data and other attributes inherited from <a href="matplotlib.backend_bases.html#
 <strong>IMAGE_FORMAT_DEFAULT</strong> = 'png'<br>
 <strong>PIXELS_PER_INCH</strong> = 96<br>
 <strong>UInt8</strong> = 'b'<br>
-<strong>backend_version</strong> = 'PyGTK(2.4.1),PyCairo(0.5.0)'<br>
+<strong>backend_version</strong> = 'PyGTK(2.4.1),Pycairo(0.5.0)'<br>
 <strong>cursord</strong> = {0: &lt;GdkCursor&gt;, 1: &lt;GdkCursor&gt;, 2: &lt;GdkCursor&gt;, 3: &lt;GdkCursor&gt;}<br>
 <strong>cursors</strong> = &lt;matplotlib.backend_bases.Cursors instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>

@@ -176,7 +176,14 @@ def isNewEntry(line):
         return 0
 
 # re-add news to the params dict 'tables' entry below for news
-news = NewsBox("""\
+news1 = NewsBox("""\
+matplotlib-0.82 introduces a limited set of GUI neutral widgets you
+can use across the supported GUIs. See <a
+href=examples/widgets>examples/widgets</a> and <a
+href=screenshots.html#slider_demo>slider_demo</a>.
+""")
+
+news2 = NewsBox("""\
 You can now use TeX or LaTeX to create all matplotlib text instances for the anigrain and postscript backends.  See <a href=screenshots.html#tex_demo>TeX demo</a> and <a href=matplotlib.texmanager.html>texmanager</a>.
 """)
 
@@ -184,11 +191,11 @@ You can now use TeX or LaTeX to create all matplotlib text instances for the ani
 
 table1 =  LinkBox(header='Matplotlib', links=(
     ('Home', 'http://matplotlib.sourceforge.net'),
+    ("What's&nbsp;New", 'whats_new.html'),
     ('Download', 'http://sourceforge.net/projects/matplotlib'),
     ('Installing', 'installing.html'),
     ('Screenshots', 'screenshots.html'),
     ('Examples&nbsp;(zip)', 'matplotlib_examples_%s.zip'%matplotlib.__version__),        
-    ("What's&nbsp;New", 'whats_new.html'),
     ('Mailing lists', 'http://sourceforge.net/mail/?group_id=80706'),
     ))
 
@@ -213,7 +220,7 @@ table3 =  LinkBox(header='Other', links=(
 
 params = {
     'myemail' : '<a href=mailto:jdhunter@ace.bsd.uchicago.edu> (jdhunter@ace.bsd.uchicago.edu)</a>',
-    'tables' : (news, table1, table2, table3),
+    'tables' : (news1, news2, table1, table2, table3),
     'default_table' :  'border=1 cellpadding=3 cellspacing=2', 
           }
 
@@ -280,4 +287,3 @@ for inFile in files:
     lines = ['@header@']
     lines.extend(fh.readlines())
     cop.copy(lines)
-

@@ -83,6 +83,7 @@
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#FigureFrameWx">FigureFrameWx</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_wx.html#SubplotToolWX">SubplotToolWX</a>
 </font></dt></dl>
 </dd>
 <dt><font face="helvetica, arial"><a href="wx._windows.html#Panel">wx._windows.Panel</a>(<a href="wx._core.html#Window">wx._core.Window</a>)
@@ -5395,9 +5396,13 @@ Data and other attributes inherited from <a href="wx._core.html#Object">wx._core
 Methods defined here:<br>
 <dl><dt><a name="NavigationToolbar2Wx-__init__"><strong>__init__</strong></a>(self, canvas)</dt></dl>
 
+<dl><dt><a name="NavigationToolbar2Wx-configure_subplot"><strong>configure_subplot</strong></a>(self, evt)</dt></dl>
+
 <dl><dt><a name="NavigationToolbar2Wx-draw_rubberband"><strong>draw_rubberband</strong></a>(self, event, x0, y0, x1, y1)</dt><dd><tt>adapted&nbsp;from&nbsp;<a href="http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/189744">http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/189744</a></tt></dd></dl>
 
 <dl><dt><a name="NavigationToolbar2Wx-dynamic_update"><strong>dynamic_update</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2Wx-get_canvas"><strong>get_canvas</strong></a>(self, frame, fig)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2Wx-pan"><strong>pan</strong></a>(self, *args)</dt></dl>
 
@@ -9995,6 +10000,1427 @@ Returns&nbsp;True&nbsp;if&nbsp;successful.</tt></dd></dl>
 <hr>
 Methods inherited from <a href="wx._core.html#Object">wx._core.Object</a>:<br>
 <dl><dt><a name="StatusBarWx-GetClassName"><strong>GetClassName</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#StatusBarWx-GetClassName">GetClassName</a>(self)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;class&nbsp;name&nbsp;of&nbsp;the&nbsp;C++&nbsp;class&nbsp;using&nbsp;wxRTTI.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="wx._core.html#Object">wx._core.Object</a>:<br>
+<dl><dt><strong>__dict__</strong> = &lt;dictproxy object&gt;<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dl>
+
+<dl><dt><strong>__weakref__</strong> = &lt;attribute '__weakref__' of 'Object' objects&gt;<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SubplotToolWX">class <strong>SubplotToolWX</strong></a>(<a href="wx._windows.html#Frame">wx._windows.Frame</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="matplotlib.backends.backend_wx.html#SubplotToolWX">SubplotToolWX</a></dd>
+<dd><a href="wx._windows.html#Frame">wx._windows.Frame</a></dd>
+<dd><a href="wx._windows.html#TopLevelWindow">wx._windows.TopLevelWindow</a></dd>
+<dd><a href="wx._core.html#Window">wx._core.Window</a></dd>
+<dd><a href="wx._core.html#EvtHandler">wx._core.EvtHandler</a></dd>
+<dd><a href="wx._core.html#Object">wx._core.Object</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SubplotToolWX-__init__"><strong>__init__</strong></a>(self, targetfig)</dt></dl>
+
+<hr>
+Methods inherited from <a href="wx._windows.html#Frame">wx._windows.Frame</a>:<br>
+<dl><dt><a name="SubplotToolWX-Command"><strong>Command</strong></a> = ProcessCommand(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ProcessCommand">ProcessCommand</a>(self,&nbsp;int&nbsp;winid)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Create"><strong>Create</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Create">Create</a>(self,&nbsp;Window&nbsp;parent,&nbsp;int&nbsp;id=-1,&nbsp;String&nbsp;title=EmptyString,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Point&nbsp;pos=DefaultPosition,&nbsp;Size&nbsp;size=DefaultSize,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;long&nbsp;style=DEFAULT_FRAME_STYLE,&nbsp;String&nbsp;name=FrameNameStr)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-CreateStatusBar"><strong>CreateStatusBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-CreateStatusBar">CreateStatusBar</a>(self,&nbsp;int&nbsp;number=1,&nbsp;long&nbsp;style=wxST_SIZEGRIP|wxFULL_REPAINT_ON_RESIZE,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;winid=0,&nbsp;String&nbsp;name=StatusLineNameStr)&nbsp;-&gt;&nbsp;<a href="wx._windows.html#StatusBar">StatusBar</a></tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-CreateToolBar"><strong>CreateToolBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-CreateToolBar">CreateToolBar</a>(self,&nbsp;long&nbsp;style=-1,&nbsp;int&nbsp;winid=-1,&nbsp;String&nbsp;name=ToolBarNameStr)&nbsp;-&gt;&nbsp;wxToolBar</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-DoGiveHelp"><strong>DoGiveHelp</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-DoGiveHelp">DoGiveHelp</a>(self,&nbsp;String&nbsp;text,&nbsp;bool&nbsp;show)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-DoMenuUpdates"><strong>DoMenuUpdates</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-DoMenuUpdates">DoMenuUpdates</a>(self,&nbsp;Menu&nbsp;menu=None)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetClientAreaOrigin"><strong>GetClientAreaOrigin</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetClientAreaOrigin">GetClientAreaOrigin</a>(self)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;origin&nbsp;of&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window&nbsp;relative&nbsp;to&nbsp;the<br>
+window's&nbsp;top&nbsp;left&nbsp;corner&nbsp;(the&nbsp;client&nbsp;area&nbsp;may&nbsp;be&nbsp;shifted&nbsp;because&nbsp;of<br>
+the&nbsp;borders,&nbsp;scrollbars,&nbsp;other&nbsp;decorations...)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetMenuBar"><strong>GetMenuBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetMenuBar">GetMenuBar</a>(self)&nbsp;-&gt;&nbsp;MenuBar</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetStatusBar"><strong>GetStatusBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetStatusBar">GetStatusBar</a>(self)&nbsp;-&gt;&nbsp;<a href="wx._windows.html#StatusBar">StatusBar</a></tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetStatusBarPane"><strong>GetStatusBarPane</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetStatusBarPane">GetStatusBarPane</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetToolBar"><strong>GetToolBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetToolBar">GetToolBar</a>(self)&nbsp;-&gt;&nbsp;wxToolBar</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-PopStatusText"><strong>PopStatusText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-PopStatusText">PopStatusText</a>(self,&nbsp;int&nbsp;number=0)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ProcessCommand"><strong>ProcessCommand</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ProcessCommand">ProcessCommand</a>(self,&nbsp;int&nbsp;winid)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-PushStatusText"><strong>PushStatusText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-PushStatusText">PushStatusText</a>(self,&nbsp;String&nbsp;text,&nbsp;int&nbsp;number=0)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SendSizeEvent"><strong>SendSizeEvent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SendSizeEvent">SendSizeEvent</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetMenuBar"><strong>SetMenuBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetMenuBar">SetMenuBar</a>(self,&nbsp;MenuBar&nbsp;menubar)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetStatusBar"><strong>SetStatusBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetStatusBar">SetStatusBar</a>(self,&nbsp;<a href="wx._windows.html#StatusBar">StatusBar</a>&nbsp;statBar)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetStatusBarPane"><strong>SetStatusBarPane</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetStatusBarPane">SetStatusBarPane</a>(self,&nbsp;int&nbsp;n)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetStatusText"><strong>SetStatusText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetStatusText">SetStatusText</a>(self,&nbsp;String&nbsp;text,&nbsp;int&nbsp;number=0)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetStatusWidths"><strong>SetStatusWidths</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetStatusWidths">SetStatusWidths</a>(self,&nbsp;int&nbsp;widths,&nbsp;int&nbsp;widths_field)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetToolBar"><strong>SetToolBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetToolBar">SetToolBar</a>(self,&nbsp;wxToolBar&nbsp;toolbar)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<hr>
+Static methods inherited from <a href="wx._windows.html#Frame">wx._windows.Frame</a>:<br>
+<dl><dt><a name="SubplotToolWX-GetClassDefaultAttributes"><strong>GetClassDefaultAttributes</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetClassDefaultAttributes">GetClassDefaultAttributes</a>(int&nbsp;variant=WINDOW_VARIANT_NORMAL)&nbsp;-&gt;&nbsp;VisualAttributes<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;default&nbsp;attributes&nbsp;for&nbsp;this&nbsp;class.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;if&nbsp;you&nbsp;want<br>
+to&nbsp;use&nbsp;the&nbsp;same&nbsp;font&nbsp;or&nbsp;colour&nbsp;in&nbsp;your&nbsp;own&nbsp;control&nbsp;as&nbsp;in&nbsp;a&nbsp;standard<br>
+control&nbsp;--&nbsp;which&nbsp;is&nbsp;a&nbsp;much&nbsp;better&nbsp;idea&nbsp;than&nbsp;hard&nbsp;coding&nbsp;specific<br>
+colours&nbsp;or&nbsp;fonts&nbsp;which&nbsp;might&nbsp;look&nbsp;completely&nbsp;out&nbsp;of&nbsp;place&nbsp;on&nbsp;the<br>
+user's&nbsp;system,&nbsp;especially&nbsp;if&nbsp;it&nbsp;uses&nbsp;themes.<br>
+&nbsp;<br>
+The&nbsp;variant&nbsp;parameter&nbsp;is&nbsp;only&nbsp;relevant&nbsp;under&nbsp;Mac&nbsp;currently&nbsp;and&nbsp;is<br>
+ignore&nbsp;under&nbsp;other&nbsp;platforms.&nbsp;Under&nbsp;Mac,&nbsp;it&nbsp;will&nbsp;change&nbsp;the&nbsp;size&nbsp;of<br>
+the&nbsp;returned&nbsp;font.&nbsp;See&nbsp;`wx.Window.SetWindowVariant`&nbsp;for&nbsp;more&nbsp;about<br>
+this.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="wx._windows.html#TopLevelWindow">wx._windows.TopLevelWindow</a>:<br>
+<dl><dt><a name="SubplotToolWX-GetIcon"><strong>GetIcon</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetIcon">GetIcon</a>(self)&nbsp;-&gt;&nbsp;Icon</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetTitle"><strong>GetTitle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetTitle">GetTitle</a>(self)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Gets&nbsp;the&nbsp;window's&nbsp;title.&nbsp;Applicable&nbsp;only&nbsp;to&nbsp;frames&nbsp;and&nbsp;dialogs.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Iconize"><strong>Iconize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Iconize">Iconize</a>(self,&nbsp;bool&nbsp;iconize=True)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-IsActive"><strong>IsActive</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-IsActive">IsActive</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-IsFullScreen"><strong>IsFullScreen</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-IsFullScreen">IsFullScreen</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-IsIconized"><strong>IsIconized</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-IsIconized">IsIconized</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-IsMaximized"><strong>IsMaximized</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-IsMaximized">IsMaximized</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-MacGetMetalAppearance"><strong>MacGetMetalAppearance</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-MacGetMetalAppearance">MacGetMetalAppearance</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-MacSetMetalAppearance"><strong>MacSetMetalAppearance</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-MacSetMetalAppearance">MacSetMetalAppearance</a>(self,&nbsp;bool&nbsp;on)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Maximize"><strong>Maximize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Maximize">Maximize</a>(self,&nbsp;bool&nbsp;maximize=True)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-RequestUserAttention"><strong>RequestUserAttention</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-RequestUserAttention">RequestUserAttention</a>(self,&nbsp;int&nbsp;flags=USER_ATTENTION_INFO)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Restore"><strong>Restore</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Restore">Restore</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetIcon"><strong>SetIcon</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetIcon">SetIcon</a>(self,&nbsp;Icon&nbsp;icon)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetIcons"><strong>SetIcons</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetIcons">SetIcons</a>(self,&nbsp;wxIconBundle&nbsp;icons)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetShape"><strong>SetShape</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetShape">SetShape</a>(self,&nbsp;Region&nbsp;region)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetTitle"><strong>SetTitle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetTitle">SetTitle</a>(self,&nbsp;String&nbsp;title)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;window's&nbsp;title.&nbsp;Applicable&nbsp;only&nbsp;to&nbsp;frames&nbsp;and&nbsp;dialogs.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ShowFullScreen"><strong>ShowFullScreen</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ShowFullScreen">ShowFullScreen</a>(self,&nbsp;bool&nbsp;show,&nbsp;long&nbsp;style=FULLSCREEN_ALL)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="wx._core.html#Window">wx._core.Window</a>:<br>
+<dl><dt><a name="SubplotToolWX-AcceptsFocus"><strong>AcceptsFocus</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-AcceptsFocus">AcceptsFocus</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Can&nbsp;this&nbsp;window&nbsp;have&nbsp;focus?</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-AcceptsFocusFromKeyboard"><strong>AcceptsFocusFromKeyboard</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-AcceptsFocusFromKeyboard">AcceptsFocusFromKeyboard</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Can&nbsp;this&nbsp;window&nbsp;be&nbsp;given&nbsp;focus&nbsp;by&nbsp;keyboard&nbsp;navigation?&nbsp;if&nbsp;not,&nbsp;the<br>
+only&nbsp;way&nbsp;to&nbsp;give&nbsp;it&nbsp;focus&nbsp;(provided&nbsp;it&nbsp;accepts&nbsp;it&nbsp;at&nbsp;all)&nbsp;is&nbsp;to&nbsp;click<br>
+it.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-AddChild"><strong>AddChild</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-AddChild">AddChild</a>(self,&nbsp;Window&nbsp;child)<br>
+&nbsp;<br>
+Adds&nbsp;a&nbsp;child&nbsp;window.&nbsp;This&nbsp;is&nbsp;called&nbsp;automatically&nbsp;by&nbsp;window&nbsp;creation<br>
+functions&nbsp;so&nbsp;should&nbsp;not&nbsp;be&nbsp;required&nbsp;by&nbsp;the&nbsp;application&nbsp;programmer.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-AssociateHandle"><strong>AssociateHandle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-AssociateHandle">AssociateHandle</a>(self,&nbsp;long&nbsp;handle)<br>
+&nbsp;<br>
+Associate&nbsp;the&nbsp;window&nbsp;with&nbsp;a&nbsp;new&nbsp;native&nbsp;handle</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-CaptureMouse"><strong>CaptureMouse</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-CaptureMouse">CaptureMouse</a>(self)<br>
+&nbsp;<br>
+Directs&nbsp;all&nbsp;mouse&nbsp;input&nbsp;to&nbsp;this&nbsp;window.&nbsp;Call&nbsp;wx.Window.ReleaseMouse&nbsp;to<br>
+release&nbsp;the&nbsp;capture.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;wxWindows&nbsp;maintains&nbsp;the&nbsp;stack&nbsp;of&nbsp;windows&nbsp;having&nbsp;captured&nbsp;the<br>
+mouse&nbsp;and&nbsp;when&nbsp;the&nbsp;mouse&nbsp;is&nbsp;released&nbsp;the&nbsp;capture&nbsp;returns&nbsp;to&nbsp;the&nbsp;window<br>
+which&nbsp;had&nbsp;had&nbsp;captured&nbsp;it&nbsp;previously&nbsp;and&nbsp;it&nbsp;is&nbsp;only&nbsp;really&nbsp;released&nbsp;if<br>
+there&nbsp;were&nbsp;no&nbsp;previous&nbsp;window.&nbsp;In&nbsp;particular,&nbsp;this&nbsp;means&nbsp;that&nbsp;you&nbsp;must<br>
+release&nbsp;the&nbsp;mouse&nbsp;as&nbsp;many&nbsp;times&nbsp;as&nbsp;you&nbsp;capture&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Center"><strong>Center</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Center">Center</a>(self,&nbsp;int&nbsp;direction=BOTH)<br>
+&nbsp;<br>
+Centers&nbsp;the&nbsp;window.&nbsp;&nbsp;The&nbsp;parameter&nbsp;specifies&nbsp;the&nbsp;direction&nbsp;for<br>
+cetering,&nbsp;and&nbsp;may&nbsp;be&nbsp;wx.HORIZONTAL,&nbsp;wx.VERTICAL&nbsp;or&nbsp;wx.BOTH.&nbsp;It&nbsp;may<br>
+also&nbsp;include&nbsp;wx.CENTER_ON_SCREEN&nbsp;flag&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;center&nbsp;the&nbsp;window<br>
+on&nbsp;the&nbsp;entire&nbsp;screen&nbsp;and&nbsp;not&nbsp;on&nbsp;its&nbsp;parent&nbsp;window.&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a<br>
+top-level&nbsp;window&nbsp;and&nbsp;has&nbsp;no&nbsp;parent&nbsp;then&nbsp;it&nbsp;will&nbsp;always&nbsp;be&nbsp;centered<br>
+relative&nbsp;to&nbsp;the&nbsp;screen.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-CenterOnParent"><strong>CenterOnParent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-CenterOnParent">CenterOnParent</a>(self,&nbsp;int&nbsp;dir=BOTH)<br>
+&nbsp;<br>
+Center&nbsp;with&nbsp;respect&nbsp;to&nbsp;the&nbsp;the&nbsp;parent&nbsp;window</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-CenterOnScreen"><strong>CenterOnScreen</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-CenterOnScreen">CenterOnScreen</a>(self,&nbsp;int&nbsp;dir=BOTH)<br>
+&nbsp;<br>
+Center&nbsp;on&nbsp;screen&nbsp;(only&nbsp;works&nbsp;for&nbsp;top&nbsp;level&nbsp;windows)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Centre"><strong>Centre</strong></a> = Center(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Center">Center</a>(self,&nbsp;int&nbsp;direction=BOTH)<br>
+&nbsp;<br>
+Centers&nbsp;the&nbsp;window.&nbsp;&nbsp;The&nbsp;parameter&nbsp;specifies&nbsp;the&nbsp;direction&nbsp;for<br>
+cetering,&nbsp;and&nbsp;may&nbsp;be&nbsp;wx.HORIZONTAL,&nbsp;wx.VERTICAL&nbsp;or&nbsp;wx.BOTH.&nbsp;It&nbsp;may<br>
+also&nbsp;include&nbsp;wx.CENTER_ON_SCREEN&nbsp;flag&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;center&nbsp;the&nbsp;window<br>
+on&nbsp;the&nbsp;entire&nbsp;screen&nbsp;and&nbsp;not&nbsp;on&nbsp;its&nbsp;parent&nbsp;window.&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a<br>
+top-level&nbsp;window&nbsp;and&nbsp;has&nbsp;no&nbsp;parent&nbsp;then&nbsp;it&nbsp;will&nbsp;always&nbsp;be&nbsp;centered<br>
+relative&nbsp;to&nbsp;the&nbsp;screen.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-CentreOnParent"><strong>CentreOnParent</strong></a> = CenterOnParent(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-CenterOnParent">CenterOnParent</a>(self,&nbsp;int&nbsp;dir=BOTH)<br>
+&nbsp;<br>
+Center&nbsp;with&nbsp;respect&nbsp;to&nbsp;the&nbsp;the&nbsp;parent&nbsp;window</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-CentreOnScreen"><strong>CentreOnScreen</strong></a> = CenterOnScreen(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-CenterOnScreen">CenterOnScreen</a>(self,&nbsp;int&nbsp;dir=BOTH)<br>
+&nbsp;<br>
+Center&nbsp;on&nbsp;screen&nbsp;(only&nbsp;works&nbsp;for&nbsp;top&nbsp;level&nbsp;windows)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ClearBackground"><strong>ClearBackground</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ClearBackground">ClearBackground</a>(self)<br>
+&nbsp;<br>
+Clears&nbsp;the&nbsp;window&nbsp;by&nbsp;filling&nbsp;it&nbsp;with&nbsp;the&nbsp;current&nbsp;background<br>
+colour.&nbsp;Does&nbsp;not&nbsp;cause&nbsp;an&nbsp;erase&nbsp;background&nbsp;event&nbsp;to&nbsp;be&nbsp;generated.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ClientToScreen"><strong>ClientToScreen</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ClientToScreen">ClientToScreen</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Converts&nbsp;to&nbsp;screen&nbsp;coordinates&nbsp;from&nbsp;coordinates&nbsp;relative&nbsp;to&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ClientToScreenXY"><strong>ClientToScreenXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ClientToScreenXY">ClientToScreenXY</a>(int&nbsp;x,&nbsp;int&nbsp;y)&nbsp;-&gt;&nbsp;(x,y)<br>
+&nbsp;<br>
+Converts&nbsp;to&nbsp;screen&nbsp;coordinates&nbsp;from&nbsp;coordinates&nbsp;relative&nbsp;to&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Close"><strong>Close</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Close">Close</a>(self,&nbsp;bool&nbsp;force=False)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;simply&nbsp;generates&nbsp;a&nbsp;EVT_CLOSE&nbsp;event&nbsp;whose&nbsp;handler&nbsp;usually<br>
+tries&nbsp;to&nbsp;close&nbsp;the&nbsp;window.&nbsp;It&nbsp;doesn't&nbsp;close&nbsp;the&nbsp;window&nbsp;itself,<br>
+however.&nbsp;&nbsp;If&nbsp;force&nbsp;is&nbsp;False&nbsp;(the&nbsp;default)&nbsp;then&nbsp;the&nbsp;window's&nbsp;close<br>
+handler&nbsp;will&nbsp;be&nbsp;allowed&nbsp;to&nbsp;veto&nbsp;the&nbsp;destruction&nbsp;of&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ConvertDialogPointToPixels"><strong>ConvertDialogPointToPixels</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ConvertDialogPointToPixels">ConvertDialogPointToPixels</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Converts&nbsp;a&nbsp;point&nbsp;or&nbsp;size&nbsp;from&nbsp;dialog&nbsp;units&nbsp;to&nbsp;pixels.&nbsp;&nbsp;Dialog&nbsp;units<br>
+are&nbsp;used&nbsp;for&nbsp;maintaining&nbsp;a&nbsp;dialog's&nbsp;proportions&nbsp;even&nbsp;if&nbsp;the&nbsp;font<br>
+changes.&nbsp;For&nbsp;the&nbsp;x&nbsp;dimension,&nbsp;the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the<br>
+average&nbsp;character&nbsp;width&nbsp;and&nbsp;then&nbsp;divided&nbsp;by&nbsp;4.&nbsp;For&nbsp;the&nbsp;y&nbsp;dimension,<br>
+the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;average&nbsp;character&nbsp;height&nbsp;and<br>
+then&nbsp;divided&nbsp;by&nbsp;8.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ConvertDialogSizeToPixels"><strong>ConvertDialogSizeToPixels</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ConvertDialogSizeToPixels">ConvertDialogSizeToPixels</a>(self,&nbsp;Size&nbsp;sz)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Converts&nbsp;a&nbsp;point&nbsp;or&nbsp;size&nbsp;from&nbsp;dialog&nbsp;units&nbsp;to&nbsp;pixels.&nbsp;&nbsp;Dialog&nbsp;units<br>
+are&nbsp;used&nbsp;for&nbsp;maintaining&nbsp;a&nbsp;dialog's&nbsp;proportions&nbsp;even&nbsp;if&nbsp;the&nbsp;font<br>
+changes.&nbsp;For&nbsp;the&nbsp;x&nbsp;dimension,&nbsp;the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the<br>
+average&nbsp;character&nbsp;width&nbsp;and&nbsp;then&nbsp;divided&nbsp;by&nbsp;4.&nbsp;For&nbsp;the&nbsp;y&nbsp;dimension,<br>
+the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;average&nbsp;character&nbsp;height&nbsp;and<br>
+then&nbsp;divided&nbsp;by&nbsp;8.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ConvertPixelPointToDialog"><strong>ConvertPixelPointToDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ConvertPixelPointToDialog">ConvertPixelPointToDialog</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ConvertPixelSizeToDialog"><strong>ConvertPixelSizeToDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ConvertPixelSizeToDialog">ConvertPixelSizeToDialog</a>(self,&nbsp;Size&nbsp;sz)&nbsp;-&gt;&nbsp;Size</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-DLG_PNT"><strong>DLG_PNT</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-DLG_PNT">DLG_PNT</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Converts&nbsp;a&nbsp;point&nbsp;or&nbsp;size&nbsp;from&nbsp;dialog&nbsp;units&nbsp;to&nbsp;pixels.&nbsp;&nbsp;Dialog&nbsp;units<br>
+are&nbsp;used&nbsp;for&nbsp;maintaining&nbsp;a&nbsp;dialog's&nbsp;proportions&nbsp;even&nbsp;if&nbsp;the&nbsp;font<br>
+changes.&nbsp;For&nbsp;the&nbsp;x&nbsp;dimension,&nbsp;the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the<br>
+average&nbsp;character&nbsp;width&nbsp;and&nbsp;then&nbsp;divided&nbsp;by&nbsp;4.&nbsp;For&nbsp;the&nbsp;y&nbsp;dimension,<br>
+the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;average&nbsp;character&nbsp;height&nbsp;and<br>
+then&nbsp;divided&nbsp;by&nbsp;8.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-DLG_SZE"><strong>DLG_SZE</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-DLG_SZE">DLG_SZE</a>(self,&nbsp;Size&nbsp;sz)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Converts&nbsp;a&nbsp;point&nbsp;or&nbsp;size&nbsp;from&nbsp;dialog&nbsp;units&nbsp;to&nbsp;pixels.&nbsp;&nbsp;Dialog&nbsp;units<br>
+are&nbsp;used&nbsp;for&nbsp;maintaining&nbsp;a&nbsp;dialog's&nbsp;proportions&nbsp;even&nbsp;if&nbsp;the&nbsp;font<br>
+changes.&nbsp;For&nbsp;the&nbsp;x&nbsp;dimension,&nbsp;the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the<br>
+average&nbsp;character&nbsp;width&nbsp;and&nbsp;then&nbsp;divided&nbsp;by&nbsp;4.&nbsp;For&nbsp;the&nbsp;y&nbsp;dimension,<br>
+the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;average&nbsp;character&nbsp;height&nbsp;and<br>
+then&nbsp;divided&nbsp;by&nbsp;8.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Destroy"><strong>Destroy</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Destroy">Destroy</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Destroys&nbsp;the&nbsp;window&nbsp;safely.&nbsp;&nbsp;Frames&nbsp;and&nbsp;dialogs&nbsp;are&nbsp;not&nbsp;destroyed<br>
+immediately&nbsp;when&nbsp;this&nbsp;function&nbsp;is&nbsp;called&nbsp;--&nbsp;they&nbsp;are&nbsp;added&nbsp;to&nbsp;a&nbsp;list<br>
+of&nbsp;windows&nbsp;to&nbsp;be&nbsp;deleted&nbsp;on&nbsp;idle&nbsp;time,&nbsp;when&nbsp;all&nbsp;the&nbsp;window's&nbsp;events<br>
+have&nbsp;been&nbsp;processed.&nbsp;This&nbsp;prevents&nbsp;problems&nbsp;with&nbsp;events&nbsp;being&nbsp;sent&nbsp;to<br>
+non-existent&nbsp;windows.<br>
+&nbsp;<br>
+Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;window&nbsp;has&nbsp;either&nbsp;been&nbsp;successfully&nbsp;deleted,&nbsp;or&nbsp;it<br>
+has&nbsp;been&nbsp;added&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;windows&nbsp;pending&nbsp;real&nbsp;deletion.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-DestroyChildren"><strong>DestroyChildren</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-DestroyChildren">DestroyChildren</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Destroys&nbsp;all&nbsp;children&nbsp;of&nbsp;a&nbsp;window.&nbsp;Called&nbsp;automatically&nbsp;by&nbsp;the<br>
+destructor.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Disable"><strong>Disable</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Disable">Disable</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Disables&nbsp;the&nbsp;window,&nbsp;same&nbsp;as&nbsp;<a href="#SubplotToolWX-Enable">Enable</a>(false).</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-DissociateHandle"><strong>DissociateHandle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-DissociateHandle">DissociateHandle</a>(self)<br>
+&nbsp;<br>
+Dissociate&nbsp;the&nbsp;current&nbsp;native&nbsp;handle&nbsp;from&nbsp;the&nbsp;window</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Enable"><strong>Enable</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Enable">Enable</a>(self,&nbsp;bool&nbsp;enable=True)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Enable&nbsp;or&nbsp;disable&nbsp;the&nbsp;window&nbsp;for&nbsp;user&nbsp;input.&nbsp;Note&nbsp;that&nbsp;when&nbsp;a&nbsp;parent<br>
+window&nbsp;is&nbsp;disabled,&nbsp;all&nbsp;of&nbsp;its&nbsp;children&nbsp;are&nbsp;disabled&nbsp;as&nbsp;well&nbsp;and&nbsp;they<br>
+are&nbsp;reenabled&nbsp;again&nbsp;when&nbsp;the&nbsp;parent&nbsp;is.&nbsp;&nbsp;Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;window<br>
+has&nbsp;been&nbsp;enabled&nbsp;or&nbsp;disabled,&nbsp;false&nbsp;if&nbsp;nothing&nbsp;was&nbsp;done,&nbsp;i.e.&nbsp;if&nbsp;the<br>
+window&nbsp;had&nbsp;already&nbsp;been&nbsp;in&nbsp;the&nbsp;specified&nbsp;state.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-FindWindowById"><strong>FindWindowById</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-FindWindowById">FindWindowById</a>(self,&nbsp;long&nbsp;winid)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Find&nbsp;a&nbsp;chld&nbsp;of&nbsp;this&nbsp;window&nbsp;by&nbsp;window&nbsp;ID</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-FindWindowByName"><strong>FindWindowByName</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-FindWindowByName">FindWindowByName</a>(self,&nbsp;String&nbsp;name)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Find&nbsp;a&nbsp;child&nbsp;of&nbsp;this&nbsp;window&nbsp;by&nbsp;name</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Fit"><strong>Fit</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Fit">Fit</a>(self)<br>
+&nbsp;<br>
+Sizes&nbsp;the&nbsp;window&nbsp;so&nbsp;that&nbsp;it&nbsp;fits&nbsp;around&nbsp;its&nbsp;subwindows.&nbsp;This&nbsp;function<br>
+won't&nbsp;do&nbsp;anything&nbsp;if&nbsp;there&nbsp;are&nbsp;no&nbsp;subwindows&nbsp;and&nbsp;will&nbsp;only&nbsp;really&nbsp;work<br>
+correctly&nbsp;if&nbsp;sizers&nbsp;are&nbsp;used&nbsp;for&nbsp;the&nbsp;subwindows&nbsp;layout.&nbsp;Also,&nbsp;if&nbsp;the<br>
+window&nbsp;has&nbsp;exactly&nbsp;one&nbsp;subwindow&nbsp;it&nbsp;is&nbsp;better&nbsp;(faster&nbsp;and&nbsp;the&nbsp;result<br>
+is&nbsp;more&nbsp;precise&nbsp;as&nbsp;Fit&nbsp;adds&nbsp;some&nbsp;margin&nbsp;to&nbsp;account&nbsp;for&nbsp;fuzziness&nbsp;of<br>
+its&nbsp;calculations)&nbsp;to&nbsp;call&nbsp;window.<a href="#SubplotToolWX-SetClientSize">SetClientSize</a>(child.<a href="#SubplotToolWX-GetSize">GetSize</a>())<br>
+instead&nbsp;of&nbsp;calling&nbsp;Fit.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-FitInside"><strong>FitInside</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-FitInside">FitInside</a>(self)<br>
+&nbsp;<br>
+Similar&nbsp;to&nbsp;Fit,&nbsp;but&nbsp;sizes&nbsp;the&nbsp;interior&nbsp;(virtual)&nbsp;size&nbsp;of&nbsp;a<br>
+window.&nbsp;Mainly&nbsp;useful&nbsp;with&nbsp;scrolled&nbsp;windows&nbsp;to&nbsp;reset&nbsp;scrollbars&nbsp;after<br>
+sizing&nbsp;changes&nbsp;that&nbsp;do&nbsp;not&nbsp;trigger&nbsp;a&nbsp;size&nbsp;event,&nbsp;and/or&nbsp;scrolled<br>
+windows&nbsp;without&nbsp;an&nbsp;interior&nbsp;sizer.&nbsp;This&nbsp;function&nbsp;similarly&nbsp;won't&nbsp;do<br>
+anything&nbsp;if&nbsp;there&nbsp;are&nbsp;no&nbsp;subwindows.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Freeze"><strong>Freeze</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Freeze">Freeze</a>(self)<br>
+&nbsp;<br>
+Freezes&nbsp;the&nbsp;window&nbsp;or,&nbsp;in&nbsp;other&nbsp;words,&nbsp;prevents&nbsp;any&nbsp;updates&nbsp;from<br>
+taking&nbsp;place&nbsp;on&nbsp;screen,&nbsp;the&nbsp;window&nbsp;is&nbsp;not&nbsp;redrawn&nbsp;at&nbsp;all.&nbsp;Thaw&nbsp;must&nbsp;be<br>
+called&nbsp;to&nbsp;reenable&nbsp;window&nbsp;redrawing.&nbsp;&nbsp;Calls&nbsp;to&nbsp;Freeze/Thaw&nbsp;may&nbsp;be<br>
+nested,&nbsp;with&nbsp;the&nbsp;actual&nbsp;Thaw&nbsp;being&nbsp;delayed&nbsp;until&nbsp;all&nbsp;the&nbsp;nesting&nbsp;has<br>
+been&nbsp;undone.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;useful&nbsp;for&nbsp;visual&nbsp;appearance&nbsp;optimization&nbsp;(for&nbsp;example,<br>
+it&nbsp;is&nbsp;a&nbsp;good&nbsp;idea&nbsp;to&nbsp;use&nbsp;it&nbsp;before&nbsp;inserting&nbsp;large&nbsp;amount&nbsp;of&nbsp;text&nbsp;into<br>
+a&nbsp;wxTextCtrl&nbsp;under&nbsp;wxGTK)&nbsp;but&nbsp;is&nbsp;not&nbsp;implemented&nbsp;on&nbsp;all&nbsp;platforms&nbsp;nor<br>
+for&nbsp;all&nbsp;controls&nbsp;so&nbsp;it&nbsp;is&nbsp;mostly&nbsp;just&nbsp;a&nbsp;hint&nbsp;to&nbsp;wxWindows&nbsp;and&nbsp;not&nbsp;a<br>
+mandatory&nbsp;directive.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetAcceleratorTable"><strong>GetAcceleratorTable</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetAcceleratorTable">GetAcceleratorTable</a>(self)&nbsp;-&gt;&nbsp;AcceleratorTable<br>
+&nbsp;<br>
+Gets&nbsp;the&nbsp;accelerator&nbsp;table&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetAdjustedBestSize"><strong>GetAdjustedBestSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetAdjustedBestSize">GetAdjustedBestSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;similar&nbsp;to&nbsp;GetBestSize,&nbsp;except&nbsp;in&nbsp;one<br>
+thing.&nbsp;GetBestSize&nbsp;should&nbsp;return&nbsp;the&nbsp;minimum&nbsp;untruncated&nbsp;size&nbsp;of&nbsp;the<br>
+window,&nbsp;while&nbsp;this&nbsp;method&nbsp;will&nbsp;return&nbsp;the&nbsp;largest&nbsp;of&nbsp;BestSize&nbsp;and&nbsp;any<br>
+user&nbsp;specified&nbsp;minimum&nbsp;size.&nbsp;ie.&nbsp;it&nbsp;is&nbsp;the&nbsp;minimum&nbsp;size&nbsp;the&nbsp;window<br>
+should&nbsp;currently&nbsp;be&nbsp;drawn&nbsp;at,&nbsp;not&nbsp;the&nbsp;minimal&nbsp;size&nbsp;it&nbsp;can&nbsp;possibly<br>
+tolerate.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetAutoLayout"><strong>GetAutoLayout</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetAutoLayout">GetAutoLayout</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;current&nbsp;autoLayout&nbsp;setting</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetBackgroundColour"><strong>GetBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetBackgroundColour">GetBackgroundColour</a>(self)&nbsp;-&gt;&nbsp;Colour<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;background&nbsp;colour&nbsp;of&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetBackgroundStyle"><strong>GetBackgroundStyle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetBackgroundStyle">GetBackgroundStyle</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;background&nbsp;style&nbsp;of&nbsp;the&nbsp;window.<br>
+&nbsp;<br>
+:see:&nbsp;`SetBackgroundStyle`</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetBestFittingSize"><strong>GetBestFittingSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetBestFittingSize">GetBestFittingSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;will&nbsp;merge&nbsp;the&nbsp;window's&nbsp;best&nbsp;size&nbsp;into&nbsp;the&nbsp;window's<br>
+minimum&nbsp;size,&nbsp;giving&nbsp;priority&nbsp;to&nbsp;the&nbsp;min&nbsp;size&nbsp;components,&nbsp;and&nbsp;returns<br>
+the&nbsp;results.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetBestSize"><strong>GetBestSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetBestSize">GetBestSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;returns&nbsp;the&nbsp;best&nbsp;acceptable&nbsp;minimal&nbsp;size&nbsp;for&nbsp;the<br>
+window,&nbsp;if&nbsp;applicable.&nbsp;For&nbsp;example,&nbsp;for&nbsp;a&nbsp;static&nbsp;text&nbsp;control,&nbsp;it&nbsp;will<br>
+be&nbsp;the&nbsp;minimal&nbsp;size&nbsp;such&nbsp;that&nbsp;the&nbsp;control&nbsp;label&nbsp;is&nbsp;not&nbsp;truncated.&nbsp;For<br>
+windows&nbsp;containing&nbsp;subwindows&nbsp;(suzh&nbsp;aswx.<a href="wx._windows.html#Panel">Panel</a>),&nbsp;the&nbsp;size&nbsp;returned&nbsp;by<br>
+this&nbsp;function&nbsp;will&nbsp;be&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;size&nbsp;the&nbsp;window&nbsp;would&nbsp;have&nbsp;had<br>
+after&nbsp;calling&nbsp;Fit.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetBestSizeTuple"><strong>GetBestSizeTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetBestSizeTuple">GetBestSizeTuple</a>()&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;returns&nbsp;the&nbsp;best&nbsp;acceptable&nbsp;minimal&nbsp;size&nbsp;for&nbsp;the<br>
+window,&nbsp;if&nbsp;applicable.&nbsp;For&nbsp;example,&nbsp;for&nbsp;a&nbsp;static&nbsp;text&nbsp;control,&nbsp;it&nbsp;will<br>
+be&nbsp;the&nbsp;minimal&nbsp;size&nbsp;such&nbsp;that&nbsp;the&nbsp;control&nbsp;label&nbsp;is&nbsp;not&nbsp;truncated.&nbsp;For<br>
+windows&nbsp;containing&nbsp;subwindows&nbsp;(suzh&nbsp;aswx.<a href="wx._windows.html#Panel">Panel</a>),&nbsp;the&nbsp;size&nbsp;returned&nbsp;by<br>
+this&nbsp;function&nbsp;will&nbsp;be&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;size&nbsp;the&nbsp;window&nbsp;would&nbsp;have&nbsp;had<br>
+after&nbsp;calling&nbsp;Fit.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetBestVirtualSize"><strong>GetBestVirtualSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetBestVirtualSize">GetBestVirtualSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;largest&nbsp;of&nbsp;ClientSize&nbsp;and&nbsp;BestSize&nbsp;(as&nbsp;determined&nbsp;by&nbsp;a<br>
+sizer,&nbsp;interior&nbsp;children,&nbsp;or&nbsp;other&nbsp;means)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetBorder"><strong>GetBorder</strong></a>(*args)</dt><dd><tt><a href="#SubplotToolWX-GetBorder">GetBorder</a>(self,&nbsp;long&nbsp;flags)&nbsp;-&gt;&nbsp;int<br>
+<a href="#SubplotToolWX-GetBorder">GetBorder</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;border&nbsp;for&nbsp;the&nbsp;flags&nbsp;of&nbsp;this&nbsp;window</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetCaret"><strong>GetCaret</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetCaret">GetCaret</a>(self)&nbsp;-&gt;&nbsp;Caret<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;caret&nbsp;associated&nbsp;with&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetCharHeight"><strong>GetCharHeight</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetCharHeight">GetCharHeight</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;(average)&nbsp;character&nbsp;size&nbsp;for&nbsp;the&nbsp;current&nbsp;font.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetCharWidth"><strong>GetCharWidth</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetCharWidth">GetCharWidth</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;(average)&nbsp;character&nbsp;size&nbsp;for&nbsp;the&nbsp;current&nbsp;font.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetChildren"><strong>GetChildren</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetChildren">GetChildren</a>(self)&nbsp;-&gt;&nbsp;PyObject<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;window's&nbsp;children.&nbsp;&nbsp;NOTE:&nbsp;Currently&nbsp;this&nbsp;is&nbsp;a<br>
+copy&nbsp;of&nbsp;the&nbsp;child&nbsp;window&nbsp;list&nbsp;maintained&nbsp;by&nbsp;the&nbsp;window,&nbsp;so&nbsp;the&nbsp;return<br>
+value&nbsp;of&nbsp;this&nbsp;function&nbsp;is&nbsp;only&nbsp;valid&nbsp;as&nbsp;long&nbsp;as&nbsp;the&nbsp;window's&nbsp;children<br>
+do&nbsp;not&nbsp;change.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetClientRect"><strong>GetClientRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetClientRect">GetClientRect</a>(self)&nbsp;-&gt;&nbsp;Rect<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;client&nbsp;area&nbsp;position&nbsp;and&nbsp;size&nbsp;as&nbsp;a&nbsp;`wx.Rect`&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetClientSize"><strong>GetClientSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetClientSize">GetClientSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+This&nbsp;gets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window's&nbsp;'client&nbsp;area'&nbsp;in&nbsp;pixels.&nbsp;The&nbsp;client<br>
+area&nbsp;is&nbsp;the&nbsp;area&nbsp;which&nbsp;may&nbsp;be&nbsp;drawn&nbsp;on&nbsp;by&nbsp;the&nbsp;programmer,&nbsp;excluding<br>
+title&nbsp;bar,&nbsp;border,&nbsp;scrollbars,&nbsp;etc.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetClientSizeTuple"><strong>GetClientSizeTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetClientSizeTuple">GetClientSizeTuple</a>()&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+This&nbsp;gets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window's&nbsp;'client&nbsp;area'&nbsp;in&nbsp;pixels.&nbsp;The&nbsp;client<br>
+area&nbsp;is&nbsp;the&nbsp;area&nbsp;which&nbsp;may&nbsp;be&nbsp;drawn&nbsp;on&nbsp;by&nbsp;the&nbsp;programmer,&nbsp;excluding<br>
+title&nbsp;bar,&nbsp;border,&nbsp;scrollbars,&nbsp;etc.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetConstraints"><strong>GetConstraints</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetConstraints">GetConstraints</a>(self)&nbsp;-&gt;&nbsp;LayoutConstraints<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the&nbsp;window's&nbsp;layout&nbsp;constraints,&nbsp;or&nbsp;None&nbsp;if&nbsp;there<br>
+are&nbsp;none.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetContainingSizer"><strong>GetContainingSizer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetContainingSizer">GetContainingSizer</a>(self)&nbsp;-&gt;&nbsp;Sizer<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;sizer&nbsp;that&nbsp;this&nbsp;window&nbsp;is&nbsp;a&nbsp;member&nbsp;of,&nbsp;if&nbsp;any,&nbsp;otherwise&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetCursor"><strong>GetCursor</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetCursor">GetCursor</a>(self)&nbsp;-&gt;&nbsp;Cursor<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;cursor&nbsp;associated&nbsp;with&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetDefaultAttributes"><strong>GetDefaultAttributes</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetDefaultAttributes">GetDefaultAttributes</a>(self)&nbsp;-&gt;&nbsp;VisualAttributes<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;default&nbsp;attributes&nbsp;for&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;class.&nbsp;&nbsp;This&nbsp;is<br>
+useful&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;use&nbsp;the&nbsp;same&nbsp;font&nbsp;or&nbsp;colour&nbsp;in&nbsp;your&nbsp;own&nbsp;control<br>
+as&nbsp;in&nbsp;a&nbsp;standard&nbsp;control&nbsp;--&nbsp;which&nbsp;is&nbsp;a&nbsp;much&nbsp;better&nbsp;idea&nbsp;than&nbsp;hard<br>
+coding&nbsp;specific&nbsp;colours&nbsp;or&nbsp;fonts&nbsp;which&nbsp;might&nbsp;look&nbsp;completely&nbsp;out&nbsp;of<br>
+place&nbsp;on&nbsp;the&nbsp;user's&nbsp;system,&nbsp;especially&nbsp;if&nbsp;it&nbsp;uses&nbsp;themes.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetDefaultItem"><strong>GetDefaultItem</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetDefaultItem">GetDefaultItem</a>(self)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;default&nbsp;child&nbsp;of&nbsp;this&nbsp;parent,&nbsp;i.e.&nbsp;the&nbsp;one&nbsp;which&nbsp;is&nbsp;activated<br>
+by&nbsp;pressing&nbsp;&lt;Enter&gt;&nbsp;such&nbsp;as&nbsp;the&nbsp;OK&nbsp;button&nbsp;on&nbsp;a&nbsp;wx.Dialog.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetDropTarget"><strong>GetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetDropTarget">GetDropTarget</a>(self)&nbsp;-&gt;&nbsp;DropTarget<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;associated&nbsp;drop&nbsp;target,&nbsp;which&nbsp;may&nbsp;be&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetEventHandler"><strong>GetEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetEventHandler">GetEventHandler</a>(self)&nbsp;-&gt;&nbsp;EvtHandler<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;event&nbsp;handler&nbsp;for&nbsp;this&nbsp;window.&nbsp;By&nbsp;default,&nbsp;the&nbsp;window&nbsp;is<br>
+its&nbsp;own&nbsp;event&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetExtraStyle"><strong>GetExtraStyle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetExtraStyle">GetExtraStyle</a>(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;extra&nbsp;style&nbsp;bits&nbsp;for&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetFont"><strong>GetFont</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetFont">GetFont</a>(self)&nbsp;-&gt;&nbsp;Font<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;default&nbsp;font&nbsp;used&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetForegroundColour"><strong>GetForegroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetForegroundColour">GetForegroundColour</a>(self)&nbsp;-&gt;&nbsp;Colour<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;foreground&nbsp;colour&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;The&nbsp;interpretation&nbsp;of<br>
+foreground&nbsp;colour&nbsp;is&nbsp;dependent&nbsp;on&nbsp;the&nbsp;window&nbsp;class;&nbsp;it&nbsp;may&nbsp;be&nbsp;the&nbsp;text<br>
+colour&nbsp;or&nbsp;other&nbsp;colour,&nbsp;or&nbsp;it&nbsp;may&nbsp;not&nbsp;be&nbsp;used&nbsp;at&nbsp;all.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetFullTextExtent"><strong>GetFullTextExtent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetFullTextExtent">GetFullTextExtent</a>(String&nbsp;string,&nbsp;Font&nbsp;font=None)&nbsp;-&gt;<br>
+&nbsp;&nbsp;&nbsp;(width,&nbsp;height,&nbsp;descent,&nbsp;externalLeading)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;width,&nbsp;height,&nbsp;decent&nbsp;and&nbsp;leading&nbsp;of&nbsp;the&nbsp;text&nbsp;using&nbsp;the<br>
+current&nbsp;or&nbsp;specified&nbsp;font.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetGrandParent"><strong>GetGrandParent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetGrandParent">GetGrandParent</a>(self)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;parent&nbsp;of&nbsp;the&nbsp;parent&nbsp;of&nbsp;this&nbsp;window,&nbsp;or&nbsp;None&nbsp;if&nbsp;there<br>
+isn't&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetHandle"><strong>GetHandle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetHandle">GetHandle</a>(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;platform-specific&nbsp;handle&nbsp;(as&nbsp;a&nbsp;long&nbsp;integer)&nbsp;of&nbsp;the<br>
+physical&nbsp;window.&nbsp;&nbsp;Currently&nbsp;on&nbsp;wxMac&nbsp;it&nbsp;returns&nbsp;the&nbsp;handle&nbsp;of&nbsp;the<br>
+toplevel&nbsp;parent&nbsp;of&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetHelpText"><strong>GetHelpText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetHelpText">GetHelpText</a>(self)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Gets&nbsp;the&nbsp;help&nbsp;text&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;context-sensitive&nbsp;help&nbsp;for&nbsp;this<br>
+window.&nbsp;&nbsp;Note&nbsp;that&nbsp;the&nbsp;text&nbsp;is&nbsp;actually&nbsp;stored&nbsp;by&nbsp;the&nbsp;current<br>
+wxHelpProvider&nbsp;implementation,&nbsp;and&nbsp;not&nbsp;in&nbsp;the&nbsp;window&nbsp;object&nbsp;itself.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetId"><strong>GetId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetId">GetId</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;identifier&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;Each&nbsp;window&nbsp;has&nbsp;an&nbsp;integer<br>
+identifier.&nbsp;If&nbsp;the&nbsp;application&nbsp;has&nbsp;not&nbsp;provided&nbsp;one&nbsp;(or&nbsp;the&nbsp;default&nbsp;Id<br>
+-1&nbsp;is&nbsp;used)&nbsp;then&nbsp;an&nbsp;unique&nbsp;identifier&nbsp;with&nbsp;a&nbsp;negative&nbsp;value&nbsp;will&nbsp;be<br>
+generated.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetLabel"><strong>GetLabel</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetLabel">GetLabel</a>(self)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Generic&nbsp;way&nbsp;of&nbsp;getting&nbsp;a&nbsp;label&nbsp;from&nbsp;any&nbsp;window,&nbsp;for&nbsp;identification<br>
+purposes.&nbsp;&nbsp;The&nbsp;interpretation&nbsp;of&nbsp;this&nbsp;function&nbsp;differs&nbsp;from&nbsp;class&nbsp;to<br>
+class.&nbsp;For&nbsp;frames&nbsp;and&nbsp;dialogs,&nbsp;the&nbsp;value&nbsp;returned&nbsp;is&nbsp;the&nbsp;title.&nbsp;For<br>
+buttons&nbsp;or&nbsp;static&nbsp;text&nbsp;controls,&nbsp;it&nbsp;is&nbsp;the&nbsp;button&nbsp;text.&nbsp;This&nbsp;function<br>
+can&nbsp;be&nbsp;useful&nbsp;for&nbsp;meta-programs&nbsp;such&nbsp;as&nbsp;testing&nbsp;tools&nbsp;or&nbsp;special-needs<br>
+access&nbsp;programs)which&nbsp;need&nbsp;to&nbsp;identify&nbsp;windows&nbsp;by&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetMaxHeight"><strong>GetMaxHeight</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetMaxHeight">GetMaxHeight</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetMaxSize"><strong>GetMaxSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetMaxSize">GetMaxSize</a>(self)&nbsp;-&gt;&nbsp;Size</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetMaxWidth"><strong>GetMaxWidth</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetMaxWidth">GetMaxWidth</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetMinHeight"><strong>GetMinHeight</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetMinHeight">GetMinHeight</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetMinSize"><strong>GetMinSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetMinSize">GetMinSize</a>(self)&nbsp;-&gt;&nbsp;Size</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetMinWidth"><strong>GetMinWidth</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetMinWidth">GetMinWidth</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetName"><strong>GetName</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetName">GetName</a>(self)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;windows&nbsp;name.&nbsp;&nbsp;This&nbsp;name&nbsp;is&nbsp;not&nbsp;guaranteed&nbsp;to&nbsp;be&nbsp;unique;<br>
+it&nbsp;is&nbsp;up&nbsp;to&nbsp;the&nbsp;programmer&nbsp;to&nbsp;supply&nbsp;an&nbsp;appropriate&nbsp;name&nbsp;in&nbsp;the&nbsp;window<br>
+constructor&nbsp;or&nbsp;via&nbsp;wx.Window.SetName.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetParent"><strong>GetParent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetParent">GetParent</a>(self)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;parent&nbsp;window&nbsp;of&nbsp;this&nbsp;window,&nbsp;or&nbsp;None&nbsp;if&nbsp;there&nbsp;isn't&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetPosition"><strong>GetPosition</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetPosition">GetPosition</a>(self)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;window's&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetPositionTuple"><strong>GetPositionTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetPositionTuple">GetPositionTuple</a>()&nbsp;-&gt;&nbsp;(x,y)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;window's&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetRect"><strong>GetRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetRect">GetRect</a>(self)&nbsp;-&gt;&nbsp;Rect<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;size&nbsp;and&nbsp;position&nbsp;of&nbsp;the&nbsp;window&nbsp;as&nbsp;a&nbsp;wx.Rect&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetScrollPos"><strong>GetScrollPos</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetScrollPos">GetScrollPos</a>(self,&nbsp;int&nbsp;orientation)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;built-in&nbsp;scrollbar&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetScrollRange"><strong>GetScrollRange</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetScrollRange">GetScrollRange</a>(self,&nbsp;int&nbsp;orientation)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;built-in&nbsp;scrollbar&nbsp;range.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetScrollThumb"><strong>GetScrollThumb</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetScrollThumb">GetScrollThumb</a>(self,&nbsp;int&nbsp;orientation)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;built-in&nbsp;scrollbar&nbsp;thumb&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetSize"><strong>GetSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetSize">GetSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetSizeTuple"><strong>GetSizeTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetSizeTuple">GetSizeTuple</a>()&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetSizer"><strong>GetSizer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetSizer">GetSizer</a>(self)&nbsp;-&gt;&nbsp;Sizer<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;sizer&nbsp;associated&nbsp;with&nbsp;the&nbsp;window&nbsp;by&nbsp;a&nbsp;previous&nbsp;call&nbsp;to<br>
+SetSizer&nbsp;or&nbsp;None&nbsp;if&nbsp;there&nbsp;isn't&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetTextExtent"><strong>GetTextExtent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetTextExtent">GetTextExtent</a>(String&nbsp;string)&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;of&nbsp;the&nbsp;text&nbsp;using&nbsp;the&nbsp;current&nbsp;font.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetThemeEnabled"><strong>GetThemeEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetThemeEnabled">GetThemeEnabled</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;themeEnabled&nbsp;flag.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetToolTip"><strong>GetToolTip</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetToolTip">GetToolTip</a>(self)&nbsp;-&gt;&nbsp;ToolTip<br>
+&nbsp;<br>
+get&nbsp;the&nbsp;associated&nbsp;tooltip&nbsp;or&nbsp;None&nbsp;if&nbsp;none</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetUpdateClientRect"><strong>GetUpdateClientRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetUpdateClientRect">GetUpdateClientRect</a>(self)&nbsp;-&gt;&nbsp;Rect<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;update&nbsp;rectangle&nbsp;region&nbsp;bounding&nbsp;box&nbsp;in&nbsp;client&nbsp;coords.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetUpdateRegion"><strong>GetUpdateRegion</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetUpdateRegion">GetUpdateRegion</a>(self)&nbsp;-&gt;&nbsp;Region<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;region&nbsp;specifying&nbsp;which&nbsp;parts&nbsp;of&nbsp;the&nbsp;window&nbsp;have&nbsp;been<br>
+damaged.&nbsp;Should&nbsp;only&nbsp;be&nbsp;called&nbsp;within&nbsp;an&nbsp;EVT_PAINT&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetValidator"><strong>GetValidator</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetValidator">GetValidator</a>(self)&nbsp;-&gt;&nbsp;Validator<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the&nbsp;current&nbsp;validator&nbsp;for&nbsp;the&nbsp;window,&nbsp;or&nbsp;None&nbsp;if<br>
+there&nbsp;is&nbsp;none.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetVirtualSize"><strong>GetVirtualSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetVirtualSize">GetVirtualSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;the&nbsp;virtual&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;For&nbsp;most&nbsp;windows<br>
+this&nbsp;is&nbsp;just&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window,&nbsp;but&nbsp;for&nbsp;some&nbsp;like&nbsp;scrolled<br>
+windows&nbsp;it&nbsp;is&nbsp;more&nbsp;or&nbsp;less&nbsp;independent&nbsp;of&nbsp;the&nbsp;screen&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetVirtualSizeTuple"><strong>GetVirtualSizeTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetVirtualSizeTuple">GetVirtualSizeTuple</a>()&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;the&nbsp;virtual&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;For&nbsp;most&nbsp;windows<br>
+this&nbsp;is&nbsp;just&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window,&nbsp;but&nbsp;for&nbsp;some&nbsp;like&nbsp;scrolled<br>
+windows&nbsp;it&nbsp;is&nbsp;more&nbsp;or&nbsp;less&nbsp;independent&nbsp;of&nbsp;the&nbsp;screen&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetWindowStyle"><strong>GetWindowStyle</strong></a> = GetWindowStyleFlag(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetWindowStyleFlag">GetWindowStyleFlag</a>(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+Gets&nbsp;the&nbsp;window&nbsp;style&nbsp;that&nbsp;was&nbsp;passed&nbsp;to&nbsp;the&nbsp;constructor&nbsp;or&nbsp;Create<br>
+method.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetWindowStyleFlag"><strong>GetWindowStyleFlag</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetWindowStyleFlag">GetWindowStyleFlag</a>(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+Gets&nbsp;the&nbsp;window&nbsp;style&nbsp;that&nbsp;was&nbsp;passed&nbsp;to&nbsp;the&nbsp;constructor&nbsp;or&nbsp;Create<br>
+method.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetWindowVariant"><strong>GetWindowVariant</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetWindowVariant">GetWindowVariant</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-HasCapture"><strong>HasCapture</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-HasCapture">HasCapture</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;this&nbsp;window&nbsp;has&nbsp;the&nbsp;current&nbsp;mouse&nbsp;capture.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-HasFlag"><strong>HasFlag</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-HasFlag">HasFlag</a>(self,&nbsp;int&nbsp;flag)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Test&nbsp;if&nbsp;the&nbsp;given&nbsp;style&nbsp;is&nbsp;set&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-HasScrollbar"><strong>HasScrollbar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-HasScrollbar">HasScrollbar</a>(self,&nbsp;int&nbsp;orient)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Does&nbsp;the&nbsp;window&nbsp;have&nbsp;the&nbsp;scrollbar&nbsp;for&nbsp;this&nbsp;orientation?</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Hide"><strong>Hide</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Hide">Hide</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Equivalent&nbsp;to&nbsp;calling&nbsp;<a href="#SubplotToolWX-Show">Show</a>(False).</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-HitTest"><strong>HitTest</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-HitTest">HitTest</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Test&nbsp;where&nbsp;the&nbsp;given&nbsp;(in&nbsp;client&nbsp;coords)&nbsp;point&nbsp;lies</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-HitTestXY"><strong>HitTestXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-HitTestXY">HitTestXY</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Test&nbsp;where&nbsp;the&nbsp;given&nbsp;(in&nbsp;client&nbsp;coords)&nbsp;point&nbsp;lies</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-InheritAttributes"><strong>InheritAttributes</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-InheritAttributes">InheritAttributes</a>(self)<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;is&nbsp;(or&nbsp;should&nbsp;be,&nbsp;in&nbsp;case&nbsp;of&nbsp;custom&nbsp;controls)&nbsp;called<br>
+during&nbsp;window&nbsp;creation&nbsp;to&nbsp;intelligently&nbsp;set&nbsp;up&nbsp;the&nbsp;window&nbsp;visual<br>
+attributes,&nbsp;that&nbsp;is&nbsp;the&nbsp;font&nbsp;and&nbsp;the&nbsp;foreground&nbsp;and&nbsp;background<br>
+colours.<br>
+&nbsp;<br>
+By&nbsp;'intelligently'&nbsp;the&nbsp;following&nbsp;is&nbsp;meant:&nbsp;by&nbsp;default,&nbsp;all&nbsp;windows&nbsp;use<br>
+their&nbsp;own&nbsp;default&nbsp;attributes.&nbsp;However&nbsp;if&nbsp;some&nbsp;of&nbsp;the&nbsp;parent's<br>
+attributes&nbsp;are&nbsp;explicitly&nbsp;changed&nbsp;(that&nbsp;is,&nbsp;using&nbsp;SetFont&nbsp;and&nbsp;not<br>
+SetOwnFont)&nbsp;and&nbsp;if&nbsp;the&nbsp;corresponding&nbsp;attribute&nbsp;hadn't&nbsp;been<br>
+explicitly&nbsp;set&nbsp;for&nbsp;this&nbsp;window&nbsp;itself,&nbsp;then&nbsp;this&nbsp;window&nbsp;takes&nbsp;the&nbsp;same<br>
+value&nbsp;as&nbsp;used&nbsp;by&nbsp;the&nbsp;parent.&nbsp;In&nbsp;addition,&nbsp;if&nbsp;the&nbsp;window&nbsp;overrides<br>
+ShouldInheritColours&nbsp;to&nbsp;return&nbsp;false,&nbsp;the&nbsp;colours&nbsp;will&nbsp;not&nbsp;be&nbsp;changed<br>
+no&nbsp;matter&nbsp;what&nbsp;and&nbsp;only&nbsp;the&nbsp;font&nbsp;might.<br>
+&nbsp;<br>
+This&nbsp;rather&nbsp;complicated&nbsp;logic&nbsp;is&nbsp;necessary&nbsp;in&nbsp;order&nbsp;to&nbsp;accommodate&nbsp;the<br>
+different&nbsp;usage&nbsp;scenarios.&nbsp;The&nbsp;most&nbsp;common&nbsp;one&nbsp;is&nbsp;when&nbsp;all&nbsp;default<br>
+attributes&nbsp;are&nbsp;used&nbsp;and&nbsp;in&nbsp;this&nbsp;case,&nbsp;nothing&nbsp;should&nbsp;be&nbsp;inherited&nbsp;as<br>
+in&nbsp;modern&nbsp;GUIs&nbsp;different&nbsp;controls&nbsp;use&nbsp;different&nbsp;fonts&nbsp;(and&nbsp;colours)<br>
+than&nbsp;their&nbsp;siblings&nbsp;so&nbsp;they&nbsp;can't&nbsp;inherit&nbsp;the&nbsp;same&nbsp;value&nbsp;from&nbsp;the<br>
+parent.&nbsp;However&nbsp;it&nbsp;was&nbsp;also&nbsp;deemed&nbsp;desirable&nbsp;to&nbsp;allow&nbsp;to&nbsp;simply&nbsp;change<br>
+the&nbsp;attributes&nbsp;of&nbsp;all&nbsp;children&nbsp;at&nbsp;once&nbsp;by&nbsp;just&nbsp;changing&nbsp;the&nbsp;font&nbsp;or<br>
+colour&nbsp;of&nbsp;their&nbsp;common&nbsp;parent,&nbsp;hence&nbsp;in&nbsp;this&nbsp;case&nbsp;we&nbsp;do&nbsp;inherit&nbsp;the<br>
+parents&nbsp;attributes.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-InitDialog"><strong>InitDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-InitDialog">InitDialog</a>(self)<br>
+&nbsp;<br>
+Sends&nbsp;an&nbsp;EVT_INIT_DIALOG&nbsp;event,&nbsp;whose&nbsp;handler&nbsp;usually&nbsp;transfers&nbsp;data<br>
+to&nbsp;the&nbsp;dialog&nbsp;via&nbsp;validators.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-InvalidateBestSize"><strong>InvalidateBestSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-InvalidateBestSize">InvalidateBestSize</a>(self)<br>
+&nbsp;<br>
+Reset&nbsp;the&nbsp;cached&nbsp;best&nbsp;size&nbsp;value&nbsp;so&nbsp;it&nbsp;will&nbsp;be&nbsp;recalculated&nbsp;the&nbsp;next<br>
+time&nbsp;it&nbsp;is&nbsp;needed.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-IsBeingDeleted"><strong>IsBeingDeleted</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-IsBeingDeleted">IsBeingDeleted</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Is&nbsp;the&nbsp;window&nbsp;in&nbsp;the&nbsp;process&nbsp;of&nbsp;being&nbsp;deleted?</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-IsEnabled"><strong>IsEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-IsEnabled">IsEnabled</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;window&nbsp;is&nbsp;enabled&nbsp;for&nbsp;input,&nbsp;false&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-IsExposed"><strong>IsExposed</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-IsExposed">IsExposed</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y,&nbsp;int&nbsp;w=1,&nbsp;int&nbsp;h=1)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;given&nbsp;point&nbsp;or&nbsp;rectangle&nbsp;area&nbsp;has&nbsp;been&nbsp;exposed<br>
+since&nbsp;the&nbsp;last&nbsp;repaint.&nbsp;Call&nbsp;this&nbsp;in&nbsp;an&nbsp;paint&nbsp;event&nbsp;handler&nbsp;to<br>
+optimize&nbsp;redrawing&nbsp;by&nbsp;only&nbsp;redrawing&nbsp;those&nbsp;areas,&nbsp;which&nbsp;have&nbsp;been<br>
+exposed.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-IsExposedPoint"><strong>IsExposedPoint</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-IsExposedPoint">IsExposedPoint</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;given&nbsp;point&nbsp;or&nbsp;rectangle&nbsp;area&nbsp;has&nbsp;been&nbsp;exposed<br>
+since&nbsp;the&nbsp;last&nbsp;repaint.&nbsp;Call&nbsp;this&nbsp;in&nbsp;an&nbsp;paint&nbsp;event&nbsp;handler&nbsp;to<br>
+optimize&nbsp;redrawing&nbsp;by&nbsp;only&nbsp;redrawing&nbsp;those&nbsp;areas,&nbsp;which&nbsp;have&nbsp;been<br>
+exposed.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-IsExposedRect"><strong>IsExposedRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-IsExposedRect">IsExposedRect</a>(self,&nbsp;Rect&nbsp;rect)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;given&nbsp;point&nbsp;or&nbsp;rectangle&nbsp;area&nbsp;has&nbsp;been&nbsp;exposed<br>
+since&nbsp;the&nbsp;last&nbsp;repaint.&nbsp;Call&nbsp;this&nbsp;in&nbsp;an&nbsp;paint&nbsp;event&nbsp;handler&nbsp;to<br>
+optimize&nbsp;redrawing&nbsp;by&nbsp;only&nbsp;redrawing&nbsp;those&nbsp;areas,&nbsp;which&nbsp;have&nbsp;been<br>
+exposed.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-IsRetained"><strong>IsRetained</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-IsRetained">IsRetained</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;window&nbsp;is&nbsp;retained,&nbsp;false&nbsp;otherwise.&nbsp;&nbsp;Retained<br>
+windows&nbsp;are&nbsp;only&nbsp;available&nbsp;on&nbsp;X&nbsp;platforms.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-IsShown"><strong>IsShown</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-IsShown">IsShown</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;window&nbsp;is&nbsp;shown,&nbsp;false&nbsp;if&nbsp;it&nbsp;has&nbsp;been&nbsp;hidden.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-IsTopLevel"><strong>IsTopLevel</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-IsTopLevel">IsTopLevel</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;given&nbsp;window&nbsp;is&nbsp;a&nbsp;top-level&nbsp;one.&nbsp;Currently&nbsp;all<br>
+frames&nbsp;and&nbsp;dialogs&nbsp;are&nbsp;always&nbsp;considered&nbsp;to&nbsp;be&nbsp;top-level&nbsp;windows&nbsp;(even<br>
+if&nbsp;they&nbsp;have&nbsp;a&nbsp;parent&nbsp;window).</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Layout"><strong>Layout</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Layout">Layout</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Invokes&nbsp;the&nbsp;constraint-based&nbsp;layout&nbsp;algorithm&nbsp;or&nbsp;the&nbsp;sizer-based<br>
+algorithm&nbsp;for&nbsp;this&nbsp;window.&nbsp;&nbsp;See&nbsp;SetAutoLayout:&nbsp;when&nbsp;auto&nbsp;layout&nbsp;is&nbsp;on,<br>
+this&nbsp;function&nbsp;gets&nbsp;called&nbsp;automatically&nbsp;by&nbsp;the&nbsp;default&nbsp;EVT_SIZE<br>
+handler&nbsp;when&nbsp;the&nbsp;window&nbsp;is&nbsp;resized.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-LineDown"><strong>LineDown</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-LineDown">LineDown</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;just&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;<a href="#SubplotToolWX-ScrollLines">ScrollLines</a>(1).</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-LineUp"><strong>LineUp</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-LineUp">LineUp</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;just&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;<a href="#SubplotToolWX-ScrollLines">ScrollLines</a>(-1).</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Lower"><strong>Lower</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Lower">Lower</a>(self)<br>
+&nbsp;<br>
+Lowers&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;bottom&nbsp;of&nbsp;the&nbsp;window&nbsp;hierarchy&nbsp;if&nbsp;it&nbsp;is&nbsp;a<br>
+managed&nbsp;window&nbsp;(dialog&nbsp;or&nbsp;frame).</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-MakeModal"><strong>MakeModal</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-MakeModal">MakeModal</a>(self,&nbsp;bool&nbsp;modal=True)<br>
+&nbsp;<br>
+Disables&nbsp;all&nbsp;other&nbsp;windows&nbsp;in&nbsp;the&nbsp;application&nbsp;so&nbsp;that&nbsp;the&nbsp;user&nbsp;can<br>
+only&nbsp;interact&nbsp;with&nbsp;this&nbsp;window.&nbsp;&nbsp;Passing&nbsp;False&nbsp;will&nbsp;reverse&nbsp;this<br>
+effect.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Move"><strong>Move</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Move">Move</a>(self,&nbsp;Point&nbsp;pt,&nbsp;int&nbsp;flags=SIZE_USE_EXISTING)<br>
+&nbsp;<br>
+Moves&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;given&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-MoveAfterInTabOrder"><strong>MoveAfterInTabOrder</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-MoveAfterInTabOrder">MoveAfterInTabOrder</a>(self,&nbsp;Window&nbsp;win)<br>
+&nbsp;<br>
+Moves&nbsp;this&nbsp;window&nbsp;in&nbsp;the&nbsp;tab&nbsp;navigation&nbsp;order&nbsp;after&nbsp;the&nbsp;specified<br>
+sibling&nbsp;window.&nbsp;&nbsp;This&nbsp;means&nbsp;that&nbsp;when&nbsp;the&nbsp;user&nbsp;presses&nbsp;the&nbsp;TAB&nbsp;key&nbsp;on<br>
+that&nbsp;other&nbsp;window,&nbsp;the&nbsp;focus&nbsp;switches&nbsp;to&nbsp;this&nbsp;window.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;tab&nbsp;order&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;creation&nbsp;order.&nbsp;&nbsp;This&nbsp;function<br>
+and&nbsp;`MoveBeforeInTabOrder`&nbsp;allow&nbsp;to&nbsp;change&nbsp;it&nbsp;after&nbsp;creating&nbsp;all&nbsp;the<br>
+windows.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-MoveBeforeInTabOrder"><strong>MoveBeforeInTabOrder</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-MoveBeforeInTabOrder">MoveBeforeInTabOrder</a>(self,&nbsp;Window&nbsp;win)<br>
+&nbsp;<br>
+Same&nbsp;as&nbsp;`MoveAfterInTabOrder`&nbsp;except&nbsp;that&nbsp;it&nbsp;inserts&nbsp;this&nbsp;window&nbsp;just<br>
+before&nbsp;win&nbsp;instead&nbsp;of&nbsp;putting&nbsp;it&nbsp;right&nbsp;after&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-MoveXY"><strong>MoveXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-MoveXY">MoveXY</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y,&nbsp;int&nbsp;flags=SIZE_USE_EXISTING)<br>
+&nbsp;<br>
+Moves&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;given&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Navigate"><strong>Navigate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Navigate">Navigate</a>(self,&nbsp;int&nbsp;flags=NavigationKeyEvent.IsForward)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Does&nbsp;keyboard&nbsp;navigation&nbsp;from&nbsp;this&nbsp;window&nbsp;to&nbsp;another,&nbsp;by&nbsp;sending&nbsp;a<br>
+`wx.NavigationKeyEvent`.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-PageDown"><strong>PageDown</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-PageDown">PageDown</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;just&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;<a href="#SubplotToolWX-ScrollPages">ScrollPages</a>(1).</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-PageUp"><strong>PageUp</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-PageUp">PageUp</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;just&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;<a href="#SubplotToolWX-ScrollPages">ScrollPages</a>(-1).</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-PopEventHandler"><strong>PopEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-PopEventHandler">PopEventHandler</a>(self,&nbsp;bool&nbsp;deleteHandler=False)&nbsp;-&gt;&nbsp;EvtHandler<br>
+&nbsp;<br>
+Removes&nbsp;and&nbsp;returns&nbsp;the&nbsp;top-most&nbsp;event&nbsp;handler&nbsp;on&nbsp;the&nbsp;event&nbsp;handler<br>
+stack.&nbsp;&nbsp;If&nbsp;deleteHandler&nbsp;is&nbsp;True&nbsp;then&nbsp;the&nbsp;wx.EvtHandler&nbsp;object&nbsp;will&nbsp;be<br>
+destroyed&nbsp;after&nbsp;it&nbsp;is&nbsp;popped.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-PopupMenu"><strong>PopupMenu</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-PopupMenu">PopupMenu</a>(self,&nbsp;Menu&nbsp;menu,&nbsp;Point&nbsp;pos=DefaultPosition)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Pops&nbsp;up&nbsp;the&nbsp;given&nbsp;menu&nbsp;at&nbsp;the&nbsp;specified&nbsp;coordinates,&nbsp;relative&nbsp;to&nbsp;this&nbsp;window,<br>
+and&nbsp;returns&nbsp;control&nbsp;when&nbsp;the&nbsp;user&nbsp;has&nbsp;dismissed&nbsp;the&nbsp;menu.&nbsp;If&nbsp;a&nbsp;menu&nbsp;item&nbsp;is<br>
+selected,&nbsp;the&nbsp;corresponding&nbsp;menu&nbsp;event&nbsp;is&nbsp;generated&nbsp;and&nbsp;will&nbsp;be&nbsp;processed&nbsp;as<br>
+usual.&nbsp;&nbsp;If&nbsp;the&nbsp;default&nbsp;position&nbsp;is&nbsp;given&nbsp;then&nbsp;the&nbsp;current&nbsp;position&nbsp;of&nbsp;the<br>
+mouse&nbsp;cursor&nbsp;will&nbsp;be&nbsp;used.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-PopupMenuXY"><strong>PopupMenuXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-PopupMenuXY">PopupMenuXY</a>(self,&nbsp;Menu&nbsp;menu,&nbsp;int&nbsp;x=-1,&nbsp;int&nbsp;y=-1)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Pops&nbsp;up&nbsp;the&nbsp;given&nbsp;menu&nbsp;at&nbsp;the&nbsp;specified&nbsp;coordinates,&nbsp;relative&nbsp;to&nbsp;this&nbsp;window,<br>
+and&nbsp;returns&nbsp;control&nbsp;when&nbsp;the&nbsp;user&nbsp;has&nbsp;dismissed&nbsp;the&nbsp;menu.&nbsp;If&nbsp;a&nbsp;menu&nbsp;item&nbsp;is<br>
+selected,&nbsp;the&nbsp;corresponding&nbsp;menu&nbsp;event&nbsp;is&nbsp;generated&nbsp;and&nbsp;will&nbsp;be&nbsp;processed&nbsp;as<br>
+usual.&nbsp;&nbsp;If&nbsp;the&nbsp;default&nbsp;position&nbsp;is&nbsp;given&nbsp;then&nbsp;the&nbsp;current&nbsp;position&nbsp;of&nbsp;the<br>
+mouse&nbsp;cursor&nbsp;will&nbsp;be&nbsp;used.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-PostCreate"><strong>PostCreate</strong></a>(self, pre)</dt><dd><tt>Phase&nbsp;3&nbsp;of&nbsp;the&nbsp;2-phase&nbsp;create&nbsp;&lt;wink!&gt;<br>
+Call&nbsp;this&nbsp;method&nbsp;after&nbsp;precreating&nbsp;the&nbsp;window&nbsp;with&nbsp;the&nbsp;2-phase&nbsp;create&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-PrepareDC"><strong>PrepareDC</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-PrepareDC">PrepareDC</a>(self,&nbsp;DC&nbsp;dc)<br>
+&nbsp;<br>
+Call&nbsp;this&nbsp;function&nbsp;to&nbsp;prepare&nbsp;the&nbsp;device&nbsp;context&nbsp;for&nbsp;drawing&nbsp;a<br>
+scrolled&nbsp;image.&nbsp;It&nbsp;sets&nbsp;the&nbsp;device&nbsp;origin&nbsp;according&nbsp;to&nbsp;the&nbsp;current<br>
+scroll&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-PushEventHandler"><strong>PushEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-PushEventHandler">PushEventHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)<br>
+&nbsp;<br>
+Pushes&nbsp;this&nbsp;event&nbsp;handler&nbsp;onto&nbsp;the&nbsp;event&nbsp;handler&nbsp;stack&nbsp;for&nbsp;the&nbsp;window.<br>
+An&nbsp;event&nbsp;handler&nbsp;is&nbsp;an&nbsp;object&nbsp;that&nbsp;is&nbsp;capable&nbsp;of&nbsp;processing&nbsp;the&nbsp;events<br>
+sent&nbsp;to&nbsp;a&nbsp;window.&nbsp;By&nbsp;default,&nbsp;the&nbsp;window&nbsp;is&nbsp;its&nbsp;own&nbsp;event&nbsp;handler,&nbsp;but<br>
+an&nbsp;application&nbsp;may&nbsp;wish&nbsp;to&nbsp;substitute&nbsp;another,&nbsp;for&nbsp;example&nbsp;to&nbsp;allow<br>
+central&nbsp;implementation&nbsp;of&nbsp;event-handling&nbsp;for&nbsp;a&nbsp;variety&nbsp;of&nbsp;different<br>
+window&nbsp;classes.<br>
+&nbsp;<br>
+wx.Window.PushEventHandler&nbsp;allows&nbsp;an&nbsp;application&nbsp;to&nbsp;set&nbsp;up&nbsp;a&nbsp;chain&nbsp;of<br>
+event&nbsp;handlers,&nbsp;where&nbsp;an&nbsp;event&nbsp;not&nbsp;handled&nbsp;by&nbsp;one&nbsp;event&nbsp;handler&nbsp;is<br>
+handed&nbsp;to&nbsp;the&nbsp;next&nbsp;one&nbsp;in&nbsp;the&nbsp;chain.&nbsp;Use&nbsp;`wx.Window.PopEventHandler`&nbsp;to<br>
+remove&nbsp;the&nbsp;event&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Raise"><strong>Raise</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Raise">Raise</a>(self)<br>
+&nbsp;<br>
+Raises&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;top&nbsp;of&nbsp;the&nbsp;window&nbsp;hierarchy&nbsp;if&nbsp;it&nbsp;is&nbsp;a<br>
+managed&nbsp;window&nbsp;(dialog&nbsp;or&nbsp;frame).</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Refresh"><strong>Refresh</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Refresh">Refresh</a>(self,&nbsp;bool&nbsp;eraseBackground=True,&nbsp;Rect&nbsp;rect=None)<br>
+&nbsp;<br>
+Mark&nbsp;the&nbsp;specified&nbsp;rectangle&nbsp;(or&nbsp;the&nbsp;whole&nbsp;window)&nbsp;as&nbsp;"dirty"&nbsp;so&nbsp;it<br>
+will&nbsp;be&nbsp;repainted.&nbsp;&nbsp;Causes&nbsp;an&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;be&nbsp;generated&nbsp;and&nbsp;sent<br>
+to&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect)<br>
+&nbsp;<br>
+Redraws&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;given&nbsp;rectangle:&nbsp;the&nbsp;area&nbsp;inside&nbsp;it&nbsp;will<br>
+be&nbsp;repainted.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;Refresh&nbsp;but&nbsp;has&nbsp;a&nbsp;nicer&nbsp;syntax.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-RegisterHotKey"><strong>RegisterHotKey</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-RegisterHotKey">RegisterHotKey</a>(self,&nbsp;int&nbsp;hotkeyId,&nbsp;int&nbsp;modifiers,&nbsp;int&nbsp;keycode)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Registers&nbsp;a&nbsp;system&nbsp;wide&nbsp;hotkey.&nbsp;Every&nbsp;time&nbsp;the&nbsp;user&nbsp;presses&nbsp;the&nbsp;hotkey<br>
+registered&nbsp;here,&nbsp;this&nbsp;window&nbsp;will&nbsp;receive&nbsp;a&nbsp;hotkey&nbsp;event.&nbsp;It&nbsp;will<br>
+receive&nbsp;the&nbsp;event&nbsp;even&nbsp;if&nbsp;the&nbsp;application&nbsp;is&nbsp;in&nbsp;the&nbsp;background&nbsp;and<br>
+does&nbsp;not&nbsp;have&nbsp;the&nbsp;input&nbsp;focus&nbsp;because&nbsp;the&nbsp;user&nbsp;is&nbsp;working&nbsp;with&nbsp;some<br>
+other&nbsp;application.&nbsp;&nbsp;To&nbsp;bind&nbsp;an&nbsp;event&nbsp;handler&nbsp;function&nbsp;to&nbsp;this&nbsp;hotkey<br>
+use&nbsp;EVT_HOTKEY&nbsp;with&nbsp;an&nbsp;id&nbsp;equal&nbsp;to&nbsp;hotkeyId.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;the<br>
+hotkey&nbsp;was&nbsp;registered&nbsp;successfully.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ReleaseMouse"><strong>ReleaseMouse</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ReleaseMouse">ReleaseMouse</a>(self)<br>
+&nbsp;<br>
+Releases&nbsp;mouse&nbsp;input&nbsp;captured&nbsp;with&nbsp;wx.Window.CaptureMouse.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-RemoveChild"><strong>RemoveChild</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-RemoveChild">RemoveChild</a>(self,&nbsp;Window&nbsp;child)<br>
+&nbsp;<br>
+Removes&nbsp;a&nbsp;child&nbsp;window.&nbsp;This&nbsp;is&nbsp;called&nbsp;automatically&nbsp;by&nbsp;window<br>
+deletion&nbsp;functions&nbsp;so&nbsp;should&nbsp;not&nbsp;be&nbsp;required&nbsp;by&nbsp;the&nbsp;application<br>
+programmer.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-RemoveEventHandler"><strong>RemoveEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-RemoveEventHandler">RemoveEventHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Find&nbsp;the&nbsp;given&nbsp;handler&nbsp;in&nbsp;the&nbsp;event&nbsp;handler&nbsp;chain&nbsp;and&nbsp;remove&nbsp;(but&nbsp;not<br>
+delete)&nbsp;it&nbsp;from&nbsp;the&nbsp;event&nbsp;handler&nbsp;chain,&nbsp;return&nbsp;True&nbsp;if&nbsp;it&nbsp;was&nbsp;found<br>
+and&nbsp;False&nbsp;otherwise&nbsp;(this&nbsp;also&nbsp;results&nbsp;in&nbsp;an&nbsp;assert&nbsp;failure&nbsp;so&nbsp;this<br>
+function&nbsp;should&nbsp;only&nbsp;be&nbsp;called&nbsp;when&nbsp;the&nbsp;handler&nbsp;is&nbsp;supposed&nbsp;to&nbsp;be<br>
+there.)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Reparent"><strong>Reparent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Reparent">Reparent</a>(self,&nbsp;Window&nbsp;newParent)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Reparents&nbsp;the&nbsp;window,&nbsp;i.e&nbsp;the&nbsp;window&nbsp;will&nbsp;be&nbsp;removed&nbsp;from&nbsp;its&nbsp;current<br>
+parent&nbsp;window&nbsp;(e.g.&nbsp;a&nbsp;non-standard&nbsp;toolbar&nbsp;in&nbsp;a&nbsp;wxFrame)&nbsp;and&nbsp;then<br>
+re-inserted&nbsp;into&nbsp;another.&nbsp;Available&nbsp;on&nbsp;Windows&nbsp;and&nbsp;GTK.&nbsp;&nbsp;Returns&nbsp;True<br>
+if&nbsp;the&nbsp;parent&nbsp;was&nbsp;changed,&nbsp;False&nbsp;otherwise&nbsp;(error&nbsp;or&nbsp;newParent&nbsp;==<br>
+oldParent)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ScreenToClient"><strong>ScreenToClient</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ScreenToClient">ScreenToClient</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Converts&nbsp;from&nbsp;screen&nbsp;to&nbsp;client&nbsp;window&nbsp;coordinates.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ScreenToClientXY"><strong>ScreenToClientXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ScreenToClientXY">ScreenToClientXY</a>(int&nbsp;x,&nbsp;int&nbsp;y)&nbsp;-&gt;&nbsp;(x,y)<br>
+&nbsp;<br>
+Converts&nbsp;from&nbsp;screen&nbsp;to&nbsp;client&nbsp;window&nbsp;coordinates.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ScrollLines"><strong>ScrollLines</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ScrollLines">ScrollLines</a>(self,&nbsp;int&nbsp;lines)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;platform&nbsp;and&nbsp;window&nbsp;class&nbsp;supports&nbsp;it,&nbsp;scrolls&nbsp;the&nbsp;window&nbsp;by<br>
+the&nbsp;given&nbsp;number&nbsp;of&nbsp;lines&nbsp;down,&nbsp;if&nbsp;lines&nbsp;is&nbsp;positive,&nbsp;or&nbsp;up&nbsp;if&nbsp;lines<br>
+is&nbsp;negative.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;window&nbsp;was&nbsp;scrolled,&nbsp;False&nbsp;if&nbsp;it&nbsp;was<br>
+already&nbsp;on&nbsp;top/bottom&nbsp;and&nbsp;nothing&nbsp;was&nbsp;done.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ScrollPages"><strong>ScrollPages</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ScrollPages">ScrollPages</a>(self,&nbsp;int&nbsp;pages)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;platform&nbsp;and&nbsp;window&nbsp;class&nbsp;supports&nbsp;it,&nbsp;scrolls&nbsp;the&nbsp;window&nbsp;by<br>
+the&nbsp;given&nbsp;number&nbsp;of&nbsp;pages&nbsp;down,&nbsp;if&nbsp;pages&nbsp;is&nbsp;positive,&nbsp;or&nbsp;up&nbsp;if&nbsp;pages<br>
+is&nbsp;negative.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;window&nbsp;was&nbsp;scrolled,&nbsp;False&nbsp;if&nbsp;it&nbsp;was<br>
+already&nbsp;on&nbsp;top/bottom&nbsp;and&nbsp;nothing&nbsp;was&nbsp;done.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ScrollWindow"><strong>ScrollWindow</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ScrollWindow">ScrollWindow</a>(self,&nbsp;int&nbsp;dx,&nbsp;int&nbsp;dy,&nbsp;Rect&nbsp;rect=None)<br>
+&nbsp;<br>
+Physically&nbsp;scrolls&nbsp;the&nbsp;pixels&nbsp;in&nbsp;the&nbsp;window&nbsp;and&nbsp;move&nbsp;child&nbsp;windows<br>
+accordingly.&nbsp;&nbsp;Use&nbsp;this&nbsp;function&nbsp;to&nbsp;optimise&nbsp;your&nbsp;scrolling<br>
+implementations,&nbsp;to&nbsp;minimise&nbsp;the&nbsp;area&nbsp;that&nbsp;must&nbsp;be&nbsp;redrawn.&nbsp;Note&nbsp;that<br>
+it&nbsp;is&nbsp;rarely&nbsp;required&nbsp;to&nbsp;call&nbsp;this&nbsp;function&nbsp;from&nbsp;a&nbsp;user&nbsp;program.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetAcceleratorTable"><strong>SetAcceleratorTable</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetAcceleratorTable">SetAcceleratorTable</a>(self,&nbsp;AcceleratorTable&nbsp;accel)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;accelerator&nbsp;table&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetAutoLayout"><strong>SetAutoLayout</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetAutoLayout">SetAutoLayout</a>(self,&nbsp;bool&nbsp;autoLayout)<br>
+&nbsp;<br>
+Determines&nbsp;whether&nbsp;the&nbsp;Layout&nbsp;function&nbsp;will&nbsp;be&nbsp;called&nbsp;automatically<br>
+when&nbsp;the&nbsp;window&nbsp;is&nbsp;resized.&nbsp;&nbsp;It&nbsp;is&nbsp;called&nbsp;implicitly&nbsp;by&nbsp;SetSizer&nbsp;but<br>
+if&nbsp;you&nbsp;use&nbsp;SetConstraints&nbsp;you&nbsp;should&nbsp;call&nbsp;it&nbsp;manually&nbsp;or&nbsp;otherwise&nbsp;the<br>
+window&nbsp;layout&nbsp;won't&nbsp;be&nbsp;correctly&nbsp;updated&nbsp;when&nbsp;its&nbsp;size&nbsp;changes.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetBackgroundColour"><strong>SetBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetBackgroundColour">SetBackgroundColour</a>(self,&nbsp;Colour&nbsp;colour)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;background&nbsp;colour&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;colour<br>
+was&nbsp;changed.&nbsp;&nbsp;The&nbsp;background&nbsp;colour&nbsp;is&nbsp;usually&nbsp;painted&nbsp;by&nbsp;the&nbsp;default<br>
+EVT_ERASE_BACKGROUND&nbsp;event&nbsp;handler&nbsp;function&nbsp;under&nbsp;Windows&nbsp;and<br>
+automatically&nbsp;under&nbsp;GTK.&nbsp;&nbsp;Using&nbsp;`wx.NullColour`&nbsp;will&nbsp;reset&nbsp;the&nbsp;window<br>
+to&nbsp;the&nbsp;default&nbsp;background&nbsp;colour.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;setting&nbsp;the&nbsp;background&nbsp;colour&nbsp;may&nbsp;not&nbsp;cause&nbsp;an&nbsp;immediate<br>
+refresh,&nbsp;so&nbsp;you&nbsp;may&nbsp;wish&nbsp;to&nbsp;call&nbsp;`ClearBackground`&nbsp;or&nbsp;`Refresh`&nbsp;after<br>
+calling&nbsp;this&nbsp;function.<br>
+&nbsp;<br>
+Using&nbsp;this&nbsp;function&nbsp;will&nbsp;disable&nbsp;attempts&nbsp;to&nbsp;use&nbsp;themes&nbsp;for&nbsp;this<br>
+window,&nbsp;if&nbsp;the&nbsp;system&nbsp;supports&nbsp;them.&nbsp;&nbsp;Use&nbsp;with&nbsp;care&nbsp;since&nbsp;usually&nbsp;the<br>
+themes&nbsp;represent&nbsp;the&nbsp;appearance&nbsp;chosen&nbsp;by&nbsp;the&nbsp;user&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;all<br>
+applications&nbsp;on&nbsp;the&nbsp;system.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetBackgroundStyle"><strong>SetBackgroundStyle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetBackgroundStyle">SetBackgroundStyle</a>(self,&nbsp;int&nbsp;style)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;background&nbsp;style&nbsp;of&nbsp;the&nbsp;window.&nbsp;The&nbsp;background&nbsp;style<br>
+indicates&nbsp;how&nbsp;the&nbsp;background&nbsp;of&nbsp;the&nbsp;window&nbsp;is&nbsp;drawn.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;======================&nbsp;&nbsp;========================================<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wx.BG_STYLE_SYSTEM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;background&nbsp;colour&nbsp;or&nbsp;pattern&nbsp;should<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;determined&nbsp;by&nbsp;the&nbsp;system<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wx.BG_STYLE_COLOUR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;background&nbsp;should&nbsp;be&nbsp;a&nbsp;solid&nbsp;colour<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wx.BG_STYLE_CUSTOM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;background&nbsp;will&nbsp;be&nbsp;implemented&nbsp;by&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;======================&nbsp;&nbsp;========================================<br>
+&nbsp;<br>
+On&nbsp;GTK+,&nbsp;use&nbsp;of&nbsp;wx.BG_STYLE_CUSTOM&nbsp;allows&nbsp;the&nbsp;flicker-free&nbsp;drawing&nbsp;of<br>
+a&nbsp;custom&nbsp;background,&nbsp;such&nbsp;as&nbsp;a&nbsp;tiled&nbsp;bitmap.&nbsp;Currently&nbsp;the&nbsp;style&nbsp;has<br>
+no&nbsp;effect&nbsp;on&nbsp;other&nbsp;platforms.<br>
+&nbsp;<br>
+:see:&nbsp;`GetBackgroundStyle`,&nbsp;`SetBackgroundColour`</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetBestFittingSize"><strong>SetBestFittingSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetBestFittingSize">SetBestFittingSize</a>(self,&nbsp;Size&nbsp;size=DefaultSize)<br>
+&nbsp;<br>
+A&nbsp;'Smart'&nbsp;SetSize&nbsp;that&nbsp;will&nbsp;fill&nbsp;in&nbsp;default&nbsp;size&nbsp;components&nbsp;with&nbsp;the<br>
+window's&nbsp;*best&nbsp;size*&nbsp;values.&nbsp;&nbsp;Also&nbsp;set's&nbsp;the&nbsp;minsize&nbsp;for&nbsp;use&nbsp;with&nbsp;sizers.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetCaret"><strong>SetCaret</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetCaret">SetCaret</a>(self,&nbsp;Caret&nbsp;caret)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;caret&nbsp;associated&nbsp;with&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetClientRect"><strong>SetClientRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetClientRect">SetClientRect</a>(self,&nbsp;Rect&nbsp;rect)<br>
+&nbsp;<br>
+This&nbsp;sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;client&nbsp;area&nbsp;in&nbsp;pixels.&nbsp;Using&nbsp;this<br>
+function&nbsp;to&nbsp;size&nbsp;a&nbsp;window&nbsp;tends&nbsp;to&nbsp;be&nbsp;more&nbsp;device-independent&nbsp;than<br>
+wx.Window.SetSize,&nbsp;since&nbsp;the&nbsp;application&nbsp;need&nbsp;not&nbsp;worry&nbsp;about&nbsp;what<br>
+dimensions&nbsp;the&nbsp;border&nbsp;or&nbsp;title&nbsp;bar&nbsp;have&nbsp;when&nbsp;trying&nbsp;to&nbsp;fit&nbsp;the&nbsp;window<br>
+around&nbsp;panel&nbsp;items,&nbsp;for&nbsp;example.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetClientSize"><strong>SetClientSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetClientSize">SetClientSize</a>(self,&nbsp;Size&nbsp;size)<br>
+&nbsp;<br>
+This&nbsp;sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;client&nbsp;area&nbsp;in&nbsp;pixels.&nbsp;Using&nbsp;this<br>
+function&nbsp;to&nbsp;size&nbsp;a&nbsp;window&nbsp;tends&nbsp;to&nbsp;be&nbsp;more&nbsp;device-independent&nbsp;than<br>
+wx.Window.SetSize,&nbsp;since&nbsp;the&nbsp;application&nbsp;need&nbsp;not&nbsp;worry&nbsp;about&nbsp;what<br>
+dimensions&nbsp;the&nbsp;border&nbsp;or&nbsp;title&nbsp;bar&nbsp;have&nbsp;when&nbsp;trying&nbsp;to&nbsp;fit&nbsp;the&nbsp;window<br>
+around&nbsp;panel&nbsp;items,&nbsp;for&nbsp;example.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetClientSizeWH"><strong>SetClientSizeWH</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetClientSizeWH">SetClientSizeWH</a>(self,&nbsp;int&nbsp;width,&nbsp;int&nbsp;height)<br>
+&nbsp;<br>
+This&nbsp;sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;client&nbsp;area&nbsp;in&nbsp;pixels.&nbsp;Using&nbsp;this<br>
+function&nbsp;to&nbsp;size&nbsp;a&nbsp;window&nbsp;tends&nbsp;to&nbsp;be&nbsp;more&nbsp;device-independent&nbsp;than<br>
+wx.Window.SetSize,&nbsp;since&nbsp;the&nbsp;application&nbsp;need&nbsp;not&nbsp;worry&nbsp;about&nbsp;what<br>
+dimensions&nbsp;the&nbsp;border&nbsp;or&nbsp;title&nbsp;bar&nbsp;have&nbsp;when&nbsp;trying&nbsp;to&nbsp;fit&nbsp;the&nbsp;window<br>
+around&nbsp;panel&nbsp;items,&nbsp;for&nbsp;example.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetConstraints"><strong>SetConstraints</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetConstraints">SetConstraints</a>(self,&nbsp;LayoutConstraints&nbsp;constraints)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;window&nbsp;to&nbsp;have&nbsp;the&nbsp;given&nbsp;layout&nbsp;constraints.&nbsp;If&nbsp;an&nbsp;existing<br>
+layout&nbsp;constraints&nbsp;object&nbsp;is&nbsp;already&nbsp;owned&nbsp;by&nbsp;the&nbsp;window,&nbsp;it&nbsp;will&nbsp;be<br>
+deleted.&nbsp;&nbsp;Pass&nbsp;None&nbsp;to&nbsp;disassociate&nbsp;and&nbsp;delete&nbsp;the&nbsp;window's&nbsp;current<br>
+constraints.<br>
+&nbsp;<br>
+You&nbsp;must&nbsp;call&nbsp;SetAutoLayout&nbsp;to&nbsp;tell&nbsp;a&nbsp;window&nbsp;to&nbsp;use&nbsp;the&nbsp;constraints<br>
+automatically&nbsp;in&nbsp;its&nbsp;default&nbsp;EVT_SIZE&nbsp;handler;&nbsp;otherwise,&nbsp;you&nbsp;must<br>
+handle&nbsp;EVT_SIZE&nbsp;yourself&nbsp;and&nbsp;call&nbsp;<a href="#SubplotToolWX-Layout">Layout</a>()&nbsp;explicitly.&nbsp;When&nbsp;setting<br>
+both&nbsp;a&nbsp;wx.LayoutConstraints&nbsp;and&nbsp;a&nbsp;wx.Sizer,&nbsp;only&nbsp;the&nbsp;sizer&nbsp;will&nbsp;have<br>
+effect.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetContainingSizer"><strong>SetContainingSizer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetContainingSizer">SetContainingSizer</a>(self,&nbsp;Sizer&nbsp;sizer)<br>
+&nbsp;<br>
+This&nbsp;normally&nbsp;does&nbsp;not&nbsp;need&nbsp;to&nbsp;be&nbsp;called&nbsp;by&nbsp;application&nbsp;code.&nbsp;It&nbsp;is<br>
+called&nbsp;internally&nbsp;when&nbsp;a&nbsp;window&nbsp;is&nbsp;added&nbsp;to&nbsp;a&nbsp;sizer,&nbsp;and&nbsp;is&nbsp;used&nbsp;so<br>
+the&nbsp;window&nbsp;can&nbsp;remove&nbsp;itself&nbsp;from&nbsp;the&nbsp;sizer&nbsp;when&nbsp;it&nbsp;is&nbsp;destroyed.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetCursor"><strong>SetCursor</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetCursor">SetCursor</a>(self,&nbsp;Cursor&nbsp;cursor)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;window's&nbsp;cursor.&nbsp;Notice&nbsp;that&nbsp;the&nbsp;window&nbsp;cursor&nbsp;also&nbsp;sets&nbsp;it<br>
+for&nbsp;the&nbsp;children&nbsp;of&nbsp;the&nbsp;window&nbsp;implicitly.<br>
+&nbsp;<br>
+The&nbsp;cursor&nbsp;may&nbsp;be&nbsp;wx.NullCursor&nbsp;in&nbsp;which&nbsp;case&nbsp;the&nbsp;window&nbsp;cursor&nbsp;will<br>
+be&nbsp;reset&nbsp;back&nbsp;to&nbsp;default.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetDefaultItem"><strong>SetDefaultItem</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetDefaultItem">SetDefaultItem</a>(self,&nbsp;Window&nbsp;child)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Set&nbsp;this&nbsp;child&nbsp;as&nbsp;default,&nbsp;return&nbsp;the&nbsp;old&nbsp;default.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetDimensions"><strong>SetDimensions</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetDimensions">SetDimensions</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y,&nbsp;int&nbsp;width,&nbsp;int&nbsp;height,&nbsp;int&nbsp;sizeFlags=SIZE_AUTO)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;The&nbsp;sizeFlags<br>
+parameter&nbsp;indicates&nbsp;the&nbsp;interpretation&nbsp;of&nbsp;the&nbsp;other&nbsp;params&nbsp;if&nbsp;they&nbsp;are<br>
+-1.&nbsp;&nbsp;wx.SIZE_AUTO*:&nbsp;a&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific&nbsp;default<br>
+shoudl&nbsp;be&nbsp;used.&nbsp;&nbsp;wx.SIZE_USE_EXISTING:&nbsp;existing&nbsp;dimensions&nbsp;should&nbsp;be<br>
+used&nbsp;if&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE:&nbsp;allow<br>
+dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
+default&nbsp;values.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetDropTarget"><strong>SetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetDropTarget">SetDropTarget</a>(self,&nbsp;DropTarget&nbsp;dropTarget)<br>
+&nbsp;<br>
+Associates&nbsp;a&nbsp;drop&nbsp;target&nbsp;with&nbsp;this&nbsp;window.&nbsp;&nbsp;If&nbsp;the&nbsp;window&nbsp;already&nbsp;has<br>
+a&nbsp;drop&nbsp;target,&nbsp;it&nbsp;is&nbsp;deleted.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetEventHandler"><strong>SetEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetEventHandler">SetEventHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;event&nbsp;handler&nbsp;for&nbsp;this&nbsp;window.&nbsp;&nbsp;An&nbsp;event&nbsp;handler&nbsp;is&nbsp;an&nbsp;object<br>
+that&nbsp;is&nbsp;capable&nbsp;of&nbsp;processing&nbsp;the&nbsp;events&nbsp;sent&nbsp;to&nbsp;a&nbsp;window.&nbsp;By&nbsp;default,<br>
+the&nbsp;window&nbsp;is&nbsp;its&nbsp;own&nbsp;event&nbsp;handler,&nbsp;but&nbsp;an&nbsp;application&nbsp;may&nbsp;wish&nbsp;to<br>
+substitute&nbsp;another,&nbsp;for&nbsp;example&nbsp;to&nbsp;allow&nbsp;central&nbsp;implementation&nbsp;of<br>
+event-handling&nbsp;for&nbsp;a&nbsp;variety&nbsp;of&nbsp;different&nbsp;window&nbsp;classes.<br>
+&nbsp;<br>
+It&nbsp;is&nbsp;usually&nbsp;better&nbsp;to&nbsp;use&nbsp;`wx.Window.PushEventHandler`&nbsp;since&nbsp;this&nbsp;sets<br>
+up&nbsp;a&nbsp;chain&nbsp;of&nbsp;event&nbsp;handlers,&nbsp;where&nbsp;an&nbsp;event&nbsp;not&nbsp;handled&nbsp;by&nbsp;one&nbsp;event<br>
+handler&nbsp;is&nbsp;handed&nbsp;to&nbsp;the&nbsp;next&nbsp;one&nbsp;in&nbsp;the&nbsp;chain.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetExtraStyle"><strong>SetExtraStyle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetExtraStyle">SetExtraStyle</a>(self,&nbsp;long&nbsp;exStyle)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;extra&nbsp;style&nbsp;bits&nbsp;for&nbsp;the&nbsp;window.&nbsp;&nbsp;Extra&nbsp;styles&nbsp;are&nbsp;the&nbsp;less<br>
+often&nbsp;used&nbsp;style&nbsp;bits&nbsp;which&nbsp;can't&nbsp;be&nbsp;set&nbsp;with&nbsp;the&nbsp;constructor&nbsp;or&nbsp;with<br>
+<a href="#SubplotToolWX-SetWindowStyleFlag">SetWindowStyleFlag</a>()</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetFocus"><strong>SetFocus</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetFocus">SetFocus</a>(self)<br>
+&nbsp;<br>
+Set's&nbsp;the&nbsp;focus&nbsp;to&nbsp;this&nbsp;window,&nbsp;allowing&nbsp;it&nbsp;to&nbsp;receive&nbsp;keyboard&nbsp;input.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetFocusFromKbd"><strong>SetFocusFromKbd</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetFocusFromKbd">SetFocusFromKbd</a>(self)<br>
+&nbsp;<br>
+Set&nbsp;focus&nbsp;to&nbsp;this&nbsp;window&nbsp;as&nbsp;the&nbsp;result&nbsp;of&nbsp;a&nbsp;keyboard&nbsp;action.&nbsp;&nbsp;Normally<br>
+only&nbsp;called&nbsp;internally.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetFont"><strong>SetFont</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetFont">SetFont</a>(self,&nbsp;Font&nbsp;font)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;font&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetForegroundColour"><strong>SetForegroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetForegroundColour">SetForegroundColour</a>(self,&nbsp;Colour&nbsp;colour)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;foreground&nbsp;colour&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;Returns&nbsp;True&nbsp;is&nbsp;the&nbsp;colour<br>
+was&nbsp;changed.&nbsp;&nbsp;The&nbsp;interpretation&nbsp;of&nbsp;foreground&nbsp;colour&nbsp;is&nbsp;dependent&nbsp;on<br>
+the&nbsp;window&nbsp;class;&nbsp;it&nbsp;may&nbsp;be&nbsp;the&nbsp;text&nbsp;colour&nbsp;or&nbsp;other&nbsp;colour,&nbsp;or&nbsp;it&nbsp;may<br>
+not&nbsp;be&nbsp;used&nbsp;at&nbsp;all.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetHelpText"><strong>SetHelpText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetHelpText">SetHelpText</a>(self,&nbsp;String&nbsp;text)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;help&nbsp;text&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;context-sensitive&nbsp;help&nbsp;for&nbsp;this<br>
+window.&nbsp;&nbsp;Note&nbsp;that&nbsp;the&nbsp;text&nbsp;is&nbsp;actually&nbsp;stored&nbsp;by&nbsp;the&nbsp;current<br>
+wxHelpProvider&nbsp;implementation,&nbsp;and&nbsp;not&nbsp;in&nbsp;the&nbsp;window&nbsp;object&nbsp;itself.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetHelpTextForId"><strong>SetHelpTextForId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetHelpTextForId">SetHelpTextForId</a>(self,&nbsp;String&nbsp;text)<br>
+&nbsp;<br>
+Associate&nbsp;this&nbsp;help&nbsp;text&nbsp;with&nbsp;all&nbsp;windows&nbsp;with&nbsp;the&nbsp;same&nbsp;id&nbsp;as&nbsp;this<br>
+one.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetId"><strong>SetId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetId">SetId</a>(self,&nbsp;int&nbsp;winid)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;identifier&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;Each&nbsp;window&nbsp;has&nbsp;an&nbsp;integer<br>
+identifier.&nbsp;If&nbsp;the&nbsp;application&nbsp;has&nbsp;not&nbsp;provided&nbsp;one,&nbsp;an&nbsp;identifier<br>
+will&nbsp;be&nbsp;generated.&nbsp;Normally,&nbsp;the&nbsp;identifier&nbsp;should&nbsp;be&nbsp;provided&nbsp;on<br>
+creation&nbsp;and&nbsp;should&nbsp;not&nbsp;be&nbsp;modified&nbsp;subsequently.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetLabel"><strong>SetLabel</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetLabel">SetLabel</a>(self,&nbsp;String&nbsp;label)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;text&nbsp;which&nbsp;the&nbsp;window&nbsp;shows&nbsp;in&nbsp;its&nbsp;label&nbsp;if&nbsp;applicable.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetMaxSize"><strong>SetMaxSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetMaxSize">SetMaxSize</a>(self,&nbsp;Size&nbsp;maxSize)<br>
+&nbsp;<br>
+A&nbsp;more&nbsp;convenient&nbsp;method&nbsp;than&nbsp;`SetSizeHints`&nbsp;for&nbsp;setting&nbsp;just&nbsp;the<br>
+max&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetMinSize"><strong>SetMinSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetMinSize">SetMinSize</a>(self,&nbsp;Size&nbsp;minSize)<br>
+&nbsp;<br>
+A&nbsp;more&nbsp;convenient&nbsp;method&nbsp;than&nbsp;`SetSizeHints`&nbsp;for&nbsp;setting&nbsp;just&nbsp;the<br>
+min&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetName"><strong>SetName</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetName">SetName</a>(self,&nbsp;String&nbsp;name)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;window's&nbsp;name.&nbsp;&nbsp;The&nbsp;window&nbsp;name&nbsp;is&nbsp;used&nbsp;for&nbsp;ressource&nbsp;setting<br>
+in&nbsp;X,&nbsp;it&nbsp;is&nbsp;not&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;window&nbsp;title/label</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetOwnBackgroundColour"><strong>SetOwnBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetOwnBackgroundColour">SetOwnBackgroundColour</a>(self,&nbsp;Colour&nbsp;colour)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetOwnFont"><strong>SetOwnFont</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetOwnFont">SetOwnFont</a>(self,&nbsp;Font&nbsp;font)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetOwnForegroundColour"><strong>SetOwnForegroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetOwnForegroundColour">SetOwnForegroundColour</a>(self,&nbsp;Colour&nbsp;colour)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetPosition"><strong>SetPosition</strong></a> = Move(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Move">Move</a>(self,&nbsp;Point&nbsp;pt,&nbsp;int&nbsp;flags=SIZE_USE_EXISTING)<br>
+&nbsp;<br>
+Moves&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;given&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetRect"><strong>SetRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetRect">SetRect</a>(self,&nbsp;Rect&nbsp;rect,&nbsp;int&nbsp;sizeFlags=SIZE_AUTO)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels&nbsp;using&nbsp;a&nbsp;wx.Rect.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetScrollPos"><strong>SetScrollPos</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetScrollPos">SetScrollPos</a>(self,&nbsp;int&nbsp;orientation,&nbsp;int&nbsp;pos,&nbsp;bool&nbsp;refresh=True)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;position&nbsp;of&nbsp;one&nbsp;of&nbsp;the&nbsp;built-in&nbsp;scrollbars.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetScrollbar"><strong>SetScrollbar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetScrollbar">SetScrollbar</a>(self,&nbsp;int&nbsp;orientation,&nbsp;int&nbsp;position,&nbsp;int&nbsp;thumbSize,&nbsp;int&nbsp;range,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool&nbsp;refresh=True)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;scrollbar&nbsp;properties&nbsp;of&nbsp;a&nbsp;built-in&nbsp;scrollbar.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetSize"><strong>SetSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetSize">SetSize</a>(self,&nbsp;Size&nbsp;size)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetSizeHints"><strong>SetSizeHints</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetSizeHints">SetSizeHints</a>(self,&nbsp;int&nbsp;minW,&nbsp;int&nbsp;minH,&nbsp;int&nbsp;maxW=-1,&nbsp;int&nbsp;maxH=-1,&nbsp;int&nbsp;incW=-1,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;incH=-1)<br>
+&nbsp;<br>
+Allows&nbsp;specification&nbsp;of&nbsp;minimum&nbsp;and&nbsp;maximum&nbsp;window&nbsp;sizes,&nbsp;and&nbsp;window<br>
+size&nbsp;increments.&nbsp;If&nbsp;a&nbsp;pair&nbsp;of&nbsp;values&nbsp;is&nbsp;not&nbsp;set&nbsp;(or&nbsp;set&nbsp;to&nbsp;-1),&nbsp;the<br>
+default&nbsp;values&nbsp;will&nbsp;be&nbsp;used.&nbsp;&nbsp;If&nbsp;this&nbsp;function&nbsp;is&nbsp;called,&nbsp;the&nbsp;user<br>
+will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;size&nbsp;the&nbsp;window&nbsp;outside&nbsp;the&nbsp;given&nbsp;bounds&nbsp;(if&nbsp;it&nbsp;is<br>
+a&nbsp;top-level&nbsp;window.)&nbsp;&nbsp;Sizers&nbsp;will&nbsp;also&nbsp;inspect&nbsp;the&nbsp;minimum&nbsp;window&nbsp;size<br>
+and&nbsp;will&nbsp;use&nbsp;that&nbsp;value&nbsp;if&nbsp;set&nbsp;when&nbsp;calculating&nbsp;layout.<br>
+&nbsp;<br>
+The&nbsp;resizing&nbsp;increments&nbsp;are&nbsp;only&nbsp;significant&nbsp;under&nbsp;Motif&nbsp;or&nbsp;Xt.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetSizeHintsSz"><strong>SetSizeHintsSz</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetSizeHintsSz">SetSizeHintsSz</a>(self,&nbsp;Size&nbsp;minSize,&nbsp;Size&nbsp;maxSize=DefaultSize,&nbsp;Size&nbsp;incSize=DefaultSize)<br>
+&nbsp;<br>
+Allows&nbsp;specification&nbsp;of&nbsp;minimum&nbsp;and&nbsp;maximum&nbsp;window&nbsp;sizes,&nbsp;and&nbsp;window<br>
+size&nbsp;increments.&nbsp;If&nbsp;a&nbsp;pair&nbsp;of&nbsp;values&nbsp;is&nbsp;not&nbsp;set&nbsp;(or&nbsp;set&nbsp;to&nbsp;-1),&nbsp;the<br>
+default&nbsp;values&nbsp;will&nbsp;be&nbsp;used.&nbsp;&nbsp;If&nbsp;this&nbsp;function&nbsp;is&nbsp;called,&nbsp;the&nbsp;user<br>
+will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;size&nbsp;the&nbsp;window&nbsp;outside&nbsp;the&nbsp;given&nbsp;bounds&nbsp;(if&nbsp;it&nbsp;is<br>
+a&nbsp;top-level&nbsp;window.)&nbsp;&nbsp;Sizers&nbsp;will&nbsp;also&nbsp;inspect&nbsp;the&nbsp;minimum&nbsp;window&nbsp;size<br>
+and&nbsp;will&nbsp;use&nbsp;that&nbsp;value&nbsp;if&nbsp;set&nbsp;when&nbsp;calculating&nbsp;layout.<br>
+&nbsp;<br>
+The&nbsp;resizing&nbsp;increments&nbsp;are&nbsp;only&nbsp;significant&nbsp;under&nbsp;Motif&nbsp;or&nbsp;Xt.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetSizeWH"><strong>SetSizeWH</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetSizeWH">SetSizeWH</a>(self,&nbsp;int&nbsp;width,&nbsp;int&nbsp;height)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetSizer"><strong>SetSizer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetSizer">SetSizer</a>(self,&nbsp;Sizer&nbsp;sizer,&nbsp;bool&nbsp;deleteOld=True)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;window&nbsp;to&nbsp;have&nbsp;the&nbsp;given&nbsp;layout&nbsp;sizer.&nbsp;The&nbsp;window&nbsp;will&nbsp;then<br>
+own&nbsp;the&nbsp;object,&nbsp;and&nbsp;will&nbsp;take&nbsp;care&nbsp;of&nbsp;its&nbsp;deletion.&nbsp;If&nbsp;an&nbsp;existing<br>
+layout&nbsp;sizer&nbsp;object&nbsp;is&nbsp;already&nbsp;owned&nbsp;by&nbsp;the&nbsp;window,&nbsp;it&nbsp;will&nbsp;be&nbsp;deleted<br>
+if&nbsp;the&nbsp;deleteOld&nbsp;parameter&nbsp;is&nbsp;true.&nbsp;Note&nbsp;that&nbsp;this&nbsp;function&nbsp;will&nbsp;also<br>
+call&nbsp;SetAutoLayout&nbsp;implicitly&nbsp;with&nbsp;a&nbsp;True&nbsp;parameter&nbsp;if&nbsp;the&nbsp;sizer&nbsp;is<br>
+non-None,&nbsp;and&nbsp;False&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetSizerAndFit"><strong>SetSizerAndFit</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetSizerAndFit">SetSizerAndFit</a>(self,&nbsp;Sizer&nbsp;sizer,&nbsp;bool&nbsp;deleteOld=True)<br>
+&nbsp;<br>
+The&nbsp;same&nbsp;as&nbsp;SetSizer,&nbsp;except&nbsp;it&nbsp;also&nbsp;sets&nbsp;the&nbsp;size&nbsp;hints&nbsp;for&nbsp;the<br>
+window&nbsp;based&nbsp;on&nbsp;the&nbsp;sizer's&nbsp;minimum&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetThemeEnabled"><strong>SetThemeEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetThemeEnabled">SetThemeEnabled</a>(self,&nbsp;bool&nbsp;enableTheme)<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;tells&nbsp;a&nbsp;window&nbsp;if&nbsp;it&nbsp;should&nbsp;use&nbsp;the&nbsp;system's&nbsp;"theme"<br>
+&nbsp;code&nbsp;to&nbsp;draw&nbsp;the&nbsp;windows'&nbsp;background&nbsp;instead&nbsp;if&nbsp;its&nbsp;own&nbsp;background<br>
+&nbsp;drawing&nbsp;code.&nbsp;This&nbsp;will&nbsp;only&nbsp;have&nbsp;an&nbsp;effect&nbsp;on&nbsp;platforms&nbsp;that&nbsp;support<br>
+&nbsp;the&nbsp;notion&nbsp;of&nbsp;themes&nbsp;in&nbsp;user&nbsp;defined&nbsp;windows.&nbsp;One&nbsp;such&nbsp;platform&nbsp;is<br>
+&nbsp;GTK+&nbsp;where&nbsp;windows&nbsp;can&nbsp;have&nbsp;(very&nbsp;colourful)&nbsp;backgrounds&nbsp;defined&nbsp;by&nbsp;a<br>
+&nbsp;user's&nbsp;selected&nbsp;theme.<br>
+&nbsp;<br>
+Dialogs,&nbsp;notebook&nbsp;pages&nbsp;and&nbsp;the&nbsp;status&nbsp;bar&nbsp;have&nbsp;this&nbsp;flag&nbsp;set&nbsp;to&nbsp;true<br>
+by&nbsp;default&nbsp;so&nbsp;that&nbsp;the&nbsp;default&nbsp;look&nbsp;and&nbsp;feel&nbsp;is&nbsp;simulated&nbsp;best.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetTmpDefaultItem"><strong>SetTmpDefaultItem</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetTmpDefaultItem">SetTmpDefaultItem</a>(self,&nbsp;Window&nbsp;win)<br>
+&nbsp;<br>
+Set&nbsp;this&nbsp;child&nbsp;as&nbsp;temporary&nbsp;default</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetToolTip"><strong>SetToolTip</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetToolTip">SetToolTip</a>(self,&nbsp;ToolTip&nbsp;tip)<br>
+&nbsp;<br>
+Attach&nbsp;a&nbsp;tooltip&nbsp;to&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetToolTipString"><strong>SetToolTipString</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetToolTipString">SetToolTipString</a>(self,&nbsp;String&nbsp;tip)<br>
+&nbsp;<br>
+Attach&nbsp;a&nbsp;tooltip&nbsp;to&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetValidator"><strong>SetValidator</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetValidator">SetValidator</a>(self,&nbsp;Validator&nbsp;validator)<br>
+&nbsp;<br>
+Deletes&nbsp;the&nbsp;current&nbsp;validator&nbsp;(if&nbsp;any)&nbsp;and&nbsp;sets&nbsp;the&nbsp;window&nbsp;validator,<br>
+having&nbsp;called&nbsp;wx.Validator.Clone&nbsp;to&nbsp;create&nbsp;a&nbsp;new&nbsp;validator&nbsp;of&nbsp;this<br>
+type.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetVirtualSize"><strong>SetVirtualSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetVirtualSize">SetVirtualSize</a>(self,&nbsp;Size&nbsp;size)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;the&nbsp;virtual&nbsp;size&nbsp;of&nbsp;a&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;For&nbsp;most&nbsp;windows&nbsp;this<br>
+is&nbsp;just&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window,&nbsp;but&nbsp;for&nbsp;some&nbsp;like&nbsp;scrolled<br>
+windows&nbsp;it&nbsp;is&nbsp;more&nbsp;or&nbsp;less&nbsp;independent&nbsp;of&nbsp;the&nbsp;screen&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetVirtualSizeHints"><strong>SetVirtualSizeHints</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetVirtualSizeHints">SetVirtualSizeHints</a>(self,&nbsp;int&nbsp;minW,&nbsp;int&nbsp;minH,&nbsp;int&nbsp;maxW=-1,&nbsp;int&nbsp;maxH=-1)<br>
+&nbsp;<br>
+Allows&nbsp;specification&nbsp;of&nbsp;minimum&nbsp;and&nbsp;maximum&nbsp;virtual&nbsp;window&nbsp;sizes.&nbsp;If&nbsp;a<br>
+pair&nbsp;of&nbsp;values&nbsp;is&nbsp;not&nbsp;set&nbsp;(or&nbsp;set&nbsp;to&nbsp;-1),&nbsp;the&nbsp;default&nbsp;values&nbsp;will&nbsp;be<br>
+used.&nbsp;&nbsp;If&nbsp;this&nbsp;function&nbsp;is&nbsp;called,&nbsp;the&nbsp;user&nbsp;will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;size<br>
+the&nbsp;virtual&nbsp;area&nbsp;of&nbsp;the&nbsp;window&nbsp;outside&nbsp;the&nbsp;given&nbsp;bounds.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetVirtualSizeHintsSz"><strong>SetVirtualSizeHintsSz</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetVirtualSizeHintsSz">SetVirtualSizeHintsSz</a>(self,&nbsp;Size&nbsp;minSize,&nbsp;Size&nbsp;maxSize=DefaultSize)<br>
+&nbsp;<br>
+Allows&nbsp;specification&nbsp;of&nbsp;minimum&nbsp;and&nbsp;maximum&nbsp;virtual&nbsp;window&nbsp;sizes.&nbsp;If&nbsp;a<br>
+pair&nbsp;of&nbsp;values&nbsp;is&nbsp;not&nbsp;set&nbsp;(or&nbsp;set&nbsp;to&nbsp;-1),&nbsp;the&nbsp;default&nbsp;values&nbsp;will&nbsp;be<br>
+used.&nbsp;&nbsp;If&nbsp;this&nbsp;function&nbsp;is&nbsp;called,&nbsp;the&nbsp;user&nbsp;will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;size<br>
+the&nbsp;virtual&nbsp;area&nbsp;of&nbsp;the&nbsp;window&nbsp;outside&nbsp;the&nbsp;given&nbsp;bounds.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetVirtualSizeWH"><strong>SetVirtualSizeWH</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetVirtualSizeWH">SetVirtualSizeWH</a>(self,&nbsp;int&nbsp;w,&nbsp;int&nbsp;h)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;the&nbsp;virtual&nbsp;size&nbsp;of&nbsp;a&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;For&nbsp;most&nbsp;windows&nbsp;this<br>
+is&nbsp;just&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window,&nbsp;but&nbsp;for&nbsp;some&nbsp;like&nbsp;scrolled<br>
+windows&nbsp;it&nbsp;is&nbsp;more&nbsp;or&nbsp;less&nbsp;independent&nbsp;of&nbsp;the&nbsp;screen&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetWindowStyle"><strong>SetWindowStyle</strong></a> = SetWindowStyleFlag(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetWindowStyleFlag">SetWindowStyleFlag</a>(self,&nbsp;long&nbsp;style)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;style&nbsp;of&nbsp;the&nbsp;window.&nbsp;Please&nbsp;note&nbsp;that&nbsp;some&nbsp;styles&nbsp;cannot&nbsp;be<br>
+changed&nbsp;after&nbsp;the&nbsp;window&nbsp;creation&nbsp;and&nbsp;that&nbsp;<a href="#SubplotToolWX-Refresh">Refresh</a>()&nbsp;might&nbsp;need&nbsp;to&nbsp;be<br>
+called&nbsp;after&nbsp;changing&nbsp;the&nbsp;others&nbsp;for&nbsp;the&nbsp;change&nbsp;to&nbsp;take&nbsp;place<br>
+immediately.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetWindowStyleFlag"><strong>SetWindowStyleFlag</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetWindowStyleFlag">SetWindowStyleFlag</a>(self,&nbsp;long&nbsp;style)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;style&nbsp;of&nbsp;the&nbsp;window.&nbsp;Please&nbsp;note&nbsp;that&nbsp;some&nbsp;styles&nbsp;cannot&nbsp;be<br>
+changed&nbsp;after&nbsp;the&nbsp;window&nbsp;creation&nbsp;and&nbsp;that&nbsp;<a href="#SubplotToolWX-Refresh">Refresh</a>()&nbsp;might&nbsp;need&nbsp;to&nbsp;be<br>
+called&nbsp;after&nbsp;changing&nbsp;the&nbsp;others&nbsp;for&nbsp;the&nbsp;change&nbsp;to&nbsp;take&nbsp;place<br>
+immediately.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetWindowVariant"><strong>SetWindowVariant</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetWindowVariant">SetWindowVariant</a>(self,&nbsp;int&nbsp;variant)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;variant&nbsp;of&nbsp;the&nbsp;window/font&nbsp;size&nbsp;to&nbsp;use&nbsp;for&nbsp;this&nbsp;window,&nbsp;if<br>
+the&nbsp;platform&nbsp;supports&nbsp;variants,&nbsp;for&nbsp;example,&nbsp;wxMac.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ShouldInheritColours"><strong>ShouldInheritColours</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ShouldInheritColours">ShouldInheritColours</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Return&nbsp;true&nbsp;from&nbsp;here&nbsp;to&nbsp;allow&nbsp;the&nbsp;colours&nbsp;of&nbsp;this&nbsp;window&nbsp;to&nbsp;be<br>
+changed&nbsp;by&nbsp;InheritAttributes,&nbsp;returning&nbsp;false&nbsp;forbids&nbsp;inheriting&nbsp;them<br>
+from&nbsp;the&nbsp;parent&nbsp;window.<br>
+&nbsp;<br>
+The&nbsp;base&nbsp;class&nbsp;version&nbsp;returns&nbsp;false,&nbsp;but&nbsp;this&nbsp;method&nbsp;is&nbsp;overridden&nbsp;in<br>
+wxControl&nbsp;where&nbsp;it&nbsp;returns&nbsp;true.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Show"><strong>Show</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Show">Show</a>(self,&nbsp;bool&nbsp;show=True)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Shows&nbsp;or&nbsp;hides&nbsp;the&nbsp;window.&nbsp;You&nbsp;may&nbsp;need&nbsp;to&nbsp;call&nbsp;Raise&nbsp;for&nbsp;a&nbsp;top&nbsp;level<br>
+window&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;bring&nbsp;it&nbsp;to&nbsp;top,&nbsp;although&nbsp;this&nbsp;is&nbsp;not&nbsp;needed&nbsp;if<br>
+Show&nbsp;is&nbsp;called&nbsp;immediately&nbsp;after&nbsp;the&nbsp;frame&nbsp;creation.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if<br>
+the&nbsp;window&nbsp;has&nbsp;been&nbsp;shown&nbsp;or&nbsp;hidden&nbsp;or&nbsp;False&nbsp;if&nbsp;nothing&nbsp;was&nbsp;done<br>
+because&nbsp;it&nbsp;already&nbsp;was&nbsp;in&nbsp;the&nbsp;requested&nbsp;state.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Thaw"><strong>Thaw</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Thaw">Thaw</a>(self)<br>
+&nbsp;<br>
+Reenables&nbsp;window&nbsp;updating&nbsp;after&nbsp;a&nbsp;previous&nbsp;call&nbsp;to&nbsp;Freeze.&nbsp;&nbsp;Calls&nbsp;to<br>
+Freeze/Thaw&nbsp;may&nbsp;be&nbsp;nested,&nbsp;so&nbsp;Thaw&nbsp;must&nbsp;be&nbsp;called&nbsp;the&nbsp;same&nbsp;number&nbsp;of<br>
+times&nbsp;that&nbsp;Freeze&nbsp;was&nbsp;before&nbsp;the&nbsp;window&nbsp;will&nbsp;be&nbsp;updated.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-TransferDataFromWindow"><strong>TransferDataFromWindow</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-TransferDataFromWindow">TransferDataFromWindow</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Transfers&nbsp;values&nbsp;from&nbsp;child&nbsp;controls&nbsp;to&nbsp;data&nbsp;areas&nbsp;specified&nbsp;by&nbsp;their<br>
+validators.&nbsp;Returns&nbsp;false&nbsp;if&nbsp;a&nbsp;transfer&nbsp;failed.&nbsp;&nbsp;If&nbsp;the&nbsp;window&nbsp;has<br>
+wx.WS_EX_VALIDATE_RECURSIVELY&nbsp;extra&nbsp;style&nbsp;flag&nbsp;set,&nbsp;the&nbsp;method&nbsp;will<br>
+also&nbsp;call&nbsp;<a href="#SubplotToolWX-TransferDataFromWindow">TransferDataFromWindow</a>()&nbsp;of&nbsp;all&nbsp;child&nbsp;windows.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-TransferDataToWindow"><strong>TransferDataToWindow</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-TransferDataToWindow">TransferDataToWindow</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Transfers&nbsp;values&nbsp;to&nbsp;child&nbsp;controls&nbsp;from&nbsp;data&nbsp;areas&nbsp;specified&nbsp;by&nbsp;their<br>
+validators.&nbsp;&nbsp;If&nbsp;the&nbsp;window&nbsp;has&nbsp;wx.WS_EX_VALIDATE_RECURSIVELY&nbsp;extra<br>
+style&nbsp;flag&nbsp;set,&nbsp;the&nbsp;method&nbsp;will&nbsp;also&nbsp;call&nbsp;<a href="#SubplotToolWX-TransferDataToWindow">TransferDataToWindow</a>()&nbsp;of<br>
+all&nbsp;child&nbsp;windows.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-UnregisterHotKey"><strong>UnregisterHotKey</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-UnregisterHotKey">UnregisterHotKey</a>(self,&nbsp;int&nbsp;hotkeyId)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Unregisters&nbsp;a&nbsp;system&nbsp;wide&nbsp;hotkey.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Update"><strong>Update</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Update">Update</a>(self)<br>
+&nbsp;<br>
+Calling&nbsp;this&nbsp;method&nbsp;immediately&nbsp;repaints&nbsp;the&nbsp;invalidated&nbsp;area&nbsp;of&nbsp;the<br>
+window&nbsp;instead&nbsp;of&nbsp;waiting&nbsp;for&nbsp;the&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;happen,&nbsp;(normally<br>
+this&nbsp;would&nbsp;usually&nbsp;only&nbsp;happen&nbsp;when&nbsp;the&nbsp;flow&nbsp;of&nbsp;control&nbsp;returns&nbsp;to&nbsp;the<br>
+event&nbsp;loop.)&nbsp;&nbsp;Notice&nbsp;that&nbsp;this&nbsp;function&nbsp;doesn't&nbsp;refresh&nbsp;the&nbsp;window&nbsp;and<br>
+does&nbsp;nothing&nbsp;if&nbsp;the&nbsp;window&nbsp;has&nbsp;been&nbsp;already&nbsp;repainted.&nbsp;&nbsp;Use&nbsp;Refresh<br>
+first&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;immediately&nbsp;redraw&nbsp;the&nbsp;window&nbsp;(or&nbsp;some&nbsp;portion&nbsp;of<br>
+it)&nbsp;unconditionally.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-UpdateWindowUI"><strong>UpdateWindowUI</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-UpdateWindowUI">UpdateWindowUI</a>(self,&nbsp;long&nbsp;flags=UPDATE_UI_NONE)<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;sends&nbsp;EVT_UPDATE_UI&nbsp;events&nbsp;to&nbsp;the&nbsp;window.&nbsp;The&nbsp;particular<br>
+implementation&nbsp;depends&nbsp;on&nbsp;the&nbsp;window;&nbsp;for&nbsp;example&nbsp;a&nbsp;wx.<a href="wx._controls.html#ToolBar">ToolBar</a>&nbsp;will<br>
+send&nbsp;an&nbsp;update&nbsp;UI&nbsp;event&nbsp;for&nbsp;each&nbsp;toolbar&nbsp;button,&nbsp;and&nbsp;a&nbsp;wx.<a href="wx._windows.html#Frame">Frame</a>&nbsp;will<br>
+send&nbsp;an&nbsp;update&nbsp;UI&nbsp;event&nbsp;for&nbsp;each&nbsp;menubar&nbsp;menu&nbsp;item.&nbsp;You&nbsp;can&nbsp;call&nbsp;this<br>
+function&nbsp;from&nbsp;your&nbsp;application&nbsp;to&nbsp;ensure&nbsp;that&nbsp;your&nbsp;UI&nbsp;is&nbsp;up-to-date&nbsp;at<br>
+a&nbsp;particular&nbsp;point&nbsp;in&nbsp;time&nbsp;(as&nbsp;far&nbsp;as&nbsp;your&nbsp;EVT_UPDATE_UI&nbsp;handlers&nbsp;are<br>
+concerned).&nbsp;This&nbsp;may&nbsp;be&nbsp;necessary&nbsp;if&nbsp;you&nbsp;have&nbsp;called<br>
+wx.UpdateUIEvent.SetMode&nbsp;or&nbsp;wx.UpdateUIEvent.SetUpdateInterval&nbsp;to<br>
+limit&nbsp;the&nbsp;overhead&nbsp;that&nbsp;wxWindows&nbsp;incurs&nbsp;by&nbsp;sending&nbsp;update&nbsp;UI&nbsp;events<br>
+in&nbsp;idle&nbsp;time.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Validate"><strong>Validate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Validate">Validate</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Validates&nbsp;the&nbsp;current&nbsp;values&nbsp;of&nbsp;the&nbsp;child&nbsp;controls&nbsp;using&nbsp;their<br>
+validators.&nbsp;&nbsp;If&nbsp;the&nbsp;window&nbsp;has&nbsp;wx.WS_EX_VALIDATE_RECURSIVELY&nbsp;extra<br>
+style&nbsp;flag&nbsp;set,&nbsp;the&nbsp;method&nbsp;will&nbsp;also&nbsp;call&nbsp;<a href="#SubplotToolWX-Validate">Validate</a>()&nbsp;of&nbsp;all&nbsp;child<br>
+windows.&nbsp;&nbsp;Returns&nbsp;false&nbsp;if&nbsp;any&nbsp;of&nbsp;the&nbsp;validations&nbsp;failed.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-WarpPointer"><strong>WarpPointer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-WarpPointer">WarpPointer</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y)<br>
+&nbsp;<br>
+Moves&nbsp;the&nbsp;pointer&nbsp;to&nbsp;the&nbsp;given&nbsp;position&nbsp;on&nbsp;the&nbsp;window.<br>
+&nbsp;<br>
+NOTE:&nbsp;This&nbsp;function&nbsp;is&nbsp;not&nbsp;supported&nbsp;under&nbsp;Mac&nbsp;because&nbsp;Apple&nbsp;Human<br>
+Interface&nbsp;Guidelines&nbsp;forbid&nbsp;moving&nbsp;the&nbsp;mouse&nbsp;cursor&nbsp;programmatically.</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="wx._core.html#Window">wx._core.Window</a>:<br>
+<dl><dt><a name="SubplotToolWX-FindFocus"><strong>FindFocus</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-FindFocus">FindFocus</a>()&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;window&nbsp;or&nbsp;control&nbsp;that&nbsp;currently&nbsp;has&nbsp;the&nbsp;keyboard&nbsp;focus,<br>
+or&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetCapture"><strong>GetCapture</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetCapture">GetCapture</a>()&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;window&nbsp;which&nbsp;currently&nbsp;captures&nbsp;the&nbsp;mouse&nbsp;or&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-NewControlId"><strong>NewControlId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-NewControlId">NewControlId</a>()&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Generate&nbsp;a&nbsp;control&nbsp;id&nbsp;for&nbsp;the&nbsp;controls&nbsp;which&nbsp;were&nbsp;not&nbsp;given&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-NextControlId"><strong>NextControlId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-NextControlId">NextControlId</a>(int&nbsp;winid)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;id&nbsp;of&nbsp;the&nbsp;control&nbsp;following&nbsp;the&nbsp;one&nbsp;with&nbsp;the&nbsp;given<br>
+autogenerated)&nbsp;id</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-PrevControlId"><strong>PrevControlId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-PrevControlId">PrevControlId</a>(int&nbsp;winid)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;id&nbsp;of&nbsp;the&nbsp;control&nbsp;preceding&nbsp;the&nbsp;one&nbsp;with&nbsp;the&nbsp;given<br>
+autogenerated)&nbsp;id</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="wx._core.html#EvtHandler">wx._core.EvtHandler</a>:<br>
+<dl><dt><a name="SubplotToolWX-AddPendingEvent"><strong>AddPendingEvent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-AddPendingEvent">AddPendingEvent</a>(self,&nbsp;Event&nbsp;event)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Bind"><strong>Bind</strong></a>(self, event, handler, source<font color="#909090">=None</font>, id<font color="#909090">=-1</font>, id2<font color="#909090">=-1</font>)</dt><dd><tt>Bind&nbsp;an&nbsp;event&nbsp;to&nbsp;an&nbsp;event&nbsp;handler.<br>
+&nbsp;<br>
+:param&nbsp;event:&nbsp;One&nbsp;of&nbsp;the&nbsp;EVT_*&nbsp;objects&nbsp;that&nbsp;specifies&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;of&nbsp;event&nbsp;to&nbsp;bind,<br>
+&nbsp;<br>
+:param&nbsp;handler:&nbsp;A&nbsp;callable&nbsp;object&nbsp;to&nbsp;be&nbsp;invoked&nbsp;when&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;event&nbsp;is&nbsp;delivered&nbsp;to&nbsp;self.&nbsp;&nbsp;Pass&nbsp;None&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disconnect&nbsp;an&nbsp;event&nbsp;handler.<br>
+&nbsp;<br>
+:param&nbsp;source:&nbsp;Sometimes&nbsp;the&nbsp;event&nbsp;originates&nbsp;from&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;different&nbsp;window&nbsp;than&nbsp;self,&nbsp;but&nbsp;you&nbsp;still<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;want&nbsp;to&nbsp;catch&nbsp;it&nbsp;in&nbsp;self.&nbsp;&nbsp;(For&nbsp;example,&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button&nbsp;event&nbsp;delivered&nbsp;to&nbsp;a&nbsp;frame.)&nbsp;&nbsp;By<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;passing&nbsp;the&nbsp;source&nbsp;of&nbsp;the&nbsp;event,&nbsp;the&nbsp;event<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handling&nbsp;system&nbsp;is&nbsp;able&nbsp;to&nbsp;differentiate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;between&nbsp;the&nbsp;same&nbsp;event&nbsp;type&nbsp;from&nbsp;different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controls.<br>
+&nbsp;<br>
+:param&nbsp;id:&nbsp;Used&nbsp;to&nbsp;spcify&nbsp;the&nbsp;event&nbsp;source&nbsp;by&nbsp;ID&nbsp;instead<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;instance.<br>
+&nbsp;<br>
+:param&nbsp;id2:&nbsp;Used&nbsp;when&nbsp;it&nbsp;is&nbsp;desirable&nbsp;to&nbsp;bind&nbsp;a&nbsp;handler<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;a&nbsp;range&nbsp;of&nbsp;IDs,&nbsp;such&nbsp;as&nbsp;with&nbsp;EVT_MENU_RANGE.</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Connect"><strong>Connect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Connect">Connect</a>(self,&nbsp;int&nbsp;id,&nbsp;int&nbsp;lastId,&nbsp;int&nbsp;eventType,&nbsp;PyObject&nbsp;func)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Disconnect"><strong>Disconnect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-Disconnect">Disconnect</a>(self,&nbsp;int&nbsp;id,&nbsp;int&nbsp;lastId=-1,&nbsp;wxEventType&nbsp;eventType=wxEVT_NULL)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetEvtHandlerEnabled"><strong>GetEvtHandlerEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetEvtHandlerEnabled">GetEvtHandlerEnabled</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetNextHandler"><strong>GetNextHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetNextHandler">GetNextHandler</a>(self)&nbsp;-&gt;&nbsp;EvtHandler</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-GetPreviousHandler"><strong>GetPreviousHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetPreviousHandler">GetPreviousHandler</a>(self)&nbsp;-&gt;&nbsp;EvtHandler</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ProcessEvent"><strong>ProcessEvent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ProcessEvent">ProcessEvent</a>(self,&nbsp;Event&nbsp;event)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-ProcessPendingEvents"><strong>ProcessPendingEvents</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-ProcessPendingEvents">ProcessPendingEvents</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetEvtHandlerEnabled"><strong>SetEvtHandlerEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetEvtHandlerEnabled">SetEvtHandlerEnabled</a>(self,&nbsp;bool&nbsp;enabled)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetNextHandler"><strong>SetNextHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetNextHandler">SetNextHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-SetPreviousHandler"><strong>SetPreviousHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-SetPreviousHandler">SetPreviousHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)</tt></dd></dl>
+
+<dl><dt><a name="SubplotToolWX-Unbind"><strong>Unbind</strong></a>(self, event, source<font color="#909090">=None</font>, id<font color="#909090">=-1</font>, id2<font color="#909090">=-1</font>)</dt><dd><tt>Disconencts&nbsp;the&nbsp;event&nbsp;handler&nbsp;binding&nbsp;for&nbsp;event&nbsp;from&nbsp;self.<br>
+Returns&nbsp;True&nbsp;if&nbsp;successful.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="wx._core.html#Object">wx._core.Object</a>:<br>
+<dl><dt><a name="SubplotToolWX-GetClassName"><strong>GetClassName</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#SubplotToolWX-GetClassName">GetClassName</a>(self)&nbsp;-&gt;&nbsp;String<br>
 &nbsp;<br>
 Returns&nbsp;the&nbsp;class&nbsp;name&nbsp;of&nbsp;the&nbsp;C++&nbsp;class&nbsp;using&nbsp;wxRTTI.</tt></dd></dl>
 

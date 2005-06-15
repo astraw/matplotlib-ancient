@@ -23,7 +23,7 @@ them,&nbsp;etc.&nbsp;&nbsp;When&nbsp;you&nbsp;do&nbsp;something&nbsp;like<br>
 &nbsp;&nbsp;width&nbsp;&nbsp;=&nbsp;inches&nbsp;*&nbsp;dpi<br>
 &nbsp;<br>
 width&nbsp;is&nbsp;a&nbsp;BinOp&nbsp;instance&nbsp;(that&nbsp;tells&nbsp;you&nbsp;the&nbsp;width&nbsp;of&nbsp;the&nbsp;figure&nbsp;in<br>
-pixels.&nbsp;&nbsp;Later,&nbsp;if&nbsp;the&nbsp;figure&nbsp;size&nbsp;in&nbsp;changed,&nbsp;ie&nbsp;we&nbsp;call<br>
+pixels).&nbsp;&nbsp;Later,&nbsp;if&nbsp;the&nbsp;figure&nbsp;size&nbsp;in&nbsp;changed,&nbsp;ie&nbsp;we&nbsp;call<br>
 &nbsp;<br>
 &nbsp;&nbsp;inches.set(10)<br>
 &nbsp;<br>
@@ -100,7 +100,7 @@ and&nbsp;funcy&nbsp;both&nbsp;identity.&nbsp;&nbsp;Eg,<br>
 maps&nbsp;the&nbsp;axes&nbsp;view&nbsp;limits&nbsp;to&nbsp;display&nbsp;limits.&nbsp;&nbsp;If&nbsp;the&nbsp;xaxis&nbsp;scaling&nbsp;is<br>
 changed&nbsp;to&nbsp;log,&nbsp;one&nbsp;simply&nbsp;calls<br>
 &nbsp;<br>
-&nbsp;&nbsp;transData.get_funcx.set_type(LOG10)<br>
+&nbsp;&nbsp;transData.get_funcx().set_type(LOG10)<br>
 &nbsp;<br>
 For&nbsp;more&nbsp;general&nbsp;transformations&nbsp;including&nbsp;rotation,&nbsp;the&nbsp;Affine&nbsp;class<br>
 is&nbsp;provided,&nbsp;which&nbsp;is&nbsp;constructed&nbsp;with&nbsp;6&nbsp;LazyValue&nbsp;instances:<br>
