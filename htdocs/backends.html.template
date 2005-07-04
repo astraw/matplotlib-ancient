@@ -146,7 +146,7 @@ This was the first backend supported by matplotlib; it requires
   <li><a href=http://prdownloads.sourceforge.net/gtk-win>
 GTK runtime</a></li> 
 
-  <li><a href=http://www.daa.com.au/~james/software/pygtk>pygtk</a>
+  <li><a href=http://www.pygtk.org>pygtk</a>
   version 2.0.0 or later</li>
 
 </ul>
