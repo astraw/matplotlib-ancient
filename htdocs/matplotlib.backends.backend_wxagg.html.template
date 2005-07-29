@@ -101,6 +101,9 @@ Methods inherited from <a href="matplotlib.backends.backend_wx.html#FigureCanvas
 Setup&nbsp;Dialog&nbsp;seems&nbsp;to&nbsp;die&nbsp;easily.&nbsp;Therefore,&nbsp;this&nbsp;setup<br>
 simply&nbsp;asks&nbsp;for&nbsp;image&nbsp;width&nbsp;and&nbsp;margin&nbsp;for&nbsp;printing.</tt></dd></dl>
 
+<dl><dt><a name="FigureCanvasWxAgg-Printer_Setup2"><strong>Printer_Setup2</strong></a>(self, event<font color="#909090">=None</font>)</dt><dd><tt>set&nbsp;up&nbsp;figure&nbsp;for&nbsp;printing.&nbsp;&nbsp;Using&nbsp;the&nbsp;standard&nbsp;wx&nbsp;Printer<br>
+Setup&nbsp;Dialog.</tt></dd></dl>
+
 <dl><dt><a name="FigureCanvasWxAgg-__init__"><strong>__init__</strong></a>(self, parent, id, figure)</dt><dd><tt>Initialise&nbsp;a&nbsp;FigureWx&nbsp;instance.<br>
 &nbsp;<br>
 -&nbsp;Initialise&nbsp;the&nbsp;FigureCanvasBase&nbsp;and&nbsp;wxPanel&nbsp;parents.<br>
@@ -123,7 +126,11 @@ Data and other attributes inherited from <a href="matplotlib.backends.backend_wx
 Methods inherited from <a href="matplotlib.backends.backend_agg.html#FigureCanvasAgg">matplotlib.backends.backend_agg.FigureCanvasAgg</a>:<br>
 <dl><dt><a name="FigureCanvasWxAgg-buffer_rgba"><strong>buffer_rgba</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="FigureCanvasWxAgg-copy_from_bbox"><strong>copy_from_bbox</strong></a>(self, bbox)</dt></dl>
+
 <dl><dt><a name="FigureCanvasWxAgg-get_renderer"><strong>get_renderer</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-restore_region"><strong>restore_region</strong></a>(self, region)</dt></dl>
 
 <dl><dt><a name="FigureCanvasWxAgg-tostring_argb"><strong>tostring_argb</strong></a>(self)</dt></dl>
 
@@ -131,6 +138,8 @@ Methods inherited from <a href="matplotlib.backends.backend_agg.html#FigureCanva
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><a name="FigureCanvasWxAgg-blit"><strong>blit</strong></a>(self, bbox<font color="#909090">=None</font>)</dt><dd><tt>blit&nbsp;the&nbsp;canvas&nbsp;in&nbsp;bbox&nbsp;(default&nbsp;entire&nbsp;canvas)</tt></dd></dl>
+
 <dl><dt><a name="FigureCanvasWxAgg-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;press.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
@@ -142,14 +151,19 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</
 <dl><dt><a name="FigureCanvasWxAgg-draw_cursor"><strong>draw_cursor</strong></a>(self, event)</dt><dd><tt>Draw&nbsp;a&nbsp;cursor&nbsp;in&nbsp;the&nbsp;event.axes&nbsp;if&nbsp;inaxes&nbsp;is&nbsp;not&nbsp;None.&nbsp;&nbsp;Use<br>
 native&nbsp;GUI&nbsp;drawing&nbsp;for&nbsp;efficiency&nbsp;if&nbsp;possible</tt></dd></dl>
 
+<dl><dt><a name="FigureCanvasWxAgg-draw_event"><strong>draw_event</strong></a>(self, renderer)</dt></dl>
+
 <dl><dt><a name="FigureCanvasWxAgg-draw_idle"><strong>draw_idle</strong></a>(self, *args, **kwargs)</dt><dd><tt>draw&nbsp;only&nbsp;if&nbsp;idle;&nbsp;defaults&nbsp;to&nbsp;draw&nbsp;but&nbsp;backends&nbsp;can&nbsp;overrride</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasWxAgg-get_width_height"><strong>get_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;points&nbsp;or&nbsp;pixels<br>
+(depending&nbsp;on&nbsp;the&nbsp;backend),&nbsp;truncated&nbsp;to&nbsp;integers</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasWxAgg-key_press_event"><strong>key_press_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="FigureCanvasWxAgg-key_release_event"><strong>key_release_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
-<dl><dt><a name="FigureCanvasWxAgg-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
-button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
+<dl><dt><a name="FigureCanvasWxAgg-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any<br>
+motion-notify-event.&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasWxAgg-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
@@ -158,10 +172,12 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</
 &nbsp;<br>
 where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbsp;events&nbsp;are&nbsp;recognized<br>
 &nbsp;<br>
-&nbsp;'key_press_event'&nbsp;<br>
-&nbsp;'button_press_event'&nbsp;<br>
-&nbsp;'button_release_event'&nbsp;<br>
-&nbsp;'motion_notify_event'&nbsp;<br>
+&nbsp;'draw_event'<br>
+&nbsp;'key_press_event'<br>
+&nbsp;'key_release_event'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;'button_press_event'<br>
+&nbsp;'button_release_event'<br>
+&nbsp;'motion_notify_event'<br>
 &nbsp;<br>
 &nbsp;For&nbsp;the&nbsp;three&nbsp;events&nbsp;above,&nbsp;if&nbsp;the&nbsp;mouse&nbsp;is&nbsp;over&nbsp;the&nbsp;axes,<br>
 &nbsp;the&nbsp;variable&nbsp;event.inaxes&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;the&nbsp;axes&nbsp;it&nbsp;is&nbsp;over,<br>
@@ -4477,5 +4493,5 @@ Data and other attributes inherited from <a href="wx._core.html#Object">wx._core
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>backend_version</strong> = '2.5.3.2pre'<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/share/matplotlib', ...}</td></tr></table>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}</td></tr></table>
 @footer@

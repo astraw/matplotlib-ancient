@@ -24,7 +24,7 @@ If the matplotlib example scripts are running fine, and you have a
 script that doesn't work that <i>you think may be a bug</i>, please
 provide as much information as possible in your bug report, in
 particular which matplotlib version and backend you are using,
-operating system, and any nonstandard <a href=.matplotlibrc>rc</a>
+operating system, and any nonstandard <a href=matplotlibrc>rc</a>
 options.  Some of this information is provided simply by running your
 script with <tt>python myscript.py --verbose-helpful</tt> and posting
 the output along with your problem description.  Ideally, you should
@@ -83,7 +83,7 @@ This will give you additional information about which backends
 matplotlib is loading, version information, and more.  At this point
 you might want to make sure you understand matplotlib's configuration
 process, governed by the configuration file <a
-href=.matplotlibrc>matplotlibrc</a> which contains instructions within
+href=matplotlibrc>matplotlibrc</a> which contains instructions within
 and the concept of the matplotlib <a
 href=backends.html>backend</a>.<p>
 
@@ -445,7 +445,7 @@ to use.  matplotlib setup.py will automatically detect whether you
 have Numeric or numarray or both at compile time, and will compile the
 appropriate extensions to work with one or both, if present.  The
 actual extension chosen at runtime will be determined by your
-'numerix' <a href=.matplotlibrc>matplotlibrc</a> setting."""),
+'numerix' <a href=matplotlibrc>matplotlibrc</a> setting."""),
 
     ('SLOW', 'matplotlib seems painfully slow, am I doing something wrong?',
 
@@ -463,7 +463,7 @@ available in the windows installer .  Failure to do so can cause up to
 a 30-fold performance hit in some cases.<p>
 
 Also, if you are running a python script, make sure your interactive
-setting in your <a href=.matplotlibrc>.matplotlirc</a> is false;
+setting in your <a href=matplotlibrc>.matplotlirc</a> is false;
 otherwise the figure will be redrawn with every plotting command when
 what you want if for the figure to be drawn only once at the end of
 the script.  See <a href=interactive.html>interactive</a> and <a
@@ -504,7 +504,7 @@ output of <tt>python yourscript.py --verbose-helpful</tt>.
 """
 Recent versions of matplotlib (0.51 or later) use a configuration file
 to set everything from the default font, to the figure size, to the
-default line width.  See <a href=.matplotlibrc>.matplotlibrc</a> for a
+default line width.  See <a href=matplotlibrc>matplotlibrc</a> for a
 sample config file and information on how to use it.  """),
 
     ('OO', 
@@ -580,7 +580,7 @@ import glob
 import py2exe
 
 data = glob.glob(r'C:\Python23\share\matplotlib\*')
-data.append(r'C:\Python23\share\matplotlib\.matplotlibrc')
+data.append(r'C:\Python23\share\matplotlib\matplotlibrc')
 
 setup( console    = ["simple_plot.py"],
        data_files = [("matplotlibdata", data)],
@@ -599,7 +599,7 @@ show()
 
 matplotlib should be able to find your matplotlib data directory.  You
 can still configure the defaults in
-<tt>dist/matplotlibdata/.matplotlibrc</tt> after the application has
+<tt>dist/matplotlibdata/matplotlibrc</tt> after the application has
 been frozen.<p>
 
 Note you may get warnings like "The following modules appear to be

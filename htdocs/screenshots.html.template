@@ -114,6 +114,14 @@ pseudo color plots.  matplotlib has 14 built-in colormaps.  The <a
 href=matplotlib.pylab.html#-hot>hot</a> colormap is shown here with
 contours overaying a grayscale image.""", 1),
 
+('hst_demo', """
+Perry Greenfield of the Space Telescope Science Institute contributed
+this example of a contouring of a Hubble Space Telescope image.  It is
+an image of NGC 1275 taken with three different filters combined as an
+RGB image with contours of an aligned Chandra X-Ray image (smoothed)
+of the same object overplotted.""", 1),
+
+
 ('layer_images', """You can layer multiple images of different shapes and colormaps with
 alpha blending using the <a
 href=matplotlib.pylab.html#-imshow>imshow</a> command.""", 1),

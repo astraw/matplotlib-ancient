@@ -43,19 +43,14 @@
 <dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_qt.html#NavigationToolbar2QT">NavigationToolbar2QT</a>(<a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>, <a href="qt.html#QToolBar">qt.QToolBar</a>)
-</font></dt></dl>
-</dd>
-<dt><font face="helvetica, arial"><a href="qt.html#QToolBar">qt.QToolBar</a>(<a href="qt.html#QDockWindow">qt.QDockWindow</a>)
-</font></dt><dd>
-<dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_qt.html#NavigationToolbar2QT">NavigationToolbar2QT</a>(<a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>, <a href="qt.html#QToolBar">qt.QToolBar</a>)
+<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_qt.html#NavigationToolbar2QT">NavigationToolbar2QT</a>(<a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>, <a href="qt.html#QWidget">qt.QWidget</a>)
 </font></dt></dl>
 </dd>
 <dt><font face="helvetica, arial"><a href="qt.html#QWidget">qt.QWidget</a>(<a href="qt.html#QObject">qt.QObject</a>, <a href="qt.html#QPaintDevice">qt.QPaintDevice</a>)
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_qt.html#FigureCanvasQT">FigureCanvasQT</a>(<a href="qt.html#QWidget">qt.QWidget</a>, <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>)
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_qt.html#NavigationToolbar2QT">NavigationToolbar2QT</a>(<a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>, <a href="qt.html#QWidget">qt.QWidget</a>)
 </font></dt></dl>
 </dd>
 </dl>
@@ -1986,6 +1981,8 @@ Data and other attributes inherited from <a href="sip.html#wrapper">sip.wrapper<
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><a name="FigureCanvasQT-blit"><strong>blit</strong></a>(self, bbox<font color="#909090">=None</font>)</dt><dd><tt>blit&nbsp;the&nbsp;canvas&nbsp;in&nbsp;bbox&nbsp;(default&nbsp;entire&nbsp;canvas)</tt></dd></dl>
+
 <dl><dt><a name="FigureCanvasQT-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;press.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
@@ -1999,14 +1996,19 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</
 <dl><dt><a name="FigureCanvasQT-draw_cursor"><strong>draw_cursor</strong></a>(self, event)</dt><dd><tt>Draw&nbsp;a&nbsp;cursor&nbsp;in&nbsp;the&nbsp;event.axes&nbsp;if&nbsp;inaxes&nbsp;is&nbsp;not&nbsp;None.&nbsp;&nbsp;Use<br>
 native&nbsp;GUI&nbsp;drawing&nbsp;for&nbsp;efficiency&nbsp;if&nbsp;possible</tt></dd></dl>
 
+<dl><dt><a name="FigureCanvasQT-draw_event"><strong>draw_event</strong></a>(self, renderer)</dt></dl>
+
 <dl><dt><a name="FigureCanvasQT-draw_idle"><strong>draw_idle</strong></a>(self, *args, **kwargs)</dt><dd><tt>draw&nbsp;only&nbsp;if&nbsp;idle;&nbsp;defaults&nbsp;to&nbsp;draw&nbsp;but&nbsp;backends&nbsp;can&nbsp;overrride</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasQT-get_width_height"><strong>get_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;points&nbsp;or&nbsp;pixels<br>
+(depending&nbsp;on&nbsp;the&nbsp;backend),&nbsp;truncated&nbsp;to&nbsp;integers</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasQT-key_press_event"><strong>key_press_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="FigureCanvasQT-key_release_event"><strong>key_release_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
-<dl><dt><a name="FigureCanvasQT-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
-button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
+<dl><dt><a name="FigureCanvasQT-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any<br>
+motion-notify-event.&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasQT-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
@@ -2015,10 +2017,12 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</
 &nbsp;<br>
 where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbsp;events&nbsp;are&nbsp;recognized<br>
 &nbsp;<br>
-&nbsp;'key_press_event'&nbsp;<br>
-&nbsp;'button_press_event'&nbsp;<br>
-&nbsp;'button_release_event'&nbsp;<br>
-&nbsp;'motion_notify_event'&nbsp;<br>
+&nbsp;'draw_event'<br>
+&nbsp;'key_press_event'<br>
+&nbsp;'key_release_event'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;'button_press_event'<br>
+&nbsp;'button_release_event'<br>
+&nbsp;'motion_notify_event'<br>
 &nbsp;<br>
 &nbsp;For&nbsp;the&nbsp;three&nbsp;events&nbsp;above,&nbsp;if&nbsp;the&nbsp;mouse&nbsp;is&nbsp;over&nbsp;the&nbsp;axes,<br>
 &nbsp;the&nbsp;variable&nbsp;event.inaxes&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;the&nbsp;axes&nbsp;it&nbsp;is&nbsp;over,<br>
@@ -2062,7 +2066,7 @@ Data and other attributes inherited from <a href="matplotlib.backend_bases.html#
 &nbsp;<br>
 canvas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;FigureCanvas&nbsp;instance<br>
 num&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;Figure&nbsp;number<br>
-toolbar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;qt.<a href="qt.html#QToolBar">QToolBar</a><br>
+toolbar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;qt.QToolBar<br>
 window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;qt.QMainWindow<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
@@ -2072,6 +2076,8 @@ window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;qt.QMainWindow<br>&nbs
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>:<br>
+<dl><dt><a name="FigureManagerQT-full_screen_toggle"><strong>full_screen_toggle</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="FigureManagerQT-key_press"><strong>key_press</strong></a>(self, event)</dt></dl>
 
 <dl><dt><a name="FigureManagerQT-show_popup"><strong>show_popup</strong></a>(self, msg)</dt><dd><tt>Display&nbsp;message&nbsp;in&nbsp;a&nbsp;popup&nbsp;--&nbsp;GUI&nbsp;only</tt></dd></dl>
@@ -2087,7 +2093,7 @@ Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase"
 &nbsp;<br>
 canvas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;FigureCanvas&nbsp;instance<br>
 num&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;Figure&nbsp;number<br>
-toolbar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;qt.<a href="qt.html#QToolBar">QToolBar</a><br>
+toolbar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;qt.QToolBar<br>
 window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;qt.QMainWindow<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
@@ -2097,6 +2103,8 @@ window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;qt.QMainWindow<br>&nbs
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>:<br>
+<dl><dt><a name="FigureManagerQT-full_screen_toggle"><strong>full_screen_toggle</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="FigureManagerQT-key_press"><strong>key_press</strong></a>(self, event)</dt></dl>
 
 <dl><dt><a name="FigureManagerQT-show_popup"><strong>show_popup</strong></a>(self, msg)</dt><dd><tt>Display&nbsp;message&nbsp;in&nbsp;a&nbsp;popup&nbsp;--&nbsp;GUI&nbsp;only</tt></dd></dl>
@@ -2105,15 +2113,12 @@ Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase"
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="NavigationToolbar2QT">class <strong>NavigationToolbar2QT</strong></a>(<a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>, <a href="qt.html#QToolBar">qt.QToolBar</a>)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="NavigationToolbar2QT">class <strong>NavigationToolbar2QT</strong></a>(<a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>, <a href="qt.html#QWidget">qt.QWidget</a>)</font></td></tr>
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="matplotlib.backends.backend_qt.html#NavigationToolbar2QT">NavigationToolbar2QT</a></dd>
 <dd><a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a></dd>
-<dd><a href="qt.html#QToolBar">qt.QToolBar</a></dd>
-<dd><a href="qt.html#QDockWindow">qt.QDockWindow</a></dd>
-<dd><a href="qt.html#QFrame">qt.QFrame</a></dd>
 <dd><a href="qt.html#QWidget">qt.QWidget</a></dd>
 <dd><a href="qt.html#QObject">qt.QObject</a></dd>
 <dd><a href="qt.html#Qt">qt.Qt</a></dd>
@@ -2123,7 +2128,7 @@ Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase"
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="NavigationToolbar2QT-__init__"><strong>__init__</strong></a>(self, canvas, window)</dt></dl>
+<dl><dt><a name="NavigationToolbar2QT-__init__"><strong>__init__</strong></a>(self, parent, canvas)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2QT-draw_rubberband"><strong>draw_rubberband</strong></a>(self, event, x0, y0, x1, y1)</dt></dl>
 
@@ -2135,343 +2140,13 @@ Methods defined here:<br>
 
 <dl><dt><a name="NavigationToolbar2QT-set_message"><strong>set_message</strong></a>(self, s)</dt></dl>
 
-<hr>
-Data and other attributes defined here:<br>
-<dl><dt><strong>addSeparator</strong> = &lt;built-in function addSeparator&gt;</dl>
-
-<dl><dt><strong>childEvent</strong> = &lt;built-in function childEvent&gt;</dl>
-
-<dl><dt><strong>clear</strong> = &lt;built-in function clear&gt;</dl>
-
-<dl><dt><strong>clearWFlags</strong> = &lt;built-in function clearWFlags&gt;</dl>
-
-<dl><dt><strong>clearWState</strong> = &lt;built-in function clearWState&gt;</dl>
-
-<dl><dt><strong>closeEvent</strong> = &lt;built-in function closeEvent&gt;</dl>
-
-<dl><dt><strong>contextMenuEvent</strong> = &lt;built-in function contextMenuEvent&gt;</dl>
-
-<dl><dt><strong>create</strong> = &lt;built-in function create&gt;</dl>
-
-<dl><dt><strong>customEvent</strong> = &lt;built-in function customEvent&gt;</dl>
-
-<dl><dt><strong>destroy</strong> = &lt;built-in function destroy&gt;</dl>
-
-<dl><dt><strong>dragEnterEvent</strong> = &lt;built-in function dragEnterEvent&gt;</dl>
-
-<dl><dt><strong>dragLeaveEvent</strong> = &lt;built-in function dragLeaveEvent&gt;</dl>
-
-<dl><dt><strong>dragMoveEvent</strong> = &lt;built-in function dragMoveEvent&gt;</dl>
-
-<dl><dt><strong>drawContents</strong> = &lt;built-in function drawContents&gt;</dl>
-
-<dl><dt><strong>drawFrame</strong> = &lt;built-in function drawFrame&gt;</dl>
-
-<dl><dt><strong>dropEvent</strong> = &lt;built-in function dropEvent&gt;</dl>
-
-<dl><dt><strong>enabledChange</strong> = &lt;built-in function enabledChange&gt;</dl>
-
-<dl><dt><strong>enterEvent</strong> = &lt;built-in function enterEvent&gt;</dl>
-
-<dl><dt><strong>event</strong> = &lt;built-in function event&gt;</dl>
-
-<dl><dt><strong>focusInEvent</strong> = &lt;built-in function focusInEvent&gt;</dl>
-
-<dl><dt><strong>focusNextPrevChild</strong> = &lt;built-in function focusNextPrevChild&gt;</dl>
-
-<dl><dt><strong>focusOutEvent</strong> = &lt;built-in function focusOutEvent&gt;</dl>
-
-<dl><dt><strong>fontChange</strong> = &lt;built-in function fontChange&gt;</dl>
-
-<dl><dt><strong>frameChanged</strong> = &lt;built-in function frameChanged&gt;</dl>
-
-<dl><dt><strong>getWFlags</strong> = &lt;built-in function getWFlags&gt;</dl>
-
-<dl><dt><strong>getWState</strong> = &lt;built-in function getWState&gt;</dl>
-
-<dl><dt><strong>hide</strong> = &lt;built-in function hide&gt;</dl>
-
-<dl><dt><strong>hideEvent</strong> = &lt;built-in function hideEvent&gt;</dl>
-
-<dl><dt><strong>imComposeEvent</strong> = &lt;built-in function imComposeEvent&gt;</dl>
-
-<dl><dt><strong>imEndEvent</strong> = &lt;built-in function imEndEvent&gt;</dl>
-
-<dl><dt><strong>imStartEvent</strong> = &lt;built-in function imStartEvent&gt;</dl>
-
-<dl><dt><strong>keyPressEvent</strong> = &lt;built-in function keyPressEvent&gt;</dl>
-
-<dl><dt><strong>keyReleaseEvent</strong> = &lt;built-in function keyReleaseEvent&gt;</dl>
-
-<dl><dt><strong>label</strong> = &lt;built-in function label&gt;</dl>
-
-<dl><dt><strong>leaveEvent</strong> = &lt;built-in function leaveEvent&gt;</dl>
-
-<dl><dt><strong>mainWindow</strong> = &lt;built-in function mainWindow&gt;</dl>
-
-<dl><dt><strong>metaObject</strong> = &lt;built-in function metaObject&gt;</dl>
-
-<dl><dt><strong>metric</strong> = &lt;built-in function metric&gt;</dl>
-
-<dl><dt><strong>minimumSize</strong> = &lt;built-in function minimumSize&gt;</dl>
-
-<dl><dt><strong>minimumSizeHint</strong> = &lt;built-in function minimumSizeHint&gt;</dl>
-
-<dl><dt><strong>mouseDoubleClickEvent</strong> = &lt;built-in function mouseDoubleClickEvent&gt;</dl>
-
-<dl><dt><strong>mouseMoveEvent</strong> = &lt;built-in function mouseMoveEvent&gt;</dl>
-
-<dl><dt><strong>mousePressEvent</strong> = &lt;built-in function mousePressEvent&gt;</dl>
-
-<dl><dt><strong>mouseReleaseEvent</strong> = &lt;built-in function mouseReleaseEvent&gt;</dl>
-
-<dl><dt><strong>moveEvent</strong> = &lt;built-in function moveEvent&gt;</dl>
-
-<dl><dt><strong>paintEvent</strong> = &lt;built-in function paintEvent&gt;</dl>
-
-<dl><dt><strong>paletteChange</strong> = &lt;built-in function paletteChange&gt;</dl>
-
-<dl><dt><strong>resetInputContext</strong> = &lt;built-in function resetInputContext&gt;</dl>
-
-<dl><dt><strong>resizeEvent</strong> = &lt;built-in function resizeEvent&gt;</dl>
-
-<dl><dt><strong>sender</strong> = &lt;built-in function sender&gt;</dl>
-
-<dl><dt><strong>setKeyCompression</strong> = &lt;built-in function setKeyCompression&gt;</dl>
-
-<dl><dt><strong>setLabel</strong> = &lt;built-in function setLabel&gt;</dl>
-
-<dl><dt><strong>setMicroFocusHint</strong> = &lt;built-in function setMicroFocusHint&gt;</dl>
-
-<dl><dt><strong>setMinimumSize</strong> = &lt;built-in function setMinimumSize&gt;</dl>
-
-<dl><dt><strong>setOrientation</strong> = &lt;built-in function setOrientation&gt;</dl>
-
-<dl><dt><strong>setStretchableWidget</strong> = &lt;built-in function setStretchableWidget&gt;</dl>
-
-<dl><dt><strong>setWFlags</strong> = &lt;built-in function setWFlags&gt;</dl>
-
-<dl><dt><strong>setWState</strong> = &lt;built-in function setWState&gt;</dl>
-
-<dl><dt><strong>show</strong> = &lt;built-in function show&gt;</dl>
-
-<dl><dt><strong>showEvent</strong> = &lt;built-in function showEvent&gt;</dl>
-
-<dl><dt><strong>styleChange</strong> = &lt;built-in function styleChange&gt;</dl>
-
-<dl><dt><strong>tabletEvent</strong> = &lt;built-in function tabletEvent&gt;</dl>
-
-<dl><dt><strong>timerEvent</strong> = &lt;built-in function timerEvent&gt;</dl>
-
-<dl><dt><strong>toolitems</strong> = (('Home', 'Reset original view', 'home.png', 'home'), ('Back', 'Back to  previous view', 'back.png', 'back'), ('Forward', 'Forward to next view', 'forward.png', 'forward'), (None, None, None, None), ('Pan', 'Pan axes with left mouse, zoom with right', 'move.png', 'pan'), ('Zoom', 'Zoom to rectangle', 'zoom_to_rect.png', 'zoom'), (None, None, None, None), ('Save', 'Save the figure', 'filesave.png', 'save_figure'))</dl>
-
-<dl><dt><strong>updateMask</strong> = &lt;built-in function updateMask&gt;</dl>
-
-<dl><dt><strong>wheelEvent</strong> = &lt;built-in function wheelEvent&gt;</dl>
-
-<dl><dt><strong>windowActivationChange</strong> = &lt;built-in function windowActivationChange&gt;</dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>:<br>
-<dl><dt><a name="NavigationToolbar2QT-back"><strong>back</strong></a>(self, *args)</dt><dd><tt>move&nbsp;back&nbsp;up&nbsp;the&nbsp;view&nbsp;lim&nbsp;stack</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2QT-drag_pan"><strong>drag_pan</strong></a>(self, event)</dt><dd><tt>the&nbsp;drag&nbsp;callback&nbsp;in&nbsp;pan/zoom&nbsp;mode</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2QT-draw"><strong>draw</strong></a>(self)</dt><dd><tt>redraw&nbsp;the&nbsp;canvases,&nbsp;update&nbsp;the&nbsp;locators</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2QT-forward"><strong>forward</strong></a>(self, *args)</dt><dd><tt>move&nbsp;forward&nbsp;in&nbsp;the&nbsp;view&nbsp;lim&nbsp;stack</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2QT-home"><strong>home</strong></a>(self, *args)</dt><dd><tt>restore&nbsp;the&nbsp;original&nbsp;view</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2QT-mouse_move"><strong>mouse_move</strong></a>(self, event)</dt></dl>
-
-<dl><dt><a name="NavigationToolbar2QT-pan"><strong>pan</strong></a>(self, *args)</dt><dd><tt>Activate&nbsp;the&nbsp;pan/zoom&nbsp;tool.&nbsp;pan&nbsp;with&nbsp;left&nbsp;button,&nbsp;zoom&nbsp;with&nbsp;right</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2QT-press"><strong>press</strong></a>(self, event)</dt><dd><tt>this&nbsp;will&nbsp;be&nbsp;called&nbsp;whenver&nbsp;a&nbsp;mouse&nbsp;button&nbsp;is&nbsp;pressed</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2QT-press_pan"><strong>press_pan</strong></a>(self, event)</dt><dd><tt>the&nbsp;press&nbsp;mouse&nbsp;button&nbsp;in&nbsp;pan/zoom&nbsp;mode&nbsp;callback</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2QT-press_zoom"><strong>press_zoom</strong></a>(self, event)</dt><dd><tt>the&nbsp;press&nbsp;mouse&nbsp;button&nbsp;in&nbsp;zoom&nbsp;to&nbsp;rect&nbsp;mode&nbsp;callback</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2QT-push_current"><strong>push_current</strong></a>(self)</dt><dd><tt>push&nbsp;the&nbsp;current&nbsp;view&nbsp;limits&nbsp;onto&nbsp;the&nbsp;stack</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2QT-release"><strong>release</strong></a>(self, event)</dt><dd><tt>this&nbsp;will&nbsp;be&nbsp;called&nbsp;whenever&nbsp;mouse&nbsp;button&nbsp;is&nbsp;released</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2QT-release_pan"><strong>release_pan</strong></a>(self, event)</dt><dd><tt>the&nbsp;release&nbsp;mouse&nbsp;button&nbsp;callback&nbsp;in&nbsp;pan/zoom&nbsp;mode</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2QT-release_zoom"><strong>release_zoom</strong></a>(self, event)</dt><dd><tt>the&nbsp;release&nbsp;mouse&nbsp;button&nbsp;callback&nbsp;in&nbsp;zoom&nbsp;to&nbsp;rect&nbsp;mode</tt></dd></dl>
-
-<dl><dt><a name="NavigationToolbar2QT-set_history_buttons"><strong>set_history_buttons</strong></a>(self)</dt><dd><tt>enable&nbsp;or&nbsp;disable&nbsp;back/forward&nbsp;button</tt></dd></dl>
-
 <dl><dt><a name="NavigationToolbar2QT-update"><strong>update</strong></a>(self)</dt><dd><tt>reset&nbsp;the&nbsp;axes&nbsp;stack</tt></dd></dl>
 
-<dl><dt><a name="NavigationToolbar2QT-zoom"><strong>zoom</strong></a>(self, *args)</dt><dd><tt>activate&nbsp;zoom&nbsp;to&nbsp;rect&nbsp;mode</tt></dd></dl>
-
 <hr>
-Data and other attributes inherited from <a href="qt.html#QDockWindow">qt.QDockWindow</a>:<br>
-<dl><dt><strong>Always</strong> = 3</dl>
-
-<dl><dt><strong>CloseMode</strong> = &lt;class 'qt.CloseMode'&gt;</dl>
-
-<dl><dt><strong>Docked</strong> = 1</dl>
-
-<dl><dt><strong>InDock</strong> = 0</dl>
-
-<dl><dt><strong>Never</strong> = 0</dl>
-
-<dl><dt><strong>OutsideDock</strong> = 1</dl>
-
-<dl><dt><strong>Place</strong> = &lt;class 'qt.Place'&gt;</dl>
-
-<dl><dt><strong>Undocked</strong> = 2</dl>
-
-<dl><dt><strong>area</strong> = &lt;built-in function area&gt;</dl>
-
-<dl><dt><strong>boxLayout</strong> = &lt;built-in function boxLayout&gt;</dl>
-
-<dl><dt><strong>closeMode</strong> = &lt;built-in function closeMode&gt;</dl>
-
-<dl><dt><strong>dock</strong> = &lt;built-in function dock&gt;</dl>
-
-<dl><dt><strong>eventFilter</strong> = &lt;built-in function eventFilter&gt;</dl>
-
-<dl><dt><strong>fixedExtent</strong> = &lt;built-in function fixedExtent&gt;</dl>
-
-<dl><dt><strong>isCloseEnabled</strong> = &lt;built-in function isCloseEnabled&gt;</dl>
-
-<dl><dt><strong>isHorizontallyStretchable</strong> = &lt;built-in function isHorizontallyStretchable&gt;</dl>
-
-<dl><dt><strong>isMovingEnabled</strong> = &lt;built-in function isMovingEnabled&gt;</dl>
-
-<dl><dt><strong>isResizeEnabled</strong> = &lt;built-in function isResizeEnabled&gt;</dl>
-
-<dl><dt><strong>isStretchable</strong> = &lt;built-in function isStretchable&gt;</dl>
-
-<dl><dt><strong>isVerticallyStretchable</strong> = &lt;built-in function isVerticallyStretchable&gt;</dl>
-
-<dl><dt><strong>newLine</strong> = &lt;built-in function newLine&gt;</dl>
-
-<dl><dt><strong>offset</strong> = &lt;built-in function offset&gt;</dl>
-
-<dl><dt><strong>opaqueMoving</strong> = &lt;built-in function opaqueMoving&gt;</dl>
-
-<dl><dt><strong>orientation</strong> = &lt;built-in function orientation&gt;</dl>
-
-<dl><dt><strong>place</strong> = &lt;built-in function place&gt;</dl>
-
-<dl><dt><strong>setCaption</strong> = &lt;built-in function setCaption&gt;</dl>
-
-<dl><dt><strong>setCloseMode</strong> = &lt;built-in function setCloseMode&gt;</dl>
-
-<dl><dt><strong>setFixedExtentHeight</strong> = &lt;built-in function setFixedExtentHeight&gt;</dl>
-
-<dl><dt><strong>setFixedExtentWidth</strong> = &lt;built-in function setFixedExtentWidth&gt;</dl>
-
-<dl><dt><strong>setHorizontallyStretchable</strong> = &lt;built-in function setHorizontallyStretchable&gt;</dl>
-
-<dl><dt><strong>setMovingEnabled</strong> = &lt;built-in function setMovingEnabled&gt;</dl>
-
-<dl><dt><strong>setNewLine</strong> = &lt;built-in function setNewLine&gt;</dl>
-
-<dl><dt><strong>setOffset</strong> = &lt;built-in function setOffset&gt;</dl>
-
-<dl><dt><strong>setOpaqueMoving</strong> = &lt;built-in function setOpaqueMoving&gt;</dl>
-
-<dl><dt><strong>setResizeEnabled</strong> = &lt;built-in function setResizeEnabled&gt;</dl>
-
-<dl><dt><strong>setVerticallyStretchable</strong> = &lt;built-in function setVerticallyStretchable&gt;</dl>
-
-<dl><dt><strong>setWidget</strong> = &lt;built-in function setWidget&gt;</dl>
-
-<dl><dt><strong>sizeHint</strong> = &lt;built-in function sizeHint&gt;</dl>
-
-<dl><dt><strong>undock</strong> = &lt;built-in function undock&gt;</dl>
-
-<dl><dt><strong>widget</strong> = &lt;built-in function widget&gt;</dl>
-
-<hr>
-Data and other attributes inherited from <a href="qt.html#QFrame">qt.QFrame</a>:<br>
-<dl><dt><strong>Box</strong> = 1</dl>
-
-<dl><dt><strong>GroupBoxPanel</strong> = 12</dl>
-
-<dl><dt><strong>HLine</strong> = 4</dl>
-
-<dl><dt><strong>LineEditPanel</strong> = 10</dl>
-
-<dl><dt><strong>MShadow</strong> = 240</dl>
-
-<dl><dt><strong>MShape</strong> = 15</dl>
-
-<dl><dt><strong>MenuBarPanel</strong> = 8</dl>
-
-<dl><dt><strong>NoFrame</strong> = 0</dl>
-
-<dl><dt><strong>Panel</strong> = 2</dl>
-
-<dl><dt><strong>Plain</strong> = 16</dl>
-
-<dl><dt><strong>PopupPanel</strong> = 7</dl>
-
-<dl><dt><strong>Raised</strong> = 32</dl>
-
-<dl><dt><strong>Shadow</strong> = &lt;class 'qt.Shadow'&gt;</dl>
-
-<dl><dt><strong>Shape</strong> = &lt;class 'qt.Shape'&gt;</dl>
-
-<dl><dt><strong>StyledPanel</strong> = 6</dl>
-
-<dl><dt><strong>Sunken</strong> = 48</dl>
-
-<dl><dt><strong>TabWidgetPanel</strong> = 11</dl>
-
-<dl><dt><strong>ToolBarPanel</strong> = 9</dl>
-
-<dl><dt><strong>VLine</strong> = 5</dl>
-
-<dl><dt><strong>WinPanel</strong> = 3</dl>
-
-<dl><dt><strong>contentsRect</strong> = &lt;built-in function contentsRect&gt;</dl>
-
-<dl><dt><strong>frameRect</strong> = &lt;built-in function frameRect&gt;</dl>
-
-<dl><dt><strong>frameShadow</strong> = &lt;built-in function frameShadow&gt;</dl>
-
-<dl><dt><strong>frameShape</strong> = &lt;built-in function frameShape&gt;</dl>
-
-<dl><dt><strong>frameStyle</strong> = &lt;built-in function frameStyle&gt;</dl>
-
-<dl><dt><strong>frameWidth</strong> = &lt;built-in function frameWidth&gt;</dl>
-
-<dl><dt><strong>lineWidth</strong> = &lt;built-in function lineWidth&gt;</dl>
-
-<dl><dt><strong>margin</strong> = &lt;built-in function margin&gt;</dl>
-
-<dl><dt><strong>midLineWidth</strong> = &lt;built-in function midLineWidth&gt;</dl>
-
-<dl><dt><strong>setFrameRect</strong> = &lt;built-in function setFrameRect&gt;</dl>
-
-<dl><dt><strong>setFrameShadow</strong> = &lt;built-in function setFrameShadow&gt;</dl>
-
-<dl><dt><strong>setFrameShape</strong> = &lt;built-in function setFrameShape&gt;</dl>
-
-<dl><dt><strong>setFrameStyle</strong> = &lt;built-in function setFrameStyle&gt;</dl>
-
-<dl><dt><strong>setLineWidth</strong> = &lt;built-in function setLineWidth&gt;</dl>
-
-<dl><dt><strong>setMargin</strong> = &lt;built-in function setMargin&gt;</dl>
-
-<dl><dt><strong>setMidLineWidth</strong> = &lt;built-in function setMidLineWidth&gt;</dl>
-
-<hr>
-Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a>:<br>
+Data and other attributes defined here:<br>
 <dl><dt><strong>AncestorOrigin</strong> = 3</dl>
 
-<dl><dt><strong>BackgroundOrigin</strong> = &lt;class 'qt.BackgroundOrigin'&gt;</dl>
-
 <dl><dt><strong>ClickFocus</strong> = 2</dl>
-
-<dl><dt><strong>FocusPolicy</strong> = &lt;class 'qt.FocusPolicy'&gt;</dl>
 
 <dl><dt><strong>NoFocus</strong> = 0</dl>
 
@@ -2507,6 +2182,8 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 
 <dl><dt><strong>childAt</strong> = &lt;built-in function childAt&gt;</dl>
 
+<dl><dt><strong>childEvent</strong> = &lt;built-in function childEvent&gt;</dl>
+
 <dl><dt><strong>childrenRect</strong> = &lt;built-in function childrenRect&gt;</dl>
 
 <dl><dt><strong>childrenRegion</strong> = &lt;built-in function childrenRegion&gt;</dl>
@@ -2515,19 +2192,45 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 
 <dl><dt><strong>clearMask</strong> = &lt;built-in function clearMask&gt;</dl>
 
+<dl><dt><strong>clearWFlags</strong> = &lt;built-in function clearWFlags&gt;</dl>
+
+<dl><dt><strong>clearWState</strong> = &lt;built-in function clearWState&gt;</dl>
+
 <dl><dt><strong>clipRegion</strong> = &lt;built-in function clipRegion&gt;</dl>
 
 <dl><dt><strong>close</strong> = &lt;built-in function close&gt;</dl>
+
+<dl><dt><strong>closeEvent</strong> = &lt;built-in function closeEvent&gt;</dl>
 
 <dl><dt><strong>colorGroup</strong> = &lt;built-in function colorGroup&gt;</dl>
 
 <dl><dt><strong>constPolish</strong> = &lt;built-in function constPolish&gt;</dl>
 
+<dl><dt><strong>contextMenuEvent</strong> = &lt;built-in function contextMenuEvent&gt;</dl>
+
+<dl><dt><strong>create</strong> = &lt;built-in function create&gt;</dl>
+
 <dl><dt><strong>cursor</strong> = &lt;built-in function cursor&gt;</dl>
+
+<dl><dt><strong>customEvent</strong> = &lt;built-in function customEvent&gt;</dl>
 
 <dl><dt><strong>customWhatsThis</strong> = &lt;built-in function customWhatsThis&gt;</dl>
 
+<dl><dt><strong>destroy</strong> = &lt;built-in function destroy&gt;</dl>
+
+<dl><dt><strong>dragEnterEvent</strong> = &lt;built-in function dragEnterEvent&gt;</dl>
+
+<dl><dt><strong>dragLeaveEvent</strong> = &lt;built-in function dragLeaveEvent&gt;</dl>
+
+<dl><dt><strong>dragMoveEvent</strong> = &lt;built-in function dragMoveEvent&gt;</dl>
+
 <dl><dt><strong>drawText</strong> = &lt;built-in function drawText&gt;</dl>
+
+<dl><dt><strong>dropEvent</strong> = &lt;built-in function dropEvent&gt;</dl>
+
+<dl><dt><strong>enabledChange</strong> = &lt;built-in function enabledChange&gt;</dl>
+
+<dl><dt><strong>enterEvent</strong> = &lt;built-in function enterEvent&gt;</dl>
 
 <dl><dt><strong>erase</strong> = &lt;built-in function erase&gt;</dl>
 
@@ -2535,7 +2238,15 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 
 <dl><dt><strong>erasePixmap</strong> = &lt;built-in function erasePixmap&gt;</dl>
 
+<dl><dt><strong>event</strong> = &lt;built-in function event&gt;</dl>
+
 <dl><dt><strong>find</strong> = &lt;built-in function find&gt;</dl>
+
+<dl><dt><strong>focusInEvent</strong> = &lt;built-in function focusInEvent&gt;</dl>
+
+<dl><dt><strong>focusNextPrevChild</strong> = &lt;built-in function focusNextPrevChild&gt;</dl>
+
+<dl><dt><strong>focusOutEvent</strong> = &lt;built-in function focusOutEvent&gt;</dl>
 
 <dl><dt><strong>focusPolicy</strong> = &lt;built-in function focusPolicy&gt;</dl>
 
@@ -2544,6 +2255,8 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 <dl><dt><strong>focusWidget</strong> = &lt;built-in function focusWidget&gt;</dl>
 
 <dl><dt><strong>font</strong> = &lt;built-in function font&gt;</dl>
+
+<dl><dt><strong>fontChange</strong> = &lt;built-in function fontChange&gt;</dl>
 
 <dl><dt><strong>fontInfo</strong> = &lt;built-in function fontInfo&gt;</dl>
 
@@ -2556,6 +2269,10 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 <dl><dt><strong>frameSize</strong> = &lt;built-in function frameSize&gt;</dl>
 
 <dl><dt><strong>geometry</strong> = &lt;built-in function geometry&gt;</dl>
+
+<dl><dt><strong>getWFlags</strong> = &lt;built-in function getWFlags&gt;</dl>
+
+<dl><dt><strong>getWState</strong> = &lt;built-in function getWState&gt;</dl>
 
 <dl><dt><strong>grabKeyboard</strong> = &lt;built-in function grabKeyboard&gt;</dl>
 
@@ -2571,9 +2288,19 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 
 <dl><dt><strong>heightForWidth</strong> = &lt;built-in function heightForWidth&gt;</dl>
 
+<dl><dt><strong>hide</strong> = &lt;built-in function hide&gt;</dl>
+
+<dl><dt><strong>hideEvent</strong> = &lt;built-in function hideEvent&gt;</dl>
+
 <dl><dt><strong>icon</strong> = &lt;built-in function icon&gt;</dl>
 
 <dl><dt><strong>iconText</strong> = &lt;built-in function iconText&gt;</dl>
+
+<dl><dt><strong>imComposeEvent</strong> = &lt;built-in function imComposeEvent&gt;</dl>
+
+<dl><dt><strong>imEndEvent</strong> = &lt;built-in function imEndEvent&gt;</dl>
+
+<dl><dt><strong>imStartEvent</strong> = &lt;built-in function imStartEvent&gt;</dl>
 
 <dl><dt><strong>isActiveWindow</strong> = &lt;built-in function isActiveWindow&gt;</dl>
 
@@ -2615,9 +2342,15 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 
 <dl><dt><strong>isVisibleToTLW</strong> = &lt;built-in function isVisibleToTLW&gt;</dl>
 
+<dl><dt><strong>keyPressEvent</strong> = &lt;built-in function keyPressEvent&gt;</dl>
+
+<dl><dt><strong>keyReleaseEvent</strong> = &lt;built-in function keyReleaseEvent&gt;</dl>
+
 <dl><dt><strong>keyboardGrabber</strong> = &lt;built-in function keyboardGrabber&gt;</dl>
 
 <dl><dt><strong>layout</strong> = &lt;built-in function layout&gt;</dl>
+
+<dl><dt><strong>leaveEvent</strong> = &lt;built-in function leaveEvent&gt;</dl>
 
 <dl><dt><strong>lowerW</strong> = &lt;built-in function lowerW&gt;</dl>
 
@@ -2639,15 +2372,33 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 
 <dl><dt><strong>maximumWidth</strong> = &lt;built-in function maximumWidth&gt;</dl>
 
+<dl><dt><strong>metaObject</strong> = &lt;built-in function metaObject&gt;</dl>
+
+<dl><dt><strong>metric</strong> = &lt;built-in function metric&gt;</dl>
+
 <dl><dt><strong>microFocusHint</strong> = &lt;built-in function microFocusHint&gt;</dl>
 
 <dl><dt><strong>minimumHeight</strong> = &lt;built-in function minimumHeight&gt;</dl>
 
+<dl><dt><strong>minimumSize</strong> = &lt;built-in function minimumSize&gt;</dl>
+
+<dl><dt><strong>minimumSizeHint</strong> = &lt;built-in function minimumSizeHint&gt;</dl>
+
 <dl><dt><strong>minimumWidth</strong> = &lt;built-in function minimumWidth&gt;</dl>
+
+<dl><dt><strong>mouseDoubleClickEvent</strong> = &lt;built-in function mouseDoubleClickEvent&gt;</dl>
 
 <dl><dt><strong>mouseGrabber</strong> = &lt;built-in function mouseGrabber&gt;</dl>
 
+<dl><dt><strong>mouseMoveEvent</strong> = &lt;built-in function mouseMoveEvent&gt;</dl>
+
+<dl><dt><strong>mousePressEvent</strong> = &lt;built-in function mousePressEvent&gt;</dl>
+
+<dl><dt><strong>mouseReleaseEvent</strong> = &lt;built-in function mouseReleaseEvent&gt;</dl>
+
 <dl><dt><strong>move</strong> = &lt;built-in function move&gt;</dl>
+
+<dl><dt><strong>moveEvent</strong> = &lt;built-in function moveEvent&gt;</dl>
 
 <dl><dt><strong>ownCursor</strong> = &lt;built-in function ownCursor&gt;</dl>
 
@@ -2655,11 +2406,15 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 
 <dl><dt><strong>ownPalette</strong> = &lt;built-in function ownPalette&gt;</dl>
 
+<dl><dt><strong>paintEvent</strong> = &lt;built-in function paintEvent&gt;</dl>
+
 <dl><dt><strong>palette</strong> = &lt;built-in function palette&gt;</dl>
 
 <dl><dt><strong>paletteBackgroundColor</strong> = &lt;built-in function paletteBackgroundColor&gt;</dl>
 
 <dl><dt><strong>paletteBackgroundPixmap</strong> = &lt;built-in function paletteBackgroundPixmap&gt;</dl>
+
+<dl><dt><strong>paletteChange</strong> = &lt;built-in function paletteChange&gt;</dl>
 
 <dl><dt><strong>paletteForegroundColor</strong> = &lt;built-in function paletteForegroundColor&gt;</dl>
 
@@ -2681,9 +2436,15 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 
 <dl><dt><strong>reparent</strong> = &lt;built-in function reparent&gt;</dl>
 
+<dl><dt><strong>resetInputContext</strong> = &lt;built-in function resetInputContext&gt;</dl>
+
 <dl><dt><strong>resize</strong> = &lt;built-in function resize&gt;</dl>
 
+<dl><dt><strong>resizeEvent</strong> = &lt;built-in function resizeEvent&gt;</dl>
+
 <dl><dt><strong>scroll</strong> = &lt;built-in function scroll&gt;</dl>
+
+<dl><dt><strong>sender</strong> = &lt;built-in function sender&gt;</dl>
 
 <dl><dt><strong>setAcceptDrops</strong> = &lt;built-in function setAcceptDrops&gt;</dl>
 
@@ -2696,6 +2457,8 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 <dl><dt><strong>setBackgroundOrigin</strong> = &lt;built-in function setBackgroundOrigin&gt;</dl>
 
 <dl><dt><strong>setBaseSize</strong> = &lt;built-in function setBaseSize&gt;</dl>
+
+<dl><dt><strong>setCaption</strong> = &lt;built-in function setCaption&gt;</dl>
 
 <dl><dt><strong>setCursor</strong> = &lt;built-in function setCursor&gt;</dl>
 
@@ -2731,6 +2494,8 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 
 <dl><dt><strong>setInputMethodEnabled</strong> = &lt;built-in function setInputMethodEnabled&gt;</dl>
 
+<dl><dt><strong>setKeyCompression</strong> = &lt;built-in function setKeyCompression&gt;</dl>
+
 <dl><dt><strong>setMask</strong> = &lt;built-in function setMask&gt;</dl>
 
 <dl><dt><strong>setMaximumHeight</strong> = &lt;built-in function setMaximumHeight&gt;</dl>
@@ -2739,7 +2504,11 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 
 <dl><dt><strong>setMaximumWidth</strong> = &lt;built-in function setMaximumWidth&gt;</dl>
 
+<dl><dt><strong>setMicroFocusHint</strong> = &lt;built-in function setMicroFocusHint&gt;</dl>
+
 <dl><dt><strong>setMinimumHeight</strong> = &lt;built-in function setMinimumHeight&gt;</dl>
+
+<dl><dt><strong>setMinimumSize</strong> = &lt;built-in function setMinimumSize&gt;</dl>
 
 <dl><dt><strong>setMinimumWidth</strong> = &lt;built-in function setMinimumWidth&gt;</dl>
 
@@ -2767,9 +2536,17 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 
 <dl><dt><strong>setUpdatesEnabled</strong> = &lt;built-in function setUpdatesEnabled&gt;</dl>
 
+<dl><dt><strong>setWFlags</strong> = &lt;built-in function setWFlags&gt;</dl>
+
+<dl><dt><strong>setWState</strong> = &lt;built-in function setWState&gt;</dl>
+
 <dl><dt><strong>setWindowOpacity</strong> = &lt;built-in function setWindowOpacity&gt;</dl>
 
 <dl><dt><strong>setWindowState</strong> = &lt;built-in function setWindowState&gt;</dl>
+
+<dl><dt><strong>show</strong> = &lt;built-in function show&gt;</dl>
+
+<dl><dt><strong>showEvent</strong> = &lt;built-in function showEvent&gt;</dl>
 
 <dl><dt><strong>showFullScreen</strong> = &lt;built-in function showFullScreen&gt;</dl>
 
@@ -2781,15 +2558,25 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 
 <dl><dt><strong>size</strong> = &lt;built-in function size&gt;</dl>
 
+<dl><dt><strong>sizeHint</strong> = &lt;built-in function sizeHint&gt;</dl>
+
 <dl><dt><strong>sizeIncrement</strong> = &lt;built-in function sizeIncrement&gt;</dl>
 
 <dl><dt><strong>sizePolicy</strong> = &lt;built-in function sizePolicy&gt;</dl>
 
 <dl><dt><strong>style</strong> = &lt;built-in function style&gt;</dl>
 
+<dl><dt><strong>styleChange</strong> = &lt;built-in function styleChange&gt;</dl>
+
+<dl><dt><strong>tabletEvent</strong> = &lt;built-in function tabletEvent&gt;</dl>
+
 <dl><dt><strong>testWFlags</strong> = &lt;built-in function testWFlags&gt;</dl>
 
 <dl><dt><strong>testWState</strong> = &lt;built-in function testWState&gt;</dl>
+
+<dl><dt><strong>timerEvent</strong> = &lt;built-in function timerEvent&gt;</dl>
+
+<dl><dt><strong>toolitems</strong> = (('Home', 'Reset original view', 'home.ppm', 'home'), ('Back', 'Back to  previous view', 'back.ppm', 'back'), ('Forward', 'Forward to next view', 'forward.ppm', 'forward'), (None, None, None, None), ('Pan', 'Pan axes with left mouse, zoom with right', 'move.ppm', 'pan'), ('Zoom', 'Zoom to rectangle', 'zoom_to_rect.ppm', 'zoom'), (None, None, None, None), ('Save', 'Save the figure', 'filesave.ppm', 'save_figure'))</dl>
 
 <dl><dt><strong>topLevelWidget</strong> = &lt;built-in function topLevelWidget&gt;</dl>
 
@@ -2801,11 +2588,17 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 
 <dl><dt><strong>updateGeometry</strong> = &lt;built-in function updateGeometry&gt;</dl>
 
+<dl><dt><strong>updateMask</strong> = &lt;built-in function updateMask&gt;</dl>
+
 <dl><dt><strong>visibleRect</strong> = &lt;built-in function visibleRect&gt;</dl>
+
+<dl><dt><strong>wheelEvent</strong> = &lt;built-in function wheelEvent&gt;</dl>
 
 <dl><dt><strong>width</strong> = &lt;built-in function width&gt;</dl>
 
 <dl><dt><strong>winId</strong> = &lt;built-in function winId&gt;</dl>
+
+<dl><dt><strong>windowActivationChange</strong> = &lt;built-in function windowActivationChange&gt;</dl>
 
 <dl><dt><strong>windowOpacity</strong> = &lt;built-in function windowOpacity&gt;</dl>
 
@@ -2814,6 +2607,46 @@ Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a
 <dl><dt><strong>x</strong> = &lt;built-in function x&gt;</dl>
 
 <dl><dt><strong>y</strong> = &lt;built-in function y&gt;</dl>
+
+<hr>
+Methods inherited from <a href="matplotlib.backend_bases.html#NavigationToolbar2">matplotlib.backend_bases.NavigationToolbar2</a>:<br>
+<dl><dt><a name="NavigationToolbar2QT-back"><strong>back</strong></a>(self, *args)</dt><dd><tt>move&nbsp;back&nbsp;up&nbsp;the&nbsp;view&nbsp;lim&nbsp;stack</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-drag_pan"><strong>drag_pan</strong></a>(self, event)</dt><dd><tt>the&nbsp;drag&nbsp;callback&nbsp;in&nbsp;pan/zoom&nbsp;mode</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-draw"><strong>draw</strong></a>(self)</dt><dd><tt>redraw&nbsp;the&nbsp;canvases,&nbsp;update&nbsp;the&nbsp;locators</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-forward"><strong>forward</strong></a>(self, *args)</dt><dd><tt>move&nbsp;forward&nbsp;in&nbsp;the&nbsp;view&nbsp;lim&nbsp;stack</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-home"><strong>home</strong></a>(self, *args)</dt><dd><tt>restore&nbsp;the&nbsp;original&nbsp;view</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-mouse_move"><strong>mouse_move</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-pan"><strong>pan</strong></a>(self, *args)</dt><dd><tt>Activate&nbsp;the&nbsp;pan/zoom&nbsp;tool.&nbsp;pan&nbsp;with&nbsp;left&nbsp;button,&nbsp;zoom&nbsp;with&nbsp;right</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-press"><strong>press</strong></a>(self, event)</dt><dd><tt>this&nbsp;will&nbsp;be&nbsp;called&nbsp;whenver&nbsp;a&nbsp;mouse&nbsp;button&nbsp;is&nbsp;pressed</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-press_pan"><strong>press_pan</strong></a>(self, event)</dt><dd><tt>the&nbsp;press&nbsp;mouse&nbsp;button&nbsp;in&nbsp;pan/zoom&nbsp;mode&nbsp;callback</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-press_zoom"><strong>press_zoom</strong></a>(self, event)</dt><dd><tt>the&nbsp;press&nbsp;mouse&nbsp;button&nbsp;in&nbsp;zoom&nbsp;to&nbsp;rect&nbsp;mode&nbsp;callback</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-push_current"><strong>push_current</strong></a>(self)</dt><dd><tt>push&nbsp;the&nbsp;current&nbsp;view&nbsp;limits&nbsp;onto&nbsp;the&nbsp;stack</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-release"><strong>release</strong></a>(self, event)</dt><dd><tt>this&nbsp;will&nbsp;be&nbsp;called&nbsp;whenever&nbsp;mouse&nbsp;button&nbsp;is&nbsp;released</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-release_pan"><strong>release_pan</strong></a>(self, event)</dt><dd><tt>the&nbsp;release&nbsp;mouse&nbsp;button&nbsp;callback&nbsp;in&nbsp;pan/zoom&nbsp;mode</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-release_zoom"><strong>release_zoom</strong></a>(self, event)</dt><dd><tt>the&nbsp;release&nbsp;mouse&nbsp;button&nbsp;callback&nbsp;in&nbsp;zoom&nbsp;to&nbsp;rect&nbsp;mode</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-set_history_buttons"><strong>set_history_buttons</strong></a>(self)</dt><dd><tt>enable&nbsp;or&nbsp;disable&nbsp;back/forward&nbsp;button</tt></dd></dl>
+
+<dl><dt><a name="NavigationToolbar2QT-zoom"><strong>zoom</strong></a>(self, *args)</dt><dd><tt>activate&nbsp;zoom&nbsp;to&nbsp;rect&nbsp;mode</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="qt.html#QWidget">qt.QWidget</a>:<br>
+<dl><dt><strong>BackgroundOrigin</strong> = &lt;class 'qt.BackgroundOrigin'&gt;</dl>
+
+<dl><dt><strong>FocusPolicy</strong> = &lt;class 'qt.FocusPolicy'&gt;</dl>
 
 <hr>
 Data and other attributes inherited from <a href="qt.html#QObject">qt.QObject</a>:<br>
@@ -2836,6 +2669,8 @@ Data and other attributes inherited from <a href="qt.html#QObject">qt.QObject</a
 <dl><dt><strong>dumpObjectTree</strong> = &lt;built-in function dumpObjectTree&gt;</dl>
 
 <dl><dt><strong>emit</strong> = &lt;built-in function emit&gt;</dl>
+
+<dl><dt><strong>eventFilter</strong> = &lt;built-in function eventFilter&gt;</dl>
 
 <dl><dt><strong>highPriority</strong> = &lt;built-in function highPriority&gt;</dl>
 

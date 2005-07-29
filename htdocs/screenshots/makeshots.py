@@ -32,6 +32,7 @@ files = {
     'hstdemo.py' : default,
     }
 
+
 dpi1 = 60
 dpi2 = 120
 def make_shot(fname, backend):

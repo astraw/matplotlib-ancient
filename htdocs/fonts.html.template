@@ -66,7 +66,7 @@ priority associated with them.  You describe which family you want by
 choosing, eg, <tt>family='serif'</tt>, and the font manager will search
 the font.serif list looking for one of the named fonts on your system.
 The lists are user configurable, and reside in your <a
-href=.matplotlibrc>.matplotlibrc</a> file. <p>
+href=matplotlibrc>matplotlibrc</a> file. <p>
 
 This allows you to choose your family in your matplotlib script and the
 font manager will try and find the best font no matter which platform

@@ -1985,7 +1985,11 @@ Data and other attributes inherited from <a href="sip.html#wrapper">sip.wrapper<
 Methods inherited from <a href="matplotlib.backends.backend_agg.html#FigureCanvasAgg">matplotlib.backends.backend_agg.FigureCanvasAgg</a>:<br>
 <dl><dt><a name="FigureCanvasQTAgg-buffer_rgba"><strong>buffer_rgba</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="FigureCanvasQTAgg-copy_from_bbox"><strong>copy_from_bbox</strong></a>(self, bbox)</dt></dl>
+
 <dl><dt><a name="FigureCanvasQTAgg-get_renderer"><strong>get_renderer</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-restore_region"><strong>restore_region</strong></a>(self, region)</dt></dl>
 
 <dl><dt><a name="FigureCanvasQTAgg-tostring_argb"><strong>tostring_argb</strong></a>(self)</dt></dl>
 
@@ -1993,6 +1997,8 @@ Methods inherited from <a href="matplotlib.backends.backend_agg.html#FigureCanva
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><a name="FigureCanvasQTAgg-blit"><strong>blit</strong></a>(self, bbox<font color="#909090">=None</font>)</dt><dd><tt>blit&nbsp;the&nbsp;canvas&nbsp;in&nbsp;bbox&nbsp;(default&nbsp;entire&nbsp;canvas)</tt></dd></dl>
+
 <dl><dt><a name="FigureCanvasQTAgg-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;press.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
@@ -2004,14 +2010,19 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</
 <dl><dt><a name="FigureCanvasQTAgg-draw_cursor"><strong>draw_cursor</strong></a>(self, event)</dt><dd><tt>Draw&nbsp;a&nbsp;cursor&nbsp;in&nbsp;the&nbsp;event.axes&nbsp;if&nbsp;inaxes&nbsp;is&nbsp;not&nbsp;None.&nbsp;&nbsp;Use<br>
 native&nbsp;GUI&nbsp;drawing&nbsp;for&nbsp;efficiency&nbsp;if&nbsp;possible</tt></dd></dl>
 
+<dl><dt><a name="FigureCanvasQTAgg-draw_event"><strong>draw_event</strong></a>(self, renderer)</dt></dl>
+
 <dl><dt><a name="FigureCanvasQTAgg-draw_idle"><strong>draw_idle</strong></a>(self, *args, **kwargs)</dt><dd><tt>draw&nbsp;only&nbsp;if&nbsp;idle;&nbsp;defaults&nbsp;to&nbsp;draw&nbsp;but&nbsp;backends&nbsp;can&nbsp;overrride</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasQTAgg-get_width_height"><strong>get_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;points&nbsp;or&nbsp;pixels<br>
+(depending&nbsp;on&nbsp;the&nbsp;backend),&nbsp;truncated&nbsp;to&nbsp;integers</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasQTAgg-key_press_event"><strong>key_press_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="FigureCanvasQTAgg-key_release_event"><strong>key_release_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
-<dl><dt><a name="FigureCanvasQTAgg-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
-button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
+<dl><dt><a name="FigureCanvasQTAgg-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any<br>
+motion-notify-event.&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasQTAgg-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
@@ -2020,10 +2031,12 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</
 &nbsp;<br>
 where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbsp;events&nbsp;are&nbsp;recognized<br>
 &nbsp;<br>
-&nbsp;'key_press_event'&nbsp;<br>
-&nbsp;'button_press_event'&nbsp;<br>
-&nbsp;'button_release_event'&nbsp;<br>
-&nbsp;'motion_notify_event'&nbsp;<br>
+&nbsp;'draw_event'<br>
+&nbsp;'key_press_event'<br>
+&nbsp;'key_release_event'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;'button_press_event'<br>
+&nbsp;'button_release_event'<br>
+&nbsp;'motion_notify_event'<br>
 &nbsp;<br>
 &nbsp;For&nbsp;the&nbsp;three&nbsp;events&nbsp;above,&nbsp;if&nbsp;the&nbsp;mouse&nbsp;is&nbsp;over&nbsp;the&nbsp;axes,<br>
 &nbsp;the&nbsp;variable&nbsp;event.inaxes&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;the&nbsp;axes&nbsp;it&nbsp;is&nbsp;over,<br>

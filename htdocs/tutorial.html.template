@@ -72,7 +72,7 @@ use it in "batch mode" on a web server to create images they never
 look at.  Others use graphical user interfaces (GUIs) to interact with
 their plots.  Thus you must customize matplotlib to work like you want
 it too.  In particular, you need to take a look at the customization
-file <a href=.matplotlibrc>.matplotlibrc<a/>, in which you can set
+file <a href=matplotlibrc>matplotlibrc<a/>, in which you can set
 whether you want to just create images or use a GUI (the
 <tt>backend</tt> setting), and whether you want to work interactively
 from the shell (the <tt>interactive</tt> setting).  Also, please read
@@ -537,7 +537,7 @@ show()
 All figure windows come with a navigation toolbar, which can be used
 to navigate through the data set.  You can select either the "classic"
 or newfangled toolbar "toolbar2" in your <a
-href=.matplotlibrc>.matplotlibrc</a> file using the <tt>toolbar</tt>
+href=matplotlibrc>matplotlibrc</a> file using the <tt>toolbar</tt>
 setting. 
 
 If you want to interact with very large data sets, matplotlib supports
@@ -648,10 +648,10 @@ width=400> <i>The new toolbar2</i> </td></tr> </table><br>
 </a>
 
 matplotlib uses an rc configuration file <a
-href=.matplotlibrc>.matplotlibrc</a>.  At installation time, this is
+href=matplotlibrc>matplotlibrc</a>.  At installation time, this is
 placed in a standard distutils path, eg
-<tt>C:\Python23\share\matplotlib\.matplotlibrc</tt> on windows or
-<tt>/usr/local/share/matplotlib/.matplotlibrc</tt> on linux and
+<tt>C:\Python23\share\matplotlib\matplotlibrc</tt> on windows or
+<tt>/usr/local/share/matplotlib/matplotlibrc</tt> on linux and
 friends.  Every time you install matplotlib, this file will be
 overwritten, so if you want your customizations to be saved, please
 move this file to your HOME directory and make sure the HOME
@@ -661,7 +661,7 @@ You can control the defaults of almost every property in matplotlib:
 figure size and dpi, line width, color and style, axes, axis and grid
 properties, text and font properties and so on.  The format of the
 file is documented within it, so please see <a
-href=.matplotlibrc>.matplotlibrc</a> for more information.<p>
+href=matplotlibrc>matplotlibrc</a> for more information.<p>
 
 You can also dynamically change the defaults in a python script or
 interactively from the python shell using the <a
@@ -961,7 +961,7 @@ and will be installed if you don't already have it.  Thus you can
 reside in Zimbabwe and use matplotlib to plot financial quotes in
 London or New York, with correct handling of idiosyncrasies like
 daylight savings time.  The default timezone is set by the timezone
-parameter in your <a href=.matplotlibrc>matplotlibrc</a> file.  The
+parameter in your <a href=matplotlibrc>matplotlibrc</a> file.  The
 timezone is specified as a string acceptable to the pytz.timezone
 constructor, eg 'US/Eastern' or 'Europe/London'.  The default timezone
 in the rc file that ships with matplotlib is 'UTC'.  Note, matplotlib

@@ -14,11 +14,10 @@
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="copy.html">copy</a><br>
-<a href="math.html">math</a><br>
-</td><td width="25%" valign=top><a href="pdb.html">pdb</a><br>
-<a href="re.html">re</a><br>
+</td><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
 </td><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -384,7 +383,7 @@ Methods defined here:<br>
 ACCEPTS:&nbsp;[&nbsp;'top'&nbsp;|&nbsp;'bottom'&nbsp;]</tt></dd></dl>
 
 <dl><dt><a name="XAxis-set_ticks_position"><strong>set_ticks_position</strong></a>(self, position)</dt><dd><tt>Set&nbsp;the&nbsp;ticks&nbsp;position&nbsp;(top,&nbsp;bottom,&nbsp;both&nbsp;or&nbsp;default)<br>
-both&nbsp;sets&nbsp;the&nbsp;ticks&nbsp;to&nbsp;appear&nbsp;on&nbsp;both&nbsp;positions,&nbsp;but&nbsp;<br>
+both&nbsp;sets&nbsp;the&nbsp;ticks&nbsp;to&nbsp;appear&nbsp;on&nbsp;both&nbsp;positions,&nbsp;but<br>
 does&nbsp;not&nbsp;change&nbsp;the&nbsp;tick&nbsp;labels.<br>
 default&nbsp;resets&nbsp;the&nbsp;tick&nbsp;positions&nbsp;to&nbsp;the&nbsp;default:<br>
 ticks&nbsp;on&nbsp;both&nbsp;positions,&nbsp;labels&nbsp;at&nbsp;bottom.<br>
@@ -1027,7 +1026,7 @@ specified&nbsp;by&nbsp;the&nbsp;keyword&nbsp;argument&nbsp;typecode.</tt></dd></
 <strong>log10</strong> = &lt;ufunc 'log10'&gt;<br>
 <strong>logical_and</strong> = &lt;ufunc 'logical_and'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
 <strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
 <strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>
 <strong>tan</strong> = &lt;ufunc 'tan'&gt;</td></tr></table>

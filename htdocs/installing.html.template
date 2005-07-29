@@ -82,7 +82,7 @@ important that you pick the matplotlib installer that corresponds to
 your array package.  Ie, if you mostly work with numarray arrays, use
 the matplotlib numarray installer.  matplotlib has a <tt>numerix</tt>
 setting in the matplotlib rc file (which by default resides in
-<tt>c:\python23\share\matplotlitb\.matplotlibrc</tt>) and you should
+<tt>c:\python23\share\matplotlitb\matplotlibrc</tt>) and you should
 make sure this setting corresponds to your preferred array package.<p>
 
 With a standard python + Numeric/numarray + matplotlib, the following

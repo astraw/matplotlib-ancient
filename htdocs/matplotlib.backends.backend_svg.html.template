@@ -2,7 +2,7 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr bgcolor="#7799ee">
 <td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_svg</strong></big></big> (version 0.82)</font></td
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="matplotlib.html"><font color="#ffffff">matplotlib</font></a>.<a href="matplotlib.backends.html"><font color="#ffffff">backends</font></a>.backend_svg</strong></big></big> (version 0.83.2)</font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/lib/python2.4/site-packages/matplotlib/backends/backend_svg.py">/usr/lib/python2.4/site-packages/matplotlib/backends/backend_svg.py</a></font></td></tr></table>
     <p></p>
@@ -13,10 +13,8 @@
 <font color="#fffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
-</td><td width="25%" valign=top><a href="os.html">os</a><br>
-</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -37,12 +35,6 @@
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_svg.html#FigureManagerSVG">FigureManagerSVG</a>
 </font></dt></dl>
 </dd>
-<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>
-</font></dt><dd>
-<dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.backends.backend_svg.html#GraphicsContextSVG">GraphicsContextSVG</a>
-</font></dt></dl>
-</dd>
 <dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>
 </font></dt><dd>
 <dl>
@@ -58,13 +50,13 @@
     
 <tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="FigureCanvasSVG-draw"><strong>draw</strong></a>(self)</dt></dl>
-
 <dl><dt><a name="FigureCanvasSVG-print_figure"><strong>print_figure</strong></a>(self, filename, dpi<font color="#909090">=80</font>, facecolor<font color="#909090">='w'</font>, edgecolor<font color="#909090">='w'</font>, orientation<font color="#909090">='portrait'</font>)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
 <dl><dt><a name="FigureCanvasSVG-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
+
+<dl><dt><a name="FigureCanvasSVG-blit"><strong>blit</strong></a>(self, bbox<font color="#909090">=None</font>)</dt><dd><tt>blit&nbsp;the&nbsp;canvas&nbsp;in&nbsp;bbox&nbsp;(default&nbsp;entire&nbsp;canvas)</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasSVG-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;press.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
@@ -74,17 +66,24 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</
 button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
+<dl><dt><a name="FigureCanvasSVG-draw"><strong>draw</strong></a>(self, *args, **kwargs)</dt><dd><tt>Render&nbsp;the&nbsp;figure</tt></dd></dl>
+
 <dl><dt><a name="FigureCanvasSVG-draw_cursor"><strong>draw_cursor</strong></a>(self, event)</dt><dd><tt>Draw&nbsp;a&nbsp;cursor&nbsp;in&nbsp;the&nbsp;event.axes&nbsp;if&nbsp;inaxes&nbsp;is&nbsp;not&nbsp;None.&nbsp;&nbsp;Use<br>
 native&nbsp;GUI&nbsp;drawing&nbsp;for&nbsp;efficiency&nbsp;if&nbsp;possible</tt></dd></dl>
 
+<dl><dt><a name="FigureCanvasSVG-draw_event"><strong>draw_event</strong></a>(self, renderer)</dt></dl>
+
 <dl><dt><a name="FigureCanvasSVG-draw_idle"><strong>draw_idle</strong></a>(self, *args, **kwargs)</dt><dd><tt>draw&nbsp;only&nbsp;if&nbsp;idle;&nbsp;defaults&nbsp;to&nbsp;draw&nbsp;but&nbsp;backends&nbsp;can&nbsp;overrride</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasSVG-get_width_height"><strong>get_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;points&nbsp;or&nbsp;pixels<br>
+(depending&nbsp;on&nbsp;the&nbsp;backend),&nbsp;truncated&nbsp;to&nbsp;integers</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasSVG-key_press_event"><strong>key_press_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="FigureCanvasSVG-key_release_event"><strong>key_release_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
-<dl><dt><a name="FigureCanvasSVG-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
-button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
+<dl><dt><a name="FigureCanvasSVG-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any<br>
+motion-notify-event.&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasSVG-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
@@ -93,10 +92,12 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;MouseEvent</
 &nbsp;<br>
 where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbsp;events&nbsp;are&nbsp;recognized<br>
 &nbsp;<br>
-&nbsp;'key_press_event'&nbsp;<br>
-&nbsp;'button_press_event'&nbsp;<br>
-&nbsp;'button_release_event'&nbsp;<br>
-&nbsp;'motion_notify_event'&nbsp;<br>
+&nbsp;'draw_event'<br>
+&nbsp;'key_press_event'<br>
+&nbsp;'key_release_event'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;'button_press_event'<br>
+&nbsp;'button_release_event'<br>
+&nbsp;'motion_notify_event'<br>
 &nbsp;<br>
 &nbsp;For&nbsp;the&nbsp;three&nbsp;events&nbsp;above,&nbsp;if&nbsp;the&nbsp;mouse&nbsp;is&nbsp;over&nbsp;the&nbsp;axes,<br>
 &nbsp;the&nbsp;variable&nbsp;event.inaxes&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;the&nbsp;axes&nbsp;it&nbsp;is&nbsp;over,<br>
@@ -133,6 +134,8 @@ Data and other attributes inherited from <a href="matplotlib.backend_bases.html#
 
 <dl><dt><a name="FigureManagerSVG-destroy"><strong>destroy</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="FigureManagerSVG-full_screen_toggle"><strong>full_screen_toggle</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="FigureManagerSVG-key_press"><strong>key_press</strong></a>(self, event)</dt></dl>
 
 <dl><dt><a name="FigureManagerSVG-show_popup"><strong>show_popup</strong></a>(self, msg)</dt><dd><tt>Display&nbsp;message&nbsp;in&nbsp;a&nbsp;popup&nbsp;--&nbsp;GUI&nbsp;only</tt></dd></dl>
@@ -149,83 +152,11 @@ Data and other attributes inherited from <a href="matplotlib.backend_bases.html#
 
 <dl><dt><a name="FigureManagerSVG-destroy"><strong>destroy</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="FigureManagerSVG-full_screen_toggle"><strong>full_screen_toggle</strong></a>(self)</dt></dl>
+
 <dl><dt><a name="FigureManagerSVG-key_press"><strong>key_press</strong></a>(self, event)</dt></dl>
 
 <dl><dt><a name="FigureManagerSVG-show_popup"><strong>show_popup</strong></a>(self, msg)</dt><dd><tt>Display&nbsp;message&nbsp;in&nbsp;a&nbsp;popup&nbsp;--&nbsp;GUI&nbsp;only</tt></dd></dl>
-
-</td></tr></table> <p>
-<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
-<tr bgcolor="#ffc8d8">
-<td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="GraphicsContextSVG">class <strong>GraphicsContextSVG</strong></a>(<a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>)</font></td></tr>
-    
-<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="GraphicsContextSVG-get_capstyle"><strong>get_capstyle</strong></a>(self)</dt><dd><tt>one&nbsp;of&nbsp;butt/round/square/none</tt></dd></dl>
-
-<hr>
-Methods inherited from <a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>:<br>
-<dl><dt><a name="GraphicsContextSVG-__init__"><strong>__init__</strong></a>(self)</dt></dl>
-
-<dl><dt><a name="GraphicsContextSVG-copy_properties"><strong>copy_properties</strong></a>(self, gc)</dt><dd><tt>Copy&nbsp;properties&nbsp;from&nbsp;gc&nbsp;to&nbsp;self</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-get_alpha"><strong>get_alpha</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-get_antialiased"><strong>get_antialiased</strong></a>(self)</dt><dd><tt>Return&nbsp;true&nbsp;if&nbsp;the&nbsp;object&nbsp;should&nbsp;try&nbsp;to&nbsp;do&nbsp;antialiased&nbsp;rendering</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-get_clip_rectangle"><strong>get_clip_rectangle</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;clip&nbsp;rectangle&nbsp;as&nbsp;(left,&nbsp;bottom,&nbsp;width,&nbsp;height)</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-get_dashes"><strong>get_dashes</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;dash&nbsp;information&nbsp;as&nbsp;an&nbsp;offset&nbsp;dashlist&nbsp;tuple&nbsp;The<br>
-dash&nbsp;list&nbsp;is&nbsp;a&nbsp;even&nbsp;size&nbsp;list&nbsp;that&nbsp;gives&nbsp;the&nbsp;ink&nbsp;on,&nbsp;ink&nbsp;off<br>
-in&nbsp;pixels.&nbsp;&nbsp;See&nbsp;p107&nbsp;of&nbsp;to&nbsp;postscript&nbsp;BLUEBOOK&nbsp;for&nbsp;more&nbsp;info<br>
-&nbsp;<br>
-Default&nbsp;value&nbsp;is&nbsp;None</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-get_joinstyle"><strong>get_joinstyle</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;line&nbsp;join&nbsp;style&nbsp;as&nbsp;one&nbsp;of&nbsp;('miter',&nbsp;'round',&nbsp;'bevel')</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-get_linestyle"><strong>get_linestyle</strong></a>(self, style)</dt><dd><tt>Return&nbsp;the&nbsp;linestyle:&nbsp;one&nbsp;of&nbsp;('solid',&nbsp;'dashed',&nbsp;'dashdot',<br>
-'dotted').</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-get_linewidth"><strong>get_linewidth</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;line&nbsp;width&nbsp;in&nbsp;points&nbsp;as&nbsp;a&nbsp;scalar</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-get_rgb"><strong>get_rgb</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;tuple&nbsp;of&nbsp;three&nbsp;floats&nbsp;from&nbsp;0-1.&nbsp;&nbsp;color&nbsp;can&nbsp;be&nbsp;a<br>
-matlab&nbsp;format&nbsp;string,&nbsp;a&nbsp;html&nbsp;hex&nbsp;color&nbsp;string,&nbsp;or&nbsp;a&nbsp;rgb&nbsp;tuple</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-set_alpha"><strong>set_alpha</strong></a>(self, alpha)</dt><dd><tt>Set&nbsp;the&nbsp;alpha&nbsp;value&nbsp;used&nbsp;for&nbsp;blending&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
-all&nbsp;backends</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-set_antialiased"><strong>set_antialiased</strong></a>(self, b)</dt><dd><tt>True&nbsp;if&nbsp;object&nbsp;should&nbsp;be&nbsp;drawn&nbsp;with&nbsp;antialiased&nbsp;rendering</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-set_capstyle"><strong>set_capstyle</strong></a>(self, cs)</dt><dd><tt>Set&nbsp;the&nbsp;capstyle&nbsp;as&nbsp;a&nbsp;string&nbsp;in&nbsp;('butt',&nbsp;'round',&nbsp;'projecting')</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-set_clip_rectangle"><strong>set_clip_rectangle</strong></a>(self, rectangle)</dt><dd><tt>Set&nbsp;the&nbsp;clip&nbsp;rectangle&nbsp;with&nbsp;sequence&nbsp;(left,&nbsp;bottom,&nbsp;width,&nbsp;height)</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-set_dashes"><strong>set_dashes</strong></a>(self, dash_offset, dash_list)</dt><dd><tt>Set&nbsp;the&nbsp;dash&nbsp;style&nbsp;for&nbsp;the&nbsp;gc.<br>
-dash_offset&nbsp;is&nbsp;the&nbsp;offset&nbsp;(usually&nbsp;0).<br>
-dash_list&nbsp;specifies&nbsp;the&nbsp;on-off&nbsp;sequence&nbsp;as&nbsp;points<br>
-(None,&nbsp;None)&nbsp;specifies&nbsp;a&nbsp;solid&nbsp;line</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-set_foreground"><strong>set_foreground</strong></a>(self, fg, isRGB<font color="#909090">=False</font>)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color.&nbsp;&nbsp;fg&nbsp;can&nbsp;be&nbsp;a&nbsp;matlab&nbsp;format&nbsp;string,&nbsp;a<br>
-html&nbsp;hex&nbsp;color&nbsp;string,&nbsp;an&nbsp;rgb&nbsp;unit&nbsp;tuple,&nbsp;or&nbsp;a&nbsp;float&nbsp;between&nbsp;0<br>
-and&nbsp;1.&nbsp;&nbsp;In&nbsp;the&nbsp;latter&nbsp;case,&nbsp;grayscale&nbsp;is&nbsp;used.<br>
-&nbsp;<br>
-The&nbsp;GraphicsContext&nbsp;converts&nbsp;colors&nbsp;to&nbsp;rgb&nbsp;internally.&nbsp;&nbsp;If&nbsp;you<br>
-know&nbsp;the&nbsp;color&nbsp;is&nbsp;rgb&nbsp;already,&nbsp;you&nbsp;can&nbsp;set&nbsp;isRGB&nbsp;to&nbsp;True&nbsp;to<br>
-avoid&nbsp;the&nbsp;performace&nbsp;hit&nbsp;of&nbsp;the&nbsp;conversion</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-set_graylevel"><strong>set_graylevel</strong></a>(self, frac)</dt><dd><tt>Set&nbsp;the&nbsp;foreground&nbsp;color&nbsp;to&nbsp;be&nbsp;a&nbsp;gray&nbsp;level&nbsp;with&nbsp;frac&nbsp;frac</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-set_joinstyle"><strong>set_joinstyle</strong></a>(self, js)</dt><dd><tt>Set&nbsp;the&nbsp;join&nbsp;style&nbsp;to&nbsp;be&nbsp;one&nbsp;of&nbsp;('miter',&nbsp;'round',&nbsp;'bevel')</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-set_linestyle"><strong>set_linestyle</strong></a>(self, style)</dt><dd><tt>Set&nbsp;the&nbsp;linestyle&nbsp;to&nbsp;be&nbsp;one&nbsp;of&nbsp;('solid',&nbsp;'dashed',&nbsp;'dashdot',<br>
-'dotted').</tt></dd></dl>
-
-<dl><dt><a name="GraphicsContextSVG-set_linewidth"><strong>set_linewidth</strong></a>(self, w)</dt><dd><tt>Set&nbsp;the&nbsp;linewidth&nbsp;in&nbsp;points</tt></dd></dl>
-
-<hr>
-Data and other attributes inherited from <a href="matplotlib.backend_bases.html#GraphicsContextBase">matplotlib.backend_bases.GraphicsContextBase</a>:<br>
-<dl><dt><strong>dashd</strong> = {'dashdot': (0, (3.0, 5.0, 1.0, 5.0)), 'dashed': (0, (6.0, 6.0)), 'dotted': (0, (1.0, 3.0)), 'solid': (None, None)}</dl>
 
 </td></tr></table> <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -237,26 +168,24 @@ Data and other attributes inherited from <a href="matplotlib.backend_bases.html#
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="RendererSVG-__init__"><strong>__init__</strong></a>(self, width, height, svgwriter, basename<font color="#909090">='_svg'</font>)</dt></dl>
 
-<dl><dt><a name="RendererSVG-close_group"><strong>close_group</strong></a>(self, s)</dt><dd><tt>close&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s</tt></dd></dl>
+<dl><dt><a name="RendererSVG-close_group"><strong>close_group</strong></a>(self, s)</dt></dl>
 
-<dl><dt><a name="RendererSVG-draw_arc"><strong>draw_arc</strong></a>(self, gc, rgbFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Draw&nbsp;a&nbsp;circle&nbsp;at&nbsp;x,y&nbsp;of&nbsp;diameter&nbsp;'width'</tt></dd></dl>
+<dl><dt><a name="RendererSVG-draw_arc"><strong>draw_arc</strong></a>(self, gc, rgbFace, x, y, width, height, angle1, angle2)</dt><dd><tt>Currently&nbsp;implemented&nbsp;by&nbsp;drawing&nbsp;a&nbsp;circle&nbsp;of&nbsp;diameter&nbsp;width,&nbsp;not&nbsp;an<br>
+arc.&nbsp;angle1,&nbsp;angle2&nbsp;not&nbsp;used</tt></dd></dl>
 
 <dl><dt><a name="RendererSVG-draw_image"><strong>draw_image</strong></a>(self, x, y, im, origin, bbox)</dt></dl>
 
-<dl><dt><a name="RendererSVG-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt><dd><tt>Draw&nbsp;a&nbsp;single&nbsp;line&nbsp;from&nbsp;x1,y1&nbsp;to&nbsp;x2,y2</tt></dd></dl>
+<dl><dt><a name="RendererSVG-draw_line"><strong>draw_line</strong></a>(self, gc, x1, y1, x2, y2)</dt></dl>
 
-<dl><dt><a name="RendererSVG-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y)</dt><dd><tt>x&nbsp;and&nbsp;y&nbsp;are&nbsp;equal&nbsp;length&nbsp;arrays,&nbsp;draw&nbsp;lines&nbsp;connecting&nbsp;each<br>
-point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
+<dl><dt><a name="RendererSVG-draw_lines"><strong>draw_lines</strong></a>(self, gc, x, y, transform<font color="#909090">=None</font>)</dt></dl>
 
-<dl><dt><a name="RendererSVG-draw_mathtext"><strong>draw_mathtext</strong></a>(self, gc, x, y, s, prop, angle)</dt><dd><tt>Draw&nbsp;math&nbsp;text&nbsp;using&nbsp;matplotlib.mathtext</tt></dd></dl>
-
-<dl><dt><a name="RendererSVG-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt><dd><tt>Draw&nbsp;a&nbsp;point&nbsp;at&nbsp;x,y</tt></dd></dl>
+<dl><dt><a name="RendererSVG-draw_point"><strong>draw_point</strong></a>(self, gc, x, y)</dt></dl>
 
 <dl><dt><a name="RendererSVG-draw_polygon"><strong>draw_polygon</strong></a>(self, gc, rgbFace, points)</dt></dl>
 
 <dl><dt><a name="RendererSVG-draw_rectangle"><strong>draw_rectangle</strong></a>(self, gc, rgbFace, x, y, width, height)</dt></dl>
 
-<dl><dt><a name="RendererSVG-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, s, prop, angle, ismath)</dt><dd><tt>draw&nbsp;text</tt></dd></dl>
+<dl><dt><a name="RendererSVG-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, s, prop, angle, ismath)</dt></dl>
 
 <dl><dt><a name="RendererSVG-finish"><strong>finish</strong></a>(self)</dt></dl>
 
@@ -264,21 +193,12 @@ point&nbsp;in&nbsp;x,&nbsp;y</tt></dd></dl>
 
 <dl><dt><a name="RendererSVG-get_canvas_width_height"><strong>get_canvas_width_height</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="RendererSVG-get_text_width_height"><strong>get_text_width_height</strong></a>(self, s, prop, ismath)</dt><dd><tt>get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;display&nbsp;coords&nbsp;of&nbsp;the&nbsp;string&nbsp;s<br>
-with&nbsp;FontPropertry&nbsp;prop</tt></dd></dl>
+<dl><dt><a name="RendererSVG-get_text_width_height"><strong>get_text_width_height</strong></a>(self, s, prop, ismath)</dt></dl>
 
-<dl><dt><a name="RendererSVG-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;GraphicsContextTemplate</tt></dd></dl>
-
-<dl><dt><a name="RendererSVG-open_group"><strong>open_group</strong></a>(self, s)</dt><dd><tt>open&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s</tt></dd></dl>
+<dl><dt><a name="RendererSVG-open_group"><strong>open_group</strong></a>(self, s)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#RendererBase">matplotlib.backend_bases.RendererBase</a>:<br>
-<dl><dt><a name="RendererSVG-blit"><strong>blit</strong></a>(self)</dt><dd><tt>blit&nbsp;the&nbsp;cached&nbsp;copy&nbsp;of&nbsp;the&nbsp;canvas,&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;conjunction<br>
-with&nbsp;blit&nbsp;in&nbsp;support&nbsp;of&nbsp;animation</tt></dd></dl>
-
-<dl><dt><a name="RendererSVG-cache"><strong>cache</strong></a>(self)</dt><dd><tt>save&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;canvas,&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;conjunction&nbsp;with&nbsp;blit<br>
-in&nbsp;support&nbsp;of&nbsp;animation</tt></dd></dl>
-
 <dl><dt><a name="RendererSVG-draw_line_collection"><strong>draw_line_collection</strong></a>(self, segments, transform, clipbox, colors, linewidths, linestyle, antialiaseds, offsets, transOffset)</dt><dd><tt>This&nbsp;is&nbsp;a&nbsp;function&nbsp;for&nbsp;optimized&nbsp;line&nbsp;drawing.&nbsp;If&nbsp;you&nbsp;need&nbsp;to&nbsp;draw<br>
 many&nbsp;line&nbsp;segments&nbsp;with&nbsp;similar&nbsp;properties,&nbsp;it&nbsp;is&nbsp;faster&nbsp;to&nbsp;avoid&nbsp;the<br>
 overhead&nbsp;of&nbsp;all&nbsp;the&nbsp;object&nbsp;creation&nbsp;etc.&nbsp;The&nbsp;lack&nbsp;of&nbsp;total<br>
@@ -335,7 +255,11 @@ facecolors&nbsp;and&nbsp;edgecolors&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;R
 linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
 antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
 
+<dl><dt><a name="RendererSVG-draw_tex"><strong>draw_tex</strong></a>(self, gc, x, y, s, prop, angle, ismath<font color="#909090">='TeX!'</font>)</dt></dl>
+
 <dl><dt><a name="RendererSVG-get_text_extent"><strong>get_text_extent</strong></a>(self, text)</dt><dd><tt>Get&nbsp;the&nbsp;text&nbsp;extent&nbsp;in&nbsp;window&nbsp;coords</tt></dd></dl>
+
+<dl><dt><a name="RendererSVG-new_gc"><strong>new_gc</strong></a>(self)</dt><dd><tt>Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;GraphicsContextBase</tt></dd></dl>
 
 <dl><dt><a name="RendererSVG-points_to_pixels"><strong>points_to_pixels</strong></a>(self, points)</dt><dd><tt>Convert&nbsp;points&nbsp;to&nbsp;display&nbsp;units<br>
 points&nbsp;-&nbsp;a&nbsp;float&nbsp;or&nbsp;a&nbsp;numerix&nbsp;array&nbsp;of&nbsp;float<br>
@@ -364,11 +288,10 @@ points&nbsp;to&nbsp;pixels&nbsp;=&nbsp;points&nbsp;*&nbsp;pixels_per_inch/72.0&n
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>__version__</strong> = '0.82'<br>
-<strong>backend_version</strong> = '0.82'<br>
+<td width="100%"><strong>__version__</strong> = '0.83.2'<br>
+<strong>backend_version</strong> = '0.83.2'<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
 <strong>fontManager</strong> = &lt;matplotlib.font_manager.FontManager instance&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
-<strong>svgProlog</strong> = '&lt;?xml version="1.0" standalone="no"?&gt;<font color="#c040c0">\n</font>&lt;!DOCTYPE ...0"<font color="#c040c0">\n</font>   width="%f"<font color="#c040c0">\n</font>   height="%f"   <font color="#c040c0">\n</font>   id="svg1"&gt;<font color="#c040c0">\n</font>'<br>
+<strong>svgProlog</strong> = '&lt;?xml version="1.0" standalone="no"?&gt;<font color="#c040c0">\n</font>&lt;!DOCTYPE ...0"<font color="#c040c0">\n</font>   width="%i"<font color="#c040c0">\n</font>   height="%i"   <font color="#c040c0">\n</font>   id="svg1"&gt;<font color="#c040c0">\n</font>'<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

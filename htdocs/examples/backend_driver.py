@@ -62,7 +62,7 @@ files = (
     'text_handles.py',
     'text_rotation.py',
     'text_themes.py',
-    'tex_demo.py',    
+#    'tex_demo.py',    
     'two_scales.py',
     'unicode_demo.py',
     'vline_demo.py',
@@ -77,9 +77,22 @@ fail22  = (
     'finance_demo.py',
     )
 
+
+# tests known to fail on a given backend
+
+failbackend = dict(
+    SVG = ('tex_demo.py,'),
+    )
+
 def drive(backend, python='python2.4'):
+
+    exclude = failbackend.get(backend, [])
     
     for fname in files:
+        if fname in exclude:
+            print '\tSkipping %s, known to fail on backend: %s'%backend
+            continue
+            
         if python=='python2.2' and fname in fail22:
             print '\tSkipping %s, known to fail on python2.2'%fname
             continue
@@ -117,7 +130,7 @@ if __name__ == '__main__':
     # backends = ['Agg', 'Cairo', 'GDK', 'PS', 'SVG', 'Template']
     backends = ['Agg', 'PS', 'SVG', 'Template']
     # backends = [ 'GTK', 'WX', 'TkAgg']
-    backends = ['Agg', 'PS']
+    backends = ['Agg', 'PS', 'SVG', 'Template']
     python = 'python2.4'
     for backend in backends:
         print 'testing %s' % backend

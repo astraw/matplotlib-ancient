@@ -177,14 +177,10 @@ def isNewEntry(line):
 
 # re-add news to the params dict 'tables' entry below for news
 news1 = NewsBox("""\
-matplotlib-0.82 introduces a limited set of GUI neutral widgets you
-can use across the supported GUIs. See <a
-href=examples/widgets>examples/widgets</a> and <a
-href=screenshots.html#slider_demo>slider_demo</a>.
-""")
-
-news2 = NewsBox("""\
-You can now use TeX or LaTeX to create all matplotlib text instances for the anigrain and postscript backends.  See <a href=screenshots.html#tex_demo>TeX demo</a> and <a href=matplotlib.texmanager.html>texmanager</a>.
+matplotlib now has a <a
+href=http://www.scipy.org/wikis/topical_software/MatplotlibCookbook>wiki</a>.
+It's just getting started, so move the ball forward by adding a tip,
+trick, howto or recipe.
 """)
 
 
@@ -202,7 +198,8 @@ table1 =  LinkBox(header='Matplotlib', links=(
 table2 =  LinkBox(header='Documentation', links=(
     ('Tutorial', 'tutorial.html'),
     ("User's&nbsp;Guide&nbsp;(pdf)", 'users_guide_%s.pdf'%matplotlib.__version__),    
-    ('FAQ', 'faq.html'),    
+    ('FAQ', 'faq.html'),
+    ('Cookbook&nbsp;/&nbsp;wiki', 'http://www.scipy.org/wikis/topical_software/MatplotlibCookbook'),        
     ('pylab&nbsp;interface', 'pylab_commands.html'),
     ('Class&nbsp;library', 'classdocs.html'),
     ('Backends', 'backends.html'),
@@ -220,7 +217,7 @@ table3 =  LinkBox(header='Other', links=(
 
 params = {
     'myemail' : '<a href=mailto:jdhunter@ace.bsd.uchicago.edu> (jdhunter@ace.bsd.uchicago.edu)</a>',
-    'tables' : (news1, news2, table1, table2, table3),
+    'tables' : (news1, table1, table2, table3),
     'default_table' :  'border=1 cellpadding=3 cellspacing=2', 
           }
 

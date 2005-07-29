@@ -3,6 +3,9 @@ import matplotlib
 MPL_SRC = '/home/jdhunter/python/projects/matplotlib'
 
 #copy all the examples to the htdocs examples dir
+for fname in glob.glob('examples/*.py*'):
+    os.remove(fname)
+    
 for pathname in glob.glob(os.path.join(MPL_SRC, 'examples', '*.py')):
     path, fname = os.path.split(pathname)
     if fname.startswith('_tmp'): continue
@@ -23,7 +26,7 @@ os.system('zip -r -o matplotlib_examples_%s.zip examples'%matplotlib.__version__
 
 os.system('cp ../users_guide/users_guide.pdf users_guide_%s.pdf'%matplotlib.__version__)
 
-filenames = ( '.matplotlibrc', 'INSTALL', 'CHANGELOG',
+filenames = ( 'matplotlibrc', 'INSTALL', 'CHANGELOG',
               'NUMARRAY_ISSUES', 'API_CHANGES',)
 for fname in filenames:
     oldname = os.path.join(MPL_SRC,fname)
@@ -51,4 +54,4 @@ os.system('python convert.py')
 
 print 'Building archive'
 version = matplotlib.__version__
-os.system('tar cfz site.tar.gz *.html users_guide_%(version)s.pdf matplotlib_examples_%(version)s.zip screenshots tut examples gd .matplotlibrc CHANGELOG NUMARRAY_ISSUES  API_CHANGES set_begone.py'%locals())
+os.system('tar cfz site.tar.gz *.html users_guide_%(version)s.pdf matplotlib_examples_%(version)s.zip screenshots tut examples gd matplotlibrc CHANGELOG NUMARRAY_ISSUES  API_CHANGES set_begone.py'%locals())

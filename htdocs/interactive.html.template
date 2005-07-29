@@ -13,7 +13,7 @@ or the marker style of a line.  With the <a
 href=backends.html#TkAgg>TkAgg</a> backend, you can use matplotlib
 from an arbitrary python shell.  Just set TkAgg to be your default
 backend and interactive to be True in your <a
-href=.matplotlibrc>matplotlibrc</a> file and fire up python.  Then
+href=matplotlibrc>matplotlibrc</a> file and fire up python.  Then
 
 <pre>
 >>> from pylab import *
@@ -35,7 +35,7 @@ GUI is a separate thread.<p>
 The recommended way to use matplotlib interactively from a shell is
 with <a href=http://ipython.scipy.org>ipython</a>, which has an pylab
 mode that detects your matplotlib <a
-href=.matplotlibrc>.matplotlibrc</a> file and makes the right settings
+href=matplotlibrc>matplotlibrc</a> file and makes the right settings
 to run matplotlib with your GUI of choice in interactive mode using
 threading.  gtk users will need to make sure that they have compiled
 gtk with threading for this to work.  Using ipython in pylab mode is
@@ -116,7 +116,7 @@ matplotlib in interactive mode.
 </pre>
 
 If you primarily want to use matplotlib interactively in a wx shell,
-set the following in your <a href=.matplotlibrc>.matplotlibrc</a> file
+set the following in your <a href=matplotlibrc>matplotlibrc</a> file
 
 <pre>
 backend      : Wx

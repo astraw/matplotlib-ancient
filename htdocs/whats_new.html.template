@@ -3,6 +3,106 @@
 # tuple of (name, description) tuples
 
 versioninfo = {}
+
+versioninfo['0.83'] = (
+
+  ("axis('scale')", """\
+Added Mark Athen's 'scale' patch, so that on a scaled axis a circle
+looks like circle. See <a
+href=matplotlib.pylab.html#-axis>help(axis)</a>.
+"""),
+
+  ('New cursor and span selector widgets', """\
+Added new <a href=matplotlib.widgets.html#Cursor>Cursor<a/> and <a
+href=matplotlib.widgets.html#HorizontalSpanSelector>HorizontalSpanSelector</a>
+to <a href=matplotlib.widgets.html>matplotlib.widgets</a>.  See <a
+href=examples/widgets/cursor.py>cursor.py</a> and <a
+href=examples/widgets/span_selector.py>span_selector.py</a>.  Set
+<tt>useblit = True</tt> on gtkagg for significantly enhanced
+performance.
+"""),
+
+  ('draw events', """\
+You can use use matplotlib event handling to register a callback after
+figure draw using 'draw_event' which calls the callback with a <a
+href=matplotlib.backend_bases.html#DrawEvent>DrawEvent</a> instance
+
+<pre>
+  def callback(event):
+     #event.renderer is the backend Renderer instance
+     pass
+  connect('draw_event')
+</pre>
+"""),
+
+  ('Full screen mode in GTK*', """\
+Use 'f' to toggle full screen mode in the GTK backends.
+"""),
+
+  ('GTK and SVG fixes', """\
+Steve Chaplin has made numerous updates to the GTK and SVG backends.  See the <a href=CHANGELOG>CHANGELOG</a> for details.
+"""),
+
+  ('Reorganized config files', """\
+
+Made <tt>HOME/.matplotlib</tt> the new config dir where the
+<tt>matplotlibrc</tt> file, the <tt>ttf.cache</tt>, and the
+<tt>tex.cache</tt> live.  The new default filenames in
+<tt>.matplotlib</tt> have no leading dot and are not hidden.  Eg, the
+new names are <tt>matplotlibrc</tt>, <tt>tex.cache</tt>, and
+<tt>ttffont.cache</tt>.  This is how <a
+href=http://ipython.scipy.org>ipython</a> does it so it must be right.
+If old files are found, a warning is issued and they are moved to the
+new location.  Also fixed <a
+href=matplotlib.texmanager.html>texmanager</a> to put all files,
+including temp files in <tt>~/.matplotlib/tex.cache</tt>, which allows
+you to usetex in non-writable dirs.
+
+"""),
+
+  ('Using matplotlib.agg to draw paths', """\
+
+Updated <a href=examples/agg_test.py>agg_test.py</a> to demonstrate
+curved paths and fills.  """ ),
+
+  ('CocoaAgg', """\
+New CocoaAgg backend for native GUI on OSX, 10.3 and 10.4 compliant.
+"""),
+
+  ('Qt enhancements', """\
+Applied Ted Drain's QtAgg patch: 1) Changed the toolbar to be a
+horizontal bar of push buttons instead of a QToolbar and updated the
+layout algorithms in the main window accordingly.  This eliminates the
+ability to drag and drop the toolbar and detach it from the window.
+2) Updated the resize algorithm in the main window to show the correct
+size for the plot widget as requested.  This works almost correctly
+right now.  It looks to me like the final size of the widget is off by
+the border of the main window but I haven't figured out a way to get
+that information yet.  We could just add a small margin to the new
+size but that seems a little hacky.  3) Changed the x/y location label
+to be in the toolbar like the Tk backend instead of as a status line
+at the bottom of the widget.  4) Changed the toolbar pixmaps to use
+the ppm files instead of the png files.  I noticed that the Tk backend
+buttons looked much nicer and it uses the ppm files so I switched
+them.
+
+"""),
+
+  ('mathtext optimizations', """\
+Upgraded pyparsing and applied Paul McGuire's suggestions for speeding
+things up.  This more than doubles the speed of mathtext in my simple
+tests.
+"""),
+
+  ('Bugs fixed / small features', """\
+Applied SF patches 1242648, 1244732.  Fixes SF bugs 1238412, 1231611,
+1209354, subplot (2,1,1) bug, 
+"""),
+
+
+
+
+  )
 versioninfo['0.82'] = (
 
   ('Subplot configuration', """\
@@ -163,7 +263,7 @@ vertices, upgraded to agg23, new example showing how to use line
 collections <a
 href=examples/line_collection.py>line_collection.py</a>, fixed
 antialiased property setting in agg, added a postscript papersize <a
-href=.matplotlibrc>rc</a> option <tt>ps.papersize</tt>, added an
+href=matplotlibrc>rc</a> option <tt>ps.papersize</tt>, added an
 example showing how to embed mpl in a qt app <a
 href=examples/embedding_in_qt.py>embedding_in_qt.py</a>, arrow keys
 now exposed in mpl's GUI neutral event handling, added"among" kwarg to axes picker function
@@ -566,7 +666,7 @@ Thanks Andrew Straw."""),
   ('Verbose', """\
 
 Added a verbose class to allow different levels of verbosity - see <a
-href=.matplotlibrc>.matplotlibrc</a> for details.  Eg, you can now do
+href=matplotlibrc>matplotlibrc</a> for details.  Eg, you can now do
 <pre>
      > python myscript.py --verbose-helpful
 </pre>
@@ -779,7 +879,7 @@ Analogs in matplotlib.patches
 """),
     
     ('local rc files', """\
-You can put a .matplotlibrc file in a dir to override the one in your
+You can put a matplotlibrc file in a dir to override the one in your
 HOME dir.  If you have a project, say a book, and you want to make a
 bunch of images with the same look and feel for the book, you can
 place a custom rc file in the code dir for that book and this won't
@@ -988,8 +1088,8 @@ href=http://www.w3.org/TR/1999/REC-CSS1-19990111>W3C standard</a>.<p>
 
 See <a href=matplotlib.font_manager.html>the font manager module</a>
 documentation, the <a href=fonts.html>fonts documentation</a> and the
-updated <a href=.matplotlibrc>.matplotlibrc</a> file for more details;
-please update your .matplotlibrc files as described in that link.
+updated <a href=matplotlibrc>matplotlibrc</a> file for more details;
+please update your matplotlibrc files as described in that link.
 """),
 
     ('Backend WXAgg', """
@@ -1035,7 +1135,7 @@ the postscript backend as well as GTKAgg, TkAgg, WXAgg, Agg, and GTK.
     ('Changes to matplotlibrc', """
 Many features added to the default config file for font support, tkagg
 windowing in win32, and more.  Please use the new file at <a
-href=.matplotlibrc>.matplotlibrc</a>.  By default, the installer will
+href=matplotlibrc>matplotlibrc</a>.  By default, the installer will
 overwrite the existing file in the install path, so if you want to
 preserve your's, please move it to your HOME dir and set the
 environment variable if necessary.
@@ -1151,7 +1251,7 @@ BUILD_FT2FONT"""),
 install path (distutils.sysconfig.PREFIX + 'share/matplotlib').  This
 determines many of the default figure properties: the default backend,
 line properties, text properties, colors, and more.  See <a
-href=.matplotlibrc>.matplotlibrc</a> for an example configuration
+href=matplotlibrc>matplotlibrc</a> for an example configuration
 file.  Place this in your home dir (linux and friends), or edit in the
 install path (windows).  See the faqs <a
 href=faq.html#MATPLOTLIBRC>matplotlibrc</a> and <a
@@ -1167,7 +1267,7 @@ issues in using numarray.  """),
 
     ('data clipping off by default', """Data clipping, as opposed to
 viewport clipping, is turned off by default.  You can change the
-default behavior in <a href=.matplotlibrc>.matplotlibrc</a> or set it
+default behavior in <a href=matplotlibrc>matplotlibrc</a> or set it
 to be true when needed as in <a
 href=examples/stock_demo.py>stock_demo.py</a> """),
 

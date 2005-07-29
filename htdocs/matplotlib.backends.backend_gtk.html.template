@@ -15,14 +15,13 @@
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="gtk.gdk.html">gtk.gdk</a><br>
 <a href="gobject.html">gobject</a><br>
-<a href="gtk.html">gtk</a><br>
-</td><td width="25%" valign=top><a href="matplotlib.html">matplotlib</a><br>
-<a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
+</td><td width="25%" valign=top><a href="gtk.html">gtk</a><br>
+<a href="matplotlib.html">matplotlib</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
 <a href="os.html">os</a><br>
 </td><td width="25%" valign=top><a href="pango.html">pango</a><br>
-<a href="pygtk.html">pygtk</a><br>
 <a href="sys.html">sys</a><br>
-</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
 <td colspan=3 valign=bottom>&nbsp;<br>
@@ -105,8 +104,7 @@ Methods defined here:<br>
 
 <dl><dt><a name="FigureCanvasGTK-draw_idle"><strong>draw_idle</strong></a>(self)</dt></dl>
 
-<dl><dt><a name="FigureCanvasGTK-expose_event"><strong>expose_event</strong></a>(self, widget, event)</dt><dd><tt>Expose_event&nbsp;for&nbsp;all&nbsp;GTK&nbsp;backends<br>
-Should&nbsp;not&nbsp;be&nbsp;overridden.</tt></dd></dl>
+<dl><dt><a name="FigureCanvasGTK-expose_event"><strong>expose_event</strong></a>(self, widget, event)</dt><dd><tt>Expose_event&nbsp;for&nbsp;all&nbsp;GTK&nbsp;backends.&nbsp;Should&nbsp;not&nbsp;be&nbsp;overridden.</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasGTK-key_press_event"><strong>key_press_event</strong></a>(self, widget, event)</dt></dl>
 
@@ -126,7 +124,7 @@ Methods inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#DrawingArea">gtk.DrawingArea</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (137955864)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkDrawingArea (136637192)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
@@ -156,6 +154,12 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="FigureCanvasGTK-drag_check_threshold"><strong>drag_check_threshold</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FigureCanvasGTK-drag_dest_add_image_targets"><strong>drag_dest_add_image_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTK-drag_dest_add_text_targets"><strong>drag_dest_add_text_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTK-drag_dest_add_uri_targets"><strong>drag_dest_add_uri_targets</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FigureCanvasGTK-drag_dest_find_target"><strong>drag_dest_find_target</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-drag_dest_get_target_list"><strong>drag_dest_get_target_list</strong></a>(...)</dt></dl>
@@ -172,6 +176,10 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="FigureCanvasGTK-drag_highlight"><strong>drag_highlight</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FigureCanvasGTK-drag_source_add_text_targets"><strong>drag_source_add_text_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTK-drag_source_get_target_list"><strong>drag_source_get_target_list</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FigureCanvasGTK-drag_source_set"><strong>drag_source_set</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-drag_source_set_icon"><strong>drag_source_set_icon</strong></a>(...)</dt></dl>
@@ -179,6 +187,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="FigureCanvasGTK-drag_source_set_icon_pixbuf"><strong>drag_source_set_icon_pixbuf</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-drag_source_set_icon_stock"><strong>drag_source_set_icon_stock</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTK-drag_source_set_target_list"><strong>drag_source_set_target_list</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-drag_source_unset"><strong>drag_source_unset</strong></a>(...)</dt></dl>
 
@@ -267,6 +277,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="FigureCanvasGTK-list_mnemonic_labels"><strong>list_mnemonic_labels</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-map"><strong>map</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTK-menu_get_for_attach_widget"><strong>menu_get_for_attach_widget</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-mnemonic_activate"><strong>mnemonic_activate</strong></a>(...)</dt></dl>
 
@@ -396,6 +408,126 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 Data and other attributes inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><strong>allocation</strong> = &lt;attribute 'allocation' of 'gtk.Widget' objects&gt;</dl>
 
+<dl><dt><strong>do_button_press_event</strong> = &lt;built-in method do_button_press_event of type object&gt;</dl>
+
+<dl><dt><strong>do_button_release_event</strong> = &lt;built-in method do_button_release_event of type object&gt;</dl>
+
+<dl><dt><strong>do_can_activate_accel</strong> = &lt;built-in method do_can_activate_accel of type object&gt;</dl>
+
+<dl><dt><strong>do_client_event</strong> = &lt;built-in method do_client_event of type object&gt;</dl>
+
+<dl><dt><strong>do_configure_event</strong> = &lt;built-in method do_configure_event of type object&gt;</dl>
+
+<dl><dt><strong>do_delete_event</strong> = &lt;built-in method do_delete_event of type object&gt;</dl>
+
+<dl><dt><strong>do_destroy_event</strong> = &lt;built-in method do_destroy_event of type object&gt;</dl>
+
+<dl><dt><strong>do_direction_changed</strong> = &lt;built-in method do_direction_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_begin</strong> = &lt;built-in method do_drag_begin of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_delete</strong> = &lt;built-in method do_drag_data_delete of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_get</strong> = &lt;built-in method do_drag_data_get of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_received</strong> = &lt;built-in method do_drag_data_received of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_drop</strong> = &lt;built-in method do_drag_drop of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_end</strong> = &lt;built-in method do_drag_end of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_leave</strong> = &lt;built-in method do_drag_leave of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_motion</strong> = &lt;built-in method do_drag_motion of type object&gt;</dl>
+
+<dl><dt><strong>do_enter_notify_event</strong> = &lt;built-in method do_enter_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_event</strong> = &lt;built-in method do_event of type object&gt;</dl>
+
+<dl><dt><strong>do_expose_event</strong> = &lt;built-in method do_expose_event of type object&gt;</dl>
+
+<dl><dt><strong>do_focus</strong> = &lt;built-in method do_focus of type object&gt;</dl>
+
+<dl><dt><strong>do_focus_in_event</strong> = &lt;built-in method do_focus_in_event of type object&gt;</dl>
+
+<dl><dt><strong>do_focus_out_event</strong> = &lt;built-in method do_focus_out_event of type object&gt;</dl>
+
+<dl><dt><strong>do_grab_focus</strong> = &lt;built-in method do_grab_focus of type object&gt;</dl>
+
+<dl><dt><strong>do_grab_notify</strong> = &lt;built-in method do_grab_notify of type object&gt;</dl>
+
+<dl><dt><strong>do_hide</strong> = &lt;built-in method do_hide of type object&gt;</dl>
+
+<dl><dt><strong>do_hide_all</strong> = &lt;built-in method do_hide_all of type object&gt;</dl>
+
+<dl><dt><strong>do_hierarchy_changed</strong> = &lt;built-in method do_hierarchy_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_key_press_event</strong> = &lt;built-in method do_key_press_event of type object&gt;</dl>
+
+<dl><dt><strong>do_key_release_event</strong> = &lt;built-in method do_key_release_event of type object&gt;</dl>
+
+<dl><dt><strong>do_leave_notify_event</strong> = &lt;built-in method do_leave_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_map</strong> = &lt;built-in method do_map of type object&gt;</dl>
+
+<dl><dt><strong>do_map_event</strong> = &lt;built-in method do_map_event of type object&gt;</dl>
+
+<dl><dt><strong>do_mnemonic_activate</strong> = &lt;built-in method do_mnemonic_activate of type object&gt;</dl>
+
+<dl><dt><strong>do_motion_notify_event</strong> = &lt;built-in method do_motion_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_no_expose_event</strong> = &lt;built-in method do_no_expose_event of type object&gt;</dl>
+
+<dl><dt><strong>do_parent_set</strong> = &lt;built-in method do_parent_set of type object&gt;</dl>
+
+<dl><dt><strong>do_popup_menu</strong> = &lt;built-in method do_popup_menu of type object&gt;</dl>
+
+<dl><dt><strong>do_property_notify_event</strong> = &lt;built-in method do_property_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_proximity_in_event</strong> = &lt;built-in method do_proximity_in_event of type object&gt;</dl>
+
+<dl><dt><strong>do_proximity_out_event</strong> = &lt;built-in method do_proximity_out_event of type object&gt;</dl>
+
+<dl><dt><strong>do_realize</strong> = &lt;built-in method do_realize of type object&gt;</dl>
+
+<dl><dt><strong>do_screen_changed</strong> = &lt;built-in method do_screen_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_scroll_event</strong> = &lt;built-in method do_scroll_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_clear_event</strong> = &lt;built-in method do_selection_clear_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_get</strong> = &lt;built-in method do_selection_get of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_notify_event</strong> = &lt;built-in method do_selection_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_received</strong> = &lt;built-in method do_selection_received of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_request_event</strong> = &lt;built-in method do_selection_request_event of type object&gt;</dl>
+
+<dl><dt><strong>do_show</strong> = &lt;built-in method do_show of type object&gt;</dl>
+
+<dl><dt><strong>do_show_all</strong> = &lt;built-in method do_show_all of type object&gt;</dl>
+
+<dl><dt><strong>do_show_help</strong> = &lt;built-in method do_show_help of type object&gt;</dl>
+
+<dl><dt><strong>do_size_allocate</strong> = &lt;built-in method do_size_allocate of type object&gt;</dl>
+
+<dl><dt><strong>do_size_request</strong> = &lt;built-in method do_size_request of type object&gt;</dl>
+
+<dl><dt><strong>do_state_changed</strong> = &lt;built-in method do_state_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_style_set</strong> = &lt;built-in method do_style_set of type object&gt;</dl>
+
+<dl><dt><strong>do_unmap</strong> = &lt;built-in method do_unmap of type object&gt;</dl>
+
+<dl><dt><strong>do_unmap_event</strong> = &lt;built-in method do_unmap_event of type object&gt;</dl>
+
+<dl><dt><strong>do_unrealize</strong> = &lt;built-in method do_unrealize of type object&gt;</dl>
+
+<dl><dt><strong>do_visibility_notify_event</strong> = &lt;built-in method do_visibility_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_window_state_event</strong> = &lt;built-in method do_window_state_event of type object&gt;</dl>
+
 <dl><dt><strong>name</strong> = &lt;attribute 'name' of 'gtk.Widget' objects&gt;</dl>
 
 <dl><dt><strong>parent</strong> = &lt;attribute 'parent' of 'gtk.Widget' objects&gt;</dl>
@@ -415,6 +547,10 @@ Methods inherited from <a href="gtk.html#Object">gtk.Object</a>:<br>
 <dl><dt><a name="FigureCanvasGTK-set_flags"><strong>set_flags</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FigureCanvasGTK-unset_flags"><strong>unset_flags</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Object">gtk.Object</a>:<br>
+<dl><dt><strong>do_destroy</strong> = &lt;built-in method do_destroy of type object&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gobject.html#GObject">gobject.GObject</a>:<br>
@@ -478,8 +614,15 @@ Data and other attributes inherited from <a href="gobject.html#GObject">gobject.
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureCanvasBase">matplotlib.backend_bases.FigureCanvasBase</a>:<br>
+<dl><dt><a name="FigureCanvasGTK-blit"><strong>blit</strong></a>(self, bbox<font color="#909090">=None</font>)</dt><dd><tt>blit&nbsp;the&nbsp;canvas&nbsp;in&nbsp;bbox&nbsp;(default&nbsp;entire&nbsp;canvas)</tt></dd></dl>
+
 <dl><dt><a name="FigureCanvasGTK-draw_cursor"><strong>draw_cursor</strong></a>(self, event)</dt><dd><tt>Draw&nbsp;a&nbsp;cursor&nbsp;in&nbsp;the&nbsp;event.axes&nbsp;if&nbsp;inaxes&nbsp;is&nbsp;not&nbsp;None.&nbsp;&nbsp;Use<br>
 native&nbsp;GUI&nbsp;drawing&nbsp;for&nbsp;efficiency&nbsp;if&nbsp;possible</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasGTK-draw_event"><strong>draw_event</strong></a>(self, renderer)</dt></dl>
+
+<dl><dt><a name="FigureCanvasGTK-get_width_height"><strong>get_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;points&nbsp;or&nbsp;pixels<br>
+(depending&nbsp;on&nbsp;the&nbsp;backend),&nbsp;truncated&nbsp;to&nbsp;integers</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasGTK-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
 &nbsp;<br>
@@ -487,10 +630,12 @@ native&nbsp;GUI&nbsp;drawing&nbsp;for&nbsp;efficiency&nbsp;if&nbsp;possible</tt>
 &nbsp;<br>
 where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbsp;events&nbsp;are&nbsp;recognized<br>
 &nbsp;<br>
-&nbsp;'key_press_event'&nbsp;<br>
-&nbsp;'button_press_event'&nbsp;<br>
-&nbsp;'button_release_event'&nbsp;<br>
-&nbsp;'motion_notify_event'&nbsp;<br>
+&nbsp;'draw_event'<br>
+&nbsp;'key_press_event'<br>
+&nbsp;'key_release_event'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;'button_press_event'<br>
+&nbsp;'button_release_event'<br>
+&nbsp;'motion_notify_event'<br>
 &nbsp;<br>
 &nbsp;For&nbsp;the&nbsp;three&nbsp;events&nbsp;above,&nbsp;if&nbsp;the&nbsp;mouse&nbsp;is&nbsp;over&nbsp;the&nbsp;axes,<br>
 &nbsp;the&nbsp;variable&nbsp;event.inaxes&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;the&nbsp;axes&nbsp;it&nbsp;is&nbsp;over,<br>
@@ -535,6 +680,8 @@ window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;gtk.Window&nbsp;&nbsp;
 
 <dl><dt><a name="FigureManagerGTK-destroy"><strong>destroy</strong></a>(self, *args)</dt></dl>
 
+<dl><dt><a name="FigureManagerGTK-full_screen_toggle"><strong>full_screen_toggle</strong></a>(self)</dt></dl>
+
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>:<br>
 <dl><dt><a name="FigureManagerGTK-key_press"><strong>key_press</strong></a>(self, event)</dt></dl>
@@ -560,6 +707,8 @@ window&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;The&nbsp;gtk.Window&nbsp;&nbsp;
 <dl><dt><a name="FigureManagerGTK-__init__"><strong>__init__</strong></a>(self, canvas, num)</dt></dl>
 
 <dl><dt><a name="FigureManagerGTK-destroy"><strong>destroy</strong></a>(self, *args)</dt></dl>
+
+<dl><dt><a name="FigureManagerGTK-full_screen_toggle"><strong>full_screen_toggle</strong></a>(self)</dt></dl>
 
 <hr>
 Methods inherited from <a href="matplotlib.backend_bases.html#FigureManagerBase">matplotlib.backend_bases.FigureManagerBase</a>:<br>
@@ -593,13 +742,13 @@ selected&nbsp;and&nbsp;presents&nbsp;the&nbsp;user&nbsp;with&nbsp;a&nbsp;menu&nb
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="FileChooserDialog-__init__"><strong>__init__</strong></a>(self, title<font color="#909090">='Save file'</font>, parent<font color="#909090">=None</font>, action<font color="#909090">=&lt;enum GTK_FILE_CHOOSER_ACTION_SAVE of type GtkFileChooserAction&gt;</font>, buttons<font color="#909090">=('gtk-cancel', &lt;enum GTK_RESPONSE_CANCEL of type GtkResponseType&gt;, 'gtk-save', &lt;enum GTK_RESPONSE_OK of type GtkResponseType&gt;)</font>, backend<font color="#909090">=''</font>, path<font color="#909090">=None</font>)</dt></dl>
+<dl><dt><a name="FileChooserDialog-__init__"><strong>__init__</strong></a>(self, title<font color="#909090">='Save file'</font>, parent<font color="#909090">=None</font>, action<font color="#909090">=&lt;enum GTK_FILE_CHOOSER_ACTION_SAVE of type GtkFileChooserAction&gt;</font>, buttons<font color="#909090">=('gtk-cancel', &lt;enum GTK_RESPONSE_CANCEL of type GtkResponseType&gt;, 'gtk-save', &lt;enum GTK_RESPONSE_OK of type GtkResponseType&gt;)</font>, path<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-get_filename_from_user"><strong>get_filename_from_user</strong></a>(self)</dt></dl>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#FileChooserDialog">gtk.FileChooserDialog</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileChooserDialog (138011232)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileChooserDialog (136698016)&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Dialog">gtk.Dialog</a>:<br>
@@ -657,6 +806,8 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 
 <dl><dt><a name="FileChooserDialog-get_focus"><strong>get_focus</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FileChooserDialog-get_focus_on_map"><strong>get_focus_on_map</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FileChooserDialog-get_frame_dimensions"><strong>get_frame_dimensions</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-get_gravity"><strong>get_gravity</strong></a>(...)</dt></dl>
@@ -666,6 +817,8 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 <dl><dt><a name="FileChooserDialog-get_icon"><strong>get_icon</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-get_icon_list"><strong>get_icon_list</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileChooserDialog-get_icon_name"><strong>get_icon_name</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-get_mnemonic_modifier"><strong>get_mnemonic_modifier</strong></a>(...)</dt></dl>
 
@@ -729,6 +882,8 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 
 <dl><dt><a name="FileChooserDialog-set_focus"><strong>set_focus</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FileChooserDialog-set_focus_on_map"><strong>set_focus_on_map</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FileChooserDialog-set_frame_dimensions"><strong>set_frame_dimensions</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-set_geometry_hints"><strong>set_geometry_hints</strong></a>(...)</dt></dl>
@@ -742,6 +897,8 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 <dl><dt><a name="FileChooserDialog-set_icon_from_file"><strong>set_icon_from_file</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-set_icon_list"><strong>set_icon_list</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileChooserDialog-set_icon_name"><strong>set_icon_name</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-set_keep_above"><strong>set_keep_above</strong></a>(...)</dt></dl>
 
@@ -798,6 +955,18 @@ Data and other attributes inherited from <a href="gtk.html#Window">gtk.Window</a
 <dl><dt><strong>default_widget</strong> = &lt;attribute 'default_widget' of 'gtk.Window' objects&gt;</dl>
 
 <dl><dt><strong>destroy_with_parent</strong> = &lt;attribute 'destroy_with_parent' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>do_activate_default</strong> = &lt;built-in method do_activate_default of type object&gt;</dl>
+
+<dl><dt><strong>do_activate_focus</strong> = &lt;built-in method do_activate_focus of type object&gt;</dl>
+
+<dl><dt><strong>do_frame_event</strong> = &lt;built-in method do_frame_event of type object&gt;</dl>
+
+<dl><dt><strong>do_keys_changed</strong> = &lt;built-in method do_keys_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_move_focus</strong> = &lt;built-in method do_move_focus of type object&gt;</dl>
+
+<dl><dt><strong>do_set_focus</strong> = &lt;built-in method do_set_focus of type object&gt;</dl>
 
 <dl><dt><strong>focus_widget</strong> = &lt;attribute 'focus_widget' of 'gtk.Window' objects&gt;</dl>
 
@@ -923,6 +1092,16 @@ Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
 Data and other attributes inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
 <dl><dt><strong>border_width</strong> = &lt;attribute 'border_width' of 'gtk.Container' objects&gt;</dl>
 
+<dl><dt><strong>do_add</strong> = &lt;built-in method do_add of type object&gt;</dl>
+
+<dl><dt><strong>do_check_resize</strong> = &lt;built-in method do_check_resize of type object&gt;</dl>
+
+<dl><dt><strong>do_child_type</strong> = &lt;built-in method do_child_type of type object&gt;</dl>
+
+<dl><dt><strong>do_remove</strong> = &lt;built-in method do_remove of type object&gt;</dl>
+
+<dl><dt><strong>do_set_focus_child</strong> = &lt;built-in method do_set_focus_child of type object&gt;</dl>
+
 <dl><dt><strong>focus_child</strong> = &lt;attribute 'focus_child' of 'gtk.Container' objects&gt;</dl>
 
 <dl><dt><strong>has_focus_chain</strong> = &lt;attribute 'has_focus_chain' of 'gtk.Container' objects&gt;</dl>
@@ -961,6 +1140,12 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="FileChooserDialog-drag_check_threshold"><strong>drag_check_threshold</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FileChooserDialog-drag_dest_add_image_targets"><strong>drag_dest_add_image_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileChooserDialog-drag_dest_add_text_targets"><strong>drag_dest_add_text_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileChooserDialog-drag_dest_add_uri_targets"><strong>drag_dest_add_uri_targets</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FileChooserDialog-drag_dest_find_target"><strong>drag_dest_find_target</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-drag_dest_get_target_list"><strong>drag_dest_get_target_list</strong></a>(...)</dt></dl>
@@ -977,6 +1162,10 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="FileChooserDialog-drag_highlight"><strong>drag_highlight</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FileChooserDialog-drag_source_add_text_targets"><strong>drag_source_add_text_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileChooserDialog-drag_source_get_target_list"><strong>drag_source_get_target_list</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FileChooserDialog-drag_source_set"><strong>drag_source_set</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-drag_source_set_icon"><strong>drag_source_set_icon</strong></a>(...)</dt></dl>
@@ -984,6 +1173,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="FileChooserDialog-drag_source_set_icon_pixbuf"><strong>drag_source_set_icon_pixbuf</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-drag_source_set_icon_stock"><strong>drag_source_set_icon_stock</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileChooserDialog-drag_source_set_target_list"><strong>drag_source_set_target_list</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-drag_source_unset"><strong>drag_source_unset</strong></a>(...)</dt></dl>
 
@@ -1072,6 +1263,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="FileChooserDialog-list_mnemonic_labels"><strong>list_mnemonic_labels</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-map"><strong>map</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileChooserDialog-menu_get_for_attach_widget"><strong>menu_get_for_attach_widget</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-modify_base"><strong>modify_base</strong></a>(...)</dt></dl>
 
@@ -1199,6 +1392,126 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 Data and other attributes inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><strong>allocation</strong> = &lt;attribute 'allocation' of 'gtk.Widget' objects&gt;</dl>
 
+<dl><dt><strong>do_button_press_event</strong> = &lt;built-in method do_button_press_event of type object&gt;</dl>
+
+<dl><dt><strong>do_button_release_event</strong> = &lt;built-in method do_button_release_event of type object&gt;</dl>
+
+<dl><dt><strong>do_can_activate_accel</strong> = &lt;built-in method do_can_activate_accel of type object&gt;</dl>
+
+<dl><dt><strong>do_client_event</strong> = &lt;built-in method do_client_event of type object&gt;</dl>
+
+<dl><dt><strong>do_configure_event</strong> = &lt;built-in method do_configure_event of type object&gt;</dl>
+
+<dl><dt><strong>do_delete_event</strong> = &lt;built-in method do_delete_event of type object&gt;</dl>
+
+<dl><dt><strong>do_destroy_event</strong> = &lt;built-in method do_destroy_event of type object&gt;</dl>
+
+<dl><dt><strong>do_direction_changed</strong> = &lt;built-in method do_direction_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_begin</strong> = &lt;built-in method do_drag_begin of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_delete</strong> = &lt;built-in method do_drag_data_delete of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_get</strong> = &lt;built-in method do_drag_data_get of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_received</strong> = &lt;built-in method do_drag_data_received of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_drop</strong> = &lt;built-in method do_drag_drop of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_end</strong> = &lt;built-in method do_drag_end of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_leave</strong> = &lt;built-in method do_drag_leave of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_motion</strong> = &lt;built-in method do_drag_motion of type object&gt;</dl>
+
+<dl><dt><strong>do_enter_notify_event</strong> = &lt;built-in method do_enter_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_event</strong> = &lt;built-in method do_event of type object&gt;</dl>
+
+<dl><dt><strong>do_expose_event</strong> = &lt;built-in method do_expose_event of type object&gt;</dl>
+
+<dl><dt><strong>do_focus</strong> = &lt;built-in method do_focus of type object&gt;</dl>
+
+<dl><dt><strong>do_focus_in_event</strong> = &lt;built-in method do_focus_in_event of type object&gt;</dl>
+
+<dl><dt><strong>do_focus_out_event</strong> = &lt;built-in method do_focus_out_event of type object&gt;</dl>
+
+<dl><dt><strong>do_grab_focus</strong> = &lt;built-in method do_grab_focus of type object&gt;</dl>
+
+<dl><dt><strong>do_grab_notify</strong> = &lt;built-in method do_grab_notify of type object&gt;</dl>
+
+<dl><dt><strong>do_hide</strong> = &lt;built-in method do_hide of type object&gt;</dl>
+
+<dl><dt><strong>do_hide_all</strong> = &lt;built-in method do_hide_all of type object&gt;</dl>
+
+<dl><dt><strong>do_hierarchy_changed</strong> = &lt;built-in method do_hierarchy_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_key_press_event</strong> = &lt;built-in method do_key_press_event of type object&gt;</dl>
+
+<dl><dt><strong>do_key_release_event</strong> = &lt;built-in method do_key_release_event of type object&gt;</dl>
+
+<dl><dt><strong>do_leave_notify_event</strong> = &lt;built-in method do_leave_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_map</strong> = &lt;built-in method do_map of type object&gt;</dl>
+
+<dl><dt><strong>do_map_event</strong> = &lt;built-in method do_map_event of type object&gt;</dl>
+
+<dl><dt><strong>do_mnemonic_activate</strong> = &lt;built-in method do_mnemonic_activate of type object&gt;</dl>
+
+<dl><dt><strong>do_motion_notify_event</strong> = &lt;built-in method do_motion_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_no_expose_event</strong> = &lt;built-in method do_no_expose_event of type object&gt;</dl>
+
+<dl><dt><strong>do_parent_set</strong> = &lt;built-in method do_parent_set of type object&gt;</dl>
+
+<dl><dt><strong>do_popup_menu</strong> = &lt;built-in method do_popup_menu of type object&gt;</dl>
+
+<dl><dt><strong>do_property_notify_event</strong> = &lt;built-in method do_property_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_proximity_in_event</strong> = &lt;built-in method do_proximity_in_event of type object&gt;</dl>
+
+<dl><dt><strong>do_proximity_out_event</strong> = &lt;built-in method do_proximity_out_event of type object&gt;</dl>
+
+<dl><dt><strong>do_realize</strong> = &lt;built-in method do_realize of type object&gt;</dl>
+
+<dl><dt><strong>do_screen_changed</strong> = &lt;built-in method do_screen_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_scroll_event</strong> = &lt;built-in method do_scroll_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_clear_event</strong> = &lt;built-in method do_selection_clear_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_get</strong> = &lt;built-in method do_selection_get of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_notify_event</strong> = &lt;built-in method do_selection_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_received</strong> = &lt;built-in method do_selection_received of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_request_event</strong> = &lt;built-in method do_selection_request_event of type object&gt;</dl>
+
+<dl><dt><strong>do_show</strong> = &lt;built-in method do_show of type object&gt;</dl>
+
+<dl><dt><strong>do_show_all</strong> = &lt;built-in method do_show_all of type object&gt;</dl>
+
+<dl><dt><strong>do_show_help</strong> = &lt;built-in method do_show_help of type object&gt;</dl>
+
+<dl><dt><strong>do_size_allocate</strong> = &lt;built-in method do_size_allocate of type object&gt;</dl>
+
+<dl><dt><strong>do_size_request</strong> = &lt;built-in method do_size_request of type object&gt;</dl>
+
+<dl><dt><strong>do_state_changed</strong> = &lt;built-in method do_state_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_style_set</strong> = &lt;built-in method do_style_set of type object&gt;</dl>
+
+<dl><dt><strong>do_unmap</strong> = &lt;built-in method do_unmap of type object&gt;</dl>
+
+<dl><dt><strong>do_unmap_event</strong> = &lt;built-in method do_unmap_event of type object&gt;</dl>
+
+<dl><dt><strong>do_unrealize</strong> = &lt;built-in method do_unrealize of type object&gt;</dl>
+
+<dl><dt><strong>do_visibility_notify_event</strong> = &lt;built-in method do_visibility_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_window_state_event</strong> = &lt;built-in method do_window_state_event of type object&gt;</dl>
+
 <dl><dt><strong>name</strong> = &lt;attribute 'name' of 'gtk.Widget' objects&gt;</dl>
 
 <dl><dt><strong>parent</strong> = &lt;attribute 'parent' of 'gtk.Widget' objects&gt;</dl>
@@ -1218,6 +1531,10 @@ Methods inherited from <a href="gtk.html#Object">gtk.Object</a>:<br>
 <dl><dt><a name="FileChooserDialog-set_flags"><strong>set_flags</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-unset_flags"><strong>unset_flags</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Object">gtk.Object</a>:<br>
+<dl><dt><strong>do_destroy</strong> = &lt;built-in method do_destroy of type object&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gobject.html#GObject">gobject.GObject</a>:<br>
@@ -1313,6 +1630,8 @@ Methods inherited from <a href="gtk.html#FileChooser">gtk.FileChooser</a>:<br>
 
 <dl><dt><a name="FileChooserDialog-get_select_multiple"><strong>get_select_multiple</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FileChooserDialog-get_show_hidden"><strong>get_show_hidden</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FileChooserDialog-get_uri"><strong>get_uri</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-get_uris"><strong>get_uris</strong></a>(...)</dt></dl>
@@ -1358,6 +1677,8 @@ Methods inherited from <a href="gtk.html#FileChooser">gtk.FileChooser</a>:<br>
 <dl><dt><a name="FileChooserDialog-set_preview_widget_active"><strong>set_preview_widget_active</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-set_select_multiple"><strong>set_select_multiple</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileChooserDialog-set_show_hidden"><strong>set_show_hidden</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileChooserDialog-set_uri"><strong>set_uri</strong></a>(...)</dt></dl>
 
@@ -1417,7 +1738,7 @@ Methods inherited from <a href="gtk.html#FileSelection">gtk.FileSelection</a>:<b
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#FileSelection">gtk.FileSelection</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileSelection (138004536)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkFileSelection (136697920)&gt;</dl>
 
 <dl><dt><strong>action_area</strong> = &lt;attribute 'action_area' of 'gtk.FileSelection' objects&gt;</dl>
 
@@ -1509,6 +1830,8 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 
 <dl><dt><a name="FileSelection-get_focus"><strong>get_focus</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FileSelection-get_focus_on_map"><strong>get_focus_on_map</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FileSelection-get_frame_dimensions"><strong>get_frame_dimensions</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-get_gravity"><strong>get_gravity</strong></a>(...)</dt></dl>
@@ -1518,6 +1841,8 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 <dl><dt><a name="FileSelection-get_icon"><strong>get_icon</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-get_icon_list"><strong>get_icon_list</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-get_icon_name"><strong>get_icon_name</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-get_mnemonic_modifier"><strong>get_mnemonic_modifier</strong></a>(...)</dt></dl>
 
@@ -1581,6 +1906,8 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 
 <dl><dt><a name="FileSelection-set_focus"><strong>set_focus</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FileSelection-set_focus_on_map"><strong>set_focus_on_map</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FileSelection-set_frame_dimensions"><strong>set_frame_dimensions</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-set_geometry_hints"><strong>set_geometry_hints</strong></a>(...)</dt></dl>
@@ -1594,6 +1921,8 @@ Methods inherited from <a href="gtk.html#Window">gtk.Window</a>:<br>
 <dl><dt><a name="FileSelection-set_icon_from_file"><strong>set_icon_from_file</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-set_icon_list"><strong>set_icon_list</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-set_icon_name"><strong>set_icon_name</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-set_keep_above"><strong>set_keep_above</strong></a>(...)</dt></dl>
 
@@ -1650,6 +1979,18 @@ Data and other attributes inherited from <a href="gtk.html#Window">gtk.Window</a
 <dl><dt><strong>default_widget</strong> = &lt;attribute 'default_widget' of 'gtk.Window' objects&gt;</dl>
 
 <dl><dt><strong>destroy_with_parent</strong> = &lt;attribute 'destroy_with_parent' of 'gtk.Window' objects&gt;</dl>
+
+<dl><dt><strong>do_activate_default</strong> = &lt;built-in method do_activate_default of type object&gt;</dl>
+
+<dl><dt><strong>do_activate_focus</strong> = &lt;built-in method do_activate_focus of type object&gt;</dl>
+
+<dl><dt><strong>do_frame_event</strong> = &lt;built-in method do_frame_event of type object&gt;</dl>
+
+<dl><dt><strong>do_keys_changed</strong> = &lt;built-in method do_keys_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_move_focus</strong> = &lt;built-in method do_move_focus of type object&gt;</dl>
+
+<dl><dt><strong>do_set_focus</strong> = &lt;built-in method do_set_focus of type object&gt;</dl>
 
 <dl><dt><strong>focus_widget</strong> = &lt;attribute 'focus_widget' of 'gtk.Window' objects&gt;</dl>
 
@@ -1775,6 +2116,16 @@ Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
 Data and other attributes inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
 <dl><dt><strong>border_width</strong> = &lt;attribute 'border_width' of 'gtk.Container' objects&gt;</dl>
 
+<dl><dt><strong>do_add</strong> = &lt;built-in method do_add of type object&gt;</dl>
+
+<dl><dt><strong>do_check_resize</strong> = &lt;built-in method do_check_resize of type object&gt;</dl>
+
+<dl><dt><strong>do_child_type</strong> = &lt;built-in method do_child_type of type object&gt;</dl>
+
+<dl><dt><strong>do_remove</strong> = &lt;built-in method do_remove of type object&gt;</dl>
+
+<dl><dt><strong>do_set_focus_child</strong> = &lt;built-in method do_set_focus_child of type object&gt;</dl>
+
 <dl><dt><strong>focus_child</strong> = &lt;attribute 'focus_child' of 'gtk.Container' objects&gt;</dl>
 
 <dl><dt><strong>has_focus_chain</strong> = &lt;attribute 'has_focus_chain' of 'gtk.Container' objects&gt;</dl>
@@ -1813,6 +2164,12 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="FileSelection-drag_check_threshold"><strong>drag_check_threshold</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FileSelection-drag_dest_add_image_targets"><strong>drag_dest_add_image_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_dest_add_text_targets"><strong>drag_dest_add_text_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_dest_add_uri_targets"><strong>drag_dest_add_uri_targets</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FileSelection-drag_dest_find_target"><strong>drag_dest_find_target</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-drag_dest_get_target_list"><strong>drag_dest_get_target_list</strong></a>(...)</dt></dl>
@@ -1829,6 +2186,10 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="FileSelection-drag_highlight"><strong>drag_highlight</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="FileSelection-drag_source_add_text_targets"><strong>drag_source_add_text_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_source_get_target_list"><strong>drag_source_get_target_list</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="FileSelection-drag_source_set"><strong>drag_source_set</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-drag_source_set_icon"><strong>drag_source_set_icon</strong></a>(...)</dt></dl>
@@ -1836,6 +2197,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="FileSelection-drag_source_set_icon_pixbuf"><strong>drag_source_set_icon_pixbuf</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-drag_source_set_icon_stock"><strong>drag_source_set_icon_stock</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-drag_source_set_target_list"><strong>drag_source_set_target_list</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-drag_source_unset"><strong>drag_source_unset</strong></a>(...)</dt></dl>
 
@@ -1924,6 +2287,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="FileSelection-list_mnemonic_labels"><strong>list_mnemonic_labels</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-map"><strong>map</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="FileSelection-menu_get_for_attach_widget"><strong>menu_get_for_attach_widget</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-modify_base"><strong>modify_base</strong></a>(...)</dt></dl>
 
@@ -2051,6 +2416,126 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 Data and other attributes inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><strong>allocation</strong> = &lt;attribute 'allocation' of 'gtk.Widget' objects&gt;</dl>
 
+<dl><dt><strong>do_button_press_event</strong> = &lt;built-in method do_button_press_event of type object&gt;</dl>
+
+<dl><dt><strong>do_button_release_event</strong> = &lt;built-in method do_button_release_event of type object&gt;</dl>
+
+<dl><dt><strong>do_can_activate_accel</strong> = &lt;built-in method do_can_activate_accel of type object&gt;</dl>
+
+<dl><dt><strong>do_client_event</strong> = &lt;built-in method do_client_event of type object&gt;</dl>
+
+<dl><dt><strong>do_configure_event</strong> = &lt;built-in method do_configure_event of type object&gt;</dl>
+
+<dl><dt><strong>do_delete_event</strong> = &lt;built-in method do_delete_event of type object&gt;</dl>
+
+<dl><dt><strong>do_destroy_event</strong> = &lt;built-in method do_destroy_event of type object&gt;</dl>
+
+<dl><dt><strong>do_direction_changed</strong> = &lt;built-in method do_direction_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_begin</strong> = &lt;built-in method do_drag_begin of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_delete</strong> = &lt;built-in method do_drag_data_delete of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_get</strong> = &lt;built-in method do_drag_data_get of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_received</strong> = &lt;built-in method do_drag_data_received of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_drop</strong> = &lt;built-in method do_drag_drop of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_end</strong> = &lt;built-in method do_drag_end of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_leave</strong> = &lt;built-in method do_drag_leave of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_motion</strong> = &lt;built-in method do_drag_motion of type object&gt;</dl>
+
+<dl><dt><strong>do_enter_notify_event</strong> = &lt;built-in method do_enter_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_event</strong> = &lt;built-in method do_event of type object&gt;</dl>
+
+<dl><dt><strong>do_expose_event</strong> = &lt;built-in method do_expose_event of type object&gt;</dl>
+
+<dl><dt><strong>do_focus</strong> = &lt;built-in method do_focus of type object&gt;</dl>
+
+<dl><dt><strong>do_focus_in_event</strong> = &lt;built-in method do_focus_in_event of type object&gt;</dl>
+
+<dl><dt><strong>do_focus_out_event</strong> = &lt;built-in method do_focus_out_event of type object&gt;</dl>
+
+<dl><dt><strong>do_grab_focus</strong> = &lt;built-in method do_grab_focus of type object&gt;</dl>
+
+<dl><dt><strong>do_grab_notify</strong> = &lt;built-in method do_grab_notify of type object&gt;</dl>
+
+<dl><dt><strong>do_hide</strong> = &lt;built-in method do_hide of type object&gt;</dl>
+
+<dl><dt><strong>do_hide_all</strong> = &lt;built-in method do_hide_all of type object&gt;</dl>
+
+<dl><dt><strong>do_hierarchy_changed</strong> = &lt;built-in method do_hierarchy_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_key_press_event</strong> = &lt;built-in method do_key_press_event of type object&gt;</dl>
+
+<dl><dt><strong>do_key_release_event</strong> = &lt;built-in method do_key_release_event of type object&gt;</dl>
+
+<dl><dt><strong>do_leave_notify_event</strong> = &lt;built-in method do_leave_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_map</strong> = &lt;built-in method do_map of type object&gt;</dl>
+
+<dl><dt><strong>do_map_event</strong> = &lt;built-in method do_map_event of type object&gt;</dl>
+
+<dl><dt><strong>do_mnemonic_activate</strong> = &lt;built-in method do_mnemonic_activate of type object&gt;</dl>
+
+<dl><dt><strong>do_motion_notify_event</strong> = &lt;built-in method do_motion_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_no_expose_event</strong> = &lt;built-in method do_no_expose_event of type object&gt;</dl>
+
+<dl><dt><strong>do_parent_set</strong> = &lt;built-in method do_parent_set of type object&gt;</dl>
+
+<dl><dt><strong>do_popup_menu</strong> = &lt;built-in method do_popup_menu of type object&gt;</dl>
+
+<dl><dt><strong>do_property_notify_event</strong> = &lt;built-in method do_property_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_proximity_in_event</strong> = &lt;built-in method do_proximity_in_event of type object&gt;</dl>
+
+<dl><dt><strong>do_proximity_out_event</strong> = &lt;built-in method do_proximity_out_event of type object&gt;</dl>
+
+<dl><dt><strong>do_realize</strong> = &lt;built-in method do_realize of type object&gt;</dl>
+
+<dl><dt><strong>do_screen_changed</strong> = &lt;built-in method do_screen_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_scroll_event</strong> = &lt;built-in method do_scroll_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_clear_event</strong> = &lt;built-in method do_selection_clear_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_get</strong> = &lt;built-in method do_selection_get of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_notify_event</strong> = &lt;built-in method do_selection_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_received</strong> = &lt;built-in method do_selection_received of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_request_event</strong> = &lt;built-in method do_selection_request_event of type object&gt;</dl>
+
+<dl><dt><strong>do_show</strong> = &lt;built-in method do_show of type object&gt;</dl>
+
+<dl><dt><strong>do_show_all</strong> = &lt;built-in method do_show_all of type object&gt;</dl>
+
+<dl><dt><strong>do_show_help</strong> = &lt;built-in method do_show_help of type object&gt;</dl>
+
+<dl><dt><strong>do_size_allocate</strong> = &lt;built-in method do_size_allocate of type object&gt;</dl>
+
+<dl><dt><strong>do_size_request</strong> = &lt;built-in method do_size_request of type object&gt;</dl>
+
+<dl><dt><strong>do_state_changed</strong> = &lt;built-in method do_state_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_style_set</strong> = &lt;built-in method do_style_set of type object&gt;</dl>
+
+<dl><dt><strong>do_unmap</strong> = &lt;built-in method do_unmap of type object&gt;</dl>
+
+<dl><dt><strong>do_unmap_event</strong> = &lt;built-in method do_unmap_event of type object&gt;</dl>
+
+<dl><dt><strong>do_unrealize</strong> = &lt;built-in method do_unrealize of type object&gt;</dl>
+
+<dl><dt><strong>do_visibility_notify_event</strong> = &lt;built-in method do_visibility_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_window_state_event</strong> = &lt;built-in method do_window_state_event of type object&gt;</dl>
+
 <dl><dt><strong>name</strong> = &lt;attribute 'name' of 'gtk.Widget' objects&gt;</dl>
 
 <dl><dt><strong>parent</strong> = &lt;attribute 'parent' of 'gtk.Widget' objects&gt;</dl>
@@ -2070,6 +2555,10 @@ Methods inherited from <a href="gtk.html#Object">gtk.Object</a>:<br>
 <dl><dt><a name="FileSelection-set_flags"><strong>set_flags</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="FileSelection-unset_flags"><strong>unset_flags</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Object">gtk.Object</a>:<br>
+<dl><dt><strong>do_destroy</strong> = &lt;built-in method do_destroy of type object&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gobject.html#GObject">gobject.GObject</a>:<br>
@@ -2243,7 +2732,13 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137959984)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (136639776)&gt;</dl>
+
+<dl><dt><strong>do_orientation_changed</strong> = &lt;built-in method do_orientation_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_popup_context_menu</strong> = &lt;built-in method do_popup_context_menu of type object&gt;</dl>
+
+<dl><dt><strong>do_style_changed</strong> = &lt;built-in method do_style_changed of type object&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -2307,6 +2802,16 @@ Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
 Data and other attributes inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
 <dl><dt><strong>border_width</strong> = &lt;attribute 'border_width' of 'gtk.Container' objects&gt;</dl>
 
+<dl><dt><strong>do_add</strong> = &lt;built-in method do_add of type object&gt;</dl>
+
+<dl><dt><strong>do_check_resize</strong> = &lt;built-in method do_check_resize of type object&gt;</dl>
+
+<dl><dt><strong>do_child_type</strong> = &lt;built-in method do_child_type of type object&gt;</dl>
+
+<dl><dt><strong>do_remove</strong> = &lt;built-in method do_remove of type object&gt;</dl>
+
+<dl><dt><strong>do_set_focus_child</strong> = &lt;built-in method do_set_focus_child of type object&gt;</dl>
+
 <dl><dt><strong>focus_child</strong> = &lt;attribute 'focus_child' of 'gtk.Container' objects&gt;</dl>
 
 <dl><dt><strong>has_focus_chain</strong> = &lt;attribute 'has_focus_chain' of 'gtk.Container' objects&gt;</dl>
@@ -2345,6 +2850,12 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="NavigationToolbar-drag_check_threshold"><strong>drag_check_threshold</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="NavigationToolbar-drag_dest_add_image_targets"><strong>drag_dest_add_image_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar-drag_dest_add_text_targets"><strong>drag_dest_add_text_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar-drag_dest_add_uri_targets"><strong>drag_dest_add_uri_targets</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="NavigationToolbar-drag_dest_find_target"><strong>drag_dest_find_target</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-drag_dest_get_target_list"><strong>drag_dest_get_target_list</strong></a>(...)</dt></dl>
@@ -2361,6 +2872,10 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="NavigationToolbar-drag_highlight"><strong>drag_highlight</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="NavigationToolbar-drag_source_add_text_targets"><strong>drag_source_add_text_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar-drag_source_get_target_list"><strong>drag_source_get_target_list</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="NavigationToolbar-drag_source_set"><strong>drag_source_set</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-drag_source_set_icon"><strong>drag_source_set_icon</strong></a>(...)</dt></dl>
@@ -2368,6 +2883,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="NavigationToolbar-drag_source_set_icon_pixbuf"><strong>drag_source_set_icon_pixbuf</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-drag_source_set_icon_stock"><strong>drag_source_set_icon_stock</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar-drag_source_set_target_list"><strong>drag_source_set_target_list</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-drag_source_unset"><strong>drag_source_unset</strong></a>(...)</dt></dl>
 
@@ -2456,6 +2973,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="NavigationToolbar-list_mnemonic_labels"><strong>list_mnemonic_labels</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-map"><strong>map</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar-menu_get_for_attach_widget"><strong>menu_get_for_attach_widget</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-mnemonic_activate"><strong>mnemonic_activate</strong></a>(...)</dt></dl>
 
@@ -2583,6 +3102,126 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 Data and other attributes inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><strong>allocation</strong> = &lt;attribute 'allocation' of 'gtk.Widget' objects&gt;</dl>
 
+<dl><dt><strong>do_button_press_event</strong> = &lt;built-in method do_button_press_event of type object&gt;</dl>
+
+<dl><dt><strong>do_button_release_event</strong> = &lt;built-in method do_button_release_event of type object&gt;</dl>
+
+<dl><dt><strong>do_can_activate_accel</strong> = &lt;built-in method do_can_activate_accel of type object&gt;</dl>
+
+<dl><dt><strong>do_client_event</strong> = &lt;built-in method do_client_event of type object&gt;</dl>
+
+<dl><dt><strong>do_configure_event</strong> = &lt;built-in method do_configure_event of type object&gt;</dl>
+
+<dl><dt><strong>do_delete_event</strong> = &lt;built-in method do_delete_event of type object&gt;</dl>
+
+<dl><dt><strong>do_destroy_event</strong> = &lt;built-in method do_destroy_event of type object&gt;</dl>
+
+<dl><dt><strong>do_direction_changed</strong> = &lt;built-in method do_direction_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_begin</strong> = &lt;built-in method do_drag_begin of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_delete</strong> = &lt;built-in method do_drag_data_delete of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_get</strong> = &lt;built-in method do_drag_data_get of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_received</strong> = &lt;built-in method do_drag_data_received of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_drop</strong> = &lt;built-in method do_drag_drop of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_end</strong> = &lt;built-in method do_drag_end of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_leave</strong> = &lt;built-in method do_drag_leave of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_motion</strong> = &lt;built-in method do_drag_motion of type object&gt;</dl>
+
+<dl><dt><strong>do_enter_notify_event</strong> = &lt;built-in method do_enter_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_event</strong> = &lt;built-in method do_event of type object&gt;</dl>
+
+<dl><dt><strong>do_expose_event</strong> = &lt;built-in method do_expose_event of type object&gt;</dl>
+
+<dl><dt><strong>do_focus</strong> = &lt;built-in method do_focus of type object&gt;</dl>
+
+<dl><dt><strong>do_focus_in_event</strong> = &lt;built-in method do_focus_in_event of type object&gt;</dl>
+
+<dl><dt><strong>do_focus_out_event</strong> = &lt;built-in method do_focus_out_event of type object&gt;</dl>
+
+<dl><dt><strong>do_grab_focus</strong> = &lt;built-in method do_grab_focus of type object&gt;</dl>
+
+<dl><dt><strong>do_grab_notify</strong> = &lt;built-in method do_grab_notify of type object&gt;</dl>
+
+<dl><dt><strong>do_hide</strong> = &lt;built-in method do_hide of type object&gt;</dl>
+
+<dl><dt><strong>do_hide_all</strong> = &lt;built-in method do_hide_all of type object&gt;</dl>
+
+<dl><dt><strong>do_hierarchy_changed</strong> = &lt;built-in method do_hierarchy_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_key_press_event</strong> = &lt;built-in method do_key_press_event of type object&gt;</dl>
+
+<dl><dt><strong>do_key_release_event</strong> = &lt;built-in method do_key_release_event of type object&gt;</dl>
+
+<dl><dt><strong>do_leave_notify_event</strong> = &lt;built-in method do_leave_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_map</strong> = &lt;built-in method do_map of type object&gt;</dl>
+
+<dl><dt><strong>do_map_event</strong> = &lt;built-in method do_map_event of type object&gt;</dl>
+
+<dl><dt><strong>do_mnemonic_activate</strong> = &lt;built-in method do_mnemonic_activate of type object&gt;</dl>
+
+<dl><dt><strong>do_motion_notify_event</strong> = &lt;built-in method do_motion_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_no_expose_event</strong> = &lt;built-in method do_no_expose_event of type object&gt;</dl>
+
+<dl><dt><strong>do_parent_set</strong> = &lt;built-in method do_parent_set of type object&gt;</dl>
+
+<dl><dt><strong>do_popup_menu</strong> = &lt;built-in method do_popup_menu of type object&gt;</dl>
+
+<dl><dt><strong>do_property_notify_event</strong> = &lt;built-in method do_property_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_proximity_in_event</strong> = &lt;built-in method do_proximity_in_event of type object&gt;</dl>
+
+<dl><dt><strong>do_proximity_out_event</strong> = &lt;built-in method do_proximity_out_event of type object&gt;</dl>
+
+<dl><dt><strong>do_realize</strong> = &lt;built-in method do_realize of type object&gt;</dl>
+
+<dl><dt><strong>do_screen_changed</strong> = &lt;built-in method do_screen_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_scroll_event</strong> = &lt;built-in method do_scroll_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_clear_event</strong> = &lt;built-in method do_selection_clear_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_get</strong> = &lt;built-in method do_selection_get of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_notify_event</strong> = &lt;built-in method do_selection_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_received</strong> = &lt;built-in method do_selection_received of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_request_event</strong> = &lt;built-in method do_selection_request_event of type object&gt;</dl>
+
+<dl><dt><strong>do_show</strong> = &lt;built-in method do_show of type object&gt;</dl>
+
+<dl><dt><strong>do_show_all</strong> = &lt;built-in method do_show_all of type object&gt;</dl>
+
+<dl><dt><strong>do_show_help</strong> = &lt;built-in method do_show_help of type object&gt;</dl>
+
+<dl><dt><strong>do_size_allocate</strong> = &lt;built-in method do_size_allocate of type object&gt;</dl>
+
+<dl><dt><strong>do_size_request</strong> = &lt;built-in method do_size_request of type object&gt;</dl>
+
+<dl><dt><strong>do_state_changed</strong> = &lt;built-in method do_state_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_style_set</strong> = &lt;built-in method do_style_set of type object&gt;</dl>
+
+<dl><dt><strong>do_unmap</strong> = &lt;built-in method do_unmap of type object&gt;</dl>
+
+<dl><dt><strong>do_unmap_event</strong> = &lt;built-in method do_unmap_event of type object&gt;</dl>
+
+<dl><dt><strong>do_unrealize</strong> = &lt;built-in method do_unrealize of type object&gt;</dl>
+
+<dl><dt><strong>do_visibility_notify_event</strong> = &lt;built-in method do_visibility_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_window_state_event</strong> = &lt;built-in method do_window_state_event of type object&gt;</dl>
+
 <dl><dt><strong>name</strong> = &lt;attribute 'name' of 'gtk.Widget' objects&gt;</dl>
 
 <dl><dt><strong>parent</strong> = &lt;attribute 'parent' of 'gtk.Widget' objects&gt;</dl>
@@ -2602,6 +3241,10 @@ Methods inherited from <a href="gtk.html#Object">gtk.Object</a>:<br>
 <dl><dt><a name="NavigationToolbar-set_flags"><strong>set_flags</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar-unset_flags"><strong>unset_flags</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Object">gtk.Object</a>:<br>
+<dl><dt><strong>do_destroy</strong> = &lt;built-in method do_destroy of type object&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gobject.html#GObject">gobject.GObject</a>:<br>
@@ -2806,7 +3449,13 @@ Methods inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
 
 <hr>
 Data and other attributes inherited from <a href="gtk.html#Toolbar">gtk.Toolbar</a>:<br>
-<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (137959984)&gt;</dl>
+<dl><dt><strong>__gtype__</strong> = &lt;GType GtkToolbar (136639776)&gt;</dl>
+
+<dl><dt><strong>do_orientation_changed</strong> = &lt;built-in method do_orientation_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_popup_context_menu</strong> = &lt;built-in method do_popup_context_menu of type object&gt;</dl>
+
+<dl><dt><strong>do_style_changed</strong> = &lt;built-in method do_style_changed of type object&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
@@ -2870,6 +3519,16 @@ Methods inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
 Data and other attributes inherited from <a href="gtk.html#Container">gtk.Container</a>:<br>
 <dl><dt><strong>border_width</strong> = &lt;attribute 'border_width' of 'gtk.Container' objects&gt;</dl>
 
+<dl><dt><strong>do_add</strong> = &lt;built-in method do_add of type object&gt;</dl>
+
+<dl><dt><strong>do_check_resize</strong> = &lt;built-in method do_check_resize of type object&gt;</dl>
+
+<dl><dt><strong>do_child_type</strong> = &lt;built-in method do_child_type of type object&gt;</dl>
+
+<dl><dt><strong>do_remove</strong> = &lt;built-in method do_remove of type object&gt;</dl>
+
+<dl><dt><strong>do_set_focus_child</strong> = &lt;built-in method do_set_focus_child of type object&gt;</dl>
+
 <dl><dt><strong>focus_child</strong> = &lt;attribute 'focus_child' of 'gtk.Container' objects&gt;</dl>
 
 <dl><dt><strong>has_focus_chain</strong> = &lt;attribute 'has_focus_chain' of 'gtk.Container' objects&gt;</dl>
@@ -2908,6 +3567,12 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="NavigationToolbar2GTK-drag_check_threshold"><strong>drag_check_threshold</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="NavigationToolbar2GTK-drag_dest_add_image_targets"><strong>drag_dest_add_image_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_dest_add_text_targets"><strong>drag_dest_add_text_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_dest_add_uri_targets"><strong>drag_dest_add_uri_targets</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="NavigationToolbar2GTK-drag_dest_find_target"><strong>drag_dest_find_target</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-drag_dest_get_target_list"><strong>drag_dest_get_target_list</strong></a>(...)</dt></dl>
@@ -2924,6 +3589,10 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 
 <dl><dt><a name="NavigationToolbar2GTK-drag_highlight"><strong>drag_highlight</strong></a>(...)</dt></dl>
 
+<dl><dt><a name="NavigationToolbar2GTK-drag_source_add_text_targets"><strong>drag_source_add_text_targets</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_source_get_target_list"><strong>drag_source_get_target_list</strong></a>(...)</dt></dl>
+
 <dl><dt><a name="NavigationToolbar2GTK-drag_source_set"><strong>drag_source_set</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-drag_source_set_icon"><strong>drag_source_set_icon</strong></a>(...)</dt></dl>
@@ -2931,6 +3600,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="NavigationToolbar2GTK-drag_source_set_icon_pixbuf"><strong>drag_source_set_icon_pixbuf</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-drag_source_set_icon_stock"><strong>drag_source_set_icon_stock</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-drag_source_set_target_list"><strong>drag_source_set_target_list</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-drag_source_unset"><strong>drag_source_unset</strong></a>(...)</dt></dl>
 
@@ -3017,6 +3688,8 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><a name="NavigationToolbar2GTK-list_mnemonic_labels"><strong>list_mnemonic_labels</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-map"><strong>map</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="NavigationToolbar2GTK-menu_get_for_attach_widget"><strong>menu_get_for_attach_widget</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-mnemonic_activate"><strong>mnemonic_activate</strong></a>(...)</dt></dl>
 
@@ -3144,6 +3817,126 @@ Methods inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 Data and other attributes inherited from <a href="gtk.html#Widget">gtk.Widget</a>:<br>
 <dl><dt><strong>allocation</strong> = &lt;attribute 'allocation' of 'gtk.Widget' objects&gt;</dl>
 
+<dl><dt><strong>do_button_press_event</strong> = &lt;built-in method do_button_press_event of type object&gt;</dl>
+
+<dl><dt><strong>do_button_release_event</strong> = &lt;built-in method do_button_release_event of type object&gt;</dl>
+
+<dl><dt><strong>do_can_activate_accel</strong> = &lt;built-in method do_can_activate_accel of type object&gt;</dl>
+
+<dl><dt><strong>do_client_event</strong> = &lt;built-in method do_client_event of type object&gt;</dl>
+
+<dl><dt><strong>do_configure_event</strong> = &lt;built-in method do_configure_event of type object&gt;</dl>
+
+<dl><dt><strong>do_delete_event</strong> = &lt;built-in method do_delete_event of type object&gt;</dl>
+
+<dl><dt><strong>do_destroy_event</strong> = &lt;built-in method do_destroy_event of type object&gt;</dl>
+
+<dl><dt><strong>do_direction_changed</strong> = &lt;built-in method do_direction_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_begin</strong> = &lt;built-in method do_drag_begin of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_delete</strong> = &lt;built-in method do_drag_data_delete of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_get</strong> = &lt;built-in method do_drag_data_get of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_data_received</strong> = &lt;built-in method do_drag_data_received of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_drop</strong> = &lt;built-in method do_drag_drop of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_end</strong> = &lt;built-in method do_drag_end of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_leave</strong> = &lt;built-in method do_drag_leave of type object&gt;</dl>
+
+<dl><dt><strong>do_drag_motion</strong> = &lt;built-in method do_drag_motion of type object&gt;</dl>
+
+<dl><dt><strong>do_enter_notify_event</strong> = &lt;built-in method do_enter_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_event</strong> = &lt;built-in method do_event of type object&gt;</dl>
+
+<dl><dt><strong>do_expose_event</strong> = &lt;built-in method do_expose_event of type object&gt;</dl>
+
+<dl><dt><strong>do_focus</strong> = &lt;built-in method do_focus of type object&gt;</dl>
+
+<dl><dt><strong>do_focus_in_event</strong> = &lt;built-in method do_focus_in_event of type object&gt;</dl>
+
+<dl><dt><strong>do_focus_out_event</strong> = &lt;built-in method do_focus_out_event of type object&gt;</dl>
+
+<dl><dt><strong>do_grab_focus</strong> = &lt;built-in method do_grab_focus of type object&gt;</dl>
+
+<dl><dt><strong>do_grab_notify</strong> = &lt;built-in method do_grab_notify of type object&gt;</dl>
+
+<dl><dt><strong>do_hide</strong> = &lt;built-in method do_hide of type object&gt;</dl>
+
+<dl><dt><strong>do_hide_all</strong> = &lt;built-in method do_hide_all of type object&gt;</dl>
+
+<dl><dt><strong>do_hierarchy_changed</strong> = &lt;built-in method do_hierarchy_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_key_press_event</strong> = &lt;built-in method do_key_press_event of type object&gt;</dl>
+
+<dl><dt><strong>do_key_release_event</strong> = &lt;built-in method do_key_release_event of type object&gt;</dl>
+
+<dl><dt><strong>do_leave_notify_event</strong> = &lt;built-in method do_leave_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_map</strong> = &lt;built-in method do_map of type object&gt;</dl>
+
+<dl><dt><strong>do_map_event</strong> = &lt;built-in method do_map_event of type object&gt;</dl>
+
+<dl><dt><strong>do_mnemonic_activate</strong> = &lt;built-in method do_mnemonic_activate of type object&gt;</dl>
+
+<dl><dt><strong>do_motion_notify_event</strong> = &lt;built-in method do_motion_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_no_expose_event</strong> = &lt;built-in method do_no_expose_event of type object&gt;</dl>
+
+<dl><dt><strong>do_parent_set</strong> = &lt;built-in method do_parent_set of type object&gt;</dl>
+
+<dl><dt><strong>do_popup_menu</strong> = &lt;built-in method do_popup_menu of type object&gt;</dl>
+
+<dl><dt><strong>do_property_notify_event</strong> = &lt;built-in method do_property_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_proximity_in_event</strong> = &lt;built-in method do_proximity_in_event of type object&gt;</dl>
+
+<dl><dt><strong>do_proximity_out_event</strong> = &lt;built-in method do_proximity_out_event of type object&gt;</dl>
+
+<dl><dt><strong>do_realize</strong> = &lt;built-in method do_realize of type object&gt;</dl>
+
+<dl><dt><strong>do_screen_changed</strong> = &lt;built-in method do_screen_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_scroll_event</strong> = &lt;built-in method do_scroll_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_clear_event</strong> = &lt;built-in method do_selection_clear_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_get</strong> = &lt;built-in method do_selection_get of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_notify_event</strong> = &lt;built-in method do_selection_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_received</strong> = &lt;built-in method do_selection_received of type object&gt;</dl>
+
+<dl><dt><strong>do_selection_request_event</strong> = &lt;built-in method do_selection_request_event of type object&gt;</dl>
+
+<dl><dt><strong>do_show</strong> = &lt;built-in method do_show of type object&gt;</dl>
+
+<dl><dt><strong>do_show_all</strong> = &lt;built-in method do_show_all of type object&gt;</dl>
+
+<dl><dt><strong>do_show_help</strong> = &lt;built-in method do_show_help of type object&gt;</dl>
+
+<dl><dt><strong>do_size_allocate</strong> = &lt;built-in method do_size_allocate of type object&gt;</dl>
+
+<dl><dt><strong>do_size_request</strong> = &lt;built-in method do_size_request of type object&gt;</dl>
+
+<dl><dt><strong>do_state_changed</strong> = &lt;built-in method do_state_changed of type object&gt;</dl>
+
+<dl><dt><strong>do_style_set</strong> = &lt;built-in method do_style_set of type object&gt;</dl>
+
+<dl><dt><strong>do_unmap</strong> = &lt;built-in method do_unmap of type object&gt;</dl>
+
+<dl><dt><strong>do_unmap_event</strong> = &lt;built-in method do_unmap_event of type object&gt;</dl>
+
+<dl><dt><strong>do_unrealize</strong> = &lt;built-in method do_unrealize of type object&gt;</dl>
+
+<dl><dt><strong>do_visibility_notify_event</strong> = &lt;built-in method do_visibility_notify_event of type object&gt;</dl>
+
+<dl><dt><strong>do_window_state_event</strong> = &lt;built-in method do_window_state_event of type object&gt;</dl>
+
 <dl><dt><strong>name</strong> = &lt;attribute 'name' of 'gtk.Widget' objects&gt;</dl>
 
 <dl><dt><strong>parent</strong> = &lt;attribute 'parent' of 'gtk.Widget' objects&gt;</dl>
@@ -3163,6 +3956,10 @@ Methods inherited from <a href="gtk.html#Object">gtk.Object</a>:<br>
 <dl><dt><a name="NavigationToolbar2GTK-set_flags"><strong>set_flags</strong></a>(...)</dt></dl>
 
 <dl><dt><a name="NavigationToolbar2GTK-unset_flags"><strong>unset_flags</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="gtk.html#Object">gtk.Object</a>:<br>
+<dl><dt><strong>do_destroy</strong> = &lt;built-in method do_destroy of type object&gt;</dl>
 
 <hr>
 Methods inherited from <a href="gobject.html#GObject">gobject.GObject</a>:<br>
@@ -3249,12 +4046,11 @@ This&nbsp;should&nbsp;be&nbsp;the&nbsp;last&nbsp;line&nbsp;of&nbsp;your&nbsp;scr
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>DEBUG</strong> = False<br>
-<strong>IMAGE_FORMAT</strong> = ['bmp', 'eps', 'jpg', 'png', 'ps', 'svg']<br>
+<td width="100%"><strong>IMAGE_FORMAT</strong> = ['bmp', 'eps', 'jpg', 'png', 'ps', 'svg']<br>
 <strong>IMAGE_FORMAT_DEFAULT</strong> = 'png'<br>
 <strong>PIXELS_PER_INCH</strong> = 96<br>
 <strong>UInt8</strong> = 'b'<br>
-<strong>backend_version</strong> = '2.4.1'<br>
+<strong>backend_version</strong> = '2.6.1'<br>
 <strong>cursord</strong> = {0: &lt;GdkCursor&gt;, 1: &lt;GdkCursor&gt;, 2: &lt;GdkCursor&gt;, 3: &lt;GdkCursor&gt;}<br>
 <strong>cursors</strong> = &lt;matplotlib.backend_bases.Cursors instance&gt;<br>
 <strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>

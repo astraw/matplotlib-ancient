@@ -229,6 +229,7 @@ Sanalytic&nbsp;=&nbsp;0.5&nbsp;&nbsp;*&nbsp;(&nbsp;1.0&nbsp;+&nbsp;log(2*pi*sigm
 Slow&nbsp;but&nbsp;convenient&nbsp;to&nbsp;use.&nbsp;Note&nbsp;that&nbsp;NumArray&nbsp;will&nbsp;introduce&nbsp;proper<br>
 floating&nbsp;point&nbsp;exception&nbsp;handling&nbsp;with&nbsp;access&nbsp;to&nbsp;the&nbsp;underlying<br>
 hardware.</tt></dd></dl>
+ <dl><dt><a name="-fftsurr"><strong>fftsurr</strong></a>(x)</dt><dd><tt>Compute&nbsp;an&nbsp;FFT&nbsp;phase&nbsp;randomized&nbsp;surrogate&nbsp;of&nbsp;x</tt></dd></dl>
  <dl><dt><a name="-find"><strong>find</strong></a>(condition)</dt><dd><tt>Return&nbsp;the&nbsp;indices&nbsp;where&nbsp;condition&nbsp;is&nbsp;true</tt></dd></dl>
  <dl><dt><a name="-fix"><strong>fix</strong></a>(x)</dt><dd><tt>Rounds&nbsp;towards&nbsp;zero.<br>
 x_rounded&nbsp;=&nbsp;<a href="#-fix">fix</a>(x)&nbsp;rounds&nbsp;the&nbsp;elements&nbsp;of&nbsp;x&nbsp;to&nbsp;the&nbsp;nearest&nbsp;integers<br>

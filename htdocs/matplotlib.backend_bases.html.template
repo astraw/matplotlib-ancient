@@ -27,7 +27,8 @@ graphics&nbsp;contexts&nbsp;must&nbsp;implement&nbsp;to&nbsp;serve&nbsp;as&nbsp;
 </font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#Event">Event</a>
 </font></dt><dd>
 <dl>
-<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#LocationEvent">LocationEvent</a>
+<dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#DrawEvent">DrawEvent</a>
+</font></dt><dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#LocationEvent">LocationEvent</a>
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="matplotlib.backend_bases.html#KeyEvent">KeyEvent</a>
@@ -64,6 +65,23 @@ graphics&nbsp;contexts&nbsp;must&nbsp;implement&nbsp;to&nbsp;serve&nbsp;as&nbsp;
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DrawEvent">class <strong>DrawEvent</strong></a>(<a href="matplotlib.backend_bases.html#Event">Event</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>An&nbsp;event&nbsp;triggered&nbsp;by&nbsp;a&nbsp;draw&nbsp;operation&nbsp;on&nbsp;the&nbsp;canvas<br>
+&nbsp;<br>
+Attributes&nbsp;are<br>
+&nbsp;&nbsp;name&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;canvas<br>
+&nbsp;&nbsp;renderer&nbsp;-&nbsp;the&nbsp;Renderer&nbsp;instance<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="DrawEvent-__init__"><strong>__init__</strong></a>(self, name, canvas, renderer)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#000000" face="helvetica, arial"><a name="Event">class <strong>Event</strong></a></font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
@@ -92,6 +110,8 @@ Public&nbsp;attribute<br>
 <td width="100%">Methods defined here:<br>
 <dl><dt><a name="FigureCanvasBase-__init__"><strong>__init__</strong></a>(self, figure)</dt></dl>
 
+<dl><dt><a name="FigureCanvasBase-blit"><strong>blit</strong></a>(self, bbox<font color="#909090">=None</font>)</dt><dd><tt>blit&nbsp;the&nbsp;canvas&nbsp;in&nbsp;bbox&nbsp;(default&nbsp;entire&nbsp;canvas)</tt></dd></dl>
+
 <dl><dt><a name="FigureCanvasBase-button_press_event"><strong>button_press_event</strong></a>(self, x, y, button, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
 button&nbsp;press.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;<a href="#MouseEvent">MouseEvent</a></tt></dd></dl>
@@ -105,14 +125,19 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;<a href="#Mo
 <dl><dt><a name="FigureCanvasBase-draw_cursor"><strong>draw_cursor</strong></a>(self, event)</dt><dd><tt>Draw&nbsp;a&nbsp;cursor&nbsp;in&nbsp;the&nbsp;event.axes&nbsp;if&nbsp;inaxes&nbsp;is&nbsp;not&nbsp;None.&nbsp;&nbsp;Use<br>
 native&nbsp;GUI&nbsp;drawing&nbsp;for&nbsp;efficiency&nbsp;if&nbsp;possible</tt></dd></dl>
 
+<dl><dt><a name="FigureCanvasBase-draw_event"><strong>draw_event</strong></a>(self, renderer)</dt></dl>
+
 <dl><dt><a name="FigureCanvasBase-draw_idle"><strong>draw_idle</strong></a>(self, *args, **kwargs)</dt><dd><tt>draw&nbsp;only&nbsp;if&nbsp;idle;&nbsp;defaults&nbsp;to&nbsp;draw&nbsp;but&nbsp;backends&nbsp;can&nbsp;overrride</tt></dd></dl>
+
+<dl><dt><a name="FigureCanvasBase-get_width_height"><strong>get_width_height</strong></a>(self)</dt><dd><tt>return&nbsp;the&nbsp;figure&nbsp;width&nbsp;and&nbsp;height&nbsp;in&nbsp;points&nbsp;or&nbsp;pixels<br>
+(depending&nbsp;on&nbsp;the&nbsp;backend),&nbsp;truncated&nbsp;to&nbsp;integers</tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasBase-key_press_event"><strong>key_press_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
 <dl><dt><a name="FigureCanvasBase-key_release_event"><strong>key_release_event</strong></a>(self, key, guiEvent<font color="#909090">=None</font>)</dt></dl>
 
-<dl><dt><a name="FigureCanvasBase-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any&nbsp;mouse<br>
-button&nbsp;release.&nbsp;&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
+<dl><dt><a name="FigureCanvasBase-motion_notify_event"><strong>motion_notify_event</strong></a>(self, x, y, guiEvent<font color="#909090">=None</font>)</dt><dd><tt>Backend&nbsp;derived&nbsp;classes&nbsp;should&nbsp;call&nbsp;this&nbsp;function&nbsp;on&nbsp;any<br>
+motion-notify-event.&nbsp;x,y&nbsp;are&nbsp;the&nbsp;canvas&nbsp;coords:&nbsp;0,0&nbsp;is&nbsp;lower,&nbsp;left.<br>
 button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;<a href="#MouseEvent">MouseEvent</a></tt></dd></dl>
 
 <dl><dt><a name="FigureCanvasBase-mpl_connect"><strong>mpl_connect</strong></a>(self, s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
@@ -121,10 +146,12 @@ button&nbsp;and&nbsp;key&nbsp;are&nbsp;as&nbsp;defined&nbsp;in&nbsp;<a href="#Mo
 &nbsp;<br>
 where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbsp;events&nbsp;are&nbsp;recognized<br>
 &nbsp;<br>
-&nbsp;'key_press_event'&nbsp;<br>
-&nbsp;'button_press_event'&nbsp;<br>
-&nbsp;'button_release_event'&nbsp;<br>
-&nbsp;'motion_notify_event'&nbsp;<br>
+&nbsp;'draw_event'<br>
+&nbsp;'key_press_event'<br>
+&nbsp;'key_release_event'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;'button_press_event'<br>
+&nbsp;'button_release_event'<br>
+&nbsp;'motion_notify_event'<br>
 &nbsp;<br>
 &nbsp;For&nbsp;the&nbsp;three&nbsp;events&nbsp;above,&nbsp;if&nbsp;the&nbsp;mouse&nbsp;is&nbsp;over&nbsp;the&nbsp;axes,<br>
 &nbsp;the&nbsp;variable&nbsp;event.inaxes&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;the&nbsp;axes&nbsp;it&nbsp;is&nbsp;over,<br>
@@ -174,6 +201,8 @@ num&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;The&nbsp;figure&nbsp;number<br>&nbsp;</tt></td
 <dl><dt><a name="FigureManagerBase-__init__"><strong>__init__</strong></a>(self, canvas, num)</dt></dl>
 
 <dl><dt><a name="FigureManagerBase-destroy"><strong>destroy</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FigureManagerBase-full_screen_toggle"><strong>full_screen_toggle</strong></a>(self)</dt></dl>
 
 <dl><dt><a name="FigureManagerBase-key_press"><strong>key_press</strong></a>(self, event)</dt></dl>
 
@@ -308,7 +337,7 @@ Data and other attributes inherited from <a href="matplotlib.backend_bases.html#
 <font color="#000000" face="helvetica, arial"><a name="LocationEvent">class <strong>LocationEvent</strong></a>(<a href="matplotlib.backend_bases.html#Event">Event</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>A&nbsp;event&nbsp;that&nbsp;has&nbsp;a&nbsp;screen&nbsp;location&nbsp;<br>
+<td colspan=2><tt>A&nbsp;event&nbsp;that&nbsp;has&nbsp;a&nbsp;screen&nbsp;location<br>
 &nbsp;<br>
 The&nbsp;following&nbsp;additional&nbsp;attributes&nbsp;are&nbsp;defined&nbsp;and&nbsp;shown&nbsp;with<br>
 their&nbsp;default&nbsp;values<br>
@@ -418,7 +447,7 @@ They&nbsp;must&nbsp;also&nbsp;define<br>
 &nbsp;<br>
 *&nbsp;set_message&nbsp;(optional)&nbsp;-&nbsp;display&nbsp;message<br>
 &nbsp;<br>
-*&nbsp;set_history_buttons&nbsp;(optional)&nbsp;-&nbsp;you&nbsp;can&nbsp;change&nbsp;the&nbsp;history&nbsp;<br>
+*&nbsp;set_history_buttons&nbsp;(optional)&nbsp;-&nbsp;you&nbsp;can&nbsp;change&nbsp;the&nbsp;history<br>
 &nbsp;&nbsp;&nbsp;back&nbsp;/&nbsp;forward&nbsp;buttons&nbsp;to&nbsp;indicate&nbsp;disabled&nbsp;/&nbsp;enabled&nbsp;state.<br>
 &nbsp;<br>
 That's&nbsp;it,&nbsp;we'll&nbsp;do&nbsp;the&nbsp;rest!<br>&nbsp;</tt></td></tr>
@@ -481,12 +510,6 @@ enums&nbsp;values</tt></dd></dl>
 <td colspan=2><tt>An&nbsp;abstract&nbsp;base&nbsp;class&nbsp;to&nbsp;handle&nbsp;drawing/rendering&nbsp;operations<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="RendererBase-blit"><strong>blit</strong></a>(self)</dt><dd><tt>blit&nbsp;the&nbsp;cached&nbsp;copy&nbsp;of&nbsp;the&nbsp;canvas,&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;conjunction<br>
-with&nbsp;blit&nbsp;in&nbsp;support&nbsp;of&nbsp;animation</tt></dd></dl>
-
-<dl><dt><a name="RendererBase-cache"><strong>cache</strong></a>(self)</dt><dd><tt>save&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;canvas,&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;conjunction&nbsp;with&nbsp;blit<br>
-in&nbsp;support&nbsp;of&nbsp;animation</tt></dd></dl>
-
 <dl><dt><a name="RendererBase-close_group"><strong>close_group</strong></a>(self, s)</dt><dd><tt>close&nbsp;a&nbsp;grouping&nbsp;element&nbsp;with&nbsp;label&nbsp;s<br>
 Is&nbsp;only&nbsp;currently&nbsp;used&nbsp;by&nbsp;backend_svg</tt></dd></dl>
 
@@ -582,6 +605,8 @@ polygon&nbsp;in&nbsp;points^2<br>
 facecolors&nbsp;and&nbsp;edgecolors&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;RGBA&nbsp;tuples<br>
 linewidths&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;linewidths<br>
 antialiaseds&nbsp;are&nbsp;a&nbsp;sequence&nbsp;of&nbsp;0,1&nbsp;integers&nbsp;whether&nbsp;to&nbsp;use&nbsp;aa</tt></dd></dl>
+
+<dl><dt><a name="RendererBase-draw_tex"><strong>draw_tex</strong></a>(self, gc, x, y, s, prop, angle, ismath<font color="#909090">='TeX!'</font>)</dt></dl>
 
 <dl><dt><a name="RendererBase-draw_text"><strong>draw_text</strong></a>(self, gc, x, y, s, prop, angle, ismath<font color="#909090">=False</font>)</dt><dd><tt>Draw&nbsp;the&nbsp;text.Text&nbsp;instance&nbsp;s&nbsp;at&nbsp;x,y&nbsp;(display&nbsp;coords)&nbsp;with&nbsp;font<br>
 properties&nbsp;instance&nbsp;prop&nbsp;at&nbsp;angle&nbsp;in&nbsp;degrees,&nbsp;using&nbsp;GraphicsContext&nbsp;gc<br>

@@ -294,7 +294,7 @@ linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matplotlibrc&nbsp;is&nbsp;used<br>
 &nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;<br>
@@ -1592,7 +1592,7 @@ linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matplotlibrc&nbsp;is&nbsp;used<br>
 &nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;<br>
@@ -2875,7 +2875,7 @@ linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matplotlibrc&nbsp;is&nbsp;used<br>
 &nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;<br>
@@ -4101,7 +4101,7 @@ linewidths&nbsp;is&nbsp;one&nbsp;of:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specified<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;-&nbsp;if&nbsp;linewidths&nbsp;==&nbsp;None,&nbsp;the&nbsp;default&nbsp;width&nbsp;in&nbsp;lines.linewidth&nbsp;in<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.matplotlibrc&nbsp;is&nbsp;used<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matplotlibrc&nbsp;is&nbsp;used<br>
 &nbsp;<br>
 &nbsp;<br>
 &nbsp;&nbsp;<br>

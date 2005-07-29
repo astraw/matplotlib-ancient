@@ -48,17 +48,9 @@ REQUIREMENTS<br>
 LICENSING:<br>
 &nbsp;<br>
 &nbsp;&nbsp;The&nbsp;computer&nbsp;modern&nbsp;fonts&nbsp;this&nbsp;package&nbsp;uses&nbsp;are&nbsp;part&nbsp;of&nbsp;the&nbsp;BaKoMa<br>
-&nbsp;&nbsp;fonts,&nbsp;which&nbsp;are&nbsp;(in&nbsp;my&nbsp;understanding)&nbsp;free&nbsp;for&nbsp;noncommercial&nbsp;use.<br>
-&nbsp;&nbsp;For&nbsp;commercial&nbsp;use,&nbsp;please&nbsp;consult&nbsp;the&nbsp;licenses&nbsp;in&nbsp;fonts/ttf&nbsp;and&nbsp;the<br>
-&nbsp;&nbsp;author&nbsp;Basil&nbsp;K.&nbsp;Malyshev&nbsp;-&nbsp;see&nbsp;also<br>
-&nbsp;&nbsp;<a href="http://www.mozilla.org/projects/mathml/fonts/encoding/license-bakoma.txt">http://www.mozilla.org/projects/mathml/fonts/encoding/license-bakoma.txt</a><br>
-&nbsp;&nbsp;and&nbsp;the&nbsp;file&nbsp;BaKoMa-CM.<a href="#Fonts">Fonts</a>&nbsp;in&nbsp;the&nbsp;matplotlib&nbsp;fonts&nbsp;dir.<br>
-&nbsp;<br>
-&nbsp;&nbsp;Note&nbsp;that&nbsp;all&nbsp;the&nbsp;code&nbsp;in&nbsp;this&nbsp;module&nbsp;is&nbsp;distributed&nbsp;under&nbsp;the<br>
-&nbsp;&nbsp;matplotlib&nbsp;license,&nbsp;and&nbsp;a&nbsp;truly&nbsp;free&nbsp;implementation&nbsp;of&nbsp;mathtext&nbsp;for<br>
-&nbsp;&nbsp;either&nbsp;freetype&nbsp;or&nbsp;ps&nbsp;would&nbsp;simply&nbsp;require&nbsp;deriving&nbsp;another&nbsp;concrete<br>
-&nbsp;&nbsp;implementation&nbsp;from&nbsp;the&nbsp;<a href="#Fonts">Fonts</a>&nbsp;class&nbsp;defined&nbsp;in&nbsp;this&nbsp;module&nbsp;which<br>
-&nbsp;&nbsp;used&nbsp;free&nbsp;fonts.<br>
+&nbsp;&nbsp;fonts,&nbsp;which&nbsp;are&nbsp;(now)&nbsp;free&nbsp;for&nbsp;commercial&nbsp;and&nbsp;noncommercial&nbsp;use&nbsp;and<br>
+&nbsp;&nbsp;redistribution;&nbsp;see&nbsp;license/LICENSE_BAKOMA&nbsp;in&nbsp;the&nbsp;matplotlib&nbsp;src<br>
+&nbsp;&nbsp;distribution&nbsp;for&nbsp;redistribution&nbsp;requirements.<br>
 &nbsp;<br>
 USAGE:<br>
 &nbsp;<br>
@@ -747,13 +739,13 @@ return&nbsp;is&nbsp;width,&nbsp;height,&nbsp;fonts</tt></dd></dl>
 <strong>roman</strong> = "rm"<br>
 <strong>rparen</strong> = ")"<br>
 <strong>semicolon</strong> = ";"<br>
-<strong>space</strong> = space<br>
+<strong>space</strong> = {FollowedBy:("\") space}<br>
 <strong>subscript</strong> = subscript<br>
 <strong>subsuperscript</strong> = subsuperscript<br>
 <strong>superscript</strong> = superscript<br>
-<strong>symbol</strong> = {{{{{{Combine:({{"\" W:(abcd...)} ~{Suppress:("{...@"} | "%"} | "&amp;"}} | {{{"[" | "]"} | "("} | ")"}}<br>
-<strong>symgroup</strong> = {{font ^ group} ^ {{{{{{Combine:({{"\" W:(abcd....."} | "%"} | "&amp;"}} | {{{"[" | "]"} | "("} | ")"}}}<br>
-<strong>texsym</strong> = Combine:({{"\" W:(abcd...)} ~{Suppress:("{")}})<br>
+<strong>symbol</strong> = {{{{{{Combine:({{"\" W:(abcd...)} ~{"{"}}) | W:(...@"} | "%"} | "&amp;"}} | {{{"[" | "]"} | "("} | ")"}}<br>
+<strong>symgroup</strong> = {{font | group} | {{{{{{Combine:({{"\" W:(abcd....."} | "%"} | "&amp;"}} | {{{"[" | "]"} | "("} | ")"}}}<br>
+<strong>texsym</strong> = Combine:({{"\" W:(abcd...)} ~{"{"}})<br>
 <strong>times</strong> = "*"<br>
 <strong>typewriter</strong> = "tt"<br>
 <strong>under</strong> = "under"<br>

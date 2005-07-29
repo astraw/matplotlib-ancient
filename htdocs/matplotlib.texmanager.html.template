@@ -33,7 +33,7 @@ as&nbsp;follows<br>
 &nbsp;<br>
 To&nbsp;enable&nbsp;tex&nbsp;rendering&nbsp;of&nbsp;all&nbsp;text&nbsp;in&nbsp;your&nbsp;matplotlib&nbsp;figure,&nbsp;set<br>
 text.usetex&nbsp;in&nbsp;your&nbsp;matplotlibrc&nbsp;file<br>
-(<a href="http://matplotlib.sf.net/.matplotlibrc">http://matplotlib.sf.net/.matplotlibrc</a>)</tt></p>
+(<a href="http://matplotlib.sf.net/matplotlibrc">http://matplotlib.sf.net/matplotlibrc</a>)</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -87,9 +87,21 @@ working&nbsp;dir<br>&nbsp;</tt></td></tr>
 
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>path</strong> = '/home/jdhunter'</dl>
+<dl><dt><strong>arrayd</strong> = {}</dl>
 
-<dl><dt><strong>texcache</strong> = '/home/jdhunter/.tex.cache'</dl>
+<dl><dt><strong>configdir</strong> = '/home/jdhunter/.matplotlib'</dl>
+
+<dl><dt><strong>dvipngVersion</strong> = None</dl>
+
+<dl><dt><strong>oldcache</strong> = '/home/jdhunter/.tex.cache'</dl>
+
+<dl><dt><strong>oldpath</strong> = '/home/jdhunter'</dl>
+
+<dl><dt><strong>postscriptd</strong> = {}</dl>
+
+<dl><dt><strong>pscnt</strong> = 0</dl>
+
+<dl><dt><strong>texcache</strong> = '/home/jdhunter/.matplotlib/tex.cache'</dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -111,7 +123,7 @@ Data and other attributes defined here:<br>
 <td width="100%"><strong>Float</strong> = 'd'<br>
 <strong>absolute</strong> = &lt;ufunc 'absolute'&gt;<br>
 <strong>debug</strong> = False<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
 <strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>
 <strong>verbose</strong> = &lt;matplotlib.Verbose instance&gt;</td></tr></table>
 @footer@

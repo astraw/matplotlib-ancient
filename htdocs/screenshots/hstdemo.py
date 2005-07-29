@@ -21,12 +21,13 @@ The Chandra image was obtained from the Chandra web site
 http://chandra.harvard.edu/photo/2000/perseus/index.html
 (Credits: NASA/CXC/SAo)
 """
-import pylab as p
+from pylab import *
 import matplotlib.cm as cm
 import matplotlib.numerix as n
 import zlib
 import sys
 
+from pylab import savefig
 
 def load_hst_data():
     """reconstruct the numerix arrays from the data files"""
@@ -47,24 +48,25 @@ def load_hst_data():
     return hst, chandra/16000.
 
 def hstdemo():
-    p.rc('image',origin='lower') # correct display requires setting origin to this
+    rc('image',origin='lower') # correct display requires setting origin to this
     hst, chandra = load_hst_data()
     # set size of figure window to be exactly that of the image so no resampling is done
     h, w, d = hst.shape
     dpi=80.
-    p.figure(figsize=(w/dpi, h/dpi), dpi=dpi)
+    figure(figsize=(w/dpi, h/dpi), dpi=dpi)
     # set plot region to full window size
-    p.axes((0,0,1,1))
+    axes((0,0,1,1))
     # display rgb HST image
-    p.imshow(hst)
+    imshow(hst)
     # overplot X-ray contour map
-    p.contour(chandra, [.95,.85, .6], linewidths=2, cmap=cm.hot)
-    p.clim(0,1.1)
-    p.legend(loc='lower right')
-    p.text(160, 75, 'HST image of NGC 1275\n with Chandra X-Ray contours',
+    contour(chandra, [.95,.85, .6], linewidths=2, cmap=cm.hot)
+    clim(0,1.1)
+    legend(loc='lower right')
+    text(160, 75, 'HST image of NGC 1275\n with Chandra X-Ray contours',
            color='white', size=22)
 
            
 
 hstdemo()
-p.show()
+savefig('hstdemo')
+show()

@@ -210,8 +210,9 @@ exception&nbsp;of&nbsp;those&nbsp;in&nbsp;mlab.py&nbsp;provided&nbsp;by&nbsp;mat
 <a href="matplotlib.html">matplotlib</a><br>
 </td><td width="25%" valign=top><a href="matplotlib.mlab.html">matplotlib.mlab</a><br>
 <a href="matplotlib.numerix.html">matplotlib.numerix</a><br>
-<a href="matplotlib.ticker.html">matplotlib.ticker</a><br>
-</td><td width="25%" valign=top><a href="warnings.html">warnings</a><br>
+<a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.ticker.html">matplotlib.ticker</a><br>
+<a href="warnings.html">warnings</a><br>
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
@@ -303,6 +304,10 @@ Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;def
 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#-axis">axis</a>('equal')&nbsp;sets&nbsp;the&nbsp;xlim&nbsp;width&nbsp;and&nbsp;ylim&nbsp;height&nbsp;to&nbsp;be&nbsp;to&nbsp;be<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;identical.&nbsp;&nbsp;The&nbsp;longer&nbsp;of&nbsp;the&nbsp;two&nbsp;intervals&nbsp;is&nbsp;chosen<br>
 &nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-axis">axis</a>('scaled')&nbsp;changes&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;subplot&nbsp;such&nbsp;that&nbsp;equal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tick&nbsp;mark&nbsp;increments&nbsp;on&nbsp;the&nbsp;x-&nbsp;and&nbsp;y-axis&nbsp;are&nbsp;equal&nbsp;in&nbsp;size<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(like&nbsp;the&nbsp;'axis&nbsp;equal'&nbsp;command&nbsp;in&nbsp;matplab).&nbsp;This&nbsp;makes&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;circle&nbsp;look&nbsp;like&nbsp;a&nbsp;circle,&nbsp;for&nbsp;example<br>
 &nbsp;<br>
 &nbsp;&nbsp;&nbsp;if&nbsp;len(*v)==0,&nbsp;you&nbsp;can&nbsp;pass&nbsp;in&nbsp;xmin,&nbsp;xmax,&nbsp;ymin,&nbsp;ymax&nbsp;as&nbsp;kwargs<br>
 &nbsp;&nbsp;&nbsp;selectively&nbsp;to&nbsp;alter&nbsp;just&nbsp;those&nbsp;limits&nbsp;w/o&nbsp;changing&nbsp;the&nbsp;others.<br>
@@ -536,22 +541,19 @@ Here&nbsp;is&nbsp;an&nbsp;example&nbsp;that&nbsp;creates&nbsp;a&nbsp;pale&nbsp;t
 &nbsp;<br>
 &nbsp;&nbsp;<a href="#-title">title</a>('Is&nbsp;this&nbsp;the&nbsp;best&nbsp;color?',&nbsp;color='#afeeee')</tt></dd></dl>
  <dl><dt><a name="-connect"><strong>connect</strong></a>(s, func)</dt><dd><tt>Connect&nbsp;event&nbsp;with&nbsp;string&nbsp;s&nbsp;to&nbsp;func.&nbsp;&nbsp;The&nbsp;signature&nbsp;of&nbsp;func&nbsp;is<br>
-&nbsp;<br>
 &nbsp;&nbsp;def&nbsp;func(event)<br>
-&nbsp;<br>
 where&nbsp;event&nbsp;is&nbsp;a&nbsp;MplEvent.&nbsp;&nbsp;The&nbsp;following&nbsp;events&nbsp;are&nbsp;recognized<br>
-&nbsp;<br>
-&nbsp;'key_press_event'&nbsp;<br>
-&nbsp;'button_press_event'&nbsp;<br>
-&nbsp;'button_release_event'&nbsp;<br>
-&nbsp;'motion_notify_event'&nbsp;<br>
-&nbsp;<br>
+&nbsp;'draw_event'<br>
+&nbsp;'key_press_event'<br>
+&nbsp;'key_release_event'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;'button_press_event'<br>
+&nbsp;'button_release_event'<br>
+&nbsp;'motion_notify_event'<br>
 &nbsp;For&nbsp;the&nbsp;three&nbsp;events&nbsp;above,&nbsp;if&nbsp;the&nbsp;mouse&nbsp;is&nbsp;over&nbsp;the&nbsp;axes,<br>
 &nbsp;the&nbsp;variable&nbsp;event.inaxes&nbsp;will&nbsp;be&nbsp;set&nbsp;to&nbsp;the&nbsp;axes&nbsp;it&nbsp;is&nbsp;over,<br>
 &nbsp;and&nbsp;additionally,&nbsp;the&nbsp;variables&nbsp;event.xdata&nbsp;and&nbsp;event.ydata<br>
 &nbsp;will&nbsp;be&nbsp;defined.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;mouse&nbsp;location&nbsp;in&nbsp;data&nbsp;coords.<br>
 &nbsp;See&nbsp;backend_bases.MplEvent.<br>
-&nbsp;<br>
 return&nbsp;value&nbsp;is&nbsp;a&nbsp;connection&nbsp;id&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;with<br>
 mpl_disconnect</tt></dd></dl>
  <dl><dt><a name="-contour"><strong>contour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#-contour">contour</a>(self,&nbsp;*args,&nbsp;**kwargs)<br>
@@ -684,49 +686,45 @@ plots&nbsp;a&nbsp;single&nbsp;error&nbsp;bar&nbsp;at&nbsp;x,&nbsp;y.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;capsize&nbsp;is&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;error&nbsp;bar&nbsp;caps&nbsp;in&nbsp;points<br>
 &nbsp;&nbsp;&nbsp;&nbsp;barsabove,&nbsp;if&nbsp;True,&nbsp;will&nbsp;plot&nbsp;the&nbsp;errorbars&nbsp;above&nbsp;the&nbsp;plot&nbsp;symbols<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;default&nbsp;is&nbsp;below<br>
-&nbsp;&nbsp;&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;the&nbsp;plot&nbsp;command&nbsp;for&nbsp;the&nbsp;markers<br>
+&nbsp;&nbsp;&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;the&nbsp;plot&nbsp;command&nbsp;for&nbsp;the&nbsp;markers.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;So&nbsp;you&nbsp;can&nbsp;add&nbsp;additional&nbsp;key=value&nbsp;pairs&nbsp;to&nbsp;control&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;errorbar&nbsp;markers.&nbsp;&nbsp;For&nbsp;example,&nbsp;this&nbsp;code&nbsp;makes&nbsp;big&nbsp;red<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;squares&nbsp;with&nbsp;thick&nbsp;green&nbsp;edges<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;x,y,yerr&nbsp;=&nbsp;rand(3,10)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-errorbar">errorbar</a>(x,&nbsp;y,&nbsp;yerr,&nbsp;marker='s',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mfc='red',&nbsp;mec='green',&nbsp;ms=20,&nbsp;mew=4)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mfc,&nbsp;mec,&nbsp;ms&nbsp;and&nbsp;mew&nbsp;are&nbsp;aliases&nbsp;for&nbsp;the&nbsp;longer&nbsp;property<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;names,&nbsp;markerfacecolor,&nbsp;markeredgecolor,&nbsp;markersize&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;markeredgewith.&nbsp;&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;length&nbsp;2&nbsp;tuple.&nbsp;&nbsp;The&nbsp;first&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of<br>
 y&nbsp;symbol&nbsp;lines.&nbsp;&nbsp;The&nbsp;second&nbsp;element&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;error&nbsp;bar&nbsp;lines.<br>
 &nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-figimage"><strong>figimage</strong></a>(*args, **kwargs)</dt><dd><tt>FIGIMAGE(X)&nbsp;#&nbsp;add&nbsp;non-resampled&nbsp;array&nbsp;to&nbsp;figure<br>
-&nbsp;<br>
 FIGIMAGE(X,&nbsp;xo,&nbsp;yo)&nbsp;#&nbsp;with&nbsp;pixel&nbsp;offsets<br>
-&nbsp;<br>
 FIGIMAGE(X,&nbsp;**kwargs)&nbsp;#&nbsp;control&nbsp;interpolation&nbsp;,scaling,&nbsp;etc<br>
-&nbsp;<br>
 Add&nbsp;a&nbsp;nonresampled&nbsp;figure&nbsp;to&nbsp;the&nbsp;figure&nbsp;from&nbsp;array&nbsp;X.&nbsp;&nbsp;xo&nbsp;and&nbsp;yo&nbsp;are<br>
 offsets&nbsp;in&nbsp;pixels<br>
-&nbsp;<br>
 X&nbsp;must&nbsp;be&nbsp;a&nbsp;float&nbsp;array<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;X&nbsp;is&nbsp;MxN,&nbsp;assume&nbsp;luminance&nbsp;(grayscale)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;X&nbsp;is&nbsp;MxNx3,&nbsp;assume&nbsp;RGB<br>
 &nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;X&nbsp;is&nbsp;MxNx4,&nbsp;assume&nbsp;RGBA<br>
-&nbsp;<br>
-The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:&nbsp;<br>
-&nbsp;<br>
+The&nbsp;following&nbsp;kwargs&nbsp;are&nbsp;allowed:<br>
 &nbsp;&nbsp;*&nbsp;cmap&nbsp;is&nbsp;a&nbsp;cm&nbsp;colormap&nbsp;instance,&nbsp;eg&nbsp;cm.jet.&nbsp;&nbsp;If&nbsp;None,&nbsp;default&nbsp;to<br>
 &nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;rc&nbsp;image.cmap&nbsp;valuex<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;norm&nbsp;is&nbsp;a&nbsp;matplotlib.colors.normalize&nbsp;instance;&nbsp;default&nbsp;is<br>
 &nbsp;&nbsp;&nbsp;&nbsp;normalization().&nbsp;&nbsp;This&nbsp;scales&nbsp;luminance&nbsp;-&gt;&nbsp;0-1<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;to&nbsp;scale&nbsp;a&nbsp;luminance&nbsp;image&nbsp;to&nbsp;0-1.&nbsp;&nbsp;If<br>
 &nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;is&nbsp;None,&nbsp;the&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;luminance&nbsp;values&nbsp;will&nbsp;be<br>
 &nbsp;&nbsp;&nbsp;&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm&nbsp;instance,&nbsp;the&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and<br>
 &nbsp;&nbsp;&nbsp;&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored.<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;alpha&nbsp;=&nbsp;1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;blending&nbsp;value<br>
-&nbsp;<br>
 &nbsp;&nbsp;*&nbsp;origin&nbsp;is&nbsp;either&nbsp;'upper'&nbsp;or&nbsp;'lower',&nbsp;which&nbsp;indicates&nbsp;where&nbsp;the&nbsp;[0,0]<br>
 &nbsp;&nbsp;&nbsp;&nbsp;index&nbsp;of&nbsp;the&nbsp;array&nbsp;is&nbsp;in&nbsp;the&nbsp;upper&nbsp;left&nbsp;or&nbsp;lower&nbsp;left&nbsp;corner&nbsp;of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;axes.&nbsp;&nbsp;Defaults&nbsp;to&nbsp;the&nbsp;rc&nbsp;image.origin&nbsp;value<br>
-&nbsp;<br>
 This&nbsp;complements&nbsp;the&nbsp;axes&nbsp;image&nbsp;(Axes.imshow)&nbsp;which&nbsp;will&nbsp;be&nbsp;resampled<br>
 to&nbsp;fit&nbsp;the&nbsp;current&nbsp;axes.&nbsp;&nbsp;If&nbsp;you&nbsp;want&nbsp;a&nbsp;resampled&nbsp;image&nbsp;to&nbsp;fill&nbsp;the<br>
 entire&nbsp;figure,&nbsp;you&nbsp;can&nbsp;define&nbsp;an&nbsp;Axes&nbsp;with&nbsp;size&nbsp;[0,1,0,1].<br>
-&nbsp;<br>
 A&nbsp;image.FigureImage&nbsp;instance&nbsp;is&nbsp;returned.<br>
 &nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
@@ -810,14 +808,17 @@ collection&nbsp;instances</tt></dd></dl>
  <dl><dt><a name="-gray"><strong>gray</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;gray&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-grid"><strong>grid</strong></a>(*args, **kwargs)</dt><dd><tt>Set&nbsp;the&nbsp;axes&nbsp;grids&nbsp;on&nbsp;or&nbsp;off;&nbsp;b&nbsp;is&nbsp;a&nbsp;boolean<br>
 if&nbsp;b&nbsp;is&nbsp;None,&nbsp;toggle&nbsp;the&nbsp;grid&nbsp;state</tt></dd></dl>
- <dl><dt><a name="-hist"><strong>hist</strong></a>(*args, **kwargs)</dt><dd><tt>HIST(x,&nbsp;bins=10,&nbsp;normed=0,&nbsp;bottom=0)<br>
+ <dl><dt><a name="-hist"><strong>hist</strong></a>(*args, **kwargs)</dt><dd><tt>HIST(x,&nbsp;bins=10,&nbsp;normed=0,&nbsp;bottom=0,&nbsp;orientiation='vertical',&nbsp;**kwargs)<br>
 Compute&nbsp;the&nbsp;histogram&nbsp;of&nbsp;x.&nbsp;&nbsp;bins&nbsp;is&nbsp;either&nbsp;an&nbsp;integer&nbsp;number&nbsp;of<br>
 bins&nbsp;or&nbsp;a&nbsp;sequence&nbsp;giving&nbsp;the&nbsp;bins.&nbsp;&nbsp;x&nbsp;are&nbsp;the&nbsp;data&nbsp;to&nbsp;be&nbsp;binned.<br>
 The&nbsp;return&nbsp;values&nbsp;is&nbsp;(n,&nbsp;bins,&nbsp;patches)<br>
 If&nbsp;normed&nbsp;is&nbsp;true,&nbsp;the&nbsp;first&nbsp;element&nbsp;of&nbsp;the&nbsp;return&nbsp;tuple&nbsp;will&nbsp;be&nbsp;the<br>
 counts&nbsp;normalized&nbsp;to&nbsp;form&nbsp;a&nbsp;probability&nbsp;distribtion,&nbsp;ie,<br>
 n/(len(x)*dbin)<br>
-kwargs&nbsp;are&nbsp;used&nbsp;to&nbsp;update&nbsp;the&nbsp;properties&nbsp;of&nbsp;the&nbsp;hist&nbsp;bars<br>
+orientation&nbsp;=&nbsp;'horizontal'&nbsp;|&nbsp;'vertical'.&nbsp;&nbsp;If&nbsp;horizontal,&nbsp;barh<br>
+will&nbsp;be&nbsp;used&nbsp;and&nbsp;the&nbsp;"bottom"&nbsp;kwarg&nbsp;will&nbsp;be&nbsp;the&nbsp;left.<br>
+kwargs&nbsp;are&nbsp;used&nbsp;to&nbsp;update&nbsp;the&nbsp;properties&nbsp;of&nbsp;the<br>
+hist&nbsp;bars<br>
 &nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-hlines"><strong>hlines</strong></a>(*args, **kwargs)</dt><dd><tt>HLINES(y,&nbsp;xmin,&nbsp;xmax,&nbsp;fmt='k-')<br>
@@ -842,7 +843,6 @@ will&nbsp;be&nbsp;cleared&nbsp;on&nbsp;the&nbsp;next&nbsp;plot&nbsp;command</tt>
  <dl><dt><a name="-hot"><strong>hot</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;hot&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-hsv"><strong>hsv</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;hsv&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
  <dl><dt><a name="-imread"><strong>imread</strong></a>(*args, **kwargs)</dt><dd><tt>return&nbsp;image&nbsp;file&nbsp;in&nbsp;fname&nbsp;as&nbsp;numerix&nbsp;array<br>
-&nbsp;<br>
 Return&nbsp;value&nbsp;is&nbsp;a&nbsp;MxNx4&nbsp;array&nbsp;of&nbsp;0-1&nbsp;normalized&nbsp;floats</tt></dd></dl>
  <dl><dt><a name="-imshow"><strong>imshow</strong></a>(*args, **kwargs)</dt><dd><tt>IMSHOW(X,&nbsp;cmap=None,&nbsp;norm=None,&nbsp;aspect=None,&nbsp;interpolation=None,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alpha=1.0,&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;origin=None,&nbsp;extent=None)<br>
@@ -981,7 +981,7 @@ comments&nbsp;is&nbsp;the&nbsp;character&nbsp;used&nbsp;to&nbsp;indicate&nbsp;th
 in&nbsp;the&nbsp;file<br>
 &nbsp;<br>
 delimiter&nbsp;is&nbsp;a&nbsp;string-like&nbsp;character&nbsp;used&nbsp;to&nbsp;seperate&nbsp;values&nbsp;in&nbsp;the<br>
-file.&nbsp;If&nbsp;delimiter&nbsp;is&nbsp;unspecified&nbsp;or&nbsp;none,&nbsp;any&nbsp;whitespace&nbsp;string&nbsp;is&nbsp;<br>
+file.&nbsp;If&nbsp;delimiter&nbsp;is&nbsp;unspecified&nbsp;or&nbsp;none,&nbsp;any&nbsp;whitespace&nbsp;string&nbsp;is<br>
 a&nbsp;separator.</tt></dd></dl>
  <dl><dt><a name="-loglog"><strong>loglog</strong></a>(*args, **kwargs)</dt><dd><tt>LOGLOG(*args,&nbsp;**kwargs)<br>
 Make&nbsp;a&nbsp;loglog&nbsp;plot&nbsp;with&nbsp;log&nbsp;scaling&nbsp;on&nbsp;the&nbsp;a&nbsp;and&nbsp;y&nbsp;axis.&nbsp;&nbsp;The&nbsp;args<br>
@@ -1204,7 +1204,7 @@ to&nbsp;all&nbsp;those&nbsp;lines,&nbsp;eg<br>
 Neither&nbsp;line&nbsp;will&nbsp;be&nbsp;antialiased.<br>
 &nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
- <dl><dt><a name="-plot_date"><strong>plot_date</strong></a>(*args, **kwargs)</dt><dd><tt>PLOT_DATE(d,&nbsp;y,&nbsp;converter,&nbsp;fmt='bo',&nbsp;tz=None,&nbsp;**kwargs)<br>
+ <dl><dt><a name="-plot_date"><strong>plot_date</strong></a>(*args, **kwargs)</dt><dd><tt>PLOT_DATE(d,&nbsp;y,&nbsp;fmt='bo',&nbsp;tz=None,&nbsp;**kwargs)<br>
 d&nbsp;is&nbsp;a&nbsp;sequence&nbsp;of&nbsp;dates&nbsp;represented&nbsp;as&nbsp;float&nbsp;days&nbsp;since<br>
 0001-01-01&nbsp;UTC&nbsp;and&nbsp;y&nbsp;are&nbsp;the&nbsp;y&nbsp;values&nbsp;at&nbsp;those&nbsp;dates.&nbsp;&nbsp;fmt&nbsp;is<br>
 a&nbsp;plot&nbsp;format&nbsp;string.&nbsp;&nbsp;kwargs&nbsp;are&nbsp;passed&nbsp;on&nbsp;to&nbsp;plot.&nbsp;&nbsp;See&nbsp;plot<br>
@@ -1342,14 +1342,11 @@ Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;def
 for&nbsp;lines.linewidth&nbsp;the&nbsp;group&nbsp;is&nbsp;'lines',&nbsp;for&nbsp;axes.facecolor,&nbsp;the<br>
 group&nbsp;is&nbsp;'axes',&nbsp;and&nbsp;so&nbsp;on.&nbsp;&nbsp;kwargs&nbsp;is&nbsp;a&nbsp;list&nbsp;of&nbsp;attribute<br>
 name/value&nbsp;pairs,&nbsp;eg<br>
-&nbsp;<br>
 &nbsp;&nbsp;<a href="#-rc">rc</a>('lines',&nbsp;linewidth=2,&nbsp;color='r')<br>
-&nbsp;<br>
 sets&nbsp;the&nbsp;current&nbsp;rc&nbsp;params&nbsp;and&nbsp;is&nbsp;equivalent&nbsp;to<br>
 &nbsp;<br>
 &nbsp;&nbsp;rcParams['lines.linewidth']&nbsp;=&nbsp;2<br>
 &nbsp;&nbsp;rcParams['lines.color']&nbsp;=&nbsp;'r'<br>
-&nbsp;<br>
 The&nbsp;following&nbsp;aliases&nbsp;are&nbsp;available&nbsp;to&nbsp;save&nbsp;typing&nbsp;for&nbsp;interactive<br>
 users<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'lw'&nbsp;&nbsp;:&nbsp;'linewidth'<br>
@@ -1361,23 +1358,16 @@ users<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'mec'&nbsp;:&nbsp;'markeredgecolor'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'mew'&nbsp;:&nbsp;'markeredgewidth'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'aa'&nbsp;&nbsp;:&nbsp;'antialiased'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-&nbsp;<br>
 Thus&nbsp;you&nbsp;could&nbsp;abbreviate&nbsp;the&nbsp;above&nbsp;rc&nbsp;command&nbsp;as<br>
-&nbsp;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-rc">rc</a>('lines',&nbsp;lw=2,&nbsp;c='r')<br>
-&nbsp;<br>
-&nbsp;<br>
 Note&nbsp;you&nbsp;can&nbsp;use&nbsp;python's&nbsp;kwargs&nbsp;dictionary&nbsp;facility&nbsp;to&nbsp;store<br>
 dictionaries&nbsp;of&nbsp;default&nbsp;parameters.&nbsp;&nbsp;Eg,&nbsp;you&nbsp;can&nbsp;customize&nbsp;the<br>
 font&nbsp;rc&nbsp;as&nbsp;follows<br>
-&nbsp;<br>
 &nbsp;&nbsp;font&nbsp;=&nbsp;{'family'&nbsp;:&nbsp;'monospace',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'weight'&nbsp;:&nbsp;'bold',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'size'&nbsp;&nbsp;&nbsp;:&nbsp;'larger',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;<br>
 &nbsp;&nbsp;<a href="#-rc">rc</a>('font',&nbsp;**font)&nbsp;&nbsp;#&nbsp;pass&nbsp;in&nbsp;the&nbsp;font&nbsp;dict&nbsp;as&nbsp;kwargs<br>
-&nbsp;<br>
 This&nbsp;enables&nbsp;you&nbsp;to&nbsp;easily&nbsp;switch&nbsp;between&nbsp;several&nbsp;configurations.<br>
 Use&nbsp;rcdefaults&nbsp;to&nbsp;restore&nbsp;the&nbsp;default&nbsp;rc&nbsp;params&nbsp;after&nbsp;changes.</tt></dd></dl>
  <dl><dt><a name="-rcdefaults"><strong>rcdefaults</strong></a>()</dt><dd><tt>Restore&nbsp;the&nbsp;default&nbsp;rc&nbsp;params&nbsp;-&nbsp;the&nbsp;ones&nbsp;that&nbsp;were&nbsp;created&nbsp;at<br>
@@ -1428,63 +1418,60 @@ Example&nbsp;usage:<br>
 <a href="#-save">save</a>('test3.out',&nbsp;x,&nbsp;fmt='%1.4e')&nbsp;&nbsp;#&nbsp;use&nbsp;exponential&nbsp;notation</tt></dd></dl>
  <dl><dt><a name="-savefig"><strong>savefig</strong></a>(*args, **kwargs)</dt><dd><tt>SAVEFIG(fname,&nbsp;dpi=150,&nbsp;facecolor='w',&nbsp;edgecolor='w',<br>
 orientation='portrait'):<br>
-&nbsp;<br>
 Save&nbsp;the&nbsp;current&nbsp;figure&nbsp;to&nbsp;filename&nbsp;fname.&nbsp;&nbsp;dpi&nbsp;is&nbsp;the&nbsp;resolution<br>
 in&nbsp;dots&nbsp;per&nbsp;inch.<br>
-&nbsp;<br>
 Output&nbsp;file&nbsp;types&nbsp;currently&nbsp;supported&nbsp;are&nbsp;jpeg&nbsp;and&nbsp;png&nbsp;and&nbsp;will&nbsp;be<br>
 deduced&nbsp;by&nbsp;the&nbsp;extension&nbsp;to&nbsp;fname<br>
-&nbsp;<br>
 facecolor&nbsp;and&nbsp;edgecolor&nbsp;are&nbsp;the&nbsp;colors&nbsp;os&nbsp;the&nbsp;figure&nbsp;rectangle<br>
-&nbsp;<br>
 orientation&nbsp;is&nbsp;either&nbsp;'landscape'&nbsp;or&nbsp;'portrait'&nbsp;-&nbsp;not&nbsp;supported&nbsp;on<br>
 all&nbsp;backends;&nbsp;currently&nbsp;only&nbsp;on&nbsp;postscript&nbsp;output.</tt></dd></dl>
  <dl><dt><a name="-scatter"><strong>scatter</strong></a>(*args, **kwargs)</dt><dd><tt>SCATTER(x,&nbsp;y,&nbsp;s=20,&nbsp;c='b',&nbsp;marker='o',&nbsp;cmap=None,&nbsp;norm=None,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;alpha=1.0)<br>
-Supported&nbsp;function&nbsp;signatures:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y<br>
-&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s<br>
-&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s&nbsp;and&nbsp;colors&nbsp;given&nbsp;by&nbsp;c<br>
-&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c,&nbsp;**kwargs)&nbsp;-&nbsp;control&nbsp;colormapping&nbsp;and&nbsp;scaling<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;keyword&nbsp;args;&nbsp;see&nbsp;below<br>
-Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a&nbsp;scalar<br>
-or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a<br>
-single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array&nbsp;of&nbsp;intensities&nbsp;which<br>
-will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;matplotlib.colors.colormap&nbsp;instance&nbsp;cmap<br>
-The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'s'&nbsp;:&nbsp;square<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'o'&nbsp;:&nbsp;circle<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'^'&nbsp;:&nbsp;triangle&nbsp;up<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'&gt;'&nbsp;:&nbsp;triangle&nbsp;right<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'v'&nbsp;:&nbsp;triangle&nbsp;down<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'&lt;'&nbsp;:&nbsp;triangle&nbsp;left<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'d'&nbsp;:&nbsp;diamond<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'p'&nbsp;:&nbsp;pentagram<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;:&nbsp;hexagon<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'8'&nbsp;:&nbsp;octagon<br>
-s&nbsp;is&nbsp;a&nbsp;size&nbsp;argument&nbsp;in&nbsp;points&nbsp;squared.<br>
-Other&nbsp;keyword&nbsp;args;&nbsp;the&nbsp;color&nbsp;mapping&nbsp;and&nbsp;normalization&nbsp;arguments&nbsp;will<br>
-on&nbsp;be&nbsp;used&nbsp;if&nbsp;c&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;floats<br>
-&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;cm.jet&nbsp;:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;image.cmap<br>
-&nbsp;&nbsp;*&nbsp;norm&nbsp;=&nbsp;normalize()&nbsp;:&nbsp;matplotlib.colors.normalize&nbsp;is&nbsp;used&nbsp;to<br>
-&nbsp;&nbsp;&nbsp;&nbsp;scale&nbsp;luminance&nbsp;data&nbsp;to&nbsp;0,1.<br>
-&nbsp;&nbsp;*&nbsp;vmin=None&nbsp;and&nbsp;vmax=None&nbsp;:&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;in&nbsp;conjunction<br>
-&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;norm&nbsp;to&nbsp;normalize&nbsp;luminance&nbsp;data.&nbsp;&nbsp;If&nbsp;either&nbsp;are&nbsp;None,&nbsp;the<br>
-&nbsp;&nbsp;&nbsp;&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;color&nbsp;array&nbsp;C&nbsp;is&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm<br>
-&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;your&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored<br>
-&nbsp;&nbsp;*&nbsp;alpha&nbsp;=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;value&nbsp;for&nbsp;the&nbsp;patches<br>
-&nbsp;&nbsp;*&nbsp;linewidths,&nbsp;if&nbsp;None,&nbsp;defaults&nbsp;to&nbsp;(lines.linewidth,).&nbsp;&nbsp;Note<br>
-&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;this&nbsp;is&nbsp;a&nbsp;tuple,&nbsp;and&nbsp;if&nbsp;you&nbsp;set&nbsp;the&nbsp;linewidths<br>
-&nbsp;&nbsp;&nbsp;&nbsp;argument&nbsp;you&nbsp;must&nbsp;set&nbsp;it&nbsp;as&nbsp;a&nbsp;sequence&nbsp;of&nbsp;floats,&nbsp;as<br>
-&nbsp;&nbsp;&nbsp;&nbsp;required&nbsp;by&nbsp;PolyCollection&nbsp;--&nbsp;see<br>
-&nbsp;&nbsp;&nbsp;&nbsp;matplotlib.collections.PolyCollection&nbsp;for&nbsp;details<br>
-&nbsp;*&nbsp;faceted:&nbsp;if&nbsp;True,&nbsp;will&nbsp;use&nbsp;the&nbsp;default&nbsp;edgecolor&nbsp;for&nbsp;the<br>
-&nbsp;&nbsp;&nbsp;markers.&nbsp;&nbsp;If&nbsp;False,&nbsp;will&nbsp;set&nbsp;the&nbsp;edgecolors&nbsp;to&nbsp;be&nbsp;the&nbsp;same<br>
-&nbsp;&nbsp;&nbsp;as&nbsp;the&nbsp;facecolors<br>
-&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vmin=None,&nbsp;vmax=None,&nbsp;alpha=1.0,&nbsp;linewidths=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;faceted=True,&nbsp;**kwargs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Supported&nbsp;function&nbsp;signatures:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c)&nbsp;-&nbsp;make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;vs&nbsp;y&nbsp;with&nbsp;size&nbsp;in&nbsp;area<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given&nbsp;by&nbsp;s&nbsp;and&nbsp;colors&nbsp;given&nbsp;by&nbsp;c<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCATTER(x,&nbsp;y,&nbsp;s,&nbsp;c,&nbsp;**kwargs)&nbsp;-&nbsp;control&nbsp;colormapping&nbsp;and&nbsp;scaling<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;keyword&nbsp;args;&nbsp;see&nbsp;below<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;in&nbsp;points^2&nbsp;a&nbsp;scalar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;as&nbsp;x&nbsp;or&nbsp;y.&nbsp;&nbsp;c&nbsp;is&nbsp;a&nbsp;color&nbsp;and&nbsp;can&nbsp;be&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;single&nbsp;color&nbsp;format&nbsp;string&nbsp;or&nbsp;an&nbsp;length(x)&nbsp;array&nbsp;of&nbsp;intensities&nbsp;which<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;mapped&nbsp;by&nbsp;the&nbsp;matplotlib.colors.colormap&nbsp;instance&nbsp;cmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;marker&nbsp;can&nbsp;be&nbsp;one&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'s'&nbsp;:&nbsp;square<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'o'&nbsp;:&nbsp;circle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'^'&nbsp;:&nbsp;triangle&nbsp;up<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&gt;'&nbsp;:&nbsp;triangle&nbsp;right<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'v'&nbsp;:&nbsp;triangle&nbsp;down<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'&lt;'&nbsp;:&nbsp;triangle&nbsp;left<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'d'&nbsp;:&nbsp;diamond<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'p'&nbsp;:&nbsp;pentagram<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;:&nbsp;hexagon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'8'&nbsp;:&nbsp;octagon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;argument&nbsp;in&nbsp;points&nbsp;squared.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Other&nbsp;keyword&nbsp;args;&nbsp;the&nbsp;color&nbsp;mapping&nbsp;and&nbsp;normalization&nbsp;arguments&nbsp;will<br>
+&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;be&nbsp;used&nbsp;if&nbsp;c&nbsp;is&nbsp;an&nbsp;array&nbsp;of&nbsp;floats<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;cmap&nbsp;=&nbsp;cm.jet&nbsp;:&nbsp;a&nbsp;cm&nbsp;Colormap&nbsp;instance&nbsp;from&nbsp;matplotlib.cm.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defaults&nbsp;to&nbsp;rc&nbsp;image.cmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;norm&nbsp;=&nbsp;normalize()&nbsp;:&nbsp;matplotlib.colors.normalize&nbsp;is&nbsp;used&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scale&nbsp;luminance&nbsp;data&nbsp;to&nbsp;0,1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;vmin=None&nbsp;and&nbsp;vmax=None&nbsp;:&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;are&nbsp;used&nbsp;in&nbsp;conjunction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;norm&nbsp;to&nbsp;normalize&nbsp;luminance&nbsp;data.&nbsp;&nbsp;If&nbsp;either&nbsp;are&nbsp;None,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;min&nbsp;and&nbsp;max&nbsp;of&nbsp;the&nbsp;color&nbsp;array&nbsp;C&nbsp;is&nbsp;used.&nbsp;&nbsp;Note&nbsp;if&nbsp;you&nbsp;pass&nbsp;a&nbsp;norm<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instance,&nbsp;your&nbsp;settings&nbsp;for&nbsp;vmin&nbsp;and&nbsp;vmax&nbsp;will&nbsp;be&nbsp;ignored<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;alpha&nbsp;=1.0&nbsp;:&nbsp;the&nbsp;alpha&nbsp;value&nbsp;for&nbsp;the&nbsp;patches<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;linewidths,&nbsp;if&nbsp;None,&nbsp;defaults&nbsp;to&nbsp;(lines.linewidth,).&nbsp;&nbsp;Note<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;this&nbsp;is&nbsp;a&nbsp;tuple,&nbsp;and&nbsp;if&nbsp;you&nbsp;set&nbsp;the&nbsp;linewidths<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;argument&nbsp;you&nbsp;must&nbsp;set&nbsp;it&nbsp;as&nbsp;a&nbsp;sequence&nbsp;of&nbsp;floats,&nbsp;as<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required&nbsp;by&nbsp;PolyCollection&nbsp;--&nbsp;see<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matplotlib.collections.PolyCollection&nbsp;for&nbsp;details<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;faceted:&nbsp;if&nbsp;True,&nbsp;will&nbsp;use&nbsp;the&nbsp;default&nbsp;edgecolor&nbsp;for&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;markers.&nbsp;&nbsp;If&nbsp;False,&nbsp;will&nbsp;set&nbsp;the&nbsp;edgecolors&nbsp;to&nbsp;be&nbsp;the&nbsp;same<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;the&nbsp;facecolors<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 Addition&nbsp;kwargs:&nbsp;hold&nbsp;=&nbsp;[True|False]&nbsp;overrides&nbsp;default&nbsp;hold&nbsp;state</tt></dd></dl>
  <dl><dt><a name="-scatter_classic"><strong>scatter_classic</strong></a>(*args, **kwargs)</dt><dd><tt>SCATTER_CLASSIC(x,&nbsp;y,&nbsp;s=None,&nbsp;c='b')<br>
 Make&nbsp;a&nbsp;scatter&nbsp;plot&nbsp;of&nbsp;x&nbsp;versus&nbsp;y.&nbsp;&nbsp;s&nbsp;is&nbsp;a&nbsp;size&nbsp;(in&nbsp;data&nbsp;coords)&nbsp;and<br>
@@ -1638,7 +1625,7 @@ The&nbsp;parameter&nbsp;meanings&nbsp;(and&nbsp;suggested&nbsp;defaults)&nbsp;ar
 &nbsp;&nbsp;bottom&nbsp;=&nbsp;0.1&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;bottom&nbsp;of&nbsp;the&nbsp;subplots&nbsp;of&nbsp;the&nbsp;figure<br>
 &nbsp;&nbsp;top&nbsp;=&nbsp;0.9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;top&nbsp;of&nbsp;the&nbsp;subplots&nbsp;of&nbsp;the&nbsp;figure<br>
 &nbsp;&nbsp;wspace&nbsp;=&nbsp;0.2&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;amount&nbsp;of&nbsp;width&nbsp;reserved&nbsp;for&nbsp;blank&nbsp;space&nbsp;between&nbsp;subplots<br>
-&nbsp;&nbsp;hspace&nbsp;=&nbsp;0.2&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;amount&nbsp;of&nbsp;height&nbsp;reserved&nbsp;for&nbsp;white&nbsp;space&nbsp;between&nbsp;subplots&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;hspace&nbsp;=&nbsp;0.2&nbsp;&nbsp;&nbsp;#&nbsp;the&nbsp;amount&nbsp;of&nbsp;height&nbsp;reserved&nbsp;for&nbsp;white&nbsp;space&nbsp;between&nbsp;subplots<br>
 &nbsp;<br>
 The&nbsp;actual&nbsp;defaults&nbsp;are&nbsp;controlled&nbsp;by&nbsp;the&nbsp;rc&nbsp;file</tt></dd></dl>
  <dl><dt><a name="-summer"><strong>summer</strong></a>()</dt><dd><tt>set&nbsp;the&nbsp;default&nbsp;colormap&nbsp;to&nbsp;summer&nbsp;and&nbsp;apply&nbsp;to&nbsp;current&nbsp;image&nbsp;if&nbsp;any.&nbsp;&nbsp;See&nbsp;help(colormaps)&nbsp;for&nbsp;more&nbsp;information</tt></dd></dl>
@@ -1893,8 +1880,8 @@ information&nbsp;on&nbsp;text&nbsp;properties.</tt></dd></dl>
 <strong>not_equal</strong> = &lt;ufunc 'not_equal'&gt;<br>
 <strong>pi</strong> = 3.1415926535897931<br>
 <strong>power</strong> = &lt;ufunc 'power'&gt;<br>
-<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
-<strong>rcParamsDefault</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'TkAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
+<strong>rcParams</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
+<strong>rcParamsDefault</strong> = {'axes.edgecolor': 'black', 'axes.facecolor': 'white', 'axes.grid': False, 'axes.hold': True, 'axes.labelcolor': 'black', 'axes.labelsize': 12.0, 'axes.linewidth': 1.0, 'axes.titlesize': 14.0, 'backend': 'GTKAgg', 'datapath': '/usr/share/matplotlib', ...}<br>
 <strong>sin</strong> = &lt;ufunc 'sin'&gt;<br>
 <strong>sinh</strong> = &lt;ufunc 'sinh'&gt;<br>
 <strong>sqrt</strong> = &lt;ufunc 'sqrt'&gt;<br>

@@ -213,6 +213,8 @@ Methods defined here:<br>
 
 <dl><dt><a name="DateLocator-datalim_to_dt"><strong>datalim_to_dt</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="DateLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
+
 <dl><dt><a name="DateLocator-set_tzinfo"><strong>set_tzinfo</strong></a>(self, tz)</dt></dl>
 
 <dl><dt><a name="DateLocator-viewlim_to_dt"><strong>viewlim_to_dt</strong></a>(self)</dt></dl>
@@ -226,8 +228,6 @@ Methods inherited from <a href="matplotlib.ticker.html#Locator">matplotlib.ticke
 <dl><dt><a name="DateLocator-__call__"><strong>__call__</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;locations&nbsp;of&nbsp;the&nbsp;ticks</tt></dd></dl>
 
 <dl><dt><a name="DateLocator-autoscale"><strong>autoscale</strong></a>(self)</dt><dd><tt>autoscale&nbsp;the&nbsp;view&nbsp;limits</tt></dd></dl>
-
-<dl><dt><a name="DateLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
 
 <dl><dt><a name="DateLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
@@ -281,6 +281,8 @@ Methods inherited from <a href="matplotlib.dates.html#RRuleLocator">RRuleLocator
 Methods inherited from <a href="matplotlib.dates.html#DateLocator">DateLocator</a>:<br>
 <dl><dt><a name="DayLocator-datalim_to_dt"><strong>datalim_to_dt</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="DayLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
+
 <dl><dt><a name="DayLocator-set_tzinfo"><strong>set_tzinfo</strong></a>(self, tz)</dt></dl>
 
 <dl><dt><a name="DayLocator-viewlim_to_dt"><strong>viewlim_to_dt</strong></a>(self)</dt></dl>
@@ -291,8 +293,6 @@ Data and other attributes inherited from <a href="matplotlib.dates.html#DateLoca
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Locator">matplotlib.ticker.Locator</a>:<br>
-<dl><dt><a name="DayLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
 <dl><dt><a name="DayLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
 <dl><dt><a name="DayLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
@@ -347,6 +347,8 @@ Methods inherited from <a href="matplotlib.dates.html#RRuleLocator">RRuleLocator
 Methods inherited from <a href="matplotlib.dates.html#DateLocator">DateLocator</a>:<br>
 <dl><dt><a name="HourLocator-datalim_to_dt"><strong>datalim_to_dt</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="HourLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
+
 <dl><dt><a name="HourLocator-set_tzinfo"><strong>set_tzinfo</strong></a>(self, tz)</dt></dl>
 
 <dl><dt><a name="HourLocator-viewlim_to_dt"><strong>viewlim_to_dt</strong></a>(self)</dt></dl>
@@ -357,8 +359,6 @@ Data and other attributes inherited from <a href="matplotlib.dates.html#DateLoca
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Locator">matplotlib.ticker.Locator</a>:<br>
-<dl><dt><a name="HourLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
 <dl><dt><a name="HourLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
 <dl><dt><a name="HourLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
@@ -460,6 +460,8 @@ Methods inherited from <a href="matplotlib.dates.html#RRuleLocator">RRuleLocator
 Methods inherited from <a href="matplotlib.dates.html#DateLocator">DateLocator</a>:<br>
 <dl><dt><a name="MinuteLocator-datalim_to_dt"><strong>datalim_to_dt</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="MinuteLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
+
 <dl><dt><a name="MinuteLocator-set_tzinfo"><strong>set_tzinfo</strong></a>(self, tz)</dt></dl>
 
 <dl><dt><a name="MinuteLocator-viewlim_to_dt"><strong>viewlim_to_dt</strong></a>(self)</dt></dl>
@@ -470,8 +472,6 @@ Data and other attributes inherited from <a href="matplotlib.dates.html#DateLoca
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Locator">matplotlib.ticker.Locator</a>:<br>
-<dl><dt><a name="MinuteLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
 <dl><dt><a name="MinuteLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
 <dl><dt><a name="MinuteLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
@@ -526,6 +526,8 @@ Methods inherited from <a href="matplotlib.dates.html#RRuleLocator">RRuleLocator
 Methods inherited from <a href="matplotlib.dates.html#DateLocator">DateLocator</a>:<br>
 <dl><dt><a name="MonthLocator-datalim_to_dt"><strong>datalim_to_dt</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="MonthLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
+
 <dl><dt><a name="MonthLocator-set_tzinfo"><strong>set_tzinfo</strong></a>(self, tz)</dt></dl>
 
 <dl><dt><a name="MonthLocator-viewlim_to_dt"><strong>viewlim_to_dt</strong></a>(self)</dt></dl>
@@ -536,8 +538,6 @@ Data and other attributes inherited from <a href="matplotlib.dates.html#DateLoca
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Locator">matplotlib.ticker.Locator</a>:<br>
-<dl><dt><a name="MonthLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
 <dl><dt><a name="MonthLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
 <dl><dt><a name="MonthLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
@@ -583,6 +583,8 @@ Methods defined here:<br>
 Methods inherited from <a href="matplotlib.dates.html#DateLocator">DateLocator</a>:<br>
 <dl><dt><a name="RRuleLocator-datalim_to_dt"><strong>datalim_to_dt</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="RRuleLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
+
 <dl><dt><a name="RRuleLocator-set_tzinfo"><strong>set_tzinfo</strong></a>(self, tz)</dt></dl>
 
 <dl><dt><a name="RRuleLocator-viewlim_to_dt"><strong>viewlim_to_dt</strong></a>(self)</dt></dl>
@@ -593,8 +595,6 @@ Data and other attributes inherited from <a href="matplotlib.dates.html#DateLoca
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Locator">matplotlib.ticker.Locator</a>:<br>
-<dl><dt><a name="RRuleLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
 <dl><dt><a name="RRuleLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
 <dl><dt><a name="RRuleLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
@@ -649,6 +649,8 @@ Methods inherited from <a href="matplotlib.dates.html#RRuleLocator">RRuleLocator
 Methods inherited from <a href="matplotlib.dates.html#DateLocator">DateLocator</a>:<br>
 <dl><dt><a name="SecondLocator-datalim_to_dt"><strong>datalim_to_dt</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="SecondLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
+
 <dl><dt><a name="SecondLocator-set_tzinfo"><strong>set_tzinfo</strong></a>(self, tz)</dt></dl>
 
 <dl><dt><a name="SecondLocator-viewlim_to_dt"><strong>viewlim_to_dt</strong></a>(self)</dt></dl>
@@ -659,8 +661,6 @@ Data and other attributes inherited from <a href="matplotlib.dates.html#DateLoca
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Locator">matplotlib.ticker.Locator</a>:<br>
-<dl><dt><a name="SecondLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
 <dl><dt><a name="SecondLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
 <dl><dt><a name="SecondLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
@@ -718,6 +718,8 @@ Methods inherited from <a href="matplotlib.dates.html#RRuleLocator">RRuleLocator
 Methods inherited from <a href="matplotlib.dates.html#DateLocator">DateLocator</a>:<br>
 <dl><dt><a name="WeekdayLocator-datalim_to_dt"><strong>datalim_to_dt</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="WeekdayLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
+
 <dl><dt><a name="WeekdayLocator-set_tzinfo"><strong>set_tzinfo</strong></a>(self, tz)</dt></dl>
 
 <dl><dt><a name="WeekdayLocator-viewlim_to_dt"><strong>viewlim_to_dt</strong></a>(self)</dt></dl>
@@ -728,8 +730,6 @@ Data and other attributes inherited from <a href="matplotlib.dates.html#DateLoca
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Locator">matplotlib.ticker.Locator</a>:<br>
-<dl><dt><a name="WeekdayLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
 <dl><dt><a name="WeekdayLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
 <dl><dt><a name="WeekdayLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
@@ -785,6 +785,8 @@ Methods defined here:<br>
 Methods inherited from <a href="matplotlib.dates.html#DateLocator">DateLocator</a>:<br>
 <dl><dt><a name="YearLocator-datalim_to_dt"><strong>datalim_to_dt</strong></a>(self)</dt></dl>
 
+<dl><dt><a name="YearLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
+
 <dl><dt><a name="YearLocator-set_tzinfo"><strong>set_tzinfo</strong></a>(self, tz)</dt></dl>
 
 <dl><dt><a name="YearLocator-viewlim_to_dt"><strong>viewlim_to_dt</strong></a>(self)</dt></dl>
@@ -795,8 +797,6 @@ Data and other attributes inherited from <a href="matplotlib.dates.html#DateLoca
 
 <hr>
 Methods inherited from <a href="matplotlib.ticker.html#Locator">matplotlib.ticker.Locator</a>:<br>
-<dl><dt><a name="YearLocator-nonsingular"><strong>nonsingular</strong></a>(self, vmin, vmax)</dt></dl>
-
 <dl><dt><a name="YearLocator-pan"><strong>pan</strong></a>(self, numsteps)</dt><dd><tt>Pan&nbsp;numticks&nbsp;(can&nbsp;be&nbsp;positive&nbsp;or&nbsp;negative)</tt></dd></dl>
 
 <dl><dt><a name="YearLocator-refresh"><strong>refresh</strong></a>(self)</dt><dd><tt>refresh&nbsp;internal&nbsp;information&nbsp;based&nbsp;on&nbsp;current&nbsp;lim</tt></dd></dl>
@@ -934,7 +934,7 @@ Methods inherited from <a href="dateutil.rrule.html#rrulebase">rrulebase</a>:<br
 
 <dl><dt><a name="rrule-between"><strong>between</strong></a>(self, after, before, inc<font color="#909090">=False</font>)</dt></dl>
 
-<dl><dt><a name="rrule-count"><strong>count</strong></a>(self)</dt><dd><tt>#&nbsp;__len__()&nbsp;introduces&nbsp;a&nbsp;large&nbsp;performance&nbsp;penality.</tt></dd></dl>
+<dl><dt><a name="rrule-count"><strong>count</strong></a>(self)</dt></dl>
 
 </td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">

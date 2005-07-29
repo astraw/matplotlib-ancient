@@ -1,5 +1,139 @@
 New entries should be added at the top
 
+
+2005-07-27 Applied SF patch 1242648: minor rounding error in
+           IndexDateFormatter in dates.py
+
+2005-07-27 Applied sf patch 1244732: Scale axis such that circle
+           looks like circle - JDH
+2005-07-29 Improved message reporting in texmanager and backend_ps - DSD
+
+2005-07-28 backend_gtk.py: update FigureCanvasGTK.draw() (needed due to the
+           recent expose_event() change) so that examples/anim.py works in the 
+           usual way - SC
+
+2005-07-26 Added new widgets Cursor and HorizontalSpanSelector to
+           matplotlib.widgets.  See examples/widgets/cursor.py and
+           examples/widgets/span_selector.py - JDH
+
+2005-07-26 added draw event to mpl event hierarchy -- triggered on
+           figure.draw
+
+2005-07-26 backend_gtk.py: allow 'f' key to toggle window fullscreen mode
+
+2005-07-26 backend_svg.py: write "<.../>" elements all on one line and remove 
+           surplus spaces - SC
+
+2005-07-25 backend_svg.py: simplify code by deleting GraphicsContextSVG and
+           RendererSVG.new_gc(), and moving the gc.get_capstyle() code into
+           RendererSVG._get_gc_props_svg() - SC
+
+2005-07-24 backend_gtk.py: call FigureCanvasBase.motion_notify_event() on
+           all motion-notify-events, not just ones where a modifier key or
+           button has been pressed (fixes bug report from Niklas Volbers) - SC
+
+2005-07-24 backend_gtk.py: modify print_figure() use own pixmap, fixing 
+           problems where print_figure() overwrites the display pixmap. 
+	   return False from all button/key etc events - to allow the event
+           to propagate further - SC
+
+2005-07-23 backend_gtk.py: change expose_event from using set_back_pixmap();
+           clear() to draw_drawable() - SC
+
+2005-07-23 backend_gtk.py: removed pygtk.require()
+           matplotlib/__init__.py: delete 'FROZEN' and 'McPLError' which are 
+           no longer used - SC
+
+2005-07-22 backend_gdk.py: removed pygtk.require() - SC
+
+2005-07-21 backend_svg.py: Remove unused imports. Remove methods doc strings
+           which just duplicate the docs from backend_bases.py. Rename
+           draw_mathtext to _draw_mathtext. - SC
+
+2005-07-17 examples/embedding_in_gtk3.py: new example demonstrating placing
+           a FigureCanvas in a gtk.ScrolledWindow - SC
+
+2005-07-14 Fixed a Windows related bug (#1238412) in texmanager - DSD
+
+2005-07-11 Fixed color kwarg bug, setting color=1 or 0 caused an 
+		   exception - DSD
+
+2005-07-07 Added Eric's MA set_xdata Line2D fix - JDH
+
+2005-07-06 Made HOME/.matplotlib the new config dir where the
+           matplotlibrc file, the ttf.cache, and the tex.cache live.
+           The new default filenames in .matplotlib have no leading
+           dot and are not hidden.  Eg, the new names are matplotlibrc
+           tex.cache ttffont.cache.  This is how ipython does it so it
+           must be right.  If old files are found, a warning is issued
+           and they are moved to the new location.  Also fixed
+           texmanager to put all files, including temp files in
+           ~/.matplotlib/tex.cache, which allows you to usetex in
+           non-writable dirs.
+
+2005-07-05 Fixed bug #1231611 in subplots adjust layout.  The problem
+           was that the text cacheing mechanism was not using the
+           transformation affine in the key. - JDH
+
+2005-07-05 Fixed default backend import problem when using API (SF bug
+           # 1209354 -  see API_CHANGES for more info - JDH
+
+2005-07-04 backend_gtk.py: require PyGTK version 2.0.0 or higher - SC
+
+2005-06-30 setupext.py: added numarray_inc_dirs for building against
+           numarray when not installed in standard location - ADS
+
+2005-06-27 backend_svg.py: write figure width, height as int, not float.
+           Update to fix some of the pychecker warnings - SC
+  
+2005-06-23 Updated examples/agg_test.py to demonstrate curved paths
+           and fills - JDH
+
+2005-06-21 Moved some texmanager and backend_agg tex caching to class
+           level rather than instance level - JDH
+
+2005-06-20 setupext.py: fix problem where _nc_backend_gdk is installed to the
+           wrong directory - SC
+
+2005-06-19 Added 10.4 support for CocoaAgg. - CM
+
+2005-06-18 Move Figure.get_width_height() to FigureCanvasBase and return
+           int instead of float. - SC
+
+2005-06-18 Applied Ted Drain's QtAgg patch: 1) Changed the toolbar to
+           be a horizontal bar of push buttons instead of a QToolbar
+           and updated the layout algorithms in the main window
+           accordingly.  This eliminates the ability to drag and drop
+           the toolbar and detach it from the window.  2) Updated the
+           resize algorithm in the main window to show the correct
+           size for the plot widget as requested.  This works almost
+           correctly right now.  It looks to me like the final size of
+           the widget is off by the border of the main window but I
+           haven't figured out a way to get that information yet.  We
+           could just add a small margin to the new size but that
+           seems a little hacky.  3) Changed the x/y location label to
+           be in the toolbar like the Tk backend instead of as a
+           status line at the bottom of the widget.  4) Changed the
+           toolbar pixmaps to use the ppm files instead of the png
+           files.  I noticed that the Tk backend buttons looked much
+           nicer and it uses the ppm files so I switched them.
+
+2005-06-17 Modified the gtk backend to not queue mouse motion events.
+           This allows for live updates when dragging a slider. - CM
+
+2005-06-17 Added starter CocoaAgg backend.  Only works on OS 10.3 for
+           now and requires PyObjC.  (10.4 is high priority) - CM
+
+2005-06-17 Upgraded pyparsing and applied Paul McGuire's suggestions
+           for speeding things up.  This more than doubles the speed
+           of mathtext in my simple tests. JDH
+
+2005-06-16 Applied David Cooke's subplot make_key patch
+
+========================================================
+
+2005-06-15 0.82 released
+
 2005-06-15 Added subplot config tool to GTK* backends -- note you must
            now import the NavigationToolbar2 from your backend of
            choice rather than from backend_gtk because it needs to

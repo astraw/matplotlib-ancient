@@ -26,6 +26,7 @@ modfiles = (
     ('texmanager', 'Interface to support using TeX for text'),
     ('ticker', 'Support for tick locating and formatting'),     
     ('transforms', 'Bounding boxes, transformations'),
+    ('widgets', 'GUI neutral widgets'),
     ('backends.backend_agg', 'The Agg backend'), 
     ('backends.backend_gd', 'The GD module backend'),
     ('backends.backend_gtk', 'The pygtk backend'),
