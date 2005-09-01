@@ -3,257 +3,531 @@
 # country boundaries, filling continents and drawing
 # parallels/meridians
 
-from matplotlib.toolkits.basemap import Basemap, interp
+from matplotlib.toolkits.basemap import Basemap, shiftgrid
 from pylab import *
 import cPickle
-
-def shiftgrid(lon0,datain,lonsin,start=True):
-    """ 
- shift global lat/lon grid east or west.
- assumes wraparound (or cyclic point) is included.
-
- lon0:  starting longitude for shifted grid 
-        (ending longitude if start=False). lon0 must be on
-        input grid (with the range of lonsin).
- datain:  original data.
- lonsin:  original longitudes.
- start[True]: if True, lon0 represents he starting longitude 
- of the new grid. if False, lon0 is the ending longitude.
-
- returns dataout,lonsout (data and longitudes on shifted grid).
-    """
-    if fabs(lonsin[-1]-lonsin[0]-360.) > 1.e-4:
-        raise ValueError, 'cyclic point not included'
-    if lon0 < lonsin[0] or lon0 > lonsin[-1]:
-        raise ValueError, 'lon0 outside of range of lonsin'
-    i0 = argsort(fabs(lonsin-lon0))[0]
-    dataout = zeros(datain.shape,datain.typecode())
-    lonsout = zeros(lonsin.shape,lonsin.typecode())
-    if start:
-        lonsout[0:len(lonsin)-i0] = lonsin[i0:]
-    else:
-        lonsout[0:len(lonsin)-i0] = lonsin[i0:]-360.
-    dataout[:,0:len(lonsin)-i0] = datain[:,i0:]
-    if start:
-        lonsout[len(lonsin)-i0:] = lonsin[1:i0+1]+360.
-    else:
-        lonsout[len(lonsin)-i0:] = lonsin[1:i0+1]
-    dataout[:,len(lonsin)-i0:] = datain[:,1:i0+1]
-    return dataout,lonsout
-
-def addcyclic(arrin,lonsin):
-   """
- add cyclic (wraparound) point in longitude.
-   """
-   nlats = arrin.shape[0]
-   nlons = arrin.shape[1]
-   arrout  = zeros((nlats,nlons+1),arrin.typecode())
-   arrout[:,0:nlons] = arrin[:,:]
-   arrout[:,nlons] = arrin[:,0]
-   lonsout = zeros(nlons+1,lonsin.typecode())
-   lonsout[0:nlons] = lonsin[:]
-   lonsout[nlons]  = lonsin[-1] + lonsin[1]-lonsin[0]
-   return arrout,lonsout
 
 # read in topo data from pickle (on a regular lat/lon grid)
 # longitudes go from 20 to 380.
 topodict = cPickle.load(open('etopo20.pickle','rb'))
-topoin = topodict['data']; lons = topodict['lons']; lats = topodict['lats']
+topodatin = topodict['data']; lonsin = topodict['lons']; latsin = topodict['lats']
 
-# shift data so lons go from 0 to 360 instead of 20 to 380.
-topoin,lons = shiftgrid(360.,topoin,lons,start=False)
+# shift data so lons go from -180 to 180 instead of 20 to 380.
+topoin,lons = shiftgrid(180.,topodatin,lonsin,start=False)
+lats = latsin
 
 print 'min/max etopo20 data:'
 print min(ravel(topoin)),max(ravel(topoin))
 
-m = Basemap(lons[0],lats[0],lons[-1],lats[-1],\
+# setup cylindrical equidistant map projection (global domain).
+m = Basemap(llcrnrlon=-180.,llcrnrlat=-90,urcrnrlon=180.,urcrnrlat=90.,\
             resolution='c',area_thresh=10000.,projection='cyl')
+# setup figure with same aspect ratio as map.
 xsize = rcParams['figure.figsize'][0]
 fig=figure(figsize=(xsize,m.aspect*xsize))
 ax = fig.add_axes([0.1,0.1,0.75,0.75])
-im = imshow(topoin,cm.jet,extent=(m.llcrnrx,m.urcrnrx,m.llcrnry,m.urcrnry),origin='lower')
-cax = axes([0.875, 0.1, 0.05, 0.75])
+# plot image over map.
+im = m.imshow(topoin,cm.jet)
+cax = axes([0.875, 0.1, 0.05, 0.75]) # setup colorbar axes.
 colorbar(tickfmt='%d', cax=cax) # draw colorbar
 axes(ax)  # make the original axes current again
-m.drawcoastlines(ax)
-#m.drawcountries(ax)
-#m.drawstates(ax)
-#m.fillcontinents(ax)
+m.drawcoastlines()
+#m.drawcountries()
+#m.drawstates()
+#m.fillcontinents()
 # draw parallels
 delat = 30.
 circles = arange(0.,90.+delat,delat).tolist()+\
           arange(-delat,-90.-delat,-delat).tolist()
-m.drawparallels(ax,circles)
+m.drawparallels(circles,labels=[1,0,0,1])
 # draw meridians
 delon = 60.
-lon1 = int(lons[0]/delon)*delon
-lon2 = (int(lons[-1]/delon)+1)*delon
-meridians = arange(lon1,lon2,delon)
-m.drawmeridians(ax,meridians)
-ax.set_xticks([]) # no ticks
-ax.set_yticks([])
+meridians = arange(-180,180,delon)
+m.drawmeridians(meridians,labels=[1,0,0,1])
 title('Cylindrical Equidistant')
 print 'plotting Cylindrical Equidistant example, close plot window to proceed ...'
 show()
 
-m = Basemap(lons[0],-80.,lons[-1],80.,\
-            resolution='c',area_thresh=10000.,projection='merc',\
-            lon_0=0.5*(lons[0]+lons[-1]),lat_ts=20.)
-# define grid (nx x ny regularly spaced native projection grid)
-nx = len(lons); ny = int(80.*len(lats)/90.)
-lonsout, latsout = m.makegrid(nx,ny)
-topodat = interp(topoin,lons,lats,lonsout,latsout)
+# setup miller cylindrical map projection.
+m = Basemap(llcrnrlon=-180.,llcrnrlat=-90,urcrnrlon=180.,urcrnrlat=90.,\
+            resolution='c',area_thresh=10000.,projection='mill')
+# transform to nx x ny regularly spaced native projection grid
+nx = len(lons); ny = len(lats)
+topodat = m.transform_scalar(topoin,lons,lats,nx,ny)
+# setup figure with same aspect ratio as map.
 xsize = rcParams['figure.figsize'][0]
 fig=figure(figsize=(xsize,m.aspect*xsize))
-fig.add_axes([0.1,0.1,0.8,0.8])
-im = imshow(topodat,cm.jet,extent=(m.llcrnrx,m.urcrnrx,m.llcrnry,m.urcrnry),origin='lower')
-ax = gca() # get current axis instance
-m.drawcoastlines(ax)
-m.drawcountries(ax)
-m.drawstates(ax)
-m.fillcontinents(ax)
+fig.add_axes([0.1,0.1,0.75,0.75])
+# plot image over map.
+im = m.imshow(topodat,cm.jet)
+m.drawcoastlines()
 # draw parallels
-m.drawparallels(ax,circles)
+m.drawparallels(circles,labels=[1,1,1,1])
 # draw meridians
-m.drawmeridians(ax,meridians)
-ax.set_xticks([]) # no ticks
-ax.set_yticks([])
-title('Mercator')
+m.drawmeridians(meridians,labels=[1,1,1,1])
+title('Miller Cylindrical',y=1.1)
+print 'plotting Miller Cylindrical example, close plot window to proceed ...'
+show()
+
+# setup mercator map projection (-80 to +80).
+m = Basemap(llcrnrlon=-180.,llcrnrlat=-80,urcrnrlon=180.,urcrnrlat=80.,\
+            resolution='c',area_thresh=10000.,projection='merc',\
+            lon_0=0.5*(lons[0]+lons[-1]),lat_ts=20.)
+# transform to nx x ny regularly spaced native projection grid
+nx = len(lons); ny = int(80.*len(lats)/90.)
+topodat = m.transform_scalar(topoin,lons,lats,nx,ny)
+# setup figure with same aspect ratio as map.
+xsize = rcParams['figure.figsize'][0]
+fig=figure(figsize=(xsize,m.aspect*xsize))
+fig.add_axes([0.1,0.1,0.75,0.75])
+# plot image over map.
+im = m.imshow(topodat,cm.jet)
+m.drawcoastlines()
+m.drawcountries()
+m.drawstates()
+m.fillcontinents()
+# draw parallels
+m.drawparallels(circles,labels=[1,1,1,1])
+# draw meridians
+m.drawmeridians(meridians,labels=[1,1,1,1])
+title('Mercator',y=1.1)
 print 'plotting Mercator example, close plot window to proceed ...'
 show()
 
-m = Basemap(-145.5,1.,-2.566,46.352,\
-            resolution='c',area_thresh=10000.,projection='lcc',\
-            lat_1=50.,lon_0=-107.)
-# define grid (nx x ny regularly spaced native projection grid)
-nx = int((m.xmax-m.xmin)/40000.)+1; ny = int((m.ymax-m.ymin)/40000.)+1
-lonsout, latsout = m.makegrid(nx,ny)
-# adjust longitudes to be consistent with etopo data
-# (which goes from 20 to 380, instead of 0 to 360).
-topodat = interp(topoin,lons,lats,lonsout,latsout)
+# setup cassini-soldner basemap.
+m = Basemap(llcrnrlon=-6,llcrnrlat=49,urcrnrlon=4,urcrnrlat=59,\
+            resolution='l',area_thresh=1000.,projection='cass',\
+            lat_0=54.,lon_0=-2.)
 xsize = rcParams['figure.figsize'][0]
-fig=figure(figsize=(xsize,m.aspect*xsize))
-ax = fig.add_axes([0.1,0.1,0.75,0.75])
-im = imshow(topodat,cm.jet,extent=(m.llcrnrx,m.urcrnrx,m.llcrnry,m.urcrnry),origin='lower')
-cax = axes([0.875, 0.1, 0.05, 0.75])
+fig=figure(figsize=(xsize/m.aspect,xsize))
+fig.add_axes([0.125,0.2,0.6,0.6])
+# transform to nx x ny regularly spaced native projection grid
+nx = int((m.xmax-m.xmin)/20000.)+1; ny = int((m.ymax-m.ymin)/20000.)+1
+topodat = m.transform_scalar(topoin,lons,lats,nx,ny)
+# plot image over map.
+im = m.imshow(topodat,cm.jet)
+# get current axis instance.
+ax = gca()
+cax = axes([0.8, 0.2, 0.075, 0.6]) # setup colorbar axes.
 colorbar(tickfmt='%d', cax=cax) # draw colorbar
 axes(ax)  # make the original axes current again
-m.drawcoastlines(ax)
-m.drawcountries(ax)
-m.drawstates(ax)
-#m.fillcontinents(ax)
+m.drawcoastlines()
+# draw parallels
+delat = 2.
+circles = arange(40.,70.,delat)
+m.drawparallels(circles,labels=[1,0,0,1],fontsize=10)
+# draw meridians
+delon = 2.
+meridians = arange(-10,10,delon)
+m.drawmeridians(meridians,labels=[1,0,0,1],fontsize=10)
+title('Cassini-Soldner Projection')
+print 'plotting Cassini-Soldner example, close plot window to proceed ...'
+show()
+
+# setup gnomonic basemap.
+m = Basemap(llcrnrlon=-95.,llcrnrlat=-52,urcrnrlon=-35.,urcrnrlat=15.,\
+            resolution='c',area_thresh=10000.,projection='gnom',\
+            lat_0=-10.,lon_0=-60.)
+xsize = rcParams['figure.figsize'][0]
+fig=figure(figsize=(xsize/m.aspect,xsize))
+fig.add_axes([0.125,0.2,0.6,0.6])
+# transform to nx x ny regularly spaced native projection grid
+nx = int((m.xmax-m.xmin)/40000.)+1; ny = int((m.ymax-m.ymin)/40000.)+1
+topodat = m.transform_scalar(topoin,lons,lats,nx,ny)
+# plot image over map.
+im = m.imshow(topodat,cm.jet)
+# get current axis instance.
+ax = gca()
+cax = axes([0.8, 0.2, 0.075, 0.6]) # setup colorbar axes.
+colorbar(tickfmt='%d', cax=cax) # draw colorbar
+axes(ax)  # make the original axes current again
+m.drawcoastlines()
+m.drawcountries()
+# draw parallels
+delat = 20.
+circles = arange(-80.,100.,delat)
+m.drawparallels(circles,labels=[1,0,0,1],fontsize=10)
+# draw meridians
+delon = 20.
+meridians = arange(-180,180,delon)
+m.drawmeridians(meridians,labels=[1,0,0,1],fontsize=10)
+title('Gnomonic Projection')
+print 'plotting Gnomonic example, close plot window to proceed ...'
+show()
+
+# setup transverse mercator basemap.
+m = Basemap(llcrnrlon=170.,llcrnrlat=-45,urcrnrlon=10.,urcrnrlat=45.,\
+            resolution='c',area_thresh=10000.,projection='tmerc',\
+            lat_0=0.,lon_0=-90.)
+xsize = rcParams['figure.figsize'][0]
+fig=figure(figsize=(xsize/m.aspect,xsize))
+fig.add_axes([0.125,0.2,0.6,0.6])
+# transform to nx x ny regularly spaced native projection grid
+nx = int((m.xmax-m.xmin)/40000.)+1; ny = int((m.ymax-m.ymin)/40000.)+1
+topodat = m.transform_scalar(topoin,lons,lats,nx,ny)
+# plot image over map.
+im = m.imshow(topodat,cm.jet)
+# get current axis instance.
+ax = gca()
+cax = axes([0.8, 0.2, 0.075, 0.6]) # setup colorbar axes.
+colorbar(tickfmt='%d', cax=cax) # draw colorbar
+axes(ax)  # make the original axes current again
+m.drawcoastlines()
+# draw parallels
+delat = 20.
+circles = arange(-80.,100.,delat)
+m.drawparallels(circles,labels=[1,0,0,0],fontsize=10)
+# draw meridians
+delon = 20.
+meridians = arange(-180,180,delon)
+m.drawmeridians(meridians,labels=[1,0,0,0],fontsize=10)
+title('Transverse Mercator Projection')
+print 'plotting Transverse Mercator example, close plot window to proceed ...'
+show()
+
+# setup oblique mercator basemap.
+m = Basemap(llcrnrlon=-130.,llcrnrlat=39,urcrnrlon=-124.,urcrnrlat=60.,\
+            resolution='l',area_thresh=1000.,projection='omerc',\
+            lon_2=-140,lat_2=55,lon_1=-120,lat_1=40)
+xsize = rcParams['figure.figsize'][0]
+fig=figure(figsize=(xsize/m.aspect,xsize))
+fig.add_axes([0.125,0.2,0.6,0.6])
+# transform to nx x ny regularly spaced native projection grid
+nx = int((m.xmax-m.xmin)/20000.)+1; ny = int((m.ymax-m.ymin)/20000.)+1
+topodat = m.transform_scalar(topoin,lons,lats,nx,ny)
+# plot image over map.
+im = m.imshow(topodat,cm.jet)
+# get current axis instance.
+ax = gca()
+cax = axes([0.8, 0.2, 0.075, 0.6]) # setup colorbar axes.
+colorbar(tickfmt='%d', cax=cax) # draw colorbar
+axes(ax)  # make the original axes current again
+m.drawcoastlines()
+m.drawcountries()
+m.drawstates()
+# draw parallels
+delat = 3.
+circles = arange(40,60,delat)
+m.drawparallels(circles,labels=[1,0,0,0],fontsize=10)
+# draw meridians
+delon = 3.
+meridians = arange(-140,-120,delon)
+m.drawmeridians(meridians,labels=[0,0,0,1],fontsize=10)
+title('Oblique Mercator Projection')
+print 'plotting Oblique Mercator example, close plot window to proceed ...'
+show()
+
+# setup polyconic basemap.
+m = Basemap(llcrnrlon=-35.,llcrnrlat=-30,urcrnrlon=80.,urcrnrlat=50.,\
+            resolution='c',area_thresh=1000.,projection='poly',\
+            lat_0=0.,lon_0=20.)
+xsize = rcParams['figure.figsize'][0]
+fig=figure(figsize=(xsize/m.aspect,xsize))
+fig.add_axes([0.125,0.2,0.6,0.6])
+# transform to nx x ny regularly spaced native projection grid
+nx = int((m.xmax-m.xmin)/40000.)+1; ny = int((m.ymax-m.ymin)/40000.)+1
+topodat = m.transform_scalar(topoin,lons,lats,nx,ny)
+# plot image over map.
+im = m.imshow(topodat,cm.jet)
+# get current axis instance.
+ax = gca()
+cax = axes([0.8, 0.2, 0.075, 0.6]) # setup colorbar axes.
+colorbar(tickfmt='%d', cax=cax) # draw colorbar
+axes(ax)  # make the original axes current again
+m.drawcoastlines()
+m.drawcountries()
+# draw parallels
+delat = 20.
+circles = arange(-80.,100.,delat)
+m.drawparallels(circles,labels=[1,0,0,0],fontsize=10)
+# draw meridians
+delon = 20.
+meridians = arange(-180,180,delon)
+m.drawmeridians(meridians,labels=[1,0,0,1],fontsize=10)
+title('Polyconic Projection')
+print 'plotting Polyconic example, close plot window to proceed ...'
+show()
+
+# setup equidistant conic
+m = Basemap(llcrnrlon=-90.,llcrnrlat=18,urcrnrlon=-70.,urcrnrlat=26.,\
+            resolution='l',area_thresh=1000.,projection='eqdc',\
+            lat_1=21.,lat_2=23.,lon_0=-80.)
+# transform to nx x ny regularly spaced native projection grid
+nx = int((m.xmax-m.xmin)/40000.)+1; ny = int((m.ymax-m.ymin)/40000.)+1
+topodat = m.transform_scalar(topoin,lons,lats,nx,ny)
+# setup figure with same aspect ratio as map.
+xsize = rcParams['figure.figsize'][0]
+fig=figure(figsize=(xsize,m.aspect*xsize))
+ax = fig.add_axes([0.1,0.1,0.7,0.7])
+# plot image over map.
+im = m.imshow(topodat,cm.jet)
+cax = axes([0.875, 0.1, 0.05, 0.7]) # setup colorbar axes.
+colorbar(tickfmt='%d', cax=cax) # draw colorbar
+axes(ax)  # make the original axes current again
+m.drawcoastlines()
+m.drawcountries()
+m.drawstates()
+m.fillcontinents(color='olive')
+# draw parallels
+delat = 2.
+circles = arange(17,27,delat)
+m.drawparallels(circles,labels=[1,0,0,0])
+# draw meridians
+delon = 5.
+meridians = arange(-100,-60,delon)
+m.drawmeridians(meridians,labels=[0,0,0,1])
+title('Equidistant Conic')
+print 'plotting Equidistant Conic example, close plot window to proceed ...'
+show()
+
+# setup lambert conformal map projection (North America).
+m = Basemap(llcrnrlon=-145.5,llcrnrlat=1,urcrnrlon=-2.566,urcrnrlat=46.352,\
+            resolution='c',area_thresh=10000.,projection='lcc',\
+            lat_1=50.,lon_0=-107.)
+# transform to nx x ny regularly spaced native projection grid
+nx = int((m.xmax-m.xmin)/40000.)+1; ny = int((m.ymax-m.ymin)/40000.)+1
+topodat = m.transform_scalar(topoin,lons,lats,nx,ny)
+# setup figure with same aspect ratio as map.
+xsize = rcParams['figure.figsize'][0]
+fig=figure(figsize=(xsize,m.aspect*xsize))
+ax = fig.add_axes([0.1,0.1,0.7,0.7])
+# plot image over map.
+im = m.imshow(topodat,cm.jet)
+cax = axes([0.875, 0.1, 0.05, 0.7]) # setup colorbar axes.
+colorbar(tickfmt='%d', cax=cax) # draw colorbar
+axes(ax)  # make the original axes current again
+m.drawcoastlines()
+m.drawcountries()
+m.drawstates()
+#m.fillcontinents()
 # draw parallels
 delat = 20.
 circles = arange(0.,90.+delat,delat).tolist()+\
           arange(-delat,-90.-delat,-delat).tolist()
-m.drawparallels(ax,circles)
+m.drawparallels(circles,labels=[1,1,0,1])
 # draw meridians
 delon = 30.
-meridians = arange(0.,360.,delon)
-m.drawmeridians(ax,meridians)
-ax.set_xticks([]) # no ticks
-ax.set_yticks([])
+meridians = arange(10.,360.,delon)
+m.drawmeridians(meridians,labels=[1,1,0,1])
 title('Lambert Conformal Conic')
 print 'plotting Lambert Conformal example, close plot window to proceed ...'
 show()
 
-m = Basemap(-10.,20.,55.,75.,
+# setup albers equal area map projection (Europe).
+m = Basemap(llcrnrlon=-10.,llcrnrlat=20,urcrnrlon=55.,urcrnrlat=75,\
             resolution='l',projection='aea',\
             lat_1=40.,lat_2=60,lon_0=35.)
-# define grid (nx x ny regularly spaced native projection grid)
+# transform to nx x ny regularly spaced native projection grid
 nx = int((m.xmax-m.xmin)/40000.)+1; ny = int((m.ymax-m.ymin)/40000.)+1
-lonsout, latsout = m.makegrid(nx,ny)
-# adjust longitudes to be consistent with etopo data
-# (which goes from 20 to 380, instead of 0 to 360).
-lonsout = where(lonsout < lons[0], lonsout+360., lonsout)
-topodat = interp(topoin,lons,lats,lonsout,latsout)
+topodat = m.transform_scalar(topoin,lons,lats,nx,ny)
+# setup figure with same aspect ratio as map.
 xsize = rcParams['figure.figsize'][0]
 fig=figure(figsize=(xsize,m.aspect*xsize))
-ax = fig.add_axes([0.1,0.1,0.75,0.75])
-im = imshow(topodat,cm.jet,extent=(m.llcrnrx,m.urcrnrx,m.llcrnry,m.urcrnry),origin='lower')
-im.set_clim(-4000.,3000.)
-cax = axes([0.875, 0.1, 0.05, 0.75])
+ax = fig.add_axes([0.1,0.1,0.7,0.7])
+# plot image over map.
+im = m.imshow(topodat,cm.jet)
+im.set_clim(-4000.,3000.) # adjust range of colors.
+cax = axes([0.875, 0.1, 0.05, 0.7]) # setup colorbar axes.
 colorbar(tickfmt='%d', cax=cax) # draw colorbar
 axes(ax)  # make the original axes current again
-m.drawcoastlines(ax)
-m.drawcountries(ax)
+m.drawcoastlines()
+m.drawcountries()
 # draw parallels
 delat = 20.
 circles = arange(0.,90.+delat,delat).tolist()+\
           arange(-delat,-90.-delat,-delat).tolist()
-m.drawparallels(ax,circles)
+m.drawparallels(circles,labels=[1,1,1,1])
 # draw meridians
 delon = 30.
-meridians = arange(0.,360.,delon)
-m.drawmeridians(ax,meridians)
-ax.set_xticks([]) # no ticks
-ax.set_yticks([])
-title('Albers Equal Area Conic')
+meridians = arange(10.,360.,delon)
+m.drawmeridians(meridians,labels=[1,1,1,1])
+title('Albers Equal Area Conic',y=1.075)
 print 'plotting Albers Equal Area example, close plot window to proceed ...'
 show()
 
-# north polar projection.
-#m = Basemap(-150.,-20.826,30.,-20.826,
-#            resolution='c',area_thresh=10000.,projection='stere',\
-#            lat_0=90.,lon_0=-105.,lat_ts=90.)
-# south polar projection.
-m = Basemap(-150.,20.826,30.,20.826,
+# setup stereographic map projection (Southern Hemisphere).
+m = Basemap(llcrnrlon=-150.,llcrnrlat=20.826,urcrnrlon=30.,urcrnrlat=20.826,\
             resolution='c',area_thresh=10000.,projection='stere',\
             lat_0=-90.,lon_0=-105.,lat_ts=-90.)
-# define grid (nx x ny regularly spaced native projection grid)
+# transform to nx x ny regularly spaced native projection grid
 nx = int((m.xmax-m.xmin)/40000.)+1; ny = int((m.ymax-m.ymin)/40000.)+1
-lonsout, latsout = m.makegrid(nx,ny)
-# adjust longitudes to be consistent with etopo data
-lonsout = where(lonsout < lons[0], lonsout+360., lonsout)
-topodat = interp(topoin,lons,lats,lonsout,latsout)
+topodat = m.transform_scalar(topoin,lons,lats,nx,ny)
+# setup figure with same aspect ratio as map.
 xsize = rcParams['figure.figsize'][0]
 fig=figure(figsize=(xsize,m.aspect*xsize))
-ax = fig.add_axes([0.1,0.1,0.75,0.75])
-im = imshow(topodat,cm.jet,extent=(m.llcrnrx,m.urcrnrx,m.llcrnry,m.urcrnry),origin='lower')
-cax = axes([0.875, 0.1, 0.05, 0.75])
+ax = fig.add_axes([0.1,0.1,0.7,0.7])
+# plot image over map.
+im = m.imshow(topodat,cm.jet)
+cax = axes([0.875, 0.1, 0.05, 0.7]) # setup colorbar axes.
 colorbar(tickfmt='%d', cax=cax) # draw colorbar
 axes(ax)  # make the original axes current again
-m.drawcoastlines(ax)
-m.drawcountries(ax)
-#m.fillcontinents(ax)
+m.drawcoastlines()
+m.drawcountries()
+#m.fillcontinents()
 # draw parallels
-m.drawparallels(ax,circles)
+m.drawparallels(circles)
 # draw meridians
-m.drawmeridians(ax,meridians)
-ax.set_xticks([]) # no ticks
-ax.set_yticks([])
-title('Polar Stereographic')
+m.drawmeridians(meridians,labels=[1,1,1,1])
+title('Polar Stereographic',y=1.075)
 print 'plotting Stereographic example, close plot window to proceed ...'
 show()
 
-# lambert azimuthal north polar projection.
-m = Basemap(-150.,-20.826,30.,-20.826,
+# setup lambert azimuthal map projection (Northern Hemisphere).
+m = Basemap(llcrnrlon=-150.,llcrnrlat=-20.826,urcrnrlon=30.,urcrnrlat=-20.826,\
             resolution='c',area_thresh=10000.,projection='laea',\
-            lat_0=90.,lon_0=-105.,lat_ts=90.)
-# define grid (nx x ny regularly spaced native projection grid)
+            lat_0=90.,lon_0=-105.)
+# transform to nx x ny regularly spaced native projection grid
 nx = int((m.xmax-m.xmin)/40000.)+1; ny = int((m.ymax-m.ymin)/40000.)+1
-lonsout, latsout = m.makegrid(nx,ny)
-# adjust longitudes to be consistent with etopo data
-lonsout = where(lonsout < lons[0], lonsout+360., lonsout)
-topodat = interp(topoin,lons,lats,lonsout,latsout)
+topodat = m.transform_scalar(topoin,lons,lats,nx,ny)
+# setup figure with same aspect ratio as map.
 xsize = rcParams['figure.figsize'][0]
 fig=figure(figsize=(xsize,m.aspect*xsize))
-ax = fig.add_axes([0.1,0.1,0.75,0.75])
-im = imshow(topodat,cm.jet,extent=(m.llcrnrx,m.urcrnrx,m.llcrnry,m.urcrnry),origin='lower')
-cax = axes([0.875, 0.1, 0.05, 0.75])
+ax = fig.add_axes([0.1,0.1,0.7,0.7])
+# plot image over map.
+im = m.imshow(topodat,cm.jet)
+cax = axes([0.875, 0.1, 0.05, 0.7]) # setup colorbar axes.
 colorbar(tickfmt='%d', cax=cax) # draw colorbar
 axes(ax)  # make the original axes current again
-m.drawcoastlines(ax)
-m.drawcountries(ax)
-m.drawstates(ax)
-#m.fillcontinents(ax)
+m.drawcoastlines()
+m.drawcountries()
+m.drawstates()
+#m.fillcontinents()
 # draw parallels
-m.drawparallels(ax,circles)
+m.drawparallels(circles)
 # draw meridians
-m.drawmeridians(ax,meridians)
-ax.set_xticks([]) # no ticks
-ax.set_yticks([])
-title('Lambert Azimuthal Equal Area')
+m.drawmeridians(meridians,labels=[1,1,1,1])
+title('Lambert Azimuthal Equal Area',y=1.075)
 print 'plotting Lambert Azimuthal example, close plot window to proceed ...'
 show()
+
+# setup azimuthal equidistant map projection (Northern Hemisphere).
+m = Basemap(llcrnrlon=-150.,llcrnrlat=40.,urcrnrlon=30.,urcrnrlat=40.,\
+            resolution='c',area_thresh=10000.,projection='aeqd',\
+            lat_0=90.,lon_0=-105.)
+# transform to nx x ny regularly spaced native projection grid
+nx = int((m.xmax-m.xmin)/40000.)+1; ny = int((m.ymax-m.ymin)/40000.)+1
+topodat = m.transform_scalar(topoin,lons,lats,nx,ny)
+# setup figure with same aspect ratio as map.
+xsize = rcParams['figure.figsize'][0]
+fig=figure(figsize=(xsize,m.aspect*xsize))
+ax = fig.add_axes([0.1,0.1,0.7,0.7])
+# plot image over map.
+im = m.imshow(topodat,cm.jet)
+cax = axes([0.875, 0.1, 0.05, 0.7]) # setup colorbar axes.
+colorbar(tickfmt='%d', cax=cax) # draw colorbar
+axes(ax)  # make the original axes current again
+m.drawcoastlines()
+m.drawcountries()
+m.drawstates()
+#m.fillcontinents()
+# draw parallels
+m.drawparallels(circles)
+# draw meridians
+m.drawmeridians(meridians,labels=[1,1,1,1])
+title('Azimuthal Equidistant',y=1.075)
+print 'plotting Azimuthal Equidistant example, close plot window to proceed ...'
+show()
+
+# projections with elliptical boundaries (orthographic, mollweide and robinson)
+
+# can't use imshow, since it expects a rectangular image.
+# instead use pcolor or contourf, and plot data 
+# directly on lat/lon grid without interpolation.
+
+# shift lons and lats by 1/2 grid increment (so values represent the vertices
+# of the grid box surrounding the data value, as pcolor expects).
+delon = lonsin[1]-lonsin[0]
+delat = latsin[1]-latsin[0]
+lons = zeros(len(lonsin)+1,'f')
+lats = zeros(len(latsin)+1,'f')
+lons[0:len(lonsin)] = lonsin-0.5*delon
+lons[-1] = lonsin[-1]+0.5*delon
+lats[0:len(latsin)] = latsin-0.5*delat
+lats[-1] = latsin[-1]+0.5*delat
+
+# setup of basemap ('ortho' = orthographic projection)
+m = Basemap(projection='ortho',
+            resolution='c',area_thresh=10000.,lat_0=30,lon_0=-60)
+xsize = rcParams['figure.figsize'][0]
+fig=figure(figsize=(xsize,m.aspect*xsize))
+ax = fig.add_axes([0.1,0.1,0.7,0.7],frameon=False)
+# pcolor plot (slow)
+#x,y = m(*meshgrid(lons,lats))
+#p = m.pcolor(x,y,topodatin,shading='flat')
+# filled contours (faster)
+x,y = m(*meshgrid(lonsin,latsin))
+levels, colls = m.contourf(x,y,topodatin,20,cmap=cm.jet,colors=None)
+cax = axes([0.875, 0.1, 0.05, 0.7]) # setup colorbar axes
+colorbar(tickfmt='%d', cax=cax) # draw colorbar
+axes(ax)  # make the original axes current again
+# draw coastlines and political boundaries.
+m.drawcoastlines()
+# draw parallels and meridians (labelling is 
+# not implemented for orthographic).
+parallels = arange(-80.,90,20.)
+m.drawparallels(parallels)
+meridians = arange(0.,360.,20.)
+m.drawmeridians(meridians)
+# draw boundary around map region.
+m.drawmapboundary()
+title('Orthographic')
+print 'plotting Orthographic example, close plot window to proceed ...'
+show()
+
+# setup of basemap ('moll' = mollweide projection)
+m = Basemap(projection='moll',
+            resolution='c',area_thresh=10000.,lon_0=0.5*(lonsin[0]+lonsin[-1]))
+xsize = rcParams['figure.figsize'][0]
+fig=figure(figsize=(xsize,m.aspect*xsize))
+ax = fig.add_axes([0.1,0.1,0.7,0.7],frameon=False)
+# pcolor plot (slow)
+#x,y = m(*meshgrid(lons,lats))
+#p = m.pcolor(x,y,topodatin,shading='flat')
+# filled contours (faster)
+x,y = m(*meshgrid(lonsin,latsin))
+levels, colls = m.contourf(x,y,topodatin,20,cmap=cm.jet,colors=None)
+cax = axes([0.875, 0.1, 0.05, 0.7]) # setup colorbar axes
+colorbar(tickfmt='%d', cax=cax) # draw colorbar
+axes(ax)  # make the original axes current again
+# draw coastlines and political boundaries.
+m.drawcoastlines()
+# draw parallels and meridians
+parallels = arange(-60.,90,30.)
+m.drawparallels(parallels,labels=[1,0,0,0])
+meridians = arange(0.,360.,30.)
+m.drawmeridians(meridians)
+# draw boundary around map region.
+m.drawmapboundary()
+title('Mollweide')
+print 'plotting Mollweide example, close plot window to proceed ...'
+show()
+
+# setup of basemap ('robin' = robinson projection)
+m = Basemap(projection='robin',
+            resolution='c',area_thresh=10000.,lon_0=0.5*(lonsin[0]+lonsin[-1]))
+xsize = rcParams['figure.figsize'][0]
+fig=figure(figsize=(xsize,m.aspect*xsize))
+ax = fig.add_axes([0.1,0.1,0.7,0.7],frameon=False)
+# pcolor plot (slow)
+#x,y = m(*meshgrid(lons,lats))
+#p = m.pcolor(x,y,topodatin,shading='flat')
+# filled contours (faster)
+x,y = m(*meshgrid(lonsin,latsin))
+levels, colls = m.contourf(x,y,topodatin,20,cmap=cm.jet,colors=None)
+cax = axes([0.875, 0.1, 0.05, 0.7]) # setup colorbar axes
+colorbar(tickfmt='%d', cax=cax) # draw colorbar
+axes(ax)  # make the original axes current again
+# draw coastlines and political boundaries.
+m.drawcoastlines()
+# draw parallels and meridians
+parallels = arange(-60.,90,30.)
+m.drawparallels(parallels,labels=[1,0,0,0])
+meridians = arange(0.,360.,60.)
+m.drawmeridians(meridians,labels=[0,0,0,1])
+# draw boundary around map region.
+m.drawmapboundary()
+title('Robinson')
+print 'plotting Robinson example, close plot window to proceed ...'
+show()
+
 print 'done'

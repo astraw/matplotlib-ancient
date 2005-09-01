@@ -3,7 +3,7 @@ Make changes to this file, not the c-wrappers that Pyrex generates."""
 
 import math
 
-cdef double _rad2dg
+cdef double _rad2dg, _dg2rad
 _rad2dg = 180./math.pi
 _dg2rad = math.pi/180.
 
@@ -24,6 +24,8 @@ cdef class Proj:
         self.pjinitstring = pjinitstring
         projpj = pj_init_plus(pjinitstring)
         self.projpj = projpj
+    def __reduce__(self):
+        return (self.__class__,(self.pjinitstring,))
     def fwd(self, lons, lats):
         cdef projUV projxyout, projlonlatin
         cdef long ndim, i
