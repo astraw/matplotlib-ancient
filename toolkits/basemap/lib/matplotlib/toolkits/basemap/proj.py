@@ -1,5 +1,10 @@
-import numarray as N
-import proj4
+import matplotlib.numerix as NX
+from matplotlib.mlab import linspace, meshgrid
+import proj4, math
+
+__version__ = '1.2'
+_dg2rad = math.radians(1.)
+_rad2dg = math.degrees(1.)
 
 class Proj:
     """
@@ -12,7 +17,6 @@ class Proj:
  __call__ method compute transformations.
  See docstrings for __init__ and __call__ for details.
 
- Version: 20050130
  Contact: Jeff Whitaker <jeffrey.s.whitaker@noaa.gov>
     """
 
@@ -44,46 +48,71 @@ class Proj:
         # (no other checking done in proj parameters)
         if 'proj' not in projparams.keys():
             raise KeyError, "need to specify proj parameter"
-        # build proj string.
-        self.proj4md = []
-        for key,value in map(None,projparams.keys(),projparams.values()):
-            if key == 'x_0' or key == 'y_0':
-                # x_0 and y_0 are set based on llcrnrlon,llcrnrlat.
-                pass
-            else:
-                self.proj4md.append('+'+key+"="+str(value)+' ')
+        if 'R' not in projparams.keys() and 'a' and 'b' not in projparams.keys():
+            raise KeyError, "need to specify R (perfect sphere radius), or a and b (major and minor sphere radii)"
         self.projection = projparams['proj']
+        # rmajor is the semi-major axis.
+        # rminor is the semi-minor axis.
+        # esq is eccentricity squared.
+        try:
+            self.rmajor = projparams['a']
+            self.rminor = projparams['b']
+        except:
+            self.rmajor = projparams['R']
+            self.rminor = self.rmajor
+        if self.rmajor == self.rminor:
+            self.ellipsoid = False
+        else:
+            self.ellipsoid = True
+        self.flattening = (self.rmajor-self.rminor)/self.rmajor
+        self.esq = (self.rmajor**2 - self.rminor**2)/self.rmajor**2
         self.llcrnrlon = llcrnrlon
         self.llcrnrlat = llcrnrlat
-        if self.projection != 'cyl':
-            self._proj4 = proj4.Proj(''.join(self.proj4md))
-        llcrnrx, llcrnry = self._fwd(llcrnrlon,llcrnrlat)
+        if self.projection not in ['cyl','ortho','moll','robin']:
+            self._proj4 = proj4.Proj(projparams)
+            llcrnrx, llcrnry = self(llcrnrlon,llcrnrlat)
+        elif self.projection == 'cyl':
+            llcrnrx = llcrnrlon
+            llcrnry = llcrnrlat
+        elif self.projection == 'ortho':
+            self._proj4 = proj4.Proj(projparams)
+            llcrnrx = -self.rmajor
+            llcrnry = -self.rmajor
+            urcrnrx = -llcrnrx
+            urcrnry = -llcrnry
+        elif self.projection == 'moll' or self.projection == 'robin':
+            self._proj4 = proj4.Proj(projparams)
+            xtmp,urcrnry = self(projparams['lon_0'],90.)
+            urcrnrx,xtmp = self(projparams['lon_0']+180.,0)
+            llcrnrx = -urcrnrx
+            llcrnry = -urcrnry
         # compute x_0, y_0 so ll corner of domain is x=0,y=0.
         # note that for 'cyl' x,y == lon,lat
-        # and for 'merc' x,y == lon,y
-        self.proj4md.append("+x_0="+str(-llcrnrx)+' ')
         self.projparams['x_0']=-llcrnrx
-        self.proj4md.append("+y_0="+str(-llcrnry)+' ')
         self.projparams['y_0']=-llcrnry
         # reset with x_0, y_0. 
         if self.projection != 'cyl':
-            self._proj4 = proj4.Proj(''.join(self.proj4md))
+            self._proj4 = proj4.Proj(projparams)
             llcrnry = 0.
-            if self.projection == 'merc':
-                llcrnrx = llcrnrlon
-            else:
-                llcrnrx = 0.
+            llcrnrx = 0.
         else:
             llcrnrx = llcrnrlon
             llcrnry = llcrnrlat
         if urcrnrislatlon:
             self.urcrnrlon = urcrnrlon
             self.urcrnrlat = urcrnrlat
-            urcrnrx,urcrnry = self._fwd(urcrnrlon,urcrnrlat)
+            if self.projection not in ['ortho','moll','robin']:
+                urcrnrx,urcrnry = self(urcrnrlon,urcrnrlat)
+            elif self.projection == 'ortho':
+                urcrnrx = 2.*self.rmajor
+                urcrnry = 2.*self.rmajor
+            elif self.projection == 'moll' or self.projection == 'robin':
+                xtmp,urcrnry = self(projparams['lon_0'],90.)
+                urcrnrx,xtmp = self(projparams['lon_0']+180.,0)
         else:
             urcrnrx = urcrnrlon
             urcrnry = urcrnrlat
-            urcrnrlon, urcrnrlat = self._inv(urcrnrx, urcrnry)
+            urcrnrlon, urcrnrlat = self(urcrnrx, urcrnry, inverse=True)
             self.urcrnrlon = urcrnrlon
             self.urcrnrlat = urcrnrlat
         # corners of domain.
@@ -104,27 +133,7 @@ class Proj:
             self.ymax = llcrnry
             self.ymin = urcrnry
 
-    def _fwd(self,x,y):
-        if self.projection == 'cyl':
-            return x,y # for cyl, this does nothing.
-        else:
-            outx,outy = self._proj4.fwd(x,y)
-            if self.projection == 'merc': # for merc, x == lon
-                return x,outy
-            else:
-                return outx,outy
-
-    def _inv(self,x,y):
-        if self.projection == 'cyl': # for cyl, does nothing
-            return x,y
-        else:
-            outx,outy = self._proj4.inv(x,y)
-            if self.projection == 'merc': # for merc, x == lon
-                return x,outy
-            else:
-                return outx,outy
-
-    def __call__(self,lon,lat,inverse=False):
+    def __call__(self,x,y,inverse=False):
         """
  Calling a Proj class instance with the arguments lon, lat will
  convert lon/lat (in degrees) to x/y native map projection 
@@ -135,57 +144,61 @@ class Proj:
  For cylindrical equidistant projection ('cyl'), this
  does nothing (i.e. x,y == lon,lat).
 
- For mercator projection ('merc'), x == lon, but y has units
- of meters.
-
  lon,lat can be either scalar floats or N arrays.
         """
         if self.projection == 'cyl': # for cyl x,y == lon,lat
-            return lon,lat
-        # if inputs are numarray arrays, get shape and typecode.
-        try:
-            shapein = lon.shape
-            lontypein = lon.typecode()
-            lattypein = lat.typecode()
-        except:
-            shapein = False
-        # make sure inputs have same shape.
-        if shapein and lat.shape != shapein:
-            raise ValueError, 'lon, lat must be scalars or numarrays with the same shape'
-        if shapein:
-            x = N.ravel(lon).tolist()
-            y = N.ravel(lat).tolist()
-            if inverse:
-                outx, outy = self._inv(x,y)
-            else:
-                outx, outy = self._fwd(x,y)
-            outx = N.reshape(N.array(outx,lontypein),shapein)
-            outy = N.reshape(N.array(outy,lattypein),shapein)
+            return x,y
+        if inverse:
+            outx,outy = self._proj4(x,y,inverse=True)
+            if self.projection in ['merc','mill']: 
+                if self.projection == 'merc':
+                    coslat = math.cos(math.radians(self.projparams['lat_ts']))
+                    sinlat = math.sin(math.radians(self.projparams['lat_ts']))
+                else:
+                    coslat = 1.
+                    sinlat = 0.
+                # radius of curvature of the ellipse perpendicular to
+                # the plane of the meridian.
+                rcurv = self.rmajor*coslat/math.sqrt(1.-self.esq*sinlat**2)
+                try: # x a scalar or an array
+                    outx = _rad2dg*(x/rcurv) + self.llcrnrlon
+                except: # x a sequence
+                    outx = [_rad2dg*(xi/rcurv) + self.llcrnrlon for xi in x]
         else:
-            if inverse:
-                outx,outy = self._inv(lon,lat)
-            else:
-                outx,outy = self._fwd(lon,lat)
+            outx,outy = self._proj4(x,y)
+            if self.projection in ['merc','mill']:
+                if self.projection == 'merc':
+                    coslat = math.cos(math.radians(self.projparams['lat_ts']))
+                    sinlat = math.sin(math.radians(self.projparams['lat_ts']))
+                else:
+                    coslat = 1.
+                    sinlat = 0.
+                # radius of curvature of the ellipse perpendicular to
+                # the plane of the meridian.
+                rcurv = self.rmajor*coslat/math.sqrt(1.-self.esq*sinlat**2)
+                try: # x is a scalar or an array
+                    outx = rcurv*_dg2rad*(x-self.llcrnrlon)
+                except: # x is a sequence.
+                    outx = [rcurv*_dg2rad*(xi-self.llcrnrlon) for xi in x]
         return outx,outy
-    
-    def makegrid(self,nx,ny):
+
+    def makegrid(self,nx,ny,returnxy=False):
         """
  return arrays of shape (ny,nx) containing lon,lat coordinates of
  an equally spaced native projection grid.
+ if returnxy=True, the x,y values of the grid are returned also.
         """
-        dx = (self.urcrnrx-self.llcrnrx)/(nx-1)
-        dy = (self.urcrnry-self.llcrnry)/(ny-1)  
-        x = self.llcrnrx+dx*N.indices((ny,nx))[1,:,:]
-        y = self.llcrnry+dy*N.indices((ny,nx))[0,:,:]
+        x = linspace(self.llcrnrx,self.urcrnrx,nx)
+        y = linspace(self.llcrnry,self.urcrnry,ny)
+        x, y = meshgrid(x, y)
         lons, lats = self(x, y, inverse=True)
-        lons = N.where(lons < 0, lons+360, lons)
-        # mercator coordinate is plain longitude in x.
-        if self.projparams['proj'] == 'merc':
-            dx = (self.urcrnrlon-self.llcrnrlon)/(nx-1)
-            lons = self.llcrnrlon+dx*N.indices((ny,nx))[1,:,:]
-        return lons, lats
+        if returnxy:
+            return lons, lats, x, y
+        else:
+            return lons, lats
 
 if __name__ == "__main__":
+
     params = {}
     params['proj'] = 'lcc'
     params['R'] = 6371200
@@ -223,7 +236,7 @@ if __name__ == "__main__":
     t2 = time.clock()
     print 'compute lats/lons for all points on AWIPS 221 grid (%sx%s)' %(nx,ny)
     print 'max/min lons'
-    print lons.min(), lons.max()
+    print min(NX.ravel(lons)),max(NX.ravel(lons))
     print 'max/min lats'
-    print lats.min(), lats.max()
+    print min(NX.ravel(lats)),max(NX.ravel(lats))
     print 'took',t2-t1,'secs'

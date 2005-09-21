@@ -5,12 +5,21 @@ using matplotlib.
 
 **Requirements**
 
-numarray 1.1 (or higher), matplotlib 0.71 (or higher) extension modules.
+numarray 1.1 (or higher)
+matplotlib 0.81 (or higher)
 
 **Copyright**
 
 source code from proj.4 (http://proj.maptools.org) is included in the
 'src' directory (under the terms given in LICENSE_proj4).
+
+pyshapelib by Bernhard Herzog is included in the 'pyshapelib' directory
+under the terms given in LICENSE_pyshapelib.
+
+the coastline, lake, river and political boundary data are extracted
+from datasets provided with the Generic Mapping Tools
+(http://gmt.soest.hawaii.edu)
+and are included under the terms given in LICENSE_data.
 
 Everything else:
 
@@ -18,8 +27,8 @@ copyright (c) 2004 by Jeffrey Whitaker.
 
 Permission to use, copy, modify, and distribute this software and its
 documentation for any purpose and without fee is hereby granted,
-provided that the above copyright notice appear in all copies and that
-both that copyright notice and this permission notice appear in
+provided that the above copyright notices appear in all copies and that
+both the copyright notices and this permission notice appear in
 supporting documentation.
 THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
 INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO
@@ -31,9 +40,35 @@ PERFORMANCE OF THIS SOFTWARE.
 
 **Documentation** 
 
-see Lib/basemap.py docstrings.
+see basemap.py docstrings.
 
 see scripts in 'examples' directory for example usage.
+
+read the FAQ and/or email the matplotlib-users mailing list if 
+you have problems or questions.
+
+**Install**
+
+1) run 'python setup.py install' 
+
+for a non-standard install (python setup.py install --home=<dir>,
+or python setup.py install --prefix=<dir>), the environment
+variable BASEMAP_DATA_PATH must be set to the directory where the
+data files (gshhs*.txt, countries*.txt, states*.txt and rivers*txt)
+will be installed (see step 2 below).
+Note: for this to work, matplotlib must also be installed in the same place
+(via python setup.py install --home=<dir>).
+
+2) download the basemap-data tarball, unpack in this directory and 
+run 'python setup_data.py install'. This does not need to be done
+every time you update basemap (via step 1), only when the basemap-data
+package is updated.
+
+If you want the data files to be installed somewhere other than the 
+default (sys.prefix/share/basemap), set the environment variable 
+BASEMAP_DATA_PATH to the desired location. BASEMAP_DATA_PATH must then be 
+set whenever basemap is imported in order for the package to locate the 
+data files.
 
 **Contact**
 

@@ -1,80 +1,110 @@
-from matplotlib.toolkits.basemap import Basemap, interp
+from matplotlib.toolkits.basemap import Basemap, shiftgrid
 from pylab import *
-import cPickle
-from matplotlib import __version__
+import cPickle, sys
+from matplotlib.numerix import ma
 
-if __version__ <= '0.70':
-    print 'warning - contour example will not work with this version of matplotlib if axes.patch is not applied'
+# examples of filled contour plots on map projections.
 
 # read in data on lat/lon grid.
 datadict = cPickle.load(open('500hgt.pickle','rb'))
 hgt = datadict['data']; lons = datadict['lons']; lats = datadict['lats']
+# shift data so lons go from -180 to 180 instead of 0 to 360.
+hgt,lons = shiftgrid(180.,hgt,lons,start=False)
+lons, lats = meshgrid(lons, lats)
 
-# set up map projection (lambert azimuthal equal area).
-m = Basemap(-150.,-20.,30.,-20.,
-             resolution='c',area_thresh=10000.,projection='laea',
-             lat_0=90.,lon_0=-105.)
-# interpolate to map projection grid.
-nx = 101
-ny = 101
-lonsout, latsout = m.makegrid(nx,ny)
-hgt = interp(hgt,lons,lats,lonsout,latsout)
-dx = (m.xmax-m.xmin)/(nx-1)
-dy = (m.ymax-m.ymin)/(ny-1)  
-x = m.xmin+dx*indices((ny,nx))[1,:,:]
-y = m.ymin+dy*indices((ny,nx))[0,:,:]
-
-#m = Basemap(lons[0],lats[0],lons[-1],lats[-1],\
-#              resolution='c',area_thresh=10000.,projection='cyl')
-#x, y = meshgrid(lons, lats)
-
-fig = figure(figsize=(8,8))
-
-plots = ['contour','pcolor']
-
-for np,plot in enumerate(plots):
-
-    fig.add_subplot(1,2,np+1)
-    #fig.add_subplot(2,1,np+1)
-
-    # plot data.
-    print plot+' plot ...'
-    if plot == 'pcolor':
-        pcolor(x,y,hgt,shading='flat')
-    elif plot == 'imshow':
-        im = imshow(hgt,extent=(m.xmin, m.xmax, m.ymin, m.ymax),origin='lower')
-    elif plot == 'contour':
-        levels, colls = contour(hgt,x=x,y=y,levels=20,linewidths=1.,colors='k')
-
-    # set size of plot to match aspect ratio of map.
-    ax = gca()
-    l,b,w,h = ax.get_position()
-    b = 0.5 - 0.5*w*m.aspect; h = w*m.aspect
-    #l = 0.5 - 0.5*h/m.aspect; w = h/m.aspect
-    ax.set_position([l,b,w,h])
-    corners = ((m.xmin,m.ymin), (m.xmax,m.ymax))
-    ax.update_datalim( corners )                                          
-    axis([m.xmin, m.xmax, m.ymin, m.ymax])  
-    
-    # draw map.
-    if plot in ['pcolor','imshow']:                                         
-        m.drawcoastlines(ax)
-    else:
-        m.fillcontinents(ax,color='gray')
-	
-    # draw parallels
-    delat = 30.
-    delon = 30.
-    circles = arange(0.,90.+delat,delat).tolist()+\
-	   arange(-delat,-90.-delat,-delat).tolist()
-    m.drawparallels(ax,circles)
-
-    # draw meridians
-    meridians = arange(0.,360.,delon)
-    m.drawmeridians(ax,meridians)
-
-    ax.set_xticks([]) # no ticks
-    ax.set_yticks([])
-    title('500 hPa Height - '+plot)
-
+# setup of mollweide basemap
+m = Basemap(resolution='c',area_thresh=10000.,projection='moll',lon_0=0)
+xsize = rcParams['figure.figsize'][0]
+fig=figure(figsize=(xsize,m.aspect*xsize))
+ax = fig.add_axes([0.1,0.1,0.7,0.7],frameon=False)
+# make a filled contour plot.
+x, y = m(lons, lats)
+levels, colls = m.contour(x,y,hgt,15,linewidths=0.5,colors='k')
+levels, colls = m.contourf(x,y,hgt,15,cmap=cm.jet,colors=None)
+cax = axes([0.875, 0.1, 0.05, 0.7]) # setup colorbar axes
+colorbar(tickfmt='%d', cax=cax) # draw colorbar
+axes(ax)  # make the original axes current again
+# draw coastlines and political boundaries.
+m.drawcoastlines()
+m.drawmapboundary()
+#m.fillcontinents()
+# draw parallels and meridians.
+parallels = arange(-60.,90,30.)
+m.drawparallels(parallels,labels=[1,0,0,0])
+meridians = arange(-360.,360.,30.)
+m.drawmeridians(meridians)
+title('Mollweide Filled Contour Demo')
 show()
+
+# set up Robinson map projection.
+m = Basemap(resolution='c',area_thresh=10000.,projection='robin',lon_0=0)
+fig=figure(figsize=(xsize,m.aspect*xsize))
+ax = fig.add_axes([0.1,0.1,0.7,0.7],frameon=False)
+# make a filled contour plot.
+x, y = m(lons, lats)
+levels, colls = m.contour(x,y,hgt,15,linewidths=0.5,colors='k')
+levels, colls = m.contourf(x,y,hgt,15,cmap=cm.jet,colors=None)
+cax = axes([0.875, 0.1, 0.05, 0.7]) # setup colorbar axes
+colorbar(tickfmt='%d', cax=cax) # draw colorbar
+axes(ax)  # make the original axes current again
+# draw coastlines and political boundaries.
+m.drawcoastlines()
+m.drawmapboundary()
+#m.fillcontinents()
+# draw parallels and meridians.
+parallels = arange(-60.,90,30.)
+m.drawparallels(parallels,labels=[1,0,0,0])
+meridians = arange(-360.,360.,60.)
+m.drawmeridians(meridians,labels=[0,0,0,1])
+title('Robinson Filled Contour Demo')
+show()
+
+# set up map projection (azimuthal equidistant).
+m = Basemap(llcrnrlon=-135.,llcrnrlat=-20.,urcrnrlon=45.,urcrnrlat=-20.,
+             resolution='c',area_thresh=10000.,projection='aeqd',
+             lat_0=90.,lon_0=-90.)
+xsize = rcParams['figure.figsize'][0]
+fig=figure(figsize=(xsize,m.aspect*xsize))
+ax = fig.add_axes([0.1,0.1,0.7,0.7],frameon=False)
+# make a filled contour plot.
+x, y = m(lons, lats)
+levels, colls = m.contour(x,y,hgt,15,linewidths=0.5,colors='k')
+levels, colls = m.contourf(x,y,hgt,15,cmap=cm.jet,colors=None)
+cax = axes([0.875, 0.1, 0.05, 0.7]) # setup colorbar axes
+colorbar(tickfmt='%d', cax=cax) # draw colorbar
+axes(ax)  # make the original axes current again
+# draw coastlines and political boundaries.
+m.drawcoastlines()
+m.drawmapboundary()
+# draw parallels and meridians.
+parallels = arange(0.,80,20.)
+m.drawparallels(parallels,labels=[0,0,1,1])
+meridians = arange(10.,360.,20.)
+m.drawmeridians(meridians,labels=[1,1,1,1])
+title('Azimuthal Equidistant Filled Contour Demo',y=1.075)
+show()
+
+# setup of orthographic basemap
+m = Basemap(resolution='c',area_thresh=10000.,projection='ortho',\
+            lat_0=50.,lon_0=-120.)
+xsize = rcParams['figure.figsize'][0]
+fig=figure(figsize=(xsize,m.aspect*xsize))
+ax = fig.add_axes([0.1,0.1,0.7,0.7],frameon=False)
+# make a filled contour plot.
+x, y = m(lons, lats)
+levels, colls = m.contour(x,y,hgt,15,linewidths=0.5,colors='k')
+levels, colls = m.contourf(x,y,hgt,15,cmap=cm.jet,colors=None)
+cax = axes([0.875, 0.1, 0.05, 0.7]) # setup colorbar axes
+colorbar(tickfmt='%d', cax=cax) # draw colorbar
+axes(ax)  # make the original axes current again
+# draw coastlines and political boundaries.
+m.drawcoastlines()
+m.drawmapboundary()
+# draw parallels and meridians.
+parallels = arange(-80.,90,20.)
+m.drawparallels(parallels)
+meridians = arange(0.,360.,20.)
+m.drawmeridians(meridians)
+title('Orthographic Filled Contour Demo')
+show()
+
