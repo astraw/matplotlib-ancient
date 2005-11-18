@@ -4,6 +4,8 @@
 
 # the data is interpolated to the native projection grid.
 
+from matplotlib import rcParams, use
+rcParams['numerix'] = 'Numeric'  # make sure Numeric is used (to read pickle)
 from matplotlib.toolkits.basemap import Basemap, shiftgrid
 from pylab import *
 import cPickle
