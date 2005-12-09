@@ -25,6 +25,8 @@ href=matplotlib.pylab.html#-barh>barh</a> command.
 uses a matlab(TM) compatible syntax to produce py charts.  Optional
 features include auto-labeling the percentage of area, "exploding" one
 or more wedges out from the center of the pie, and a shadow effect.
+Take a close look at the attached code that produced this figure; nine
+lines of code.
 """, 1),
 
 ('table_demo', """The <a href=matplotlib.pylab.html#-table>table</a>
@@ -73,7 +75,9 @@ href=toolkits.html>basemap
 matplotlib toolkit</a> (available from the <a href="http://sourceforge.net/projects/matplotlib">download</a> page).  Many map projections are handled via the proj4
 library: cylindrical equidistant, mercator, lambert
 conformal conic, lambert azimuthal equal area, albers equal area conic
-and stereographic.  """, 1),
+and stereographic.  See the <a
+href=http://www.scipy.org/wikis/topical_software/Maps><tutorial</a>
+entry on the wiki.""", 1),
 
 
 
@@ -102,6 +106,16 @@ module for usage, licensing and backend information.  matplotlib
 mathtext is an independent implementation, and does not required TeX
 or any external packages installed on your computer.""", 1),
 
+('wheeler_demo', """
+
+Plot of Level Set (LSM), Phase Field (PFM) and Sharp Interface Models
+to demonstrate schematically the difference between the three models.
+The green and blue equations govern the behaviors of the LSM and PFM
+respectively.  The distance delta represents the nominal interface
+width. The LSM requires an algorithmic construct while the PFM is a
+first principles approach.  Thanks to Daniel Wheeler for this nice
+example of TeX rendering with usetex..""", 1),
+
 ('tex_demo', """
 In addition to having it's own mathematical typesetting engine shown
 in the mathtext_demo above, you can also use TeX itself, and embed TeX
@@ -114,7 +128,7 @@ pseudo color plots.  matplotlib has 14 built-in colormaps.  The <a
 href=matplotlib.pylab.html#-hot>hot</a> colormap is shown here with
 contours overaying a grayscale image.""", 1),
 
-('hst_demo', """
+('hstdemo', """
 Perry Greenfield of the Space Telescope Science Institute contributed
 this example of a contouring of a Hubble Space Telescope image.  It is
 an image of NGC 1275 taken with three different filters combined as an
@@ -151,17 +165,17 @@ distribution for a handle graphics demo.""", 1),
 href=matplotlib.pylab.html#-axes>axes</a> command.  Here, two inset axes are
 placed over a <a href=matplotlib.pylab.html#-subplot>subplot</a>.""", 1), 
 
-('eeg', """ You can embed matplotlib into a pygtk, wxpython or Tk
-applications.  Here is a screenshot of an eeg viewer written in pygtk
-using matplotlib; the lower axes is using <a
+('eeg', """ You can embed matplotlib into pygtk, wxpython, Tk, FLTK
+or Qt applications.  Here is a screenshot of an eeg viewer written in
+pygtk using matplotlib; the lower axes is using <a
 href=matplotlib.pylab.html#-specgram>specgram</a> to plot the
 spectrogram of one of the EEG channels.  The code demo linked above is
 a much simpler example of embedding matplotlib in pygtk.  For an
 example of how to use the navigation toolbar in your applications, see
 <a href=examples/embedding_in_gtk2.py>embedding_in_gtk2.py</a>.  If
 you want to use matplotlib in a wx application, see <a
-href=examples/embedding_in_wx2.py>embedding_in_wx2.py</a>.  If you want
-to work with <a href=http://glade.gnome.org>glade</a>, see <a
+href=examples/embedding_in_wx2.py>embedding_in_wx2.py</a>.  If you
+want to work with <a href=http://glade.gnome.org>glade</a>, see <a
 href=examples/mpl_with_glade.py>mpl_with_glade.py</a> """, 0),
 
 )

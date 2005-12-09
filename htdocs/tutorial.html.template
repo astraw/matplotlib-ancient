@@ -110,7 +110,7 @@ show()
 
 If you are new to python, the first question you are probably asking
 yourself about this plot is, "Why does the xaxis range from 0-3 and
-the yaxis from 0-4."  The answer is that if you provide a single list
+the yaxis from 1-4."  The answer is that if you provide a single list
 or array to the plot command, matplotlib assumes it a vector of
 y-values, and automatically generates the x-values for you.  Since
 python ranges start with 0, the default x vector has the same length

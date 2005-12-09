@@ -7,6 +7,7 @@ import sys, os
 default = 'Agg'
 # do not remove the pngs - some are screenshots!
 files = {
+    'wheeler_demo.py'   : default,            
     'layer_images.py'   : default,        
     'finance_work2.py'  : default,    
     'simple_plot.py'    : default, 

@@ -14,6 +14,7 @@ modules = (
     'matplotlib.backends.backend_paint',
     'matplotlib.backends.backend_ps',
     'matplotlib.backends.backend_svg',    
+    'matplotlib.backends.backend_emf',    
     'matplotlib.backends.backend_template',
     'matplotlib.backends.backend_tkagg',
     'matplotlib.backends.backend_qt',

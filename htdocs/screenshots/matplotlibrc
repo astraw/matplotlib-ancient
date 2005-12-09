@@ -53,9 +53,6 @@ lines.markeredgecolor  : black
 lines.markeredgewidth  : 0.5     # the line width around the marker symbol
 lines.markersize  : 6            # markersize, in points
 lines.antialiased : True         # render lines in antialised (no jaggies)
-lines.data_clipping : False      # Use data clipping in addition to viewport
-                                 # clipping.  Useful if you plot long data
-                                 # sets with only a fraction in the viewport
 
 ### Patches 
 # Patches are graphical objects that fill 2D space, like polygons or

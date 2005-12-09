@@ -15,12 +15,13 @@ im = imshow(Z, interpolation='bilinear', origin='lower',
             cmap=cm.gray, extent=(-3,3,-3,3))
 
 
-levels, colls = contour(Z, arange(-1.2,1.6,0.2),
-                        origin='lower',
-                        linewidths=2,
-                        extent=(-3,3,-3,3))
+cset = contour(Z, arange(-1.2,1.6,0.2),
+               origin='lower',
+               linewidths=2,
+               extent=(-3,3,-3,3)
+               )
 
-clabel(colls, levels,
+clabel(cset,
        inline=1,
        fmt='%1.1f',
        fontsize=10)

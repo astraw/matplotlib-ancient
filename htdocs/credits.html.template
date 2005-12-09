@@ -23,7 +23,9 @@ matplotlib was written by John Hunter<p>
   errorbar plots, and added a number of new marker types to plot.
   </li>
 
-  <li>John Gill wrote the table class and examples</li>
+  <li>John Gill wrote the table class and examples, helped with
+  support for auto-legend placement, and added support for legending
+  scatter plots.</li>
 
   <li>David Moore wrote the paint backend</li>
 

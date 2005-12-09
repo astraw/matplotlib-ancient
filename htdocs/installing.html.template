@@ -7,17 +7,23 @@ some of the optional GUI and image extensions, discussed below.
 Matplotlib is known to work on linux, unix, win32 and OS X platforms.<p>
 
 There are two kinds of matplotlib backends: vector based and raster
-based.  The vector based backends, SVG and PS, produce ASCII text
-output files *.svg and *.ps.  The core raster based renderer is the <a
-href=http://antigrain.com>antigrain</a> (agg) backend.  This is a high
-quality 2D library that supports fast antialiasing, alpha blending and
-much more.  If you want to produce PNGs or GUI images that support all
-of matplotlib's features, you should compile matplotlib with agg
-support and use one of the GUI agg backends as described below:
-GTKAgg, WXAgg, TkAgg or FLTKAgg.  All of these features are included
-in the windows installer<p>
+based.  Two vector based backends, SVG and PS, produce ASCII text
+output files *.svg and *.ps; the other vector based backend, EMF,
+produces binary output files *.emf.  The core raster based renderer is
+the <a href=http://antigrain.com>antigrain</a> (agg) backend.  This is
+a high quality 2D library that supports fast antialiasing, alpha
+blending and much more.  If you want to produce PNGs or GUI images
+that support all of matplotlib's features, you should compile
+matplotlib with agg support and use one of the GUI agg backends as
+described below: GTKAgg, WXAgg, TkAgg or FLTKAgg.  All of these
+features are included in the windows installer<p>
 
 <h2><a name=compiling>Compiling</a></h2>
+
+You probably don't need to compile matplotlib unless you want to or
+work on an obscure platform.  There are binary builds for Windows, OS
+X and many major linux distributions; see below.  If you do want to
+compile, read on.<p>
 
 You will need to have recent versions of freetype (>= 2.1.7), libpng
 and zlib installed on your system.  If you are using a package
@@ -25,18 +31,18 @@ manager, also make sure the devel versions of these packages are also
 installed (eg freetype-devel).<p>
 
 The top of setup.py contains some flags controlling which backends
-will be built.  If you want to use a GUI backend, you will need either
-Tkinter, pygtk or wxpython installed on your system, from src or from
-a package manager including the devel packages.  You can choose which
-backends to enable by setting the flags in setup.py, but the 'auto'
-flags will work in most cases, as matplotlib tries to find a GUI and
-build the backend acccordingly.  If you know you don't want a
-particular backend or extension, you can set that flag to False.<p>
+will be built.  If you want to use a GUI backend, you may need to
+install dev headers for the GUI toolkits you want to build with (eg
+gtk2-dev).  You can choose which backends to enable by setting the
+flags in setup.py, but the 'auto' flags will work in most cases, as
+matplotlib tries to find a GUI and build the backend acccordingly.  If
+you know you don't want a particular backend or extension, you can set
+that flag to False.<p>
 
-As discussed above, most users will want to set <tt>BUILD_AGG = 1</tt>
-and one or more of the GUI backends to True.  Exceptions to this are
-if you know you don't need a GUI (eg a web server) or you only want to
-produce vector graphics.<p>
+Most users will want to set <tt>BUILD_AGG = 1</tt> and one or more of
+the GUI backends to True.  Exceptions to this are if you know you
+don't need a GUI (eg a web server) or you only want to produce
+postscript or SVG for example.<p>
 
 If you have installed prerequisites to nonstandard places and need to
 inform matplotlib where they are, edit <tt>setupext.py</tt> an add the
@@ -57,7 +63,7 @@ Note that if you install matplotlib anywhere other than the default
 location, you will need to set the <tt>MATPLOTLIBDATA</tt> environment
 variable to point to the install base dir.<p>
 
-Once you have everything above set to your liking, just do the usual
+Once you have everything above set to your liking,for just do the usual
 thing
 
 <pre>
@@ -65,6 +71,13 @@ thing
       python setup.py install
 </pre>
     
+There are many defaults that you can control in matplotlib in the <a
+href=matplotlibrc>matplotlibrc</a> file.  As for installation, the
+most important of these are the <tt>backend</tt> and <tt>numerix</tt>
+settings.  Please set these parameters for your particular build after
+you install because they are not automatically configured for your
+particular installation.
+
 <h2><a name=windows>Windows</a></h2>
 
 If you don't already have python installed, you may want to consider
@@ -77,11 +90,9 @@ svg.<p>
 
 For standard python installations, you will also need to install
 either Numeric or numarray in addition to the matplotlib installer.
-matplotlib provides installers for Numeric and numarray users.  It is
-important that you pick the matplotlib installer that corresponds to
-your array package.  Ie, if you mostly work with numarray arrays, use
-the matplotlib numarray installer.  matplotlib has a <tt>numerix</tt>
-setting in the matplotlib rc file (which by default resides in
+matplotlib provides installers for Numeric and numarray users.
+matplotlib has a <tt>numerix</tt> setting in the matplotlib rc file
+(which by default resides in
 <tt>c:\python23\share\matplotlitb\matplotlibrc</tt>) and you should
 make sure this setting corresponds to your preferred array package.<p>
 
@@ -117,22 +128,25 @@ shell or ipython.</i>
 All of the backends run on OS X.  Chris Barker has built a binary
 package (fink users see below) for matplotlib which is hosted on <a
 href=http://pythonmac.org/packages>pythonmac</a>, and works with Agg,
-Wx and Tk.  It does not included the GTK* backends, because pygtk is
-usually provided through fink and/or darwinport.  This version should
-work on an stock OS-X 10.3.*, and you need Numeric or numarray
-(available on the same site), and TK or wxPython, if you want to use
-those back ends.<p>
+Wx and Tk; see the <a
+href=http://geosci.uchicago.edu/~tobis/pylab.html>step-by-step
+instructions</a> kindly provided by Michael Tobis.  It does not
+included the GTK* backends, because pygtk is usually provided through
+fink and/or darwinport.  This version should work on an stock OS-X
+10.3.*, and you need Numeric or numarray (available on the same site),
+and TK or wxPython, if you want to use those back ends.<p>
 
-
-
-There are a couple of other binary packages to look at.  Charlie Moad
-has bundled matplotlib for OS X which includes freetype, png, wx,
-numarray, numeric and doesn't rely on fink or darwinports; available
-in the <a href=http://sda.iu.edu/projects.html>Tools Section</a>.
-Another bundle is <a
-href=http://www.stecf.org/macosxscisoft>scisoft</a> which packages
-many scientific packages for python on OS X, including matplotlib,
-although it is designed for astronomical analysis.</p>
+There are other binary packages to look at which each have different
+components included.  Robery Kern has built an all-in-one installer
+which includes scipy, Numeric, numarray, matplotlib, ipython, VTK,
+MayaVi, PIL, the enthought tool suite and much more; see <a
+href=http://www.scipy.org/wikis/featurerequests/MacEnthon/view?searchterm=macenthon>>MacEnthon</a>.
+Charlie Moad has bundled matplotlib with freetype, png, wx, numarray,
+numeric and doesn't rely on fink or darwinports; available in the <a
+href=http://sda.iu.edu/projects.html>Tools Section</a>.  Another
+bundle is <a href=http://www.stecf.org/macosxscisoft>scisoft</a> which
+packages many scientific packages for python on OS X, including
+matplotlib, although it is designed for astronomical analysis.  </p>
 
 If you want to compile yourself on OS X, make sure you read the
 compiling instructions above.  You will need to install freetype2,
@@ -174,8 +188,7 @@ they require), I suggest
 <h3><a name=debian>Debian</a></h3>
 
 Vittorio Palmisano <redclay@email.it> maintails the debian
-packages at http://mentors.debian.net
-
+packages 
 
 <ul>
     <li> add these lines to your /etc/apt/sources.list: 

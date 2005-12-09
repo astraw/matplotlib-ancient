@@ -463,7 +463,7 @@ available in the windows installer .  Failure to do so can cause up to
 a 30-fold performance hit in some cases.<p>
 
 Also, if you are running a python script, make sure your interactive
-setting in your <a href=matplotlibrc>.matplotlirc</a> is false;
+setting in your <a href=matplotlibrc>matplotlibrc</a> is <tt>False</tt>;
 otherwise the figure will be redrawn with every plotting command when
 what you want if for the figure to be drawn only once at the end of
 the script.  See <a href=interactive.html>interactive</a> and <a
@@ -671,9 +671,9 @@ of them.
 
 <h4>Image generation</h4>
 
-For pure image generation (no GUI) you can choose from the Agg, Cairo, PS,
-SVG, Paint or GD backends.  At this point, I advise people to use the <a
-href=http://antigrain.com>agg</a> backend because:
+For pure image generation (no GUI) you can choose from the Agg, Cairo,
+PS, SVG, Paint, GD or EMF backends.  At this point, I advise people to
+use the <a href=http://antigrain.com>agg</a> backend because:
 
 <ul>
   <li>it's the fastest</li>

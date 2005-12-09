@@ -38,6 +38,7 @@ command, the backend can be chosen from the command line with the
 > python subplot_demo.py -dSVG     # SVG backend
 > python subplot_demo.py -dGD      # GD backend
 > python subplot_demo.py -dPaint   # Paint backend
+> python subplot_demo.py -dEMF     # EMF backend
 </pre>
 
 
@@ -67,12 +68,13 @@ href=matplotlib.backends.backend_cairo.html>Cairo</a>, <a
 href=matplotlib.backends.backend_gtk.html>GTK</a>, <a
 href=matplotlib.backends.backend_gtkagg.html>GTKAgg</a>, <a
 href=matplotlib.backends.backend_gtkcairo.html>GTKCairo</a>, <a
-href=matplotlib.backends.backend_ps.html>PS</a> <a
-href=matplotlib.backends.backend_tkagg.html>TkAgg</a> <a
-href=matplotlib.backends.backend_wx.html>WX</a> <a
-href=matplotlib.backends.backend_wxagg.html>WXAgg</a> <a
-href=matplotlib.backends.backend_paint.html>Paint</a> and <a
+href=matplotlib.backends.backend_ps.html>PS</a>, <a
+href=matplotlib.backends.backend_tkagg.html>TkAgg</a>, <a
+href=matplotlib.backends.backend_wx.html>WX</a>, <a
+href=matplotlib.backends.backend_wxagg.html>WXAgg</a>, <a
+href=matplotlib.backends.backend_paint.html>Paint</a>, <a
 href=matplotlib.backends.backend_gd.html>GD</a>, <a
+href=matplotlib.backends.backend_emf.html>EMF</a> and <a
 href=matplotlib.backends.backend_template.html>Template</a>.
 
 The default is GTKAgg.  Template is a do nothing backend that serves as a
@@ -105,6 +107,7 @@ this page below or by clicking
 <li><a href=backends.html#PS>PS</a></li>
 <li><a href=backends.html#Paint>Paint</a></li>
 <li><a href=backends.html#GD>GD</a></li>
+<li><a href=backends.html#EMF>EMF</a></li>
 </ul>
 
 
@@ -304,7 +307,7 @@ are instructions for building gdmodule.
   href=http://newcenturycomputers.net/projects/gdmodule.html>gdmodule-0.52</a>
   -- The python interface to the gd module.</li>
 
-
+  </ul>
 
 <h4><a name=GDWIN32>Quick install guide for GD output: Windows</a></h4>
 
@@ -346,6 +349,21 @@ href=http://sourceforge.net/projects/pypaint>pypaint</a> version 0.3.
 libart is highly portable, and the paint backend has been confirmed to
 work on win32 and linux.  The pypaint web site has a src distribution
 and a windows installer.<p>
+
+
+
+<a name=EMF><h3>EMF</h3></a>
+
+Rob McMullen has written an Enhanced Metafile (EMF) backend for
+matplotlib, which requires <a
+href="http://pyemf.sourceforge.net">pyemf</a> version 2.0.0b1 (or
+newer).  EMF is a vector graphics format supported by the
+cross-platform OpenOffice suite as well as most Windows office
+applications.  EMF images can also be embedded within Rich Text Format
+(.rtf) files to create a single document with multiple plots. <p>
+
+
+
 
 @footer@
 
