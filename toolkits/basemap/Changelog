@@ -1,11 +1,153 @@
-20041229:  initial release
-20050119:  fixed glitches in drawing of parallels and meridians.
-20050121:  proj.4 is now called via a C-library interface, instead
-           of using the proj command-line tool via os.popen.
+20060114:  version 0.8: added numpy compatibility
+20051118:  version 0.7.2.1: 
+           There was a problem running examples that read pickle files.
+           The pickle files were created with numarray, and the
+           data would not be read correctly using Numeric.  Fixed so
+           that pickles are created with Numeric and Numeric is used
+           to read them.
+20051018:  version 0.7.2:
+           * No longer requires numarray (interp function no
+           longer uses numarray.nd_image).
+           * Modified to work with the new ContourSet returned
+           by contour and contourf.
+           * Axes frame turned off by default for non-rectangular
+           projections ('ortho','robin' and 'moll').
+           * Added createfigure method to create a figure with the 
+           same aspect ratio as the map using pylab.figure.
+           * Resets subplot.params defaults so that default
+           axes rectangle will have both a width and height of 0.9
+           (this ensures that the figure size determines that aspect
+           ratio of the plot).
+           * readshapefile method raises an exception if the vertices
+           look like they are not in geographic (lat/lon) coordinates.
+20050921:  version 0.7.1:
+           Fixed several bugs in meridian/parallel labelling and
+           Cylindrical projections that crossed greenwich were not
+           being handled properly.
+           Added 'fmt' keyword arg to drawmeridians and drawparallels
+           (default is '%g').
+           Fixed bug in 'readshapefile' that prevented boundaries from
+           being drawn for 'cyl','merc' or 'miller' projections when the
+           map region did not cross the greenwich meridian.
+           Modified imshow method so 'origin' keyword is accepted (it
+           was always set to 'lower' previously).
+           Added testgdal.py example showing how to plot raster
+           geospatial data with gdal module (gdal.maptools.org).
+           Meridians and parallels labelled correctly when
+           rcParams['text.usetext']=True.
+20050914:  version 0.7:
+           Optimizations to reduce the time it takes to create
+           a Basemap class instance - now nearly 4 times faster
+           when using resolution='i'.
+           Added 'h' (high) resolution boundary data.
+           Added datasets for major rivers, "drawrivers" class method.
+           Fixed some errors in boundaries datasets.
+           Boundary datasets now installed in a separate package.
+           Should now handle Numeric to numarray conversions internally,
+           so removed warning when rcParams['numerix'] != 'numarray'.
+           Changed default area_thresh so it depends on coastline
+           resolution (10000 for 'c' declining to 10 for 'h').
+20050901:  version 0.6.2:
+           Warning issued if numerix = 'Numeric' (a user reported
+           crashes due to botched Numeric --> numarray conversions).
+           Changes to proj4 wrapper to make Basemap instances pickle-able.
+20050814:  version 0.6.1:
+           Added hurrtracks.py example (plot hurricane tracks from
+           shapefile).
+           Now includes pyshapelib (extracted from Thuban source).
+20050811:  version 0.6:
+           sf bug #1254163 (make sure lat/lon limits of projection are floats)
+           wiki_example.py and plotclimdiv.py examples added.
+           Added 'readshapefile' method for reading and plotting data
+           from ESRI shapefiles (requires pyshapelib from Thuban).
+           plotclimdiv.py is an example that illustrates this.
+20050628:  version 0.5.2:
+           fixed bug in meridian labelling when lon > 360 or lon < -180.
+           Now fully "pylab free" if 'ax' keyword is used in Basemap.__init__
+           or all of the Basemap methods that do drawing.
+20050626:  version 0.5.1:
+           Added ability to specify an existing axis instance in
+           all Basemap methods (instead of just using current one).
+           Default is still to use current axis instance.
+           Full control of font properties for parallel and meridian
+           labels (now uses unicode instead of mathtext for degree symbol).
+20050602:  version 0.5
+           Added Orthographic, Mollweide and Robinson projections.
+           Added 'drawmapboundary' method to draw a
+           line around the map projection region.
+           Added 'suppress_ticks' keyword to Basemap.__init__
+           It's True by default, but can be set to False if you
+           want to label ticks in native map projection coordinates.
+           Added 'rotate_vector' method to rotate vectors to map
+           projection coordinates (without interpolation, as in
+           'transform_vector' method).
+           Modified pcolor, contour, contourf methods to use
+           masked arrays.  Now requires matplotlib-0.81
+           drawparallels and drawmeridians methods now take optional
+           keyword arguments 'xoffset' and 'yoffset', which control how
+           far from the edge of the map labels are drawn.
+20050511:  version 0.4.3
+           Added Oblique Mercator.
+           great circle calculations now use vincenty's equations
+           for an ellipsoid.
+20050510:  version 0.4.2
+           transform_vector now does a simple rotation of the vector
+           from geographic to map coordinates, preserving the vector
+           magnitude (removed 'preserve_magnitude' keyword).
+           Minor bugs in Miller and Mercator projections fixed.
+           Added Gnomonic, Cassini-Soldner and Polyconic projections
+           (now 13 projections supported).
+20050509:  version 0.4.1
+           Miller projection was erroneously referred to by the name
+           'miller' (instead of 'mill') - fixed.  Added the ability
+           to specify the major and minor sphere radii by specifying
+           the 'rsphere' keyword in __init__ to be a tuple instead of
+           a scalar.
+20050505:  version 0.4
+           added support for miller cylindrical, equidistant conic,
+           and azimuthal equidistant projections.  Bugs fixed in
+           coastline drawing and continent filling methods.
+20050427:  version 0.3.3
+           fillcontinents modified to not fill lakes (they
+           are actually still filled, but with axis background color).
+20050420:  version 0.3.2 - code cleanups and docstring typo fixes.
+           env var BASEMAP_DATA_PATH can now be used to point to
+           data files in a non-standard install (i.e using --prefix
+           or --home).
+20050415:  version 0.3
+           Added transform_scalar and transform_vector methods for
+           interpolating scalar and vector fields to a map projection
+           grid.  Added shiftgrid and addcyclic convenience functions.
+           Added quiver_demo.py example illustrating how to plot
+           wind vectors on a map. Updated examples to use
+           transform_scalar instead of calling interp directly.
+           Mercator x coordinate units changed from degrees to meters
+           setup.py now installs data in python-version-numbered directory.
+           (so you can have separate copies for different python versions).
+           Fixed aspect ratio of mercator plots.
+           Added set_axes_limits,plot,scatter,contourf,contour,
+           pcolor and quiver methods.
+           axes instance no longer a method argument (API change).
+20050410:  version 0.2.1 - add gcpoints and drawgreatcircles methods.
+           Added intermediate resolution coastline and political
+           boundary databases. Fixed bug in filling continents,
+           and another bug in drawing parallels/meridians. Added
+           'ireland.py' example.
+20050404:  version 0.2 - drawparallels and drawmeridians can now
+           draw labels at edge of map.
+20050331:  version 0.1.2 - now can handle negative longitudes (patch
+           from Michael Brady). basemap.interp can now handle irregular
+           (but still rectilinear) lat/lon grids.
+20050203:  version 0.1 released on SF.
+20050202:  Changed LineCollections.color to set_color in a try/except block.
+           (color was a typo in 0.71 and is deprecated).
+20050130:  no user visible changes.  Uses new pyrex generated
+           C extension interface to proj.4 which is twice as
+           fast as the Thuban one.
 20050124:  some code reorg, fixed bugs in S. Hem. projections.
            xmin,xmax,ymin,ymax Basemap instance variables renamed
            to llcrnrx,urcrnrx,llcrnry,urcrnry. Added __call__
            and makegrid methods to Basemap class.
-20050130:  no user visible changes.  Uses new pyrex generated
-           C extension interface to proj.4 which is twice as
-           fast as the Thuban one.
+20050121:  proj.4 is now called via a C-library interface, instead
+           of using the proj command-line tool via os.popen.
+20050119:  fixed glitches in drawing of parallels and meridians.
