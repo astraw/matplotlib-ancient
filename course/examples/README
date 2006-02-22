@@ -1,5 +1,0 @@
-Any script that is to be run as a standalone should be added to the
-runall.py file listing.  We can use that script to test the
-environment before the course.
-
-
