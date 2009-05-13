@@ -58,8 +58,6 @@ class MPLConfig(TConfig):
     toolbar = T.Trait('toolbar2', 'toolbar2', None)
     timezone = T.Trait('UTC', pytz.all_timezones)
     datapath = T.Trait(cutils.get_data_path())
-    numerix = T.Trait('numpy', 'numpy', 'numeric', 'numarray')
-    maskedarray = T.false
     units = T.false
 
     class backend(TConfig):
@@ -106,9 +104,9 @@ class MPLConfig(TConfig):
         linewidth = T.Float(1.0)
         linestyle = T.Trait('-','--','-.', ':', 'steps', '', ' ', None)
         color = T.Trait('blue',mplT.ColorHandler())
-        solid_joinstyle = T.Trait('miter', 'miter', 'round', 'bevel')
+        solid_joinstyle = T.Trait('round', 'miter', 'round', 'bevel')
         solid_capstyle = T.Trait('butt', 'butt', 'round', 'projecting')
-        dash_joinstyle = T.Trait('miter', 'miter', 'round', 'bevel')
+        dash_joinstyle = T.Trait('round', 'miter', 'round', 'bevel')
         dash_capstyle = T.Trait('butt', 'butt', 'round', 'projecting')
         marker = T.Trait('None', 'None', 'o', '.', ',', '^', 'v', '<', '>', 's',
                          '+', 'x', 'D','d', '1', '2', '3', '4', 'h', 'H', 'p',
@@ -119,6 +117,7 @@ class MPLConfig(TConfig):
 
     class path(TConfig):
         simplify = T.false
+        simplify_threshold = T.float(1.0 / 9.0)
 
     class patch(TConfig):
         linewidth = T.Float(1.0)
@@ -169,6 +168,7 @@ class MPLConfig(TConfig):
         bf  = T.Trait('serif:bold'    , mplT.FontconfigPatternHandler())
         sf  = T.Trait('sans'          , mplT.FontconfigPatternHandler())
         fontset = T.Trait('cm', 'cm', 'stix', 'stixsans', 'custom')
+        default = T.Trait(*("rm cal it tt sf bf default bb frak circled scr regular".split()))
         fallback_to_cm = T.true
 
     class axes(TConfig):
@@ -289,8 +289,6 @@ class RcParamsWrapper(dict):
         self.tconfig_map = {
         'backend' : (self.tconfig.backend, 'use'),
         'backend_fallback' : (self.tconfig.backend, 'fallback'),
-        'numerix' : (self.tconfig, 'numerix'),
-        'maskedarray' : (self.tconfig, 'maskedarray'),
         'toolbar' : (self.tconfig, 'toolbar'),
         'datapath' : (self.tconfig, 'datapath'),
         'units' : (self.tconfig, 'units'),
@@ -443,7 +441,8 @@ class RcParamsWrapper(dict):
         'svg.embed_char_paths' : (self.tconfig.backend.svg, 'embed_char_paths'),
 
         # Path properties
-        'path.simplify' : (self.tconfig.path, 'simplify')
+        'path.simplify' : (self.tconfig.path, 'simplify'),
+        'path.simplify_threshold' : (self.tconfig.path, 'simplify_threshold')
         }
 
     def __setitem__(self, key, val):

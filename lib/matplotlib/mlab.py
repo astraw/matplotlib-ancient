@@ -54,12 +54,22 @@ Functions that don't exist in matlab(TM), but are useful anyway:
     yourself stranded without scipy (and the far superior
     scipy.integrate tools)
 
+:meth:`contiguous_regions`
+    return the indices of the regions spanned by some logical mask
+
+:meth:`cross_from_below`
+    return the indices where a 1D array crosses a threshold from below
+
+:meth:`cross_from_above`
+    return the indices where a 1D array crosses a threshold from above
+
+
 record array helper functions
 -------------------------------
 
 A collection of helper methods for numpyrecord arrays
 
-.. _htmlonly::
+.. _htmlonly:
 
     See :ref:`misc-examples-index`
 
@@ -164,13 +174,6 @@ from matplotlib import verbose
 
 import matplotlib.nxutils as nxutils
 import matplotlib.cbook as cbook
-
-# set is a new builtin function in 2.4; delete the following when
-# support for 2.3 is dropped.
-try:
-    set
-except NameError:
-    from sets import Set as set
 
 
 def linspace(*args, **kw):
@@ -475,7 +478,8 @@ def specgram(x, NFFT=256, Fs=2, detrend=detrend_none, window=window_hanning,
            segments.
 
     .. seealso::
-        :func:`psd`:
+
+        :func:`psd`
             :func:`psd` differs in the default overlap; in returning
             the mean of the segment periodograms; and in not returning
             times.
@@ -517,7 +521,8 @@ def cohere(x, y, NFFT=256, Fs=2, detrend=detrend_none, window=window_hanning,
     the factors cancel out.
 
     .. seealso::
-        :func:`psd` and :func:`csd`:
+
+        :func:`psd` and :func:`csd`
             For information about the methods used to compute
             :math:`P_{xy}`, :math:`P_{xx}` and :math:`P_{yy}`.
     """
@@ -565,7 +570,7 @@ def polyfit(*args, **kwargs):
 
     Do a best fit polynomial of order *N* of *y* to *x*.  Return value
     is a vector of polynomial coefficients [pk ... p1 p0].  Eg, for
-    *N*=2::
+    *N* = 2::
 
       p2*x0^2 +  p1*x0 + p0 = y1
       p2*x1^2 +  p1*x1 + p0 = y1
@@ -601,12 +606,12 @@ def polyfit(*args, **kwargs):
     subscripts on that page.  The linear algebra is correct, however.
 
     .. seealso::
+
         :func:`polyval`
+           polyval function
     """
-    warnings.warn("use numpy.poyfit", DeprecationWarning)
+    warnings.warn("use numpy.polyfit", DeprecationWarning)
     return np.polyfit(*args, **kwargs)
-
-
 
 
 def polyval(*args, **kwargs):
@@ -623,7 +628,9 @@ def polyval(*args, **kwargs):
       resid = y - trend
 
     .. seealso::
+
         :func:`polyfit`
+           polyfit function
     """
     warnings.warn("use numpy.polyval", DeprecationWarning)
     return np.polyval(*args, **kwargs)
@@ -709,7 +716,8 @@ def cohere_pairs( X, ij, NFFT=256, Fs=2, detrend=detrend_none,
     cohere.
 
     .. seealso::
-        :file:`test/cohere_pairs_test.py` in the src tree:
+
+        :file:`test/cohere_pairs_test.py` in the src tree
             For an example script that shows that this
             :func:`cohere_pairs` and :func:`cohere` give the same
             results for a given pair.
@@ -882,12 +890,6 @@ def trapz(x, y):
     """
     warnings.warn("Use numpy.trapz(y,x) instead of trapz(x,y)", DeprecationWarning)
     return np.trapz(y, x)
-    #if len(x)!=len(y):
-    #    raise ValueError, 'x and y must have the same length'
-    #if len(x)<2:
-    #    raise ValueError, 'x and y must have > 1 element'
-    #return np.sum(0.5*np.diff(x)*(y[1:]+y[:-1]))
-
 
 
 def longest_contiguous_ones(x):
@@ -1212,10 +1214,11 @@ def liaupunov(x, fprime):
         \lambda = \\frac{1}{n}\\sum \\ln|f^'(x_i)|
 
     .. seealso::
-        Sec 10.5 Strogatz (1994) "Nonlinear Dynamics and Chaos".
 
-        `Wikipedia article on Lyapunov Exponent
-        <http://en.wikipedia.org/wiki/Lyapunov_exponent>`_.
+        Lyapunov Exponent
+           Sec 10.5 Strogatz (1994) "Nonlinear Dynamics and Chaos".
+           `Wikipedia article on Lyapunov Exponent
+           <http://en.wikipedia.org/wiki/Lyapunov_exponent>`_.
 
     .. note::
         What the function here calculates may not be what you really want;
@@ -1426,7 +1429,8 @@ def load(fname,comments='#',delimiter=None, converters=None,skiprows=0,
     - *dtype*: the array will have this dtype.  default: ``numpy.float_``
 
     .. seealso::
-        See :file:`examples/pylab_examples/load_converter.py` in the source tree:
+
+        See :file:`examples/pylab_examples/load_converter.py` in the source tree
            Exercises many of these options.
     """
 
@@ -2057,6 +2061,7 @@ def rec_view(rec):
     .. seealso::
 
        http://projects.scipy.org/pipermail/numpy-discussion/2008-August/036429.html
+          Motivation for this function
     """
     return rec.view(np.recarray)
     #return rec.view(dtype=(np.record, rec.dtype), type=np.recarray)
@@ -2282,6 +2287,17 @@ def rec_join(key, r1, r2, jointype='inner', defaults=None, r1postfix='1', r2post
     newdtype = np.dtype(keydesc + r1desc + r2desc)
 
     newrec = np.empty(common_len + left_len + right_len, dtype=newdtype)
+
+    if defaults is not None:
+        for thiskey in defaults:
+            if thiskey not in newdtype.names:
+                warnings.warn('rec_join defaults key="%s" not in new dtype names "%s"'%(
+                    thiskey, newdtype.names))
+
+    for name in newdtype.names:
+        dt = newdtype[name]
+        if dt.kind in ('f', 'i'):
+            newrec[name] = 0
 
     if jointype != 'inner' and defaults is not None: # fill in the defaults enmasse
         newrec_fields = newrec.dtype.fields.keys()
@@ -2532,8 +2548,14 @@ def csv2rec(fname, comments='#', skiprows=0, checkrows=0, delimiter=',',
     fh.seek(0)
     reader = csv.reader(fh, delimiter=delimiter)
     process_skiprows(reader)
+
     if needheader:
-        skipheader = reader.next()
+        while 1:
+	    # skip past any comments and consume one line of column header
+	    row = reader.next()
+	    if len(row) and row[0].startswith(comments):
+	        continue
+	    break
 
     # iterate over the remaining rows and convert the data to date
     # objects, ints, or floats as approriate
@@ -2815,7 +2837,8 @@ def rec2csv(r, fname, delimiter=',', formatd=None, missing='',
       files is automatic, if the filename ends in '.gz'
 
     .. seealso::
-        :func:`csv2rec`:
+
+        :func:`csv2rec`
             For information about *missing* and *missingd*, which can
             be used to fill in masked values into your CSV file.
     """
@@ -3224,6 +3247,63 @@ def contiguous_regions(mask):
     if in_region is not None:
         boundaries.append((in_region, i+1))
     return boundaries
+
+
+def cross_from_below(x, threshold):
+    """
+    return the indices into *x* where *x* crosses some threshold from
+    below, eg the i's where::
+
+      x[i-1]<threshold and x[i]>=threshold
+
+    Example code::
+
+        import matplotlib.pyplot as plt
+
+        t = np.arange(0.0, 2.0, 0.1)
+        s = np.sin(2*np.pi*t)
+
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        ax.plot(t, s, '-o')
+        ax.axhline(0.5)
+        ax.axhline(-0.5)
+
+        ind = cross_from_below(s, 0.5)
+        ax.vlines(t[ind], -1, 1)
+
+        ind = cross_from_above(s, -0.5)
+        ax.vlines(t[ind], -1, 1)
+
+        plt.show()
+
+    .. seealso::
+
+        :func:`cross_from_above` and :func:`contiguous_regions`
+
+    """
+    x = np.asarray(x)
+    threshold = threshold
+    ind = np.nonzero( (x[:-1]<threshold) & (x[1:]>=threshold))[0]
+    if len(ind): return ind+1
+    else: return ind
+
+def cross_from_above(x, threshold):
+    """
+    return the indices into *x* where *x* crosses some threshold from
+    below, eg the i's where::
+
+      x[i-1]>threshold and x[i]<=threshold
+
+    .. seealso::
+
+        :func:`cross_from_below` and :func:`contiguous_regions`
+
+    """
+    x = np.asarray(x)
+    ind = np.nonzero( (x[:-1]>=threshold) & (x[1:]<threshold))[0]
+    if len(ind): return ind+1
+    else: return ind
 
 ##################################################
 # Vector and path length geometry calculations

@@ -481,7 +481,20 @@ class RRuleLocator(DateLocator):
         if dmin>dmax:
             dmax, dmin = dmin, dmax
         delta = relativedelta(dmax, dmin)
-        self.rule.set(dtstart=dmin-delta, until=dmax+delta)
+
+        # We need to cap at the endpoints of valid datetime
+        try:
+            start = dmin - delta
+        except ValueError:
+            start = _from_ordinalf( 1.0 )
+
+        try:
+            stop = dmax + delta
+        except ValueError:
+            # The magic number!
+            stop = _from_ordinalf( 3652059.9999999 )
+
+        self.rule.set(dtstart=start, until=stop)
         dates = self.rule.between(dmin, dmax, True)
         return date2num(dates)
 
@@ -518,7 +531,20 @@ class RRuleLocator(DateLocator):
             dmax, dmin = dmin, dmax
 
         delta = relativedelta(dmax, dmin)
-        self.rule.set(dtstart=dmin-delta, until=dmax+delta)
+
+        # We need to cap at the endpoints of valid datetime
+        try:
+            start = dmin - delta
+        except ValueError:
+            start = _from_ordinalf( 1.0 )
+
+        try:
+            stop = dmax + delta
+        except ValueError:
+            # The magic number!
+            stop = _from_ordinalf( 3652059.9999999 )
+
+        self.rule.set(dtstart=start, until=stop)
         dmin, dmax = self.datalim_to_dt()
 
 
@@ -1004,29 +1030,57 @@ def weeks(w):
 
 
 class DateConverter(units.ConversionInterface):
+    """The units are equivalent to the timezone."""
 
-    def axisinfo(unit):
+    @staticmethod
+    def axisinfo(unit, axis):
         'return the unit AxisInfo'
-        if unit=='date':
-            majloc = AutoDateLocator()
-            majfmt = AutoDateFormatter(majloc)
-            return units.AxisInfo(
-                majloc = majloc,
-                majfmt = majfmt,
-                label='',
-                )
-        else: return None
-    axisinfo = staticmethod(axisinfo)
+        # make sure that the axis does not start at 0
+        if axis:
+            ax = axis.axes
 
-    def convert(value, unit):
+            if axis is ax.get_xaxis():
+                xmin, xmax = ax.dataLim.intervalx
+                if xmin==0.:
+                    # no data has been added - let's set the default datalim.
+                    # We should probably use a better proxy for the datalim
+                    # have been updated than the ignore setting
+                    dmax = today = datetime.date.today()
+                    dmin = today-datetime.timedelta(days=10)
+
+                    ax._process_unit_info(xdata=(dmin, dmax))
+                    dmin, dmax = ax.convert_xunits([dmin, dmax])
+
+                    ax.viewLim.intervalx = dmin, dmax
+                    ax.dataLim.intervalx = dmin, dmax
+            elif axis is ax.get_yaxis():
+                ymin, ymax = ax.dataLim.intervaly
+                if ymin==0.:
+                    # no data has been added - let's set the default datalim.
+                    # We should probably use a better proxy for the datalim
+                    # have been updated than the ignore setting
+                    dmax = today = datetime.date.today()
+                    dmin = today-datetime.timedelta(days=10)
+
+                    ax._process_unit_info(ydata=(dmin, dmax))
+                    dmin, dmax = ax.convert_yunits([dmin, dmax])
+
+                    ax.viewLim.intervaly = dmin, dmax
+                    ax.dataLim.intervaly = dmin, dmax
+
+        majloc = AutoDateLocator(tz=unit)
+        majfmt = AutoDateFormatter(majloc, tz=unit)
+        return units.AxisInfo( majloc=majloc, majfmt=majfmt, label='' )
+
+    @staticmethod
+    def convert(value, unit, axis):
         if units.ConversionInterface.is_numlike(value): return value
         return date2num(value)
-    convert = staticmethod(convert)
 
-    def default_units(x):
+    @staticmethod
+    def default_units(x, axis):
         'Return the default unit for *x* or None'
-        return 'date'
-    default_units = staticmethod(default_units)
+        return None
 
 
 units.registry[datetime.date] = DateConverter()

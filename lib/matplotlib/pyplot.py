@@ -6,6 +6,7 @@ from matplotlib.cbook import dedent, silent_list, is_string_like, is_numlike
 from matplotlib.figure import Figure, figaspect
 from matplotlib.backend_bases import FigureCanvasBase
 from matplotlib.image import imread as _imread
+from matplotlib.image import imsave as _imsave
 from matplotlib import rcParams, rcParamsDefault, get_backend
 from matplotlib.rcsetup import interactive_bk as _interactive_bk
 from matplotlib.artist import getp, get, Artist
@@ -193,7 +194,7 @@ def figure(num=None, # autoincrement if None, else integer from 1-N
     *number* attribute holding this number.
 
     If *num* is an integer, and ``figure(num)`` already exists, make it
-    active and return the handle to it.  If ``figure(num)`` does not exist
+    active and return a reference to it.  If ``figure(num)`` does not exist
     it will be created.  Numbering starts at 1, matlab style::
 
       figure(1)
@@ -264,13 +265,21 @@ def figure(num=None, # autoincrement if None, else integer from 1-N
     return figManager.canvas.figure
 
 def gcf():
-    "Return a handle to the current figure."
+    "Return a reference to the current figure."
 
     figManager = _pylab_helpers.Gcf.get_active()
     if figManager is not None:
         return figManager.canvas.figure
     else:
         return figure()
+
+fignum_exists = _pylab_helpers.Gcf.has_fignum
+
+def get_fignums():
+    "Return a list of existing figure numbers."
+    fignums = _pylab_helpers.Gcf.figs.keys()
+    fignums.sort()
+    return fignums
 
 def get_current_fig_manager():
     figManager = _pylab_helpers.Gcf.get_active()
@@ -425,7 +434,8 @@ def figlegend(handles, labels, loc, **kwargs):
                  'upper right' )
 
     .. seealso::
-       :func:`~matplotlib.pyplot.legend`:
+
+       :func:`~matplotlib.pyplot.legend`
          For information about the location codes
     """
     l = gcf().legend(handles, labels, loc, **kwargs)
@@ -603,7 +613,7 @@ def subplot(*args, **kwargs):
 
       *axisbg*:
         The background color of the subplot, which can be any valid
-        color specifier.  See :module:`matplotlib.colors` for more
+        color specifier.  See :mod:`matplotlib.colors` for more
         information.
 
       *polar*:
@@ -616,11 +626,13 @@ def subplot(*args, **kwargs):
         registered. See :func:`matplotlib.projections.register_projection`
 
     .. seealso::
-        :func:`~matplotlib.pyplot.axes`:
+
+        :func:`~matplotlib.pyplot.axes`
             For additional information on :func:`axes` and
             :func:`subplot` keyword arguments.
 
         :file:`examples/pylab_examples/polar_scatter.py`
+            For an example
 
     **Example:**
 
@@ -650,7 +662,9 @@ def twinx(ax=None):
     the right, and the *ax2* instance is returned.
 
     .. seealso::
+
        :file:`examples/api_examples/two_scales.py`
+          For an example
     """
     if ax is None:
         ax=gca()
@@ -746,7 +760,8 @@ def title(s, *args, **kwargs):
                   'horizontalalignment': 'center'}
 
     .. seealso::
-       :func:`~matplotlib.pyplot.text`:
+
+       :func:`~matplotlib.pyplot.text`
            for information on how override and the optional args work.
     """
     l =  gca().set_title(s, *args, **kwargs)
@@ -812,7 +827,9 @@ def axis(*v, **kwargs):
     The xmin, xmax, ymin, ymax tuple is returned
 
     .. seealso::
+
         :func:`xlim`, :func:`ylim`
+           For setting the x- and y-limits individually.
     """
     ax = gca()
     v = ax.axis(*v, **kwargs)
@@ -832,7 +849,8 @@ def xlabel(s, *args, **kwargs):
           }
 
     .. seealso::
-        :func:`~matplotlib.pyplot.text`:
+
+        :func:`~matplotlib.pyplot.text`
             For information on how override and the optional args work
     """
     l =  gca().set_xlabel(s, *args, **kwargs)
@@ -852,7 +870,8 @@ def ylabel(s, *args, **kwargs):
            'rotation'='vertical' : }
 
     .. seealso::
-        :func:`~matplotlib.pyplot.text`:
+
+        :func:`~matplotlib.pyplot.text`
             For information on how override and the optional args
             work.
     """
@@ -964,7 +983,9 @@ def xticks(*args, **kwargs):
       xticks( arange(5), ('Tom', 'Dick', 'Harry', 'Sally', 'Sue') )
 
     The keyword args, if any, are :class:`~matplotlib.text.Text`
-    properties.
+    properties. For example, to rotate long labels::
+
+      xticks( arange(12), calendar.month_name[1:13], rotation=17 )
     """
     ax = gca()
 
@@ -1000,7 +1021,9 @@ def yticks(*args, **kwargs):
       yticks( arange(5), ('Tom', 'Dick', 'Harry', 'Sally', 'Sue') )
 
     The keyword args, if any, are :class:`~matplotlib.text.Text`
-    properties.
+    properties. For example, to rotate long labels::
+
+      yticks( arange(12), calendar.month_name[1:13], rotation=45 )
     """
     ax = gca()
 
@@ -1139,62 +1162,64 @@ def plotting():
     """
     Plotting commands
 
-    =========      =================================================
-    Command        Description
-    =========      =================================================
-    axes           Create a new axes
-    axis           Set or return the current axis limits
-    bar            make a bar chart
-    boxplot        make a box and whiskers chart
-    cla            clear current axes
-    clabel         label a contour plot
-    clf            clear a figure window
-    close          close a figure window
-    colorbar       add a colorbar to the current figure
-    cohere         make a plot of coherence
-    contour        make a contour plot
-    contourf       make a filled contour plot
-    csd            make a plot of cross spectral density
-    draw           force a redraw of the current figure
-    errorbar       make an errorbar graph
-    figlegend      add a legend to the figure
-    figimage       add an image to the figure, w/o resampling
-    figtext        add text in figure coords
-    figure         create or change active figure
-    fill           make filled polygons
-    fill_between    make filled polygons
-    gca            return the current axes
-    gcf            return the current figure
-    gci            get the current image, or None
-    getp           get a handle graphics property
-    hist           make a histogram
-    hold           set the hold state on current axes
-    legend         add a legend to the axes
-    loglog         a log log plot
-    imread         load image file into array
-    imshow         plot image data
-    matshow        display a matrix in a new figure preserving aspect
-    pcolor         make a pseudocolor plot
-    plot           make a line plot
-    plotfile       plot data from a flat file
-    psd            make a plot of power spectral density
-    quiver         make a direction field (arrows) plot
-    rc             control the default params
-    savefig        save the current figure
-    scatter        make a scatter plot
-    setp           set a handle graphics property
-    semilogx       log x axis
-    semilogy       log y axis
-    show           show the figures
-    specgram       a spectrogram plot
-    stem           make a stem plot
-    subplot        make a subplot (numrows, numcols, axesnum)
-    table          add a table to the axes
-    text           add some text at location x,y to the current axes
-    title          add a title to the current axes
-    xlabel         add an xlabel to the current axes
-    ylabel         add a ylabel to the current axes
-    =========      =================================================
+    =============== =========================================================
+    Command         Description
+    =============== =========================================================
+    axes            Create a new axes
+    axis            Set or return the current axis limits
+    bar             make a bar chart
+    boxplot         make a box and whiskers chart
+    cla             clear current axes
+    clabel          label a contour plot
+    clf             clear a figure window
+    close           close a figure window
+    colorbar        add a colorbar to the current figure
+    cohere          make a plot of coherence
+    contour         make a contour plot
+    contourf        make a filled contour plot
+    csd             make a plot of cross spectral density
+    draw            force a redraw of the current figure
+    errorbar        make an errorbar graph
+    figlegend       add a legend to the figure
+    figimage        add an image to the figure, w/o resampling
+    figtext         add text in figure coords
+    figure          create or change active figure
+    fill            make filled polygons
+    fill_between    make filled polygons between two sets of y-values
+    fill_betweenx   make filled polygons between two sets of x-values
+    gca             return the current axes
+    gcf             return the current figure
+    gci             get the current image, or None
+    getp            get a graphics property
+    hist            make a histogram
+    hold            set the hold state on current axes
+    legend          add a legend to the axes
+    loglog          a log log plot
+    imread          load image file into array
+    imsave          save array as an image file
+    imshow          plot image data
+    matshow         display a matrix in a new figure preserving aspect
+    pcolor          make a pseudocolor plot
+    plot            make a line plot
+    plotfile        plot data from a flat file
+    psd             make a plot of power spectral density
+    quiver          make a direction field (arrows) plot
+    rc              control the default params
+    savefig         save the current figure
+    scatter         make a scatter plot
+    setp            set a graphics property
+    semilogx        log x axis
+    semilogy        log y axis
+    show            show the figures
+    specgram        a spectrogram plot
+    stem            make a stem plot
+    subplot         make a subplot (numrows, numcols, axesnum)
+    table           add a table to the axes
+    text            add some text at location x,y to the current axes
+    title           add a title to the current axes
+    xlabel          add an xlabel to the current axes
+    ylabel          add a ylabel to the current axes
+    =============== =========================================================
 
     The following commands will set the default colormap accordingly:
 
@@ -1221,7 +1246,7 @@ def plotting():
 def get_plot_commands(): return ( 'axes', 'axis', 'bar', 'boxplot', 'cla', 'clf',
     'close', 'colorbar', 'cohere', 'csd', 'draw', 'errorbar',
     'figlegend', 'figtext', 'figimage', 'figure', 'fill', 'gca',
-    'gcf', 'gci', 'get', 'gray', 'barh', 'jet', 'hist', 'hold', 'imread',
+    'gcf', 'gci', 'get', 'gray', 'barh', 'jet', 'hist', 'hold', 'imread', 'imsave',
     'imshow', 'legend', 'loglog', 'quiver', 'rc', 'pcolor', 'pcolormesh', 'plot', 'psd',
     'savefig', 'scatter', 'set', 'semilogx', 'semilogy', 'show',
     'specgram', 'stem', 'subplot', 'table', 'text', 'title', 'xlabel',
@@ -1229,7 +1254,7 @@ def get_plot_commands(): return ( 'axes', 'axis', 'bar', 'boxplot', 'cla', 'clf'
 
 def colors():
     """
-    This is a do nothing function to provide you with help on how
+    This is a do-nothing function to provide you with help on how
     matplotlib handles colors.
 
     Commands which take color arguments can use several formats to
@@ -1361,6 +1386,11 @@ def imread(*args, **kwargs):
 if _imread.__doc__ is not None:
     imread.__doc__ = dedent(_imread.__doc__)
 
+def imsave(*args, **kwargs):
+    return _imsave(*args, **kwargs)
+if _imsave.__doc__ is not None:
+    imsave.__doc__ = dedent(_imsave.__doc__)
+
 def matshow(A, fignum=None, **kw):
     """
     Display an array as a matrix in a new figure window.
@@ -1407,14 +1437,20 @@ def polar(*args, **kwargs):
 
     Make a polar plot.  Multiple *theta*, *r* arguments are supported,
     with format strings, as in :func:`~matplotlib.pyplot.plot`.
+
+    An optional kwarg *resolution* sets the number of vertices to
+    interpolate between each pair of points.  The default is 1,
+    which disables interpolation.
     """
-    ax = gca(polar=True)
+    resolution = kwargs.pop('resolution', None)
+    ax = gca(polar=True, resolution=resolution)
     ret = ax.plot(*args, **kwargs)
     draw_if_interactive()
     return ret
 
 def plotfile(fname, cols=(0,), plotfuncs=None,
-             comments='#', skiprows=0, checkrows=5, delimiter=',',
+             comments='#', skiprows=0, checkrows=5, delimiter=',', names=None,
+             subplots=True, newfig=True,
              **kwargs):
     """
     Plot the data in *fname*
@@ -1430,17 +1466,27 @@ def plotfile(fname, cols=(0,), plotfuncs=None,
 
     - If len(*cols*) > 1, the first element will be an identifier for
       data for the *x* axis and the remaining elements will be the
-      column indexes for multiple subplots
+      column indexes for multiple subplots if *subplots* is *True*
+      (the default), or for lines in a single subplot if *subplots*
+      is *False*.
 
     *plotfuncs*, if not *None*, is a dictionary mapping identifier to
     an :class:`~matplotlib.axes.Axes` plotting function as a string.
     Default is 'plot', other choices are 'semilogy', 'fill', 'bar',
     etc.  You must use the same type of identifier in the *cols*
     vector as you use in the *plotfuncs* dictionary, eg., integer
-    column numbers in both or column names in both.
+    column numbers in both or column names in both. If *subplots*
+    is *False*, then including any function such as 'semilogy'
+    that changes the axis scaling will set the scaling for all
+    columns.
 
-    *comments*, *skiprows*, *checkrows*, and *delimiter* are all passed on to
-    :func:`matplotlib.pylab.csv2rec` to load the data into a record array.
+    *comments*, *skiprows*, *checkrows*, *delimiter*, and *names*
+    are all passed on to :func:`matplotlib.pylab.csv2rec` to
+    load the data into a record array.
+
+    If *newfig* is *True*, the plot always will be made in a new figure;
+    if *False*, it will be made in the current figure if one exists,
+    else in a new figure.
 
     kwargs are passed on to plotting functions.
 
@@ -1450,17 +1496,26 @@ def plotfile(fname, cols=(0,), plotfuncs=None,
       plotfile(fname, (0,1,3))
 
       # plot using column names; specify an alternate plot type for volume
-      plotfile(fname, ('date', 'volume', 'adj_close'), plotfuncs={'volume': 'semilogy'})
+      plotfile(fname, ('date', 'volume', 'adj_close'),
+                                    plotfuncs={'volume': 'semilogy'})
+
+    Note: plotfile is intended as a convenience for quickly plotting
+    data from flat files; it is not intended as an alternative
+    interface to general plotting with pyplot or matplotlib.
     """
 
-    fig = figure()
+    if newfig:
+        fig = figure()
+    else:
+        fig = gcf()
+
     if len(cols)<1:
         raise ValueError('must have at least one column of data')
 
     if plotfuncs is None:
         plotfuncs = dict()
-    r = mlab.csv2rec(fname, comments=comments,
-                skiprows=skiprows, checkrows=checkrows, delimiter=delimiter)
+    r = mlab.csv2rec(fname, comments=comments, skiprows=skiprows,
+                     checkrows=checkrows, delimiter=delimiter, names=names)
 
     def getname_val(identifier):
         'return the name and column data for identifier'
@@ -1473,36 +1528,44 @@ def plotfile(fname, cols=(0,), plotfuncs=None,
             raise TypeError('identifier must be a string or integer')
 
     xname, x = getname_val(cols[0])
+    ynamelist = []
 
     if len(cols)==1:
         ax1 = fig.add_subplot(1,1,1)
         funcname = plotfuncs.get(cols[0], 'plot')
         func = getattr(ax1, funcname)
         func(x, **kwargs)
-        ax1.set_xlabel(xname)
+        ax1.set_ylabel(xname)
     else:
         N = len(cols)
         for i in range(1,N):
-            if i==1:
-                ax = ax1 = fig.add_subplot(N-1,1,i)
-                ax.grid(True)
-            else:
-                ax = fig.add_subplot(N-1,1,i, sharex=ax1)
-                ax.grid(True)
+            if subplots:
+                if i==1:
+                    ax = ax1 = fig.add_subplot(N-1,1,i)
+                else:
+                    ax = fig.add_subplot(N-1,1,i, sharex=ax1)
+            elif i==1:
+                ax = fig.add_subplot(1,1,1)
+
+            ax.grid(True)
 
 
             yname, y = getname_val(cols[i])
+            ynamelist.append(yname)
 
             funcname = plotfuncs.get(cols[i], 'plot')
             func = getattr(ax, funcname)
 
             func(x, y, **kwargs)
-            ax.set_ylabel(yname)
+            if subplots:
+                ax.set_ylabel(yname)
             if ax.is_last_row():
                 ax.set_xlabel(xname)
             else:
                 ax.set_xlabel('')
 
+    if not subplots:
+        ax.legend(ynamelist, loc='best')
 
     if xname=='date':
         fig.autofmt_xdate()
@@ -1906,6 +1969,28 @@ def fill_between(*args, **kwargs):
     return ret
 if Axes.fill_between.__doc__ is not None:
     fill_between.__doc__ = dedent(Axes.fill_between.__doc__) + """
+
+Additional kwargs: hold = [True|False] overrides default hold state"""
+
+# This function was autogenerated by boilerplate.py.  Do not edit as
+# changes will be lost
+def fill_betweenx(*args, **kwargs):
+    # allow callers to override the hold state by passing hold=True|False
+    b = ishold()
+    h = kwargs.pop('hold', None)
+    if h is not None:
+        hold(h)
+    try:
+        ret =  gca().fill_betweenx(*args, **kwargs)
+        draw_if_interactive()
+    except:
+        hold(b)
+        raise
+
+    hold(b)
+    return ret
+if Axes.fill_betweenx.__doc__ is not None:
+    fill_betweenx.__doc__ = dedent(Axes.fill_betweenx.__doc__) + """
 
 Additional kwargs: hold = [True|False] overrides default hold state"""
 

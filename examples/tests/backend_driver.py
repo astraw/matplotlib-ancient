@@ -211,6 +211,7 @@ api_files = [
     'font_family_rc.py',
     'histogram_demo.py',
     'image_zcoord.py',
+    'joinstyle.py',
     'legend_demo.py',
     'line_with_text.py',
     'logo2.py',
@@ -237,6 +238,11 @@ units_files = [
     'units_sample.py',
     #'units_scatter.py', # broken, fixme
 
+    ]
+
+mplot3d_dir = os.path.join('..', 'mplot3d')
+mplot3d_files = [
+    'demo.py',
     ]
 
 # dict from dir to files we know we don't want to test (eg examples
@@ -270,7 +276,8 @@ report_missing(units_dir, units_files)
 files = (
     [os.path.join(api_dir, fname) for fname in api_files] +
     [os.path.join(pylab_dir, fname) for fname in pylab_files] +
-    [os.path.join(units_dir, fname) for fname in units_files]
+    [os.path.join(units_dir, fname) for fname in units_files] +
+    [os.path.join(mplot3d_dir, fname) for fname in mplot3d_files]
      )
 
 # tests known to fail on a given backend

@@ -1,10 +1,7 @@
 # Here is some example code showing how to define some representative
 # rc properties and construct a matplotlib artist using traits.
-# Because matplotlib ships with enthought traits already, you can run
-# this script with just matplotlib.  Unfortunately, we do not ship the
-# ex UI component so you can't test that part.  I'm a bit of a traits
-# newbie so there are probably better ways to do what I have done
-# below.
+# matplotlib does not ship with enthought.traits, so you will need to
+# install it separately.
 
 import sys, os, re
 import enthought.traits.api as traits
@@ -134,7 +131,6 @@ backends = ('GTKAgg', 'Cairo', 'FltkAgg', 'GDK', 'GTK', 'Agg',
 
 class RC(traits.HasTraits):
    backend = traits.Trait(*backends)
-   numerix = traits.Trait('Numeric', 'numarray')
    interactive  = flexible_false_trait
    toolbar      = traits.Trait('toolbar2', 'classic', None)
    timezone     = traits.Trait(*timezones)

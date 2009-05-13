@@ -178,10 +178,18 @@ void Read_name(struct TTFONT *font)
 
     table_ptr = NULL;
 
-    /* Set default values to avoid future references to */
-    /* undefined pointers. */
-    font->PostName = font->FullName =
-      font->FamilyName = font->Version = font->Style = (char*)"unknown";
+    /* Set default values to avoid future references to undefined
+     * pointers. Allocate each of PostName, FullName, FamilyName,
+     * Version, and Style separately so they can be freed safely. */
+    for (char **ptr = &(font->PostName); ptr != NULL; ) {
+      *ptr = (char*) calloc(sizeof(char), strlen("unknown")+1);
+      strcpy(*ptr, "unknown");
+      if (ptr == &(font->PostName)) ptr = &(font->FullName);
+      else if (ptr == &(font->FullName)) ptr = &(font->FamilyName);
+      else if (ptr == &(font->FamilyName)) ptr = &(font->Version);
+      else if (ptr == &(font->Version)) ptr = &(font->Style);
+      else ptr = NULL;
+    }
     font->Copyright = font->Trademark = (char*)NULL;
 
     table_ptr = GetTable(font, "name");		/* pointer to table */
@@ -222,6 +230,7 @@ void Read_name(struct TTFONT *font)
 	  /* Font Family name */
 	  if( platform == 1 && nameid == 1 )
 	    {
+	      free(font->FamilyName);
 	      font->FamilyName = (char*)calloc(sizeof(char),length+1);
 	      strncpy(font->FamilyName,(const char*)strings+offset,length);
 	      font->FamilyName[length]=(char)NULL;
@@ -237,6 +246,7 @@ void Read_name(struct TTFONT *font)
 	  /* Font Family name */
 	  if( platform == 1 && nameid == 2 )
 	    {
+	      free(font->Style);
 	      font->Style = (char*)calloc(sizeof(char),length+1);
 	      strncpy(font->Style,(const char*)strings+offset,length);
 	      font->Style[length]=(char)NULL;
@@ -252,6 +262,7 @@ void Read_name(struct TTFONT *font)
 	  /* Full Font name */
 	  if( platform == 1 && nameid == 4 )
 	    {
+	      free(font->FullName);
 	      font->FullName = (char*)calloc(sizeof(char),length+1);
 	      strncpy(font->FullName,(const char*)strings+offset,length);
 	      font->FullName[length]=(char)NULL;
@@ -267,6 +278,7 @@ void Read_name(struct TTFONT *font)
 	  /* Version string */
 	  if( platform == 1 && nameid == 5 )
 	    {
+	      free(font->Version);
 	      font->Version = (char*)calloc(sizeof(char),length+1);
 	      strncpy(font->Version,(const char*)strings+offset,length);
 	      font->Version[length]=(char)NULL;
@@ -282,6 +294,7 @@ void Read_name(struct TTFONT *font)
 	  /* PostScript name */
 	  if( platform == 1 && nameid == 6 )
 	    {
+	      free(font->PostName);
 	      font->PostName = (char*)calloc(sizeof(char),length+1);
 	      strncpy(font->PostName,(const char*)strings+offset,length);
 	      font->PostName[length]=(char)NULL;
@@ -482,20 +495,20 @@ void sfnts_pputBYTE(TTStreamWriter& stream, BYTE n)
 
     if(!in_string)
     	{
-	stream.putchar('<');
+	stream.put_char('<');
     	string_len=0;
     	line_len++;
     	in_string=TRUE;
     	}
 
-    stream.putchar( hexdigits[ n / 16 ] );
-    stream.putchar( hexdigits[ n % 16 ] );
+    stream.put_char( hexdigits[ n / 16 ] );
+    stream.put_char( hexdigits[ n % 16 ] );
     string_len++;
     line_len+=2;
 
     if(line_len > 70)
    	{
-   	stream.putchar('\n');
+   	stream.put_char('\n');
    	line_len=0;
    	}
 
@@ -548,7 +561,7 @@ void sfnts_end_string(TTStreamWriter& stream)
 	#endif
 
 	sfnts_pputBYTE(stream, 0);	/* extra byte for pre-2013 compatibility */
-	stream.putchar('>');
+	stream.put_char('>');
 	line_len++;
     	}
     in_string=FALSE;
@@ -955,7 +968,7 @@ void ttfont_trailer(TTStreamWriter& stream, struct TTFONT *font)
     /* a BuildGlyph and BuildChar proceedures. */
     if( font->target_type == PS_TYPE_3 )
     	{
-	stream.putchar('\n');
+	stream.put_char('\n');
 
 	stream.putline("/BuildGlyph");
 	stream.putline(" {exch begin");		/* start font dictionary */
@@ -964,7 +977,7 @@ void ttfont_trailer(TTStreamWriter& stream, struct TTFONT *font)
 	stream.putline(" true 3 1 roll get exec");
 	stream.putline(" end}_d");
 
-	stream.putchar('\n');
+	stream.put_char('\n');
 
 	/* This proceedure is for compatiblity with */
 	/* level 1 interpreters. */
@@ -973,7 +986,7 @@ void ttfont_trailer(TTStreamWriter& stream, struct TTFONT *font)
 	stream.putline(" 1 index /BuildGlyph get exec");
 	stream.putline("}_d");
 
-	stream.putchar('\n');
+	stream.put_char('\n');
     	}
 
     /* If we are generating a type 42 font, we need to check to see */
@@ -985,7 +998,7 @@ void ttfont_trailer(TTStreamWriter& stream, struct TTFONT *font)
     /* setup instructions and part of BuildGlyph came from. */
     else if( font->target_type == PS_TYPE_42 )
     	{
-	stream.putchar('\n');
+	stream.put_char('\n');
 
 	/* If we have no "resourcestatus" command, or FontType 42 */
 	/* is unknown, leave "true" on the stack. */
@@ -1066,11 +1079,11 @@ void ttfont_trailer(TTStreamWriter& stream, struct TTFONT *font)
 	/* if the printer has no built-in TrueType */
 	/* rasterizer. */
 	stream.putline("}if");
-	stream.putchar('\n');
+	stream.put_char('\n');
     	} /* end of if Type 42 not understood. */
 
     stream.putline("FontName currentdict end definefont pop");
-    stream.putline("%%EOF");
+    /* stream.putline("%%EOF"); */
     } /* end of ttfont_trailer() */
 
 /*------------------------------------------------------------------

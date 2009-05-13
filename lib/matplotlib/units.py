@@ -18,12 +18,13 @@ datetime objects
 
     class DateConverter(units.ConversionInterface):
 
-        def convert(value, unit):
+        @staticmethod
+        def convert(value, unit, axis):
             'convert value to a scalar or array'
             return dates.date2num(value)
-        convert = staticmethod(convert)
 
-        def axisinfo(unit):
+        @staticmethod
+        def axisinfo(unit, axis):
             'return major and minor tick locators and formatters'
             if unit!='date': return None
             majloc = dates.AutoDateLocator()
@@ -31,20 +32,18 @@ datetime objects
             return AxisInfo(majloc=majloc,
                             majfmt=majfmt,
                             label='date')
-        axisinfo = staticmethod(axisinfo)
 
-
-        def default_units(x):
+        @staticmethod
+        def default_units(x, axis):
             'return the default unit for x or None'
             return 'date'
-        default_units = staticmethod(default_units)
 
     # finally we register our object type with a converter
     units.registry[datetime.date] = DateConverter()
 
 """
 import numpy as np
-from matplotlib.cbook import iterable, is_numlike
+from matplotlib.cbook import iterable, is_numlike, is_string_like
 
 class AxisInfo:
     'information to support default axis labeling and tick labeling'
@@ -69,25 +68,26 @@ class ConversionInterface:
     The minimal interface for a converter to take custom instances (or
     sequences) and convert them to values mpl can use
     """
-    def axisinfo(unit):
-        'return an units.AxisInfo instance for unit'
+    @staticmethod
+    def axisinfo(unit, axis):
+        'return an units.AxisInfo instance for axis with the specified units'
         return None
-    axisinfo = staticmethod(axisinfo)
 
-    def default_units(x):
-        'return the default unit for x or None'
+    @staticmethod
+    def default_units(x, axis):
+        'return the default unit for x or None for the given axis'
         return None
-    default_units = staticmethod(default_units)
 
-    def convert(obj, unit):
+    @staticmethod
+    def convert(obj, unit, axis):
         """
-        convert obj using unit.  If obj is a sequence, return the
-        converted sequence.  The ouput must be a sequence of scalars
+        convert obj using unit for the specified axis.  If obj is a sequence,
+        return the converted sequence.  The ouput must be a sequence of scalars
         that can be used by the numpy array layer
         """
         return obj
-    convert = staticmethod(convert)
 
+    @staticmethod
     def is_numlike(x):
         """
         The matplotlib datalim, autoscaling, locators etc work with
@@ -103,7 +103,6 @@ class ConversionInterface:
                 return is_numlike(thisx)
         else:
             return is_numlike(x)
-    is_numlike = staticmethod(is_numlike)
 
 class Registry(dict):
     """
@@ -127,7 +126,10 @@ class Registry(dict):
         if classx is not None:
             converter = self.get(classx)
 
-        if converter is None and iterable(x):
+        # Check explicity for strings here because they would otherwise
+        # lead to an infinite recursion, because a single character will
+        # pass the iterable() check.
+        if converter is None and iterable(x) and not is_string_like(x):
             # if this is anything but an object array, we'll assume
             # there are no custom units
             if isinstance(x, np.ndarray) and x.dtype != np.object:

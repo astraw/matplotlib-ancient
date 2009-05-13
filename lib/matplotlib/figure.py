@@ -15,7 +15,7 @@ import numpy as np
 import time
 
 import artist
-from artist import Artist
+from artist import Artist, allow_rasterization
 from axes import Axes, SubplotBase, subplot_class_factory
 from cbook import flatten, allequal, Stack, iterable, dedent
 import _image
@@ -32,6 +32,7 @@ from projections import projection_factory, get_projection_names, \
 from matplotlib.blocking_input import BlockingMouseInput, BlockingKeyMouseInput
 
 import matplotlib.cbook as cbook
+
 
 class SubplotParams:
     """
@@ -676,21 +677,21 @@ class Figure(Artist):
 
             projection_class = get_projection_class(projection)
 
-        key = self._make_key(*args, **kwargs)
-        if key in self._seen:
-            ax = self._seen[key]
-            if isinstance(ax, projection_class):
-                self.sca(ax)
-                return ax
-            else:
-                self.axes.remove(ax)
-                self._axstack.remove(ax)
+            key = self._make_key(*args, **kwargs)
+            if key in self._seen:
+                ax = self._seen[key]
+                if isinstance(ax, projection_class):
+                    self.sca(ax)
+                    return ax
+                else:
+                    self.axes.remove(ax)
+                    self._axstack.remove(ax)
 
-        a = subplot_class_factory(projection_class)(self, *args, **kwargs)
+            a = subplot_class_factory(projection_class)(self, *args, **kwargs)
+            self._seen[key] = a
         self.axes.append(a)
         self._axstack.push(a)
         self.sca(a)
-        self._seen[key] = a
         return a
     add_subplot.__doc__ = dedent(add_subplot.__doc__) % {
         'list': ", ".join(get_projection_names()),
@@ -726,6 +727,7 @@ class Figure(Artist):
         """
         self.clf()
 
+    @allow_rasterization
     def draw(self, renderer):
         """
         Render the figure using :class:`matplotlib.backend_bases.RendererBase` instance renderer
@@ -755,7 +757,7 @@ class Figure(Artist):
             # make a composite image blending alpha
             # list of (_image.Image, ox, oy)
             mag = renderer.get_image_magnification()
-            ims = [(im.make_image(mag), im.ox*mag, im.oy*mag)
+            ims = [(im.make_image(mag), im.ox, im.oy)
                    for im in self.images]
 
             im = _image.from_images(self.bbox.height * mag,
@@ -971,6 +973,16 @@ class Figure(Artist):
             a plot on top of a colored background on a web page.  The
             transparency of these patches will be restored to their
             original values upon exit of this function.
+
+          *bbox_inches*:
+            Bbox in inches. Only the given portion of the figure is
+            saved. If 'tight', try to figure out the tight bbox of
+            the figure.
+
+          *pad_inches*:
+            Amount of padding around the figure when bbox_inches is
+            'tight'.
+
         """
 
         for key in ('dpi', 'facecolor', 'edgecolor'):
@@ -1089,6 +1101,29 @@ class Figure(Artist):
 
         blocking_input = BlockingKeyMouseInput(self)
         return blocking_input(timeout=timeout)
+
+
+
+    def get_tightbbox(self, renderer):
+        """
+        Return a (tight) bounding box of the figure in inches.
+
+        It only accounts axes title, axis labels, and axis
+        ticklabels. Needs improvement.
+        """
+
+        bb = []
+        for ax in self.axes:
+            if ax.get_visible():
+                bb.append(ax.get_tightbbox(renderer))
+
+        _bbox = Bbox.union([b for b in bb if b.width!=0 or b.height!=0])
+
+        bbox_inches = TransformedBbox(_bbox,
+                                      Affine2D().scale(1./self.dpi))
+
+        return bbox_inches
+
 
 
 def figaspect(arg):

@@ -108,12 +108,23 @@ if _DEBUG < 5:
     import traceback, pdb
 _DEBUG_lvls = {1 : 'Low ', 2 : 'Med ', 3 : 'High', 4 : 'Error' }
 
+missingwx = "Matplotlib backend_wx and backend_wxagg require wxPython >=2.8"
+
+try:
+    import wxversion
+except ImportError:
+    raise ImportError(missingwx)
+
+try:
+    wxversion.ensureMinimal('2.8')
+except wxversion.AlreadyImportedError:
+    pass
 
 try:
     import wx
     backend_version = wx.VERSION_STRING
-except:
-    raise ImportError("Matplotlib backend_wx requires wxPython be installed")
+except ImportError:
+    raise ImportError(missingwx)
 
 #!!! this is the call that is causing the exception swallowing !!!
 #wx.InitAllImageHandlers()
@@ -303,10 +314,10 @@ class RendererWx(RendererBase):
                 gfx_ctx.Clip(new_bounds[0], self.height - new_bounds[1] - new_bounds[3],
                              new_bounds[2], new_bounds[3])
 
-    #@staticmethod
-    def convert_path(gfx_ctx, tpath):
+    @staticmethod
+    def convert_path(gfx_ctx, path, transform):
         wxpath = gfx_ctx.CreatePath()
-        for points, code in tpath.iter_segments():
+        for points, code in path.iter_segments(transform):
             if code == Path.MOVETO:
                 wxpath.MoveToPoint(*points)
             elif code == Path.LINETO:
@@ -318,15 +329,13 @@ class RendererWx(RendererBase):
             elif code == Path.CLOSEPOLY:
                 wxpath.CloseSubpath()
         return wxpath
-    convert_path = staticmethod(convert_path)
 
     def draw_path(self, gc, path, transform, rgbFace=None):
         gc.select()
         self.handle_clip_rectangle(gc)
         gfx_ctx = gc.gfx_ctx
         transform = transform + Affine2D().scale(1.0, -1.0).translate(0.0, self.height)
-        tpath = transform.transform_path(path)
-        wxpath = self.convert_path(gfx_ctx, tpath)
+        wxpath = self.convert_path(gfx_ctx, path, transform)
         if rgbFace is not None:
             gfx_ctx.SetBrush(wx.Brush(gc.get_wxcolour(rgbFace)))
             gfx_ctx.DrawPath(wxpath)
@@ -1306,7 +1315,7 @@ def draw_if_interactive():
 
         figManager = Gcf.get_active()
         if figManager is not None:
-            figManager.canvas.draw()
+            figManager.canvas.draw_idle()
 
 def show():
     """

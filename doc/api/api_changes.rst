@@ -6,8 +6,57 @@ This chapter is a log of changes to matplotlib that affect the
 outward-facing API.  If updating matplotlib breaks your scripts, this
 list may help describe what changes may be necessary in your code.
 
+* You can now print several figures to one pdf file. See the docstrings
+  of the class :class:`matplotlib.backends.backend_pdf.PdfPages` for
+  more information.
+
+* Removed configobj_ and `enthought.traits`_ packages, which are only
+  required by the experimental traited config and are somewhat out of
+  date. If needed, install them independently.
+
+.. _configobj: http://www.voidspace.org.uk/python/configobj.html
+.. _`enthought.traits`: http://code.enthought.com/projects/traits
+
 Changes for 0.98.x
 ==================
+* Added new keyword parameters *nonposx*, *nonposy* to
+  :class:`matplotlib.axes.Axes` methods that set log scale
+  parameters.  The default is still to mask out non-positive
+  values, but the kwargs accept 'clip', which causes non-positive
+  values to be replaced with a very small positive value.
+
+* Added new :func:`matplotlib.pyplot.fignum_exists` and
+  :func:`matplotlib.pyplot.get_fignums`; they merely expose
+  information that had been hidden in :mod:`matplotlib._pylab_helpers`.
+
+* Deprecated numerix package.
+
+* Added new :func:`matplotlib.image.imsave` and exposed it to the
+  :mod:`matplotlib.pyplot` interface.
+
+* Remove support for pyExcelerator in exceltools -- use xlwt
+  instead
+
+* Changed the defaults of acorr and xcorr to use usevlines=True,
+  maxlags=10 and normed=True since these are the best defaults
+
+* Following keyword parameters for :class:`matplotlib.label.Label` are now
+  deprecated and new set of parameters are introduced. The new parameters
+  are given as a fraction of the font-size. Also, *scatteryoffsets*,
+  *fancybox* and *columnspacing* are added as keyword parameters.
+
+        ================   ================
+        Deprecated         New
+        ================   ================
+        pad                borderpad
+        labelsep           labelspacing
+        handlelen          handlelength
+        handlestextsep     handletextpad
+        axespad	           borderaxespad
+        ================   ================
+
+
+* Removed the configobj and experimental traits rc support
 
 * Modified :func:`matplotlib.mlab.psd`, :func:`matplotlib.mlab.csd`,
   :func:`matplotlib.mlab.cohere`, and :func:`matplotlib.mlab.specgram`
@@ -253,7 +302,7 @@ The :class:`Polar` class has moved to :mod:`matplotlib.projections.polar`.
    `Axes.toggle_log_lineary()` has been removed.
 
 :mod:`matplotlib.artist`
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ============================================================ ============================================================
 Old method                                                   New method

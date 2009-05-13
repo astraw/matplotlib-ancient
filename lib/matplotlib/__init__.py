@@ -36,7 +36,7 @@ Modules include:
         defines the :class:`~matplotlib.lines.Line2D` class for
         drawing lines and markers
 
-    :mod`matplotlib.patches`
+    :mod:`matplotlib.patches`
         defines classes for drawing polygons
 
     :mod:`matplotlib.text`
@@ -89,7 +89,7 @@ host of others.
 """
 from __future__ import generators
 
-__version__  = '0.98.4'
+__version__  = '0.98.6svn'
 __revision__ = '$Revision$'
 __date__     = '$Date$'
 
@@ -262,7 +262,7 @@ def checkdep_dvipng():
         line = s.stdout.readlines()[1]
         v = line.split()[-1]
         return v
-    except (IndexError, ValueError):
+    except (IndexError, ValueError, OSError):
         return None
 
 def checkdep_ghostscript():
@@ -275,7 +275,7 @@ def checkdep_ghostscript():
                              stderr=subprocess.PIPE)
         v = s.stdout.read()[:-1]
         return v
-    except (IndexError, ValueError):
+    except (IndexError, ValueError, OSError):
         return None
 
 def checkdep_tex():
@@ -287,7 +287,7 @@ def checkdep_tex():
         match = re.search(pattern, line)
         v = match.group(0)
         return v
-    except (IndexError, ValueError, AttributeError):
+    except (IndexError, ValueError, AttributeError, OSError):
         return None
 
 def checkdep_pdftops():
@@ -298,7 +298,7 @@ def checkdep_pdftops():
             if 'version' in line:
                 v = line.split()[-1]
         return v
-    except (IndexError, ValueError, UnboundLocalError):
+    except (IndexError, ValueError, UnboundLocalError, OSError):
         return None
 
 def compare_versions(a, b):
@@ -582,6 +582,14 @@ _deprecated_map = {
     'tick.size' :       'tick.major.size',
     }
 
+_deprecated_ignore_map = {
+    'legend.pad' :       'legend.borderpad',
+    'legend.labelsep' :       'legend.labelspacing',
+    'legend.handlelen' :       'legend.handlelength',
+    'legend.handletextsep' :       'legend.handletextpad',
+    'legend.axespad' :       'legend.borderaxespad',
+    }
+
 
 class RcParams(dict):
 
@@ -602,6 +610,10 @@ class RcParams(dict):
                 warnings.warn('%s is deprecated in matplotlibrc. Use %s \
 instead.'% (key, alt))
                 key = alt
+            elif key in _deprecated_ignore_map:
+                alt = _deprecated_ignore_map[key]
+                warnings.warn('%s is deprecated. Use %s instead.'% (key, alt))
+                return
             cval = self.validate[key](val)
             dict.__setitem__(self, key, cval)
         except KeyError:
@@ -665,6 +677,9 @@ def rc_params(fail_on_error=False):
                 except Exception, msg:
                     warnings.warn('Bad val "%s" on line #%d\n\t"%s"\n\tin file \
 "%s"\n\t%s' % (val, cnt, line, fname, msg))
+        elif key in _deprecated_ignore_map:
+            warnings.warn('%s is deprecated. Update your matplotlibrc to use %s instead.'% (key, _deprecated_ignore_map[key]))
+
         else:
             print >> sys.stderr, """
 Bad key "%s" on line %d in
@@ -823,9 +838,12 @@ def use(arg, warn=True):
     else:
         be_parts = arg.split('.')
         name = validate_backend(be_parts[0])
+        if len(be_parts) > 1:
+            if name == 'cairo':
+                rcParams['cairo.format'] = validate_cairo_format(be_parts[1])
+            else:
+                raise ValueError('Only cairo backend has a format option')
     rcParams['backend'] = name
-    if name == 'cairo' and len(be_parts) > 1:
-        rcParams['cairo.format'] = validate_cairo_format(be_parts[1])
 
 def get_backend():
     "Returns the current backend"

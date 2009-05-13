@@ -42,10 +42,6 @@ class RendererSVG(RendererBase):
         self.width=width
         self.height=height
         self._svgwriter = svgwriter
-        if rcParams['path.simplify']:
-            self.simplify = (width, height)
-        else:
-            self.simplify = None
 
         self._groupd = {}
         if not rcParams['svg.image_inline']:
@@ -57,6 +53,7 @@ class RendererSVG(RendererBase):
         self._markers = {}
         self._path_collection_id = 0
         self._imaged = {}
+        self._hatchd = {}
         self.mathtext_parser = MathTextParser('SVG')
         svgwriter.write(svgProlog%(width,height,width,height))
 
@@ -90,15 +87,43 @@ class RendererSVG(RendererBase):
         font.set_size(size, 72.0)
         return font
 
+    def _get_hatch(self, gc, rgbFace):
+        """
+        Create a new hatch pattern
+        """
+        HATCH_SIZE = 72
+        dictkey = (gc.get_hatch(), rgbFace, gc.get_rgb())
+        id = self._hatchd.get(dictkey)
+        if id is None:
+            id = 'h%s' % md5(str(dictkey)).hexdigest()
+            self._svgwriter.write('<defs>\n  <pattern id="%s" ' % id)
+            self._svgwriter.write('patternUnits="userSpaceOnUse" x="0" y="0" ')
+            self._svgwriter.write(' width="%d" height="%d" >\n' % (HATCH_SIZE, HATCH_SIZE))
+            path_data = self._convert_path(
+                gc.get_hatch_path(),
+                Affine2D().scale(HATCH_SIZE).scale(1.0, -1.0).translate(0, HATCH_SIZE))
+            self._svgwriter.write(
+                '<rect x="0" y="0" width="%d" height="%d" fill="%s"/>' %
+                (HATCH_SIZE+1, HATCH_SIZE+1, rgb2hex(rgbFace)))
+            path = '<path d="%s" fill="%s" stroke="%s" stroke-width="1.0"/>' % (
+                path_data, rgb2hex(gc.get_rgb()[:3]), rgb2hex(gc.get_rgb()[:3]))
+            self._svgwriter.write(path)
+            self._svgwriter.write('\n  </pattern>\n</defs>')
+            self._hatchd[dictkey] = id
+        return id
+
     def _get_style(self, gc, rgbFace):
         """
         return the style string.
         style is generated from the GraphicsContext, rgbFace and clippath
         """
-        if rgbFace is None:
-            fill = 'none'
+        if gc.get_hatch() is not None:
+            fill = "url(#%s)" % self._get_hatch(gc, rgbFace)
         else:
-            fill = rgb2hex(rgbFace[:3])
+            if rgbFace is None:
+                fill = 'none'
+            else:
+                fill = rgb2hex(rgbFace[:3])
 
         offset, seq = gc.get_dashes()
         if seq is None:
@@ -147,9 +172,16 @@ class RendererSVG(RendererBase):
             self._clipd[path] = id
         return id
 
-    def open_group(self, s):
-        self._groupd[s] = self._groupd.get(s,0) + 1
-        self._svgwriter.write('<g id="%s%d">\n' % (s, self._groupd[s]))
+    def open_group(self, s, gid=None):
+        """
+        Open a grouping element with label *s*. If *gid* is given, use
+        *gid* as the id of the group.
+        """
+        if gid:
+            self._svgwriter.write('<g id="%s">\n' % (gid))
+        else:
+            self._groupd[s] = self._groupd.get(s,0) + 1
+            self._svgwriter.write('<g id="%s%d">\n' % (s, self._groupd[s]))
 
     def close_group(self, s):
         self._svgwriter.write('</g>\n')
@@ -173,14 +205,16 @@ class RendererSVG(RendererBase):
                 .scale(1.0, -1.0)
                 .translate(0.0, self.height))
 
-    def _convert_path(self, path, transform, simplify=None):
-        tpath = transform.transform_path(path)
-
+    def _convert_path(self, path, transform, clip=False):
         path_data = []
         appender = path_data.append
         path_commands = self._path_commands
         currpos = 0
-        for points, code in tpath.iter_segments(simplify):
+        if clip:
+            clip = (0.0, 0.0, self.width, self.height)
+        else:
+            clip = None
+        for points, code in path.iter_segments(transform, clip=clip):
             if code == Path.CLOSEPOLY:
                 segment = 'z'
             else:
@@ -195,7 +229,7 @@ class RendererSVG(RendererBase):
 
     def draw_path(self, gc, path, transform, rgbFace=None):
         trans_and_flip = self._make_flip_transform(transform)
-        path_data = self._convert_path(path, trans_and_flip, self.simplify)
+        path_data = self._convert_path(path, trans_and_flip, clip=(rgbFace is None))
         self._draw_svg_element('path', 'd="%s"' % path_data, gc, rgbFace)
 
     def draw_markers(self, gc, marker_path, marker_trans, path, trans, rgbFace=None):
@@ -216,8 +250,7 @@ class RendererSVG(RendererBase):
 
         write('<g %s>' % clippath)
         trans_and_flip = self._make_flip_transform(trans)
-        tpath = trans_and_flip.transform_path(path)
-        for vertices, code in tpath.iter_segments():
+        for vertices, code in path.iter_segments(trans_and_flip, simplify=False):
             if len(vertices):
                 x, y = vertices[-2:]
                 details = 'xlink:href="#%s" x="%f" y="%f"' % (name, x, y)
@@ -579,7 +612,7 @@ class FigureCanvasSVG(FigureCanvasBase):
             fh_to_close = None
         else:
             raise ValueError("filename must be a path or a file-like object")
-        return self._print_svg(filename, svgwriter, fh_to_close)
+        return self._print_svg(filename, svgwriter, fh_to_close, **kwargs)
 
     def print_svgz(self, filename, *args, **kwargs):
         if is_string_like(filename):
@@ -592,7 +625,7 @@ class FigureCanvasSVG(FigureCanvasBase):
             raise ValueError("filename must be a path or a file-like object")
         return self._print_svg(filename, svgwriter, fh_to_close)
 
-    def _print_svg(self, filename, svgwriter, fh_to_close=None):
+    def _print_svg(self, filename, svgwriter, fh_to_close=None, **kwargs):
         self.figure.set_dpi(72.0)
         width, height = self.figure.get_size_inches()
         w, h = width*72, height*72
@@ -600,8 +633,20 @@ class FigureCanvasSVG(FigureCanvasBase):
         if rcParams['svg.image_noscale']:
             renderer = RendererSVG(w, h, svgwriter, filename)
         else:
-            renderer = MixedModeRenderer(
-                width, height, 72.0, RendererSVG(w, h, svgwriter, filename))
+            # setting mixed renderer dpi other than 72 results in
+            # incorrect size of the rasterized image. It seems that the
+            # svg internally uses fixed dpi of 72 and seems to cause
+            # the problem. I hope someone who knows the svg backends
+            # take a look at this problem. Meanwhile, the dpi
+            # parameter is ignored and image_dpi is fixed at 72. - JJL
+            
+            #image_dpi = kwargs.pop("dpi", 72)
+            image_dpi = 72
+            _bbox_inches_restore = kwargs.pop("bbox_inches_restore", None)
+            renderer = MixedModeRenderer(self.figure,
+                width, height, image_dpi, RendererSVG(w, h, svgwriter, filename),
+                bbox_inches_restore=_bbox_inches_restore)
+
         self.figure.draw(renderer)
         renderer.finalize()
         if fh_to_close is not None:

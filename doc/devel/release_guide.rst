@@ -9,6 +9,9 @@ A guide for developers who are doing a matplotlib release
 * Edit :file:`__init__.py` and bump the version number
 
 
+
+When doing a release
+
 .. _release-testing:
 
 Testing
@@ -27,10 +30,25 @@ Testing
 * remove font cache and tex cache from :file:`.matplotlib` and test
   with and without cache on some example script
 
+
+.. _release-branching:
+
+Branching
+============
+
+Once all the tests are passing and you are ready to do a release, you
+need to create a release branch and configure svn-merge to use it;
+Michael Droettboom should probably handle this step, but if he is not
+available see instructions at :ref:`setting-up-svnmerge`.  On the
+bracnh, do any additional testing you want to do, and then build
+binaries and source distributions for testing as release candidates.
+
+
 .. _release-packaging:
 
 Packaging
 =========
+
 
 * Make sure the :file:`MANIFEST.in` us up to date and remove
   :file:`MANIFEST` so it will be rebuilt by MANIFEST.in
@@ -42,14 +60,47 @@ Packaging
 * unpack the sdist and make sure you can build from that directory
 
 * Use :file:`setup.cfg` to set the default backends.  For windows and
-  OSX, the default backend should be TkAgg.
+  OSX, the default backend should be TkAgg.  You should also turn on
+  or off any platform specific build options you need.  Importantly,
+  you also need to make sure that you delete the :file:`build` dir
+  after any changes to file:`setup.cfg` before rebuilding since cruft
+  in the :file:`build` dir can get carried along.  I will add this to
+  the devel release notes,
 
 * on windows, unix2dos the rc file
+
+* We have a Makefile for the OS X builds in the mpl source dir
+  :file:`release/osx`, so use this to prepare the OS X releases.
+
+
+
+.. _release-candidate-testing:
+
+Release candidate testing:
+============================
+
+Post the release candidates to
+http://matplotlib.sf.net/release-candidates and post a message to
+matplotlib-users and devel requesting testing.  To post to the server,
+you can do::
+
+    > scp somefile.tgz jdh2358,matplotlib@shell.sf.net:/home/groups/m/ma/matplotlib/htdocs/release-candidates/
+
+replacing 'jdh2358' with your sourceforge login.
+
+
+Any changes to fix bugs in the release candidate should be fixed in
+the release branch and merged into the trunk with svn-merge; see
+:ref:`svn-merge`.  When the release candidate is signed off on, build
+the final sdist, binaries and eggs, and upload them to the sourceforge
+release area.
+
 
 .. _release-uploading:
 
 Uploading
 =========
+
 
 * Post the win32 and OS-X binaries for testing and make a request on
   matplotlib-devel for testing.  Pester us if we don't respond

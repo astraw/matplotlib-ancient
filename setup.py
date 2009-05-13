@@ -6,11 +6,19 @@ are using a package manager like RPM or debian.
 The matplotlib build options can be modified with a setup.cfg file. See
 setup.cfg.template for more information.
 """
+# distutils is breaking our sdists for files in symlinked dirs.
+# distutils will copy if os.link is not available, so this is a hack
+# to force copying
+import os
+try:
+    del os.link
+except AttributeError:
+    pass
 
 # This dict will be updated as we try to select the best option during
 # the build process. However, values in setup.cfg will be used, if
 # defined.
-rc = {'backend':'Agg', 'numerix':'numpy'}
+rc = {'backend':'Agg'}
 
 # BEFORE importing disutils, remove MANIFEST. distutils doesn't properly
 # update it when the contents of directories change.
@@ -27,12 +35,12 @@ import glob
 from distutils.core import setup
 from setupext import build_agg, build_gtkagg, build_tkagg, build_wxagg,\
      build_macosx, build_ft2font, build_image, build_windowing, build_path, \
-     build_contour, build_delaunay, build_nxutils, build_traits, build_gdk, \
+     build_contour, build_delaunay, build_nxutils, build_gdk, \
      build_ttconv, print_line, print_status, print_message, \
      print_raw, check_for_freetype, check_for_libpng, check_for_gtk, \
      check_for_tk, check_for_wx, check_for_macosx, check_for_numpy, \
-     check_for_qt, check_for_qt4, check_for_cairo, check_provide_traits, \
-     check_provide_pytz, check_provide_dateutil, check_provide_configobj, \
+     check_for_qt, check_for_qt4, check_for_cairo, \
+     check_provide_pytz, check_provide_dateutil,\
      check_for_dvipng, check_for_ghostscript, check_for_latex, \
      check_for_pdftops, check_for_datetime, options, build_png
 #import distutils.sysconfig
@@ -44,13 +52,17 @@ packages = [
     'matplotlib.projections',
 #   'matplotlib.toolkits',
     'mpl_toolkits',
+    'mpl_toolkits.mplot3d',
+    'mpl_toolkits.axes_grid',
+    'matplotlib.sphinxext',
+    # The following are deprecated and will be removed.
     'matplotlib.numerix',
     'matplotlib.numerix.mlab',
     'matplotlib.numerix.ma',
-    'matplotlib.numerix.npyma',
     'matplotlib.numerix.linear_algebra',
     'matplotlib.numerix.random_array',
-    'matplotlib.numerix.fft'
+    'matplotlib.numerix.fft',
+
     ]
 
 py_modules = ['pylab']
@@ -209,27 +221,18 @@ check_for_ghostscript()
 check_for_latex()
 check_for_pdftops()
 
-# TODO: comment out for mpl release:
-print_raw("")
-print_raw("EXPERIMENTAL CONFIG PACKAGE DEPENDENCIES")
-packages.append('matplotlib.config')
-if check_provide_configobj(): py_modules.append('configobj')
-if check_provide_traits(): build_traits(ext_modules, packages)
-
 print_raw("")
 print_raw("[Edit setup.cfg to suppress the above messages]")
 print_line()
 
 # Write the default matplotlibrc file
 if options['backend']: rc['backend'] = options['backend']
-if options['numerix']: rc['numerix'] = options['numerix']
 template = file('matplotlibrc.template').read()
 file('lib/matplotlib/mpl-data/matplotlibrc', 'w').write(template%rc)
 
 # Write the default matplotlib.conf file
 template = file('lib/matplotlib/mpl-data/matplotlib.conf.template').read()
 template = template.replace("datapath = ", "#datapath = ")
-template = template.replace("numerix = 'numpy'", "numerix = '%s'"%rc['numerix'])
 template = template.replace("    use = 'Agg'", "    use = '%s'"%rc['backend'])
 file('lib/matplotlib/mpl-data/matplotlib.conf', 'w').write(template)
 

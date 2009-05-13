@@ -705,10 +705,9 @@ class FontProperties(object):
         return parse_fontconfig_pattern(pattern)
 
     def __hash__(self):
-        l = self.__dict__.items()
-        l.sort()
+        l = [(k, getattr(self, "get" + k)()) for k in sorted(self.__dict__)]
         return hash(repr(l))
-
+ 
     def __str__(self):
         return self.get_fontconfig_pattern()
 
@@ -1068,7 +1067,7 @@ class FontManager:
                 options = rcParams['font.' + family1]
                 if family2 in options:
                     idx = options.index(family2)
-                    return 0.1
+                    return 0.1 * (float(idx) / len(options))
             elif family1.lower() == family2.lower():
                 return 0.0
         return 1.0
@@ -1181,7 +1180,7 @@ class FontManager:
         """
         debug = False
         if prop is None:
-            return self.defaultFont
+            prop = FontProperties()
         if is_string_like(prop):
             prop = FontProperties(prop)
         fname = prop.get_file()

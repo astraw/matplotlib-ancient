@@ -21,23 +21,19 @@ TODO:
   * integrate screen dpi w/ ppi and text
 """
 from __future__ import division
-import os, sys, weakref
 
 import numpy as npy
 
-import matplotlib
 from matplotlib import verbose, rcParams
-from matplotlib._image import fromarray
-from matplotlib._pylab_helpers import Gcf
 from matplotlib.backend_bases import RendererBase,\
-     GraphicsContextBase, FigureManagerBase, FigureCanvasBase
-from matplotlib.cbook import is_string_like, exception_to_str, maxdict
+     FigureManagerBase, FigureCanvasBase
+from matplotlib.cbook import is_string_like, maxdict
 from matplotlib.figure import Figure
 from matplotlib.font_manager import findfont
 from matplotlib.ft2font import FT2Font, LOAD_FORCE_AUTOHINT
 from matplotlib.mathtext import MathTextParser
 from matplotlib.path import Path
-from matplotlib.transforms import Affine2D, Bbox
+from matplotlib.transforms import Bbox
 
 from _backend_agg import RendererAgg as _RendererAgg
 from matplotlib import _png
@@ -50,11 +46,12 @@ class RendererAgg(RendererBase):
     context instance that controls the colors/styles
     """
     debug=1
-    texd = maxdict(50)  # a cache of tex image rasters
-    _fontd = maxdict(50)
     def __init__(self, width, height, dpi):
         if __debug__: verbose.report('RendererAgg.__init__', 'debug-annoying')
         RendererBase.__init__(self)
+        self.texd = maxdict(50)  # a cache of tex image rasters
+        self._fontd = maxdict(50)
+
         self.dpi = dpi
         self.width = width
         self.height = height
@@ -77,9 +74,13 @@ class RendererAgg(RendererBase):
                                      'debug-annoying')
 
     def draw_path(self, gc, path, transform, rgbFace=None):
+        """
+        Draw the path
+        """
         nmax = rcParams['agg.path.chunksize'] # here at least for testing
         npts = path.vertices.shape[0]
-        if nmax > 100 and npts > nmax and path.should_simplify and rgbFace is None:
+        if (nmax > 100 and npts > nmax and path.should_simplify and
+            rgbFace is None and gc.get_hatch() is None):
             nch = npy.ceil(npts/float(nmax))
             chsize = int(npy.ceil(npts/nch))
             i0 = npy.arange(0, npts, chsize)
@@ -96,7 +97,6 @@ class RendererAgg(RendererBase):
                 self._renderer.draw_path(gc, p, transform, rgbFace)
         else:
             self._renderer.draw_path(gc, path, transform, rgbFace)
-
 
     def draw_mathtext(self, gc, x, y, s, prop, angle):
         """
@@ -147,10 +147,10 @@ class RendererAgg(RendererBase):
             # todo: handle props
             size = prop.get_size_in_points()
             texmanager = self.get_texmanager()
-            Z = texmanager.get_grey(s, size, self.dpi)
-            m,n = Z.shape
-            # TODO: descent of TeX text (I am imitating backend_ps here -JKS)
-            return n, m, 0
+            fontsize = prop.get_size_in_points()
+            w, h, d = texmanager.get_text_width_height_descent(s, fontsize,
+                                                               renderer=self)
+            return w, h, d
 
         if ismath:
             ox, oy, width, height, descent, fonts, used_characters = \

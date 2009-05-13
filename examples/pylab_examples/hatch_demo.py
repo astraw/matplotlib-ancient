@@ -1,18 +1,20 @@
 """
-Hatching (pattern filled polygons) is supported currently on PS
-backend only.  See the set_patch method in
-http://matplotlib.sf.net/matplotlib.patches.html#Patch
-for details
+Hatching (pattern filled polygons) is supported currently in the PS,
+PDF, SVG and Agg backends only.
 """
-import matplotlib
-matplotlib.use('PS')
-from pylab import figure
+import matplotlib.pyplot as plt
 
-fig = figure()
-ax = fig.add_subplot(111)
-bars = ax.bar(range(1,5), range(1,5), color='gray', ecolor='black')
+fig = plt.figure()
+ax1 = fig.add_subplot(121)
+ax1.bar(range(1,5), range(1,5), color='red', edgecolor='black', hatch="/")
+ax1.bar(range(1,5), [6] * 4, bottom=range(1,5), color='blue', edgecolor='black', hatch='//')
 
-patterns = ('/', '+', 'x', '\\')
+ax2 = fig.add_subplot(122)
+bars = ax2.bar(range(1,5), range(1,5), color='yellow', ecolor='black') + \
+    ax2.bar(range(1, 5), [6] * 4, bottom=range(1,5), color='green', ecolor='black')
+
+patterns = ('-', '+', 'x', '\\', '*', 'o', 'O', '.')
 for bar, pattern in zip(bars, patterns):
      bar.set_hatch(pattern)
-fig.savefig('hatch4.ps')
+
+plt.show()

@@ -1,4 +1,4 @@
-.. _coding-guide:
+M.. _coding-guide:
 
 ************
 Coding guide
@@ -8,6 +8,8 @@ Coding guide
 
 Version control
 ===============
+
+.. _using-svn:
 
 svn checkouts
 -------------
@@ -27,10 +29,10 @@ Branch checkouts, eg the maintenance branch::
    svn co https://matplotlib.svn.sourceforge.net/svnroot/matplotlib/branches/\
    v0_91_maint mpl91 --username=youruser --password=yourpass
 
-The current release of the trunk is in the 0.98.4 maintenance branch::
+The current release of the trunk is in the 0.98.5 maintenance branch::
 
    svn co https://matplotlib.svn.sourceforge.net/svnroot/matplotlib/branches/\
-   v0_98_4_maint mpl98.4 --username=youruser --password=yourpass
+   v0_98_5_maint mpl98.5 --username=youruser --password=yourpass
 
 
 Committing changes
@@ -42,7 +44,7 @@ in mind.
 * if your changes are non-trivial, please make an entry in the
   :file:`CHANGELOG`
 
-* if you change the API, please document it in :file:`API_CHANGES`,
+* if you change the API, please document it in :file:`doc/api/api_changes.rst`,
   and consider posting to `matplotlib-devel
   <http://lists.sourceforge.net/mailman/listinfo/matplotlib-devel>`_
 
@@ -52,7 +54,7 @@ in mind.
 * Can you pass :file:`examples/tests/backend_driver.py`?  This is our
   poor man's unit test.
 
-* Can you add a test to file:`unit/nose_tests.py` to test your changes?
+* Can you add a test to :file:`unit/nose_tests.py` to test your changes?
 
 * If you have altered extension code, do you pass
   :file:`unit/memleak_hawaii.py`?
@@ -62,44 +64,217 @@ in mind.
   :file:`MANIFEST.in`.  This file determines what goes into the source
   distribution of the mpl build.
 
-* Keep the maintenance branch and trunk in sync where it makes sense.
-  If there is a bug on both that needs fixing, use `svnmerge.py
+* Keep the maintenance branch (0.91) the latest release branch (eg
+  0.98.4) and trunk in sync where it makes sense.  If there is a bug
+  on both that needs fixing, use `svnmerge.py
   <http://www.orcaware.com/svn/wiki/Svnmerge.py>`_ to keep them in
-  sync.  The basic procedure is:
+  sync.  See :ref:`svn-merge` below.
 
-  * install ``svnmerge.py`` in your PATH::
+.. _svn-merge:
 
-      > wget http://svn.collab.net/repos/svn/trunk/contrib/client-side/\
-        svnmerge/svnmerge.py
+Using svnmerge
+--------------
 
-  * get a svn copy of the maintenance branch and the trunk (see above)
+svnmerge is useful for making bugfixes to a maintenance branch, and
+then bringing those changes into the trunk.
 
-  * Michael advises making the change on the branch and committing
-    it.  Make sure you svn upped on the trunk and have no local
-    modifications, and then from the svn trunk do::
+The basic procedure is:
 
-        > svnmerge.py merge
+* install ``svnmerge.py`` in your PATH::
 
-    If you wish to merge only specific revisions (in an unusual
-    situation), do::
+    > wget http://svn.collab.net/repos/svn/trunk/contrib/client-side/\
+      svnmerge/svnmerge.py
 
-        > svnmerge.py merge -rNNN1-NNN2
+* get a svn checkout of the branch you'll be making bugfixes to and
+  the trunk (see above)
 
-    where the ``NNN`` are the revision numbers.  Ranges are also
-    acceptable.
+* Create and commit the bugfix on the branch.
 
-    The merge may have found some conflicts (code that must be
-    manually resolved).  Correct those conflicts, build matplotlib and
-    test your choices.  If you have resolved any conflicts, you can
-    let svn clean up the conflict files for you::
+* Then make sure you svn upped on the trunk and have no local
+  modifications, and then from your checkout of the svn trunk do::
 
-        > svn -R resolved .
+       svnmerge.py merge -S BRANCHNAME
 
-    ``svnmerge.py`` automatically creates a file containing the commit
-    messages, so you are ready to make the commit::
+  Where BRANCHNAME is the name of the branch to merge *from*,
+  e.g. v0_98_5_maint.
 
-       > svn commit -F svnmerge-commit-message.txt
+  If you wish to merge only specific revisions (in an unusual
+  situation), do::
 
+      > svnmerge.py merge -rNNN1-NNN2
+
+  where the ``NNN`` are the revision numbers.  Ranges are also
+  acceptable.
+
+  The merge may have found some conflicts (code that must be manually
+  resolved).  Correct those conflicts, build matplotlib and test your
+  choices.  If you have resolved any conflicts, you can let svn clean
+  up the conflict files for you::
+
+      > svn -R resolved .
+
+  ``svnmerge.py`` automatically creates a file containing the commit
+  messages, so you are ready to make the commit::
+
+     > svn commit -F svnmerge-commit-message.txt
+
+
+.. _setting-up-svnmerge:
+
+Setting up svnmerge
+~~~~~~~~~~~~~~~~~~~
+
+.. note::
+   The following applies only to release managers when there is
+   a new release.  Most developers will not have to concern themselves
+   with this.
+
+* Creating a new branch from the trunk (if the release version is
+  0.98.5 at revision 6573)::
+
+      > svn copy \
+      https://matplotlib.svn.sf.net/svnroot/matplotlib/trunk/matplotlib@6573 \
+      https://matplotlib.svn.sf.net/svnroot/matplotlib/branches/v0_98_5_maint \
+      -m "Creating maintenance branch for 0.98.5"
+
+* You can add a new branch for the trunk to "track" using
+  "svnmerge.py init", e.g., from a working copy of the trunk::
+
+      > svnmerge.py init https://matplotlib.svn.sourceforge.net/svnroot/matplotlib/branches/v0_98_5_maint
+      property 'svnmerge-integrated' set on '.'
+
+  After doing a "svn commit" on this, this merge tracking is available
+  to everyone, so there's no need for anyone else to do the "svnmerge
+  init".
+
+* Tracking can later be removed with the "svnmerge.py uninit" command,
+  e.g.::
+
+      > svnmerge.py -S v0_9_5_maint uninit
+
+.. _using-git:
+
+Using git
+---------
+
+Some matplotlib developers are experimenting with using git on top of
+the subversion repository.  Developers are not required to use git, as
+subversion will remain the canonical central repository for the
+foreseeable future.
+
+Cloning the git mirror
+~~~~~~~~~~~~~~~~~~~~~~
+
+There is an experimental `matplotlib github mirror`_ of the subversion
+repository. To make a local clone of it in the directory ``mpl.git``,
+enter the following commands::
+
+  # This will create your copy in the mpl.git directory
+  git clone git://github.com/astraw/matplotlib.git mpl.git
+  cd mpl.git
+  git config --add remote.origin.fetch +refs/remotes/*:refs/remotes/*
+  git fetch
+  git svn init --branches=branches --trunk=trunk/matplotlib --tags=tags https://matplotlib.svn.sourceforge.net/svnroot/matplotlib
+
+  # Now just get the latest svn revisions from the SourceForge SVN repository
+  git svn fetch -r 6800:HEAD
+
+.. _matplotlib github mirror: http://github.com/astraw/matplotlib
+
+To install from this cloned repository, use the commands in the
+:ref:`svn installation <install-svn>` section::
+
+  > cd mpl.git
+  > python setup.py install
+
+Using git
+~~~~~~~~~
+
+The following is a suggested workflow for git/git-svn.
+
+Start with a virgin tree in sync with the svn trunk on the git branch
+"master"::
+
+  git checkout master
+  git svn rebase
+
+To create a new, local branch called "whizbang-branch"::
+
+  git checkout -b whizbang-branch
+
+Do make commits to the local branch::
+
+  # hack on a bunch of files
+  git add bunch of files
+  git commit -m "modified a bunch of files"
+  # repeat this as necessary
+
+Now, go back to the master branch and append the history of your branch
+to the master branch, which will end up as the svn trunk::
+
+  git checkout master
+  git svn rebase # Ensure we have most recent svn
+  git rebase whizbang-branch # Append whizbang changes to master branch
+  git svn dcommit -n # Check that this will apply to svn
+  git svn dcommit # Actually apply to svn
+
+Finally, you may want to continue working on your whizbang-branch, so
+rebase it to the new master::
+
+  git checkout whizbang-branch
+  git rebase master
+
+If you get the dreaded "Unable to determine upstream SVN information
+from working tree history" error when running "git svn rebase", try
+creating a new git branch based on subversion trunk and cherry pick
+your patches onto that::
+
+  git checkout -b work remotes/trunk # create a new "work" branch
+  git cherry-pick <commit> # where <commit> will get applied to new branch
+
+Working on a maintenance branch from git
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The matplotlib maintenance branches are also available through git.
+(Note that the ``git svn init`` line in the instructions above was
+updated to make this possible.  If you created your git mirror without
+a ``--branches`` option, you will need to perform all of the steps
+again in a new directory).
+
+You can see which branches are available with::
+
+  git branch -a
+
+To switch your working copy to the 0.98.5 maintenance branch::
+
+  git checkout v0_98_5_maint
+
+Then you probably want to (as above) create a new local branch based
+on that branch::
+
+  git checkout -b whizbang-branch
+
+When you ``git svn dcommit`` from a maintenance branch, it will commit
+to that branch, not to the trunk.
+
+While it should theoretically be possible to perform merges from a git
+maintenance branch to a git trunk and then commit those changes back
+to the SVN trunk, I have yet to find the magic incantation to make
+that work.  However, svnmerge as described `above <svn-merge>`_ can be
+used and in fact works quite well.
+
+A note about git write access
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The matplotlib developers need to figure out if there should be write
+access to the git repository. This implies using the personal URL
+(``git@github.com:astraw/matplotlib.git``) rather than the public URL
+(``git://github.com/astraw/matplotlib.git``) for the
+repository. However, doing so may make life complicated in the sense
+that then there are two writeable matplotlib repositories, which must
+be synced to prevent divergence. This is probably not an
+insurmountable problem, but it is a problem that the developers should
+reach a consensus about. Watch this space...
 
 .. _style-guide:
 
@@ -383,9 +558,6 @@ external backend via the ``module`` directive.  if
 * from the command shell with the -d flag::
 
     > python simple_plot.py -d module://my_backend
-
-
-
 
 
 

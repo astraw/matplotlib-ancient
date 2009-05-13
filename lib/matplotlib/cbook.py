@@ -275,7 +275,7 @@ def is_string_like(obj):
         else:
             return False
     try: obj + ''
-    except (TypeError, ValueError): return False
+    except: return False
     return True
 
 def is_sequence_of_strings(obj):
@@ -302,7 +302,7 @@ def is_numlike(obj):
     except TypeError: return False
     else: return True
 
-def to_filehandle(fname, flag='r', return_opened=False):
+def to_filehandle(fname, flag='rU', return_opened=False):
     """
     *fname* can be a filename or a file handle.  Support for gzipped
     files is automatic, if the filename ends in .gz.  *flag* is a
@@ -311,6 +311,8 @@ def to_filehandle(fname, flag='r', return_opened=False):
     if is_string_like(fname):
         if fname.endswith('.gz'):
             import gzip
+            # get rid of 'U' in flag for gzipped files.
+            flag = flag.replace('U','')
             fh = gzip.open(fname, flag)
         else:
             fh = file(fname, flag)
@@ -901,15 +903,19 @@ def reverse_dict(d):
 
 def report_memory(i=0):  # argument may go away
     'return the memory consumed by process'
+    from subprocess import Popen, PIPE
     pid = os.getpid()
     if sys.platform=='sunos5':
-        a2 = os.popen('ps -p %d -o osz' % pid).readlines()
+        a2 = Popen('ps -p %d -o osz' % pid, shell=True,
+            stdout=PIPE).stdout.readlines()
         mem = int(a2[-1].strip())
     elif sys.platform.startswith('linux'):
-        a2 = os.popen('ps -p %d -o rss,sz' % pid).readlines()
+        a2 = Popen('ps -p %d -o rss,sz' % pid, shell=True,
+            stdout=PIPE).stdout.readlines()
         mem = int(a2[1].split()[1])
     elif sys.platform.startswith('darwin'):
-        a2 = os.popen('ps -p %d -o rss,vsz' % pid).readlines()
+        a2 = Popen('ps -p %d -o rss,vsz' % pid, shell=True,
+            stdout=PIPE).stdout.readlines()
         mem = int(a2[1].split()[0])
 
     return mem
@@ -930,6 +936,15 @@ def issubclass_safe(x, klass):
         return issubclass(x, klass)
     except TypeError:
         return False
+
+def safe_masked_invalid(x):
+    x = np.asanyarray(x)
+    try:
+        xm = np.ma.masked_invalid(x, copy=False)
+        xm.shrink_mask()
+    except TypeError:
+        return x
+    return xm
 
 class MemoryMonitor:
     def __init__(self, nmax=20000):

@@ -11,7 +11,7 @@ try:
 except ImportError:
     from md5 import md5 #Deprecated in 2.5
 
-from tempfile import gettempdir
+from tempfile import mkstemp
 from cStringIO import StringIO
 from matplotlib import verbose, __version__, rcParams
 from matplotlib._pylab_helpers import Gcf
@@ -31,7 +31,10 @@ from matplotlib.mathtext import MathTextParser
 from matplotlib._mathtext_data import uni2type1
 from matplotlib.text import Text
 from matplotlib.path import Path
-from matplotlib.transforms import IdentityTransform
+from matplotlib.transforms import Affine2D
+
+from matplotlib.backends.backend_mixed import MixedModeRenderer
+
 
 import numpy as npy
 import binascii
@@ -112,7 +115,7 @@ def quote_ps_string(s):
 
 def seq_allequal(seq1, seq2):
     """
-    seq1 and seq2 are either None or sequences or numerix arrays
+    seq1 and seq2 are either None or sequences or arrays
     Return True if both are None or both are seqs with identical
     elements
     """
@@ -150,10 +153,6 @@ class RendererPS(RendererBase):
             self.textcnt = 0
             self.psfrag = []
         self.imagedpi = imagedpi
-        if rcParams['path.simplify']:
-            self.simplify = (width * imagedpi, height * imagedpi)
-        else:
-            self.simplify = None
 
         # current renderer state (None=uninitialised)
         self.color = None
@@ -163,7 +162,7 @@ class RendererPS(RendererBase):
         self.linedash = None
         self.fontname = None
         self.fontsize = None
-        self.hatch = None
+        self._hatches = {}
         self.image_magnification = imagedpi/72.0
         self._clip_paths = {}
         self._path_collection_id = 0
@@ -231,57 +230,35 @@ class RendererPS(RendererBase):
             if store: self.fontname = fontname
             if store: self.fontsize = fontsize
 
-    def set_hatch(self, hatch):
-        """
-        hatch can be one of:
-            /   - diagonal hatching
-            \   - back diagonal
-            |   - vertical
-            -   - horizontal
-            +   - crossed
-            X   - crossed diagonal
+    def create_hatch(self, hatch):
+        sidelen = 72
+        if self._hatches.has_key(hatch):
+            return self._hatches[hatch]
+        name = 'H%d' % len(self._hatches)
+        self._pswriter.write("""\
+  << /PatternType 1
+     /PaintType 2
+     /TilingType 2
+     /BBox[0 0 %(sidelen)d %(sidelen)d]
+     /XStep %(sidelen)d
+     /YStep %(sidelen)d
 
-        letters can be combined, in which case all the specified
-        hatchings are done
-
-        if same letter repeats, it increases the density of hatching
-        in that direction
-        """
-        hatches = {'horiz':0, 'vert':0, 'diag1':0, 'diag2':0}
-
-        for letter in hatch:
-            if   (letter == '/'):    hatches['diag2'] += 1
-            elif (letter == '\\'):   hatches['diag1'] += 1
-            elif (letter == '|'):    hatches['vert']  += 1
-            elif (letter == '-'):    hatches['horiz'] += 1
-            elif (letter == '+'):
-                hatches['horiz'] += 1
-                hatches['vert'] += 1
-            elif (letter.lower() == 'x'):
-                hatches['diag1'] += 1
-                hatches['diag2'] += 1
-
-        def do_hatch(angle, density):
-            if (density == 0): return ""
-            return """\
-  gsave
-   eoclip %s rotate 0.0 0.0 0.0 0.0 setrgbcolor 0 setlinewidth
-   /hatchgap %d def
-   pathbbox /hatchb exch def /hatchr exch def /hatcht exch def /hatchl exch def
-   hatchl cvi hatchgap idiv hatchgap mul
-   hatchgap
-   hatchr cvi hatchgap idiv hatchgap mul
-   {hatcht m 0 hatchb hatcht sub r }
-   for
-   stroke
-  grestore
- """ % (angle, 12/density)
-        self._pswriter.write("gsave\n")
-        self._pswriter.write(do_hatch(90, hatches['horiz']))
-        self._pswriter.write(do_hatch(0, hatches['vert']))
-        self._pswriter.write(do_hatch(45, hatches['diag1']))
-        self._pswriter.write(do_hatch(-45, hatches['diag2']))
-        self._pswriter.write("grestore\n")
+     /PaintProc {
+        pop
+        0 setlinewidth
+""" % locals())
+        self._pswriter.write(
+            self._convert_path(Path.hatch(hatch), Affine2D().scale(72.0)))
+        self._pswriter.write("""\
+          stroke
+     } bind
+   >>
+   matrix
+   makepattern
+   /%(name)s exch def
+""" % locals())
+        self._hatches[hatch] = name
+        return name
 
     def get_canvas_width_height(self):
         'return the canvas width and height in display coords'
@@ -296,12 +273,9 @@ class RendererPS(RendererBase):
         if rcParams['text.usetex']:
             texmanager = self.get_texmanager()
             fontsize = prop.get_size_in_points()
-            l,b,r,t = texmanager.get_ps_bbox(s, fontsize)
-            w = (r-l)
-            h = (t-b)
-            # TODO: We need a way to get a good baseline from
-            # text.usetex
-            return w, h, 0
+            w, h, d = texmanager.get_text_width_height_descent(s, fontsize,
+                                                               renderer=self)
+            return w, h, d
 
         if ismath:
             width, height, descent, pswriter, used_characters = \
@@ -453,12 +427,15 @@ grestore
         # unflip
         im.flipud_out()
 
-    def _convert_path(self, path, transform, simplify=None):
-        path = transform.transform_path(path)
-
+    def _convert_path(self, path, transform, clip=False):
         ps = []
         last_points = None
-        for points, code in path.iter_segments(simplify):
+        if clip:
+            clip = (0.0, 0.0, self.width * 72.0,
+                    self.height * 72.0)
+        else:
+            clip = None
+        for points, code in path.iter_segments(transform, clip=clip):
             if code == Path.MOVETO:
                 ps.append("%g %g m" % tuple(points))
             elif code == Path.LINETO:
@@ -491,7 +468,7 @@ grestore
         """
         Draws a Path instance using the given affine transform.
         """
-        ps = self._convert_path(path, transform, self.simplify)
+        ps = self._convert_path(path, transform, clip=(rgbFace is None))
         self._draw_ps(ps, gc, rgbFace)
 
     def draw_markers(self, gc, marker_path, marker_trans, path, trans, rgbFace=None):
@@ -519,8 +496,7 @@ grestore
 
         ps_cmd.extend(['stroke', 'grestore', '} bind def'])
 
-        tpath = trans.transform_path(path)
-        for vertices, code in tpath.iter_segments():
+        for vertices, code in path.iter_segments(trans, simplify=False):
             if len(vertices):
                 x, y = vertices[-2:]
                 ps_cmd.append("%g %g o" % (x, y))
@@ -816,15 +792,17 @@ grestore
         if fill:
             if stroke:
                 write("gsave\n")
-                self.set_color(store=0, *rgbFace[:3])
-                write("fill\ngrestore\n")
-            else:
-                self.set_color(store=0, *rgbFace[:3])
-                write("fill\n")
+            self.set_color(store=0, *rgbFace[:3])
+            write("fill\n")
+            if stroke:
+                write("grestore\n")
 
         hatch = gc.get_hatch()
         if hatch:
-            self.set_hatch(hatch)
+            hatch_name = self.create_hatch(hatch)
+            write("gsave\n")
+            write("[/Pattern [/DeviceRGB]] setcolorspace %f %f %f " % gc.get_rgb()[:3])
+            write("%s setcolor fill grestore\n" % hatch_name)
 
         if stroke:
             write("stroke\n")
@@ -868,8 +846,13 @@ class FigureCanvasPS(FigureCanvasBase):
     def print_eps(self, outfile, *args, **kwargs):
         return self._print_ps(outfile, 'eps', *args, **kwargs)
 
+
+
+
+
+
     def _print_ps(self, outfile, format, *args, **kwargs):
-        papertype = kwargs.get("papertype", rcParams['ps.papersize'])
+        papertype = kwargs.pop("papertype", rcParams['ps.papersize'])
         papertype = papertype.lower()
         if papertype == 'auto':
             pass
@@ -877,25 +860,28 @@ class FigureCanvasPS(FigureCanvasBase):
             raise RuntimeError( '%s is not a valid papertype. Use one \
                     of %s'% (papertype, ', '.join( papersize.keys() )) )
 
-        orientation = kwargs.get("orientation", "portrait").lower()
+        orientation = kwargs.pop("orientation", "portrait").lower()
         if orientation == 'landscape': isLandscape = True
         elif orientation == 'portrait': isLandscape = False
         else: raise RuntimeError('Orientation must be "portrait" or "landscape"')
 
         self.figure.set_dpi(72) # Override the dpi kwarg
-        imagedpi = kwargs.get("dpi", 72)
-        facecolor = kwargs.get("facecolor", "w")
-        edgecolor = kwargs.get("edgecolor", "w")
+        imagedpi = kwargs.pop("dpi", 72)
+        facecolor = kwargs.pop("facecolor", "w")
+        edgecolor = kwargs.pop("edgecolor", "w")
 
         if rcParams['text.usetex']:
             self._print_figure_tex(outfile, format, imagedpi, facecolor, edgecolor,
-                                   orientation, isLandscape, papertype)
+                                   orientation, isLandscape, papertype,
+                                   **kwargs)
         else:
             self._print_figure(outfile, format, imagedpi, facecolor, edgecolor,
-                               orientation, isLandscape, papertype)
+                               orientation, isLandscape, papertype,
+                               **kwargs)
 
     def _print_figure(self, outfile, format, dpi=72, facecolor='w', edgecolor='w',
-                      orientation='portrait', isLandscape=False, papertype=None):
+                      orientation='portrait', isLandscape=False, papertype=None,
+                      **kwargs):
         """
         Render the figure to hardcopy.  Set the figure patch face and
         edge colors.  This is useful because some of the GUIs have a
@@ -911,15 +897,15 @@ class FigureCanvasPS(FigureCanvasBase):
         """
         isEPSF = format == 'eps'
         passed_in_file_object = False
+        fd, tmpfile = mkstemp()
         if is_string_like(outfile):
             title = outfile
-            tmpfile = os.path.join(gettempdir(), md5(outfile).hexdigest())
         elif is_writable_file_like(outfile):
             title = None
-            tmpfile = os.path.join(gettempdir(), md5(str(hash(outfile))).hexdigest())
             passed_in_file_object = True
         else:
             raise ValueError("outfile must be a path or a file-like object")
+        os.close(fd)
         fh = file(tmpfile, 'w')
 
         # find the appropriate papertype
@@ -964,9 +950,29 @@ class FigureCanvasPS(FigureCanvasBase):
         self.figure.set_facecolor(facecolor)
         self.figure.set_edgecolor(edgecolor)
 
-        self._pswriter = StringIO()
-        renderer = RendererPS(width, height, self._pswriter, imagedpi=dpi)
+
+        dryrun = kwargs.get("dryrun", False)
+        if dryrun:
+            class NullWriter(object):
+                def write(self, *kl, **kwargs):
+                    pass
+                
+            self._pswriter = NullWriter()
+        else:
+            self._pswriter = StringIO()
+
+
+        # mixed mode rendering
+        _bbox_inches_restore = kwargs.pop("bbox_inches_restore", None)
+        ps_renderer = RendererPS(width, height, self._pswriter, imagedpi=dpi)
+        renderer = MixedModeRenderer(self.figure,
+            width, height, dpi, ps_renderer,
+            bbox_inches_restore=_bbox_inches_restore)
+
         self.figure.draw(renderer)
+
+        if dryrun: # return immediately if dryrun (tightbbox=True)
+            return
 
         self.figure.set_facecolor(origfacecolor)
         self.figure.set_edgecolor(origedgecolor)
@@ -987,7 +993,7 @@ class FigureCanvasPS(FigureCanvasBase):
         Ndict = len(psDefs)
         print >>fh, "%%BeginProlog"
         if not rcParams['ps.useafm']:
-            Ndict += len(renderer.used_characters)
+            Ndict += len(ps_renderer.used_characters)
         print >>fh, "/mpldict %d dict def"%Ndict
         print >>fh, "mpldict begin"
         for d in psDefs:
@@ -995,7 +1001,7 @@ class FigureCanvasPS(FigureCanvasBase):
             for l in d.split('\n'):
                 print >>fh, l.strip()
         if not rcParams['ps.useafm']:
-            for font_filename, chars in renderer.used_characters.values():
+            for font_filename, chars in ps_renderer.used_characters.values():
                 if len(chars):
                     font = FT2Font(font_filename)
                     cmap = font.get_charmap()
@@ -1044,7 +1050,8 @@ class FigureCanvasPS(FigureCanvasBase):
             shutil.move(tmpfile, outfile)
 
     def _print_figure_tex(self, outfile, format, dpi, facecolor, edgecolor,
-                          orientation, isLandscape, papertype):
+                          orientation, isLandscape, papertype,
+                          **kwargs):
         """
         If text.usetex is True in rc, a temporary pair of tex/eps files
         are created to allow tex to manage the text layout via the PSFrags
@@ -1054,7 +1061,8 @@ class FigureCanvasPS(FigureCanvasBase):
         title = outfile
 
         # write to a temp file, we'll move it to outfile when done
-        tmpfile = os.path.join(gettempdir(), md5(outfile).hexdigest())
+        fd, tmpfile = mkstemp()
+        os.close(fd)
         fh = file(tmpfile, 'w')
 
         self.figure.dpi = 72 # ignore the dpi kwarg
@@ -1075,9 +1083,28 @@ class FigureCanvasPS(FigureCanvasBase):
         self.figure.set_facecolor(facecolor)
         self.figure.set_edgecolor(edgecolor)
 
-        self._pswriter = StringIO()
-        renderer = RendererPS(width, height, self._pswriter, imagedpi=dpi)
+        dryrun = kwargs.get("dryrun", False)
+        if dryrun:
+            class NullWriter(object):
+                def write(self, *kl, **kwargs):
+                    pass
+                
+            self._pswriter = NullWriter()
+        else:
+            self._pswriter = StringIO()
+
+
+        # mixed mode rendering
+        _bbox_inches_restore = kwargs.pop("bbox_inches_restore", None)
+        ps_renderer = RendererPS(width, height, self._pswriter, imagedpi=dpi)
+        renderer = MixedModeRenderer(self.figure,
+            width, height, dpi, ps_renderer,
+            bbox_inches_restore=_bbox_inches_restore)
+
         self.figure.draw(renderer)
+
+        if dryrun: # return immediately if dryrun (tightbbox=True)
+            return
 
         self.figure.set_facecolor(origfacecolor)
         self.figure.set_edgecolor(origedgecolor)
@@ -1120,22 +1147,32 @@ class FigureCanvasPS(FigureCanvasBase):
             isLandscape = True
             width, height = height, width
             bbox = (lly, llx, ury, urx)
-        temp_papertype = _get_papertype(width, height)
-        if papertype=='auto':
-            papertype = temp_papertype
-            paperWidth, paperHeight = papersize[temp_papertype]
-        else:
-            paperWidth, paperHeight = papersize[papertype]
-            if (width>paperWidth or height>paperHeight) and isEPSF:
-                paperWidth, paperHeight = papersize[temp_papertype]
-                verbose.report('Your figure is too big to fit on %s paper. %s \
-paper will be used to prevent clipping.'%(papertype, temp_papertype), 'helpful')
 
-        texmanager = renderer.get_texmanager()
+        # set the paper size to the figure size if isEPSF. The
+        # resulting ps file has the given size with correct bounding
+        # box so that there is no need to call 'pstoeps'
+        if isEPSF:
+            paperWidth, paperHeight = self.figure.get_size_inches()
+            if isLandscape:
+                paperWidth, paperHeight = paperHeight, paperWidth
+        else:
+            temp_papertype = _get_papertype(width, height)
+            if papertype=='auto':
+                papertype = temp_papertype
+                paperWidth, paperHeight = papersize[temp_papertype]
+            else:
+                paperWidth, paperHeight = papersize[papertype]
+                if (width>paperWidth or height>paperHeight) and isEPSF:
+                    paperWidth, paperHeight = papersize[temp_papertype]
+                    verbose.report('Your figure is too big to fit on %s paper. %s \
+    paper will be used to prevent clipping.'%(papertype, temp_papertype), 'helpful')
+
+
+        texmanager = ps_renderer.get_texmanager()
         font_preamble = texmanager.get_font_preamble()
         custom_preamble = texmanager.get_custom_preamble()
 
-        convert_psfrags(tmpfile, renderer.psfrag, font_preamble,
+        convert_psfrags(tmpfile, ps_renderer.psfrag, font_preamble,
                         custom_preamble, paperWidth, paperHeight,
                         orientation)
 
@@ -1271,8 +1308,14 @@ your image.\nHere is the full report generated by ghostscript:\n\n' + fh.read())
     os.remove(outfile)
     os.remove(tmpfile)
     shutil.move(psfile, tmpfile)
-    if eps:
-        pstoeps(tmpfile, bbox)
+
+
+
+    # Since the the paper size is set to the figure size for eps
+    # output (in '_print_figure_tex'), pstoeps call is not required.
+
+    #if eps:
+    #    pstoeps(tmpfile, bbox)
 
 
 def xpdf_distill(tmpfile, eps=False, ptype='letter', bbox=None):

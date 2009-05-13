@@ -65,6 +65,7 @@ _plotcommands = (
     'errorbar',
     'fill',
     'fill_between',
+    'fill_betweenx',
     'hexbin',
     'hist',
     'hlines',
@@ -102,7 +103,7 @@ _misccommands = (
 cmappable = {
     'contour' : 'if ret._A is not None: gci._current = ret',
     'contourf': 'if ret._A is not None: gci._current = ret',
-    'hexbin' : 'gci._current = ret',
+    'hexbin' : 'gci._current = ret[0]',
     'scatter' : 'gci._current = ret',
     'pcolor'  : 'gci._current = ret',
     'pcolormesh'  : 'gci._current = ret',

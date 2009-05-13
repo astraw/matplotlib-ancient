@@ -83,7 +83,6 @@ BUILT_WINDOWING = False
 BUILT_CONTOUR   = False
 BUILT_DELAUNAY  = False
 BUILT_NXUTILS   = False
-BUILT_TRAITS    = False
 BUILT_CONTOUR   = False
 BUILT_GDK       = False
 BUILT_PATH      = False
@@ -99,8 +98,6 @@ options = {'display_status': True,
            'verbose': False,
            'provide_pytz': 'auto',
            'provide_dateutil': 'auto',
-           'provide_configobj': 'auto',
-           'provide_traits': False,
            'build_agg': True,
            'build_gtk': 'auto',
            'build_gtkagg': 'auto',
@@ -109,8 +106,7 @@ options = {'display_status': True,
            'build_macosx': 'auto',
            'build_image': True,
            'build_windowing': True,
-           'backend': None,
-           'numerix': None}
+           'backend': None}
 
 # Based on the contents of setup.cfg, determine the build options
 if os.path.exists("setup.cfg"):
@@ -130,14 +126,6 @@ if os.path.exists("setup.cfg"):
                                                          "dateutil")
     except: options['provide_dateutil'] = 'auto'
 
-    try: options['provide_configobj'] = config.getboolean("provide_packages",
-                                                          "configobj")
-    except: options['provide_configobj'] = 'auto'
-
-    try: options['provide_traits'] = config.getboolean("provide_packages",
-                                                       "enthought.traits")
-    except: options['provide_traits'] = False
-
     try: options['build_gtk'] = config.getboolean("gui_support", "gtk")
     except: options['build_gtk'] = 'auto'
 
@@ -151,9 +139,6 @@ if os.path.exists("setup.cfg"):
     except: options['build_wxagg'] = 'auto'
 
     try: options['backend'] = config.get("rc_options", "backend")
-    except: pass
-
-    try: options['numerix'] = config.get("rc_options", "numerix")
     except: pass
 
 
@@ -442,64 +427,6 @@ def check_provide_dateutil(hasdatetime=True):
                 return False
         except AttributeError:
             print_status("dateutil", "present, version unknown")
-            return False
-
-def check_provide_configobj():
-    if options['provide_configobj'] is True:
-        print_status("configobj", "matplotlib will provide")
-        return True
-    try:
-        import configobj
-    except ImportError:
-        if options['provide_configobj']:
-            print_status("configobj", "matplotlib will provide")
-            return True
-        else:
-            print_status("configobj", "no")
-            return False
-    else:
-        if configobj.__version__.endswith('mpl'):
-            print_status("configobj", "matplotlib will provide")
-            return True
-        else:
-            print_status("configobj", configobj.__version__)
-            return False
-
-def check_provide_traits():
-    # Let's not install traits by default for now, unless it is specifically
-    # asked for in setup.cfg AND it is not already installed
-#    if options['provide_traits'] is True:
-#        print_status("enthought.traits", "matplotlib will provide")
-#        return True
-    try:
-        from enthought import traits
-        try:
-            from enthought.traits import version
-        except:
-            print_status("enthought.traits", "unknown and incompatible version: < 2.0")
-            return False
-        else:
-            # traits 2 and 3 store their version strings in different places:
-            try:
-                version = version.version
-            except AttributeError:
-                version = version.__version__
-            # next 2 lines added temporarily while we figure out what to do
-            # with traits:
-            print_status("enthought.traits", version)
-            return False
-#            if version.endswith('mpl'):
-#                print_status("enthought.traits", "matplotlib will provide")
-#                return True
-#            else:
-#                print_status("enthought.traits", version)
-#                return False
-    except ImportError:
-        if options['provide_traits']:
-            print_status("enthought.traits", "matplotlib will provide")
-            return True
-        else:
-            print_status("enthought.traits", "no")
             return False
 
 def check_for_dvipng():
@@ -1025,11 +952,14 @@ def add_tk_flags(module):
     message = None
     if sys.platform == 'win32':
         major, minor1, minor2, s, tmp = sys.version_info
-        if major == 2 and minor1 in [3, 4, 5]:
-            module.include_dirs.extend(['win32_static/include/tcl8.4'])
+        if major == 2 and minor1 == 6:
+            module.include_dirs.extend(['win32_static/include/tcl85'])
+            module.libraries.extend(['tk85', 'tcl85'])
+        elif major == 2 and minor1 in [3, 4, 5]:
+            module.include_dirs.extend(['win32_static/include/tcl84'])
             module.libraries.extend(['tk84', 'tcl84'])
         elif major == 2 and minor1 == 2:
-            module.include_dirs.extend(['win32_static/include/tcl8.3'])
+            module.include_dirs.extend(['win32_static/include/tcl83'])
             module.libraries.extend(['tk83', 'tcl83'])
         else:
             raise RuntimeError('No tk/win32 support for this python version yet')
@@ -1135,8 +1065,7 @@ def build_windowing(ext_modules, packages):
     global BUILT_WINDOWING
     if BUILT_WINDOWING: return # only build it if you you haven't already
     module = Extension('matplotlib._windowing',
-                       ['src/_windowing.cpp',
-                        ],
+                       ['src/_windowing.cpp'],
                        )
     add_windowing_flags(module)
     ext_modules.append(module)
@@ -1149,7 +1078,8 @@ def build_ft2font(ext_modules, packages):
     deps.extend(glob.glob('CXX/*.cxx'))
     deps.extend(glob.glob('CXX/*.c'))
 
-    module = Extension('matplotlib.ft2font', deps)
+    module = Extension('matplotlib.ft2font', deps,
+                       define_macros=[('PY_ARRAYAUNIQUE_SYMBOL', 'MPL_ARRAY_API')])
     add_ft2font_flags(module)
     ext_modules.append(module)
     BUILT_FT2FONT = True
@@ -1170,12 +1100,13 @@ def build_ttconv(ext_modules, packages):
 def build_gtkagg(ext_modules, packages):
     global BUILT_GTKAGG
     if BUILT_GTKAGG: return # only build it if you you haven't already
-    deps = ['src/_gtkagg.cpp', 'src/mplutils.cpp']#, 'src/_transforms.cpp']
+    deps = ['src/agg_py_transforms.cpp', 'src/_gtkagg.cpp', 'src/mplutils.cpp']
     deps.extend(glob.glob('CXX/*.cxx'))
     deps.extend(glob.glob('CXX/*.c'))
 
     module = Extension('matplotlib.backends._gtkagg',
                        deps,
+                       define_macros=[('PY_ARRAY_UNIQUE_SYMBOL', 'MPL_ARRAY_API')]
                        )
 
     # add agg flags before pygtk because agg only supports freetype1
@@ -1192,12 +1123,13 @@ def build_gtkagg(ext_modules, packages):
 def build_tkagg(ext_modules, packages):
     global BUILT_TKAGG
     if BUILT_TKAGG: return # only build it if you you haven't already
-    deps = ['src/_tkagg.cpp']
+    deps = ['src/agg_py_transforms.cpp', 'src/_tkagg.cpp']
     deps.extend(glob.glob('CXX/*.cxx'))
     deps.extend(glob.glob('CXX/*.c'))
 
     module = Extension('matplotlib.backends._tkagg',
                        deps,
+                       define_macros=[('PY_ARRAY_UNIQUE_SYMBOL', 'MPL_ARRAY_API')]
                        )
 
     add_tk_flags(module) # do this first
@@ -1227,18 +1159,25 @@ def build_wxagg(ext_modules, packages):
      ext_modules.append(module)
      BUILT_WXAGG = True
 
-
 def build_macosx(ext_modules, packages):
     global BUILT_MACOSX
     if BUILT_MACOSX: return # only build it if you you haven't already
+    deps = ['src/_macosx.m',
+            'CXX/cxx_extensions.cxx',
+            'CXX/cxxextensions.c',
+            'CXX/cxxsupport.cxx',
+            'CXX/IndirectPythonInterface.cxx',
+            'src/agg_py_transforms.cpp',
+            'src/path_cleanup.cpp']
     module = Extension('matplotlib.backends._macosx',
-                       ['src/_macosx.m'],
+                       deps,
                        extra_link_args = ['-framework','Cocoa'],
+                       define_macros=[('PY_ARRAY_UNIQUE_SYMBOL', 'MPL_ARRAY_API')]
                       )
     add_numpy_flags(module)
+    add_agg_flags(module)
     ext_modules.append(module)
     BUILT_MACOSX = True
-
 
 def build_png(ext_modules, packages):
     global BUILT_PNG
@@ -1252,6 +1191,7 @@ def build_png(ext_modules, packages):
         'matplotlib._png',
         deps,
         include_dirs=numpy_inc_dirs,
+        define_macros=[('PY_ARRAY_UNIQUE_SYMBOL', 'MPL_ARRAY_API')]
         )
 
     add_png_flags(module)
@@ -1264,7 +1204,6 @@ def build_agg(ext_modules, packages):
     global BUILT_AGG
     if BUILT_AGG: return # only build it if you you haven't already
 
-
     agg = (
            'agg_trans_affine.cpp',
            'agg_bezier_arc.cpp',
@@ -1274,22 +1213,20 @@ def build_agg(ext_modules, packages):
            'agg_image_filters.cpp',
            )
 
-
     deps = ['%s/src/%s'%(AGG_VERSION, name) for name in agg]
-    deps.extend(('src/_image.cpp', 'src/ft2font.cpp', 'src/mplutils.cpp'))
+    deps.extend(['src/mplutils.cpp', 'src/agg_py_transforms.cpp'])
     deps.extend(glob.glob('CXX/*.cxx'))
     deps.extend(glob.glob('CXX/*.c'))
-
     temp_copy('src/_backend_agg.cpp', 'src/backend_agg.cpp')
     deps.append('src/backend_agg.cpp')
     module = Extension(
         'matplotlib.backends._backend_agg',
         deps,
         include_dirs=numpy_inc_dirs,
+        define_macros=[('PY_ARRAY_UNIQUE_SYMBOL', 'MPL_ARRAY_API')]
         )
 
     add_numpy_flags(module)
-
     add_agg_flags(module)
     add_ft2font_flags(module)
     ext_modules.append(module)
@@ -1312,11 +1249,14 @@ def build_path(ext_modules, packages):
     deps.extend(glob.glob('CXX/*.c'))
 
     temp_copy('src/_path.cpp', 'src/path.cpp')
-    deps.extend(['src/path.cpp'])
+    deps.extend(['src/agg_py_transforms.cpp',
+                 'src/path_cleanup.cpp',
+                 'src/path.cpp'])
     module = Extension(
         'matplotlib._path',
         deps,
         include_dirs=numpy_inc_dirs,
+        define_macros=[('PY_ARRAY_UNIQUE_SYMBOL', 'MPL_ARRAY_API')]
         )
 
     add_numpy_flags(module)
@@ -1345,6 +1285,7 @@ def build_image(ext_modules, packages):
         'matplotlib._image',
         deps,
         include_dirs=numpy_inc_dirs,
+        define_macros=[('PY_ARRAY_UNIQUE_SYMBOL', 'MPL_ARRAY_API')]
         )
 
     add_numpy_flags(module)
@@ -1354,23 +1295,6 @@ def build_image(ext_modules, packages):
     BUILT_IMAGE = True
 
 
-def build_traits(ext_modules, packages):
-    global BUILT_TRAITS
-    if BUILT_TRAITS:
-        return # only build it if you you haven't already
-
-    ctraits = Extension('enthought.traits.ctraits',
-                        ['lib/enthought/traits/ctraits.c'])
-    ext_modules.append(ctraits)
-    packages.extend(['enthought',
-                     'enthought/etsconfig',
-                     'enthought/traits',
-                     'enthought/traits/ui',
-                     'enthought/traits/ui/extras',
-                     'enthought/traits/ui/null',
-                     'enthought/traits/ui/tk',
-                     ])
-    BUILT_TRAITS = True
 
 def build_delaunay(ext_modules, packages):
     global BUILT_DELAUNAY
@@ -1381,7 +1305,9 @@ def build_delaunay(ext_modules, packages):
                  "delaunay_utils.cpp", "natneighbors.cpp"]
     sourcefiles = [os.path.join('lib/matplotlib/delaunay',s) for s in sourcefiles]
     delaunay = Extension('matplotlib._delaunay',sourcefiles,
-                         include_dirs=numpy_inc_dirs)
+                         include_dirs=numpy_inc_dirs,
+                         define_macros=[('PY_ARRAY_UNIQUE_SYMBOL', 'MPL_ARRAY_API')]
+                         )
     add_numpy_flags(delaunay)
     add_base_flags(delaunay)
     ext_modules.append(delaunay)
@@ -1397,6 +1323,7 @@ def build_contour(ext_modules, packages):
         'matplotlib._cntr',
         [ 'src/cntr.c'],
         include_dirs=numpy_inc_dirs,
+        define_macros=[('PY_ARRAY_UNIQUE_SYMBOL', 'MPL_ARRAY_API')]
         )
     add_numpy_flags(module)
     add_base_flags(module)
@@ -1412,6 +1339,7 @@ def build_nxutils(ext_modules, packages):
         'matplotlib.nxutils',
         [ 'src/nxutils.c'],
         include_dirs=numpy_inc_dirs,
+        define_macros=[('PY_ARRAY_UNIQUE_SYMBOL', 'MPL_ARRAY_API')]
         )
     add_numpy_flags(module)
     add_base_flags(module)
@@ -1427,9 +1355,10 @@ def build_gdk(ext_modules, packages):
     temp_copy('src/_backend_gdk.c', 'src/backend_gdk.c')
     module = Extension(
         'matplotlib.backends._backend_gdk',
-        ['src/backend_gdk.c', ],
+        ['src/backend_gdk.c'],
         libraries = [],
         include_dirs=numpy_inc_dirs,
+        define_macros=[('PY_ARRAY_UNIQUE_SYMBOL', 'MPL_ARRAY_API')]
         )
 
     add_numpy_flags(module)

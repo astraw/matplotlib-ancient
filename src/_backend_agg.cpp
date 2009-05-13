@@ -30,13 +30,13 @@
 #include "agg_span_image_filter_gray.h"
 #include "agg_span_image_filter_rgba.h"
 #include "agg_span_interpolator_linear.h"
+#include "agg_span_pattern_rgba.h"
 #include "agg_conv_shorten_path.h"
 #include "util/agg_color_conv_rgb8.h"
 
 #include "swig_runtime.h"
 #include "MPL_isnan.h"
 
-#define PY_ARRAY_TYPES_PREFIX NumPy
 #include "numpy/arrayobject.h"
 #include "agg_py_transforms.h"
 
@@ -148,6 +148,8 @@ GCAgg::GCAgg(const Py::Object &gc, double dpi) :
   _set_dashes(gc);
   _set_clip_rectangle(gc);
   _set_clip_path(gc);
+  _set_snap(gc);
+  _set_hatch_path(gc);
 }
 
 GCAgg::GCAgg(double dpi) :
@@ -206,7 +208,7 @@ GCAgg::_set_joinstyle(const Py::Object& gc) {
   std::string joinstyle = Py::String( gc.getAttr("_joinstyle") );
 
   if (joinstyle=="miter")
-    join =  agg::miter_join;
+    join =  agg::miter_join_revert;
   else if (joinstyle=="round")
     join = agg::round_join;
   else if(joinstyle=="bevel")
@@ -250,8 +252,35 @@ GCAgg::_set_clip_path( const Py::Object& gc) {
   Py::Tuple path_and_transform = method.apply(Py::Tuple());
   if (path_and_transform[0].ptr() != Py_None) {
     clippath = path_and_transform[0];
-    clippath_trans = py_to_agg_transformation_matrix(path_and_transform[1]);
+    clippath_trans = py_to_agg_transformation_matrix(path_and_transform[1].ptr());
   }
+}
+
+void
+GCAgg::_set_snap( const Py::Object& gc) {
+  //set the snap setting
+
+  _VERBOSE("GCAgg::_set_snap");
+
+  Py::Object method_obj = gc.getAttr("get_snap");
+  Py::Callable method(method_obj);
+  Py::Object py_snap = method.apply(Py::Tuple());
+  if (py_snap.isNone()) {
+    quantize_mode = QUANTIZE_AUTO;
+  } else if (py_snap.isTrue()) {
+    quantize_mode = QUANTIZE_TRUE;
+  } else {
+    quantize_mode = QUANTIZE_FALSE;
+  }
+}
+
+void
+GCAgg::_set_hatch_path( const Py::Object& gc) {
+  _VERBOSE("GCAgg::_set_hatch_path");
+
+  Py::Object method_obj = gc.getAttr("get_hatch_path");
+  Py::Callable method(method_obj);
+  hatchpath = method.apply(Py::Tuple());
 }
 
 const size_t
@@ -291,6 +320,7 @@ RendererAgg::RendererAgg(unsigned int width, unsigned int height, double dpi,
   rendererBase.clear(agg::rgba(1, 1, 1, 0));
   rendererAA.attach(rendererBase);
   rendererBin.attach(rendererBase);
+  hatchRenderingBuffer.attach(hatchBuffer, HATCH_SIZE, HATCH_SIZE, HATCH_SIZE*4);
 }
 
 void RendererAgg::create_alpha_buffers() {
@@ -333,46 +363,6 @@ RendererAgg::_get_rgba_face(const Py::Object& rgbFace, double alpha) {
     face.second = rgb_to_color(rgb, alpha);
   }
   return face;
-}
-
-template<class Path>
-bool should_snap(Path& path, const agg::trans_affine& trans) {
-  // If this contains only straight horizontal or vertical lines, it should be
-  // quantized to the nearest pixels
-  double x0, y0, x1, y1;
-  unsigned code;
-
-  if (path.total_vertices() > 15)
-    return false;
-
-  code = path.vertex(&x0, &y0);
-  if (code == agg::path_cmd_stop) {
-    path.rewind(0);
-    return false;
-  }
-  trans.transform(&x0, &y0);
-
-  while ((code = path.vertex(&x1, &y1)) != agg::path_cmd_stop) {
-    trans.transform(&x1, &y1);
-
-    switch (code) {
-    case agg::path_cmd_curve3:
-    case agg::path_cmd_curve4:
-      path.rewind(0);
-      return false;
-    case agg::path_cmd_line_to:
-      if (!(fabs(x0 - x1) < 1e-4 || fabs(y0 - y1) < 1e-4)) {
-	path.rewind(0);
-	return false;
-      }
-    }
-
-    x0 = x1;
-    y0 = y1;
-  }
-
-  path.rewind(0);
-  return true;
 }
 
 Py::Object
@@ -469,8 +459,8 @@ bool RendererAgg::render_clippath(const Py::Object& clippath, const agg::trans_a
 Py::Object
 RendererAgg::draw_markers(const Py::Tuple& args) {
   typedef agg::conv_transform<PathIterator>		     transformed_path_t;
-  typedef SimplifyPath<transformed_path_t>		     simplify_t;
-  typedef agg::conv_curve<simplify_t>	                     curve_t;
+  typedef PathQuantizer<transformed_path_t>		     quantize_t;
+  typedef agg::conv_curve<quantize_t>	                     curve_t;
   typedef agg::conv_stroke<curve_t>			     stroke_t;
   typedef agg::pixfmt_amask_adaptor<pixfmt, alpha_mask_type> pixfmt_amask_type;
   typedef agg::renderer_base<pixfmt_amask_type>		     amask_ren_type;
@@ -480,31 +470,29 @@ RendererAgg::draw_markers(const Py::Tuple& args) {
 
   Py::Object	    gc_obj	    = args[0];
   Py::Object	    marker_path_obj = args[1];
-  agg::trans_affine marker_trans    = py_to_agg_transformation_matrix(args[2]);
+  agg::trans_affine marker_trans    = py_to_agg_transformation_matrix(args[2].ptr());
   Py::Object	    path_obj	    = args[3];
-  agg::trans_affine trans	    = py_to_agg_transformation_matrix(args[4]);
+  agg::trans_affine trans	    = py_to_agg_transformation_matrix(args[4].ptr());
   Py::Object        face_obj;
   if (args.size() == 6)
     face_obj = args[5];
+
+  GCAgg gc = GCAgg(gc_obj, dpi);
 
   // Deal with the difference in y-axis direction
   marker_trans *= agg::trans_affine_scaling(1.0, -1.0);
   trans *= agg::trans_affine_scaling(1.0, -1.0);
   trans *= agg::trans_affine_translation(0.0, (double)height);
 
-  PathIterator marker_path(marker_path_obj);
-  // The built-in markers look better if snapping is turned on, but
-  // unfortunately, it can cause really small things to disappear.
-  // Disabling for now to revisit at a later date.
-  // const bool marker_snap = true;
-  bool marker_snap = should_snap(marker_path, marker_trans);
+  PathIterator       marker_path(marker_path_obj);
   transformed_path_t marker_path_transformed(marker_path, marker_trans);
-  simplify_t marker_path_simplified(marker_path_transformed, marker_snap, false, width, height);
-  curve_t marker_path_curve(marker_path_simplified);
+  quantize_t         marker_path_quantized(marker_path_transformed,
+                                           gc.quantize_mode,
+                                           marker_path.total_vertices());
+  curve_t            marker_path_curve(marker_path_quantized);
 
   PathIterator path(path_obj);
   transformed_path_t path_transformed(path, trans);
-  GCAgg gc = GCAgg(gc_obj, dpi);
   path_transformed.rewind(0);
 
   facepair_t face = _get_rgba_face(face_obj, gc.alpha);
@@ -759,7 +747,7 @@ RendererAgg::draw_image(const Py::Tuple& args) {
   rendererBase.reset_clipping(true);
   if (args.size() == 6) {
     clippath = args[4];
-    clippath_trans = py_to_agg_transformation_matrix(args[5], false);
+    clippath_trans = py_to_agg_transformation_matrix(args[5].ptr(), false);
     has_clippath = render_clippath(clippath, clippath_trans);
   }
 
@@ -850,6 +838,59 @@ void RendererAgg::_draw_path(path_t& path, bool has_clippath,
     }
   }
 
+  // Render hatch
+  if (!gc.hatchpath.isNone()) {
+    // Reset any clipping that may be in effect, since we'll be
+    // drawing the hatch in a scratch buffer at origin (0, 0)
+    theRasterizer.reset_clipping();
+    rendererBase.reset_clipping(true);
+
+    // Create and transform the path
+    typedef agg::conv_transform<PathIterator> hatch_path_trans_t;
+    typedef agg::conv_curve<hatch_path_trans_t> hatch_path_curve_t;
+    typedef agg::conv_stroke<hatch_path_curve_t> hatch_path_stroke_t;
+
+    PathIterator hatch_path(gc.hatchpath);
+    agg::trans_affine hatch_trans;
+    hatch_trans *= agg::trans_affine_scaling(1.0, -1.0);
+    hatch_trans *= agg::trans_affine_translation(0.0, 1.0);
+    hatch_trans *= agg::trans_affine_scaling(HATCH_SIZE, HATCH_SIZE);
+    hatch_path_trans_t hatch_path_trans(hatch_path, hatch_trans);
+    hatch_path_curve_t hatch_path_curve(hatch_path_trans);
+    hatch_path_stroke_t hatch_path_stroke(hatch_path_curve);
+    hatch_path_stroke.width(1.0);
+    hatch_path_stroke.line_cap(agg::square_cap);
+
+    // Render the path into the hatch buffer
+    pixfmt hatch_img_pixf(hatchRenderingBuffer);
+    renderer_base rb(hatch_img_pixf);
+    renderer_aa rs(rb);
+    rb.clear(agg::rgba(0.0, 0.0, 0.0, 0.0));
+    rs.color(gc.color);
+
+    theRasterizer.add_path(hatch_path_curve);
+    agg::render_scanlines(theRasterizer, slineP8, rs);
+    theRasterizer.add_path(hatch_path_stroke);
+    agg::render_scanlines(theRasterizer, slineP8, rs);
+
+    // Put clipping back on, if originally set on entry to this
+    // function
+    set_clipbox(gc.cliprect, theRasterizer);
+    if (has_clippath)
+      render_clippath(gc.clippath, gc.clippath_trans);
+
+    // Transfer the hatch to the main image buffer
+    typedef agg::image_accessor_wrap<pixfmt,
+      agg::wrap_mode_repeat_auto_pow2,
+      agg::wrap_mode_repeat_auto_pow2> img_source_type;
+    typedef agg::span_pattern_rgba<img_source_type> span_gen_type;
+    agg::span_allocator<agg::rgba8> sa;
+    img_source_type img_src(hatch_img_pixf);
+    span_gen_type sg(img_src, 0, 0);
+    theRasterizer.add_path(path);
+    agg::render_scanlines_aa(theRasterizer, slineP8, rendererBase, sa, sg);
+  }
+
   // Render stroke
   if (gc.linewidth != 0.0) {
     double linewidth = gc.linewidth;
@@ -909,16 +950,19 @@ void RendererAgg::_draw_path(path_t& path, bool has_clippath,
 
 Py::Object
 RendererAgg::draw_path(const Py::Tuple& args) {
-  typedef agg::conv_transform<PathIterator>	transformed_path_t;
-  typedef SimplifyPath<transformed_path_t>	simplify_t;
-  typedef agg::conv_curve<simplify_t>		curve_t;
+  typedef agg::conv_transform<PathIterator>  transformed_path_t;
+  typedef PathNanRemover<transformed_path_t> nan_removed_t;
+  typedef PathClipper<nan_removed_t>         clipped_t;
+  typedef PathQuantizer<clipped_t>           quantized_t;
+  typedef PathSimplifier<quantized_t>        simplify_t;
+  typedef agg::conv_curve<simplify_t>        curve_t;
 
   _VERBOSE("RendererAgg::draw_path");
   args.verify_length(3, 4);
 
   Py::Object gc_obj = args[0];
   Py::Object path_obj = args[1];
-  agg::trans_affine trans = py_to_agg_transformation_matrix(args[2]);
+  agg::trans_affine trans = py_to_agg_transformation_matrix(args[2].ptr());
   Py::Object face_obj;
   if (args.size() == 4)
     face_obj = args[3];
@@ -934,14 +978,15 @@ RendererAgg::draw_path(const Py::Tuple& args) {
 
   trans *= agg::trans_affine_scaling(1.0, -1.0);
   trans *= agg::trans_affine_translation(0.0, (double)height);
-  bool snap = should_snap(path, trans);
+  bool clip = !face.first;
   bool simplify = path.should_simplify() && !face.first;
 
   transformed_path_t tpath(path, trans);
-  simplify_t simplified(tpath, snap, simplify, width, height);
-  curve_t curve(simplified);
-  if (snap)
-    gc.isaa = false;
+  nan_removed_t      nan_removed(tpath, true, path.has_curves());
+  clipped_t          clipped(nan_removed, clip, width, height);
+  quantized_t        quantized(clipped, gc.quantize_mode, path.total_vertices());
+  simplify_t         simplified(quantized, simplify, path.simplify_threshold());
+  curve_t            curve(simplified);
 
   try {
     _draw_path(curve, has_clippath, face, gc);
@@ -969,9 +1014,11 @@ RendererAgg::_draw_path_collection_generic
    const Py::SeqBase<Py::Object>& linestyles_obj,
    const Py::SeqBase<Py::Int>&    antialiaseds) {
   typedef agg::conv_transform<typename PathGenerator::path_iterator> transformed_path_t;
-  typedef SimplifyPath<transformed_path_t>			     simplify_t;
-  typedef agg::conv_curve<simplify_t>				     simplified_curve_t;
-  typedef agg::conv_curve<transformed_path_t>			     curve_t;
+  typedef PathNanRemover<transformed_path_t>                         nan_removed_t;
+  typedef PathClipper<nan_removed_t>                                 clipped_t;
+  typedef PathQuantizer<clipped_t>                                   quantized_t;
+  typedef agg::conv_curve<quantized_t>				     quantized_curve_t;
+  typedef agg::conv_curve<clipped_t>      			     curve_t;
 
   GCAgg gc(dpi);
 
@@ -1023,7 +1070,7 @@ RendererAgg::_draw_path_collection_generic
     transforms.reserve(Ntransforms);
     for (i = 0; i < Ntransforms; ++i) {
       agg::trans_affine trans = py_to_agg_transformation_matrix
-	(transforms_obj[i], false);
+	(transforms_obj[i].ptr(), false);
       trans *= master_transform;
 
       transforms.push_back(trans);
@@ -1050,7 +1097,6 @@ RendererAgg::_draw_path_collection_generic
     facepair_t face;
     face.first = Nfacecolors != 0;
     agg::trans_affine trans;
-    bool snap = false;
 
     for (i = 0; i < N; ++i) {
       typename PathGenerator::path_iterator path = path_generator(i);
@@ -1098,29 +1144,29 @@ RendererAgg::_draw_path_collection_generic
       }
 
       if (check_snap) {
-	snap = should_snap(path, trans);
-	if (snap)
-	  gc.isaa = false;
-	else
-	  gc.isaa = bool(Py::Int(antialiaseds[i % Naa]));
+        gc.isaa = bool(Py::Int(antialiaseds[i % Naa]));
 
 	transformed_path_t tpath(path, trans);
-	simplify_t simplified(tpath, snap, false, width, height);
+        nan_removed_t      nan_removed(tpath, true, has_curves);
+        clipped_t          clipped(nan_removed, !face.first, width, height);
+        quantized_t        quantized(clipped, gc.quantize_mode, path.total_vertices());
 	if (has_curves) {
-	  simplified_curve_t curve(simplified);
+	  quantized_curve_t curve(quantized);
 	  _draw_path(curve, has_clippath, face, gc);
 	} else {
-	  _draw_path(simplified, has_clippath, face, gc);
+	  _draw_path(quantized, has_clippath, face, gc);
 	}
       } else {
 	gc.isaa = bool(Py::Int(antialiaseds[i % Naa]));
 
 	transformed_path_t tpath(path, trans);
+        nan_removed_t      nan_removed(tpath, true, has_curves);
+        clipped_t          clipped(nan_removed, !face.first, width, height);
 	if (has_curves) {
-	  curve_t curve(tpath);
+	  curve_t curve(clipped);
 	  _draw_path(curve, has_clippath, face, gc);
 	} else {
-	  _draw_path(tpath, has_clippath, face, gc);
+	  _draw_path(clipped, has_clippath, face, gc);
 	}
       }
     }
@@ -1165,14 +1211,14 @@ RendererAgg::draw_path_collection(const Py::Tuple& args) {
   args.verify_length(14);
 
   //segments, trans, clipbox, colors, linewidths, antialiaseds
-  agg::trans_affine	  master_transform = py_to_agg_transformation_matrix(args[0]);
+  agg::trans_affine	  master_transform = py_to_agg_transformation_matrix(args[0].ptr());
   Py::Object		  cliprect	   = args[1];
   Py::Object		  clippath	   = args[2];
-  agg::trans_affine       clippath_trans   = py_to_agg_transformation_matrix(args[3], false);
+  agg::trans_affine       clippath_trans   = py_to_agg_transformation_matrix(args[3].ptr(), false);
   Py::SeqBase<Py::Object> paths		   = args[4];
   Py::SeqBase<Py::Object> transforms_obj   = args[5];
   Py::Object              offsets_obj      = args[6];
-  agg::trans_affine       offset_trans     = py_to_agg_transformation_matrix(args[7]);
+  agg::trans_affine       offset_trans     = py_to_agg_transformation_matrix(args[7].ptr());
   Py::Object              facecolors_obj   = args[8];
   Py::Object              edgecolors_obj   = args[9];
   Py::SeqBase<Py::Float>  linewidths	   = args[10];
@@ -1281,15 +1327,15 @@ RendererAgg::draw_quad_mesh(const Py::Tuple& args) {
 
 
   //segments, trans, clipbox, colors, linewidths, antialiaseds
-  agg::trans_affine	  master_transform = py_to_agg_transformation_matrix(args[0]);
+  agg::trans_affine	  master_transform = py_to_agg_transformation_matrix(args[0].ptr());
   Py::Object		  cliprect	   = args[1];
   Py::Object		  clippath	   = args[2];
-  agg::trans_affine       clippath_trans   = py_to_agg_transformation_matrix(args[3], false);
+  agg::trans_affine       clippath_trans   = py_to_agg_transformation_matrix(args[3].ptr(), false);
   size_t                  mesh_width       = Py::Int(args[4]);
   size_t                  mesh_height      = Py::Int(args[5]);
   PyObject*               coordinates	   = args[6].ptr();
   Py::Object              offsets_obj      = args[7];
-  agg::trans_affine       offset_trans     = py_to_agg_transformation_matrix(args[8]);
+  agg::trans_affine       offset_trans     = py_to_agg_transformation_matrix(args[8].ptr());
   Py::Object              facecolors_obj   = args[9];
   bool                    antialiased	   = (bool)Py::Int(args[10]);
   bool                    showedges        = (bool)Py::Int(args[11]);

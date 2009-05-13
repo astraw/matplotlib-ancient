@@ -10,6 +10,7 @@ from matplotlib.cbook import maxdict
 from matplotlib.figure import Figure
 from matplotlib.path import Path
 from matplotlib.mathtext import MathTextParser
+from matplotlib.colors import colorConverter
 
 
 
@@ -48,34 +49,48 @@ class RendererMac(RendererBase):
         self.width, self.height = width, height
 
     def draw_path(self, gc, path, transform, rgbFace=None):
-        path = transform.transform_path(path)
-        for points, code in path.iter_segments():
-            if code == Path.MOVETO:
-                gc.moveto(points)
-            elif code == Path.LINETO:
-                gc.lineto(points)
-            elif code == Path.CURVE3:
-                gc.curve3(points)
-            elif code == Path.CURVE4:
-                gc.curve4(points)
-            elif code == Path.CLOSEPOLY:
-                gc.closepoly()
         if rgbFace is not None:
             rgbFace = tuple(rgbFace)
-        gc.stroke(rgbFace)
+        if gc!=self.gc:
+            n = self.gc.level() - gc.level()
+            for i in range(n): self.gc.restore()
+            self.gc = gc
+        gc.draw_path(path, transform, rgbFace)
+
+    def draw_markers(self, gc, marker_path, marker_trans, path, trans, rgbFace=None):
+        if rgbFace is not None:
+            rgbFace = tuple(rgbFace)
+        if gc!=self.gc:
+            n = self.gc.level() - gc.level()
+            for i in range(n): self.gc.restore()
+            self.gc = gc
+        gc.draw_markers(marker_path, marker_trans, path, trans, rgbFace)
+
+    def draw_path_collection(self, *args):
+        gc = self.gc
+        args = args[:13]
+        gc.draw_path_collection(*args)
+
+    def draw_quad_mesh(self, *args):
+        gc = self.gc
+        gc.draw_quad_mesh(*args)
 
     def new_gc(self):
         self.gc.reset()
+        self.gc.set_hatch(None)
         return self.gc
 
     def draw_image(self, x, y, im, bbox, clippath=None, clippath_trans=None):
-        self.gc.set_clip_rectangle(bbox)
         im.flipud_out()
         nrows, ncols, data = im.as_rgba_str()
-        self.gc.draw_image(x, y, nrows, ncols, data)
+        self.gc.draw_image(x, y, nrows, ncols, data, bbox, clippath, clippath_trans)
         im.flipud_out()
     
     def draw_tex(self, gc, x, y, s, prop, angle):
+        if gc!=self.gc:
+            n = self.gc.level() - gc.level()
+            for i in range(n): self.gc.restore()
+            self.gc = gc
         # todo, handle props, angle, origins
         size = prop.get_size_in_points()
         texmanager = self.get_texmanager()
@@ -88,39 +103,48 @@ class RendererMac(RendererBase):
         gc.draw_mathtext(x, y, angle, Z)
 
     def _draw_mathtext(self, gc, x, y, s, prop, angle):
-        size = prop.get_size_in_points()
+        if gc!=self.gc:
+            n = self.gc.level() - gc.level()
+            for i in range(n): self.gc.restore()
+            self.gc = gc
         ox, oy, width, height, descent, image, used_characters = \
             self.mathtext_parser.parse(s, self.dpi, prop)
         gc.draw_mathtext(x, y, angle, 255 - image.as_array())
 
     def draw_text(self, gc, x, y, s, prop, angle, ismath=False):
+        if gc!=self.gc:
+            n = self.gc.level() - gc.level()
+            for i in range(n): self.gc.restore()
+            self.gc = gc
         if ismath:
            self._draw_mathtext(gc, x, y, s, prop, angle)
         else:
             family =  prop.get_family()
-            size = prop.get_size_in_points()
             weight = prop.get_weight()
             style = prop.get_style()
+            points = prop.get_size_in_points()
+            size = self.points_to_pixels(points)
             gc.draw_text(x, y, unicode(s), family, size, weight, style, angle)
 
     def get_text_width_height_descent(self, s, prop, ismath):
         if ismath=='TeX':
-            # TODO: handle props
-            size = prop.get_size_in_points()
+            # todo: handle props
             texmanager = self.get_texmanager()
-            Z = texmanager.get_grey(s, size, self.dpi)
-            m,n = Z.shape
-            # TODO: handle descent; This is based on backend_agg.py
-            return n, m, 0
+            fontsize = prop.get_size_in_points()
+            w, h, d = texmanager.get_text_width_height_descent(s, fontsize,
+                                                               renderer=self)
+            return w, h, d
         if ismath:
             ox, oy, width, height, descent, fonts, used_characters = \
                 self.mathtext_parser.parse(s, self.dpi, prop)
             return width, height, descent
         family =  prop.get_family()
-        size = prop.get_size_in_points()
         weight = prop.get_weight()
         style = prop.get_style()
-        return self.gc.get_text_width_height_descent(unicode(s), family, size, weight, style)
+        points = prop.get_size_in_points()
+        size = self.points_to_pixels(points)
+        width, height, descent = self.gc.get_text_width_height_descent(unicode(s), family, size, weight, style)
+        return  width, height, 0.0*descent
 
     def flipy(self):
         return False
@@ -143,6 +167,15 @@ class GraphicsContextMac(_macosx.GraphicsContext, GraphicsContextBase):
         GraphicsContextBase.__init__(self)
         _macosx.GraphicsContext.__init__(self)
 
+    def set_foreground(self, fg, isRGB=False):
+        GraphicsContextBase.set_foreground(self, fg, isRGB)
+        rgb = self.get_rgb()
+        _macosx.GraphicsContext.set_foreground(self, rgb[:3])
+
+    def set_graylevel(self, fg):
+        GraphicsContextBase.set_graylevel(self, fg)
+        _macosx.GraphicsContext.set_graylevel(self, fg)
+
     def set_clip_rectangle(self, box):
         GraphicsContextBase.set_clip_rectangle(self, box)
         if not box: return
@@ -152,19 +185,7 @@ class GraphicsContextMac(_macosx.GraphicsContext, GraphicsContextBase):
         GraphicsContextBase.set_clip_path(self, path)
         if not path: return
         path = path.get_fully_transformed_path()
-        for points, code in path.iter_segments():
-            if code == Path.MOVETO:
-                self.moveto(points)
-            elif code == Path.LINETO:
-                self.lineto(points)
-            elif code == Path.CURVE3:
-                self.curve3(points)
-            elif code == Path.CURVE4:
-                self.curve4(points)
-            elif code == Path.CLOSEPOLY:
-                self.closepoly()
-        self.clip_path()
-
+        _macosx.GraphicsContext.set_clip_path(self, path)
 
 ########################################################################
 #    
@@ -210,6 +231,14 @@ class FigureCanvasMac(_macosx.FigureCanvas, FigureCanvasBase):
     key_press_event, and key_release_event are called from there.
     """
 
+    filetypes = FigureCanvasBase.filetypes.copy()
+    filetypes['bmp'] = 'Windows bitmap'
+    filetypes['jpeg'] = 'JPEG'
+    filetypes['jpg'] = 'JPEG'
+    filetypes['gif'] = 'Graphics Interchange Format'
+    filetypes['tif'] = 'Tagged Image Format File'
+    filetypes['tiff'] = 'Tagged Image Format File'
+
     def __init__(self, figure):
         FigureCanvasBase.__init__(self, figure)
         width, height = self.get_width_height()
@@ -223,53 +252,39 @@ class FigureCanvasMac(_macosx.FigureCanvas, FigureCanvasBase):
         height /= dpi
         self.figure.set_size_inches(width, height)
 
-    def print_figure(self, filename, dpi=None, facecolor='w', edgecolor='w',
-                     orientation='portrait', **kwargs):
-        if dpi is None: dpi = matplotlib.rcParams['savefig.dpi']
+    def _print_bitmap(self, filename, *args, **kwargs):
+        # In backend_bases.py, print_figure changes the dpi of the figure.
+        # But since we are essentially redrawing the picture, we need the
+        # original dpi. Pick it up from the renderer.
+        dpi = kwargs['dpi']
+        old_dpi = self.figure.dpi
+        self.figure.dpi = self.renderer.dpi
+        width, height = self.figure.get_size_inches()
+        width, height = width*dpi, height*dpi
         filename = unicode(filename)
-        root, ext = os.path.splitext(filename)
-        ext = ext[1:].lower()
-        if not ext:
-             ext = "png"
-             filename = root + "." + ext
-        if ext=="jpg": ext = "jpeg"
+        self.write_bitmap(filename, width, height)
+        self.figure.dpi = old_dpi
 
-        # save the figure settings
-        origfacecolor = self.figure.get_facecolor()
-        origedgecolor = self.figure.get_edgecolor()
+    def print_bmp(self, filename, *args, **kwargs):
+        self._print_bitmap(filename, *args, **kwargs)
 
-        # set the new parameters
-        self.figure.set_facecolor(facecolor)
-        self.figure.set_edgecolor(edgecolor)
+    def print_jpg(self, filename, *args, **kwargs):
+        self._print_bitmap(filename, *args, **kwargs)
 
-        if ext in ('jpeg', 'png', 'tiff', 'gif', 'bmp'):
-            width, height = self.figure.get_size_inches()
-            width, height = width*dpi, height*dpi
-            self.write_bitmap(filename, width, height)
-        elif ext == 'pdf':
-            self.write_pdf(filename)
-        elif ext in ('ps', 'eps'):
-            from backend_ps import FigureCanvasPS
-            # Postscript backend changes figure.dpi, but doesn't change it back
-            origDPI = self.figure.dpi
-            fc = self.switch_backends(FigureCanvasPS)
-            fc.print_figure(filename, dpi, facecolor, edgecolor,
-                            orientation, **kwargs)
-            self.figure.dpi = origDPI
-            self.figure.set_canvas(self)
-        elif ext=='svg':
-            from backend_svg import FigureCanvasSVG
-            fc = self.switch_backends(FigureCanvasSVG)
-            fc.print_figure(filename, dpi, facecolor, edgecolor,
-                            orientation, **kwargs)
-            self.figure.set_canvas(self)
-        else:
-            raise ValueError("Figure format not available (extension %s)" % ext)
+    def print_jpeg(self, filename, *args, **kwargs):
+        self._print_bitmap(filename, *args, **kwargs)
 
-        # restore original figure settings
-        self.figure.set_facecolor(origfacecolor)
-        self.figure.set_edgecolor(origedgecolor)
+    def print_tif(self, filename, *args, **kwargs):
+        self._print_bitmap(filename, *args, **kwargs)
 
+    def print_tiff(self, filename, *args, **kwargs):
+        self._print_bitmap(filename, *args, **kwargs)
+
+    def print_gif(self, filename, *args, **kwargs):
+        self._print_bitmap(filename, *args, **kwargs)
+
+    def get_default_filetype(self):
+        return 'png'
 
 
 class FigureManagerMac(_macosx.FigureManager, FigureManagerBase):

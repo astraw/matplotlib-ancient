@@ -235,7 +235,7 @@ class Text(Artist):
         thisx, thisy  = 0.0, 0.0
         xmin, ymin    = 0.0, 0.0
         width, height = 0.0, 0.0
-        lines = self._text.split('\n')
+        lines = self.get_text().split('\n')
 
         whs = np.zeros((len(lines), 2))
         horizLayout = np.zeros((len(lines), 4))
@@ -248,8 +248,9 @@ class Text(Artist):
 
         baseline = None
         for i, line in enumerate(lines):
+            clean_line, ismath = self.is_math_text(line)
             w, h, d = renderer.get_text_width_height_descent(
-                line, self._fontproperties, ismath=self.is_math_text(line))
+                clean_line, self._fontproperties, ismath=ismath)
             if baseline is None:
                 baseline = h - d
             whs[i] = w, h
@@ -366,7 +367,8 @@ class Text(Artist):
 
 
     def update_bbox_position_size(self, renderer):
-        """ Update the location and the size of the bbox. This method
+        """
+        Update the location and the size of the bbox. This method
         should be used when the position and size of the bbox needs to
         be updated before actually drawing the bbox.
         """
@@ -394,7 +396,8 @@ class Text(Artist):
             tr = mtransforms.Affine2D().rotate(theta)
             tr = tr.translate(posx+x_box, posy+y_box)
             self._bbox_patch.set_transform(tr)
-            self._bbox_patch.set_mutation_scale(self.get_size())
+            fontsize_in_pixel = renderer.points_to_pixels(self.get_size())
+            self._bbox_patch.set_mutation_scale(fontsize_in_pixel)
             #self._bbox_patch.draw(renderer)
 
         else:
@@ -403,6 +406,10 @@ class Text(Artist):
             props = props.copy() # don't want to alter the pad externally
             pad = props.pop('pad', 4)
             pad = renderer.points_to_pixels(pad)
+            if self.get_text() == "":
+                self.arrow_patch.set_patchA(None)
+                return
+
             bbox = self.get_window_extent(renderer)
             l,b,w,h = bbox.bounds
             l-=pad/2.
@@ -432,7 +439,8 @@ class Text(Artist):
         tr = mtransforms.Affine2D().rotate(theta)
         tr = tr.translate(posx+x_box, posy+y_box)
         self._bbox_patch.set_transform(tr)
-        self._bbox_patch.set_mutation_scale(self.get_size())
+        fontsize_in_pixel = renderer.points_to_pixels(self.get_size())
+        self._bbox_patch.set_mutation_scale(fontsize_in_pixel)
         self._bbox_patch.draw(renderer)
 
 
@@ -443,7 +451,9 @@ class Text(Artist):
         if renderer is not None:
             self._renderer = renderer
         if not self.get_visible(): return
-        if self._text=='': return
+        if self.get_text()=='': return
+
+        renderer.open_group('text', self.get_gid())
 
         bbox, info = self._get_layout(renderer)
         trans = self.get_transform()
@@ -462,8 +472,8 @@ class Text(Artist):
             self._draw_bbox(renderer, posx, posy)
 
         gc = renderer.new_gc()
-        gc.set_foreground(self._color)
-        gc.set_alpha(self._alpha)
+        gc.set_foreground(self.get_color())
+        gc.set_alpha(self.get_alpha())
         gc.set_url(self._url)
         if self.get_clip_on():
             gc.set_clip_rectangle(self.clipbox)
@@ -480,8 +490,9 @@ class Text(Artist):
                 y = y + posy
                 if renderer.flipy():
                     y = canvash-y
+                clean_line, ismath = self.is_math_text(line)
 
-                renderer.draw_tex(gc, x, y, line,
+                renderer.draw_tex(gc, x, y, clean_line,
                                   self._fontproperties, angle)
             return
 
@@ -490,10 +501,13 @@ class Text(Artist):
             y = y + posy
             if renderer.flipy():
                 y = canvash-y
+            clean_line, ismath = self.is_math_text(line)
 
-            renderer.draw_text(gc, x, y, line,
+            renderer.draw_text(gc, x, y, clean_line,
                                self._fontproperties, angle,
-                               ismath=self.is_math_text(line))
+                               ismath=ismath)
+
+        renderer.close_group('text')
 
     def get_color(self):
         "Return the color of the text"
@@ -575,10 +589,6 @@ class Text(Artist):
         return self._horizontalalignment
 
 
-    def _get_xy_display(self):
-        'get the (possibly unit converted) transformed x,y in display coords'
-        return self.get_transform().transform_point((self._x, self._y))
-
     def get_position(self):
         "Return the position of the text as a tuple (*x*, *y*)"
         x = float(self.convert_xunits(self._x))
@@ -594,7 +604,7 @@ class Text(Artist):
         need to know if the text has changed.
         """
         x, y = self.get_position()
-        return (x, y, self._text, self._color,
+        return (x, y, self.get_text(), self._color,
                 self._verticalalignment, self._horizontalalignment,
                 hash(self._fontproperties), self._rotation,
                 self.figure.dpi, id(self._renderer),
@@ -640,7 +650,7 @@ class Text(Artist):
         if dpi is not None:
             dpi_orig = self.figure.dpi
             self.figure.dpi = dpi
-        if self._text == '':
+        if self.get_text() == '':
             tx, ty = self._get_xy_display()
             return Bbox.from_bounds(tx,ty,0,0)
 
@@ -662,7 +672,9 @@ class Text(Artist):
         Set the background color of the text by updating the bbox.
 
         .. seealso::
+
             :meth:`set_bbox`
+               To change the position of the bounding box.
 
         ACCEPTS: any matplotlib color
         """
@@ -877,15 +889,18 @@ class Text(Artist):
         """
         Returns True if the given string *s* contains any mathtext.
         """
-        if rcParams['text.usetex']: return 'TeX'
-
         # Did we find an even number of non-escaped dollar signs?
         # If so, treat is as math text.
         dollar_count = s.count(r'$') - s.count(r'\$')
-        if dollar_count > 0 and dollar_count % 2 == 0:
-            return True
+        even_dollars = (dollar_count > 0 and dollar_count % 2 == 0)
 
-        return False
+        if rcParams['text.usetex']:
+            return s, 'TeX'
+
+        if even_dollars:
+            return s, True
+        else:
+            return s.replace(r'\$', '$'), False
 
     def set_fontproperties(self, fp):
         """
@@ -1554,6 +1569,7 @@ class Annotation(Text):
 
                 self.arrow_patch.set_positions((ox0, oy0), (ox1,oy1))
                 mutation_scale = d.pop("mutation_scale", self.get_size())
+                mutation_scale = renderer.points_to_pixels(mutation_scale)
                 self.arrow_patch.set_mutation_scale(mutation_scale)
 
                 if self._bbox_patch:
@@ -1596,6 +1612,11 @@ class Annotation(Text):
         """
         Draw the :class:`Annotation` object to the given *renderer*.
         """
+
+        if renderer is not None:
+            self._renderer = renderer
+        if not self.get_visible(): return
+
         self.update_positions(renderer)
         self.update_bbox_position_size(renderer)
 

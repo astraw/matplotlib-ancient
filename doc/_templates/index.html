@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% set title = 'Overview' %}
+{% set title = 'matplotlib: python plotting' %}
 
 
 {% block body %}
@@ -35,7 +35,7 @@
 
   <p>For the power user, you have full control of line styles, font
   properties, axes properties, etc, via an object oriented interface
-  or via a handle graphics interface familiar to Matlab&reg; users.
+  or via a set of functions familiar to Matlab&reg; users.
   The pylab mode provides all of the <a href="api/pyplot_api.html">pyplot</a> plotting
   functions listed below, as well as non-plotting functions from
   <a href="http://scipy.org/Numpy_Example_List_With_Doc">numpy</a> and
@@ -473,7 +473,7 @@
       </th>
 
       <td align="left">
-        get a handle graphics property
+        get a graphics property
       </td>
 
     </tr>
@@ -562,6 +562,17 @@
 
       <td align="left">
         load image file into array
+      </td>
+
+    </tr>
+    <tr>
+      <th align="left">
+        <a href="api/pyplot_api.html#matplotlib.pyplot.imsave">imsave</a>
+
+      </th>
+
+      <td align="left">
+        save array as an image file
       </td>
 
     </tr>
@@ -781,7 +792,7 @@
       </th>
 
       <td align="left">
-        set a handle graphics property
+        set a graphics property
       </td>
 
     </tr>

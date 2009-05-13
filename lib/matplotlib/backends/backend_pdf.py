@@ -39,7 +39,7 @@ import matplotlib.dviread as dviread
 from matplotlib.ft2font import FT2Font, FIXED_WIDTH, ITALIC, LOAD_NO_SCALE, \
     LOAD_NO_HINTING, KERNING_UNFITTED
 from matplotlib.mathtext import MathTextParser
-from matplotlib.transforms import Affine2D, Bbox, BboxBase
+from matplotlib.transforms import Affine2D, Bbox, BboxBase, TransformedPath
 from matplotlib.path import Path
 from matplotlib import ttconv
 
@@ -88,11 +88,9 @@ from matplotlib import ttconv
 # * the alpha channel of images
 # * image compression could be improved (PDF supports png-like compression)
 # * encoding of fonts, including mathtext fonts and unicode support
-# * Type 1 font support (i.e., "pdf.use_afm")
 # * TTF support has lots of small TODOs, e.g. how do you know if a font
 #   is serif/sans-serif, or symbolic/non-symbolic?
 # * draw_markers, draw_line_collection, etc.
-# * use_tex
 
 def fill(strings, linelen=75):
     """Make one string from sequence of strings, with whitespace
@@ -112,7 +110,20 @@ def fill(strings, linelen=75):
     result.append(' '.join(strings[lasti:]))
     return '\n'.join(result)
 
-_string_escape_regex = re.compile(r'([\\()])')
+# PDF strings are supposed to be able to include any eight-bit data,
+# except that unbalanced parens and backslashes must be escaped by a
+# backslash. However, sf bug #2708559 shows that the carriage return
+# character may get read as a newline; these characters correspond to
+# \gamma and \Omega in TeX's math font encoding. Escaping them fixes
+# the bug.
+_string_escape_regex = re.compile(r'([\\()\r\n])')
+def _string_escape(match):
+    m = match.group(0)
+    if m in r'\()': return '\\' + m
+    elif m == '\n': return r'\n'
+    elif m == '\r': return r'\r'
+    assert False
+
 def pdfRepr(obj):
     """Map Python objects to PDF syntax."""
 
@@ -138,7 +149,7 @@ def pdfRepr(obj):
     # simpler to escape them all. TODO: cut long strings into lines;
     # I believe there is some maximum line length in PDF.
     elif is_string_like(obj):
-        return '(' + _string_escape_regex.sub(r'\\\1', obj) + ')'
+        return '(' + _string_escape_regex.sub(_string_escape, obj) + ')'
 
     # Dictionaries. The keys must be PDF names, so if we find strings
     # there, we make Name objects from them. The values may be
@@ -185,7 +196,7 @@ def pdfRepr(obj):
             "Don't know a PDF representation for %s objects." \
             % type(obj)
 
-class Reference:
+class Reference(object):
     """PDF reference object.
     Use PdfFile.reserveObject() to create References.
     """
@@ -205,8 +216,9 @@ class Reference:
         write(pdfRepr(contents))
         write("\nendobj\n")
 
-class Name:
+class Name(object):
     """PDF name object."""
+    __slots__ = ('name',)
     _regex = re.compile(r'[^!-~]')
 
     def __init__(self, name):
@@ -218,15 +230,19 @@ class Name:
     def __repr__(self):
         return "<Name %s>" % self.name
 
+    def __str__(self):
+        return '/' + self.name
+
+    @staticmethod
     def hexify(match):
         return '#%02x' % ord(match.group())
-    hexify = staticmethod(hexify)
 
     def pdfRepr(self):
         return '/' + self.name
 
-class Operator:
+class Operator(object):
     """PDF operator object."""
+    __slots__ = ('op',)
 
     def __init__(self, op):
         self.op = op
@@ -257,12 +273,13 @@ _pdfops = dict(close_fill_stroke='b', fill_stroke='B', fill='f',
 Op = Bunch(**dict([(name, Operator(value))
                    for name, value in _pdfops.items()]))
 
-class Stream:
+class Stream(object):
     """PDF stream object.
 
     This has no pdfRepr method. Instead, call begin(), then output the
     contents of the stream by calling write(), and finally call end().
     """
+    __slots__ = ('id', 'len', 'pdfFile', 'file', 'compressobj', 'extra', 'pos')
 
     def __init__(self, id, len, file, extra=None):
         """id: object id of stream; len: an unused Reference object for the
@@ -330,16 +347,10 @@ class Stream:
             self.file.write(compressed)
             self.compressobj = None
 
-class PdfFile:
+class PdfFile(object):
     """PDF file with one page."""
 
-    def __init__(self, width, height, dpi, filename):
-        self.width, self.height = width, height
-        self.dpi = dpi
-        if rcParams['path.simplify']:
-            self.simplify = (width * dpi, height * dpi)
-        else:
-            self.simplify = None
+    def __init__(self, filename):
         self.nextObject = 1     # next free object id
         self.xrefTable = [ [0, 65535, 'the zero object'] ]
         self.passed_in_file_object = False
@@ -361,17 +372,16 @@ class PdfFile:
 
         self.rootObject = self.reserveObject('root')
         self.infoObject = self.reserveObject('info')
-        pagesObject = self.reserveObject('pages')
-        thePageObject = self.reserveObject('page 0')
-        contentObject = self.reserveObject('contents of page 0')
+        self.pagesObject = self.reserveObject('pages')
+        self.pageList = []
         self.fontObject = self.reserveObject('fonts')
         self.alphaStateObject = self.reserveObject('extended graphics states')
         self.hatchObject = self.reserveObject('tiling patterns')
         self.XObjectObject = self.reserveObject('external objects')
-        resourceObject = self.reserveObject('resources')
+        self.resourceObject = self.reserveObject('resources')
 
         root = { 'Type': Name('Catalog'),
-                 'Pages': pagesObject }
+                 'Pages': self.pagesObject }
         self.writeObject(self.rootObject, root)
 
         info = { 'Creator': 'matplotlib ' + __version__ \
@@ -382,22 +392,12 @@ class PdfFile:
         # Possible TODO: Title, Author, Subject, Keywords
         self.writeObject(self.infoObject, info)
 
-        pages = { 'Type': Name('Pages'),
-                  'Kids': [ thePageObject ],
-                  'Count': 1 }
-        self.writeObject(pagesObject, pages)
-
-        thePage = { 'Type': Name('Page'),
-                    'Parent': pagesObject,
-                    'Resources': resourceObject,
-                    'MediaBox': [ 0, 0, dpi*width, dpi*height ],
-                    'Contents': contentObject }
-        self.writeObject(thePageObject, thePage)
-
-        # self.fontNames maps filenames to internal font names
-        self.fontNames = {}
+        self.fontNames = {}     # maps filenames to internal font names
         self.nextFont = 1       # next free internal font name
-        self.fontInfo = {}      # information on fonts: metrics, encoding
+        self.dviFontInfo = {}   # information on dvi fonts
+        self.type1Descriptors = {} # differently encoded Type-1 fonts may
+                                   # share the same descriptor
+        self.used_characters = {}
 
         self.alphaStates = {}   # maps alpha values to graphics state objects
         self.nextAlphaState = 1
@@ -422,16 +422,31 @@ class PdfFile:
                       'ExtGState': self.alphaStateObject,
                       'Pattern': self.hatchObject,
                       'ProcSet': procsets }
-        self.writeObject(resourceObject, resources)
+        self.writeObject(self.resourceObject, resources)
 
-        # Start the content stream of the page
+    def newPage(self, width, height):
+        self.endStream()
+
+        self.width, self.height = width, height
+        contentObject = self.reserveObject('page contents')
+        thePage = { 'Type': Name('Page'),
+                    'Parent': self.pagesObject,
+                    'Resources': self.resourceObject,
+                    'MediaBox': [ 0, 0, 72*width, 72*height ],
+                    'Contents': contentObject }
+        pageObject = self.reserveObject('page')
+        self.writeObject(pageObject, thePage)
+        self.pageList.append(pageObject)
+
         self.beginStream(contentObject.id,
                          self.reserveObject('length of content stream'))
+        # Initialize the pdf graphics state to match the default mpl
+        # graphics context: currently only the join style needs to be set
+        self.output(GraphicsContextPdf.joinstyles['round'], Op.setlinejoin)
 
     def close(self):
-        # End the content stream and write out the various deferred
-        # objects
         self.endStream()
+        # Write out the various deferred objects
         self.writeFonts()
         self.writeObject(self.alphaStateObject,
                          dict([(val[0], val[1])
@@ -445,6 +460,12 @@ class PdfFile:
         self.writeObject(self.XObjectObject, xobjects)
         self.writeImages()
         self.writeMarkers()
+        self.writeObject(self.pagesObject,
+                         { 'Type': Name('Pages'),
+                           'Kids': self.pageList,
+                           'Count': len(self.pageList) })
+
+        # Finalize the file
         self.writeXref()
         self.writeTrailer()
         if self.passed_in_file_object:
@@ -467,14 +488,15 @@ class PdfFile:
         self.currentstream = Stream(id, len, self, extra)
 
     def endStream(self):
-        self.currentstream.end()
-        self.currentstream = None
+        if self.currentstream is not None:
+            self.currentstream.end()
+            self.currentstream = None
 
     def fontName(self, fontprop):
         """
         Select a font based on fontprop and return a name suitable for
         Op.selectfont. If fontprop is a string, it will be interpreted
-        as the filename of the font.
+        as the filename (or dvi name) of the font.
         """
 
         if is_string_like(fontprop):
@@ -489,24 +511,32 @@ class PdfFile:
             Fx = Name('F%d' % self.nextFont)
             self.fontNames[filename] = Fx
             self.nextFont += 1
+            matplotlib.verbose.report(
+                'Assigning font %s = %s' % (Fx, filename),
+                'debug')
 
         return Fx
 
     def writeFonts(self):
         fonts = {}
         for filename, Fx in self.fontNames.items():
+            matplotlib.verbose.report('Embedding font %s' % filename, 'debug')
             if filename.endswith('.afm'):
+                # from pdf.use14corefonts
+                matplotlib.verbose.report('Writing AFM font', 'debug')
                 fontdictObject = self._write_afm_font(filename)
-            elif filename.endswith('.pfb') or filename.endswith('.pfa'):
-                # a Type 1 font; limited support for now
-                fontdictObject = self.embedType1(filename, self.fontInfo[Fx])
+            elif self.dviFontInfo.has_key(filename):
+                # a Type 1 font from a dvi file; the filename is really the TeX name
+                matplotlib.verbose.report('Writing Type-1 font', 'debug')
+                fontdictObject = self.embedTeXFont(filename, self.dviFontInfo[filename])
             else:
+                # a normal TrueType font
+                matplotlib.verbose.report('Writing TrueType font', 'debug')
                 realpath, stat_key = get_realpath_and_stat(filename)
                 chars = self.used_characters.get(stat_key)
                 if chars is not None and len(chars[1]):
                     fontdictObject = self.embedTTF(realpath, chars[1])
             fonts[Fx] = fontdictObject
-            #print >>sys.stderr, filename
         self.writeObject(self.fontObject, fonts)
 
     def _write_afm_font(self, filename):
@@ -522,47 +552,73 @@ class PdfFile:
         self.writeObject(fontdictObject, fontdict)
         return fontdictObject
 
-    def embedType1(self, filename, fontinfo):
-        # TODO: font effects such as SlantFont
-        fh = open(filename, 'rb')
+    def embedTeXFont(self, texname, fontinfo):
         matplotlib.verbose.report(
-            'Embedding Type 1 font ' + filename, 'debug')
-        try:
-            fontdata = fh.read()
-        finally:
-            fh.close()
+            'Embedding TeX font ' + texname + ' - fontinfo=' + `fontinfo.__dict__`,
+            'debug')
 
-        font = FT2Font(filename)
+        # Widths
+        widthsObject = self.reserveObject('font widths')
+        self.writeObject(widthsObject, fontinfo.dvifont.widths)
 
-        widthsObject, fontdescObject, fontdictObject, fontfileObject = \
-            [ self.reserveObject(n) for n in
-                ('font widths', 'font descriptor',
-                 'font dictionary', 'font file') ]
-
-        firstchar = 0
-        lastchar = len(fontinfo.widths) - 1
-
+        # Font dictionary
+        fontdictObject = self.reserveObject('font dictionary')
         fontdict = {
-            'Type':           Name('Font'),
-            'Subtype':        Name('Type1'),
-            'BaseFont':       Name(font.postscript_name),
-            'FirstChar':      0,
-            'LastChar':       lastchar,
-            'Widths':         widthsObject,
-            'FontDescriptor': fontdescObject,
+            'Type':      Name('Font'),
+            'Subtype':   Name('Type1'),
+            'FirstChar': 0,
+            'LastChar':  len(fontinfo.dvifont.widths) - 1,
+            'Widths':    widthsObject,
             }
 
+        # Encoding (if needed)
         if fontinfo.encodingfile is not None:
             enc = dviread.Encoding(fontinfo.encodingfile)
             differencesArray = [ Name(ch) for ch in enc ]
             differencesArray = [ 0 ] + differencesArray
-            fontdict.update({
-                    'Encoding': { 'Type': Name('Encoding'),
-                                  'Differences': differencesArray },
-                    })
+            fontdict['Encoding'] = \
+                { 'Type': Name('Encoding'),
+                  'Differences': differencesArray }
 
-        _, _, fullname, familyname, weight, italic_angle, fixed_pitch, \
-            ul_position, ul_thickness = font.get_ps_font_info()
+        # If no file is specified, stop short
+        if fontinfo.fontfile is None:
+            warnings.warn(
+                'Because of TeX configuration (pdftex.map, see updmap ' +
+                'option pdftexDownloadBase14) the font %s ' % fontinfo.basefont +
+                'is not embedded. This is deprecated as of PDF 1.5 ' +
+                'and it may cause the consumer application to show something ' +
+                'that was not intended.')
+            fontdict['BaseFont'] = Name(fontinfo.basefont)
+            self.writeObject(fontdictObject, fontdict)
+            return fontdictObject
+
+        # We have a font file to embed - read it in and apply any effects
+        t1font = type1font.Type1Font(fontinfo.fontfile)
+        if fontinfo.effects:
+            t1font = t1font.transform(fontinfo.effects)
+        fontdict['BaseFont'] = Name(t1font.prop['FontName'])
+
+        # Font descriptors may be shared between differently encoded
+        # Type-1 fonts, so only create a new descriptor if there is no
+        # existing descriptor for this font.
+        effects = (fontinfo.effects.get('slant', 0.0), fontinfo.effects.get('extend', 1.0))
+        fontdesc = self.type1Descriptors.get((fontinfo.fontfile, effects))
+        if fontdesc is None:
+            fontdesc = self.createType1Descriptor(t1font, fontinfo.fontfile)
+            self.type1Descriptors[(fontinfo.fontfile, effects)] = fontdesc
+        fontdict['FontDescriptor'] = fontdesc
+
+        self.writeObject(fontdictObject, fontdict)
+        return fontdictObject
+
+    def createType1Descriptor(self, t1font, fontfile):
+        # Create and write the font descriptor and the font file
+        # of a Type-1 font
+        fontdescObject = self.reserveObject('font descriptor')
+        fontfileObject = self.reserveObject('font file')
+
+        italic_angle = t1font.prop['ItalicAngle']
+        fixed_pitch = t1font.prop['isFixedPitch']
 
         flags = 0
         if fixed_pitch:   flags |= 1 << 0  # fixed width
@@ -574,28 +630,27 @@ class PdfFile:
         if 0:             flags |= 1 << 17 # TODO: small caps
         if 0:             flags |= 1 << 18 # TODO: force bold
 
+        ft2font = FT2Font(fontfile)
+
         descriptor = {
             'Type':        Name('FontDescriptor'),
-            'FontName':    Name(font.postscript_name),
+            'FontName':    Name(t1font.prop['FontName']),
             'Flags':       flags,
-            'FontBBox':    font.bbox,
+            'FontBBox':    ft2font.bbox,
             'ItalicAngle': italic_angle,
-            'Ascent':      font.ascender,
-            'Descent':     font.descender,
+            'Ascent':      ft2font.ascender,
+            'Descent':     ft2font.descender,
             'CapHeight':   1000, # TODO: find this out
             'XHeight':     500, # TODO: this one too
             'FontFile':    fontfileObject,
-            'FontFamily':  familyname,
+            'FontFamily':  t1font.prop['FamilyName'],
             'StemV':       50, # TODO
             # (see also revision 3874; but not all TeX distros have AFM files!)
             #'FontWeight': a number where 400 = Regular, 700 = Bold
             }
 
-        self.writeObject(fontdictObject, fontdict)
-        self.writeObject(widthsObject, fontinfo.widths)
         self.writeObject(fontdescObject, descriptor)
 
-        t1font = type1font.Type1Font(filename)
         self.beginStream(fontfileObject.id, None,
                          { 'Length1': len(t1font.parts[0]),
                            'Length2': len(t1font.parts[1]),
@@ -604,7 +659,7 @@ class PdfFile:
         self.currentstream.write(t1font.parts[1])
         self.endStream()
 
-        return fontdictObject
+        return fontdescObject
 
     def _get_xobject_symbol_name(self, filename, symbol_name):
         return "%s-%s" % (
@@ -879,7 +934,14 @@ end"""
         # Beginning of main embedTTF function...
 
         # You are lost in a maze of TrueType tables, all different...
-        ps_name = Name(font.get_sfnt()[(1,0,0,6)])
+        sfnt = font.get_sfnt()
+        try:
+            ps_name = sfnt[(1,0,0,6)] # Macintosh scheme
+        except KeyError:
+            # Microsoft scheme:
+            ps_name = sfnt[(3,1,0x0409,6)].decode('utf-16be').encode('ascii','replace')
+            # (see freetype/ttnameid.h)
+        ps_name = Name(ps_name)
         pclt = font.get_sfnt_table('pclt') \
             or { 'capHeight': 0, 'xHeight': 0 }
         post = font.get_sfnt_table('post') \
@@ -939,21 +1001,20 @@ end"""
                      'CA': alpha, 'ca': alpha })
         return name
 
-    def hatchPattern(self, lst):
-        pattern = self.hatchPatterns.get(lst, None)
+    def hatchPattern(self, hatch_style):
+        pattern = self.hatchPatterns.get(hatch_style, None)
         if pattern is not None:
-            return pattern[0]
+            return pattern
 
         name = Name('H%d' % self.nextHatch)
         self.nextHatch += 1
-        self.hatchPatterns[lst] = name
+        self.hatchPatterns[hatch_style] = name
         return name
 
     def writeHatches(self):
         hatchDict = dict()
-        sidelen = 144.0
-        density = 24.0
-        for lst, name in self.hatchPatterns.items():
+        sidelen = 72.0
+        for hatch_style, name in self.hatchPatterns.items():
             ob = self.reserveObject('hatch pattern')
             hatchDict[name] = ob
             res = { 'Procsets':
@@ -969,33 +1030,21 @@ end"""
             # lst is a tuple of stroke color, fill color,
             # number of - lines, number of / lines,
             # number of | lines, number of \ lines
-            rgb = lst[0]
+            rgb = hatch_style[0]
             self.output(rgb[0], rgb[1], rgb[2], Op.setrgb_stroke)
-            if lst[1] is not None:
-                rgb = lst[1]
+            if hatch_style[1] is not None:
+                rgb = hatch_style[1]
                 self.output(rgb[0], rgb[1], rgb[2], Op.setrgb_nonstroke,
                             0, 0, sidelen, sidelen, Op.rectangle,
                             Op.fill)
-            if lst[2]:                # -
-                for j in npy.arange(0.0, sidelen, density/lst[2]):
-                    self.output(0, j, Op.moveto,
-                                sidelen, j, Op.lineto)
-            if lst[3]:                # /
-                for j in npy.arange(0.0, sidelen, density/lst[3]):
-                    self.output(0, j, Op.moveto,
-                                sidelen-j, sidelen, Op.lineto,
-                                sidelen-j, 0, Op.moveto,
-                                sidelen, j, Op.lineto)
-            if lst[4]:                # |
-                for j in npy.arange(0.0, sidelen, density/lst[4]):
-                    self.output(j, 0, Op.moveto,
-                                j, sidelen, Op.lineto)
-            if lst[5]:                # \
-                for j in npy.arange(sidelen, 0.0, -density/lst[5]):
-                    self.output(sidelen, j, Op.moveto,
-                                j, sidelen, Op.lineto,
-                                j, 0, Op.moveto,
-                                0, j, Op.lineto)
+
+            self.output(0.1, Op.setlinewidth)
+
+            # TODO: We could make this dpi-dependent, but that would be
+            # an API change
+            self.output(*self.pathOperations(
+                    Path.hatch(hatch_style[2]),
+                    Affine2D().scale(sidelen)))
             self.output(Op.stroke)
 
             self.endStream()
@@ -1076,39 +1125,39 @@ end"""
 
     def markerObject(self, path, trans, fillp, lw):
         """Return name of a marker XObject representing the given path."""
-        key = (path, trans, fillp is not None, lw)
+        pathops = self.pathOperations(path, trans)
+        key = (tuple(pathops), bool(fillp))
         result = self.markers.get(key)
         if result is None:
             name = Name('M%d' % len(self.markers))
             ob = self.reserveObject('marker %d' % len(self.markers))
-            self.markers[key] = (name, ob, path, trans, fillp, lw)
+            bbox = path.get_extents(trans)
+            self.markers[key] = [name, ob, bbox, lw]
         else:
+            if result[-1] < lw:
+                result[-1] = lw
             name = result[0]
         return name
 
     def writeMarkers(self):
-        for tup in self.markers.values():
-            name, object, path, trans, fillp, lw = tup
-            bbox = path.get_extents(trans)
+        for (pathops, fillp),(name, ob, bbox, lw) in self.markers.iteritems():
             bbox = bbox.padded(lw * 0.5)
             self.beginStream(
-                object.id, None,
+                ob.id, None,
                 {'Type': Name('XObject'), 'Subtype': Name('Form'),
                  'BBox': list(bbox.extents) })
-            self.writePath(path, trans)
+            self.output(*pathops)
             if fillp:
                 self.output(Op.fill_stroke)
             else:
                 self.output(Op.stroke)
             self.endStream()
 
-    #@staticmethod
-    def pathOperations(path, transform, simplify=None):
-        tpath = transform.transform_path(path)
-
+    @staticmethod
+    def pathOperations(path, transform, clip=None):
         cmds = []
         last_points = None
-        for points, code in tpath.iter_segments(simplify):
+        for points, code in path.iter_segments(transform, clip=clip):
             if code == Path.MOVETO:
                 cmds.extend(points)
                 cmds.append(Op.moveto)
@@ -1126,11 +1175,13 @@ end"""
                 cmds.append(Op.closepath)
             last_points = points
         return cmds
-    pathOperations = staticmethod(pathOperations)
 
-    def writePath(self, path, transform):
-        cmds = self.pathOperations(
-            path, transform, self.simplify)
+    def writePath(self, path, transform, clip=False):
+        if clip:
+            clip = (0.0, 0.0, self.width * 72, self.height * 72)
+        else:
+            clip = None
+        cmds = self.pathOperations(path, transform, clip)
         self.output(*cmds)
 
     def reserveObject(self, name=''):
@@ -1184,13 +1235,12 @@ class RendererPdf(RendererBase):
     truetype_font_cache = maxdict(50)
     afm_font_cache = maxdict(50)
 
-    def __init__(self, file, dpi):
+    def __init__(self, file, image_dpi):
         RendererBase.__init__(self)
         self.file = file
         self.gc = self.new_gc()
-        self.file.used_characters = self.used_characters = {}
         self.mathtext_parser = MathTextParser("Pdf")
-        self.dpi = dpi
+        self.image_dpi = image_dpi
         self.tex_font_map = None
 
     def finalize(self):
@@ -1220,47 +1270,57 @@ class RendererPdf(RendererBase):
         else:
             fname = font.fname
         realpath, stat_key = get_realpath_and_stat(fname)
-        used_characters = self.used_characters.setdefault(
+        used_characters = self.file.used_characters.setdefault(
             stat_key, (realpath, set()))
         used_characters[1].update([ord(x) for x in s])
 
     def merge_used_characters(self, other):
         for stat_key, (realpath, charset) in other.items():
-            used_characters = self.used_characters.setdefault(
+            used_characters = self.file.used_characters.setdefault(
                 stat_key, (realpath, set()))
             used_characters[1].update(charset)
 
-    def draw_image(self, x, y, im, bbox, clippath=None, clippath_trans=None):
-        #print >>sys.stderr, "draw_image called"
+    def get_image_magnification(self):
+        return self.image_dpi/72.0
 
-        # MGDTODO: Support clippath here
+    def draw_image(self, x, y, im, bbox, clippath=None, clippath_trans=None):
         gc = self.new_gc()
         if bbox is not None:
             gc.set_clip_rectangle(bbox)
+        if clippath is not None:
+            clippath = TransformedPath(clippath, clippath_trans)
+            gc.set_clip_path(clippath)
         self.check_gc(gc)
 
         h, w = im.get_size_out()
+        h, w = 72.0*h/self.image_dpi, 72.0*w/self.image_dpi
         imob = self.file.imageObject(im)
         self.file.output(Op.gsave, w, 0, 0, h, x, y, Op.concat_matrix,
                          imob, Op.use_xobject, Op.grestore)
 
     def draw_path(self, gc, path, transform, rgbFace=None):
         self.check_gc(gc, rgbFace)
-        stream = self.file.writePath(path, transform)
+        self.file.writePath(path, transform, rgbFace is None)
         self.file.output(self.gc.paint())
 
     def draw_markers(self, gc, marker_path, marker_trans, path, trans, rgbFace=None):
+        # For simple paths or small numbers of markers, don't bother
+        # making an XObject
+        if len(path) * len(marker_path) <= 10:
+            RendererBase.draw_markers(self, gc, marker_path, marker_trans,
+                                      path, trans, rgbFace)
+            return
+
         self.check_gc(gc, rgbFace)
         fillp = rgbFace is not None
 
         output = self.file.output
         marker = self.file.markerObject(
             marker_path, marker_trans, fillp, self.gc._linewidth)
-        tpath = trans.transform_path(path)
 
         output(Op.gsave)
         lastx, lasty = 0, 0
-        for vertices, code in tpath.iter_segments():
+        for vertices, code in path.iter_segments(trans, simplify=False):
             if len(vertices):
                 x, y = vertices[-2:]
                 dx, dy = x - lastx, y - lasty
@@ -1282,7 +1342,7 @@ class RendererPdf(RendererBase):
     def draw_mathtext(self, gc, x, y, s, prop, angle):
         # TODO: fix positioning and encoding
         width, height, descent, glyphs, rects, used_characters = \
-            self.mathtext_parser.parse(s, self.dpi, prop)
+            self.mathtext_parser.parse(s, 72, prop)
         self.merge_used_characters(used_characters)
 
         # When using Type 3 fonts, we can't use character codes higher
@@ -1310,7 +1370,6 @@ class RendererPdf(RendererBase):
                 self._setup_textpos(ox, oy, 0, 0, oldx, oldy)
                 oldx, oldy = ox, oy
                 if (fontname, fontsize) != prev_font:
-                    fontsize *= self.dpi/72.0
                     self.file.output(self.file.fontName(fontname), fontsize,
                                      Op.selectfont)
                     prev_font = fontname, fontsize
@@ -1321,7 +1380,6 @@ class RendererPdf(RendererBase):
         # as XObjects using the 'Do' command.
         if global_fonttype == 3:
             for ox, oy, fontname, fontsize, num, symbol_name in glyphs:
-                fontsize *= self.dpi/72.0
                 if is_opentype_cff_font(fontname):
                     fonttype = 42
                 else:
@@ -1350,7 +1408,7 @@ class RendererPdf(RendererBase):
         texmanager = self.get_texmanager()
         fontsize = prop.get_size_in_points()
         dvifile = texmanager.make_dvi(s, fontsize)
-        dvi = dviread.Dvi(dvifile, self.dpi)
+        dvi = dviread.Dvi(dvifile, 72)
         page = iter(dvi).next()
         dvi.close()
 
@@ -1359,18 +1417,20 @@ class RendererPdf(RendererBase):
         oldfont, seq = None, []
         for x1, y1, dvifont, glyph, width in page.text:
             if dvifont != oldfont:
-                psfont = self.tex_font_mapping(dvifont.texname)
-                pdfname = self.file.fontName(psfont.filename)
-                if self.file.fontInfo.get(pdfname, None) is None:
-                    self.file.fontInfo[pdfname] = Bunch(
+                pdfname = self.file.fontName(dvifont.texname)
+                if not self.file.dviFontInfo.has_key(dvifont.texname):
+                    psfont = self.tex_font_mapping(dvifont.texname)
+                    self.file.dviFontInfo[dvifont.texname] = Bunch(
+                        fontfile=psfont.filename,
+                        basefont=psfont.psname,
                         encodingfile=psfont.encoding,
-                        widths=dvifont.widths,
+                        effects=psfont.effects,
                         dvifont=dvifont)
                 seq += [['font', pdfname, dvifont.size]]
                 oldfont = dvifont
             seq += [['text', x1, y1, [chr(glyph)], x1+width]]
 
-        # Find consecutive text strings with constant x coordinate and
+        # Find consecutive text strings with constant y coordinate and
         # combine into a sequence of strings and kerns, or just one
         # string (if any kerns would be less than 0.1 points).
         i, curx = 0, 0
@@ -1423,7 +1483,7 @@ class RendererPdf(RendererBase):
             self.draw_path(boxgc, path, mytrans, gc._rgb)
 
     def encode_string(self, s, fonttype):
-        if fonttype == 3:
+        if fonttype in (1, 3):
             return s.encode('cp1252', 'replace')
         return s.encode('utf-16be', 'replace')
 
@@ -1444,13 +1504,13 @@ class RendererPdf(RendererBase):
         self.check_gc(gc, gc._rgb)
         if ismath: return self.draw_mathtext(gc, x, y, s, prop, angle)
 
-        fontsize = prop.get_size_in_points() * self.dpi/72.0
+        fontsize = prop.get_size_in_points()
 
         if rcParams['pdf.use14corefonts']:
             font = self._get_font_afm(prop)
             l, b, w, h = font.get_str_bbox(s)
             descent = -b * fontsize / 1000
-            fonttype = 42
+            fonttype = 1
         else:
             font = self._get_font_ttf(prop)
             self.track_characters(font, s)
@@ -1573,23 +1633,21 @@ class RendererPdf(RendererBase):
         if rcParams['text.usetex']:
             texmanager = self.get_texmanager()
             fontsize = prop.get_size_in_points()
-            dvifile = texmanager.make_dvi(s, fontsize)
-            dvi = dviread.Dvi(dvifile, self.dpi)
-            page = iter(dvi).next()
-            dvi.close()
-            # A total height (including the descent) needs to be returned.
-            return page.width, page.height+page.descent, page.descent
+            w, h, d = texmanager.get_text_width_height_descent(s, fontsize,
+                                                               renderer=self)
+            return w, h, d
+
         if ismath:
             w, h, d, glyphs, rects, used_characters = \
-                self.mathtext_parser.parse(s, self.dpi, prop)
+                self.mathtext_parser.parse(s, 72, prop)
 
         elif rcParams['pdf.use14corefonts']:
             font = self._get_font_afm(prop)
             l, b, w, h, d = font.get_str_bbox_and_descent(s)
             scale = prop.get_size_in_points()
-            w *= scale
-            h *= scale
-            d *= scale
+            w *= scale / 1000
+            h *= scale / 1000
+            d *= scale / 1000
         else:
             font = self._get_font_ttf(prop)
             font.set_text(s, 0.0, flags=LOAD_NO_HINTING)
@@ -1626,14 +1684,14 @@ class RendererPdf(RendererBase):
                 self.truetype_font_cache[filename] = font
             self.truetype_font_cache[key] = font
         font.clear()
-        font.set_size(prop.get_size_in_points(), self.dpi)
+        font.set_size(prop.get_size_in_points(), 72)
         return font
 
     def flipy(self):
         return False
 
     def get_canvas_width_height(self):
-        return self.file.width / self.dpi, self.file.height / self.dpi
+        return self.file.width / 72.0, self.file.height / 72.0
 
     def new_gc(self):
         return GraphicsContextPdf(self.file)
@@ -1715,14 +1773,8 @@ class GraphicsContextPdf(GraphicsContextBase):
             else:
                 return [Name('DeviceRGB'), Op.setcolorspace_nonstroke]
         else:
-            hatch = hatch.lower()
-            lst = ( self._rgb,
-                    self._fillcolor,
-                    hatch.count('-') + hatch.count('+'),
-                    hatch.count('/') + hatch.count('x'),
-                    hatch.count('|') + hatch.count('+'),
-                    hatch.count('\\') + hatch.count('x') )
-            name = self.file.hatchPattern(lst)
+            hatch_style = (self._rgb, self._fillcolor, hatch)
+            name = self.file.hatchPattern(hatch_style)
             return [Name('Pattern'), Op.setcolorspace_nonstroke,
                     name, Op.setcolor_nonstroke]
 
@@ -1768,9 +1820,9 @@ class GraphicsContextPdf(GraphicsContextBase):
             if self._cliprect != cliprect:
                 cmds.extend([cliprect, Op.rectangle, Op.clip, Op.endpath])
             if self._clippath != clippath:
+                path, affine = clippath.get_transformed_path_and_affine()
                 cmds.extend(
-                    PdfFile.pathOperations(
-                        *clippath.get_transformed_path_and_affine()) +
+                    PdfFile.pathOperations(path, affine) +
                     [Op.clip, Op.endpath])
         return cmds
 
@@ -1853,6 +1905,63 @@ def new_figure_manager(num, *args, **kwargs):
     manager = FigureManagerPdf(canvas, num)
     return manager
 
+class PdfPages(object):
+    """
+    A multi-page PDF file.
+
+    Use like this:
+
+      # Initialize:
+      pdf_pages = PdfPages('foo.pdf')
+
+      # As many times as you like, create a figure fig, then either:
+      fig.savefig(pdf_pages, format='pdf') # note the format argument!
+      # or:
+      pdf_pages.savefig(fig)
+
+      # Once you are done, remember to close the object:
+      pdf_pages.close()
+
+    (In reality PdfPages is a thin wrapper around PdfFile, in order to
+    avoid confusion when using savefig and forgetting the format
+    argument.)
+    """
+    __slots__ = ('_file',)
+
+    def __init__(self, filename):
+        """
+        Create a new PdfPages object that will be written to the file
+        named *filename*. The file is opened at once and any older
+        file with the same name is overwritten.
+        """
+        self._file = PdfFile(filename)
+
+    def close(self):
+        """
+        Finalize this object, making the underlying file a complete
+        PDF file.
+        """
+        self._file.close()
+        self._file = None
+
+    def savefig(self, figure=None, **kwargs):
+        """
+        Save the Figure instance *figure* to this file as a new page.
+        If *figure* is a number, the figure instance is looked up by
+        number, and if *figure* is None, the active figure is saved.
+        Any other keyword arguments are passed to Figure.savefig.
+        """
+        if isinstance(figure, Figure):
+            figure.savefig(self, format='pdf', **kwargs)
+        else:
+            if figure is None:
+                figureManager = Gcf.get_active()
+            else:
+                figureManager = Gcf.get_fig_manager(figure)
+            if figureManager is None:
+                raise ValueError, "No such figure: " + `figure`
+            else:
+                figureManager.canvas.figure.savefig(self, format='pdf')
 
 class FigureCanvasPdf(FigureCanvasBase):
     """
@@ -1873,16 +1982,24 @@ class FigureCanvasPdf(FigureCanvasBase):
         return 'pdf'
 
     def print_pdf(self, filename, **kwargs):
-        dpi = 72 # there are 72 Postscript points to an inch
-        # TODO: use the dpi kwarg for images
-        self.figure.set_dpi(dpi)
+        image_dpi = kwargs.get('dpi', 72) # dpi to use for images
+        self.figure.set_dpi(72)           # there are 72 pdf points to an inch
         width, height = self.figure.get_size_inches()
-        file = PdfFile(width, height, dpi, filename)
-        renderer = MixedModeRenderer(
-            width, height, dpi, RendererPdf(file, dpi))
+        if isinstance(filename, PdfPages):
+            file = filename._file
+        else:
+            file = PdfFile(filename)
+        file.newPage(width, height)
+        _bbox_inches_restore = kwargs.pop("bbox_inches_restore", None)
+        renderer = MixedModeRenderer(self.figure,
+            width, height, image_dpi, RendererPdf(file, image_dpi),
+            bbox_inches_restore=_bbox_inches_restore)
         self.figure.draw(renderer)
         renderer.finalize()
-        file.close()
+        if isinstance(filename, PdfPages): # finish off this page
+            file.endStream()
+        else:            # we opened the file above; now finish it off
+            file.close()
 
 class FigureManagerPdf(FigureManagerBase):
     pass

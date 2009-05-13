@@ -57,8 +57,6 @@ class PolarAxes(Axes):
 
         def transform_path(self, path):
             vertices = path.vertices
-            t = vertices[:, 0:1]
-            t[t != (npy.pi * 2.0)] %= (npy.pi * 2.0)
             if len(vertices) == 2 and vertices[0, 0] == vertices[1, 0]:
                 return Path(self.transform(vertices), path.codes)
             ipath = path.interpolated(self._resolution)
@@ -174,15 +172,28 @@ class PolarAxes(Axes):
         def refresh(self):
             return self.base.refresh()
 
-    RESOLUTION = 75
+        def view_limits(self, vmin, vmax):
+            vmin, vmax = self.base.view_limits(vmin, vmax)
+            return 0, vmax
+
+
+    RESOLUTION = 1
 
     def __init__(self, *args, **kwargs):
         """
         Create a new Polar Axes for a polar plot.
+
+        The following optional kwargs are supported:
+
+          - *resolution*: The number of points of interpolation between
+            each pair of data points.  Set to 1 to disable
+            interpolation.
         """
 
         self._rpad = 0.05
-        self.resolution = kwargs.pop('resolution', self.RESOLUTION)
+        self.resolution = kwargs.pop('resolution', None)
+        if self.resolution is None:
+            self.resolution = self.RESOLUTION
         Axes.__init__(self, *args, **kwargs)
         self.set_aspect('equal', adjustable='box', anchor='C')
         self.cla()
@@ -280,6 +291,7 @@ class PolarAxes(Axes):
         return Circle((0.5, 0.5), 0.5)
 
     def set_rmax(self, rmax):
+        self.viewLim.y0 = 0
         self.viewLim.y1 = rmax
         angle = self._r_label1_position.to_values()[4]
         self._r_label1_position.clear().translate(

@@ -26,34 +26,20 @@ def sfpdf():
 def figs():
     os.system('cd users/figures/ && python make.py')
 
-def examples():
-    'make the rest examples'
-
-    os.system('cd examples; svn-clean; python gen_rst.py')
-    #pass
-
-def gallery():
-    'make the thumbnail gallery'
-    os.system('cd _templates; python gen_gallery.py')
-
-
 def html():
     check_build()
-    if not os.path.exists('examples/index.rst'):
-        examples()
-    shutil.copy('mpl_data/matplotlibrc', '_static/matplotlibrc')
-    #figs()
-    if os.system('sphinx-build -b html -d build/doctrees . build/html'):
+    shutil.copy('../lib/matplotlib/mpl-data/matplotlibrc', '_static/matplotlibrc')
+    if small_docs:
+        options = "-D plot_formats=\"['png']\""
+    else:
+        options = ''
+    if os.system('sphinx-build %s -P -b html -d build/doctrees . build/html' % options):
         raise SystemExit("Building HTML failed.")
 
     figures_dest_path = 'build/html/pyplots'
     if os.path.exists(figures_dest_path):
         shutil.rmtree(figures_dest_path)
     shutil.copytree('pyplots', figures_dest_path)
-
-    # rebuild the gallery
-    gallery()
-    print 'Just rebuilt gallery, you may need to make html again'
 
 def latex():
     check_build()
@@ -83,7 +69,6 @@ def clean():
 
 def all():
     #figs()
-    examples()
     html()
     latex()
 
@@ -95,13 +80,16 @@ funcd = {
     'clean'    : clean,
     'sf'       : sf,
     'sfpdf'    : sfpdf,
-    'examples' : examples,
-    'gallery'  : gallery,
     'all'      : all,
     }
 
 
+small_docs = False
+
 if len(sys.argv)>1:
+    if '--small' in sys.argv[1:]:
+        small_docs = True
+        sys.argv.remove('--small')
     for arg in sys.argv[1:]:
         func = funcd.get(arg)
         if func is None:
@@ -109,4 +97,5 @@ if len(sys.argv)>1:
                     arg, funcd.keys()))
         func()
 else:
+    small_docs = False
     all()

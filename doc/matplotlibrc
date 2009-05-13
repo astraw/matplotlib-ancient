@@ -27,7 +27,6 @@
 # the default backend; one of GTK GTKAgg GTKCairo FltkAgg QtAgg TkAgg
 # WX WXAgg Agg Cairo GD GDK Paint PS PDF SVG Template
 backend      : Agg
-numerix      : numpy  # numpy, Numeric or numarray
 #maskedarray : False       # True to use external maskedarray module
                            # instead of numpy.ma; this is a temporary
                            # setting for testing maskedarray.
@@ -43,7 +42,7 @@ numerix      : numpy  # numpy, Numeric or numarray
 ### LINES
 # See http://matplotlib.sourceforge.net/matplotlib.lines.html for more
 # information on line properties.
-#lines.linewidth   : 1.0     # line width in points
+lines.linewidth   : 1.5     # line width in points
 #lines.linestyle   : -       # solid line
 #lines.color       : blue
 #lines.marker      : None    # the default marker

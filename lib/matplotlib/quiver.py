@@ -21,6 +21,7 @@ import matplotlib.collections as collections
 import matplotlib.transforms as transforms
 import matplotlib.text as mtext
 import matplotlib.artist as martist
+from matplotlib.artist import allow_rasterization
 import matplotlib.font_manager as font_manager
 from matplotlib.cbook import delete_masked_points
 from matplotlib.patches import CirclePolygon
@@ -282,6 +283,7 @@ class QuiverKey(martist.Artist):
         else:
             return y
 
+    @allow_rasterization
     def draw(self, renderer):
         self._init()
         self.vector.draw(renderer)
@@ -386,14 +388,13 @@ class Quiver(collections.PolyCollection):
         X, Y, U, V, C = [None]*5
         args = list(args)
         if len(args) == 3 or len(args) == 5:
-            C = ma.asarray(args.pop(-1)).ravel()
+            C = ma.asarray(args.pop(-1))
         V = ma.asarray(args.pop(-1))
         U = ma.asarray(args.pop(-1))
-        nn = np.shape(U)
-        nc = nn[0]
-        nr = 1
-        if len(nn) > 1:
-            nr = nn[1]
+        if U.ndim == 1:
+            nr, nc = 1, U.shape[0]
+        else:
+            nr, nc = U.shape
         if len(args) == 2: # remaining after removing U,V,C
             X, Y = [np.array(a).ravel() for a in args]
             if len(X) == nc and len(Y) == nr:
@@ -419,6 +420,7 @@ class Quiver(collections.PolyCollection):
             if self.width is None:
                 self.width = 0.06 * self.span / sn
 
+    @allow_rasterization
     def draw(self, renderer):
         self._init()
         if self._new_UV or self.angles == 'xy':

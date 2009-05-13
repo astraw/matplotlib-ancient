@@ -28,11 +28,15 @@ import os, warnings, time
 import numpy as np
 import matplotlib.cbook as cbook
 import matplotlib.colors as colors
-import matplotlib._image as _image
-import matplotlib.path as path
 import matplotlib.transforms as transforms
 import matplotlib.widgets as widgets
+import matplotlib.path as path
 from matplotlib import rcParams
+
+from matplotlib.transforms import Bbox, TransformedBbox, Affine2D
+import cStringIO
+
+import matplotlib.tight_bbox as tight_bbox
 
 class RendererBase:
     """An abstract base class to handle drawing/rendering operations.
@@ -54,10 +58,11 @@ class RendererBase:
     def __init__(self):
         self._texmanager = None
 
-    def open_group(self, s):
+    def open_group(self, s, gid=None):
         """
-        Open a grouping element with label *s*. Is only currently used by
-        :mod:`~matplotlib.backends.backend_svg`
+        Open a grouping element with label *s*. If *gid* is given, use
+        *gid* as the id of the group. Is only currently used by
+        :mod:`~matplotlib.backends.backend_svg`.
         """
         pass
 
@@ -96,8 +101,7 @@ class RendererBase:
         want to override this method in order to draw the marker only
         once and reuse it multiple times.
         """
-        tpath = trans.transform_path(path)
-        for vertices, codes in tpath.iter_segments():
+        for vertices, codes in path.iter_segments(trans, simplify=False):
             if len(vertices):
                 x,y = vertices[-2:]
                 self.draw_path(gc, marker_path,
@@ -269,7 +273,6 @@ class RendererBase:
                 gc.set_alpha(rgbFace[-1])
                 rgbFace = rgbFace[:3]
             gc.set_antialiased(antialiaseds[i % Naa])
-
             if Nurls:
                 gc.set_url(urls[i % Nurls])
 
@@ -432,12 +435,13 @@ class GraphicsContextBase:
         self._cliprect = None
         self._clippath = None
         self._dashes = None, None
-        self._joinstyle = 'miter'
+        self._joinstyle = 'round'
         self._linestyle = 'solid'
         self._linewidth = 1
         self._rgb = (0.0, 0.0, 0.0)
         self._hatch = None
         self._url = None
+        self._snap = None
 
     def copy_properties(self, gc):
         'Copy properties from gc to self'
@@ -453,6 +457,7 @@ class GraphicsContextBase:
         self._rgb = gc._rgb
         self._hatch = gc._hatch
         self._url = gc._url
+        self._snap = gc._snap
 
     def get_alpha(self):
         """
@@ -533,6 +538,19 @@ class GraphicsContextBase:
         returns a url if one is set, None otherwise
         """
         return self._url
+
+    def get_snap(self):
+        """
+        returns the snap setting which may be:
+
+          * True: snap vertices to the nearest pixel center
+
+          * False: leave vertices as-is
+
+          * None: (auto) If the path contains only rectilinear line
+            segments, round to the nearest pixel center
+        """
+        return self._snap
 
     def set_alpha(self, alpha):
         """
@@ -640,6 +658,19 @@ class GraphicsContextBase:
         """
         self._url = url
 
+    def set_snap(self, snap):
+        """
+        Sets the snap setting which may be:
+
+          * True: snap vertices to the nearest pixel center
+
+          * False: leave vertices as-is
+
+          * None: (auto) If the path contains only rectilinear line
+            segments, round to the nearest pixel center
+        """
+        self._snap = snap
+
     def set_hatch(self, hatch):
         """
         Sets the hatch style for filling
@@ -651,6 +682,14 @@ class GraphicsContextBase:
         Gets the current hatch style
         """
         return self._hatch
+
+    def get_hatch_path(self, density=6.0):
+        """
+        Returns a Path for the current hatch.
+        """
+        if self._hatch is None:
+            return None
+        return path.Path.hatch(self._hatch, density)
 
 class Event:
     """
@@ -1019,7 +1058,7 @@ class FigureCanvasBase:
         under = self.figure.hitlist(ev)
         enter = [a for a in under if a not in self._active]
         leave = [a for a in self._active if a not in under]
-        print "within:"," ".join([str(x) for x in under])
+        #print "within:"," ".join([str(x) for x in under])
         #print "entering:",[str(a) for a in enter]
         #print "leaving:",[str(a) for a in leave]
         # On leave restore the captured colour
@@ -1383,6 +1422,41 @@ class FigureCanvasBase:
         self.figure.set_facecolor(facecolor)
         self.figure.set_edgecolor(edgecolor)
 
+        bbox_inches = kwargs.pop("bbox_inches", None)
+
+        if bbox_inches:
+            # call adjust_bbox to save only the given area
+            if bbox_inches == "tight":
+                # when bbox_inches == "tight", it saves the figure
+                # twice. The first save command is just to estimate
+                # the bounding box of the figure. A stringIO object is
+                # used as a temporary file object, but it causes a
+                # problem for some backends (ps backend with
+                # usetex=True) if they expect a filename, not a
+                # file-like object. As I think it is best to change
+                # the backend to support file-like object, i'm going
+                # to leave it as it is. However, a better solution
+                # than stringIO seems to be needed. -JJL
+                result = getattr(self, method_name)(
+                    cStringIO.StringIO(),
+                    dpi=dpi,
+                    facecolor=facecolor,
+                    edgecolor=edgecolor,
+                    orientation=orientation,
+                    dryrun=True,
+                    **kwargs)
+                renderer = self.figure._cachedRenderer
+                bbox_inches = self.figure.get_tightbbox(renderer)
+                pad = kwargs.pop("pad_inches", 0.1)
+                bbox_inches = bbox_inches.padded(pad)
+
+            restore_bbox = tight_bbox.adjust_bbox(self.figure, format,
+                                                  bbox_inches)
+            
+            _bbox_inches_restore = (bbox_inches, restore_bbox)
+        else:
+            _bbox_inches_restore = None
+
         try:
             result = getattr(self, method_name)(
                 filename,
@@ -1390,14 +1464,21 @@ class FigureCanvasBase:
                 facecolor=facecolor,
                 edgecolor=edgecolor,
                 orientation=orientation,
+                bbox_inches_restore=_bbox_inches_restore,
                 **kwargs)
         finally:
+            if bbox_inches and restore_bbox:
+                restore_bbox()
+
             self.figure.dpi = origDPI
             self.figure.set_facecolor(origfacecolor)
             self.figure.set_edgecolor(origedgecolor)
             self.figure.set_canvas(self)
             #self.figure.canvas.draw() ## seems superfluous
         return result
+
+
+
 
     def get_default_filetype(self):
         raise NotImplementedError
@@ -1440,6 +1521,10 @@ class FigureCanvasBase:
         - 'pick_event'
         - 'resize_event'
         - 'scroll_event'
+        - 'figure_enter_event',
+        - 'figure_leave_event',
+        - 'axes_enter_event',
+        - 'axes_leave_event'
 
         For the location events (button and key press/release), if the
         mouse is over the axes, the variable ``event.inaxes`` will be

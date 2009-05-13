@@ -75,10 +75,6 @@ validate_backend = ValidateInStrings('backend',[
     'QtAgg', 'Qt4Agg', 'SVG', 'Template', 'TkAgg', 'WX', 'WXAgg',
     ], ignorecase=True)
 
-validate_numerix = ValidateInStrings('numerix',[
-    'Numeric','numarray','numpy',
-    ], ignorecase=True)
-
 validate_toolbar = ValidateInStrings('toolbar',[
     'None','classic','toolbar2',
     ], ignorecase=True)
@@ -209,6 +205,9 @@ def validate_font_properties(s):
 
 validate_fontset = ValidateInStrings('fontset', ['cm', 'stix', 'stixsans', 'custom'])
 
+validate_mathtext_default = ValidateInStrings(
+    'default', "rm cal it tt sf bf default bb frak circled scr regular".split())
+
 validate_verbose = ValidateInStrings('verbose',[
     'silent', 'helpful', 'debug', 'debug-annoying',
     ])
@@ -295,8 +294,6 @@ class ValidateInterval:
 # a map from key -> value, converter
 defaultParams = {
     'backend'           : ['WXAgg', validate_backend],
-    'numerix'           : ['numpy', validate_numerix],
-    'maskedarray'       : [False, validate_bool],
     'toolbar'           : ['toolbar2', validate_toolbar],
     'datapath'          : [None, validate_path_exists],   # handled by _get_data_path_cached
     'units'             : [False, validate_bool],
@@ -315,8 +312,8 @@ defaultParams = {
     'lines.markeredgewidth' : [0.5, validate_float],
     'lines.markersize'      : [6, validate_float],       # markersize, in points
     'lines.antialiased'     : [True, validate_bool],     # antialised (no jaggies)
-    'lines.dash_joinstyle'  : ['miter', validate_joinstyle],
-    'lines.solid_joinstyle' : ['miter', validate_joinstyle],
+    'lines.dash_joinstyle'  : ['round', validate_joinstyle],
+    'lines.solid_joinstyle' : ['round', validate_joinstyle],
     'lines.dash_capstyle'   : ['butt', validate_capstyle],
     'lines.solid_capstyle'  : ['projecting', validate_capstyle],
 
@@ -372,6 +369,7 @@ defaultParams = {
     'mathtext.bf'         : ['serif:bold', validate_font_properties],
     'mathtext.sf'         : ['sans\-serif', validate_font_properties],
     'mathtext.fontset'    : ['cm', validate_fontset],
+    'mathtext.default'    : ['it', validate_mathtext_default],
     'mathtext.fallback_to_cm' : [True, validate_bool],
 
     'image.aspect'        : ['equal', validate_aspect],  # equal, auto, a number
@@ -476,7 +474,8 @@ defaultParams = {
     'svg.embed_char_paths' : [True, validate_bool],  # True to save all characters as paths in the SVG
     'plugins.directory' : ['.matplotlib_plugins', str], # where plugin directory is locate
 
-    'path.simplify' : [False, validate_bool]
+    'path.simplify' : [True, validate_bool],
+    'path.simplify_threshold' : [1.0 / 9.0, ValidateInterval(0.0, 1.0)]
 }
 
 if __name__ == '__main__':

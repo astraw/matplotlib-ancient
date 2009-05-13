@@ -18,6 +18,8 @@ from path import Path
 from transforms import Affine2D, Bbox, TransformedPath, IdentityTransform
 
 from matplotlib import rcParams
+from artist import allow_rasterization
+
 # special-purpose marker identifiers:
 (TICKLEFT, TICKRIGHT, TICKUP, TICKDOWN,
     CARETLEFT, CARETRIGHT, CARETUP, CARETDOWN) = range(8)
@@ -177,6 +179,7 @@ class Line2D(Artist):
                  solid_joinstyle = None,
                  pickradius      = 5,
                  drawstyle       = None,
+                 markevery       = None,
                  **kwargs
                  ):
         """
@@ -226,6 +229,7 @@ class Line2D(Artist):
         self.set_linewidth(linewidth)
         self.set_color(color)
         self.set_marker(marker)
+        self.set_markevery(markevery)
         self.set_antialiased(antialiased)
         self.set_markersize(markersize)
         self._dashSeq = None
@@ -320,6 +324,32 @@ class Line2D(Artist):
         """
         self.pickradius = d
 
+
+    def set_markevery(self, every):
+        """
+        Set the markevery property to subsample the plot when using
+        markers.  Eg if ``markevery=5``, every 5-th marker will be
+        plotted.  *every* can be
+
+        None
+            Every point will be plotted
+
+        an integer N
+            Every N-th marker will be plotted starting with marker 0
+
+        A length-2 tuple of integers
+            every=(start, N) will start at point start and plot every N-th marker
+
+
+        ACCEPTS: None | integer | (startind, stride)
+
+        """
+        self._markevery = every
+
+    def get_markevery(self):
+        'return the markevery setting'
+        return self._markevery
+
     def set_picker(self,p):
         """Sets the event picker details for the line.
 
@@ -410,11 +440,21 @@ class Line2D(Artist):
         self._x = self._xy[:, 0] # just a view
         self._y = self._xy[:, 1] # just a view
 
-        # Masked arrays are now handled by the Path class itself
+        self._subslice = False
+        if len(x) > 100 and self._is_sorted(x):
+            self._subslice = True
         self._path = Path(self._xy)
-        self._transformed_path = TransformedPath(self._path, self.get_transform())
-
+        self._transformed_path = None
         self._invalid = False
+
+    def _transform_path(self, subslice=None):
+        # Masked arrays are now handled by the Path class itself
+        if subslice is not None:
+            _path = Path(self._xy[subslice,:])
+        else:
+            _path = self._path
+        self._transformed_path = TransformedPath(_path, self.get_transform())
+
 
     def set_transform(self, t):
         """
@@ -424,18 +464,26 @@ class Line2D(Artist):
         """
         Artist.set_transform(self, t)
         self._invalid = True
-        # self._transformed_path = TransformedPath(self._path, self.get_transform())
 
     def _is_sorted(self, x):
         "return true if x is sorted"
         if len(x)<2: return 1
         return np.alltrue(x[1:]-x[0:-1]>=0)
 
+    @allow_rasterization
     def draw(self, renderer):
         if self._invalid:
             self.recache()
-
-        renderer.open_group('line2d')
+        if self._subslice:
+            # Need to handle monotonically decreasing case also...
+            x0, x1 = self.axes.get_xbound()
+            i0, = self._x.searchsorted([x0], 'left')
+            i1, = self._x.searchsorted([x1], 'right')
+            subslice = slice(max(i0-1, 0), i1+1)
+            self._transform_path(subslice)
+        if self._transformed_path is None:
+            self._transform_path()
+        renderer.open_group('line2d', self.get_gid())
 
         if not self._visible: return
         gc = renderer.new_gc()
@@ -453,14 +501,16 @@ class Line2D(Artist):
             join = self._solidjoinstyle
         gc.set_joinstyle(join)
         gc.set_capstyle(cap)
+        gc.set_snap(self.get_snap())
 
         funcname = self._lineStyles.get(self._linestyle, '_draw_nothing')
         if funcname != '_draw_nothing':
             tpath, affine = self._transformed_path.get_transformed_path_and_affine()
-            self._lineFunc = getattr(self, funcname)
-            funcname = self.drawStyles.get(self._drawstyle, '_draw_lines')
-            drawFunc = getattr(self, funcname)
-            drawFunc(renderer, gc, tpath, affine.frozen())
+            if len(tpath.vertices):
+                self._lineFunc = getattr(self, funcname)
+                funcname = self.drawStyles.get(self._drawstyle, '_draw_lines')
+                drawFunc = getattr(self, funcname)
+                drawFunc(renderer, gc, tpath, affine.frozen())
 
         if self._marker is not None:
             gc = renderer.new_gc()
@@ -471,8 +521,25 @@ class Line2D(Artist):
             funcname = self._markers.get(self._marker, '_draw_nothing')
             if funcname != '_draw_nothing':
                 tpath, affine = self._transformed_path.get_transformed_points_and_affine()
-                markerFunc = getattr(self, funcname)
-                markerFunc(renderer, gc, tpath, affine.frozen())
+                if len(tpath.vertices):
+                    # subsample the markers if markevery is not None
+                    markevery = self.get_markevery()
+                    if markevery is not None:
+                        if iterable(markevery):
+                            startind, stride = markevery
+                        else:
+                            startind, stride = 0, markevery
+                        if tpath.codes is not None:
+                            codes = tpath.codes[startind::stride]
+                        else:
+                            codes = None
+                        vertices = tpath.vertices[startind::stride]
+                        subsampled = Path(vertices, codes)
+                    else:
+                        subsampled = tpath
+
+                    markerFunc = getattr(self, funcname)
+                    markerFunc(renderer, gc, subsampled, affine.frozen())
 
         renderer.close_group('line2d')
 
@@ -621,7 +688,9 @@ class Line2D(Artist):
         backward-compatibility.
 
         .. seealso::
+
             :meth:`set_drawstyle`
+               To set the drawing style (stepping) of the plot.
 
         ACCEPTS: [ '-' | '--' | '-.' | ':' | 'None' | ' ' | '' ] and
         any drawstyle in combination with a linestyle, e.g. 'steps--'.
@@ -651,9 +720,9 @@ class Line2D(Artist):
         """
         Set the line marker
 
-        =========  ==========================
+        ========== ==========================
         marker     description
-        =========  ==========================
+        ========== ==========================
         '.'        point
         ','        pixel
         'o'        circle
@@ -687,7 +756,9 @@ class Line2D(Artist):
         'None'     nothing
         ' '        nothing
         ''         nothing
-        =========  ==========================
+        ========== ==========================
+
+
 
         ACCEPTS: [ '+' | '*' | ',' | '.' | '1' | '2' | '3' | '4'
                  | '<' | '>' | 'D' | 'H' | '^' | '_' | 'd'
@@ -843,6 +914,7 @@ class Line2D(Artist):
     def _draw_point(self, renderer, gc, path, path_trans):
         w = renderer.points_to_pixels(self._markersize) * \
             self._point_size_reduction * 0.5
+        gc.set_snap(renderer.points_to_pixels(self._markersize) > 3.0)
         rgbFace = self._get_rgb_face()
         transform = Affine2D().scale(w)
         renderer.draw_markers(
@@ -852,6 +924,7 @@ class Line2D(Artist):
     _draw_pixel_transform = Affine2D().translate(-0.5, -0.5)
     def _draw_pixel(self, renderer, gc, path, path_trans):
         rgbFace = self._get_rgb_face()
+        gc.set_snap(False)
         renderer.draw_markers(gc, Path.unit_rectangle(),
                               self._draw_pixel_transform,
                               path, path_trans, rgbFace)
@@ -859,6 +932,7 @@ class Line2D(Artist):
 
     def _draw_circle(self, renderer, gc, path, path_trans):
         w = renderer.points_to_pixels(self._markersize) * 0.5
+        gc.set_snap(renderer.points_to_pixels(self._markersize) > 3.0)
         rgbFace = self._get_rgb_face()
         transform = Affine2D().scale(w, w)
         renderer.draw_markers(
@@ -868,6 +942,7 @@ class Line2D(Artist):
 
     _triangle_path = Path([[0.0, 1.0], [-1.0, -1.0], [1.0, -1.0], [0.0, 1.0]])
     def _draw_triangle_up(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 5.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset, offset)
         rgbFace = self._get_rgb_face()
@@ -876,6 +951,7 @@ class Line2D(Artist):
 
 
     def _draw_triangle_down(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 5.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset, -offset)
         rgbFace = self._get_rgb_face()
@@ -884,6 +960,7 @@ class Line2D(Artist):
 
 
     def _draw_triangle_left(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 5.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset, offset).rotate_deg(90)
         rgbFace = self._get_rgb_face()
@@ -892,6 +969,7 @@ class Line2D(Artist):
 
 
     def _draw_triangle_right(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 5.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset, offset).rotate_deg(-90)
         rgbFace = self._get_rgb_face()
@@ -900,6 +978,7 @@ class Line2D(Artist):
 
 
     def _draw_square(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 2.0)
         side = renderer.points_to_pixels(self._markersize)
         transform = Affine2D().translate(-0.5, -0.5).scale(side)
         rgbFace = self._get_rgb_face()
@@ -908,6 +987,7 @@ class Line2D(Artist):
 
 
     def _draw_diamond(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 5.0)
         side = renderer.points_to_pixels(self._markersize)
         transform = Affine2D().translate(-0.5, -0.5).rotate_deg(45).scale(side)
         rgbFace = self._get_rgb_face()
@@ -916,6 +996,7 @@ class Line2D(Artist):
 
 
     def _draw_thin_diamond(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 3.0)
         offset = renderer.points_to_pixels(self._markersize)
         transform = Affine2D().translate(-0.5, -0.5) \
             .rotate_deg(45).scale(offset * 0.6, offset)
@@ -925,6 +1006,7 @@ class Line2D(Artist):
 
 
     def _draw_pentagon(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 5.0)
         offset = 0.5 * renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset)
         rgbFace = self._get_rgb_face()
@@ -932,6 +1014,7 @@ class Line2D(Artist):
                               path, path_trans, rgbFace)
 
     def _draw_star(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 5.0)
         offset = 0.5 * renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset)
         rgbFace = self._get_rgb_face()
@@ -941,6 +1024,7 @@ class Line2D(Artist):
 
 
     def _draw_hexagon1(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 5.0)
         offset = 0.5 * renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset)
         rgbFace = self._get_rgb_face()
@@ -949,6 +1033,7 @@ class Line2D(Artist):
 
 
     def _draw_hexagon2(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 5.0)
         offset = 0.5 * renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset).rotate_deg(30)
         rgbFace = self._get_rgb_face()
@@ -958,6 +1043,7 @@ class Line2D(Artist):
 
     _line_marker_path = Path([[0.0, -1.0], [0.0, 1.0]])
     def _draw_vline(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 1.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset)
         renderer.draw_markers(gc, self._line_marker_path, transform,
@@ -965,6 +1051,7 @@ class Line2D(Artist):
 
 
     def _draw_hline(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 1.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset).rotate_deg(90)
         renderer.draw_markers(gc, self._line_marker_path, transform,
@@ -973,6 +1060,7 @@ class Line2D(Artist):
 
     _tickhoriz_path = Path([[0.0, 0.0], [1.0, 0.0]])
     def _draw_tickleft(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 1.0)
         offset = renderer.points_to_pixels(self._markersize)
         marker_transform = Affine2D().scale(-offset, 1.0)
         renderer.draw_markers(gc, self._tickhoriz_path, marker_transform,
@@ -980,6 +1068,7 @@ class Line2D(Artist):
 
 
     def _draw_tickright(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 1.0)
         offset = renderer.points_to_pixels(self._markersize)
         marker_transform = Affine2D().scale(offset, 1.0)
         renderer.draw_markers(gc, self._tickhoriz_path, marker_transform,
@@ -988,6 +1077,7 @@ class Line2D(Artist):
 
     _tickvert_path = Path([[-0.0, 0.0], [-0.0, 1.0]])
     def _draw_tickup(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 1.0)
         offset = renderer.points_to_pixels(self._markersize)
         marker_transform = Affine2D().scale(1.0, offset)
         renderer.draw_markers(gc, self._tickvert_path, marker_transform,
@@ -995,6 +1085,7 @@ class Line2D(Artist):
 
 
     def _draw_tickdown(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 1.0)
         offset = renderer.points_to_pixels(self._markersize)
         marker_transform = Affine2D().scale(1.0, -offset)
         renderer.draw_markers(gc, self._tickvert_path, marker_transform,
@@ -1006,6 +1097,7 @@ class Line2D(Artist):
                       [Path.MOVETO, Path.LINETO,
                        Path.MOVETO, Path.LINETO])
     def _draw_plus(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 3.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset)
         renderer.draw_markers(gc, self._plus_path, transform,
@@ -1019,6 +1111,7 @@ class Line2D(Artist):
                       Path.MOVETO, Path.LINETO,
                       Path.MOVETO, Path.LINETO])
     def _draw_tri_down(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 5.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset)
         renderer.draw_markers(gc, self._tri_path, transform,
@@ -1026,6 +1119,7 @@ class Line2D(Artist):
 
 
     def _draw_tri_up(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 5.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset).rotate_deg(180)
         renderer.draw_markers(gc, self._tri_path, transform,
@@ -1033,6 +1127,7 @@ class Line2D(Artist):
 
 
     def _draw_tri_left(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 5.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset).rotate_deg(90)
         renderer.draw_markers(gc, self._tri_path, transform,
@@ -1040,6 +1135,7 @@ class Line2D(Artist):
 
 
     def _draw_tri_right(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 5.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset).rotate_deg(270)
         renderer.draw_markers(gc, self._tri_path, transform,
@@ -1048,6 +1144,7 @@ class Line2D(Artist):
 
     _caret_path = Path([[-1.0, 1.5], [0.0, 0.0], [1.0, 1.5]])
     def _draw_caretdown(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 3.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset)
         renderer.draw_markers(gc, self._caret_path, transform,
@@ -1055,6 +1152,7 @@ class Line2D(Artist):
 
 
     def _draw_caretup(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 3.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset).rotate_deg(180)
         renderer.draw_markers(gc, self._caret_path, transform,
@@ -1062,6 +1160,7 @@ class Line2D(Artist):
 
 
     def _draw_caretleft(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 3.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset).rotate_deg(270)
         renderer.draw_markers(gc, self._caret_path, transform,
@@ -1069,6 +1168,7 @@ class Line2D(Artist):
 
 
     def _draw_caretright(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 3.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset).rotate_deg(90)
         renderer.draw_markers(gc, self._caret_path, transform,
@@ -1080,6 +1180,7 @@ class Line2D(Artist):
                    [Path.MOVETO, Path.LINETO,
                     Path.MOVETO, Path.LINETO])
     def _draw_x(self, renderer, gc, path, path_trans):
+        gc.set_snap(renderer.points_to_pixels(self._markersize) >= 3.0)
         offset = 0.5*renderer.points_to_pixels(self._markersize)
         transform = Affine2D().scale(offset)
         renderer.draw_markers(gc, self._x_path, transform,

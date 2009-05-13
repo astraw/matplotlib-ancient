@@ -42,7 +42,7 @@ _Plotting commands
   gca      - return the current axes
   gcf      - return the current figure
   gci      - get the current image, or None
-  getp      - get a handle graphics property
+  getp      - get a graphics property
   grid     - set whether gridding is on
   hist     - make a histogram
   hold     - set the axes hold state
@@ -50,6 +50,7 @@ _Plotting commands
   ion      - turn interaction mode on
   isinteractive - return True if interaction mode is on
   imread   - load image file into array
+  imsave   - save array as an image file
   imshow   - plot image data
   ishold   - return the hold state of the current axes
   legend   - make an axes legend
@@ -69,7 +70,7 @@ _Plotting commands
   rgrids   - customize the radial grids and labels for polar
   savefig  - save the current figure
   scatter  - make a scatter plot
-  setp      - set a handle graphics property
+  setp      - set a graphics property
   semilogx - log x axis
   semilogy - log y axis
   show     - show the figures

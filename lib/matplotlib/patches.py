@@ -7,9 +7,9 @@ import matplotlib as mpl
 import numpy as np
 import matplotlib.cbook as cbook
 import matplotlib.artist as artist
+from matplotlib.artist import allow_rasterization
 import matplotlib.colors as colors
 import matplotlib.transforms as transforms
-import matplotlib.artist as artist
 from matplotlib.path import Path
 
 # these are not available for the object inspector until after the
@@ -229,43 +229,44 @@ class Patch(artist.Artist):
         'return whether fill is set'
         return self.fill
 
-    def set_hatch(self, h):
+    def set_hatch(self, hatch):
         """
         Set the hatching pattern
 
-        hatch can be one of::
+        *hatch* can be one of::
 
           /   - diagonal hatching
           \   - back diagonal
           |   - vertical
           -   - horizontal
-          #   - crossed
+          +   - crossed
           x   - crossed diagonal
+          o   - small circle
+          O   - large circle
+          .   - dots
+          *   - stars
 
         Letters can be combined, in which case all the specified
         hatchings are done.  If same letter repeats, it increases the
-        density of hatching in that direction.
+        density of hatching of that pattern.
 
-        CURRENT LIMITATIONS:
+        Hatching is supported in the PostScript, PDF, SVG and Agg
+        backends only.
 
-        1. Hatching is supported in the PostScript backend only.
-
-        2. Hatching is done with solid black lines of width 0.
-
-
-        ACCEPTS: [ '/' | '\\' | '|' | '-' | '#' | 'x' ]
+        ACCEPTS: [ '/' | '\\\\' | '|' | '-' | '+' | 'x' | 'o' | 'O' | '.' | '*' ]
         """
-        self._hatch = h
+        self._hatch = hatch
 
     def get_hatch(self):
         'Return the current hatching pattern'
         return self._hatch
 
-
+    @allow_rasterization
     def draw(self, renderer):
         'Draw the :class:`Patch` to the given *renderer*.'
         if not self.get_visible(): return
-        #renderer.open_group('patch')
+
+        renderer.open_group('patch', self.get_gid())
         gc = renderer.new_gc()
 
         if cbook.is_string_like(self._edgecolor) and self._edgecolor.lower()=='none':
@@ -279,6 +280,7 @@ class Patch(artist.Artist):
         self._set_gc_clip(gc)
         gc.set_capstyle('projecting')
         gc.set_url(self._url)
+        gc.set_snap(self._snap)
 
         if (not self.fill or self._facecolor is None or
             (cbook.is_string_like(self._facecolor) and self._facecolor.lower()=='none')):
@@ -300,7 +302,7 @@ class Patch(artist.Artist):
 
         renderer.draw_path(gc, tpath, affine, rgbFace)
 
-        #renderer.close_group('patch')
+        renderer.close_group('patch')
 
     def get_path(self):
         """
@@ -372,7 +374,7 @@ class Shadow(Patch):
         self.patch = patch
         self.props = props
         self._ox, self._oy = ox, oy
-        self._update_transform()
+        self._shadow_transform = transforms.Affine2D()
         self._update()
     __init__.__doc__ = cbook.dedent(__init__.__doc__) % artist.kwdocd
 
@@ -390,26 +392,30 @@ class Shadow(Patch):
             self.set_facecolor((r,g,b,0.5))
             self.set_edgecolor((r,g,b,0.5))
 
-    def _update_transform(self):
-        self._shadow_transform = transforms.Affine2D().translate(self._ox, self._oy)
+    def _update_transform(self, renderer):
+        ox = renderer.points_to_pixels(self._ox)
+        oy = renderer.points_to_pixels(self._oy)
+        self._shadow_transform.clear().translate(ox, oy)
 
     def _get_ox(self):
         return self._ox
     def _set_ox(self, ox):
         self._ox = ox
-        self._update_transform()
 
     def _get_oy(self):
         return self._oy
     def _set_oy(self, oy):
         self._oy = oy
-        self._update_transform()
 
     def get_path(self):
         return self.patch.get_path()
 
     def get_patch_transform(self):
         return self.patch.get_patch_transform() + self._shadow_transform
+
+    def draw(self, renderer):
+        self._update_transform(renderer)
+        Patch.draw(self, renderer)
 
 class Rectangle(Patch):
     """
@@ -643,8 +649,10 @@ class PathPatch(Patch):
         %(Patch)s
 
         .. seealso::
-            :class:`Patch`:
+
+            :class:`Patch`
                 For additional kwargs
+
         """
         Patch.__init__(self, **kwargs)
         self._path = path
@@ -671,8 +679,10 @@ class Polygon(Patch):
         %(Patch)s
 
         .. seealso::
-            :class:`Patch`:
+
+            :class:`Patch`
                 For additional kwargs
+
         """
         Patch.__init__(self, **kwargs)
         xy = np.asarray(xy, np.float_)
@@ -1167,6 +1177,7 @@ class Arc(Ellipse):
         self.theta2 = theta2
     __init__.__doc__ = cbook.dedent(__init__.__doc__) % artist.kwdocd
 
+    @allow_rasterization
     def draw(self, renderer):
         """
         Ellipses are normally drawn using an approximation that uses
@@ -1433,9 +1444,8 @@ def _pprint_styles(_styles, leadingspace=2):
         else:
             argstr =  ",".join([("%s=%s" % (an, av)) for an, av in args])
 
-        #adding quotes for now to work around tex bug treating '-' as itemize
-        _table.append([cls.__name__, "'%s'"%name, argstr])
-
+        #adding ``quotes`` since - and | have special meaning in reST
+        _table.append([cls.__name__, "``%s``"%name, argstr])
 
     return _pprint_table(_table)
 
@@ -1506,7 +1516,7 @@ class BoxStyle(_Style):
 
            BoxStyle("Round, pad=0.2")
 
-    The following boxstyle classes are defined.
+    Following boxstyle classes are defined.
 
     %(AvailableBoxstyles)s
 
@@ -2171,7 +2181,8 @@ class FancyBboxPatch(Patch):
 from matplotlib.bezier import split_bezier_intersecting_with_closedpath
 from matplotlib.bezier import get_intersection, inside_circle, get_parallels
 from matplotlib.bezier import make_wedged_bezier2
-from matplotlib.bezier import split_path_inout, inside_circle, get_cos_sin
+from matplotlib.bezier import split_path_inout, get_cos_sin
+from matplotlib.bezier import make_path_regular, concatenate_paths
 
 
 class ConnectionStyle(_Style):
@@ -2208,7 +2219,7 @@ class ConnectionStyle(_Style):
     connected. *patchA* (or *patchB*) is given, the returned path is
     clipped so that it start (or end) from the boundary of the
     patch. The path is further shrunk by *shrinkA* (or *shrinkB*)
-    which is given in points.  
+    which is given in points.
 
     """
 
@@ -2536,6 +2547,92 @@ class ConnectionStyle(_Style):
 
     _style_list["arc"] = Arc
 
+
+
+    class Bar(_Base):
+        """
+        A line with *angle* between A and B with *armA* and
+        *armB*. One of the arm is extend so that they are connected in
+        a right angle. The length of armA is determined by (*armA*
+        + *fraction* x AB distance). Same for armB.
+        """
+
+        def __init__(self, armA=0., armB=0., fraction=0.3, angle=None):
+            """
+            *armA* : minimum length of armA
+            *armB* : minimum length of armB
+            *fraction* : a fraction of the distance between two points that will be added to armA and armB.
+            *angle* : anlge of the connecting line (if None, parallel to A and B)
+            """
+            self.armA = armA
+            self.armB = armB
+            self.fraction = fraction
+            self.angle = angle
+
+        def connect(self, posA, posB):
+            x1, y1 = posA
+            x20, y20 = x2, y2 = posB
+             
+            x12, y12 = (x1 + x2)/2., (y1 + y2)/2.
+
+            theta1 = math.atan2(y2-y1, x2-x1)
+            dx, dy = x2 - x1, y2 - y1
+            dd = (dx*dx + dy*dy)**.5
+            ddx, ddy = dx/dd, dy/dd
+
+            armA, armB = self.armA, self.armB
+            
+            if self.angle is not None:
+                #angle = self.angle % 180.
+                #if angle < 0. or angle > 180.:
+                #    angle
+                theta0 = (self.angle%180.)/180.*math.pi
+                #theta0 = (((self.angle+90)%180.)  - 90.)/180.*math.pi
+                dtheta = theta1 - theta0
+                dl = dd*math.sin(dtheta)
+
+                dL = dd*math.cos(dtheta)
+
+                #x2, y2 = x2 + dl*ddy, y2 - dl*ddx
+                x2, y2 = x1 + dL*math.cos(theta0), y1 + dL*math.sin(theta0)
+
+                armB = armB - dl
+
+                # update
+                dx, dy = x2 - x1, y2 - y1
+                dd2 = (dx*dx + dy*dy)**.5
+                ddx, ddy = dx/dd2, dy/dd2
+
+            else:
+                dl = 0.
+                
+            #if armA > armB:
+            #    armB = armA + dl
+            #else:
+            #    armA = armB - dl
+
+
+            arm = max(armA, armB)
+            f = self.fraction*dd + arm
+            #fB = self.fraction*dd + armB
+
+            cx1, cy1 = x1 + f*ddy, y1 - f*ddx
+            cx2, cy2 = x2 + f*ddy, y2 - f*ddx
+
+            vertices = [(x1, y1),
+                        (cx1, cy1),
+                        (cx2, cy2),
+                        (x20, y20)]
+            codes = [Path.MOVETO,
+                     Path.LINETO,
+                     Path.LINETO,
+                     Path.LINETO]
+
+            return Path(vertices, codes)
+
+    _style_list["bar"] = Bar
+
+
     __doc__ = cbook.dedent(__doc__) % \
            {"AvailableConnectorstyles": _pprint_styles(_style_list)}
 
@@ -2550,6 +2647,7 @@ class ArrowStyle(_Style):
     A arrowstyle object can be either created as::
 
            ArrowStyle.Fancy(head_length=.4, head_width=.4, tail_width=.4)
+
     or::
 
            ArrowStyle("Fancy", head_length=.4, head_width=.4, tail_width=.4)
@@ -2622,12 +2720,15 @@ class ArrowStyle(_Style):
         def transmute(self, path, mutation_size, linewidth):
             """
             The transmute method is a very core of the ArrowStyle
-            class and must be overriden in the subclasses. It receives the
-            path object along which the arrow will be drawn, and the
-            mutation_size, with which the amount arrow head and etc. will
-            be scaled. It returns a Path instance. The linewidth may be
-            used to adjust the the path so that it does not pass beyond
-            the given points.
+            class and must be overriden in the subclasses. It receives
+            the path object along which the arrow will be drawn, and
+            the mutation_size, with which the amount arrow head and
+            etc. will be scaled. The linewidth may be used to adjust
+            the the path so that it does not pass beyond the given
+            points. It returns a tuple of a Path instance and a
+            boolean. The boolean value indicate whether the path can
+            be filled or not. The return value can also be a list of paths
+            and list of booleans of a same length.
             """
 
             raise NotImplementedError('Derived must override')
@@ -2641,6 +2742,8 @@ class ArrowStyle(_Style):
             and take care of the aspect ratio.
             """
 
+            path = make_path_regular(path)
+
             if aspect_ratio is not None:
                 # Squeeze the given height by the aspect_ratio
 
@@ -2649,12 +2752,19 @@ class ArrowStyle(_Style):
                 vertices[:,1] = vertices[:,1] / aspect_ratio
                 path_shrinked = Path(vertices, codes)
                 # call transmute method with squeezed height.
-                path_mutated, closed = self.transmute(path_shrinked, linewidth,
-                                                      mutation_size)
-                vertices, codes = path_mutate.vertices, path_mutate.codes
-                # Restore the height
-                vertices[:,1] = vertices[:,1] * aspect_ratio
-                return Path(vertices, codes), closed
+                path_mutated, fillable = self.transmute(path_shrinked,
+                                                        linewidth,
+                                                        mutation_size)
+                if cbook.iterable(fillable):
+                    path_list = []
+                    for p in zip(path_mutated):
+                        v, c = p.vertices, p.codes
+                        # Restore the height
+                        v[:,1] = v[:,1] * aspect_ratio
+                        path_list.append(Path(v, c))
+                    return path_list, fillable
+                else:
+                    return path_mutated, fillable
             else:
                 return self.transmute(path, mutation_size, linewidth)
 
@@ -2664,21 +2774,24 @@ class ArrowStyle(_Style):
         """
         A simple arrow which will work with any path instance. The
         returned path is simply concatenation of the original path + at
-        most two paths representing the arrow at the begin point and the
-        at the end point. The returned path is not closed and only meant
-        to be stroked.
+        most two paths representing the arrow head at the begin point and the
+        at the end point. The arrow heads can be either open or closed.
         """
 
         def __init__(self, beginarrow=None, endarrow=None,
+                     fillbegin=False, fillend=False,
                      head_length=.2, head_width=.1):
             """
             The arrows are drawn if *beginarrow* and/or *endarrow* are
-            true. *head_length* and *head_width* determines the size of
-            the arrow relative to the *mutation scale*.
+            true. *head_length* and *head_width* determines the size
+            of the arrow relative to the *mutation scale*.  The
+            arrowhead at the begin (or end) is closed if fillbegin (or
+            fillend) is True.
             """
             self.beginarrow, self.endarrow = beginarrow, endarrow
             self.head_length, self.head_width = \
                     head_length, head_width
+            self.fillbegin, self.fillend = fillbegin, fillend
             super(ArrowStyle._Curve, self).__init__()
 
 
@@ -2778,16 +2891,33 @@ class ArrowStyle(_Style):
 
             # this simple code will not work if ddx, ddy is greater than
             # separation bettern vertices.
-            vertices = np.concatenate([verticesA + [(x0+ddxA, y0+ddyA)],
-                                       path.vertices[1:-1],
-                                       [(x3+ddxB, y3+ddyB)] + verticesB])
-            codes = np.concatenate([codesA,
-                                    path.codes,
-                                    codesB])
+            _path = [Path(np.concatenate([[(x0+ddxA, y0+ddyA)],
+                                          path.vertices[1:-1],
+                                          [(x3+ddxB, y3+ddyB)]]),
+                          path.codes)]
+            _fillable = [False]
 
-            p = Path(vertices, codes)
+            if self.beginarrow:
+                if self.fillbegin:
+                    p = np.concatenate([verticesA, [verticesA[0], verticesA[0]], ])
+                    c = np.concatenate([codesA, [Path.LINETO, Path.CLOSEPOLY]])
+                    _path.append(Path(p, c))
+                    _fillable.append(True)
+                else:
+                    _path.append(Path(verticesA, codesA))
+                    _fillable.append(False)
 
-            return p, False
+            if self.endarrow:
+                if self.fillend:
+                    _fillable.append(True)
+                    p = np.concatenate([verticesB, [verticesB[0], verticesB[0]], ])
+                    c = np.concatenate([codesB, [Path.LINETO, Path.CLOSEPOLY]])
+                    _path.append(Path(p, c))
+                else:
+                    _fillable.append(False)
+                    _path.append(Path(verticesB, codesB))
+
+            return _path, _fillable
 
 
     class Curve(_Curve):
@@ -2867,6 +2997,73 @@ class ArrowStyle(_Style):
     _style_list["<->"] = CurveAB
 
 
+
+    class CurveFilledA(_Curve):
+        """
+        An arrow with filled triangle head at the begin.
+        """
+
+        def __init__(self, head_length=.4, head_width=.2):
+            """
+            *head_length*
+              length of the arrow head
+
+            *head_width*
+              width of the arrow head
+            """
+
+            super(ArrowStyle.CurveFilledA, self).__init__( \
+                beginarrow=True, endarrow=False,
+                fillbegin=True, fillend=False,
+                head_length=head_length, head_width=head_width )
+
+    _style_list["<|-"] = CurveFilledA
+
+
+    class CurveFilledB(_Curve):
+        """
+        An arrow with filled triangle head at the end.
+        """
+
+        def __init__(self, head_length=.4, head_width=.2):
+            """
+            *head_length*
+              length of the arrow head
+
+            *head_width*
+              width of the arrow head
+            """
+
+            super(ArrowStyle.CurveFilledB, self).__init__( \
+                beginarrow=False, endarrow=True,
+                fillbegin=False, fillend=True,
+                head_length=head_length, head_width=head_width )
+
+    _style_list["-|>"] = CurveFilledB
+
+
+    class CurveFilledAB(_Curve):
+        """
+        An arrow with filled triangle heads both at the begin and the end point.
+        """
+
+        def __init__(self, head_length=.4, head_width=.2):
+            """
+            *head_length*
+              length of the arrow head
+
+            *head_width*
+              width of the arrow head
+            """
+
+            super(ArrowStyle.CurveFilledAB, self).__init__( \
+                beginarrow=True, endarrow=True,
+                fillbegin=True, fillend=True,
+                head_length=head_length, head_width=head_width )
+
+    _style_list["<|-|>"] = CurveFilledAB
+
+
     class _Bracket(_Base):
 
         def __init__(self, bracketA=None, bracketB=None,
@@ -2914,8 +3111,6 @@ class ArrowStyle(_Style):
                 scaleB = mutation_size
             else:
                 scaleB = self.scaleB
-
-            from matplotlib.bezier import get_cos_sin
 
             vertices_list, codes_list = [], []
 
@@ -3198,6 +3393,7 @@ class ArrowStyle(_Style):
 
 
 
+
 class FancyArrowPatch(Patch):
     """
     A fancy arrow patch. It draws an arrow using the :class:ArrowStyle.
@@ -3297,12 +3493,6 @@ class FancyArrowPatch(Patch):
     __init__.__doc__ = cbook.dedent(__init__.__doc__) % kwdoc
     del kwdoc
 
-    def list_available_arrowstyles(cls):
-        return _list_available_arrowstyles(cls._fancy_arrow_transmuters)
-
-    def list_available_connectionstyles(cls):
-        return _list_available_connectionstyles(cls._connectors)
-
     def set_positions(self, posA, posB):
         """ set the begin end end positions of the connecting
         path. Use current vlaue if None.
@@ -3372,7 +3562,7 @@ class FancyArrowPatch(Patch):
 
         Old attrs simply are forgotten.
 
-        Without argument (or with arrowstyle=None), return 
+        Without argument (or with arrowstyle=None), return
         available box styles as a list of strings.
         """
 
@@ -3426,8 +3616,13 @@ class FancyArrowPatch(Patch):
         get_path_in_displaycoord() medthod to retrieve the arrow path
         in the disaply coord.
         """
-        _path = self.get_path_in_displaycoord()
+        _path, fillable = self.get_path_in_displaycoord()
+
+        if cbook.iterable(fillable):
+            _path = concatenate_paths(_path)
+
         return self.get_transform().inverted().transform_path(_path)
+
 
     def get_path_in_displaycoord(self):
         """
@@ -3448,16 +3643,16 @@ class FancyArrowPatch(Patch):
 
 
 
-        _path, closed = self.get_arrowstyle()(_path,
-                                              self.get_mutation_scale(),
-                                              self.get_linewidth(),
-                                              self.get_mutation_aspect()
-                                              )
+        _path, fillable = self.get_arrowstyle()(_path,
+                                                self.get_mutation_scale(),
+                                                self.get_linewidth(),
+                                                self.get_mutation_aspect()
+                                                )
 
-        if not closed:
-            self.fill = False
+        #if not fillable:
+        #    self.fill = False
 
-        return _path
+        return _path, fillable
 
 
 
@@ -3465,11 +3660,6 @@ class FancyArrowPatch(Patch):
         if not self.get_visible(): return
         #renderer.open_group('patch')
         gc = renderer.new_gc()
-
-        fill_orig = self.fill
-
-        path = self.get_path_in_displaycoord()
-        affine = transforms.IdentityTransform()
 
 
         if cbook.is_string_like(self._edgecolor) and self._edgecolor.lower()=='none':
@@ -3497,8 +3687,22 @@ class FancyArrowPatch(Patch):
             gc.set_hatch(self._hatch )
 
 
-        renderer.draw_path(gc, path, affine, rgbFace)
+        path, fillable = self.get_path_in_displaycoord()
 
-        self.fill = fill_orig
+        if not cbook.iterable(fillable):
+            path = [path]
+            fillable = [fillable]
 
-        #renderer.close_group('patch')
+
+        affine = transforms.IdentityTransform()
+
+        renderer.open_group('patch', self.get_gid())
+
+        for p, f in zip(path, fillable):
+            if f:
+                renderer.draw_path(gc, p, affine, rgbFace)
+            else:
+                renderer.draw_path(gc, p, affine, None)
+
+
+        renderer.close_group('patch')

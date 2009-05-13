@@ -3,17 +3,19 @@
 Writing mathematical expressions
 ================================
 
-You can use TeX markup in any matplotlib text string.  Note that you
-do not need to have TeX installed, since matplotlib ships its own TeX
-expression parser, layout engine and fonts.  The layout engine is a
-fairly direct adaptation of the layout algorithms in Donald Knuth's
-TeX, so the quality is quite good (matplotlib also provides a
-``usetex`` option for those who do want to call out to TeX to generate
-their text (see :ref:`usetex-tutorial`).
+You can use a subset TeX markup in any matplotlib text string by
+placing it inside a pair of dollar signs ($).
 
-Any text element can use math text.  You need to use raw strings
-(preceed the quotes with an ``'r'``), and surround the string text
-with dollar signs, as in TeX.  Regular text and mathtext can be
+Note that you do not need to have TeX installed, since matplotlib
+ships its own TeX expression parser, layout engine and fonts.  The
+layout engine is a fairly direct adaptation of the layout algorithms
+in Donald Knuth's TeX, so the quality is quite good (matplotlib also
+provides a ``usetex`` option for those who do want to call out to TeX
+to generate their text (see :ref:`usetex-tutorial`).
+
+Any text element can use math text.  You should use raw strings
+(preceed the quotes with an ``'r'``), and surround the math text with
+dollar signs ($), as in TeX.  Regular text and mathtext can be
 interleaved within the same string.  Mathtext can use the Computer
 Modern fonts (from (La)TeX), `STIX <http://www.aip.org/stixfonts/>`_
 fonts (with are designed to blend well with Times) or a Unicode font
@@ -34,6 +36,26 @@ Whereas this::
     plt.title(r'$\alpha > \beta$')
 
 produces ":math:`\alpha > \beta`".
+
+.. note::
+   Mathtext should be placed between a pair of dollar signs ($).  To
+   make it easy to display monetary values, e.g. "$100.00", if a
+   single dollar sign is present in the entire string, it will be
+   displayed verbatim as a dollar sign.  This is a small change from
+   regular TeX, where the dollar sign in non-math text would have to
+   be escaped ('\$').
+
+.. note::
+   While the syntax inside the pair of dollar signs ($) aims to be
+   TeX-like, the text outside does not.  In particular, characters
+   such as::
+
+     # $ % & ~ _ ^ \ { } \( \) \[ \]
+
+   have special meaning outside of math mode in TeX.  Therefore, these
+   characters will behave differently depending on the rcParam
+   ``text.usetex`` flag.  See the :ref:`usetex tutorial
+   <usetex-tutorial>` for more information.
 
 Subscripts and superscripts
 ---------------------------
@@ -122,9 +144,16 @@ commands such as fractions or sub/superscripts::
 Fonts
 -----
 
-The default font is *italics* for mathematical symbols.  To change
-fonts, eg, to write "sin" in a Roman font, enclose the text in a font
-command::
+The default font is *italics* for mathematical symbols.
+
+.. note::
+
+   This default can be changed using the ``mathtext.default`` rcParam.
+   This is useful, for example, to use the same font as regular
+   non-math text for math text, by setting it to ``regular``.
+
+To change fonts, eg, to write "sin" in a Roman font, enclose the text
+in a font command::
 
     r'$s(t) = \mathcal{A}\mathrm{sin}(2 \omega t)$'
 
@@ -200,6 +229,12 @@ selected using the ``mathtext.fontset`` parameter in
 ``stixsans``: **STIX sans-serif**
 
 .. image:: ../_static/stixsans_fontset.png
+
+Additionally, you can use ``\mathdefault{...}`` or its alias
+``\mathregular{...}`` to use the font used for regular text outside of
+mathtext.  There are a number of limitations to this approach, most
+notably that far fewer symbols will be available, but it can be useful
+to make math expressions blend well with other text in the plot.
 
 Custom fonts
 ~~~~~~~~~~~~
@@ -298,6 +333,9 @@ Here is an example illustrating many of these features in context.
 
 .. plot:: pyplots/pyplot_mathtext.py
    :include-source:
+
+
+
 
 
 

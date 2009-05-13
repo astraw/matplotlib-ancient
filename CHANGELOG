@@ -1,4 +1,322 @@
-=================================================================                                                                      2008-12-09 Released 0.98.4 at svn r6536
+======================================================================
+2009-05-13 When the x-coordinate of a line is monotonically
+           increasing, it is now automatically clipped at
+           the stage of generating the transformed path in
+           the draw method; this greatly speeds up zooming and
+           panning when one is looking at a short segment of
+           a long time series, for example. - EF
+
+2009-05-11 aspect=1 in log-log plot gives square decades.
+
+2009-05-08 clabel takes new kwarg, rightside_up; if False, labels
+           will not be flipped to keep them rightside-up.  This
+           allows the use of clabel to make streamfunction arrows,
+           as requested by Evan Mason. - EF
+
+2009-05-07 'labelpad' can now be passed when setting x/y labels. This
+           allows controlling the spacing between the label and its
+           axis. - RMM
+
+2009-05-06 print_ps now uses mixed-mode renderer. Axes.draw rasterize
+           artists whose zorder smaller than rasterization_zorder.
+           -JJL
+
+2009-05-06 Per-artist Rasterization, originally by Eric Bruning. -JJ
+
+2009-05-05 Add an example that shows how to make a plot that updates
+           using data from another process.  Thanks to Robert
+           Cimrman - RMM
+
+2009-05-05 Add Axes.get_legend_handles_labels method. - JJL
+
+2009-05-04 Fix bug that Text.Annotation is still drawn while set to
+           not visible. - JJL
+
+2009-05-04 Added TJ's fill_betweenx patch - JDH
+
+2009-05-02 Added options to plotfile based on question from
+           Joseph Smidt and patch by Matthias Michler. - EF
+
+
+2009-05-01 Changed add_artist and similar Axes methods to
+           return their argument. - EF
+
+2009-04-30 Incorrect eps bbox for landscape mode fixed - JJL
+
+2009-04-28 Fixed incorrect bbox of eps output when usetex=True. - JJL
+
+2009-04-24 Changed use of os.open* to instead use subprocess.Popen.
+           os.popen* are deprecated in 2.6 and are removed in 3.0. - RMM
+
+2009-04-20 Worked on axes_grid documentation. Added
+           axes_grid.inset_locator. - JJL
+
+2009-04-17 Initial check-in of the axes_grid toolkit. - JJL
+
+2009-04-17 Added a support for bbox_to_anchor in
+           offsetbox.AnchoredOffsetbox. Improved a documentation.
+           - JJL
+
+2009-04-16 Fixed a offsetbox bug that multiline texts are not
+           correctly aligned.  - JJL
+
+2009-04-16 Fixed a bug in mixed mode renderer that images produced by
+           an rasterizing backend are placed with incorrect size.
+           - JJL
+
+2009-04-14 Added Jonathan Taylor's Reinier Heeres' port of John
+           Porters' mplot3d to svn trunk.  Package in
+           mpl_toolkits.mplot3d and demo is examples/mplot3d/demo.py.
+           Thanks Reiner
+
+2009-04-06 The pdf backend now escapes newlines and linefeeds in strings.
+           Fixes sf bug #2708559; thanks to Tiago Pereira for the report.
+
+2009-04-06 texmanager.make_dvi now raises an error if LaTeX failed to
+           create an output file. Thanks to Joao Luis Silva for reporting
+           this. - JKS
+
+2009-04-05 _png.read_png() reads 12 bit PNGs (patch from
+           Tobias Wood) - ADS
+
+2009-04-04 Allow log axis scale to clip non-positive values to
+           small positive value; this is useful for errorbars. - EF
+
+2009-03-28 Make images handle nan in their array argument.
+           A helper, cbook.safe_masked_invalid() was added. - EF
+
+2009-03-25 Make contour and contourf handle nan in their Z argument. - EF
+
+2009-03-20 Add AuxTransformBox in offsetbox.py to support some transformation.
+           anchored_text.py example is enhanced and renamed
+           (anchored_artists.py). - JJL
+
+2009-03-20 Add "bar" connection style for annotation - JJL
+
+2009-03-17 Fix bugs in edge color handling by contourf, found
+           by Jae-Joon Lee. - EF
+
+2009-03-14 Added 'LightSource' class to colors module for
+           creating shaded relief maps.  shading_example.py
+           added to illustrate usage. - JSW
+
+2009-03-11 Ensure wx version >= 2.8; thanks to Sandro Tosi and
+           Chris Barker. - EF
+
+2009-03-10 Fix join style bug in pdf. - JKS
+
+2009-03-07 Add pyplot access to figure number list - EF
+
+2009-02-28 hashing of FontProperties accounts current rcParams - JJL
+
+2009-02-28 Prevent double-rendering of shared axis in twinx, twiny - EF
+
+2009-02-26 Add optional bbox_to_anchor argument for legend class - JJL
+
+2009-02-26 Support image clipping in pdf backend. - JKS
+
+2009-02-25 Improve tick location subset choice in FixedLocator. - EF
+
+2009-02-24 Deprecate numerix, and strip out all but the numpy
+           part of the code. - EF
+
+2009-02-21 Improve scatter argument handling; add an early error
+           message, allow inputs to have more than one dimension. - EF
+
+2009-02-16 Move plot_directive.py to the installed source tree.  Add
+           support for inline code content - MGD
+
+2009-02-16 Move mathmpl.py to the installed source tree so it is
+           available to other projects. - MGD
+
+2009-02-14 Added the legend title support - JJL
+
+2009-02-10 Fixed a bug in backend_pdf so it doesn't break when the setting
+           pdf.use14corefonts=True is used. Added test case in
+           unit/test_pdf_use14corefonts.py. - NGR
+
+2009-02-08 Added a new imsave function to image.py and exposed it in
+           the pyplot interface - GR
+
+2009-02-04 Some reorgnization of the legend code. anchored_text.py
+           added as an example. - JJL
+
+2009-02-04 Add extent keyword arg to hexbin - ADS
+
+2009-02-04 Fix bug in mathtext related to \dots and \ldots - MGD
+
+2009-02-03 Change default joinstyle to round - MGD
+
+2009-02-02 Reduce number of marker XObjects in pdf output - JKS
+
+2009-02-02 Change default resolution on polar plot to 1 - MGD
+
+2009-02-02 Avoid malloc errors in ttconv for fonts that don't have
+           e.g. PostName (a version of Tahoma triggered this) - JKS
+
+2009-01-30 Remove support for pyExcelerator in exceltools -- use xlwt
+           instead - JDH
+
+2009-01-29 Document 'resolution' kwarg for polar plots.  Support it
+           when using pyplot.polar, not just Figure.add_axes. - MGD
+
+2009-01-29 Rework the nan-handling/clipping/quantizing/simplification
+           framework so each is an independent part of a pipeline.
+           Expose the C++-implementation of all of this so it can be
+           used from all Python backends.  Add rcParam
+           "path.simplify_threshold" to control the threshold of
+           similarity below which vertices will be removed.
+
+2009-01-26 Improved tight bbox option of the savefig. - JJL
+
+2009-01-26 Make curves and NaNs play nice together - MGD
+
+2009-01-21 Changed the defaults of acorr and xcorr to use
+           usevlines=True, maxlags=10 and normed=True since these are
+           the best defaults
+
+2009-01-19 Fix bug in quiver argument handling. - EF
+
+2009-01-19 Fix bug in backend_gtk: don't delete nonexistent toolbar. - EF
+
+2009-01-16 Implement bbox_inches option for savefig. If bbox_inches is
+           "tight", try to determine the tight bounding box. - JJL
+
+2009-01-16 Fix bug in is_string_like so it doesn't raise an
+           unnecessary exception. - EF
+
+2009-01-16 Fix an infinite recursion in the unit registry when searching
+           for a converter for a sequence of strings. Add a corresponding
+           test. - RM
+
+2009-01-16 Bugfix of C typedef of MPL_Int64 that was failing on
+           Windows XP 64 bit, as reported by George Goussard on numpy
+           mailing list. - ADS
+
+2009-01-16 Added helper function LinearSegmentedColormap.from_list to
+           facilitate building simple custom colomaps.  See
+           examples/pylab_examples/custom_cmap_fromlist.py - JDH
+
+2009-01-16 Applied Michiel's patch for macosx backend to fix rounding
+           bug. Closed sf bug 2508440 - JSW
+
+2009-01-10 Applied Michiel's hatch patch for macosx backend and
+           draw_idle patch for qt.  Closes sf patched 2497785 and
+           2468809 - JDH
+
+2009-01-10 Fix bug in pan/zoom with log coordinates. - EF
+
+2009-01-06 Fix bug in setting of dashed negative contours. - EF
+
+2009-01-06 Be fault tolerant when len(linestyles)>NLev in contour. - MM
+
+2009-01-06 Added marginals kwarg to hexbin to plot marginal densities
+           JDH
+
+2009-01-06 Change user-visible multipage pdf object to PdfPages to
+           avoid accidents with the file-like PdfFile. - JKS
+
+2009-01-05 Fix a bug in pdf usetex: allow using non-embedded fonts. - JKS
+
+2009-01-05 optional use of preview.sty in usetex mode. - JJL
+
+2009-01-02 Allow multipage pdf files. - JKS
+
+2008-12-31 Improve pdf usetex by adding support for font effects
+           (slanting and extending). - JKS
+
+2008-12-29 Fix a bug in pdf usetex support, which occurred if the same
+           Type-1 font was used with different encodings, e.g. with
+           Minion Pro and MnSymbol. - JKS
+
+2008-12-20 fix the dpi-dependent offset of Shadow. - JJL
+
+2008-12-20 fix the hatch bug in the pdf backend. minor update
+           in docs and  example - JJL
+
+2008-12-19 Add axes_locator attribute in Axes. Two examples are added.
+           - JJL
+
+2008-12-19 Update Axes.legend documnetation. /api/api_changes.rst is also
+           updated to describe chages in keyword parameters.
+           Issue a warning if old keyword parameters are used. - JJL
+
+2008-12-18 add new arrow style, a line + filled triangles. -JJL
+
+==================================================================
+2008-12-18 Re-Released 0.98.5.2 from v0_98_5_maint at r6679
+           Released 0.98.5.2 from v0_98_5_maint at r6667
+
+2008-12-18 Removed configobj, experimental traits and doc/mpl_data link - JDH
+
+2008-12-18 Fix bug where a line with NULL data limits prevents
+           subsequent data limits from calculating correctly - MGD
+
+2008-12-17 Major documentation generator changes - MGD
+
+2008-12-17 Applied macosx backend patch with support for path
+           collections, quadmesh, etc... - JDH
+
+2008-12-17 fix dpi-dependent behavior of text bbox and arrow in annotate
+            -JJL
+
+2008-12-17 Add group id support in artist. Two examples which
+           demostrate svg filter are added. -JJL
+
+2008-12-16 Another attempt to fix dpi-dependent behavior of Legend. -JJL
+
+2008-12-16 Fixed dpi-dependent behavior of Legend and fancybox in Text.
+
+2008-12-16 Added markevery property to Line2D to support subsampling
+           of markers - JDH
+2008-12-15 Removed mpl_data symlink in docs.  On platforms that do not
+           support symlinks, these become copies, and the font files
+           are large, so the distro becomes unneccessarily bloaded.
+           Keeping the mpl_examples dir because relative links are
+           harder for the plot directive and the *.py files are not so
+           large. - JDH
+
+2008-12-15 Fix \$ in non-math text with usetex off.  Document
+           differences between usetex on/off - MGD
+
+2008-12-15 Fix anti-aliasing when auto-snapping - MGD
+
+2008-12-15 Fix grid lines not moving correctly during pan and zoom - MGD
+
+2008-12-12 Preparations to eliminate maskedarray rcParams key: its
+           use will now generate a warning.  Similarly, importing
+           the obsolote numerix.npyma will generate a warning. - EF
+
+2008-12-12 Added support for the numpy.histogram() weights parameter
+           to the axes hist() method. Docs taken from numpy - MM
+
+2008-12-12 Fixed warning in hist() with numpy 1.2 - MM
+
+2008-12-12 Removed external packages: configobj and enthought.traits
+           which are only required by the experimental traited config
+           and are somewhat out of date. If needed, install them
+           independently, see:
+
+           http://code.enthought.com/projects/traits
+
+           and:
+
+           http://www.voidspace.org.uk/python/configobj.html
+
+2008-12-12 Added support to asign labels to histograms of multiple
+           data. - MM
+
+=================================================================
+2008-12-11 Released 0.98.5 at svn r6573
+
+2008-12-11 Use subprocess.Popen instead of os.popen in dviread
+           (Windows problem reported by Jorgen Stenarson) - JKS
+
+2008-12-10 Added Michael's font_manager fix and Jae-Joon's
+           figure/subplot fix.  Bumped version number to 0.98.5 - JDH
+
+=================================================================
+2008-12-09 Released 0.98.4 at svn r6536
 
 2008-12-08 Added mdehoon's native macosx backend from sf patch 2179017 - JDH
 

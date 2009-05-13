@@ -5,6 +5,7 @@ from __future__ import division
 
 from matplotlib  import rcParams
 import matplotlib.artist as artist
+from matplotlib.artist import allow_rasterization
 import matplotlib.cbook as cbook
 import matplotlib.font_manager as font_manager
 import matplotlib.lines as mlines
@@ -176,6 +177,7 @@ class Tick(artist.Artist):
         'Return the tick location (data coords) as a scalar'
         return self._loc
 
+    @allow_rasterization
     def draw(self, renderer):
         if not self.get_visible(): return
         renderer.open_group(self.__name__)
@@ -470,7 +472,7 @@ class YTick(Tick):
         'return the Interval instance for this axis view limits'
         return self.axes.viewLim.intervaly
 
-    def set_view_interval(self, vmin, vmax):
+    def set_view_interval(self, vmin, vmax, ignore = False):
         if ignore:
             self.axes.viewLim.intervaly = vmin, vmax
         else:
@@ -498,9 +500,8 @@ class Axis(artist.Artist):
 
     * :attr:`transData` - transform data coords to display coords
     * :attr:`transAxis` - transform axis coords to display coords
-
+    * :attr:`labelpad` - number of points between the axis and its label
     """
-    LABELPAD = 5
     OFFSETTEXTPAD = 3
 
     def __str__(self):
@@ -513,6 +514,15 @@ class Axis(artist.Artist):
         """
         artist.Artist.__init__(self)
         self.set_figure(axes.figure)
+
+        # Keep track of setting to the default value, this allows use to know
+        # if any of the following values is explicitly set by the user, so as
+        # to not overwrite their settings with any of our 'auto' settings.
+        self.isDefault_majloc = True
+        self.isDefault_minloc = True
+        self.isDefault_majfmt = True
+        self.isDefault_minfmt = True
+        self.isDefault_label = True
 
         self.axes = axes
         self.major = Ticker()
@@ -527,6 +537,7 @@ class Axis(artist.Artist):
 
         self._autolabelpos = True
         self.label = self._get_label()
+        self.labelpad = 5
         self.offsetText = self._get_offset_text()
         self.majorTicks = []
         self.minorTicks = []
@@ -568,6 +579,11 @@ class Axis(artist.Artist):
         self._scale = mscale.scale_factory(value, self, **kwargs)
         self._scale.set_default_locators_and_formatters(self)
 
+        self.isDefault_majloc = True
+        self.isDefault_minloc = True
+        self.isDefault_majfmt = True
+        self.isDefault_minfmt = True
+
     def limit_range_for_scale(self, vmin, vmax):
         return self._scale.limit_range_for_scale(vmin, vmax, self.get_minpos())
 
@@ -586,6 +602,18 @@ class Axis(artist.Artist):
         self.set_major_formatter(mticker.ScalarFormatter())
         self.set_minor_locator(mticker.NullLocator())
         self.set_minor_formatter(mticker.NullFormatter())
+
+        self.set_label_text('')
+        self._set_artist_props(self.label)
+
+        # Keep track of setting to the default value, this allows use to know
+        # if any of the following values is explicitly set by the user, so as
+        # to not overwrite their settings with any of our 'auto' settings.
+        self.isDefault_majloc = True
+        self.isDefault_minloc = True
+        self.isDefault_majfmt = True
+        self.isDefault_minfmt = True
+        self.isDefault_label = True
 
         # Clear the callback registry for this axis, or it may "leak"
         self.callbacks = cbook.CallbackRegistry(('units', 'units finalize'))
@@ -693,6 +721,7 @@ class Axis(artist.Artist):
             bbox2 = mtransforms.Bbox.from_extents(0, 0, 0, 0)
         return bbox, bbox2
 
+    @allow_rasterization
     def draw(self, renderer, *args, **kwargs):
         'Draw the axis lines, grid lines, tick lines and labels'
         ticklabelBoxes = []
@@ -836,6 +865,10 @@ class Axis(artist.Artist):
         dest.label1On = src.label1On
         dest.label2On = src.label2On
 
+    def get_label_text(self):
+        'Get the text of the label'
+        return self.label.get_text()
+
     def get_major_locator(self):
         'Get the locator of the major ticker'
         return self.major.locator
@@ -939,7 +972,7 @@ class Axis(artist.Artist):
         converter = munits.registry.get_converter(data)
         if converter is None: return False
         self.converter = converter
-        default = self.converter.default_units(data)
+        default = self.converter.default_units(data, self)
         #print 'update units: default="%s", units=%s"'%(default, self.units)
         if default is not None and self.units is None:
             self.set_units(default)
@@ -955,20 +988,24 @@ class Axis(artist.Artist):
         if self.converter is None:
             return
 
-        info = self.converter.axisinfo(self.units)
+        info = self.converter.axisinfo(self.units, self)
         if info is None:
             return
-        if info.majloc is not None and self.major.locator!=info.majloc:
+        if info.majloc is not None and self.major.locator!=info.majloc and self.isDefault_majloc:
             self.set_major_locator(info.majloc)
-        if info.minloc is not None and self.minor.locator!=info.minloc:
+            self.isDefault_majloc = True
+        if info.minloc is not None and self.minor.locator!=info.minloc and self.isDefault_minloc:
             self.set_minor_locator(info.minloc)
-        if info.majfmt is not None and self.major.formatter!=info.majfmt:
+            self.isDefault_minloc = True
+        if info.majfmt is not None and self.major.formatter!=info.majfmt and self.isDefault_majfmt:
             self.set_major_formatter(info.majfmt)
-        if info.minfmt is not None and self.minor.formatter!=info.minfmt:
+            self.isDefault_majfmt = True
+        if info.minfmt is not None and self.minor.formatter!=info.minfmt and self.isDefault_minfmt:
             self.set_minor_formatter(info.minfmt)
-        if info.label is not None:
-            label = self.get_label()
-            label.set_text(info.label)
+            self.isDefault_minfmt = True
+        if info.label is not None and self.isDefault_label:
+            self.set_label_text(info.label)
+            self.isDefault_label = True
 
 
     def have_units(self):
@@ -982,7 +1019,7 @@ class Axis(artist.Artist):
             #print 'convert_units returning identity: units=%s, converter=%s'%(self.units, self.converter)
             return x
 
-        ret =  self.converter.convert(x, self.units)
+        ret =  self.converter.convert(x, self.units, self)
         #print 'convert_units converting: axis=%s, units=%s, converter=%s, in=%s, out=%s'%(self, self.units, self.converter, x, ret)
         return ret
 
@@ -1010,12 +1047,24 @@ class Axis(artist.Artist):
         'return the units for axis'
         return self.units
 
+    def set_label_text(self, label, fontdict = None, **kwargs):
+        """  Sets the text value of the axis label
+
+        ACCEPTS: A string value for the label
+        """
+        self.isDefault_label = False
+        self.label.set_text(label)
+        if fontdict is not None: self.label.update(fontdict)
+        self.label.update(kwargs)
+        return self.label
+
     def set_major_formatter(self, formatter):
         """
         Set the formatter of the major ticker
 
         ACCEPTS: A :class:`~matplotlib.ticker.Formatter` instance
         """
+        self.isDefault_majfmt = False
         self.major.formatter = formatter
         formatter.set_axis(self)
 
@@ -1026,6 +1075,7 @@ class Axis(artist.Artist):
 
         ACCEPTS: A :class:`~matplotlib.ticker.Formatter` instance
         """
+        self.isDefault_minfmt = False
         self.minor.formatter = formatter
         formatter.set_axis(self)
 
@@ -1036,6 +1086,7 @@ class Axis(artist.Artist):
 
         ACCEPTS: a :class:`~matplotlib.ticker.Locator` instance
         """
+        self.isDefault_majloc = False
         self.major.locator = locator
         locator.set_axis(self)
 
@@ -1046,6 +1097,7 @@ class Axis(artist.Artist):
 
         ACCEPTS: a :class:`~matplotlib.ticker.Locator` instance
         """
+        self.isDefault_minloc = False
         self.minor.locator = locator
         locator.set_axis(self)
 
@@ -1215,7 +1267,7 @@ class XAxis(Axis):
             else:
                 bbox = mtransforms.Bbox.union(bboxes)
                 bottom = bbox.y0
-            self.label.set_position( (x, bottom - self.LABELPAD*self.figure.dpi / 72.0))
+            self.label.set_position( (x, bottom - self.labelpad*self.figure.dpi / 72.0))
 
         else:
             if not len(bboxes2):
@@ -1223,7 +1275,7 @@ class XAxis(Axis):
             else:
                 bbox = mtransforms.Bbox.union(bboxes2)
                 top = bbox.y1
-            self.label.set_position( (x, top+self.LABELPAD*self.figure.dpi / 72.0))
+            self.label.set_position( (x, top+self.labelpad*self.figure.dpi / 72.0))
 
     def _update_offset_text_position(self, bboxes, bboxes2):
         """
@@ -1454,7 +1506,7 @@ class YAxis(Axis):
                 bbox = mtransforms.Bbox.union(bboxes)
                 left = bbox.x0
 
-            self.label.set_position( (left-self.LABELPAD*self.figure.dpi/72.0, y))
+            self.label.set_position( (left-self.labelpad*self.figure.dpi/72.0, y))
 
         else:
             if not len(bboxes2):
@@ -1463,7 +1515,7 @@ class YAxis(Axis):
                 bbox = mtransforms.Bbox.union(bboxes2)
                 right = bbox.x1
 
-            self.label.set_position( (right+self.LABELPAD*self.figure.dpi/72.0, y))
+            self.label.set_position( (right+self.labelpad*self.figure.dpi/72.0, y))
 
     def _update_offset_text_position(self, bboxes, bboxes2):
         """
