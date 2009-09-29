@@ -94,6 +94,43 @@ def CheckPng(context):
 
     return _GenericCheck(context, section, headers, default_build_info)
 
+def CheckPyGTK(context):
+    from numscons.checkers.config import _read_section, BuildDict
+
+    version = (2,2,0)
+    pkg_config_cmd = ['pkg-config', 'pygtk-2.0', 'gtk+-2.0']
+
+    context.Message("Checking for pygtk >= %s ... " % str(version))
+
+    explanation = None
+    try:
+        import gtk
+    except ImportError:
+        explanation = 'could not import gtk in python'
+    except RuntimeError:
+        explanation = 'pygtk present but import failed'
+    else:
+        if gtk.pygtk_version < version:
+            explanation = "%d.%d.%d was detected." % gtk.pygtk_version
+
+    if explanation is not None:
+        context.Result(explanation)
+        return 0
+
+    section = 'gtk'
+    headers = ['gtk/gtk.h']
+
+    default_build_info = BuildDict()
+    default_build_info['LIBS'] = ['gtk']
+
+    st = _GenericCheck(context, section, headers, default_build_info, pkg_config_cmd)
+    if st:
+        try:
+            gtk.set_interactive(False)
+        except AttributeError: # PyGTK < 2.15.0
+            pass
+    return st
+
 def _GenericCheck(context, section, headers=None, default_build_info=None,
         pkg_config_cmd=None):
     # pkg_config_cmd should be a sequence
@@ -132,7 +169,8 @@ int main(void)
 
     return context.Result('yes')
 
-custom_tests = {'CheckFreeType': CheckFreeType, 'CheckPng': CheckPng}
+custom_tests = {'CheckFreeType': CheckFreeType, 'CheckPng': CheckPng,
+    'CheckPyGTK': CheckPyGTK}
 
 config = env.NumpyConfigure(custom_tests=custom_tests)
 if not config.CheckFreeType():
@@ -142,6 +180,10 @@ if not config.CheckFreeType():
 has_libpng = True
 if not config.CheckPng():
     has_libpng = False
+
+has_pygtk = True
+if not config.CheckPyGTK():
+    has_pygtk = False
 
 config.Finish()
 
