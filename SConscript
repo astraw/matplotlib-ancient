@@ -282,6 +282,20 @@ if has_libpng and options['build_agg'] or options['build_image']:
 if options['build_windowing'] and sys.platform=='win32':
     print "---- Missing: build_windowing ----"
 
+if options['build_tkagg']:
+    print "---- Missing: build_tkagg ----"
+
+if options['build_wxagg']:
+    if has_wxpython or (options['build_wxagg'] is True):
+        options['build_agg'] = 1
+        import wx
+        if getattr(wx, '__version__', '0.0')[0:3] < '2.8' :
+            print "---- Missing: build_wxagg ----"
+            wxagg_backend_status = "yes"
+        else:
+            print_message("WxAgg extension not required for wxPython >= 2.8")
+        rc['backend'] = 'WXAgg'
+
 if options['build_gtk']:
     if has_pygtk or (options['build_gtk'] is True):
         print "---- Missing: build_gdk ----"
@@ -291,4 +305,3 @@ if options['build_gtkagg']:
         options['build_agg'] = 1
         print "---- Missing: build_gtkagg ----"
         rc['backend'] = 'GTKAgg'
-
