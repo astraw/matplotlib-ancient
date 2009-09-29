@@ -3,8 +3,9 @@ import sys
 
 from numscons import GetNumpyEnvironment
 
-from setupext import options
+from setupext import options, print_message
 
+# XXX: stuff copied from setupext/setup
 # This dict will be updated as we try to select the best option during
 # the build process. However, values in setup.cfg will be used, if
 # defined.
