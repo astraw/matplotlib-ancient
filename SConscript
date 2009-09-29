@@ -79,6 +79,19 @@ def CheckFreeType(context):
 
     return _GenericCheck(context, section, headers, default_build_info, pkg_config_cmd)
 
+def CheckPng(context):
+    from numscons.checkers.config import _read_section, BuildDict
+
+    context.Message("Checking for png ... ")
+
+    section = 'png'
+    headers = ['png.h']
+
+    default_build_info = BuildDict()
+    default_build_info['LIBS'] = ['png']
+
+    return _GenericCheck(context, section, headers, default_build_info)
+
 def _GenericCheck(context, section, headers=None, default_build_info=None,
         pkg_config_cmd=None):
     from numscons.checkers.config import _read_section, BuildDict
