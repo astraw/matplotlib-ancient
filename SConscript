@@ -234,3 +234,13 @@ if has_libpng and options['build_agg'] or options['build_image']:
 if options['build_windowing'] and sys.platform=='win32':
     print "---- Missing: build_windowing ----"
 
+if options['build_gtk']:
+    if has_pygtk or (options['build_gtk'] is True):
+        print "---- Missing: build_gdk ----"
+
+if options['build_gtkagg']:
+    if has_pygtk or (options['build_gtkagg'] is True):
+        options['build_agg'] = 1
+        print "---- Missing: build_gtkagg ----"
+        rc['backend'] = 'GTKAgg'
+
