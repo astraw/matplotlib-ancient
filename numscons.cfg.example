@@ -1,0 +1,4 @@
+# Example of numscons configuration
+[freetype2]
+include_dirs = /Users/david/local/include/freetype2:/Users/david/local/include/freetype2/freetype
+library_dirs = /Users/david/local/lib
