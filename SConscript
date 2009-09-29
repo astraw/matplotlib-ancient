@@ -35,9 +35,10 @@ def try_build(context, src, build_info):
     if not st:
         context.Result('Failed: check config.log in %s for more details' \
             % context.env['build_dir'])
-        return st
     else:
-        return context.Result('Yes')
+        context.Result('Yes')
+
+    return st
 
 def check_from_section(context, section, config, src, default_dict):
     from numscons.checkers.config import BuildDict
