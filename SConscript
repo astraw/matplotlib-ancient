@@ -22,11 +22,27 @@ def merge_build_dict(d1, d2):
 
     return d1
 
+def try_build(context, src, build_info):
+    from numscons.checkers.common import save_and_set, restore
+
+    st = 0
+    saved = save_and_set(context.env, build_info)
+    try:
+        st = context.TryLink(src % str(build_info), '.c')
+    finally:
+        restore(context.env, saved)
+
+    if not st:
+        context.Result('Failed: check config.log in %s for more details' \
+            % context.env['build_dir'])
+        return st
+    else:
+        return context.Result('Yes')
+
 def CheckFreeType(context):
     # TODO
     #   - numscons.cfg customization (comes first)
     from numscons.checkers.config import _read_section, BuildDict
-    from numscons.checkers.common import save_and_set, restore
     env = context.env
 
     context.Message("Checking for freetype2 ... ")
@@ -53,19 +69,7 @@ int main(void)
         if build_info['LIBS'] is None:
             build_info['LIBS'] = ['freetype']
 
-        st = 0
-        saved = save_and_set(env, build_info)
-        try:
-            st = context.TryLink(src % str(build_info), '.c')
-        finally:
-            restore(env, saved)
-
-        if not st:
-            context.Result('Failed: check config.log in %s for more details' \
-                % env['build_dir'])
-            return st
-        else:
-            return context.Result('Yes')
+        return try_build(context, src, build_info)
 
     # Test using pkg-config
     pkg_config_name = None
@@ -85,17 +89,7 @@ int main(void)
 
         build_info = merge_build_dict(compile_info, link_info)
 
-        st = 0
-        saved = save_and_set(env, build_info)
-        try:
-            st = context.TryLink(src % str(build_info), '.c')
-        finally:
-            restore(env, saved)
-
-        if not st:
-            context.Result('Failed (could not check header(s) : check config.log '\
-        'in %s for more details)' % env['build_dir'])
-            return st
+        return try_build(context, src, build_info)
 
     return context.Result('yes')
 
