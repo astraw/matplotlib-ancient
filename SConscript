@@ -3,6 +3,13 @@ import sys
 
 from numscons import GetNumpyEnvironment
 
+from setupext import options
+
+# This dict will be updated as we try to select the best option during
+# the build process. However, values in setup.cfg will be used, if
+# defined.
+rc = {'backend':'Agg'}
+
 AGG_VERSION = 'agg24'
 
 env = GetNumpyEnvironment(ARGUMENTS)
@@ -49,3 +56,20 @@ src.extend(['src/agg_py_transforms.cpp',
             'src/path_cleanup.cpp',
             'src/_path.cpp'])
 env.NumpyPythonExtension('_path', source=src, CXXFILESUFFIX=".cpp")
+
+# Optional components
+if has_libpng and options['build_agg']:
+    print "---- Missing: build_agg ----"
+    rc['backend'] = 'Agg'
+else:
+    rc['backend'] = 'SVG'
+
+if has_libpng and options['build_image']:
+    print "---- Missing: build_image ----"
+
+if has_libpng and options['build_agg'] or options['build_image']:
+    print "---- Missing: build_png ----"
+
+if options['build_windowing'] and sys.platform=='win32':
+    print "---- Missing: build_windowing ----"
+
