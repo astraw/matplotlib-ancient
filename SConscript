@@ -71,7 +71,7 @@ def CheckFreeType(context):
     context.Message("Checking for freetype2 ... ")
 
     section = 'freetype2'
-    pkg_config_cmd = 'freetype-config'
+    pkg_config_cmd = ['freetype-config']
     pkg_config_name = None
     libs = ['freetype', 'z']
     headers = ['ft2build.h']
@@ -96,6 +96,7 @@ def CheckPng(context):
 
 def _GenericCheck(context, section, headers=None, default_build_info=None,
         pkg_config_cmd=None):
+    # pkg_config_cmd should be a sequence
     from numscons.checkers.config import _read_section, BuildDict
 
     if default_build_info is None:
@@ -126,7 +127,7 @@ int main(void)
 
     # Test using pkg-config
     if pkg_config_cmd:
-        cmd_base = '!%s' % pkg_config_cmd
+        cmd_base = '!%s' % " ".join(pkg_config_cmd)
         return check_from_pkg_config(context, cmd_base, src)
 
     return context.Result('yes')
