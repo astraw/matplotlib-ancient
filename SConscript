@@ -205,6 +205,9 @@ int main(void)
 
     return context.Result('yes')
 
+#------------------------
+# Configuration checks
+#------------------------
 custom_tests = {'CheckFreeType': CheckFreeType, 'CheckPng': CheckPng,
     'CheckPyGTK': CheckPyGTK, 'CheckWxPython': CheckWxPython}
 
@@ -227,6 +230,9 @@ if not config.CheckWxPython():
 
 config.Finish()
 
+#---------------
+# Common builds
+#---------------
 env.Append(CPPPATH=["%s/include" % AGG_VERSION, "."])
 env.Append(CPPDEFINES=[("PY_ARRAY_UNIQUE_SYMBOL", "MPL_ARRAY_API")])
 
@@ -258,7 +264,9 @@ src.extend(['src/agg_py_transforms.cpp',
             'src/_path.cpp'])
 env.NumpyPythonExtension('_path', source=src, CXXFILESUFFIX=".cpp")
 
+#-----------------------
 # Optional components
+#-----------------------
 if has_libpng and options['build_agg']:
     print "---- Missing: build_agg ----"
     rc['backend'] = 'Agg'
