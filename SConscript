@@ -43,14 +43,21 @@ def CheckFreeType(context):
     from numscons.checkers.config import _read_section, BuildDict
     env = context.env
 
+    # XXX: Library-specific data
     context.Message("Checking for freetype2 ... ")
 
-    default_build_info = BuildDict()
-    default_build_info['LIBS'] = ['freetype', 'z']
+    section = 'freetype2'
+    pkg_config_cmd = 'freetype-config'
+    pkg_config_name = None
+    libs = ['freetype', 'z']
+    headers = ['ft2build.h']
 
-    src = r"""
-#include <ft2build.h>
+    if headers:
+        src = [r"#include <%s>" % h for h in headers]
+    else:
+        src = ""
 
+    src.append(r"""
 int main(void)
 {
     return 0;
@@ -58,10 +65,14 @@ int main(void)
 #if 0
 %s
 #endif
-"""
+""")
+
+    src = "\n".join(src)
+
+    default_build_info = BuildDict()
+    default_build_info['LIBS'] = libs
 
     # Test using user configuration (numscons.cfg)
-    section = 'freetype2'
     config = _read_section(section, env)
     if config:
         build_info = BuildDict.from_config_dict(config)
@@ -71,8 +82,6 @@ int main(void)
         return try_build(context, src, build_info)
 
     # Test using pkg-config
-    pkg_config_name = None
-    pkg_config_cmd = 'freetype-config'
     cmd_base = '!%s' % pkg_config_cmd
 
     if sys.platform == 'win32':
