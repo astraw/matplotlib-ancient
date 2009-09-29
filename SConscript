@@ -123,7 +123,7 @@ if not config.NumpyCheckLibAndHeader(libs='png',
 config.Finish()
 
 env.Append(CPPPATH=["%s/include" % AGG_VERSION, "."])
-env.Append(CPPDEFINES={"PY_ARRAY_UNIQUE_SYMBOL": "MPL_ARRAY_API"})
+env.Append(CPPDEFINES=[("PY_ARRAY_UNIQUE_SYMBOL", "MPL_ARRAY_API")])
 
 common_cxx = [env.PythonObject(i) for i in env.Glob("CXX/*.cxx")]
 env.NumpyPythonExtension("ft2font", source=common_cxx)
