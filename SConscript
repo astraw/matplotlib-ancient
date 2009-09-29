@@ -40,8 +40,6 @@ def try_build(context, src, build_info):
         return context.Result('Yes')
 
 def CheckFreeType(context):
-    # TODO
-    #   - numscons.cfg customization (comes first)
     from numscons.checkers.config import _read_section, BuildDict
     env = context.env
 
@@ -62,9 +60,7 @@ int main(void)
 #endif
 """
 
-    build_info = None
-
-    # Test using numscons.cfg
+    # Test using user configuration (numscons.cfg)
     section = 'freetype2'
     config = _read_section(section, env)
     if config:
