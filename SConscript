@@ -142,7 +142,7 @@ def _GenericCheck(context, section, headers=None, default_build_info=None,
     if headers:
         src = [r"#include <%s>" % h for h in headers]
     else:
-        src = ""
+        src = [""]
 
     src.append(r"""
 int main(void)
