@@ -65,9 +65,7 @@ def check_from_pkg_config(context, cmd_base, src):
 
 def CheckFreeType(context):
     from numscons.checkers.config import _read_section, BuildDict
-    env = context.env
 
-    # XXX: Library-specific data
     context.Message("Checking for freetype2 ... ")
 
     section = 'freetype2'
@@ -75,6 +73,18 @@ def CheckFreeType(context):
     pkg_config_name = None
     libs = ['freetype', 'z']
     headers = ['ft2build.h']
+
+    default_build_info = BuildDict()
+    default_build_info['LIBS'] = libs
+
+    return _GenericCheck(context, section, headers, default_build_info, pkg_config_cmd)
+
+def _GenericCheck(context, section, headers=None, default_build_info=None,
+        pkg_config_cmd=None):
+    from numscons.checkers.config import _read_section, BuildDict
+
+    if default_build_info is None:
+        default_build_info = BuildDict()
 
     if headers:
         src = [r"#include <%s>" % h for h in headers]
@@ -93,17 +103,14 @@ int main(void)
 
     src = "\n".join(src)
 
-    default_build_info = BuildDict()
-    default_build_info['LIBS'] = libs
-
     # Test using user configuration (numscons.cfg)
-    config = _read_section(section, env)
+    config = _read_section(section, context.env)
     if config:
         return check_from_section(context, section, config, src,
                 default_build_info)
 
     # Test using pkg-config
-    if pkg_config_name:
+    if pkg_config_cmd:
         cmd_base = '!%s' % pkg_config_cmd
         return check_from_pkg_config(context, cmd_base, src)
 
