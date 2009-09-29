@@ -3,7 +3,7 @@ import sys
 
 from numscons import GetNumpyEnvironment
 
-from setupext import options, print_message
+from setupext import options, print_message, find_wx_config
 
 # XXX: stuff copied from setupext/setup
 # This dict will be updated as we try to select the best option during
@@ -131,6 +131,42 @@ def CheckPyGTK(context):
             pass
     return st
 
+def CheckWxPython(context):
+    from numscons.checkers.config import _read_section, BuildDict
+
+    version = (2,8)
+    strversion = ".".join([str(i) for i in version])
+    pkg_config_cmd = ['wx-config']
+
+    context.Message("Checking for wxpython ... ")
+
+    explanation = None
+    try:
+        import wx
+    except ImportError:
+        explanation = 'wxPython not found'
+    else:
+        if getattr(wx, '__version__', '0.0')[0:3] >= strversion:
+            context.Result(wx.__version__)
+            return 1
+        else:
+            # TODO: mingw-win32 checks + broken macosx version
+            wx_config = find_wx_config()
+            if wx_config:
+                default_build_info = BuildDict()
+                default_build_info['LIBS'] = ['gtk']
+
+                return _GenericCheck(context, 'wxpython',
+                    default_build_info=default_build_info,
+                    pkg_config_cmd = [wx_config])
+
+    if explanation is not None:
+        context.Result(explanation)
+        return 0
+    else:
+        context.Result('Yes')
+        return 1
+
 def _GenericCheck(context, section, headers=None, default_build_info=None,
         pkg_config_cmd=None):
     # pkg_config_cmd should be a sequence
@@ -170,7 +206,7 @@ int main(void)
     return context.Result('yes')
 
 custom_tests = {'CheckFreeType': CheckFreeType, 'CheckPng': CheckPng,
-    'CheckPyGTK': CheckPyGTK}
+    'CheckPyGTK': CheckPyGTK, 'CheckWxPython': CheckWxPython}
 
 config = env.NumpyConfigure(custom_tests=custom_tests)
 if not config.CheckFreeType():
@@ -184,6 +220,10 @@ if not config.CheckPng():
 has_pygtk = True
 if not config.CheckPyGTK():
     has_pygtk = False
+
+has_wxpython = True
+if not config.CheckWxPython():
+    has_wxpython = False
 
 config.Finish()
 
