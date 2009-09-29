@@ -47,6 +47,9 @@ def CheckFreeType(context):
 
     context.Message("Checking for freetype2 ... ")
 
+    default_build_info = BuildDict()
+    default_build_info['LIBS'] = ['freetype', 'z']
+
     src = r"""
 #include <ft2build.h>
 
@@ -67,7 +70,7 @@ int main(void)
     if config:
         build_info = BuildDict.from_config_dict(config)
         if build_info['LIBS'] is None:
-            build_info['LIBS'] = ['freetype']
+            build_info['LIBS'] = default_build_info['LIBS']
 
         return try_build(context, src, build_info)
 
