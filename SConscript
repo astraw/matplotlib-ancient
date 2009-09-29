@@ -14,10 +14,72 @@ AGG_VERSION = 'agg24'
 
 env = GetNumpyEnvironment(ARGUMENTS)
 
-config = env.NumpyConfigure()
-if not config.NumpyCheckLibAndHeader(libs='freetype',
-        headers='ft2build.h', section='freetype2'):
-    sys.exit(-1)
+def merge_build_dict(d1, d2):
+    """Merge d2 'into' d1."""
+    for k, v in d2.items():
+        if v:
+            d1[k].append(v)
+
+    return d1
+
+def CheckFreeType(context):
+    # TODO
+    #   - numscons.cfg customization (comes first)
+    from numscons.checkers.config import _read_section
+    from numscons.checkers.common import save_and_set, restore
+    env = context.env
+
+    context.Message("Checking for freetype2 ... ")
+
+    src = r"""
+#include <ft2build.h>
+
+int main(void)
+{
+    return 0;
+}
+#if 0
+%s
+#endif
+"""
+
+    # Test using pkg-config
+    pkg_config_name = None
+    pkg_config_cmd = 'freetype-config'
+    cmd_base = '!%s' % pkg_config_cmd
+
+    if sys.platform == 'win32':
+        raise NotImplementedError("Win32 support for pkg-config not implemented yet")
+    else:
+        cflags_cmd = [cmd_base]
+        cflags_cmd.append('--cflags')
+        compile_info = env.ParseFlags([' '.join(cflags_cmd)])
+
+        link_cmd = [cmd_base]
+        link_cmd.append('--libs')
+        link_info = env.ParseFlags([' '.join(link_cmd)])
+
+        build_info = merge_build_dict(compile_info, link_info)
+
+        st = 0
+        saved = save_and_set(env, build_info)
+        try:
+            st = context.TryLink(src % str(build_info), '.c')
+        finally:
+            restore(env, saved)
+
+        if not st:
+            context.Result('Failed (could not check header(s) : check config.log '\
+        'in %s for more details)' % env['build_dir'])
+            return st
+
+    return context.Result('yes')
+
+config = env.NumpyConfigure(custom_tests={'CheckFreeType': CheckFreeType})
+#if not config.NumpyCheckLibAndHeader(libs='freetype',
+#        headers='ft2build.h', section='freetype2'):
+#    sys.exit(-1)
+config.CheckFreeType()
 
 has_libpng = True
 if not config.NumpyCheckLibAndHeader(libs='png',
