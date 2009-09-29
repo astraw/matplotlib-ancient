@@ -39,6 +39,30 @@ def try_build(context, src, build_info):
     else:
         return context.Result('Yes')
 
+def check_from_section(context, section, config, src, default_dict):
+    from numscons.checkers.config import BuildDict
+    build_info = BuildDict.from_config_dict(config)
+    if build_info['LIBS'] is None:
+        build_info['LIBS'] = default_dict['LIBS']
+
+    return try_build(context, src, build_info)
+
+def check_from_pkg_config(context, cmd_base, src):
+    if sys.platform == 'win32':
+        raise NotImplementedError("Win32 support for pkg-config not implemented yet")
+    else:
+        cflags_cmd = [cmd_base]
+        cflags_cmd.append('--cflags')
+        compile_info = context.env.ParseFlags([' '.join(cflags_cmd)])
+
+        link_cmd = [cmd_base]
+        link_cmd.append('--libs')
+        link_info = context.env.ParseFlags([' '.join(link_cmd)])
+
+        build_info = merge_build_dict(compile_info, link_info)
+
+        return try_build(context, src, build_info)
+
 def CheckFreeType(context):
     from numscons.checkers.config import _read_section, BuildDict
     env = context.env
@@ -75,29 +99,13 @@ int main(void)
     # Test using user configuration (numscons.cfg)
     config = _read_section(section, env)
     if config:
-        build_info = BuildDict.from_config_dict(config)
-        if build_info['LIBS'] is None:
-            build_info['LIBS'] = default_build_info['LIBS']
-
-        return try_build(context, src, build_info)
+        return check_from_section(context, section, config, src,
+                default_build_info)
 
     # Test using pkg-config
-    cmd_base = '!%s' % pkg_config_cmd
-
-    if sys.platform == 'win32':
-        raise NotImplementedError("Win32 support for pkg-config not implemented yet")
-    else:
-        cflags_cmd = [cmd_base]
-        cflags_cmd.append('--cflags')
-        compile_info = env.ParseFlags([' '.join(cflags_cmd)])
-
-        link_cmd = [cmd_base]
-        link_cmd.append('--libs')
-        link_info = env.ParseFlags([' '.join(link_cmd)])
-
-        build_info = merge_build_dict(compile_info, link_info)
-
-        return try_build(context, src, build_info)
+    if pkg_config_name:
+        cmd_base = '!%s' % pkg_config_cmd
+        return check_from_pkg_config(context, cmd_base, src)
 
     return context.Result('yes')
 
