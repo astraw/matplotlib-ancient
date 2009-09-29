@@ -25,7 +25,7 @@ def merge_build_dict(d1, d2):
 def CheckFreeType(context):
     # TODO
     #   - numscons.cfg customization (comes first)
-    from numscons.checkers.config import _read_section
+    from numscons.checkers.config import _read_section, BuildDict
     from numscons.checkers.common import save_and_set, restore
     env = context.env
 
@@ -42,6 +42,30 @@ int main(void)
 %s
 #endif
 """
+
+    build_info = None
+
+    # Test using numscons.cfg
+    section = 'freetype2'
+    config = _read_section(section, env)
+    if config:
+        build_info = BuildDict.from_config_dict(config)
+        if build_info['LIBS'] is None:
+            build_info['LIBS'] = ['freetype']
+
+        st = 0
+        saved = save_and_set(env, build_info)
+        try:
+            st = context.TryLink(src % str(build_info), '.c')
+        finally:
+            restore(env, saved)
+
+        if not st:
+            context.Result('Failed: check config.log in %s for more details' \
+                % env['build_dir'])
+            return st
+        else:
+            return context.Result('Yes')
 
     # Test using pkg-config
     pkg_config_name = None
