@@ -8,8 +8,15 @@ AGG_VERSION = 'agg24'
 env = GetNumpyEnvironment(ARGUMENTS)
 
 config = env.NumpyConfigure()
-if not config.NumpyCheckLibAndHeader(libs='freetype', symbols='FT_Get_Kerning', headers='ft2build.h', section='freetype2'):
-	pass
+if not config.NumpyCheckLibAndHeader(libs='freetype',
+        headers='ft2build.h', section='freetype2'):
+    sys.exit(-1)
+
+has_libpng = True
+if not config.NumpyCheckLibAndHeader(libs='png',
+        headers='png.h', section='png'):
+    has_libpng = False
+
 config.Finish()
 
 env.Append(CPPPATH=["%s/include" % AGG_VERSION, "."])
