@@ -131,15 +131,15 @@ int main(void)
 
     return context.Result('yes')
 
-config = env.NumpyConfigure(custom_tests={'CheckFreeType': CheckFreeType})
-#if not config.NumpyCheckLibAndHeader(libs='freetype',
-#        headers='ft2build.h', section='freetype2'):
-#    sys.exit(-1)
-config.CheckFreeType()
+custom_tests = {'CheckFreeType': CheckFreeType, 'CheckPng': CheckPng}
+
+config = env.NumpyConfigure(custom_tests=custom_tests)
+if not config.CheckFreeType():
+    print_message("Cannot build matplotlib without freetype2.")
+    sys.exit(-1)
 
 has_libpng = True
-if not config.NumpyCheckLibAndHeader(libs='png',
-        headers='png.h', section='png'):
+if not config.CheckPng():
     has_libpng = False
 
 config.Finish()
