@@ -269,6 +269,10 @@ agg_trans_affine = env.PythonObject('%s/src/agg_trans_affine.cpp' % AGG_VERSION,
                                     CXXFILESUFFIX='.cpp')
 agg_vcgen_stroke = env.PythonObject('%s/src/agg_vcgen_stroke.cpp' % AGG_VERSION,
                                     CXXFILESUFFIX='.cpp')
+agg_image_filters = env.PythonObject('%s/src/agg_image_filters.cpp' % AGG_VERSION,
+                                    CXXFILESUFFIX='.cpp')
+agg_vcgen_dash = env.PythonObject('%s/src/agg_vcgen_dash.cpp' % AGG_VERSION,
+                                    CXXFILESUFFIX='.cpp')
 common_agg = agg_curves + agg_bezier_arc + agg_trans_affine + agg_vcgen_stroke
 
 agg_py_transform = env.PythonObject('src/agg_py_transforms.cpp', CXXFILESUFFIX='.cpp')
@@ -281,8 +285,19 @@ env.NumpyPythonExtension('_path', source=src, CXXFILESUFFIX=".cpp")
 #-----------------------
 # Optional components
 #-----------------------
+mplutils = env.PythonObject('src/mplutils.cpp', CXXFILESUFFIX='.cpp')
+
+def build_agg():
+    src = agg_trans_affine + agg_bezier_arc + agg_curves + agg_vcgen_dash + \
+          agg_vcgen_stroke + agg_image_filters
+    src.extend(mplutils)
+    src.extend(agg_py_transform)
+    src.extend(common_cxx + common_c)
+    src.append('src/_backend_agg.cpp')
+    env.NumpyPythonExtension('backends/_backend_agg', source=src, CXXFILESUFFIX=".cpp")
+
 if has_libpng and options['build_agg']:
-    print "---- Missing: build_agg ----"
+    build_agg()
     rc['backend'] = 'Agg'
 else:
     rc['backend'] = 'SVG'
