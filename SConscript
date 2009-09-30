@@ -241,6 +241,8 @@ config.Finish()
 #---------------
 env.Append(CPPPATH=["%s/include" % AGG_VERSION, "."])
 env.Append(CPPDEFINES=[("PY_ARRAY_UNIQUE_SYMBOL", "MPL_ARRAY_API")])
+npenv = env.Clone()
+npenv.Append(CPPPATH=env['NUMPYCPPPATH'])
 
 common_cxx = [env.PythonObject(i) for i in env.Glob("CXX/*.cxx")]
 common_c = [env.PythonObject(i) for i in env.Glob('CXX/*.c')]
@@ -275,7 +277,7 @@ agg_vcgen_dash = env.PythonObject('%s/src/agg_vcgen_dash.cpp' % AGG_VERSION,
                                     CXXFILESUFFIX='.cpp')
 common_agg = agg_curves + agg_bezier_arc + agg_trans_affine + agg_vcgen_stroke
 
-agg_py_transform = env.PythonObject('src/agg_py_transforms.cpp', CXXFILESUFFIX='.cpp')
+agg_py_transform = npenv.PythonObject('src/agg_py_transforms.cpp', CXXFILESUFFIX='.cpp')
 
 src = common_cxx + common_c + common_agg + agg_py_transform
 
