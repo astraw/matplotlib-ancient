@@ -3,7 +3,7 @@ import sys
 
 from numscons import GetNumpyEnvironment
 
-from setupext import options, print_message, find_wx_config
+from setupext import options, print_message, find_wx_config, check_for_macosx
 
 # XXX: stuff copied from setupext/setup
 # This dict will be updated as we try to select the best option during
@@ -354,3 +354,8 @@ if options['build_gtkagg']:
         options['build_agg'] = 1
         build_gtkagg()
         rc['backend'] = 'GTKAgg'
+
+if options['build_macosx']:
+    if check_for_macosx() or (options['build_macosx'] is True):
+        print "---- Missing: build_macosx ----"
+        rc['backend'] = 'MacOSX'
