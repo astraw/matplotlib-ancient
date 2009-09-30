@@ -310,6 +310,11 @@ def build_png():
     src.extend(mplutils + common_c + common_cxx)
     env.NumpyPythonExtension('_png', source=src, CXXFILESUFFIX='.cpp')
 
+def build_gtkagg():
+    src = ['src/_gtkagg.cpp']
+    src.extend(mplutils + agg_py_transform + common_c + common_cxx)
+    env.NumpyPythonExtension('backends/_gtkagg', source=src, CXXFILESUFFIX='.cpp')
+
 if has_libpng and options['build_agg']:
     build_agg()
     rc['backend'] = 'Agg'
@@ -341,10 +346,11 @@ if options['build_wxagg']:
 
 if options['build_gtk']:
     if has_pygtk or (options['build_gtk'] is True):
-        print "---- Missing: build_gdk ----"
+        env.NumpyPythonExtension('backends/_backend_gdk',
+                                 source=['src/_backend_gdk.c'])
 
 if options['build_gtkagg']:
     if has_pygtk or (options['build_gtkagg'] is True):
         options['build_agg'] = 1
-        print "---- Missing: build_gtkagg ----"
+        build_gtkagg()
         rc['backend'] = 'GTKAgg'
