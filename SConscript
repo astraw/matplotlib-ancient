@@ -203,7 +203,8 @@ int main(void)
         cmd_base = '!%s' % " ".join(pkg_config_cmd)
         return check_from_pkg_config(context, cmd_base, src)
 
-    return context.Result('yes')
+    # Conventional test (using default config)
+    return try_build(context, src, default_build_info)
 
 #------------------------
 # Configuration checks
