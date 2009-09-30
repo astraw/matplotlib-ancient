@@ -296,6 +296,12 @@ def build_agg():
     src.append('src/_backend_agg.cpp')
     env.NumpyPythonExtension('backends/_backend_agg', source=src, CXXFILESUFFIX=".cpp")
 
+def build_image():
+    src = mplutils + ['src/_image.cpp']
+    src.extend(agg_trans_affine + agg_image_filters + agg_bezier_arc)
+    src.extend(common_cxx + common_c)
+    env.NumpyPythonExtension('_image', source=src, CXXFILESUFFIX=".cpp")
+
 if has_libpng and options['build_agg']:
     build_agg()
     rc['backend'] = 'Agg'
@@ -303,7 +309,7 @@ else:
     rc['backend'] = 'SVG'
 
 if has_libpng and options['build_image']:
-    print "---- Missing: build_image ----"
+    build_image()
 
 if has_libpng and options['build_agg'] or options['build_image']:
     print "---- Missing: build_png ----"
