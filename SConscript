@@ -257,8 +257,8 @@ env.NumpyPythonExtension('nxutils', source=src)
 agg = ['agg_curves.cpp', 'agg_bezier_arc.cpp', 'agg_trans_affine.cpp', 'agg_vcgen_stroke.cpp']
 
 src = ['%s/src/%s' % (AGG_VERSION, name) for name in agg]
-src.extend(env.Glob('CXX/*.c'))
-src.extend(common_cxx)
+common_c = [env.PythonObject(i) for i in env.Glob('CXX/*.c')]
+src.extend(common_cxx + common_c)
 
 src.extend(['src/agg_py_transforms.cpp',
             'src/path_cleanup.cpp',
