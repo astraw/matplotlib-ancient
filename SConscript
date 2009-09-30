@@ -246,8 +246,11 @@ npenv.Append(CPPPATH=env['NUMPYCPPPATH'])
 
 common_cxx = [env.PythonObject(i) for i in env.Glob("CXX/*.cxx")]
 common_c = [env.PythonObject(i) for i in env.Glob('CXX/*.c')]
+mplutils = env.PythonObject('src/mplutils.cpp', CXXFILESUFFIX='.cpp')
 
-env.NumpyPythonExtension("ft2font", source=common_cxx)
+src = ['src/ft2font.cpp']
+src.extend(mplutils + common_cxx + common_c)
+env.NumpyPythonExtension("ft2font", source=src, CXXFILESUFFIX=".cpp")
 
 src = ['src/_ttconv.cpp', 'ttconv/pprdrv_tt.cpp', 'ttconv/pprdrv_tt2.cpp',
     'ttconv/ttutil.cpp']
@@ -287,8 +290,6 @@ env.NumpyPythonExtension('_path', source=src, CXXFILESUFFIX=".cpp")
 #-----------------------
 # Optional components
 #-----------------------
-mplutils = env.PythonObject('src/mplutils.cpp', CXXFILESUFFIX='.cpp')
-
 def build_agg():
     src = agg_trans_affine + agg_bezier_arc + agg_curves + agg_vcgen_dash + \
           agg_vcgen_stroke + agg_image_filters
