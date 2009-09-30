@@ -261,14 +261,21 @@ env.NumpyPythonExtension("_delaunay", source=src, CXXFILESUFFIX=".cpp")
 src = "src/nxutils.c"
 env.NumpyPythonExtension('nxutils', source=src)
 
-agg = ['agg_curves.cpp', 'agg_bezier_arc.cpp', 'agg_trans_affine.cpp', 'agg_vcgen_stroke.cpp']
+agg_curves = env.PythonObject('%s/src/agg_curves.cpp' % AGG_VERSION,
+                              CXXFILESUFFIX='.cpp')
+agg_bezier_arc = env.PythonObject('%s/src/agg_bezier_arc.cpp' % AGG_VERSION,
+                                   CXXFILESUFFIX='.cpp')
+agg_trans_affine = env.PythonObject('%s/src/agg_trans_affine.cpp' % AGG_VERSION,
+                                    CXXFILESUFFIX='.cpp')
+agg_vcgen_stroke = env.PythonObject('%s/src/agg_vcgen_stroke.cpp' % AGG_VERSION,
+                                    CXXFILESUFFIX='.cpp')
+common_agg = agg_curves + agg_bezier_arc + agg_trans_affine + agg_vcgen_stroke
 
-src = ['%s/src/%s' % (AGG_VERSION, name) for name in agg]
-src.extend(common_cxx + common_c)
+agg_py_transform = env.PythonObject('src/agg_py_transforms.cpp', CXXFILESUFFIX='.cpp')
 
-src.extend(['src/agg_py_transforms.cpp',
-            'src/path_cleanup.cpp',
-            'src/_path.cpp'])
+src = common_cxx + common_c + common_agg + agg_py_transform
+
+src.extend(['src/path_cleanup.cpp', 'src/_path.cpp'])
 env.NumpyPythonExtension('_path', source=src, CXXFILESUFFIX=".cpp")
 
 #-----------------------
