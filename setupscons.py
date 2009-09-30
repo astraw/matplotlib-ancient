@@ -96,6 +96,14 @@ packages.append('matplotlib.delaunay')
 def configuration(parent_package='', top_path=None):
     from numpy.distutils.misc_util import Configuration
 
+    # XXX: the following do not work:
+    # - Configuration('matplotlib', '', None) -> expects matplotlib directory
+    # (instead of lib/matplotlib)
+    # - Configuration('matplotlib', '', None, 'lib') -> causes egg_info to
+    # generate matplotlibmatplotlib-*.egg-info instead of
+    # matplotlib-*.egg-info
+    # - Configuration(None, parent_package, 'lib', 'lib') -> pylab.py is not
+    # installed correctly.
     config = Configuration(None, parent_package, top_path)
 
     config.set_options(ignore_setup_xxx_py=True,
@@ -103,7 +111,15 @@ def configuration(parent_package='', top_path=None):
                        delegate_options_to_subpackages=True,
                        quiet=True)
 
-    config.add_sconscript('SConstruct')
+    # XXX: config.name change is a trick to give a package name to scons
+    # command (required by numscons), but giving a name to Configuration does not
+    # work, as the sources of the packages (lib/matplotlib) does not match with
+    # the name of the package (matplotlib and not lib.matplotlib)
+    config.name = 'matplotlib'
+    try:
+        config.add_sconscript('SConstruct', package_path='lib/matplotlib')
+    finally:
+        config.name = None
 
     return config
 
