@@ -23,15 +23,17 @@ def merge_build_dict(d1, d2):
 
     return d1
 
-def try_build(context, src, build_info):
+def try_build(context, src, build_info, autoadd):
     from numscons.checkers.common import save_and_set, restore
 
     st = 0
     saved = save_and_set(context.env, build_info)
     try:
+        # Return 1 if *successful*
         st = context.TryLink(src % str(build_info), '.c')
     finally:
-        restore(context.env, saved)
+        if st == 0 or autoadd == 0:
+            restore(context.env, saved)
 
     if not st:
         context.Result('Failed: check config.log in %s for more details' \
@@ -41,15 +43,15 @@ def try_build(context, src, build_info):
 
     return st
 
-def check_from_section(context, section, config, src, default_dict):
+def check_from_section(context, section, config, src, default_dict, autoadd):
     from numscons.checkers.config import BuildDict
     build_info = BuildDict.from_config_dict(config)
     if build_info['LIBS'] is None:
         build_info['LIBS'] = default_dict['LIBS']
 
-    return try_build(context, src, build_info)
+    return try_build(context, src, build_info, autoadd)
 
-def check_from_pkg_config(context, cmd_base, src):
+def check_from_pkg_config(context, cmd_base, src, autoadd):
     if sys.platform == 'win32':
         raise NotImplementedError("Win32 support for pkg-config not implemented yet")
     else:
@@ -63,9 +65,9 @@ def check_from_pkg_config(context, cmd_base, src):
 
         build_info = merge_build_dict(compile_info, link_info)
 
-        return try_build(context, src, build_info)
+        return try_build(context, src, build_info, autoadd)
 
-def CheckFreeType(context):
+def CheckFreeType(context, autoadd=1):
     from numscons.checkers.config import _read_section, BuildDict
 
     context.Message("Checking for freetype2 ... ")
@@ -79,9 +81,10 @@ def CheckFreeType(context):
     default_build_info = BuildDict()
     default_build_info['LIBS'] = libs
 
-    return _GenericCheck(context, section, headers, default_build_info, pkg_config_cmd)
+    return _GenericCheck(context, section, headers, default_build_info,
+                         pkg_config_cmd, autoadd=autoadd)
 
-def CheckPng(context):
+def CheckPng(context, autoadd=1):
     from numscons.checkers.config import _read_section, BuildDict
 
     context.Message("Checking for png ... ")
@@ -92,9 +95,10 @@ def CheckPng(context):
     default_build_info = BuildDict()
     default_build_info['LIBS'] = ['png']
 
-    return _GenericCheck(context, section, headers, default_build_info)
+    return _GenericCheck(context, section, headers, default_build_info,
+                         autoadd=autoadd)
 
-def CheckPyGTK(context):
+def CheckPyGTK(context, autoadd=1):
     from numscons.checkers.config import _read_section, BuildDict
 
     version = (2,2,0)
@@ -123,7 +127,8 @@ def CheckPyGTK(context):
     default_build_info = BuildDict()
     default_build_info['LIBS'] = ['gtk']
 
-    st = _GenericCheck(context, section, headers, default_build_info, pkg_config_cmd)
+    st = _GenericCheck(context, section, headers, default_build_info,
+                       pkg_config_cmd, autoadd=autoadd)
     if st:
         try:
             gtk.set_interactive(False)
@@ -131,7 +136,7 @@ def CheckPyGTK(context):
             pass
     return st
 
-def CheckWxPython(context):
+def CheckWxPython(context, autoadd=1):
     from numscons.checkers.config import _read_section, BuildDict
 
     version = (2,8)
@@ -158,7 +163,7 @@ def CheckWxPython(context):
 
                 return _GenericCheck(context, 'wxpython',
                     default_build_info=default_build_info,
-                    pkg_config_cmd = [wx_config])
+                    pkg_config_cmd = [wx_config], autoadd=autoadd)
 
     if explanation is not None:
         context.Result(explanation)
@@ -168,7 +173,7 @@ def CheckWxPython(context):
         return 1
 
 def _GenericCheck(context, section, headers=None, default_build_info=None,
-        pkg_config_cmd=None):
+        pkg_config_cmd=None, autoadd=1):
     # pkg_config_cmd should be a sequence
     from numscons.checkers.config import _read_section, BuildDict
 
@@ -196,15 +201,15 @@ int main(void)
     config = _read_section(section, context.env)
     if config:
         return check_from_section(context, section, config, src,
-                default_build_info)
+                default_build_info, autoadd=autoadd)
 
     # Test using pkg-config
     if pkg_config_cmd:
         cmd_base = '!%s' % " ".join(pkg_config_cmd)
-        return check_from_pkg_config(context, cmd_base, src)
+        return check_from_pkg_config(context, cmd_base, src, autoadd=autoadd)
 
     # Conventional test (using default config)
-    return try_build(context, src, default_build_info)
+    return try_build(context, src, default_build_info, autoadd=autoadd)
 
 #------------------------
 # Configuration checks
@@ -238,6 +243,8 @@ env.Append(CPPPATH=["%s/include" % AGG_VERSION, "."])
 env.Append(CPPDEFINES=[("PY_ARRAY_UNIQUE_SYMBOL", "MPL_ARRAY_API")])
 
 common_cxx = [env.PythonObject(i) for i in env.Glob("CXX/*.cxx")]
+common_c = [env.PythonObject(i) for i in env.Glob('CXX/*.c')]
+
 env.NumpyPythonExtension("ft2font", source=common_cxx)
 
 src = ['src/_ttconv.cpp', 'ttconv/pprdrv_tt.cpp', 'ttconv/pprdrv_tt2.cpp',
@@ -257,7 +264,6 @@ env.NumpyPythonExtension('nxutils', source=src)
 agg = ['agg_curves.cpp', 'agg_bezier_arc.cpp', 'agg_trans_affine.cpp', 'agg_vcgen_stroke.cpp']
 
 src = ['%s/src/%s' % (AGG_VERSION, name) for name in agg]
-common_c = [env.PythonObject(i) for i in env.Glob('CXX/*.c')]
 src.extend(common_cxx + common_c)
 
 src.extend(['src/agg_py_transforms.cpp',
