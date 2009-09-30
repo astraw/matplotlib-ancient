@@ -304,6 +304,11 @@ def build_image():
     src.extend(common_cxx + common_c)
     env.NumpyPythonExtension('_image', source=src, CXXFILESUFFIX=".cpp")
 
+def build_png():
+    src = ['src/_png.cpp']
+    src.extend(mplutils + common_c + common_cxx)
+    env.NumpyPythonExtension('_png', source=src, CXXFILESUFFIX='.cpp')
+
 if has_libpng and options['build_agg']:
     build_agg()
     rc['backend'] = 'Agg'
@@ -314,7 +319,7 @@ if has_libpng and options['build_image']:
     build_image()
 
 if has_libpng and options['build_agg'] or options['build_image']:
-    print "---- Missing: build_png ----"
+    build_png()
 
 if options['build_windowing'] and sys.platform=='win32':
     print "---- Missing: build_windowing ----"
