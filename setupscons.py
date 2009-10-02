@@ -1,3 +1,69 @@
+"""Script to use numscons build instead of distutils.
+
+Advantages of numscons compared to distutils:
+
+    * use an actual build system, with automatic dependency handling (scons
+    scans for dependencies by looking at sources)
+    * can control compilation options in a fine-grained manner
+    * basic framework to check for library dependencies ala autoconf (but works
+    on windows as well).
+    * handle parallel builds
+
+Although it has its quircks, scons is well documented, much easier to extend,
+and won't make you lose your sanity compared to distutils.
+
+To build matplotlib with scons, you only need to get numscons, available on
+http://github.com/cournape/numscons.git (tarballs are availabel in the download
+section). Scons is included in numscons, so you don't need to install scons.
+
+One step usage
+==============
+
+To install matplotlib, just do::
+
+    python setupscons.py install --prefix=some_prefix
+
+Controlling build options
+=========================
+
+Basic usage
+-----------
+
+Numscons implements one distutils command scons, which replace every build_*
+options. Every build option is controlled by the scons command. For example, to build things in parallel::
+
+    python setupscons.py scons --jobs=4
+
+will build with up to 4 jobs at the same time.
+
+Controlling build output
+------------------------
+
+The silent option controls build output::
+
+    python setupscons.py scons --silent=N
+
+With N between 0 and 3. N=3 will remove almost any output, N>=1 will not
+display the exact command lines used by the tools.
+
+Bypassing distutils compiler detection
+--------------------------------------
+
+If you want to build matplotlib with a compiler not supported by distutils, you
+may bypass distutils compiler detection. In that case, you will have to set up
+compilers by yourself, e.g.
+
+    python setupscons.py scons -b --compiler=gcc --fcompiler=ifort
+
+You can also customize compiler with CC, CXX and FORTRAN, but this is not yet
+well implemented in numscons.
+
+Customizing dependencies
+========================
+
+You can edit a file numscons.cfg to set up paths and libraries (see
+numscons.cfg.example).
+"""
 import sys
 import os
 import glob
