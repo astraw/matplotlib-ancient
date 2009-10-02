@@ -46,6 +46,17 @@ The silent option controls build output::
 With N between 0 and 3. N=3 will remove almost any output, N>=1 will not
 display the exact command lines used by the tools.
 
+Controlling flags
+-----------------
+
+While working on matplotlib, it may be useful to disable optimization flags,
+and just use warnings::
+
+    CFLAGS="-W -Wall -g" CXXFLAGS="-W -Wall -g" python setupscons.py scons
+
+Note that -fPIC and other necessary flags will still be handled for you
+automatically.
+
 Bypassing distutils compiler detection
 --------------------------------------
 
