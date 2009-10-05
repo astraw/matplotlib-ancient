@@ -1708,14 +1708,7 @@ _image_module::pcolor2(const Py::Tuple& args) {
 
 
 
-#if defined(_MSC_VER)
-DL_EXPORT(void)
-#elif defined(__cplusplus)
-  extern "C" void
-#else
-void
-#endif
-
+PyMODINIT_FUNC
 init_image(void) {
   _VERBOSE("init_image");
 
