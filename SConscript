@@ -240,7 +240,7 @@ config.Finish()
 # Common builds
 #---------------
 env.Append(CPPPATH=["%s/include" % AGG_VERSION, "."])
-env.Append(CPPDEFINES=[("PY_ARRAY_UNIQUE_SYMBOL", "MPL_ARRAY_API")])
+env.Append(CPPDEFINES=[("PY_ARRAYAUNIQUE_SYMBOL", "MPL_ARRAY_API"), ("PY_ARRAY_UNIQUE_SYMBOL", "MPL_ARRAY_API")])
 npenv = env.Clone()
 npenv.Append(CPPPATH=env['NUMPYCPPPATH'])
 
