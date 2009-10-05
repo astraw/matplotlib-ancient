@@ -1922,13 +1922,7 @@ char ft2font_new__doc__[] =
 "  postscript_name        PostScript name of the font\n"
 ;
 
-#if defined(_MSC_VER)
-DL_EXPORT(void)
-#elif defined(__cplusplus)
-  extern "C" void
-#else
-void
-#endif
+PyMODINIT_FUNC
 initft2font(void)
 {
   static ft2font_module* ft2font = new ft2font_module;
