@@ -328,7 +328,10 @@ if has_libpng and options['build_agg'] or options['build_image']:
     build_png()
 
 if options['build_windowing'] and sys.platform=='win32':
-    print "---- Missing: build_windowing ----"
+    tenv = env.Clone(CXXFILESUFFIX='.cpp')
+    tenv.Append(LIBS=['user32'])
+    tenv.NumpyPythonExtension('matplotlib/_windowing',
+            source='src/_windowing.cpp')
 
 if options['build_tkagg']:
     print "---- Missing: build_tkagg ----"
