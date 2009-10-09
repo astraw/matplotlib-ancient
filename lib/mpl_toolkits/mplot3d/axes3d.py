@@ -769,6 +769,8 @@ class Axes3D(Axes):
                     also be a tuple of specific levels.
         *extend3d*  Whether to extend contour in 3D (default: False)
         *stride*    Stride (step size) for extending contour
+        *offset*    if None z-values corresponds to Z,
+                    otherwise to offset
         ==========  ================================================
 
         Other keyword arguments are passed on to
@@ -777,7 +779,9 @@ class Axes3D(Axes):
 
         extend3d = kwargs.pop('extend3d', False)
         stride = kwargs.pop('stride', 5)
-        nlevels = kwargs.pop('nlevels', 15)
+        # Please notice: The following kwargs isn't used at all:
+        #nlevels = kwargs.pop('nlevels', 15)
+        offset = kwargs.pop('offset', None)
 
         had_data = self.has_data()
         cset = Axes.contour(self, X, Y, Z, levels, **kwargs)
@@ -786,7 +790,10 @@ class Axes3D(Axes):
             self._3d_extend_contour(cset, stride)
         else:
             for z, linec in zip(cset.levels, cset.collections):
-                art3d.line_collection_2d_to_3d(linec, z)
+                if offset is None:
+                    art3d.line_collection_2d_to_3d(linec, z)
+                else:
+                    art3d.line_collection_2d_to_3d(linec, offset)
 
         self.auto_scale_xyz(X, Y, Z, had_data)
         return cset
