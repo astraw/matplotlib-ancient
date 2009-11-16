@@ -3,7 +3,8 @@ import sys
 
 from numscons import GetNumpyEnvironment
 
-from setupext import options, print_message, find_wx_config, check_for_macosx
+from setupext import options, print_message, find_wx_config, check_for_macosx, \
+    query_tcltk
 
 # XXX: stuff copied from setupext/setup
 # This dict will be updated as we try to select the best option during
@@ -172,6 +173,45 @@ def CheckWxPython(context, autoadd=1):
         context.Result('Yes')
         return 1
 
+def CheckTK(context, autoadd=1):
+    from numscons.checkers.config import BuildDict
+
+    minversion = 8.3
+    context.Message("Checking for Tk >= %s ... " % str(minversion))
+
+    pkg_config_cmd = None
+
+    gotit = False
+    try:
+        import Tkinter
+    except ImportError:
+        msg = 'TKAgg requires Tkinter'
+    except RuntimeError:
+        msg = 'Tkinter present but import failed'
+    else:
+        if Tkinter.TkVersion < minversion:
+            msg = "Tcl/Tk v%s or later required" % str(minversion)
+        else:
+            gotit = True
+
+    if gotit is None:
+        context.Result(msg)
+        return 0
+
+    tcl_lib_dir, tk_lib_dir, tk_ver = query_tcltk()
+
+    section = 'tk'
+    headers = ['tk.h']
+
+    default_build_info = BuildDict()
+    default_build_info['LIBS'] = ['tk' + str(tk_ver), 'tcl' + str(tk_ver)]
+    default_build_info['CPPPATH'] = [os.path.join('/usr/include',
+                                                  'tcl' + str(tk_ver))]
+
+    st = _GenericCheck(context, section, headers, default_build_info,
+                       pkg_config_cmd, autoadd=autoadd)
+    return st
+
 def _GenericCheck(context, section, headers=None, default_build_info=None,
         pkg_config_cmd=None, autoadd=1):
     # pkg_config_cmd should be a sequence
@@ -215,7 +255,8 @@ int main(void)
 # Configuration checks
 #------------------------
 custom_tests = {'CheckFreeType': CheckFreeType, 'CheckPng': CheckPng,
-    'CheckPyGTK': CheckPyGTK, 'CheckWxPython': CheckWxPython}
+    'CheckPyGTK': CheckPyGTK, 'CheckWxPython': CheckWxPython,
+    'CheckTK': CheckTK}
 
 config = env.NumpyConfigure(custom_tests=custom_tests)
 if not config.CheckFreeType():
@@ -233,6 +274,10 @@ if not config.CheckPyGTK():
 has_wxpython = True
 if not config.CheckWxPython():
     has_wxpython = False
+
+has_tk = True
+if not config.CheckTK():
+    has_tk = False
 
 config.Finish()
 
@@ -334,7 +379,10 @@ if options['build_windowing'] and sys.platform=='win32':
             source='src/_windowing.cpp')
 
 if options['build_tkagg']:
-    print "---- Missing: build_tkagg ----"
+    src = ['src/_tkagg.cpp']
+    src.extend(common_c + common_cxx + agg_py_transform)
+    tenv = env.Clone(CXXFILESUFFIX='.cpp')
+    tenv.NumpyPythonExtension('backends/_tkagg', source=src)
 
 if options['build_wxagg']:
     if has_wxpython or (options['build_wxagg'] is True):
