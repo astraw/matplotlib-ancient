@@ -361,5 +361,8 @@ if options['build_gtkagg']:
 
 if options['build_macosx']:
     if check_for_macosx() or (options['build_macosx'] is True):
-        print "---- Missing: build_macosx ----"
+        tenv = env.Clone()
+        sources = ["src/_macosx.m"]
+        sources.extend(path_cleanup + agg_py_transform + common_c + common_cxx)
+        tenv.NumpyPythonExtension("backends/_macosx", source=sources, FRAMEWORKS=["Cocoa"])
         rc['backend'] = 'MacOSX'
