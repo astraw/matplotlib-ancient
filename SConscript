@@ -327,9 +327,11 @@ common_agg = agg_curves + agg_bezier_arc + agg_trans_affine + agg_vcgen_stroke
 
 agg_py_transform = npenv.PythonObject('src/agg_py_transforms.cpp', CXXFILESUFFIX='.cpp')
 
+path_cleanup = npenv.PythonObject('src/path_cleanup.cpp', CXXFILESUFFIX='.cpp')
+
 src = common_cxx + common_c + common_agg + agg_py_transform
 
-src.extend(['src/path_cleanup.cpp', 'src/_path.cpp'])
+src.extend(path_cleanup + ['src/_path.cpp'])
 env.NumpyPythonExtension('_path', source=src, CXXFILESUFFIX=".cpp")
 
 #-----------------------
@@ -408,5 +410,8 @@ if options['build_gtkagg']:
 
 if options['build_macosx']:
     if check_for_macosx() or (options['build_macosx'] is True):
-        print "---- Missing: build_macosx ----"
+        tenv = env.Clone()
+        sources = ["src/_macosx.m"]
+        sources.extend(path_cleanup + agg_py_transform + common_c + common_cxx)
+        tenv.NumpyPythonExtension("backends/_macosx", source=sources, FRAMEWORKS=["Cocoa"])
         rc['backend'] = 'MacOSX'
